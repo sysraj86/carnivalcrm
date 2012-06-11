@@ -1,0 +1,246 @@
+<?php
+$module_name = 'Quotes';
+$viewdefs [$module_name] = 
+array (
+  'DetailView' => 
+  array (
+    'templateMeta' => 
+    array (
+      'form' => 
+      array (
+        'buttons' => 
+        array (
+          0 => 'EDIT',
+          1 => 'DUPLICATE',
+          2 => 'DELETE',
+          3 => 
+          array (
+            'customCode' => '<input title="{$MOD.LBL_EXPORTTOWORD}" type="button" accessKey="{$MOD.LBL_EXPORTTOWORD}" class="button" onclick="window.location.href=\'index.php?module=Quotes&action=export2word&record={$fields.id.value}\'" name="button" value="Export To Word">',
+          ),
+        ),
+      ),
+      'maxColumns' => '2',
+      'widths' => 
+      array (
+        0 => 
+        array (
+          'label' => '10',
+          'field' => '30',
+        ),
+        1 => 
+        array (
+          'label' => '10',
+          'field' => '30',
+        ),
+      ),
+      'useTabs' => false,
+      'syncDetailEditViews' => true,
+    ),
+    'panels' => 
+    array (
+      'lbl_overview' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'department',
+            'label' => 'LBL_DEPARTMENT',
+          ),
+          1 => '',
+        ),
+        1 => 
+        array (
+          0 => 'name',
+          1 => 'accounts_quotes_name',
+        ),
+        2 => 
+        array (
+          0 => 'contacts_quotes_name',
+          1 => 'quotes_tours_name',
+        ),
+        3 => 
+        array (
+          0 => 'orders_quotes_name',
+          1 => 'service_cost',
+        ),
+        4 => 
+        array (
+          0 => 'airline_journey',
+          1 => 'airline_ticket_cost',
+        ),
+        5 => 
+        array (
+          0 => 'fits_quotes_name',
+          1 => 'total_cus',
+        ),
+        6 => 
+        array (
+          0 => 'total_cost',
+          1 => 'assigned_user_name',
+        ),
+        7 => 
+        array (
+          0 => 'sender',
+          1 => 'senddate',
+        ),
+        8 => 
+        array (
+          0 => 'description',
+        ),
+        9 => 
+        array (
+          0 => '',
+          1 => '',
+        ),
+      ),
+      'lbl_gia_bao_gom' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'transport',
+            'lable' => 'LBL_TRANSPORT',
+            'displayParams' => 
+            array (
+              'cols' => 120,
+              'rows' => 6,
+            ),
+          ),
+          1 => '',
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'hotel',
+            'label' => 'LBL_HOTEL',
+            'displayParams' => 
+            array (
+              'cols' => 120,
+              'rows' => 6,
+            ),
+          ),
+          1 => '',
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'room',
+            'label' => 'LBL_ROOM',
+            'displayParams' => 
+            array (
+              'cols' => 120,
+              'rows' => 6,
+            ),
+          ),
+          1 => '',
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'food',
+            'label' => 'LBL_FOOD',
+            'displayParams' => 
+            array (
+              'cols' => 120,
+              'rows' => 6,
+            ),
+          ),
+          1 => '',
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'guide',
+            'label' => 'LBL_GUIDE',
+            'displayParams' => 
+            array (
+              'cols' => 120,
+              'rows' => 6,
+            ),
+          ),
+          1 => '',
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'insurance',
+            'label' => 'LBL_INSURANCE',
+            'displayParams' => 
+            array (
+              'cols' => 120,
+              'rows' => 6,
+            ),
+          ),
+          1 => '',
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'other',
+            'label' => 'LBL_OTHER',
+            'displayParams' => 
+            array (
+              'cols' => 120,
+              'rows' => 6,
+            ),
+          ),
+          1 => '',
+        ),
+      ),
+      'lbl_others' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'not_content',
+            'label' => 'LBL_NOT_CONTENT',
+            'displayParams' => 
+            array (
+              'cols' => 120,
+              'rows' => 6,
+            ),
+          ),
+          1 => '',
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'child_cost',
+            'label' => 'LBL_CHILD_COST_INFORMATIONS',
+            'displayParams' => 
+            array (
+              'cols' => 120,
+              'rows' => 12,
+            ),
+          ),
+          1 => '',
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'surcharge',
+            'label' => 'LBL_SURCHARGE',
+            'displayParams' => 
+            array (
+              'cols' => 120,
+              'rows' => 6,
+            ),
+          ),
+          1 => '',
+        ),
+      ),
+    ),
+  ),
+);
+?>

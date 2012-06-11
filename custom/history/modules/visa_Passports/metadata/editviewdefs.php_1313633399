@@ -1,0 +1,717 @@
+<?php
+$module_name = 'visa_Passports';
+$viewdefs [$module_name] = 
+array (
+  'EditView' => 
+  array (
+    'templateMeta' => 
+    array (
+      'maxColumns' => '2',
+      'widths' => 
+      array (
+        0 => 
+        array (
+          'label' => '10',
+          'field' => '30',
+        ),
+        1 => 
+        array (
+          'label' => '10',
+          'field' => '30',
+        ),
+      ),
+      'useTabs' => false,
+      'syncDetailEditViews' => false,
+    ),
+    'panels' => 
+    array (
+      'lbl_editview_panel2' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'typevisa',
+            'label' => 'LBL_TYPEVISA',
+          ),
+          1 => 
+          array (
+            'name' => 'status',
+            'label' => 'LBL_STATUS',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'hovaten',
+            'label' => 'LBL_HOVATEN',
+          ),
+          1 => 
+          array (
+            'name' => 'gioitinh',
+            'studio' => 'visible',
+            'label' => 'LBL_GIOITINH',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'tenkhac',
+            'label' => 'LBL_TENKHAC',
+          ),
+          1 => 
+          array (
+            'name' => 'ngaysinh',
+            'label' => 'LBL_NGAYSINH',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'tinhtranghonnhan',
+            'studio' => 'visible',
+            'label' => 'LBL_TINHTRANGHONNHAN',
+          ),
+          1 => 
+          array (
+            'name' => 'noisinh',
+            'label' => 'LBL_NOISINH',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'quocgia',
+            'label' => 'LBL_QUOCGIA',
+          ),
+          1 => 
+          array (
+            'name' => 'quoctich',
+            'label' => 'LBL_QUOCTICH',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'quoctichkhac',
+            'label' => 'LBL_QUOCTICHKHAC',
+          ),
+          1 => 
+          array (
+            'name' => 'socmnd',
+            'label' => 'LBL_SOCMND',
+          ),
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'hokhauthuongtru',
+            'label' => 'LBL_HOKHAUTHUONGTRU',
+          ),
+          1 => 
+          array (
+            'name' => 'diachinhanvisa',
+            'label' => 'LBL_DIACHINHANVISA',
+          ),
+        ),
+        7 => 
+        array (
+          0 => 
+          array (
+            'name' => 'sodienthoainha',
+            'label' => 'LBL_SODIENTHOAINHA',
+          ),
+          1 => 
+          array (
+            'name' => 'sodienthoaididong',
+            'label' => 'LBL_SODIENTHOAIDIDONG',
+          ),
+        ),
+        8 => 
+        array (
+          0 => 
+          array (
+            'name' => 'email',
+            'label' => 'LBL_EMAIL',
+          ),
+        ),
+      ),
+      'lbl_editview_panel1' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'sohochieu',
+            'label' => 'LBL_SOHOCHIEU',
+          ),
+          1 => 
+          array (
+            'name' => 'ngaycap',
+            'label' => 'LBL_NGAYCAP',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'ngayhethan',
+            'label' => 'LBL_NGAYHETHAN',
+          ),
+          1 => 
+          array (
+            'name' => 'quocgiacap',
+            'label' => 'LBL_QUOCGIACAP',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'thanhphocap',
+            'label' => 'LBL_THANHPHOCAP',
+          ),
+          1 => 
+          array (
+            'name' => 'tungbimathochieu',
+            'studio' => 'visible',
+            'label' => 'LBL_TUNGBIMATHOCHIEU',
+          ),
+        ),
+      ),
+      'lbl_editview_panel3' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'tencongty',
+            'label' => 'LBL_TENCONGTY',
+          ),
+          1 => 
+          array (
+            'name' => 'diachicongty',
+            'label' => 'LBL_DIACHICONGTY',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'dienthoaicongty',
+            'label' => 'LBL_DIENTHOAICONGTY',
+          ),
+          1 => 
+          array (
+            'name' => 'sofax',
+            'label' => 'LBL_SOFAX',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'chucvu',
+            'label' => 'LBL_CHUCVU',
+          ),
+          1 => 
+          array (
+            'name' => 'mucluonghangthang',
+            'label' => 'LBL_MUCLUONGHANGTHANG',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'motacongviec',
+            'studio' => 'visible',
+            'label' => 'LBL_MOTACONGVIEC',
+          ),
+          1 => '',
+        ),
+      ),
+      'lbl_editview_panel4' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'congtycu',
+            'studio' => 'visible',
+            'label' => 'LBL_CONGTYCU',
+          ),
+          1 => 
+          array (
+            'name' => 'diachicongtycu',
+            'studio' => 'visible',
+            'label' => 'LBL_DIACHICONGTYCU',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'chucvucongtycu',
+            'label' => 'LBL_CHUCVUCONGTYCU',
+          ),
+          1 => 
+          array (
+            'name' => 'dienthoaicongtycu',
+            'label' => 'LBL_DIENTHOAICONGTYCU',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'captren',
+            'label' => 'LBL_CAPTREN',
+          ),
+          1 => 
+          array (
+            'name' => 'ngayvaolam',
+            'label' => 'LBL_NGAYVAOLAM',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'ngayketthuc',
+            'label' => 'LBL_NGAYKETTHUC',
+          ),
+          1 => 
+          array (
+            'name' => 'motacongvieccu',
+            'label' => 'LBL_MOTACONGVIECCU',
+          ),
+        ),
+      ),
+      'lbl_editview_panel5' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'truongdahoc',
+            'studio' => 'visible',
+            'label' => 'LBL_TRUONGDAHOC',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'diachitruong',
+            'studio' => 'visible',
+            'label' => 'LBL_DIACHITRUONG',
+          ),
+          1 => 
+          array (
+            'name' => 'nganhhoc',
+            'label' => 'LBL_NGANHHOC',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'ngaynhaphoc',
+            'label' => 'LBL_NGAYNHAPHOC',
+          ),
+          1 => 
+          array (
+            'name' => 'ngayketthuchoc',
+            'label' => 'LBL_NGAYKETTHUCHOC',
+          ),
+        ),
+      ),
+      'lbl_editview_panel6' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'hotencha',
+            'label' => 'LBL_HOTENCHA',
+          ),
+          1 => 
+          array (
+            'name' => 'ngaysinhcha',
+            'label' => 'LBL_NGAYSINHCHA',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'hotenme',
+            'label' => 'LBL_HOTENME',
+          ),
+          1 => 
+          array (
+            'name' => 'ngaysinhme',
+            'label' => 'LBL_NGAYSINHME',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'chamedangonoiden',
+            'studio' => 'visible',
+            'label' => 'LBL_CHAMEDANGONOIDEN',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'hotenvochong',
+            'label' => 'LBL_HOTENVOCHONG',
+          ),
+          1 => 
+          array (
+            'name' => 'ngaysinhvochong',
+            'label' => 'LBL_NGAYSINHVOCHONG',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'quoctichvochong',
+            'label' => 'LBL_QUOCTICHVOCHONG',
+          ),
+          1 => 
+          array (
+            'name' => 'diachivochong',
+            'label' => 'LBL_DIACHIVOCHONG',
+          ),
+        ),
+      ),
+      'lbl_editview_panel7' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'ngaydiden',
+            'label' => 'LBL_NGAYDIDEN',
+          ),
+          1 => 
+          array (
+            'name' => 'nguoicungdi',
+            'label' => 'LBL_NGUOICUNGDI',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'quocgiatungden',
+            'studio' => 'visible',
+            'label' => 'LBL_QUOCGIATUNGDEN',
+          ),
+          1 => 
+          array (
+            'name' => 'mucdichchuyendi',
+            'label' => 'LBL_MUCDICHCHUYENDI',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'nguoichitra',
+            'label' => 'LBL_NGUOICHITRA',
+          ),
+          1 => 
+          array (
+            'name' => 'thoigiano',
+            'label' => 'LBL_THOIGIANO',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'tungduoccapthithuc',
+            'studio' => 'visible',
+            'label' => 'LBL_TUNGDUOCCAPTHITHUC',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'ngaycapvisa',
+            'label' => 'LBL_NGAYCAPVISA',
+          ),
+          1 => 
+          array (
+            'name' => 'sovisa',
+            'label' => 'LBL_SOVISA',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'quocgiacapvisa',
+            'label' => 'LBL_QUOCGIACAPVISA',
+          ),
+          1 => 
+          array (
+            'name' => 'thanhphocapvisa',
+            'label' => 'LBL_THANHPHOCAPVISA',
+          ),
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'loaivisa',
+            'label' => 'LBL_LOAIVISA',
+          ),
+          1 => 
+          array (
+            'name' => 'lanvantay',
+            'studio' => 'visible',
+            'label' => 'LBL_LANVANTAY',
+          ),
+        ),
+        7 => 
+        array (
+          0 => 
+          array (
+            'name' => 'matvisa',
+            'studio' => 'visible',
+            'label' => 'LBL_MATVISA',
+          ),
+        ),
+        8 => 
+        array (
+          0 => 
+          array (
+            'name' => 'noitungden',
+            'label' => 'LBL_NOITUNGDEN',
+          ),
+        ),
+        9 => 
+        array (
+          0 => 
+          array (
+            'name' => 'ngayden',
+            'label' => 'LBL_NGAYDEN',
+          ),
+          1 => 
+          array (
+            'name' => 'songayo',
+            'label' => 'LBL_SONGAYO',
+          ),
+        ),
+        10 => 
+        array (
+          0 => 
+          array (
+            'name' => 'visabituchoi',
+            'label' => 'LBL_VISABITUCHOI',
+          ),
+          1 => 
+          array (
+            'name' => 'lydobituchoi',
+            'studio' => 'visible',
+            'label' => 'LBL_LYDOBITUCHOI',
+          ),
+        ),
+        11 => 
+        array (
+          0 => 
+          array (
+            'name' => 'thannhanoday',
+            'label' => 'LBL_THANNHANODAY',
+          ),
+          1 => 
+          array (
+            'name' => 'hotenthannhan',
+            'label' => 'LBL_HOTENTHANNHAN',
+          ),
+        ),
+        12 => 
+        array (
+          0 => 
+          array (
+            'name' => 'moiquanhe',
+            'label' => 'LBL_MOIQUANHE',
+          ),
+          1 => 
+          array (
+            'name' => 'tinhtranghonnhanthanhnhan',
+            'studio' => 'visible',
+            'label' => 'LBL_TINHTRANGHONNHANTHANHNHAN',
+          ),
+        ),
+        13 => 
+        array (
+          0 => 
+          array (
+            'name' => 'diachithannhan',
+            'label' => 'LBL_DIACHITHANNHAN',
+          ),
+          1 => 
+          array (
+            'name' => 'sodienthoaithannhan',
+            'label' => 'LBL_SODIENTHOAITHANNHAN',
+          ),
+        ),
+      ),
+      'lbl_editview_panel9' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'thuocdangphai',
+            'studio' => 'visible',
+            'label' => 'LBL_THUOCDANGPHAI',
+          ),
+          1 => 
+          array (
+            'name' => 'tochucxahoi',
+            'studio' => 'visible',
+            'label' => 'LBL_TOCHUCXAHOI',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'kynangchuyendung',
+            'studio' => 'visible',
+            'label' => 'LBL_KYNANGCHUYENDUNG',
+          ),
+          1 => 
+          array (
+            'name' => 'phucvuquandoi',
+            'studio' => 'visible',
+            'label' => 'LBL_PHUCVUQUANDOI',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'benhtruyennhiem',
+            'studio' => 'visible',
+            'label' => 'LBL_BENHTRUYENNHIEM',
+          ),
+          1 => 
+          array (
+            'name' => 'tochucdacbiet',
+            'studio' => 'visible',
+            'label' => 'LBL_TOCHUCDACBIET',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'nghienmatuy',
+            'studio' => 'visible',
+            'label' => 'LBL_NGHIENMATUY',
+          ),
+          1 => 
+          array (
+            'name' => 'tienantiensu',
+            'studio' => 'visible',
+            'label' => 'LBL_TIENANTIENSU',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'viphamhoachat',
+            'studio' => 'visible',
+            'label' => 'LBL_VIPHAMHOACHAT',
+          ),
+          1 => 
+          array (
+            'name' => 'viphammaidam',
+            'studio' => 'visible',
+            'label' => 'LBL_VIPHAMMAIDAM',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'thamgiahopphap',
+            'studio' => 'visible',
+            'label' => 'LBL_THAMGIAHOPPHAP',
+          ),
+          1 => 
+          array (
+            'name' => 'thamgiakhungbo',
+            'studio' => 'visible',
+            'label' => 'LBL_THAMGIAKHUNGBO',
+          ),
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'hotrokhungbo',
+            'studio' => 'visible',
+            'label' => 'LBL_HOTROKHUNGBO',
+          ),
+          1 => 
+          array (
+            'name' => 'thanhvienkhungbo',
+            'studio' => 'visible',
+            'label' => 'LBL_THANHVIENKHUNGBO',
+          ),
+        ),
+        7 => 
+        array (
+          0 => 
+          array (
+            'name' => 'thamgiadietchung',
+            'studio' => 'visible',
+            'label' => 'LBL_THAMGIADIETCHUNG',
+          ),
+          1 => 
+          array (
+            'name' => 'thamgianguocdai',
+            'studio' => 'visible',
+            'label' => 'LBL_THAMGIANGUOCDAI',
+          ),
+        ),
+        8 => 
+        array (
+          0 => 
+          array (
+            'name' => 'thamgiachinhtri',
+            'studio' => 'visible',
+            'label' => 'LBL_THAMGIACHINHTRI',
+          ),
+          1 => 
+          array (
+            'name' => 'boquyencongdan',
+            'studio' => 'visible',
+            'label' => 'LBL_BOQUYENCONGDAN',
+          ),
+        ),
+      ),
+    ),
+  ),
+);
+?>

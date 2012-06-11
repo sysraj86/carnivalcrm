@@ -1,0 +1,104 @@
+<?php
+$popupMeta = array (
+    'moduleMain' => 'Hotels',
+    'varName' => 'Hotels',
+    'orderBy' => 'hotels.name',
+    'whereClauses' => array (
+  'name' => 'hotels.name',
+  'tel' => 'hotels.tel',
+  'fax' => 'hotels.fax',
+  'standard' => 'hotels.standard',
+  'area' => 'hotels.area',
+  'destinations_hotels_name' => 'hotels.destinations_hotels_name',
+  'address' => 'hotels.address',
+),
+    'searchInputs' => array (
+  1 => 'name',
+  4 => 'tel',
+  5 => 'fax',
+  6 => 'standard',
+  7 => 'area',
+  8 => 'destinations_hotels_name',
+  9 => 'address',
+),
+    'create' => array (
+  'formBase' => 'HotelFormBase.php',
+  'formBaseClass' => 'HotelFormBase',
+  'getFormBodyParams' => 
+  array (
+    0 => '',
+    1 => '',
+  ),
+  'createButton' => 'Create Hotel',
+),
+    'searchdefs' => array (
+  'name' => 
+  array (
+    'name' => 'name',
+    'width' => '10%',
+  ),
+  'tel' => 
+  array (
+    'name' => 'tel',
+    'width' => '10%',
+  ),
+  'fax' => 
+  array (
+    'name' => 'fax',
+    'width' => '10%',
+  ),
+  'standard' => 
+  array (
+    'type' => 'enum',
+    'label' => 'LBL_STANDARD',
+    'sortable' => false,
+    'width' => '10%',
+    'name' => 'standard',
+  ),
+  'area' => 
+  array (
+    'name' => 'area',
+    'width' => '10%',
+  ),
+  'destinations_hotels_name' => 
+  array (
+    'type' => 'relate',
+    'link' => 'destinations_hotels',
+    'label' => 'LBL_DESTINATIONS_HOTELS_FROM_DESTINATIONS_TITLE',
+    'width' => '10%',
+    'name' => 'destinations_hotels_name',
+  ),
+  'address' => 
+  array (
+    'name' => 'address',
+    'width' => '10%',
+  ),
+),
+    'listviewdefs' => array (
+  'NAME' => 
+  array (
+    'width' => '20%',
+    'label' => 'LBL_LIST_NAME',
+    'default' => true,
+    'link' => true,
+  ),
+  'TEL' => 
+  array (
+    'width' => '5%',
+    'label' => 'LBL_HOTEL_TEL',
+    'default' => true,
+  ),
+  'FAX' => 
+  array (
+    'width' => '5%',
+    'label' => 'LBL_FAX',
+    'default' => true,
+  ),
+  'ADDRESS' => 
+  array (
+    'width' => '25%',
+    'label' => 'LBL_HOTEL_ADDRESS',
+    'default' => true,
+  ),
+),
+);

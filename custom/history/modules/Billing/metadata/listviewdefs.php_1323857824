@@ -1,0 +1,34 @@
+<?php
+$module_name = 'Billing';
+$listViewDefs [$module_name] = 
+array (
+  'CODE' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_BILLING_CODE',
+    'default' => true,
+    'link' => true,
+  ),
+  'NAME' => 
+  array (
+    'width' => '25%',
+    'label' => 'LBL_NAME',
+    'default' => true,
+    'link' => true,
+  ),
+  'TYPE' => 
+  array (
+    'width' => '15%',
+    'label' => 'LBL_TYPE',
+    'default' => true,
+  ),
+  'ASSIGNED_USER_NAME' => 
+  array (
+    'width' => '9%',
+    'label' => 'LBL_ASSIGNED_TO_NAME',
+    'module' => 'Employees',
+    'id' => 'ASSIGNED_USER_ID',
+    'default' => true,
+  ),
+);
+?>

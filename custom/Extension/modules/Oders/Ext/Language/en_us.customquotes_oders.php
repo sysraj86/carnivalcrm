@@ -1,0 +1,4 @@
+<?php
+//THIS FILE IS AUTO GENERATED, DO NOT MODIFY
+$mod_strings['LBL_TOURS_ODERS_FROM_TOURS_TITLE'] = 'Tours';
+$mod_strings['LBL_QUOTES_ODERS_FROM_QUOTES_TITLE'] = 'Quotes';

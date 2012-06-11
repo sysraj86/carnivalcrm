@@ -1,0 +1,42 @@
+<?php
+$module_name = 'Destinations';
+$listViewDefs [$module_name] = 
+array (
+  'CODE' => 
+  array (
+    'width' => '15%',
+    'label' => 'LBL_CODE',
+    'default' => true,
+    'link' => true,
+  ),
+  'NAME' => 
+  array (
+    'width' => '15%',
+    'label' => 'LBL_NAME',
+    'default' => true,
+    'link' => true,
+  ),
+  'AREA' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_AREA',
+    'default' => true,
+  ),
+  'C_AREAS_DESTINATIONS_NAME' => 
+  array (
+    'type' => 'relate',
+    'link' => 'c_areas_destinations',
+    'label' => 'LBL_C_AREAS_DESTINATIONS_FROM_C_AREAS_TITLE',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'ASSIGNED_USER_NAME' => 
+  array (
+    'width' => '9%',
+    'label' => 'LBL_ASSIGNED_TO_NAME',
+    'module' => 'Employees',
+    'id' => 'ASSIGNED_USER_ID',
+    'default' => true,
+  ),
+);
+?>

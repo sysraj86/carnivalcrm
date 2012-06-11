@@ -1,0 +1,85 @@
+<?php
+$popupMeta = array (
+    'moduleMain' => 'FITs',
+    'varName' => 'FITs',
+    'orderBy' => 'fits.first_name, fits.last_name',
+    'whereClauses' => array (
+  'first_name' => 'fits.first_name',
+  'last_name' => 'fits.last_name',
+),
+    'searchInputs' => array (
+  0 => 'first_name',
+  1 => 'last_name',
+),
+    'listviewdefs' => array (
+  'CODE' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_CODE',
+    'width' => '10%',
+    'default' => true,
+    'link' => true,
+    'name' => 'code',
+  ),
+  'NAME' => 
+  array (
+    'width' => '20%',
+    'label' => 'LBL_NAME',
+    'link' => true,
+    'orderBy' => 'last_name',
+    'default' => true,
+    'related_fields' => 
+    array (
+      0 => 'first_name',
+      1 => 'last_name',
+      2 => 'salutation',
+    ),
+    'name' => 'name',
+  ),
+  'PHONE_MOBILE' => 
+  array (
+    'type' => 'phone',
+    'label' => 'LBL_MOBILE_PHONE',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'EMAIL1' => 
+  array (
+    'width' => '15%',
+    'label' => 'LBL_EMAIL_ADDRESS',
+    'sortable' => false,
+    'link' => true,
+    'customCode' => '{$EMAIL1_LINK}{$EMAIL1}</a>',
+    'default' => true,
+    'name' => 'email1',
+  ),
+  'ACCOUNTS_FITS_NAME' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_ACCOUNT_NAME',
+    'default' => true,
+    'name' => 'accounts_fits_name',
+  ),
+  'POTENTIAL' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_POTENTIAL',
+    'default' => true,
+    'name' => 'potential',
+  ),
+  'DATE_ENTERED' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_DATE_ENTERED',
+    'default' => true,
+    'name' => 'date_entered',
+  ),
+  'CREATED_BY_NAME' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_CREATED',
+    'default' => true,
+    'name' => 'created_by_name',
+  ),
+),
+);

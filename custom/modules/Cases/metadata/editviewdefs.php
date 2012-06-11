@@ -1,0 +1,89 @@
+<?php
+$viewdefs ['Cases'] = 
+array (
+  'EditView' => 
+  array (
+    'templateMeta' => 
+    array (
+      'maxColumns' => '2',
+      'widths' => 
+      array (
+        0 => 
+        array (
+          'label' => '10',
+          'field' => '30',
+        ),
+        1 => 
+        array (
+          'label' => '10',
+          'field' => '30',
+        ),
+      ),
+    ),
+    'panels' => 
+    array (
+      'lbl_case_information' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'case_number',
+            'type' => 'readonly',
+          ),
+        ),
+        1 => 
+        array (
+          0 => array (
+            'name' => 'name',
+            'displayParams' => 
+            array (
+              'size' => 60,
+            ),
+          ),
+          1 =>'priority',
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'description',
+            'nl2br' => true,
+            'displayParams' => 
+            array (
+              'cols' => 60,
+            ),
+          ),
+          1 => 'status',
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'resolution',
+            'nl2br' => true,
+          ),
+          1 =>'type',
+        ),
+         4 => 
+        array (
+          0 =>  'fits_cases_name',
+          
+        ),
+        5 => 
+        array (
+          0 => 'account_name',
+        ),
+          
+      ),
+      'LBL_PANEL_ASSIGNMENT' => 
+      array (
+        0 => 
+        array (
+          0 => 'assigned_user_name',
+        ),
+      ),
+    ),
+  ),
+);
+?>

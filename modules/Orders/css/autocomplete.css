@@ -1,0 +1,28 @@
+.autocomplete_loading {
+    background: url("8.gif")right center no-repeat;
+}
+
+.availability_status{
+    height: 150px;
+    width: 200px;
+    overflow: auto;
+    font-size: 14px;
+    border: 1px soild;
+    border-collapse: collapse;
+    border-radius:4px;
+    display: block;
+}
+.availability_status a{
+    font-size: 14px !important; 
+    color: black;
+}
+.aLink{
+    color: green;
+    font-size: 15px;
+    text-decoration:underline;
+}
+.availability_status a:hover{ 
+    text-transform: uppercase;
+    font-weight: bold;
+    
+}

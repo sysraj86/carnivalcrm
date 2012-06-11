@@ -1,0 +1,112 @@
+<?php
+$module_name = 'Comments';
+$viewdefs [$module_name] = 
+array (
+  'DetailView' => 
+  array (
+    'templateMeta' => 
+    array (
+      'form' => 
+      array (
+        'buttons' => 
+        array (
+          0 => 'EDIT',
+          1 => 'DUPLICATE',
+          2 => 'DELETE',
+        ),
+      ),
+      'maxColumns' => '2',
+      'widths' => 
+      array (
+        0 => 
+        array (
+          'label' => '10',
+          'field' => '30',
+        ),
+        1 => 
+        array (
+          'label' => '10',
+          'field' => '30',
+        ),
+      ),
+      'useTabs' => false,
+      'syncDetailEditViews' => true,
+    ),
+    'panels' => 
+    array (
+    'LBL_THONGTINCHUNG' => 
+    array(
+        array (
+          'groupprogra_comments_name',
+          'ngay'
+        ),
+        array(
+          'lichtrinh',
+        ),
+        ),
+        
+        'LBL_HUONGDANVIEN' => 
+    array(
+        array (
+          'thaidolamviec',
+          'kienthucamhieu',
+        ),
+        array(
+          'tinhchuyennghiep',
+          'nhungvandekhac_hdv',
+        ),
+        ),
+        'LBL_PHUONGTIEN' => 
+    array(
+        array (
+          'chatluongphuongtien',
+          'laixe',
+        ),
+        array(
+          'nhungvandekhac_pt',
+        ),
+        ),
+        
+        'LBL_DICHVUKHAC' => 
+    array(
+        array (
+          'khachsan',
+        ),
+        array (
+          'nhahang',
+        ),
+        array(
+          'lichtrinhtour',
+        ),
+        array (
+          'nhanxetchung',
+        ),
+        ),
+        
+        'LBL_THONGTINCANHAN' => 
+    array(
+            array (
+              'name',
+              'diachi',
+            ),
+            array(
+              'dienthoai',
+              'email',
+            ),
+            array (
+            array (
+            'name' => 'date_entered',
+            'customCode' => '{$fields.date_entered.value} {$APP.LBL_BY} {$fields.created_by_name.value}',
+            'label' => 'LBL_DATE_ENTERED',
+            ),
+            array (
+            'name' => 'date_modified',
+            'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
+            'label' => 'LBL_DATE_MODIFIED',
+            ),
+            ),
+        ),
+    ),
+  ),
+);
+?>

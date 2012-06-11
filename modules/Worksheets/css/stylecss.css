@@ -1,0 +1,55 @@
+.tabDetailView  .tabDetailViewDF {
+    text-align: center !important; 
+}
+td .right{
+    text-align: right !important;
+}
+
+.tabDetailView .ct_sl1{
+    background-color:#9FC;
+}
+.tabDetailView .ct_sl2{
+    background-color:#9FF;
+}
+.tabDetailView .ct_sl3{
+    background-color:#FFC;
+}
+.tabDetailView .ct_sl4{
+    background-color:#F9F;    
+}
+
+.disable{
+    background:#EEEEEE;  
+}           
+input{
+    text-align:center;
+}
+
+.tabDetailView .tabDetailViewDL {
+    border: 2px soild !important ;
+}
+
+.tabDetailView .tr_color{
+    background-color:#CCC;
+}
+.tabDetailView .tinhtoan{
+    color: red;
+    font-style:inherit;
+    font-size: 14px;
+}
+.tabDetailView .center{
+    text-align: center;
+}
+
+ .tabDetailView .tabDetaiViewDL {
+    text-align: center !important; 
+    border-left: 1px !important ;
+    border-right: 1px !important;
+    border-right-color: red !important;
+    border-left-color: red !important;
+}  
+.tabDetailView .border{
+    border: 1px solid !important;
+    border-width:small;
+    border-collapse: collapse;
+}

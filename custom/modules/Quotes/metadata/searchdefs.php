@@ -1,0 +1,269 @@
+<?php
+$module_name = 'Quotes';
+$searchdefs [$module_name] = 
+array (
+  'layout' => 
+  array (
+    'basic_search' => 
+    array (
+      'code' => 
+      array (
+        'type' => 'varchar',
+        'label' => 'LBL_CODE',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'code',
+      ),
+      'name' => 
+      array (
+        'name' => 'name',
+        'default' => true,
+        'width' => '10%',
+      ),
+      'service_cost' => 
+      array (
+        'type' => 'currency',
+        'label' => 'LBL_SERVICE_COST',
+        'currency_format' => true,
+        'width' => '10%',
+        'default' => true,
+        'name' => 'service_cost',
+      ),
+      'fits_quotes_name' => 
+      array (
+        'type' => 'relate',
+        'link' => 'fits_quotes',
+        'label' => 'LBL_FITS_QUOTES_FROM_FITS_TITLE',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'fits_quotes_name',
+      ),
+      'accounts_quotes_name' => 
+      array (
+        'type' => 'relate',
+        'link' => 'accounts_quotes',
+        'label' => 'LBL_ACCOUNTS_QUOTES_FROM_ACCOUNTS_TITLE',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'accounts_quotes_name',
+      ),
+      'quotes_tours_name' => 
+      array (
+        'type' => 'relate',
+        'link' => 'quotes_tours',
+        'label' => 'LBL_QUOTES_TOURS_FROM_TOURS_TITLE',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'quotes_tours_name',
+      ),
+      'quotes_oders_name' => 
+      array (
+        'type' => 'relate',
+        'link' => 'quotes_oders',
+        'label' => 'LBL_QUOTES_ODERS_FROM_ODERS_TITLE',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'quotes_oders_name',
+      ),
+      'airline_ticket_cost' => 
+      array (
+        'type' => 'currency',
+        'label' => 'LBL_ARILINE_TICKET_COST',
+        'currency_format' => true,
+        'width' => '10%',
+        'default' => true,
+        'name' => 'airline_ticket_cost',
+      ),
+      'total_cus' => 
+      array (
+        'type' => 'int',
+        'label' => 'LBL_TOTAL_CUS',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'total_cus',
+      ),
+      'total_cost' => 
+      array (
+        'type' => 'currency',
+        'label' => 'LBL_TOTAL_COST',
+        'currency_format' => true,
+        'width' => '10%',
+        'default' => true,
+        'name' => 'total_cost',
+      ),
+      'current_user_only' => 
+      array (
+        'name' => 'current_user_only',
+        'label' => 'LBL_CURRENT_USER_FILTER',
+        'type' => 'bool',
+        'default' => true,
+        'width' => '10%',
+      ),
+    ),
+    'advanced_search' => 
+    array (
+      'code' => 
+      array (
+        'type' => 'varchar',
+        'label' => 'LBL_CODE',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'code',
+      ),
+      'name' => 
+      array (
+        'name' => 'name',
+        'default' => true,
+        'width' => '10%',
+      ),
+      'insurance' => 
+      array (
+        'type' => 'text',
+        'label' => 'LBL_INSURANCE',
+        'sortable' => false,
+        'width' => '10%',
+        'default' => true,
+        'name' => 'insurance',
+      ),
+      'contacts_quotes_name' => 
+      array (
+        'type' => 'relate',
+        'link' => 'contacts_quotes',
+        'label' => 'LBL_CONTACTS_QUOTES_FROM_CONTACTS_TITLE',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'contacts_quotes_name',
+      ),
+      'transport' => 
+      array (
+        'type' => 'text',
+        'label' => 'LBL_TRANSPORT',
+        'sortable' => false,
+        'width' => '10%',
+        'default' => true,
+        'name' => 'transport',
+      ),
+      'service_cost' => 
+      array (
+        'type' => 'currency',
+        'label' => 'LBL_SERVICE_COST',
+        'currency_format' => true,
+        'width' => '10%',
+        'default' => true,
+        'name' => 'service_cost',
+      ),
+      'child_cost' => 
+      array (
+        'type' => 'text',
+        'label' => 'LBL_CHILD_COST_INFORMATIONS',
+        'sortable' => false,
+        'width' => '10%',
+        'default' => true,
+        'name' => 'child_cost',
+      ),
+      'total_cost' => 
+      array (
+        'type' => 'currency',
+        'label' => 'LBL_TOTAL_COST',
+        'currency_format' => true,
+        'width' => '10%',
+        'default' => true,
+        'name' => 'total_cost',
+      ),
+      'accounts_quotes_name' => 
+      array (
+        'type' => 'relate',
+        'link' => 'accounts_quotes',
+        'label' => 'LBL_ACCOUNTS_QUOTES_FROM_ACCOUNTS_TITLE',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'accounts_quotes_name',
+      ),
+      'fits_quotes_name' => 
+      array (
+        'type' => 'relate',
+        'link' => 'fits_quotes',
+        'label' => 'LBL_FITS_QUOTES_FROM_FITS_TITLE',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'fits_quotes_name',
+      ),
+      'quotes_tours_name' => 
+      array (
+        'type' => 'relate',
+        'link' => 'quotes_tours',
+        'label' => 'LBL_QUOTES_TOURS_FROM_TOURS_TITLE',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'quotes_tours_name',
+      ),
+      'created_by' => 
+      array (
+        'type' => 'assigned_user_name',
+        'label' => 'LBL_CREATED',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'created_by',
+      ),
+      'date_entered' => 
+      array (
+        'type' => 'datetime',
+        'label' => 'LBL_DATE_ENTERED',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'date_entered',
+      ),
+      'modified_user_id' => 
+      array (
+        'type' => 'assigned_user_name',
+        'label' => 'LBL_MODIFIED',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'modified_user_id',
+      ),
+      'date_modified' => 
+      array (
+        'type' => 'datetime',
+        'label' => 'LBL_DATE_MODIFIED',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'date_modified',
+      ),
+      'current_user_only' => 
+      array (
+        'label' => 'LBL_CURRENT_USER_FILTER',
+        'type' => 'bool',
+        'default' => true,
+        'width' => '10%',
+        'name' => 'current_user_only',
+      ),
+      'assigned_user_id' => 
+      array (
+        'name' => 'assigned_user_id',
+        'label' => 'LBL_ASSIGNED_TO',
+        'type' => 'enum',
+        'function' => 
+        array (
+          'name' => 'get_user_array',
+          'params' => 
+          array (
+            0 => false,
+          ),
+        ),
+        'default' => true,
+        'width' => '10%',
+      ),
+    ),
+  ),
+  'templateMeta' => 
+  array (
+    'maxColumns' => '3',
+    'maxColumnsBasic' => '4',
+    'widths' => 
+    array (
+      'label' => '10',
+      'field' => '30',
+    ),
+  ),
+);
+?>

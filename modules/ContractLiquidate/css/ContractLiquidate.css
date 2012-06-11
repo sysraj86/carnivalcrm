@@ -1,0 +1,31 @@
+
+   .td_row{
+       border-color: #4E8CCF;
+       border-style: solid; 
+       border-width: 1px;
+   }
+   .td_content{
+       border-color: #4E8CCF;
+       border-style: solid; 
+       border-width: 1px;
+   }
+   .table_content{
+       border-color: #4E8CCF;
+       border-style: solid; 
+       border-width: 1px;
+       width: 100%;
+   }
+   .td_add_del{
+       border-style: solid;
+       border-color: #4E8CCF;
+       border-width: 0px 1px 0px 1px;
+   }
+   #amount{
+       background-color: #F5DEB3;
+   }
+   #amount_tour{
+       background-color: #FA8072;
+   }
+   #amount_pay{
+       background-color: #AFEEEE;
+   }

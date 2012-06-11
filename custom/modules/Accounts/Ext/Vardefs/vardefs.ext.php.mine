@@ -1,0 +1,90 @@
+<?php 
+ //WARNING: The contents of this file are auto-generated
+
+
+// created: 2011-08-19 10:13:01
+$dictionary["Account"]["fields"]["accounts_billing"] = array (
+  'name' => 'accounts_billing',
+  'type' => 'link',
+  'relationship' => 'accounts_billing',
+  'source' => 'non-db',
+  'side' => 'right',
+  'vname' => 'LBL_ACCOUNTS_BILLING_FROM_BILLING_TITLE',
+);
+
+
+// created: 2011-08-19 10:10:18
+$dictionary["Account"]["fields"]["accounts_contracts"] = array (
+  'name' => 'accounts_contracts',
+  'type' => 'link',
+  'relationship' => 'accounts_contracts',
+  'source' => 'non-db',
+  'side' => 'right',
+  'vname' => 'LBL_ACCOUNTS_CONTRACTS_FROM_CONTRACTS_TITLE',
+);
+
+
+// created: 2011-08-22 10:23:01
+$dictionary["Account"]["fields"]["accounts_fits"] = array (
+  'name' => 'accounts_fits',
+  'type' => 'link',
+  'relationship' => 'accounts_fits',
+  'source' => 'non-db',
+  'side' => 'right',
+  'vname' => 'LBL_ACCOUNTS_FITS_FROM_FITS_TITLE',
+);
+
+
+// created: 2011-08-19 10:08:46
+$dictionary["Account"]["fields"]["accounts_groupprograms"] = array (
+  'name' => 'accounts_groupprograms',
+  'type' => 'link',
+  'relationship' => 'accounts_groupprograms',
+  'source' => 'non-db',
+  'side' => 'right',
+  'vname' => 'LBL_ACCOUNTS_GROUPPROGRAMS_FROM_GROUPPROGRAMS_TITLE',
+);
+
+
+// created: 2011-08-19 11:30:58
+$dictionary["Account"]["fields"]["accounts_tours"] = array (
+  'name' => 'accounts_tours',
+  'type' => 'link',
+  'relationship' => 'accounts_tours',
+  'source' => 'non-db',
+  'side' => 'right',
+  'vname' => 'LBL_ACCOUNTS_TOURS_FROM_TOURS_TITLE',
+);
+
+
+// created: 2011-08-22 11:02:04
+$dictionary["Account"]["fields"]["grouplists_accounts"] = array (
+  'name' => 'grouplists_accounts',
+  'type' => 'link',
+  'relationship' => 'grouplists_accounts',
+  'source' => 'non-db',
+  'vname' => 'LBL_GROUPLISTS_ACCOUNTS_FROM_GROUPLISTS_TITLE',
+);
+$dictionary["Account"]["fields"]["grouplists_accounts_name"] = array (
+  'name' => 'grouplists_accounts_name',
+  'type' => 'relate',
+  'source' => 'non-db',
+  'vname' => 'LBL_GROUPLISTS_ACCOUNTS_FROM_GROUPLISTS_TITLE',
+  'save' => true,
+  'id_name' => 'grouplists228auplists_ida',
+  'link' => 'grouplists_accounts',
+  'table' => 'grouplists',
+  'module' => 'GroupLists',
+  'rname' => 'name',
+);
+$dictionary["Account"]["fields"]["grouplists228auplists_ida"] = array (
+  'name' => 'grouplists228auplists_ida',
+  'type' => 'link',
+  'relationship' => 'grouplists_accounts',
+  'source' => 'non-db',
+  'reportable' => false,
+  'side' => 'right',
+  'vname' => 'LBL_GROUPLISTS_ACCOUNTS_FROM_ACCOUNTS_TITLE',
+);
+
+?>

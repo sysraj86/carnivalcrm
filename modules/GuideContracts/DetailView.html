@@ -1,0 +1,212 @@
+
+<!-- BEGIN: main -->
+<body>
+<style type="text/css">
+ body{
+     font-size: 13px;
+ }
+</style>
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+<form action="index.php"  name="DetailView" id="DetailView" method="post">
+<input type="hidden"   name="module"         value="GuideContracts">
+<input type="hidden"   name="record"         value="{ID}"> 
+<input type="hidden"   name="action">
+<input type="hidden"   name="return_module"  value="{RETURN_MODULE}">
+<input type="hidden"   name="return_id"      value="{RETURN_ID}">
+<input type="hidden"   name="return_action"  value="{RETURN_ACTION}">
+<tr>
+    <td style="padding-bottom: 2px;">
+         <input title="{APP.LBL_EDIT_BUTTON_TITLE}" 
+            accessKey="{APP.LBL_EDIT_BUTTON_KEY}" 
+            class="button" 
+            onclick="this.form.return_module.value='GuideContracts'; this.form.return_action.value='DetailView'; this.form.return_id.value='{ID}'; this.form.action.value='EditView'" 
+            type="submit" 
+            name="Edit" 
+            value="  {APP.LBL_EDIT_BUTTON_LABEL}  "> 
+     <input title="{APP.LBL_DUPLICATE_BUTTON_TITLE}" 
+            accessKey="{APP.LBL_DUPLICATE_BUTTON_KEY}" 
+            class="button" 
+            onclick="this.form.return_module.value='GuideContracts'; this.form.return_action.value='index'; this.form.isDuplicate.value=true; this.form.action.value='EditView'" 
+            type="submit" 
+            name="Duplicate" 
+            value=" {APP.LBL_DUPLICATE_BUTTON_LABEL} "> 
+     <input title="{APP.LBL_DELETE_BUTTON_TITLE}" 
+            accessKey="{APP.LBL_DELETE_BUTTON_KEY}" 
+            class="button" 
+            onclick="this.form.return_module.value='GuideContracts'; this.form.return_action.value='ListView'; this.form.action.value='Delete'; return confirm('{APP.NTC_DELETE_CONFIRMATION}')" 
+            type="submit" 
+            name="Delete" 
+            value=" {APP.LBL_DELETE_BUTTON_LABEL} ">
+            
+     <input title="View Change Log" class="button" onclick='open_popup("Audit", "600", "400", "&record={ID}&module_name=GuideContracts", true, false,  { "call_back_function":"set_return","form_name":"EditView","field_to_name_array":[] } ); return false;' type="submit" value="View Change Log">
+     <input title="export to wword" class="button" type="button" onclick="window.location.href='index.php?module=GuideContracts&action=export2word&record={ID}'" value=" Export to Word" />
+    </td>
+    <td align='right'>{ADMIN_EDIT}</td> 
+</tr>
+</form>
+</table>
+ <table class="tabForm" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+            <td colspan="4">
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" class="table_head">
+                        <tr>
+                            <td align="center">CTY TNHH MỘT THÀNH VIÊN <br /> DV DL LỄ HỘI <br /> <b> CARNIVAL TOURS. </b> <br /></td>
+                            <td align="center">CỘNG HÒA XÃ HỘI CHỈ NGHĨA VIỆT NAM <br />
+                                Độc Lập - Tự Do - Hạnh Phúc</td>
+                        </tr>
+                        <tr>
+                            <td align="center"> 
+                                Số {NUMBER} / HĐCTV
+                            </td>
+                            <td align="center">
+                                 Ngày {DATE} Tháng {THANG} Năm {YEAR}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><br/><br/><br/></td>
+                        </tr>   
+                        <tr>
+                            <td colspan="2" align="center">
+                                <h1> HỢP ĐỒNG HƯỚNG DẪN VIÊN</h1> 
+                            </td>
+                        </tr>
+                    </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4"> <br/> <br/> <br/>  </td>
+        </tr>
+        <tr>
+            <td class="tabDetailViewDL"> <u><b>+ BÊN A:</b></u>  </td>
+            <td class="tabDetailViewDF"> {COMPANY_NAME}</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+         <tr>
+            <td class="tabDetailViewDL"> Địa chỉ </td>
+            <td class="tabDetailViewDF"> {ADDRESS_A} </td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+         <tr>
+            <td class="tabDetailViewDL"> Điện thoại </td>
+            <td class="tabDetailViewDF">{PHONE_A}  Fax: {FAX_A}</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="tabDetailViewDL"> Do {SALUTATION}</td>
+            <td class="tabDetailViewDF"> {REPRESENTING_A} Giám đốc làm đại diện </td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="tabDetailViewDL"><u><b>+ BÊN B:</b></u> </td>
+            <td class="tabDetailViewDF"> {REPRESENTING_B} </td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="tabDetailViewDL"> Sinh ngày </td>
+            <td class="tabDetailViewDF"> {BIRTHDAY}</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="tabDetailViewDL"> Hộ chiếu</td>
+            <td class="tabDetailViewDF"> {PASSPORT} Cấp ngày: {DATE_ISSUED}</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="tabDetailViewDL"> Điện thoại </td>
+            <td class="tabDetailViewDF"> {PHONE_B} </td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="tabDetailViewDL"> Địa chỉ </td>
+            <td class="tabDetailViewDF">{ADDRESS_B}</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+        
+            <td colspan="4"><br/>Hai bên cùng thỏa thuận và tiến hành ký kết hợp đồng theo các nội dung sau đây :</td>
+        </tr>
+        
+    </table>
+    <table class="tabForm" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+            <td class="dataLabel"><u><b>Điều 1 :</b></u> Bên B đồng ý thực hiện công tác hướng dẫn cho đoàn đi du lịch </td>
+        </tr>
+        <tr>
+            <td class="dataField"> {TOUR_NAME} Từ ngày {DATE_START} cho đến  {DATE_END}</td>
+        </tr>
+        <tr>
+            <td class="dataLabel"><b><u>Điều 2 :</u>  <u>Nghĩa vụ và quyền lợi bên B như sau :</u></b></td>
+        </tr>
+        <tr>
+           <td class="dataField"> <i><u><b>+ Nghĩa vụ :</b></u></i> Thực hiện đúng theo như chương trình 
+            {JOURNEY}
+           </td>
+        </tr> 
+        <tr>
+            <td class="dataField">mà bên A cung cấp, kiểm tra việc thực hiện chương trình, dịch vụ của đối tác tại <b><font color="red">{PARTNER}</font></b> </td>
+        </tr>
+        <tr>
+            <td class="dataField">, có trách nhiệm phiên dịch và chăm sóc việc ăn, ở, đi lại của khách hàng, hỗ trợ và cung cấp các thông tin cần thiết khi khách có nhu cầu. Tuân thủ các qui định của hải quan Việt Nam và <b><font color="red">{PARTNER}</font></b>  <!--<select name="continent" id="continent">{$CONTINENT}</select>--></td>
+        </tr>
+        <tr>
+           <td class="dataLabel">
+                - Chăm sóc khách hàng của bên A chu đáo. Trong trường hợp bên B không làm cho khách hàng bên A hài lòng thì sẽ bị trừ công tác phí từ 05 – 50% theo từng trường hợp cụ thể. <br/>
+                - Trường hợp bên B hủy hợp đồng này vì bất cứ lý do gì thì bên B phải có trách nhiệm thông báo trước ít nhất 05 ngày cho bên A và bồi thường các khoản phát sinh (nếu có) mà bên A đã ứng ra đặt dịch vụ đồng thời có trách nhiệm giới thiệu một HDV tốt khác. <br/>  
+                - Sau khi đi về, T/L có trách nhiệm viết báo cáo chi tiết các dịch vụ trong chuyến đi.   <br/>
+                - Chụp hình cả đoàn mang về cho công ty Carnival tại từng thành phố đoàn đến, ít nhất 1 thành phố 1 tấm hình. <br/>
+                - Có trách nhiệm mang về cho Carnival: namecard các nhà hàng, namecard khách sạn, brochures tại các nơi đoàn đến, các form khai xuất nhập cảnh.  <br/>
+                - Có trách nhiệm đem toàn bộ hóa đơn, chứng từ, quyết toán tour cho Carnival trong vòng 3 ngày sau khi kết thúc chuyến đi. Trong quá trình đi tour, nếu có những chi phí phát sinh phải được Carnival đồng ý qua email, điện thoại, fax hoặc các thông tin liên hệ khác.  <br/>
+                - Bên B có trách nhiệm thu hộ chiếu gốc của khách sau khi đi tour về cho bên A trình diện với LSQ đối với các tour Châu Âu. <br/>
+                - Bên B luôn đứng trên phương diện là người của Carnival để làm việc với khách, PR các chương trình,…  <br/>
+                - Không được phép uống bất kỳ loại bia, rượu nào trong quá trình đi tour.  <br/>
+                    + Quyền lợi : Bên B được hưởng khoản công tác phí: 
+           </td>
+        </tr>
+        <tr>
+            <td class="dataField">
+               <font color="red"> {BONUS} {CURRENCY} X  {NUM_OF_DATE} ngày = {TOTAL_BONUS}<b> {CURRENCY}</b>  </font>
+            </td>
+        </tr>
+        <tr>
+            <td class="tabDetailViewDF"><font color="red">{INWORD}</font></td>
+        </tr>
+    </table>
+    <table class="tabForm" cellpadding="0" cellspacing="0" width="100%">
+         <tr>
+            <td class="dataLabel">
+                <b><i><u>Điều 3 :</u></i> Trách nhiệm của bên A</b> <br/>
+                Cung cấp đầy đủ chương trình, danh sách đoàn, danh sách phòng (đính kèm form bàn giao đoàn) cho bên B.
+                Có trách nhiệm thanh toán đầy đủ công tác phí sau khi bên B thực hiện đúng chương trình và thực hiện đúng các nghĩa vụ của bên B.  <br/>
+                Bên A có quyền từ chối thanh toán các khoản chi phí phát sinh không hợp lệ, không có chứng từ. 
+            </td>
+        </tr>
+        <tr>
+            <td class="dataLabel">
+                <b><u>Điều 4</u> : <u>Điều khoản chung :</u></b>  <br/>
+                Bên A không chịu trách nhiệm về hành lý ký gửi cũng như xách tay của bên B, nếu bên B vi phạm qui định Hải quan và luật pháp Việt Nam và <b><font color="red">{PARTNER}</font></b>  bên B sẽ tự chịu trách nhiệm về các hành vi của mình gây ra 
+                Hợp đồng có hiệu lực kể từ ngày ký đến hết ngày <font color="red">{EXPIRATION_DATE}</font>
+                và được lập thành 2 bản, có giá trị như nhau, mỗi bên giữ 1 bản để cùng thực hiện 
+            </td>
+        </tr>
+    </table>
+    <table class="tabDetailView" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+            <td  align="center"><b>BÊN B</b></td>
+            <td  align="center"><b>BÊN A</b></td>
+        </tr>
+        <tr>
+            <td  align="center">{REPRESENTATIVE_B}</td>
+            <td  align="center">{REPRESENTATIVE_A}</td>
+        </tr>
+    </table>  
+ </body>
+<!-- END: main -->

@@ -1,0 +1,71 @@
+<?php 
+ //WARNING: The contents of this file are auto-generated
+
+
+// created: 2011-08-19 10:10:18
+$dictionary["Contract"]["fields"]["accounts_contracts"] = array (
+  'name' => 'accounts_contracts',
+  'type' => 'link',
+  'relationship' => 'accounts_contracts',
+  'source' => 'non-db',
+  'vname' => 'LBL_ACCOUNTS_CONTRACTS_FROM_ACCOUNTS_TITLE',
+);
+$dictionary["Contract"]["fields"]["accounts_contracts_name"] = array (
+  'name' => 'accounts_contracts_name',
+  'type' => 'relate',
+  'source' => 'non-db',
+  'vname' => 'LBL_ACCOUNTS_CONTRACTS_FROM_ACCOUNTS_TITLE',
+  'save' => true,
+  'id_name' => 'accounts_c71f9ccounts_ida',
+  'link' => 'accounts_contracts',
+  'table' => 'accounts',
+  'module' => 'Accounts',
+  'rname' => 'name',
+);
+$dictionary["Contract"]["fields"]["accounts_c71f9ccounts_ida"] = array (
+  'name' => 'accounts_c71f9ccounts_ida',
+  'type' => 'link',
+  'relationship' => 'accounts_contracts',
+  'source' => 'non-db',
+  'reportable' => false,
+  'side' => 'right',
+  'vname' => 'LBL_ACCOUNTS_CONTRACTS_FROM_CONTRACTS_TITLE',
+);
+
+
+// created: 2011-08-19 10:36:06
+$dictionary["Contract"]["fields"]["fits_contracts"] = array (
+  'name' => 'fits_contracts',
+  'type' => 'link',
+  'relationship' => 'fits_contracts',
+  'source' => 'non-db',
+  'vname' => 'LBL_FITS_CONTRACTS_FROM_FITS_TITLE',
+);
+$dictionary["Contract"]["fields"]["fits_contracts_name"] = array (
+  'name' => 'fits_contracts_name',
+  'type' => 'relate',
+  'source' => 'non-db',
+  'vname' => 'LBL_FITS_CONTRACTS_FROM_FITS_TITLE',
+  'save' => true,
+  'id_name' => 'fits_contr29f3ctsfits_ida',
+  'link' => 'fits_contracts',
+  'table' => 'fits',
+  'module' => 'FITs',
+  'rname' => 'name',
+  'db_concat_fields' => 
+  array (
+    0 => 'first_name',
+    1 => 'last_name',
+  ),
+);
+$dictionary["Contract"]["fields"]["fits_contr29f3ctsfits_ida"] = array (
+  'name' => 'fits_contr29f3ctsfits_ida',
+  'type' => 'link',
+  'relationship' => 'fits_contracts',
+  'source' => 'non-db',
+  'reportable' => false,
+  'side' => 'right',
+  'vname' => 'LBL_FITS_CONTRACTS_FROM_CONTRACTS_TITLE',
+);
+
+?>

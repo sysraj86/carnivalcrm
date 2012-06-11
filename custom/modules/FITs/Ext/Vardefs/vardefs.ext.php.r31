@@ -1,0 +1,122 @@
+<?php 
+ //WARNING: The contents of this file are auto-generated
+
+
+// created: 2011-08-17 11:06:30
+$dictionary["FITs"]["fields"]["fits_activities_calls"] = array (
+  'name' => 'fits_activities_calls',
+  'type' => 'link',
+  'relationship' => 'fits_activities_calls',
+  'source' => 'non-db',
+);
+
+
+// created: 2011-08-17 11:06:34
+$dictionary["FITs"]["fields"]["fits_activities_emails"] = array (
+  'name' => 'fits_activities_emails',
+  'type' => 'link',
+  'relationship' => 'fits_activities_emails',
+  'source' => 'non-db',
+);
+
+
+// created: 2011-08-17 11:06:31
+$dictionary["FITs"]["fields"]["fits_activities_meetings"] = array (
+  'name' => 'fits_activities_meetings',
+  'type' => 'link',
+  'relationship' => 'fits_activities_meetings',
+  'source' => 'non-db',
+);
+
+
+// created: 2011-08-17 11:06:32
+$dictionary["FITs"]["fields"]["fits_activities_notes"] = array (
+  'name' => 'fits_activities_notes',
+  'type' => 'link',
+  'relationship' => 'fits_activities_notes',
+  'source' => 'non-db',
+);
+
+
+// created: 2011-08-17 11:06:33
+$dictionary["FITs"]["fields"]["fits_activities_tasks"] = array (
+  'name' => 'fits_activities_tasks',
+  'type' => 'link',
+  'relationship' => 'fits_activities_tasks',
+  'source' => 'non-db',
+);
+
+
+// created: 2011-08-19 17:59:11
+$dictionary["FITs"]["fields"]["fits_groupprograms"] = array (
+  'name' => 'fits_groupprograms',
+  'type' => 'link',
+  'relationship' => 'fits_groupprograms',
+  'source' => 'non-db',
+  'vname' => 'LBL_FITS_GROUPPROGRAMS_FROM_GROUPPROGRAMS_TITLE',
+);
+
+
+// created: 2011-08-19 15:05:02
+$dictionary["FITs"]["fields"]["fits_passports"] = array (
+  'name' => 'fits_passports',
+  'type' => 'link',
+  'relationship' => 'fits_passports',
+  'source' => 'non-db',
+  'side' => 'right',
+  'vname' => 'LBL_FITS_PASSPORTS_FROM_PASSPORTS_TITLE',
+);
+
+
+// created: 2011-08-05 17:03:15
+$dictionary["FITs"]["fields"]["fits_tours"] = array (
+  'name' => 'fits_tours',
+  'type' => 'link',
+  'relationship' => 'fits_tours',
+  'source' => 'non-db',
+  'side' => 'right',
+  'vname' => 'LBL_FITS_TOURS_FROM_TOURS_TITLE',
+);
+
+
+// created: 2011-08-17 16:08:52
+$dictionary["FITs"]["fields"]["grouplists_fits"] = array (
+  'name' => 'grouplists_fits',
+  'type' => 'link',
+  'relationship' => 'grouplists_fits',
+  'source' => 'non-db',
+  'vname' => 'LBL_GROUPLISTS_FITS_FROM_GROUPLISTS_TITLE',
+);
+$dictionary["FITs"]["fields"]["grouplists_fits_name"] = array (
+  'name' => 'grouplists_fits_name',
+  'type' => 'relate',
+  'source' => 'non-db',
+  'vname' => 'LBL_GROUPLISTS_FITS_FROM_GROUPLISTS_TITLE',
+  'save' => true,
+  'id_name' => 'grouplistsd262uplists_ida',
+  'link' => 'grouplists_fits',
+  'table' => 'grouplists',
+  'module' => 'GroupLists',
+  'rname' => 'name',
+);
+$dictionary["FITs"]["fields"]["grouplistsd262uplists_ida"] = array (
+  'name' => 'grouplistsd262uplists_ida',
+  'type' => 'link',
+  'relationship' => 'grouplists_fits',
+  'source' => 'non-db',
+  'reportable' => false,
+  'side' => 'right',
+  'vname' => 'LBL_GROUPLISTS_FITS_FROM_FITS_TITLE',
+);
+
+
+// created: 2011-08-08 11:54:02
+$dictionary["FITs"]["fields"]["tours_fits"] = array (
+  'name' => 'tours_fits',
+  'type' => 'link',
+  'relationship' => 'tours_fits',
+  'source' => 'non-db',
+  'vname' => 'LBL_TOURS_FITS_FROM_TOURS_TITLE',
+);
+
+?>

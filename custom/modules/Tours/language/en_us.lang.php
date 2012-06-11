@@ -1,0 +1,19 @@
+<?php
+// created: 2012-03-19 09:23:06
+$mod_strings = array (
+  'LBL_DIVISION' => 'Division',
+  'LNK_NEW_RECORD' => 'Create Tour',
+  'LBL_TRANSPORT_2' => 'Transport',
+  'LBLDESTINATION' => 'Destination',
+  'LBL_FAFAF' => 'fafaf',
+  'LBL_TOURS_HOTELS_FROM_HOTELS_TITLE' => 'Hotels',
+  'LBL_TOURS_CARS_FROM_CARS_TITLE' => 'Cars',
+  'LBL_TOURS_LOCATIONS_FROM_LOCATIONS_TITLE' => 'Locations',
+  'LBL_TOURS_RESTAURANTS_FROM_RESTAURANTS_TITLE' => 'Restaurants',
+  'LBL_TOURS_SERVICES_FROM_SERVICES_TITLE' => 'Services',
+  'LBL_TOURS_DESTINATIONS_FROM_DESTINATIONS_TITLE' => 'Destinations',
+  'LBL_TOURS_COSTGUIDES_FROM_COSTGUIDES_TITLE' => 'Cost Guides',
+  'LBL_TOURS_AIRLINESTICKETS_FROM_AIRLINESTICKETS_TITLE' => 'Airline Tickets',
+  'LBL_TOURS_AIRLINES_FROM_AIRLINES_TITLE' => 'Airlines',
+);
+?>

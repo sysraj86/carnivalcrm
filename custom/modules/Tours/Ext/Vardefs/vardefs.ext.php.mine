@@ -1,0 +1,182 @@
+<?php 
+ //WARNING: The contents of this file are auto-generated
+
+
+// created: 2011-08-19 11:30:58
+$dictionary["Tour"]["fields"]["accounts_tours"] = array (
+  'name' => 'accounts_tours',
+  'type' => 'link',
+  'relationship' => 'accounts_tours',
+  'source' => 'non-db',
+  'vname' => 'LBL_ACCOUNTS_TOURS_FROM_ACCOUNTS_TITLE',
+);
+$dictionary["Tour"]["fields"]["accounts_tours_name"] = array (
+  'name' => 'accounts_tours_name',
+  'type' => 'relate',
+  'source' => 'non-db',
+  'vname' => 'LBL_ACCOUNTS_TOURS_FROM_ACCOUNTS_TITLE',
+  'save' => true,
+  'id_name' => 'accounts_t4d21ccounts_ida',
+  'link' => 'accounts_tours',
+  'table' => 'accounts',
+  'module' => 'Accounts',
+  'rname' => 'name',
+);
+$dictionary["Tour"]["fields"]["accounts_t4d21ccounts_ida"] = array (
+  'name' => 'accounts_t4d21ccounts_ida',
+  'type' => 'link',
+  'relationship' => 'accounts_tours',
+  'source' => 'non-db',
+  'reportable' => false,
+  'side' => 'right',
+  'vname' => 'LBL_ACCOUNTS_TOURS_FROM_TOURS_TITLE',
+);
+
+
+// created: 2011-08-19 10:28:21
+$dictionary["Tour"]["fields"]["fits_tours"] = array (
+  'name' => 'fits_tours',
+  'type' => 'link',
+  'relationship' => 'fits_tours',
+  'source' => 'non-db',
+  'vname' => 'LBL_FITS_TOURS_FROM_FITS_TITLE',
+);
+$dictionary["Tour"]["fields"]["fits_tours_name"] = array (
+  'name' => 'fits_tours_name',
+  'type' => 'relate',
+  'source' => 'non-db',
+  'vname' => 'LBL_FITS_TOURS_FROM_FITS_TITLE',
+  'save' => true,
+  'id_name' => 'fits_tours3769ursfits_ida',
+  'link' => 'fits_tours',
+  'table' => 'fits',
+  'module' => 'FITs',
+  'rname' => 'name',
+  'db_concat_fields' => 
+  array (
+    0 => 'first_name',
+    1 => 'last_name',
+  ),
+);
+$dictionary["Tour"]["fields"]["fits_tours3769ursfits_ida"] = array (
+  'name' => 'fits_tours3769ursfits_ida',
+  'type' => 'link',
+  'relationship' => 'fits_tours',
+  'source' => 'non-db',
+  'reportable' => false,
+  'side' => 'right',
+  'vname' => 'LBL_FITS_TOURS_FROM_TOURS_TITLE',
+);
+
+
+// created: 2011-08-19 10:40:14
+$dictionary["Tour"]["fields"]["tours_activities_calls"] = array (
+  'name' => 'tours_activities_calls',
+  'type' => 'link',
+  'relationship' => 'tours_activities_calls',
+  'source' => 'non-db',
+);
+
+
+// created: 2011-08-19 10:40:18
+$dictionary["Tour"]["fields"]["tours_activities_emails"] = array (
+  'name' => 'tours_activities_emails',
+  'type' => 'link',
+  'relationship' => 'tours_activities_emails',
+  'source' => 'non-db',
+);
+
+
+// created: 2011-08-19 10:40:15
+$dictionary["Tour"]["fields"]["tours_activities_meetings"] = array (
+  'name' => 'tours_activities_meetings',
+  'type' => 'link',
+  'relationship' => 'tours_activities_meetings',
+  'source' => 'non-db',
+);
+
+
+// created: 2011-08-19 10:40:16
+$dictionary["Tour"]["fields"]["tours_activities_notes"] = array (
+  'name' => 'tours_activities_notes',
+  'type' => 'link',
+  'relationship' => 'tours_activities_notes',
+  'source' => 'non-db',
+);
+
+
+// created: 2011-08-19 10:40:17
+$dictionary["Tour"]["fields"]["tours_activities_tasks"] = array (
+  'name' => 'tours_activities_tasks',
+  'type' => 'link',
+  'relationship' => 'tours_activities_tasks',
+  'source' => 'non-db',
+);
+
+
+// created: 2011-08-19 10:46:04
+$dictionary["Tour"]["fields"]["tours_airlines"] = array (
+  'name' => 'tours_airlines',
+  'type' => 'link',
+  'relationship' => 'tours_airlines',
+  'source' => 'non-db',
+  'side' => 'right',
+  'vname' => 'LBL_TOURS_AIRLINES_FROM_AIRLINES_TITLE',
+);
+
+
+// created: 2011-08-19 10:47:02
+$dictionary["Tour"]["fields"]["tours_billing"] = array (
+  'name' => 'tours_billing',
+  'type' => 'link',
+  'relationship' => 'tours_billing',
+  'source' => 'non-db',
+  'side' => 'right',
+  'vname' => 'LBL_TOURS_BILLING_FROM_BILLING_TITLE',
+);
+
+
+// created: 2011-08-19 10:42:58
+$dictionary["Tour"]["fields"]["tours_hotels"] = array (
+  'name' => 'tours_hotels',
+  'type' => 'link',
+  'relationship' => 'tours_hotels',
+  'source' => 'non-db',
+  'side' => 'right',
+  'vname' => 'LBL_TOURS_HOTELS_FROM_HOTELS_TITLE',
+);
+
+
+// created: 2011-08-19 10:49:04
+$dictionary["Tour"]["fields"]["tours_locations"] = array (
+  'name' => 'tours_locations',
+  'type' => 'link',
+  'relationship' => 'tours_locations',
+  'source' => 'non-db',
+  'side' => 'right',
+  'vname' => 'LBL_TOURS_LOCATIONS_FROM_LOCATIONS_TITLE',
+);
+
+
+// created: 2011-08-19 10:41:51
+$dictionary["Tour"]["fields"]["tours_oders"] = array (
+  'name' => 'tours_oders',
+  'type' => 'link',
+  'relationship' => 'tours_oders',
+  'source' => 'non-db',
+  'side' => 'right',
+  'vname' => 'LBL_TOURS_ODERS_FROM_ODERS_TITLE',
+);
+
+
+// created: 2011-08-19 10:43:50
+$dictionary["Tour"]["fields"]["tours_restaurants"] = array (
+  'name' => 'tours_restaurants',
+  'type' => 'link',
+  'relationship' => 'tours_restaurants',
+  'source' => 'non-db',
+  'side' => 'right',
+  'vname' => 'LBL_TOURS_RESTAURANTS_FROM_RESTAURANTS_TITLE',
+);
+
+?>

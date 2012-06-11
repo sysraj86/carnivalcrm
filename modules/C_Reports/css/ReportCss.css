@@ -1,0 +1,35 @@
+.tour_code {
+    width: 200px !important;
+}
+.email {
+    width: 150px !important;
+}
+.phone{
+    width: 150px !important;
+}
+
+.pagNumActive {
+    color: #000;
+    border:#060 1px solid; background-color: #D2FFD2; padding-left:3px; padding-right:3px;
+}
+.paginationNumbers a:link {
+    color: #000;
+    text-decoration: none;
+    border:#999 1px solid; background-color:#F0F0F0; padding-left:3px; padding-right:3px;
+}
+.paginationNumbers a:visited {
+    color: #000;
+    text-decoration: none;
+    border:#999 1px solid; background-color:#F0F0F0; padding-left:3px; padding-right:3px;
+}
+.paginationNumbers a:hover {
+    color: #000;
+    text-decoration: none;
+    border:#060 1px solid; background-color: #D2FFD2; padding-left:3px; padding-right:3px;
+}
+.paginationNumbers a:active {
+    color: #000;
+    text-decoration: none;
+    border:#999 1px solid; background-color:#F0F0F0; padding-left:3px; padding-right:3px;
+}
+

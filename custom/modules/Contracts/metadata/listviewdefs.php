@@ -1,0 +1,67 @@
+<?php
+$module_name = 'Contracts';
+$listViewDefs [$module_name] = 
+array (
+  'NUMBER' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_NUMBER',
+    'width' => '10%',
+    'default' => true,
+    'link' => true,
+  ),
+  'NAME' => 
+  array (
+    'width' => '15%',
+    'label' => 'LBL_NAME',
+    'default' => true,
+    'link' => true,
+  ),
+  'PARENT_NAME' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_BEN_B',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'DAIDIENBENB_NAME' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_BEN_B_NAME',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'GROUPPROGRACONTRACTS_NAME' => 
+  array (
+    'type' => 'relate',
+    'link' => 'groupprograms_contracts',
+    'label' => 'LBL_GROUPPROGRAMS_CONTRACTS_FROM_GROUPPROGRAMS_TITLE',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'TYPE' => 
+  array (
+    'type' => 'enum',
+    'label' => 'LBL_WORKSHEET_TYPE',
+    'sortable' => false,
+    'width' => '10%',
+    'default' => true,
+  ),
+  'TONGTIEN' => 
+  array (
+    'type' => 'currency',
+    'label' => 'LBL_TONGTIEN',
+    'currency_format' => true,
+    'width' => '10%',
+    'default' => true,
+  ),
+  'ASSIGNED_USER_NAME' => 
+  array (
+    'width' => '9%',
+    'label' => 'LBL_ASSIGNED_TO_NAME',
+    'module' => 'Employees',
+    'id' => 'ASSIGNED_USER_ID',
+    'default' => true,
+  ),
+);
+?>
