@@ -173,14 +173,6 @@ array (
           0 => 'issue_place',
           1 => 'passport_status',
         ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'visited_country',
-            'label' => 'LBL_VISITED_COUNTRY',
-          ),
-        ),
       ),
       'LBL_PANEL_ASSIGNMENT' => 
       array (

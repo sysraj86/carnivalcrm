@@ -62,6 +62,11 @@ array (
         ),
         2 => 
         array (
+          0 => 'fit_type',
+          1 => 'religion',
+        ),
+        3 => 
+        array (
           0 => 'phone_mobile',
           1 => 
           array (
@@ -70,7 +75,7 @@ array (
             'label' => 'LBL_HOME_PHONE',
           ),
         ),
-        3 => 
+        4 => 
         array (
           0 => 
           array (
@@ -83,10 +88,6 @@ array (
             'name' => 'phone_fax',
             'label' => 'LBL_FAX_PHONE',
           ),
-        ),
-        4 => 
-        array (
-          0 => 'religion',
         ),
         5 => 
         array (
@@ -112,19 +113,14 @@ array (
       array (
         0 => 
         array (
-          0 => 'fit_type',
-          1 => 
+          0 => 
           array (
             'name' => 'fit_type2',
             'label' => 'LBL_FIT2_TYPE',
           ),
+          1 => 'source',
         ),
         1 => 
-        array (
-          0 => 'source',
-          1 => '',
-        ),
-        2 => 
         array (
           0 => 'potential',
           1 => 
@@ -153,6 +149,14 @@ array (
         array (
           0 => 'issue_place',
           1 => 'passport_status',
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'visited_country',
+            'label' => 'LBL_VISITED_COUNTRY',
+          ),
         ),
       ),
       'LBL_PANEL_ASSIGNMENT' => 

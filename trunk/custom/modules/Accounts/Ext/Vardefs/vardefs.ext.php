@@ -199,6 +199,16 @@ $dictionary['Account']['fields']['SecurityGroups'] = array (
 
 
 
+ // created: 2012-06-11 17:14:13
+$dictionary['Account']['fields']['mavung']['required']=true;
+
+ 
+
+ // created: 2012-06-11 17:15:41
+$dictionary['Account']['fields']['phone_office']['required']=true;
+
+ 
+
  // created: 2011-07-06 23:10:19
 
  
