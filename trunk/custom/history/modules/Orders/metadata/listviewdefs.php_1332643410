@@ -1,0 +1,33 @@
+<?php
+$module_name = 'Orders';
+$listViewDefs [$module_name] = 
+array (
+  'CODE' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_CODE',
+    'default' => true,
+    'link' => true,
+  ),
+  'NAME' => 
+  array (
+    'width' => '15%',
+    'label' => 'LBL_NAME',
+    'default' => true,
+    'link' => true,
+  ),
+  'SODIENTHOAI' => 
+  array (
+    'width' => '15%',
+    'label' => 'LBL_SODIENTHOAI',
+    'default' => true,
+  ),
+  'EMAIL' => 
+  array (
+    'width' => '15%',
+    'label' => 'LBL_EMAIL',
+    'default' => true,
+    'link' => true,
+  ),
+);
+?>

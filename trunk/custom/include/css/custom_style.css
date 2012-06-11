@@ -1,0 +1,54 @@
+  
+ /****************************Lê Gia Thành****************************/
+ 
+ /* Tạo màu cho các record của ListView cho các module Booking       */
+
+ .near_deadline{
+     background-color: #FFFF00;
+ }
+ .after_deadline{
+     background-color: #D3D3D3;
+ }
+ .deadline{
+     background-color: #FF0000;
+ }
+ .confirm{
+     background-color: #9ACD32;
+ }
+ /********************************************************************/
+ 
+ /* Chỉnh độ rộng của fields potential trong phần search module FITs */
+#Accountsbasic_searchSearchForm select[name^=potential_basic]{
+     width: 170px !important;
+ }
+#Accountsbasic_searchSearchForm select[name^=potential_advanced]{
+     width: 170px !important;
+ }
+ /********************************************************************/
+ 
+ /* Custom description text. Added by DuyHieu 25/12/2011*/
+.description_text {
+	font-size: 11px;
+	font-weight: normal;
+	font-style: italic;
+}
+
+/* Custom select and clear data. Added by DuyHieu 25/12/2011 */
+.selectdata, .cleardata{
+	width: 32px;
+	height: 18px;
+	text-indent: -999px;
+	margin-left: 3px;
+}
+
+.selectdata:hover, .cleardata:hover{
+	background-color: #4E8CCF !important;
+}
+
+.selectdata{
+	background: #ECF1F4 url(../../../themes/default/images/id-ff-select.png) 50% 50% no-repeat !important;
+}
+
+.cleardata{
+	background: #ECF1F4 url(../../../themes/default/images/id-ff-clear.png) 50% 50% no-repeat !important;
+}

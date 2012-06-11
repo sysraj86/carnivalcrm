@@ -1,0 +1,48 @@
+<?php
+$popupMeta = array (
+    'moduleMain' => 'Orders',
+    'varName' => 'Orders',
+    'orderBy' => 'orders.name',
+    'whereClauses' => array (
+  'name' => 'orders.name',
+),
+    'searchInputs' => array (
+  0 => 'orders_number',
+  1 => 'name',
+  2 => 'priority',
+  3 => 'status',
+),
+    'listviewdefs' => array (
+  'CODE' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_CODE',
+    'default' => true,
+    'link' => true,
+    'name' => 'code',
+  ),
+  'NAME' => 
+  array (
+    'width' => '15%',
+    'label' => 'LBL_NAME',
+    'default' => true,
+    'link' => true,
+    'name' => 'name',
+  ),
+  'SODIENTHOAI' => 
+  array (
+    'width' => '15%',
+    'label' => 'LBL_SODIENTHOAI',
+    'default' => true,
+    'name' => 'sodienthoai',
+  ),
+  'EMAIL' => 
+  array (
+    'width' => '15%',
+    'label' => 'LBL_EMAIL',
+    'default' => true,
+    'link' => true,
+    'name' => 'email',
+  ),
+),
+);

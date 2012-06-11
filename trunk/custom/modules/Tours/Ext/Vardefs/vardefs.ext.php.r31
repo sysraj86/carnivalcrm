@@ -1,0 +1,158 @@
+<?php 
+ //WARNING: The contents of this file are auto-generated
+
+
+// created: 2011-08-05 15:01:58
+$dictionary["Tour"]["fields"]["fits_tours"] = array (
+  'name' => 'fits_tours',
+  'type' => 'link',
+  'relationship' => 'fits_tours',
+  'source' => 'non-db',
+  'vname' => 'LBL_FITS_TOURS_FROM_FITS_TITLE',
+);
+$dictionary["Tour"]["fields"]["fits_tours_name"] = array (
+  'name' => 'fits_tours_name',
+  'type' => 'relate',
+  'source' => 'non-db',
+  'vname' => 'LBL_FITS_TOURS_FROM_FITS_TITLE',
+  'save' => true,
+  'id_name' => 'fits_tours3769ursfits_ida',
+  'link' => 'fits_tours',
+  'table' => 'fits',
+  'module' => 'FITs',
+  'rname' => 'name',
+  'db_concat_fields' => 
+  array (
+    0 => 'first_name',
+    1 => 'last_name',
+  ),
+);
+$dictionary["Tour"]["fields"]["fits_tours3769ursfits_ida"] = array (
+  'name' => 'fits_tours3769ursfits_ida',
+  'type' => 'link',
+  'relationship' => 'fits_tours',
+  'source' => 'non-db',
+  'reportable' => false,
+  'side' => 'right',
+  'vname' => 'LBL_FITS_TOURS_FROM_TOURS_TITLE',
+);
+
+
+// created: 2011-08-08 10:22:17
+$dictionary["Tour"]["fields"]["tours_accounts"] = array (
+  'name' => 'tours_accounts',
+  'type' => 'link',
+  'relationship' => 'tours_accounts',
+  'source' => 'non-db',
+  'vname' => 'LBL_TOURS_ACCOUNTS_FROM_ACCOUNTS_TITLE',
+);
+
+
+// created: 2011-08-17 18:05:48
+$dictionary["Tour"]["fields"]["tours_activities_calls"] = array (
+  'name' => 'tours_activities_calls',
+  'type' => 'link',
+  'relationship' => 'tours_activities_calls',
+  'source' => 'non-db',
+);
+
+
+// created: 2011-08-17 18:05:52
+$dictionary["Tour"]["fields"]["tours_activities_emails"] = array (
+  'name' => 'tours_activities_emails',
+  'type' => 'link',
+  'relationship' => 'tours_activities_emails',
+  'source' => 'non-db',
+);
+
+
+// created: 2011-08-17 18:05:49
+$dictionary["Tour"]["fields"]["tours_activities_meetings"] = array (
+  'name' => 'tours_activities_meetings',
+  'type' => 'link',
+  'relationship' => 'tours_activities_meetings',
+  'source' => 'non-db',
+);
+
+
+// created: 2011-08-17 18:05:50
+$dictionary["Tour"]["fields"]["tours_activities_notes"] = array (
+  'name' => 'tours_activities_notes',
+  'type' => 'link',
+  'relationship' => 'tours_activities_notes',
+  'source' => 'non-db',
+);
+
+
+// created: 2011-08-17 18:05:51
+$dictionary["Tour"]["fields"]["tours_activities_tasks"] = array (
+  'name' => 'tours_activities_tasks',
+  'type' => 'link',
+  'relationship' => 'tours_activities_tasks',
+  'source' => 'non-db',
+);
+
+
+// created: 2011-08-05 11:50:06
+$dictionary["Tour"]["fields"]["tours_contracts"] = array (
+  'name' => 'tours_contracts',
+  'type' => 'link',
+  'relationship' => 'tours_contracts',
+  'source' => 'non-db',
+  'side' => 'right',
+  'vname' => 'LBL_TOURS_CONTRACTS_FROM_CONTRACTS_TITLE',
+);
+
+
+// created: 2011-08-08 11:54:02
+$dictionary["Tour"]["fields"]["tours_fits"] = array (
+  'name' => 'tours_fits',
+  'type' => 'link',
+  'relationship' => 'tours_fits',
+  'source' => 'non-db',
+  'vname' => 'LBL_TOURS_FITS_FROM_FITS_TITLE',
+);
+
+
+// created: 2011-08-05 11:51:56
+$dictionary["Tour"]["fields"]["tours_groupprograms"] = array (
+  'name' => 'tours_groupprograms',
+  'type' => 'link',
+  'relationship' => 'tours_groupprograms',
+  'source' => 'non-db',
+  'side' => 'right',
+  'vname' => 'LBL_TOURS_GROUPPROGRAMS_FROM_GROUPPROGRAMS_TITLE',
+);
+
+
+// created: 2011-08-17 18:09:28
+$dictionary["Tour"]["fields"]["tours_hotels"] = array (
+  'name' => 'tours_hotels',
+  'type' => 'link',
+  'relationship' => 'tours_hotels',
+  'source' => 'non-db',
+  'vname' => 'LBL_TOURS_HOTELS_FROM_HOTELS_TITLE',
+);
+
+
+// created: 2011-08-17 18:03:56
+$dictionary["Tour"]["fields"]["tours_oders"] = array (
+  'name' => 'tours_oders',
+  'type' => 'link',
+  'relationship' => 'tours_oders',
+  'source' => 'non-db',
+  'side' => 'right',
+  'vname' => 'LBL_TOURS_ODERS_FROM_ODERS_TITLE',
+);
+
+
+// created: 2011-08-17 18:08:09
+$dictionary["Tour"]["fields"]["tours_restaurants"] = array (
+  'name' => 'tours_restaurants',
+  'type' => 'link',
+  'relationship' => 'tours_restaurants',
+  'source' => 'non-db',
+  'vname' => 'LBL_TOURS_RESTAURANTS_FROM_RESTAURANTS_TITLE',
+);
+
+?>

@@ -1,0 +1,23 @@
+
+.nomal{
+    text-align: center;
+    background-color: white;
+    border-style: none;
+}
+.line{
+    text-align: center; 
+    border-bottom-style: solid; 
+    border-bottom-width: 1px; 
+    border-bottom-color: #00BFFF;
+}
+
+.head{
+    background-color: #DCDCDC;
+    text-align: center;
+    font-size: 9pt;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-top-style: solid;
+    border-width: 1px;
+    border-color: #4E8CCF;
+}

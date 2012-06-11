@@ -1,0 +1,20 @@
+<?php
+$popupMeta = array (
+    'moduleMain' => 'GroupPrograms',
+    'varName' => 'GroupProgram',
+    'orderBy' => 'groupprograms.name',
+    'whereClauses' => array (
+  'name' => 'groupprograms.name',
+),
+    'searchInputs' => array (
+  0 => 'groupprograms_number',
+  1 => 'name',
+  2 => 'priority',
+  3 => 'status',
+),
+    'searchdefs' => array (
+  0 => 'name',
+),
+    'listviewdefs' => array (
+),
+);

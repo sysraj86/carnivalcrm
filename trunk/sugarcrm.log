@@ -1,0 +1,261 @@
+05/31/12 21:55:02 [6008][1][FATAL] Error fetching relationship from cache accounts_accounts
+05/31/12 21:55:08 [6008][1][FATAL] Error fetching relationship from cache accounts_accounts
+05/31/12 21:55:08 [6008][1][FATAL] Error fetching relationship from cache accounts_accounts
+05/31/12 21:55:09 [6008][1][FATAL] Missing relationship definition tours_accounts. skipping tours_accounts subpanel
+05/31/12 23:03:23 [6008][1][FATAL] Looking for: custom/modules/Tasks/metadata/d6bb213e-cfe0-c6a3-72e8-4e799368f1b8/quickcreatedefs.php
+05/31/12 23:03:32 [6008][1][FATAL] Looking for: custom/modules/Calls/metadata/d6bb213e-cfe0-c6a3-72e8-4e799368f1b8/quickcreatedefs.php
+05/31/12 23:25:54 [6008][1][FATAL] SMTP -> ERROR:Password not accepted from server. Code: 535 Reply: 535-5.7.1 Username and Password not accepted. Learn more at
+535 5.7.1 http://support.google.com/mail/bin/answer.py?answer=14257 x1sm4485155pbp.50
+ 
+05/31/12 23:25:54 [6008][1][FATAL] SugarPHPMailer encountered an error: SMTP Error: Could not authenticate.
+05/31/12 23:25:54 [6008][1][FATAL] SugarPHPMailer encountered an error: SMTP Error: Could not connect to SMTP host.
+05/31/12 23:25:54 [6008][1][FATAL] SugarPHPMailer encountered an error: An outgoing mail server is not configured to send emails. Please configure an outgoing mail server or select an outgoing mail server for the mail account that you are using in Settings >> Mail Account.
+05/31/12 23:27:30 [6008][1][FATAL] SMTP -> ERROR:Password not accepted from server. Code: 535 Reply: 535-5.7.1 Username and Password not accepted. Learn more at
+535 5.7.1 http://support.google.com/mail/bin/answer.py?answer=14257 pj5sm4486536pbb.51
+ 
+05/31/12 23:27:30 [6008][1][FATAL] SugarPHPMailer encountered an error: SMTP Error: Could not authenticate.
+05/31/12 23:27:30 [6008][1][FATAL] SugarPHPMailer encountered an error: SMTP Error: Could not connect to SMTP host.
+05/31/12 23:27:30 [6008][1][FATAL] SugarPHPMailer encountered an error: An outgoing mail server is not configured to send emails. Please configure an outgoing mail server or select an outgoing mail server for the mail account that you are using in Settings >> Mail Account.
+05/31/12 23:28:40 [6008][-none-][FATAL] SECURITY: User authentication for newbie failed
+05/31/12 23:28:40 [6008][-none-][FATAL] FAILED LOGIN:attempts[1] - newbie
+05/31/12 23:54:39 [6008][1][FATAL] Error fetching relationship from cache accounts_accounts
+05/31/12 23:54:39 [6008][1][FATAL] Failed to load relationship accounts_accounts while saving Accounts
+05/31/12 23:54:42 [6008][1][FATAL] Error fetching relationship from cache accounts_accounts
+05/31/12 23:54:47 [6008][1][FATAL] Error fetching relationship from cache accounts_accounts
+05/31/12 23:54:47 [6008][1][FATAL] Error fetching relationship from cache accounts_accounts
+05/31/12 23:54:48 [6008][1][FATAL] Missing relationship definition tours_accounts. skipping tours_accounts subpanel
+06/01/12 09:29:18 [6008][-none-][FATAL] Could not connect to DB server sugarcrm-vn as root. port : Unknown MySQL server host 'sugarcrm-vn' (11004)
+06/07/12 22:45:45 [5112][-none-][FATAL] SECURITY: User authentication for admin failed
+06/07/12 22:45:45 [5112][-none-][FATAL] FAILED LOGIN:attempts[1] - admin
+06/07/12 22:56:45 [5112][seed_jim_id][FATAL] Error fetching relationship from cache accounts_accounts
+06/07/12 22:56:51 [5112][seed_jim_id][FATAL] Error fetching relationship from cache accounts_accounts
+06/07/12 22:56:51 [5112][seed_jim_id][FATAL] Error fetching relationship from cache accounts_accounts
+06/07/12 22:56:52 [5112][seed_jim_id][FATAL] Error running count query for Account List:  Query Failed: ( SELECT count(*) c FROM billing  where ( billing.parent_id= '4b680e0d-cbe4-e5ca-3a49-4e97a13c88d7' AND billing.parent_type='Accounts' AND billing.deleted=0) AND billing.deleted=0 ): MySQL error 1054: Unknown column 'billing.parent_id' in 'where clause'
+06/07/12 23:10:12 [5112][seed_jim_id][FATAL] Error fetching relationship from cache accounts_accounts
+06/07/12 23:10:16 [5112][seed_jim_id][FATAL] Error fetching relationship from cache accounts_accounts
+06/07/12 23:10:16 [5112][seed_jim_id][FATAL] Error fetching relationship from cache accounts_accounts
+06/07/12 23:10:18 [5112][seed_jim_id][FATAL] Missing relationship definition tours_accounts. skipping tours_accounts subpanel
+06/07/12 23:12:04 [5112][seed_jim_id][FATAL] Error fetching relationship from cache accounts_accounts
+06/07/12 23:12:08 [5112][seed_jim_id][FATAL] Error fetching relationship from cache accounts_accounts
+06/07/12 23:12:09 [5112][seed_jim_id][FATAL] Error fetching relationship from cache accounts_accounts
+06/07/12 23:12:09 [5112][seed_jim_id][FATAL] Error fetching relationship from cache accounts_accounts
+06/07/12 23:12:10 [5112][seed_jim_id][FATAL] Missing relationship definition fits_tours. skipping fits_tours subpanel
+06/07/12 23:12:10 [5112][seed_jim_id][FATAL] Missing relationship definition tours_fits. skipping tours_fits subpanel
+06/07/12 23:12:55 [5112][seed_jim_id][FATAL] Error fetching relationship from cache accounts_accounts
+06/07/12 23:12:59 [5112][seed_jim_id][FATAL] Error fetching relationship from cache accounts_accounts
+06/07/12 23:13:00 [5112][seed_jim_id][FATAL] Error fetching relationship from cache accounts_accounts
+06/07/12 23:13:00 [5112][seed_jim_id][FATAL] Error fetching relationship from cache accounts_accounts
+06/07/12 23:13:01 [5112][seed_jim_id][FATAL] Missing relationship definition fits_tours. skipping fits_tours subpanel
+06/07/12 23:13:01 [5112][seed_jim_id][FATAL] Missing relationship definition tours_fits. skipping tours_fits subpanel
+06/07/12 23:15:39 [5112][seed_jim_id][FATAL] Error fetching relationship from cache accounts_accounts
+06/07/12 23:15:45 [5112][seed_jim_id][FATAL] Error fetching relationship from cache accounts_accounts
+06/07/12 23:15:45 [5112][seed_jim_id][FATAL] Error fetching relationship from cache accounts_accounts
+06/07/12 23:15:46 [5112][seed_jim_id][FATAL] Error fetching relationship from cache accounts_accounts
+06/07/12 23:15:46 [5112][seed_jim_id][FATAL] Missing relationship definition fits_tours. skipping fits_tours subpanel
+06/07/12 23:15:46 [5112][seed_jim_id][FATAL] Missing relationship definition tours_fits. skipping tours_fits subpanel
+06/07/12 23:16:33 [5112][seed_jim_id][FATAL] Error fetching relationship from cache accounts_accounts
+06/07/12 23:16:38 [5112][seed_jim_id][FATAL] Error fetching relationship from cache accounts_accounts
+06/07/12 23:16:38 [5112][seed_jim_id][FATAL] Error fetching relationship from cache accounts_accounts
+06/07/12 23:16:38 [5112][seed_jim_id][FATAL] Error fetching relationship from cache accounts_accounts
+06/07/12 23:16:39 [5112][seed_jim_id][FATAL] Missing relationship definition fits_tours. skipping fits_tours subpanel
+06/07/12 23:16:39 [5112][seed_jim_id][FATAL] Missing relationship definition tours_fits. skipping tours_fits subpanel
+06/07/12 23:22:00 [5112][seed_jim_id][FATAL] Error fetching relationship from cache accounts_accounts
+06/07/12 23:22:04 [5112][seed_jim_id][FATAL] Error fetching relationship from cache accounts_accounts
+06/07/12 23:22:05 [5112][seed_jim_id][FATAL] Error fetching relationship from cache accounts_accounts
+06/07/12 23:22:05 [5112][seed_jim_id][FATAL] Error fetching relationship from cache accounts_accounts
+06/07/12 23:22:05 [5112][seed_jim_id][FATAL] Missing relationship definition fits_tours. skipping fits_tours subpanel
+06/07/12 23:22:05 [5112][seed_jim_id][FATAL] Missing relationship definition tours_fits. skipping tours_fits subpanel
+06/07/12 23:38:25 [5112][seed_jim_id][FATAL] Error fetching relationship from cache accounts_accounts
+06/07/12 23:38:30 [5112][seed_jim_id][FATAL] Error fetching relationship from cache accounts_accounts
+06/07/12 23:38:30 [5112][seed_jim_id][FATAL] Error fetching relationship from cache accounts_accounts
+06/07/12 23:38:30 [5112][seed_jim_id][FATAL] Error fetching relationship from cache accounts_accounts
+06/07/12 23:38:31 [5112][seed_jim_id][FATAL] Missing relationship definition fits_tours. skipping fits_tours subpanel
+06/07/12 23:38:31 [5112][seed_jim_id][FATAL] Missing relationship definition tours_fits. skipping tours_fits subpanel
+06/08/12 10:29:17 [4260][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/08/12 10:29:20 [4260][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/08/12 10:30:21 [4260][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/08/12 10:30:23 [4260][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/08/12 10:33:40 [4260][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/08/12 10:33:42 [4260][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/08/12 10:35:21 [4260][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/08/12 10:35:23 [4260][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/08/12 11:35:53 [4260][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/08/12 11:35:55 [4260][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/08/12 12:02:16 [4260][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/08/12 12:02:18 [4260][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/08/12 12:02:19 [4260][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/08/12 12:02:20 [4260][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/08/12 12:02:20 [4260][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/08/12 12:02:20 [4260][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/08/12 12:02:20 [4260][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/08/12 12:02:20 [4260][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/08/12 12:02:20 [4260][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/08/12 12:02:21 [4260][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/08/12 12:02:21 [4260][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/08/12 12:02:21 [4260][seed_jim_id][FATAL] Missing relationship definition tours_billing. skipping tours_billing subpanel
+06/08/12 12:02:21 [4260][seed_jim_id][FATAL] Missing relationship definition tours_accounts. skipping tours_accounts subpanel
+06/08/12 12:02:21 [4260][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/08/12 12:02:21 [4260][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/08/12 12:02:21 [4260][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/08/12 12:02:21 [4260][seed_jim_id][FATAL] Missing relationship definition tours_contracts. skipping tours_contracts subpanel
+06/08/12 12:02:21 [4260][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/08/12 12:02:21 [4260][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/08/12 12:02:21 [4260][seed_jim_id][FATAL] Missing relationship definition tours_fits. skipping tours_fits subpanel
+06/08/12 12:02:21 [4260][seed_jim_id][FATAL] Missing relationship definition tours_groupprograms. skipping tours_groupprograms subpanel
+06/08/12 12:02:21 [4260][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 10:53:31 [6792][-none-][FATAL] SECURITY: User authentication for hocbui failed
+06/09/12 10:53:31 [6792][-none-][FATAL] FAILED LOGIN:attempts[1] - hocbui
+06/09/12 10:53:44 [6792][-none-][FATAL] SECURITY: User authentication for hocbui failed
+06/09/12 10:53:44 [6792][-none-][FATAL] FAILED LOGIN:attempts[2] - hocbui
+06/09/12 11:45:44 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:45:46 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:45:48 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:45:49 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:45:50 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:45:50 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:45:50 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:45:51 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:45:51 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:45:51 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:45:51 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:45:52 [6792][seed_jim_id][FATAL] Missing relationship definition tours_billing. skipping tours_billing subpanel
+06/09/12 11:45:52 [6792][seed_jim_id][FATAL] Missing relationship definition tours_accounts. skipping tours_accounts subpanel
+06/09/12 11:45:52 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:45:52 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:45:52 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:45:52 [6792][seed_jim_id][FATAL] Missing relationship definition tours_contracts. skipping tours_contracts subpanel
+06/09/12 11:45:52 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:45:52 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:45:52 [6792][seed_jim_id][FATAL] Missing relationship definition tours_fits. skipping tours_fits subpanel
+06/09/12 11:45:52 [6792][seed_jim_id][FATAL] Missing relationship definition tours_groupprograms. skipping tours_groupprograms subpanel
+06/09/12 11:45:52 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:56:30 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:57:02 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:57:05 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:57:06 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:57:06 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:57:07 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:57:07 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:57:07 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:57:07 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:57:07 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:57:08 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:57:08 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:57:08 [6792][seed_jim_id][FATAL] Missing relationship definition tours_billing. skipping tours_billing subpanel
+06/09/12 11:57:08 [6792][seed_jim_id][FATAL] Missing relationship definition tours_accounts. skipping tours_accounts subpanel
+06/09/12 11:57:08 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:57:08 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:57:09 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:57:09 [6792][seed_jim_id][FATAL] Missing relationship definition tours_contracts. skipping tours_contracts subpanel
+06/09/12 11:57:09 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:57:09 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:57:09 [6792][seed_jim_id][FATAL] Missing relationship definition tours_fits. skipping tours_fits subpanel
+06/09/12 11:57:09 [6792][seed_jim_id][FATAL] Missing relationship definition tours_groupprograms. skipping tours_groupprograms subpanel
+06/09/12 11:57:09 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:57:16 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:57:28 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:57:31 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:57:32 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:57:33 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:57:33 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:57:33 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:57:33 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:57:34 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:57:34 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:57:34 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:57:34 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:57:35 [6792][seed_jim_id][FATAL] Missing relationship definition tours_billing. skipping tours_billing subpanel
+06/09/12 11:57:35 [6792][seed_jim_id][FATAL] Missing relationship definition tours_accounts. skipping tours_accounts subpanel
+06/09/12 11:57:35 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:57:35 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:57:35 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:57:35 [6792][seed_jim_id][FATAL] Missing relationship definition tours_contracts. skipping tours_contracts subpanel
+06/09/12 11:57:35 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:57:35 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:57:35 [6792][seed_jim_id][FATAL] Missing relationship definition tours_fits. skipping tours_fits subpanel
+06/09/12 11:57:35 [6792][seed_jim_id][FATAL] Missing relationship definition tours_groupprograms. skipping tours_groupprograms subpanel
+06/09/12 11:57:35 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:58:10 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:58:32 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 11:59:39 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:00:01 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:00:15 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:01:33 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:02:06 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:03:46 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:04:06 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:20:54 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:20:57 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:22:56 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:23:29 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:25:37 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:25:48 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:28:52 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:28:54 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:28:56 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:28:56 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:28:56 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:28:56 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:28:57 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:28:57 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:28:57 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:28:57 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:28:57 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:28:57 [6792][seed_jim_id][FATAL] Missing relationship definition tours_billing. skipping tours_billing subpanel
+06/09/12 12:28:57 [6792][seed_jim_id][FATAL] Missing relationship definition tours_accounts. skipping tours_accounts subpanel
+06/09/12 12:28:57 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:28:57 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:28:57 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:28:57 [6792][seed_jim_id][FATAL] Missing relationship definition tours_contracts. skipping tours_contracts subpanel
+06/09/12 12:28:57 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:28:57 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:28:57 [6792][seed_jim_id][FATAL] Missing relationship definition tours_fits. skipping tours_fits subpanel
+06/09/12 12:28:57 [6792][seed_jim_id][FATAL] Missing relationship definition tours_groupprograms. skipping tours_groupprograms subpanel
+06/09/12 12:28:57 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:29:04 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:29:36 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:29:39 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:29:40 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:29:40 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:29:40 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:29:40 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:29:40 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:29:41 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:29:41 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:29:41 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:29:41 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:29:41 [6792][seed_jim_id][FATAL] Missing relationship definition tours_billing. skipping tours_billing subpanel
+06/09/12 12:29:41 [6792][seed_jim_id][FATAL] Missing relationship definition tours_accounts. skipping tours_accounts subpanel
+06/09/12 12:29:41 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:29:41 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:29:41 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:29:41 [6792][seed_jim_id][FATAL] Missing relationship definition tours_contracts. skipping tours_contracts subpanel
+06/09/12 12:29:41 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:29:41 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:29:41 [6792][seed_jim_id][FATAL] Missing relationship definition tours_fits. skipping tours_fits subpanel
+06/09/12 12:29:41 [6792][seed_jim_id][FATAL] Missing relationship definition tours_groupprograms. skipping tours_groupprograms subpanel
+06/09/12 12:29:41 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:30:18 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:30:21 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:30:23 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:30:23 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:30:23 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:30:23 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:30:24 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:30:24 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:30:24 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:30:24 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:30:24 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:30:24 [6792][seed_jim_id][FATAL] Missing relationship definition tours_billing. skipping tours_billing subpanel
+06/09/12 12:30:24 [6792][seed_jim_id][FATAL] Missing relationship definition tours_accounts. skipping tours_accounts subpanel
+06/09/12 12:30:24 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:30:24 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:30:24 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:30:24 [6792][seed_jim_id][FATAL] Missing relationship definition tours_contracts. skipping tours_contracts subpanel
+06/09/12 12:30:24 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:30:24 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:30:24 [6792][seed_jim_id][FATAL] Missing relationship definition tours_fits. skipping tours_fits subpanel
+06/09/12 12:30:24 [6792][seed_jim_id][FATAL] Missing relationship definition tours_groupprograms. skipping tours_groupprograms subpanel
+06/09/12 12:30:24 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:30:35 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+06/09/12 12:30:55 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours

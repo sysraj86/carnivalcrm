@@ -1,0 +1,13 @@
+
+<script type="text/javascript">
+
+function sync(e) {
+	window.parent.document.forms['f'].elements['i'].value=e.value;
+}
+
+
+</script>
+
+
+    <input type='file' name='inputField' onChange="sync(this);">
+

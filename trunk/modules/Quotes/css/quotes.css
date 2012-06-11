@@ -1,0 +1,16 @@
+BODY, TD {
+  
+}
+
+A {
+}
+
+A:Hover {
+}
+
+.table_clone .tdborder{
+    border-collapse: collapse;
+    padding: 3px !important;
+    border: 1px solid;
+    text-align: center;
+}

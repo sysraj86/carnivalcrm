@@ -1,0 +1,48 @@
+<?php
+$module_name = 'Tours';
+$listViewDefs [$module_name] =
+    array(
+        'TOUR_CODE' =>
+        array(
+            'width' => '15%',
+            'label' => 'LBL_TOUR_CODE',
+            'default' => true,
+            'link' => true,
+           
+        ),
+        'NAME' =>
+        array(
+            'width' => '20%',
+            'label' => 'LBL_NAME',
+            'default' => true,
+            'link' => true,
+            //'customCode' => '<a href="index.php?module=Tours&return_module=Tours&action=DetailView&record={$ID}">{$NAME}</a> {if $SYNCED eq 1}dha{/if}'
+        ),
+        'START_DATE' =>
+        array(
+            'width' => '5%',
+            'label' => 'LBL_START_DATE',
+            'default' => true,
+        ),
+        'END_DATE' =>
+        array(
+            'width' => '5%',
+            'label' => 'LBL_END_DATE',
+            'default' => true,
+        ),
+        'STATUS' =>
+        array(
+            'width' => '15%',
+            'label' => 'LBL_STATUS',
+            'default' => true,
+        ),
+        'ASSIGNED_USER_NAME' =>
+        array(
+            'width' => '9%',
+            'label' => 'LBL_ASSIGNED_TO_NAME',
+            'module' => 'Employees',
+            'id' => 'ASSIGNED_USER_ID',
+            'default' => true,
+        ),
+    );
+?>

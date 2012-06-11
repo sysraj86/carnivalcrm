@@ -1,0 +1,70 @@
+<?php
+$module_name = 'FITs';
+$listViewDefs [$module_name] = 
+array (
+  'CODE' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_CODE',
+    'width' => '10%',
+    'default' => true,
+    'link' => true, 
+  ),
+  'NAME' => 
+  array (
+    'width' => '20%',
+    'label' => 'LBL_NAME',
+    'link' => true,
+    'orderBy' => 'last_name',
+    'default' => true,
+    'related_fields' => 
+    array (
+      0 => 'first_name',
+      1 => 'last_name',
+      2 => 'salutation',
+    ),
+  ),
+
+    'PHONE_HOME' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_HOME_PHONE',
+    'default' => true,
+  ),
+  'EMAIL1' => 
+  array (
+    'width' => '15%',
+    'label' => 'LBL_EMAIL_ADDRESS',
+    'sortable' => false,
+    'link' => true,
+    'customCode' => '{$EMAIL1_LINK}{$EMAIL1}</a>',
+    'default' => true,
+  ),
+  'ACCOUNTS_FITS_NAME' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_ACCOUNT_NAME',
+    'default' => true,
+  ),
+
+  'POTENTIAL' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_POTENTIAL',
+    'default' => true,
+  ),
+  
+  'DATE_ENTERED' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_DATE_ENTERED',
+    'default' => true,
+  ),
+  'CREATED_BY_NAME' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_CREATED',
+    'default' => true,
+  ),
+);
+?>

@@ -1,0 +1,212 @@
+		#week_div{
+			border-left: 1px solid silver;	 
+			width: 100%; 
+			overflow:hidden;
+		}
+		
+		.day_col{
+			width: 14.2%; 
+			float: left; 
+			border-bottom: 0px solid silver;
+		}		
+		.left_time_col{
+			width: 52px; 
+			float: left; 
+			border-bottom: 0px solid silver;
+		}		
+		#day_div .day_col{
+			width: 85%;			
+		}
+
+		.week_block{
+			width: auto;
+			margin-left: 52px;
+			min-width: 290px;
+		}		
+		
+		.t_cell, .t_icell{		
+			height: 14px;
+			border-right: 1px solid silver;
+			border-bottom: 1px solid #e5e5e5;
+		}
+		.t_cell_over{
+			background-color: #D1DCFF;
+		}				
+		.record_head{
+			font-size: 10px;			
+			font-weight: bold;
+		}
+		.record_head div{
+			font-weight: bold;	
+			font-size: 10px;
+		}
+		.record_head a, .record_head a:visited, .record_head a:hover{
+			text-decoration: none;
+		}
+		.record_contain{
+			padding-top: 1px;
+		}
+		.left_cell{			
+			height: 14px;
+			font-size: 10px;
+			text-align: center;
+			
+			border-right: 1px solid silver;	
+			border-bottom: 1px solid #e5e5e5;	
+			vertical-align: middle;
+			line-height: 15px;	
+		}
+		.day_head{
+			height: 14px;
+			
+			text-align: center;
+			font-size: 11px;
+			border-bottom: 1px solid silver;
+			border-top: 1px solid silver;
+			border-right: 1px solid silver;
+			white-space: nowrap;
+		}
+		.odd{
+			background-color: transparent;				
+		}
+		.odd_border{
+			border-bottom: 1px solid silver;				
+		}
+		
+		.t_cell_active{
+			background-color: gray;
+		}	
+		.t_cell:hover{
+
+		}	
+		
+		.record_item{
+			width: 92%;
+			min-width: 40px;			
+			z-index: 50;
+			font-size: 10px;
+			position : relative;	
+			vertical-align: top;
+			display:inline-block;
+			border: 1px solid;
+			border-top-width: 1px;
+			overflow: hidden;
+			cursor: default;	
+		}
+		.record_item .record_head{
+			height: 13px;
+			padding-left: 2px;						
+		}
+		.record_item .record_head div{
+			overflow: hidden;
+			height: 13px;			
+		}
+		.record_item .record_contain{
+			padding-left: 2px;
+			padding-right: 2px;
+			overflow: hidden;
+			height: 13px;		
+		}				
+		.meeting_item, .meeting_item .rfloat{
+			background-color: #D2E5FC;
+			border-color: #1C5FBD;
+		}
+		.meeting_item .rfloat{
+			color: #1C5FBD;
+		}		
+		.call_item, .call_item .rfloat{
+			background-color: #FCDCDC;
+			border-color: #DE4040;	
+		}
+		.call_item .rfloat{			
+			color: #DE4040;
+		}		
+		.task_item, .task_item .rfloat{
+			background-color: #B1F5AE;
+			border-color: #015900;			
+		}
+		.task_item .rfloat{
+			color: #015900;
+		}
+
+		.monthHeader div{
+			padding-top: 3px;
+			padding-bottom: 3px;
+			font-size: 12px;
+		}
+		.monthHeader div h3{
+			margin-top: 0px;
+		}
+		.monthFooter div{
+			padding-top: 3px;
+			padding-bottom: 3px;
+			font-size: 12px;
+		}
+		.participants .padded{
+			padding: 5px;		
+		}	
+		.participants select{
+			width: 180px;		
+		}
+		.sel_captions{
+			text-align: left;
+			padding-left: 5px;
+		}
+		.h_line{
+			margin: 0px;
+		}
+		
+		.rfloat{
+			float: right;			
+			color: black;
+			width: 11px;
+			font-size: 9px;
+			height: 11px;
+			line-height: 11px;
+			text-align: center;
+			background-image: url('../../themes/default/images/MoreDetail.png');
+			background-repeat: no-repeat;
+		}
+
+		
+		#record_tabs{
+			border: 0px;
+		}
+		.today{
+			font-weight: bold;
+			background-color: #FCD372;
+		}
+
+		.ecCapFontClass{
+			background-color: transparent;
+		}	
+
+		.dialog_titlebar{
+			padding:6px 4px 4px 6px;	
+			height: 18px;
+			background-position:center top;
+			background-repeat:repeat-x;
+		}
+
+		.dialog_titlebar span{
+			float: left;
+			font-size: 13px;
+			font-weight: bold;
+			cursor: default;
+		}
+		#record_buttons{
+			padding: 7px 5px 5px 5px;
+		}
+
+		.schedulerDiv h3{
+			display: none;
+		}
+
+		#settings_dialog{
+			text-align: left;
+			margin: 5px 0 5px 0;
+		}
+
+		.owt{
+			display: none;
+		}

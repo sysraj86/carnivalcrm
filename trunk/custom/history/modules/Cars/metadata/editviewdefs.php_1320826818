@@ -1,0 +1,63 @@
+<?php
+$module_name = 'Cars';
+$viewdefs [$module_name] = 
+array (
+  'EditView' => 
+  array (
+    'templateMeta' => 
+    array (
+      'maxColumns' => '2',
+      'widths' => 
+      array (
+        0 => 
+        array (
+          'label' => '10',
+          'field' => '30',
+        ),
+        1 => 
+        array (
+          'label' => '10',
+          'field' => '30',
+        ),
+      ),
+      'useTabs' => false,
+    ),
+    'panels' => 
+    array (
+      'default' => 
+      array (
+        0 => 
+        array (
+          0 => 'name',
+          1 => 'phone',
+        ),
+        1 => 
+        array (
+          0 => 'number_plates',
+          1 => 
+          array (
+            'name' => 'transports_cars_name',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'numofseat',
+            'label' => 'LBL_NUMOFSEAT',
+          ),
+          1 => '',
+        ),
+        3 => 
+        array (
+          0 => 'description',
+        ),
+        4 => 
+        array (
+          0 => 'assigned_user_name',
+        ),
+      ),
+    ),
+  ),
+);
+?>

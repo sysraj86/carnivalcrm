@@ -1,0 +1,6 @@
+<?php
+// created: 2011-11-21 15:54:18
+$mod_strings = array (
+  'LBL_EDITVIEW_PANEL1' => 'GIÁ THAM KHẢO',
+);
+?>

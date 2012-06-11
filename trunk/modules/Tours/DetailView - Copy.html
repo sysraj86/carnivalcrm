@@ -1,0 +1,122 @@
+<!-- BEGIN: main -->
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+<form action="index.php"  name="DetailView" id="DetailView" method="post">  
+<input type="hidden"   name="module"         value="Tours">
+<input type="hidden"   name="record"         value="{ID}"> 
+<input type="hidden"   name="action">
+<input type="hidden"   name="return_module"  value="{RETURN_MODULE}">
+<input type="hidden"   name="return_id"      value="{RETURN_ID}">
+<input type="hidden"   name="return_action"  value="{RETURN_ACTION}">
+<tr>
+    <td style="padding-bottom: 2px;">
+         <input title="{APP.LBL_EDIT_BUTTON_TITLE}" 
+            accessKey="{APP.LBL_EDIT_BUTTON_KEY}" 
+            class="button" 
+            onclick="this.form.return_module.value='Tours'; this.form.return_action.value='DetailView'; this.form.return_id.value='{ID}'; this.form.action.value='EditView'" 
+            type="submit" 
+            name="Edit" 
+            value="  {APP.LBL_EDIT_BUTTON_LABEL}  "> 
+     <input title="{APP.LBL_DUPLICATE_BUTTON_TITLE}" 
+            accessKey="{APP.LBL_DUPLICATE_BUTTON_KEY}" 
+            class="button" 
+            onclick="this.form.return_module.value='Tours'; this.form.return_action.value='index'; this.form.isDuplicate.value=true; this.form.action.value='EditView'" 
+            type="submit" 
+            name="Duplicate" 
+            value=" {APP.LBL_DUPLICATE_BUTTON_LABEL} "> 
+     <input title="{APP.LBL_DELETE_BUTTON_TITLE}" 
+            accessKey="{APP.LBL_DELETE_BUTTON_KEY}" 
+            class="button" 
+            onclick="this.form.return_module.value='Tours'; this.form.return_action.value='ListView'; this.form.action.value='Delete'; return confirm('{APP.NTC_DELETE_CONFIRMATION}')" 
+            type="submit" 
+            name="Delete" 
+            value=" {APP.LBL_DELETE_BUTTON_LABEL} ">
+     <input title="View Change Log" class="button" onclick='open_popup("Audit", "600", "400", "&record={ID}&module_name=Tours", true, false,  { "call_back_function":"set_return","form_name":"EditView","field_to_name_array":[] } ); return false;' type="submit" value="View Change Log">
+     <input title="export to wword" class="button" type="button" onclick="window.location.href='index.php?module=Tours&action=export2word&record={ID}'" value=" Export to Word" />
+    </td>
+    <td align='right'>{ADMIN_EDIT}</td> 
+</tr>
+</form> 
+</table>
+ 
+ <fieldset> 
+<legend> <h1>{MOD.LBL_TOUR_INFO}</h1> </legend>
+<table cellpadding="0" cellspacing="0" width="100%" border="0">
+    <tr>
+        <td class="tabDetailViewDL">{MOD.LBL_TOUR_CODE} :</td>
+        <td class="tabDetailViewDF">{TOURCODE}</td>
+        <td class="tabDetailViewDL">{MOD.LBL_NAME} :</td>
+        <td class="tabDetailViewDF">{NAME}</td>
+    </tr>
+    <!--<tr>
+        <td class="tabDetailViewDL">{MOD.LBL_FROM_PLACE} :</td>
+        <td class="tabDetailViewDF"><a href="index.php?module=Destinations&action=DetailView&record={DESTINATION_FROM_ID}"> {FROM} </a></td>
+        <td class="tabDetailViewDL">{MOD.LBL_TO_PLACE} :</td>
+        <td class="tabDetailViewDF"> <a href="index.php?module=Destinations&action=DetailView&record={DESTINATION_TO_ID}">{TO} </a></td>
+    </tr>-->
+    <tr>
+        <td class="tabDetailViewDL">{MOD.LBL_DESTINATION}</td>
+        <td class="tabDetailViewDF">{DESTINATION}</td>
+        <td class="tabDetailViewDL"  style="color:red; font-weight: bold">{MOD.LBL_TEMPLATE_NAME}</td>
+        <td class="tabDetailViewDF">{TEMPLATE_NAME}</td>
+    </tr>
+    <tr>
+        <td class="tabDetailViewDL">{MOD.LBL_START_DATE} :</td>
+        <td class="tabDetailViewDF">{START_DATE}</td>
+        <td class="tabDetailViewDL">{MOD.LBL_END_DATE} :</td>
+        <td class="tabDetailViewDF">{END_DATE}</td>
+    </tr>
+    <tr>
+        <td class="tabDetailViewDL">{MOD.LBL_DURATION} :</td>
+        <td class="tabDetailViewDF">{DURATION}</td>
+        <td class="tabDetailViewDL">{MOD.LBL_TRANSPORT} :</td>
+        <td class="tabDetailViewDF">{TRANSPORT}</td>
+    </tr>
+    <tr>
+        <td class="tabDetailViewDL">{MOD.LBL_CONTRACT_VALUE} :</td>
+        <td class="tabDetailViewDF">{VALUE}</td>
+        <td class="tabDetailViewDL">{MOD.LBL_CURRENCY} :</td>
+        <td class="tabDetailViewDF">{CURRENCY}</td>
+    </tr>
+    
+    <tr>
+        <td class="tabDetailViewDL">{MOD.LBL_DEPARMENT} :</td>
+        <td class="tabDetailViewDF">{DEPARMENT}</td>
+        <td class="tabDetailViewDL">{MOD.LBL_TOUR_TYPE} :</td>
+        <td class="tabDetailViewDF">{TYPE}</td>
+    </tr>
+
+    <tr>
+        <td class="tabDetailViewDL">{MOD.LBL_DESCRIPTION} :</td>
+        <td class="tabDetailViewDF word-wrap">{DESCRIPTION}</td>
+        <td class="tabDetailViewDL">{MOD.LBL_PICTURE} :</td>
+        <td class="tabDetailViewDF">{PICTURE}</td>
+    </tr> 
+    <tr>
+        <td class="tabDetailViewDL">{MOD.LBL_STATUS} :</td>
+        <td class="tabDetailViewDF">{STATUS}</td>
+        <td class="tabDetailViewDL">{MOD.LBL_ASSIGNED_TO_NAME} :</td>
+        <td class="tabDetailViewDF"><a href="index.php?module=Employees&return_module=Employees&action=DetailView&record={ASSIGNED_USER_ID}">{ASSIGNED_USER_NAME}</a></td>
+    </tr>
+    <tr>
+        <td class="tabDetailViewDL">{MOD.LBL_DATE_ENTERED} :</td>
+        <td class="tabDetailViewDF">{DATE_ENTERED}&nbsp;&nbsp;{CREATED_BY_NAME}</td>
+        <td class="tabDetailViewDL">{MOD.LBL_DATE_MODIFIED} :</td>
+        <td class="tabDetailViewDF">{DATE_MODIFIED}&nbsp;&nbsp;{MODIFIED_BY_NAME}</td>
+    </tr>     
+ </table> 
+ </fieldset>
+
+<fieldset>
+ <legend><h1>{MOD.LBL_TOUR_PROGRAM}</h1></legend>  
+ <table cellpadding="0"  cellspacing="0" width="100%"  border="0" style="border-top: 0px solid;">
+      {TOUR_PROGRAM_LINE_DETAIL}
+ </table>
+</fieldset>
+  <!-- END: main -->  
+  
+  
+<!-- BEGIN: subpanel -->
+<span sugar="slot23">{SUBPANEL}</span sugar="slot">
+<!-- END: subpanel --> 
+ 

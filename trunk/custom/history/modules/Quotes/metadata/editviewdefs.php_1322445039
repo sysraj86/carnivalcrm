@@ -1,0 +1,264 @@
+<?php
+$module_name = 'Quotes';
+$viewdefs [$module_name] = 
+array (
+  'EditView' => 
+  array (
+    'templateMeta' => 
+    array (
+      'maxColumns' => '2',
+      'widths' => 
+      array (
+        0 => 
+        array (
+          'label' => '10',
+          'field' => '30',
+        ),
+        1 => 
+        array (
+          'label' => '10',
+          'field' => '30',
+        ),
+      ),
+      'includes' => 
+      array (
+        0 => 
+        array (
+          'file' => 'modules/Tours/jquery.js',
+        ),
+        1 => 
+        array (
+          'file' => 'modules/Quotes/calculate.js',
+        ),
+      ),
+    ),
+    'panels' => 
+    array (
+      'lbl_overview' => 
+      array (
+        0 => 
+        array (
+          0 => 'name',
+          1 => 
+          array (
+            'name' => 'accounts_quotes_name',
+            'required' => true,
+          ),
+        ),
+        1 => 
+        array (
+          0 => 'contacts_quotes_name',
+          1 => 'quotes_tours_name',
+        ),
+        2 => 
+        array (
+          0 => 'quotes_oders_name',
+          1 => 
+          array (
+            'name' => 'service_cost',
+            'label' => 'LBL_SERVICE_COST',
+            'customCode' => '<input type="text" class="calculate" id="service_cost" size="30" name="service_cost" value="{$fields.service_cost.value}"/>',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 'airline_journey',
+          1 => 
+          array (
+            'name' => 'airline_ticket_cost',
+            'label' => 'LBL_ARILINE_TICKET_COST',
+            'customCode' => '<input type="text" class="calculate" id="airline_ticket_cost" size="30" name="airline_ticket_cost" value="{$fields.airline_ticket_cost.value}"/>',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'fits_quotes_name',
+            'required' => true,
+          ),
+          1 => 
+          array (
+            'name' => 'total_cus',
+            'label' => 'LBL_TOTAL_CUS',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 'total_cost',
+          1 => 'assigned_user_name',
+        ),
+        6 => 
+        array (
+          0 => 'sender',
+          1 => 'senddate',
+        ),
+        7 => 
+        array (
+          0 => 'description',
+          1 => 
+          array (
+            'name' => 'orders_quotes_name',
+          ),
+        ),
+      ),
+      'lbl_gia_bao_gom' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'transport',
+            'lable' => 'LBL_TRANSPORT',
+            'displayParams' => 
+            array (
+              'cols' => 120,
+              'rows' => 6,
+            ),
+          ),
+          1 => 'LBL_TRANSPORT',
+          2 => 'LBL_TRANSPORT',
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'hotel',
+            'label' => 'LBL_HOTEL',
+            'displayParams' => 
+            array (
+              'cols' => 120,
+              'rows' => 6,
+            ),
+          ),
+          1 => 'LBL_HOTEL',
+          2 => 'LBL_HOTEL',
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'room',
+            'label' => 'LBL_ROOM',
+            'displayParams' => 
+            array (
+              'cols' => 120,
+              'rows' => 6,
+            ),
+          ),
+          1 => 'LBL_ROOM',
+          2 => 'LBL_ROOM',
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'food',
+            'label' => 'LBL_FOOD',
+            'displayParams' => 
+            array (
+              'cols' => 120,
+              'rows' => 6,
+            ),
+          ),
+          1 => 'LBL_FOOD',
+          2 => 'LBL_FOOD',
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'guide',
+            'label' => 'LBL_GUIDE',
+            'displayParams' => 
+            array (
+              'cols' => 120,
+              'rows' => 6,
+            ),
+          ),
+          1 => 'LBL_GUIDE',
+          2 => 'LBL_GUIDE',
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'insurance',
+            'label' => 'LBL_INSURANCE',
+            'displayParams' => 
+            array (
+              'cols' => 120,
+              'rows' => 6,
+            ),
+          ),
+          1 => 'LBL_INSURANCE',
+          2 => 'LBL_INSURANCE',
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'other',
+            'label' => 'LBL_OTHER',
+            'displayParams' => 
+            array (
+              'cols' => 120,
+              'rows' => 6,
+            ),
+          ),
+          1 => 'LBL_OTHER',
+          2 => 'LBL_OTHER',
+        ),
+      ),
+      'lbl_others' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'not_content',
+            'label' => 'LBL_NOT_CONTENT',
+            'displayParams' => 
+            array (
+              'cols' => 120,
+              'rows' => 6,
+            ),
+          ),
+          1 => 'LBL_NOT_CONTENT',
+          2 => 'LBL_NOT_CONTENT',
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'child_cost',
+            'label' => 'LBL_CHILD_COST_INFORMATIONS',
+            'displayParams' => 
+            array (
+              'cols' => 120,
+              'rows' => 6,
+            ),
+          ),
+          1 => 'LBL_CHILD_COST_INFORMATIONS',
+          2 => 'LBL_CHILD_COST_INFORMATIONS',
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'surcharge',
+            'label' => 'LBL_SURCHARGE',
+            'displayParams' => 
+            array (
+              'cols' => 120,
+              'rows' => 6,
+            ),
+          ),
+          1 => 'LBL_SURCHARGE',
+          2 => 'LBL_SURCHARGE',
+        ),
+      ),
+    ),
+  ),
+);
+?>

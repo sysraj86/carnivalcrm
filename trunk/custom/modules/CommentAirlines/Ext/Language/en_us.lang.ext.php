@@ -1,0 +1,13 @@
+<?php 
+ //WARNING: The contents of this file are auto-generated
+
+
+//THIS FILE IS AUTO GENERATED, DO NOT MODIFY
+$mod_strings['LBL_FITS_COMMENTAIRLINES_FROM_FITS_TITLE'] = 'FITs';
+$mod_strings['LBL_AIRLINES_COMMENTAIRLINES_FROM_AIRLINES_TITLE'] = 'Airlines';
+
+
+//THIS FILE IS AUTO GENERATED, DO NOT MODIFY
+$mod_strings['LBL_FITS_COMMENTAIRLINES_FROM_FITS_TITLE'] = 'FITs';
+
+?>

@@ -1,0 +1,17 @@
+<?php 
+ //WARNING: The contents of this file are auto-generated
+
+
+
+$moduleList[] = 'ECalendar';
+
+
+
+ 
+ //WARNING: The contents of this file are auto-generated
+$beanList['visa_passportlist'] = 'visa_passportlist';
+$beanFiles['visa_passportlist'] = 'modules/visa_passportlist/visa_passportlist.php';
+$moduleList[] = 'visa_passportlist';
+
+
+?>

@@ -1,0 +1,56 @@
+<?php
+$popupMeta = array (
+    'moduleMain' => 'GroupPrograms',
+    'varName' => 'GroupProgram',
+    'orderBy' => 'groupprograms.name',
+    'whereClauses' => array (
+  'name' => 'groupprograms.name',
+),
+    'searchInputs' => array (
+  0 => 'groupprograms_number',
+  1 => 'name',
+  2 => 'priority',
+  3 => 'status',
+),
+    'searchdefs' => array (
+  0 => 'name',
+),
+    'listviewdefs' => array (
+  'GROUPPROGRAM_CODE' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_CODE',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'TOUR_NAME' => 
+  array (
+    'width' => '20%',
+    'label' => 'LBL_TOUR_NAME',
+    'default' => true,
+    'name' => 'tour_name',
+  ),
+  'START_DATE_GROUP' => 
+  array (
+    'width' => '20%',
+    'label' => 'LBL_START_DATE',
+    'default' => true,
+    'name' => 'start_date_group',
+  ),
+  'END_DATE_GROUP' => 
+  array (
+    'width' => '20%',
+    'label' => 'LBL_END_DATE',
+    'default' => true,
+    'name' => 'end_date_group',
+  ),
+  'ASSIGNED_USER_NAME' => 
+  array (
+    'link' => 'assigned_user_link',
+    'type' => 'relate',
+    'label' => 'LBL_ASSIGNED_TO_NAME',
+    'width' => '10%',
+    'default' => true,
+  ),
+),
+);

@@ -1,0 +1,18 @@
+<?php 
+ //WARNING: The contents of this file are auto-generated
+
+
+
+$app_list_strings["moduleList"]["SecurityGroups"] = 'AdministraciÃ³n de Grupos de Seguridad';
+$app_strings['LBL_LOGIN_AS'] = "Conexión como ";
+$app_strings['LBL_LOGOUT_AS'] = "Cerrar sesión como ";
+
+
+
+$app_strings['ONLY_EXISTING_RECORD'] = 'SÃ³lo puede asociar ImÃ¡genes a registros existentes.';
+$app_strings['NO_PICTURE_AVAILABLE'] = 'No dispone de Imagen';
+$app_strings['LBL_SEARCH_WITHOUT_PICTURE'] = 'Sin Imagen';
+$app_strings['LBL_SEARCH_WITH_PICTURE'] = 'Con Imagen';
+
+
+?>

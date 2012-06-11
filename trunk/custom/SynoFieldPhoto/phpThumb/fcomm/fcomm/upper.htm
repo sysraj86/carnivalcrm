@@ -1,0 +1,21 @@
+<html>
+<head>
+<title></title>
+<script type="text/javascript">
+function init() {
+	if(window.top==window.self) {
+		window.location="index.htm";
+	}
+}
+function sync(e) {
+	window.parent.frames[1].document.f.i.value=e.value;
+}
+window.onload=init;
+</script>
+</head>
+<body>
+<form action="" method="post" name="f" id="f" onsubmit="return false;">
+<input type="text" name="i" id="i" autocomplete="false" onchange="sync(this);">
+</form>
+</body>
+</html>

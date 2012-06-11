@@ -1,0 +1,85 @@
+.fl {
+    float: left
+}
+
+.fr {
+    float: right
+}
+
+.clear {
+    clear: both;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+}
+
+.in_line {
+    display: inline
+}
+
+.block {
+    display: block
+}
+
+.font_1 {
+}
+
+.font_2 {
+}
+
+.font_3 {
+}
+
+.font_4 {
+}
+
+.font_5 {
+    font-size: 15px
+}
+
+.font_6 {
+    font-size: 16px
+}
+
+.font_7 {
+}
+
+.font_8 {
+}
+
+.font_9 {
+}
+
+/* Chỉnh độ rộng của fields potential trong phần search module FITs */
+#Accountsbasic_searchSearchForm select[name^=potential_basic] {
+    width: 170px !important;
+}
+
+#Accountsbasic_searchSearchForm select[name^=potential_advanced] {
+    width: 170px !important;
+}
+
+.synced {
+    background: #0099FF;
+    border-radius: 6px 6px 6px 6px;
+    color: #FFFFFF;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 3px;
+}
+
+.async {
+    background: #c7c6d1;
+    border-radius: 6px 6px 6px 6px;
+    color: #f2f0fa;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 3px;
+    -moz-transition: color 1s;
+    -webkit-transition: color 1s;
+    transition: color 1s;
+}
+.word-wrap{
+    max-width: 350px;
+    white-space: normal;
+}

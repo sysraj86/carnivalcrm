@@ -1,0 +1,146 @@
+<!-- BEGIN: main -->   
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+<form action="index.php"  name="DetailView" id="DetailView" method="post">  
+<input type="hidden"   name="module"         value="RestaurantBookings">
+<input type="hidden"   name="record"         value="{ID}"> 
+<input type="hidden"   name="action">
+<input type="hidden"   name="isDuplicate" value="false">
+<input type="hidden"   name="return_module"  value="{RETURN_MODULE}">
+<input type="hidden"   name="return_id"      value="{RETURN_ID}">
+<input type="hidden"   name="return_action"  value="{RETURN_ACTION}">
+<tr>
+    <td style="padding-bottom: 2px;">
+         <input title="{APP.LBL_EDIT_BUTTON_TITLE}" 
+            accessKey="{APP.LBL_EDIT_BUTTON_KEY}" 
+            class="button" 
+            onclick="this.form.return_module.value='RestaurantBookings'; this.form.return_action.value='DetailView'; this.form.return_id.value='{ID}'; this.form.action.value='EditView'" 
+            type="submit" 
+            name="Edit" 
+            value="  {APP.LBL_EDIT_BUTTON_LABEL}  "> 
+     <input title="{APP.LBL_DUPLICATE_BUTTON_TITLE}" 
+            accessKey="{APP.LBL_DUPLICATE_BUTTON_KEY}" 
+            class="button" 
+            onclick="this.form.return_module.value='RestaurantBookings'; this.form.return_action.value='DetailView';this.form.return_id.value='{ID}'; this.form.isDuplicate.value=true; this.form.action.value='EditView';SUGAR.ajaxUI.submitForm(this.form);" 
+            type="submit" 
+            name="Duplicate" 
+            value=" {APP.LBL_DUPLICATE_BUTTON_LABEL} "> 
+     <input title="{APP.LBL_DELETE_BUTTON_TITLE}" 
+            accessKey="{APP.LBL_DELETE_BUTTON_KEY}" 
+            class="button" 
+            onclick="this.form.return_module.value='RestaurantBookings'; this.form.return_action.value='ListView'; this.form.action.value='Delete'; return confirm('{APP.NTC_DELETE_CONFIRMATION}')" 
+            type="submit" 
+            name="Delete" 
+            value=" {APP.LBL_DELETE_BUTTON_LABEL} ">
+     <input title="View Change Log" class="button" onclick='open_popup("Audit", "600", "400", "&record={ID}&module_name=RestaurantBookings", true, false,  { "call_back_function":"set_return","form_name":"EditView","field_to_name_array":[] } ); return false;' type="submit" value="View Change Log">
+     <input title="export to word" class="button" type="button" onclick="window.location.href='index.php?module=RestaurantBookings&action=export2word&record={ID}'" value=" Export to Word" />
+    </td>
+    <td align='right'>{ADMIN_EDIT}</td> 
+</tr>
+</form> 
+<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td class="tabDetailViewDL" width="200">{MOD.LBL_CODE} :</td>
+        <td class="tabDetailViewDF">{CODE}</td>
+    </tr>
+    <tr>
+        <td class="tabDetailViewDL">{MOD.LBL_TO} :</td>
+        <td class="tabDetailViewDF"><a href="index.php?module=Restaurants&action=DetailView&record={RES_ID}">{RES}</td>
+    </tr>
+    <tr>
+        <td class="tabDetailViewDL">{MOD.LBL_RES_ADDRESS} :</td>
+        <td class="tabDetailViewDF">{ADDRESS}</td>
+    </tr>
+    <tr>
+        <td class="tabDetailViewDL">{MOD.LBL_ATTN_NAME} :</td>
+        <td class="tabDetailViewDF"><a href="index.php?module=Contacts&action=DetailView&record={ATTN_RES_NAME_ID}">{ATTN_RES_NAME} - {ATTN_RES_PHONE}</a></td>
+    </tr>
+    <tr>
+        <td class="tabDetailViewDL">{MOD.LBL_RES_TEL} :</td>
+        <td class="tabDetailViewDF">{RES_TEL}&nbsp; - {MOD.LBL_RES_FAX} :{RES_FAX} </td>
+    </tr>
+    <tr>
+        <td class="tabDetailViewDL">{MOD.LBL_FROM} :</td>
+        <td class="tabDetailViewDF">{FROM}</td>
+    </tr>
+    <tr>
+        <td class="tabDetailViewDL">{MOD.LBL_ATTN_NAME} :</td>
+        <td class="tabDetailViewDF"><a href="index.php?module=Users&action=DetailView&record={ATTN_ID}">{ATTN_NAME} - {ATTN_PHONE} </a></td>
+    </tr>
+    <tr>
+        <td class="tabDetailViewDL">{MOD.LBL_EMAIL} :</td>
+        <td class="tabDetailViewDF">{ATTN_EMAIL}</td>
+    </tr>
+    <tr>
+        <td class="tabDetailViewDL">{MOD.LBL_RES_TEL} :</td>
+        <td class="tabDetailViewDF">{TEL} &nbsp;{MOD.LBL_RES_FAX}&nbsp;{FAX}</td>
+    </tr>
+
+    <tr>
+        <td class="tabDetailViewDL" colspan="2"><h1 align="center"> <font size="8">FAX BOOKING RESTAURANT</font></h1></td>
+    </tr>
+     <tr>
+        <td class="tabDetailViewDL">{MOD.LBL_OPERATING_DATE} :</td>
+        <td class="tabDetailViewDF">{DATE_TIME} {OPERATING_DATE}</td>
+     </tr>
+    <tr>
+        <td class="tabDetailViewDL">{MOD.LBL_MADE_TOUR} : </td>
+        <td class="tabDetailViewDF"><a href="index.php?module=GroupPrograms&action=DetailView&record={MADETOUR_ID}">{MADETOUR}</a></td>
+    </tr>
+    <tr>
+        <td class="tabDetailViewDL">{MOD.LBL_NATIONLITY} :</td>
+        <td class="tabDetailViewDF">{NATIONLITY}</td>
+    </tr>
+    <tr>
+        <td class="tabDetailViewDL">{MOD.LBL_QUANTITY_PAX} :</td>
+        <td class="tabDetailViewDF">{QUANTITY_PAX}</td>
+    </tr>
+    <tr>
+        <td class="tabDetailViewDL">{MOD.LBL_GUIDE} :</td>
+        <td class="tabDetailViewDF"><a href="index.php?module=TravelGuides&action=DetailView&record={GUIDE_ID}">{GUIDE} - {GUIDE_PHONE} </a></td>
+    </tr>
+    <tr>
+        <td class="tabDetailViewDL">{MOD.LBL_BOOKING_LIST}</td>
+        <td class="tabDetailViewDF">
+            <table class="table_clone" id="table_clone" cellpadding="0" cellspacing="0" border="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>{MOD.LBL_TIME}</th>
+                        <th>{MOD.LBL_QUANTITY}</th>
+                        <th>{MOD.LBL_UNIT_PRICE}</th>
+                        <th style="text-align:left;">{MOD.LBL_MENU}</th>    
+                    </tr>
+                </thead>
+                <tbody>
+                       {BOOKINGLINE}
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td class="tabDetailViewDL"><u>{MOD.LBL_NOTES} :</u></td>
+        <td class="tabDetailViewDF">{NOTES}</td>
+    </tr>
+    <tr>
+        <td class="tabDetailViewDL">{MOD.LBL_GIA} :</td>
+        <td class="tabDetailViewDF">{GIA}</td>
+    </tr>
+    <tr>
+        <td class="tabDetailViewDL">{MOD.LBL_CONFIRM}:</td>
+        <td class="tabDetailViewDF"> {CONFIRM}</td>
+    </tr>
+    <tr>
+        <td class="tabDetailViewDL">{MOD.LBL_DATE}:</td>
+        <td class="tabDetailViewDF"> {DATE} </td>
+    </tr>
+    <tr>
+        <td class="tabDetailViewDL">{MOD.LBL_DEADLINE} :</td>
+        <td class="tabDetailViewDF">{DEADLINE} </td>
+    </tr>
+    <tr>
+        <td class="tabDetailViewDL">{MOD.LBL_DEPARMENT} :</td>
+        <td class="tabDetailViewDF">{DEPARMENT}  </td>
+    </tr>
+</table>
+
+<!-- END: main -->    

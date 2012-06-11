@@ -1,0 +1,109 @@
+<?php
+$module_name = 'AirlinesTickets';
+$viewdefs [$module_name] = 
+array (
+  'EditView' => 
+  array (
+    'templateMeta' => 
+    array (
+      'maxColumns' => '2',
+      'widths' => 
+      array (
+        0 => 
+        array (
+          'label' => '10',
+          'field' => '30',
+        ),
+        1 => 
+        array (
+          'label' => '10',
+          'field' => '30',
+        ),
+      ),
+      'useTabs' => false,
+    ),
+    'panels' => 
+    array (
+      'default' => 
+      array (
+        0 => 
+        array (
+          0 => 'name',
+          1 => 'from_itinerary',
+        ),
+        1 => 
+        array (
+          0 => 'airline_status',
+          1 => 
+          array (
+            'name' => 'groupprograestickets_name',
+            'label' => 'LBL_MADETOUR',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'airlines_aiestickets_name',
+            'label' => 'LBL_AIRLINES',
+          ),
+          1 => '',
+        ),
+        3 => 
+        array (
+          0 => 'type',
+          1 => 
+          array (
+            'name' => 'area',
+            'label' => 'LBL_AREA',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 'itinerary',
+          1 => 'booking_class',
+        ),
+        5 => 
+        array (
+          0 => 'booking_code',
+          1 => 'time',
+        ),
+        6 => 
+        array (
+          0 => 'tax_fee_change',
+          1 => 'commisson',
+        ),
+        7 => 
+        array (
+          0 => 'nett',
+          1 => 'roe',
+        ),
+        8 => 
+        array (
+          0 => 'equivalent_in_vn',
+          1 => 'airlines_representative',
+        ),
+        9 => 
+        array (
+          0 => 'ticket_agency',
+          1 => 'fare',
+        ),
+        10 => 
+        array (
+          0 => 'description',
+          1 => 'messenger',
+        ),
+        11 => 
+        array (
+          0 => 'assigned_user_name',
+          1 => 
+          array (
+            'name' => 'airlinesticestickets_name',
+            'label' => 'LBL_AIRLINESTICKETS_AIRLINESTICKETS_FROM_AIRLINESTICKETS_L_TITLE',
+          ),
+        ),
+      ),
+    ),
+  ),
+);
+?>
