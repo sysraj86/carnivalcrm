@@ -10,10 +10,11 @@ $layout_defs["Accounts"]["subpanel_setup"]["accounts_tours"] = array (
   'get_subpanel_data' => 'accounts_tours',
   'top_buttons' => 
   array (
+/* fixbug 649 
     0 => 
     array (
       'widget_class' => 'SubPanelTopButtonQuickCreate',
-    ),
+    ),*/
     1 => 
     array (
       'widget_class' => 'SubPanelTopSelectButton',

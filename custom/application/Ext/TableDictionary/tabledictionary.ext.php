@@ -28,11 +28,6 @@ include('custom/metadata/accounts_odersMetaData.php');
 
  
  //WARNING: The contents of this file are auto-generated
-include('custom/metadata/accounts_prospectsMetaData.php');
-
-
- 
- //WARNING: The contents of this file are auto-generated
 include('custom/metadata/accounts_quotesMetaData.php');
 
 

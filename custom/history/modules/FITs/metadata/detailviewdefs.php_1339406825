@@ -1,11 +1,24 @@
 <?php
-$module_name = 'FITs';
-$viewdefs [$module_name] = 
+$viewdefs ['FITs'] = 
 array (
-  'EditView' => 
+  'DetailView' => 
   array (
     'templateMeta' => 
     array (
+      'form' => 
+      array (
+        'buttons' => 
+        array (
+          0 => 'EDIT',
+          1 => 'DUPLICATE',
+          2 => 'DELETE',
+          3 => 'FIND_DUPLICATES',
+          4 => 
+          array (
+            'customCode' => '<input title="{$APP.LBL_MANAGE_SUBSCRIPTIONS}" class="button" onclick="this.form.return_module.value=\'Contacts\'; this.form.return_action.value=\'DetailView\'; this.form.return_id.value=\'{$fields.id.value}\'; this.form.action.value=\'Subscriptions\'; this.form.module.value=\'Campaigns\'; this.form.module_tab.value=\'Contacts\';" type="submit" name="Manage Subscriptions" value="{$APP.LBL_MANAGE_SUBSCRIPTIONS}">',
+          ),
+        ),
+      ),
       'maxColumns' => '2',
       'widths' => 
       array (
@@ -20,9 +33,6 @@ array (
           'field' => '30',
         ),
       ),
-      'include' => 
-      array (
-      ),
       'useTabs' => false,
       'syncDetailEditViews' => true,
     ),
@@ -35,36 +45,24 @@ array (
           0 => 
           array (
             'name' => 'first_name',
-            'customCode' => '{html_options name="salutation" id="salutation" options=$fields.salutation.options selected=$fields.salutation.value}&nbsp;<input name="first_name"  id="first_name" size="25" maxlength="25" type="text" value="{$fields.first_name.value}">',
+            'comment' => 'First name of the contact',
+            'label' => 'LBL_FIRST_NAME',
           ),
-          1 => 'last_name',
+          1 => 
+          array (
+            'name' => 'last_name',
+            'comment' => 'Last name of the contact',
+            'label' => 'LBL_LAST_NAME',
+          ),
         ),
         1 => 
         array (
           0 => 'gender',
-          1 => 
-          array (
-            'name' => 'birthday',
-            'label' => 'LBL_BIRTHDAY',
-            'displayParams' => 
-            array (
-              'showFormats' => true,
-            ),
-          ),
+          1 => 'birthday',
         ),
         2 => 
         array (
-          0 => 'fit_type',
-          1 => 'religion',
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'phone_mobile',
-            'comment' => 'Mobile phone number of the contact',
-            'label' => 'LBL_MOBILE_PHONE',
-          ),
+          0 => 'phone_mobile',
           1 => 
           array (
             'name' => 'phone_home',
@@ -72,7 +70,7 @@ array (
             'label' => 'LBL_HOME_PHONE',
           ),
         ),
-        4 => 
+        3 => 
         array (
           0 => 
           array (
@@ -83,9 +81,12 @@ array (
           1 => 
           array (
             'name' => 'phone_fax',
-            'comment' => 'Contact fax number',
             'label' => 'LBL_FAX_PHONE',
           ),
+        ),
+        4 => 
+        array (
+          0 => 'religion',
         ),
         5 => 
         array (
@@ -94,16 +95,7 @@ array (
         ),
         6 => 
         array (
-          0 => 
-          array (
-            'name' => 'address',
-            'label' => 'LBL_ADDRESS',
-            'displayParams' => 
-            array (
-              'cols' => 60,
-              'rows' => 4,
-            ),
-          ),
+          0 => 'address',
           1 => 'district',
         ),
         7 => 
@@ -120,14 +112,19 @@ array (
       array (
         0 => 
         array (
-          0 => 
+          0 => 'fit_type',
+          1 => 
           array (
             'name' => 'fit_type2',
             'label' => 'LBL_FIT2_TYPE',
           ),
-          1 => 'source',
         ),
         1 => 
+        array (
+          0 => 'source',
+          1 => '',
+        ),
+        2 => 
         array (
           0 => 'potential',
           1 => 
@@ -149,37 +146,13 @@ array (
         ),
         1 => 
         array (
-          0 => 
-          array (
-            'name' => 'date_issue',
-            'label' => 'LBL_DATE_ISSUE',
-            'displayParams' => 
-            array (
-              'showFormats' => true,
-            ),
-          ),
-          1 => 
-          array (
-            'name' => 'expiration_date',
-            'label' => 'LBL_EXPIRATION_DATE',
-            'displayParams' => 
-            array (
-              'showFormats' => true,
-            ),
-          ),
+          0 => 'date_issue',
+          1 => 'expiration_date',
         ),
         2 => 
         array (
           0 => 'issue_place',
           1 => 'passport_status',
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'visited_country',
-            'label' => 'LBL_VISITED_COUNTRY',
-          ),
         ),
       ),
       'LBL_PANEL_ASSIGNMENT' => 
@@ -199,23 +172,8 @@ array (
           array (
             'name' => 'accounts_fits_name',
             'label' => 'LBL_ACCOUNT_NAME',
-            'displayParams' => 
-            array (
-              'key' => 'billing',
-              'copy' => 'primary',
-              'billingKey' => 'primary',
-              'additionalFields' => 
-              array (
-                'phone_office' => 'phone_work',
-              ),
-            ),
           ),
-          1 => 
-          array (
-            'name' => 'fit_title',
-            'comment' => 'The title of the contact',
-            'label' => 'LBL_TITLE',
-          ),
+          1 => 'fit_title',
         ),
         2 => 
         array (
@@ -240,6 +198,7 @@ array (
           0 => 
           array (
             'name' => 'description',
+            'comment' => 'Full text of the note',
             'label' => 'LBL_DESCRIPTION',
           ),
         ),

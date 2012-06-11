@@ -1,5 +1,5 @@
 <?php
-// created: 2012-05-23 11:42:12
+// created: 2012-06-11 17:15:41
 $mod_strings = array (
   'LBL_PICTURE' => 'Picture',
   'LBL_ACCOUNTS_CONTRACTS_FROM_CONTRACTS_TITLE' => 'Contracts',
@@ -10,5 +10,7 @@ $mod_strings = array (
   'LBL_ACCOUNTS_FITS_FROM_FITS_TITLE' => 'Employees',
   'LBL_PROVINCE_CITY_NAME' => 'Province / City',
   'LBL_ACCOUNTS_MST' => 'Tax Code',
+  'LBL_MAVUNG' => 'Area Code',
+  'LBL_PHONE_OFFICE' => 'Company phone:',
 );
 ?>
