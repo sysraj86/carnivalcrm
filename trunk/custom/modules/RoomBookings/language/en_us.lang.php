@@ -13,5 +13,7 @@ $mod_strings = array (
   'LNK_IMPORT_A_HOTELS' => 'Import Room Bookings',
   'LNK_LIST' => 'View Room Bookings',
   'LNK_NEW_RECORD' => 'Create Room Booking',
+  'LBL_MADE_TOUR_CODE' => 'Made Tour Code',
+  'LBL_GIA' => 'Price',
 );
 ?>
