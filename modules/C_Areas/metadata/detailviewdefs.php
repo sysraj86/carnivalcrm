@@ -29,6 +29,7 @@ array (
           'field' => '30',
         ),
       ),
+      'useTabs' => false,
     ),
     'panels' => 
     array (
@@ -43,15 +44,12 @@ array (
         array (
           0 => 
           array (
-            'name' => 'date_entered',
-            'customCode' => '{$fields.date_entered.value} {$APP.LBL_BY} {$fields.created_by_name.value}',
-            'label' => 'LBL_DATE_ENTERED',
+            'name' => 'c_areas_countries_name',
           ),
           1 => 
           array (
-            'name' => 'date_modified',
-            'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
-            'label' => 'LBL_DATE_MODIFIED',
+            'name' => 'code',
+            'label' => 'LBL_AREAS_CODE',
           ),
         ),
         2 => 
@@ -59,7 +57,9 @@ array (
           0 => 'description',
           1 => 
           array (
-            'name' => 'c_areas_countries_name',
+            'name' => 'date_entered',
+            'customCode' => '{$fields.date_entered.value} {$APP.LBL_BY} {$fields.created_by_name.value}',
+            'label' => 'LBL_DATE_ENTERED',
           ),
         ),
       ),

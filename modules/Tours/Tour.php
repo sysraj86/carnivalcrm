@@ -140,14 +140,57 @@ class  Tour extends SugarBean
             $html .= '<fieldset>';
             $html .= '<table  cellpadding="0" cellspacing="0" width="100%" class="tabForm">';
             $html .= '<tr>' .
-                '<td colspan="4">' .
+                '<td colspan="8">' .
                 '<h2 class="font_6 in_line">NGÀY <span class="day_num">' . $count . '</span>:</h2>' .
                 '</td>' .
                 '</tr>';
             $html .= '<tr>';
             $html .= '<td class="dataLabel">Title:</td>';
             $html .= '<td class="dataField"><input type="text" name="title[]" size="35" id="title_' . $count . '" value="' . $row['title'] . '"/></td>';
-            $html .= '<td colspan="2">';
+            $html .= '<td class="dataLabel">&nbsp;</td>
+                                        <td class="dataField" colspan="5">
+                                           &nbsp;
+                                        </td>';
+            $html .= '</tr>';
+            $html .= '<tr>
+                        <td class="dataLabel">
+                                Countries:
+                            </td>
+                            <td class="dataField">
+                                <select name="tour_country" class="jk_list_countries" multiple="multiple" size="4">
+                                    '.$list_countries.'
+                                </select>
+                            </td>
+                            <td class="dataLabel">
+                                Areas:
+                            </td>
+                            <td class="dataField">
+                                <select name="tour_country" class="jk_list_areas" multiple="multiple" size="4">
+                                    <option value="">--None--</option>
+                                </select>
+                            </td>
+                            <td class="dataLabel">
+                                Cities:
+                            </td>
+                            <td class="dataField">
+                                <select name="destinations[]" class="jk_list_destinations" multiple="multiple" size="4">
+                                    '. $parent .'
+                                </select>
+                                <input type="hidden" value="' . $des_selected_count . '" name="destination_selected_count[]"/>
+                            </td>
+                            <td class="dataLabel">
+                                <span>Locations:</span>
+
+                            </td>
+                            <td class="dataField">
+                                <select multiple="multiple" name="locations[]" class="jk_list_locations" size="4"
+                                        data-editorId="description_pro_'.$count.'">
+                                    '. $location_html.'
+                                </select>
+                                <input type="hidden" value="' . $lc_selected_count . '" name="location_selected_count[]"/>
+                            </td>
+                    </tr>';
+           /* $html .= '<td colspan="2">';
             $html .= '<span>Countries:</span>';
             $html .= '<select multiple size="3">';
             $html .= $list_countries;
@@ -172,20 +215,20 @@ class  Tour extends SugarBean
 
             //$html .= '<td class="dataLabel">Destination</td>' ;
             //$html .= '<td class="dataField"><input type="text" name="destination[]" size="35" id="destination" value="'.$row['destination'].'"/></td>';
-            $html .= '</tr>';
+            $html .= '</tr>';*/
             $html .= '<tr>';
             $html .= '<td class="dataLabel">Notes</td>';
-            $html .= '<td class="dataField"><input type="text" name="notes[]" size="35" id="notes_' . $count . '" value="' . $row['notes'] . '"/></td>';
+            $html .= '<td class="dataField" colspan="5"><input type="text" name="notes[]" size="35" id="notes_' . $count . '" value="' . $row['notes'] . '"/></td>';
             // $html .= '<td class="dataLabel">Picture</td>';
             $html .= ' <td class="dataLabel">' .
-                '<span>Picture:</span>' .
+                'Picture:' .
                 '</td>';
             $html .= '<td class="dataField"><input type="file" name="uploadfile[]" id ="uploadfile" /> </td>';
 
             $html .= '</tr>';
             $html .= '<tr>';
             $html .= '<td class="dataLabel">Description</td>';
-            $html .= '<td class="dataField"><textarea  class="jk_editor" cols="75" rows="15" id="description_pro_' . $count . '" name="description_pro[]">' . html_entity_decode($row['description'], ENT_COMPAT, 'UTF-8') . '</textarea> <input type="hidden" class="id" name="tour_program_id[]" id="tour_program_id_' . $count . '" value="' . $row['id'] . '"/>
+            $html .= '<td class="dataField" colspan="5"><textarea  class="jk_editor" cols="75" rows="15" id="description_pro_' . $count . '" name="description_pro[]">' . html_entity_decode($row['description'], ENT_COMPAT, 'UTF-8') . '</textarea> <input type="hidden" class="id" name="tour_program_id[]" id="tour_program_id_' . $count . '" value="' . $row['id'] . '"/>
 
                                             <input type="hidden" name="deleted[]" class="deleted" id="deleted_' . $count . '" value="0"/>
                                             <input type="hidden" name="images[]" id="images_' . $count . '" value="' . $row['picture'] . '"/> </td>';
@@ -440,15 +483,14 @@ class  Tour extends SugarBean
     }
     public function getListAreas(){
         global $db;
-        $query = "SELECT id, name
-                            FROM c_areas";
+        $query = "SELECT id, name,code FROM c_areas";
        $result = $db->query($query);
         $areas = array();
         while($row = $db->fetchByAssoc($result)){
             $area = array();
             $area['id'] = $row['id'];
             $area['name'] = $row['name'];
-            $area['code'] = $row['code_c'];
+           $area['code'] = $row['code'];
             $areas[] = $area;
         }
         return $areas;

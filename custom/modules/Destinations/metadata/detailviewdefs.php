@@ -56,11 +56,7 @@ array (
         ),
         2 => 
         array (
-          0 => 
-          array (
-            'name' => 'c_areas_destinations_name',
-            'label' => 'LBL_C_AREAS_DESTINATIONS_FROM_C_AREAS_TITLE',
-          ),
+          0 => '',
         ),
         3 => 
         array (

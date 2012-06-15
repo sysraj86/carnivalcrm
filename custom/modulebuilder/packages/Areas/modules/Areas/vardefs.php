@@ -37,6 +37,23 @@
 $vardefs = array (
   'fields' => 
   array (
+    'code' => 
+    array (
+      'required' => true,
+      'name' => 'code',
+      'vname' => 'LBL_AREAS_CODE',
+      'type' => 'varchar',
+      'massupdate' => 0,
+      'comments' => 'Ma tour &quot;MN1&quot;',
+      'help' => '',
+      'importable' => 'true',
+      'duplicate_merge' => 'disabled',
+      'duplicate_merge_dom_value' => '0',
+      'audited' => false,
+      'reportable' => true,
+      'len' => '255',
+      'size' => '20',
+    ),
   ),
   'relationships' => 
   array (

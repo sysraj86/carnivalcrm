@@ -20,22 +20,40 @@
                             '<td class="dataField">'+
                                 '<input type="text" name="title[]" size="35" value="{{title}}" id="title_{{current_row}}"/>'+
                             '</td>'+
+                            '<td class="labelField">&nbsp;</td>'+
+                            '<td class="dataField" colspan="5">&nbsp;</td>'+
+                        '</tr>'+
+                        '<tr>'+
                             '<td class="dataLabel">'+
-                                '<span>Countries:</span>'+
+                                'Countries:'+
+                            '</td>'+
+                            '<td class="dataField">'+
                                  '<select name="destinations[]" class="jk_list_destinations" multiple="multiple" size="4">'+
                                      '{{countries}}'+
                                  '</select>'+
-                                '<span>Area:</span>'+
+                            '</td>'+
+                            '<td class="dataLabel">'+
+                                'Area:'+
+                            '</td>'+
+                            '<td class="dataField">'+
                                  '<select name="destinations[]" class="jk_list_destinations" multiple="multiple" size="4">'+
                                      '<option value="">--None--</option>'+
                                  '</select>'+
-                                '<span>Cities:</span>'+
+                            '</td>'+
+                            '<td class="dataLabel">'+
+                                'Citites'+
+                            '</td>'+
+                            '<td>'+
                                 '<select name="destinations[]" class="jk_list_destinations" multiple="multiple" size="4">'+
                                     '{{destinations}}'+
                                 '</select>'+
                                 '<input type="hidden" value="0" name="destination_selected_count[]"/>'+
-                                '<span>Locations:</span>'+
-                                '<select name="locations[]" multiple="multiple" class="jk_list_locations" size="4" data-editorId="description_pro_{{current_row}}">'+
+                            '</td>'+
+                            '<td>'+
+                                    'Locations'+
+                            '</td>'+
+                             '<td>'+
+                                    '<select name="locations[]" multiple="multiple" class="jk_list_locations" size="4" data-editorId="description_pro_{{current_row}}">'+
                                     '<option value="">None</option>'+
                                     '{{locations}}'+
                                 '</select>'+
@@ -44,16 +62,16 @@
                         '</tr>'+
                         '<tr>'+
                             '<td class="dataLabel">Notes</td>'+
-                            '<td class="dataField"><input type="text" name="notes[]" size="35" id="notes_{{current_row}}" value="{{note}}"/></td>'+
+                            '<td class="dataField" colspan="5"><input type="text" name="notes[]" size="35" id="notes_{{current_row}}" value="{{note}}"/></td>'+
                             '<td class="dataLabel">'+
-                                '<span>Picture:</span>'+
+                                'Picture'+
                             '</td>'+
-                            '<td class="dataLabel"><input type="file" name="uploadfile[]" id="uploadfile_{{current_row}}"/>'+
+                            '<td class="dataField"><input type="file" name="uploadfile[]" id="uploadfile_{{current_row}}"/>'+
                             '</td>'+
                        '</tr>'+
                         '<tr>'+
                             '<td class="dataLabel">Description</td>'+
-                            '<td class="dataField">'+
+                            '<td class="dataField" colspan="5">'+
                                 '<textarea class="jk_editor" cols="75" rows="15" id="description_pro_{{current_row}}" name="description_pro[]">{{description}}</textarea></td>'+
                             '<td class="dataLabel tour_program_image">{{picture_html}}</td>'+
                             '<td class="dataField">'+
@@ -64,7 +82,6 @@
                         '</tr>'+
                         '</thead>'+
                     '</table>'+
-
                 '</fieldset>'+
             '</td>'+
             '<td>'+

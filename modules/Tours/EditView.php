@@ -81,18 +81,40 @@ $ss->assign("ASSIGNED_USER_NAME", $focus->assigned_user_name);
 $ss->assign("ASSIGNED_USER_ID", $focus->assigned_user_id);
 $ss->assign('CALENDAR_DATEFORMAT', $timedate->get_cal_date_format());
 $ss->assign('USER_DATEFORMAT', $timedate->get_user_date_format());
+/***
+ * Code generate ra tour area
+ */
+$areas = $focus->getListAreas();
+$area_options = "<option data-code='' value=''>--None--</option>";
+$area_pattern = "";
+$frame_types_pattern = "F|H|O";
+foreach ($areas as $value) {
+    $selected = "";
+    if($value['id']==$focus->area){
+        $selected = "selected";
+    }
+    $area_options .= "<option $selected data-code='" . $value['code'] . "' value='" . $value['id'] . "'>" . $value['name'] . "</option>";
+    $area_pattern .= ($area_pattern=="")? "":"|";
+    $area_pattern .= $value['code'];
+}
+
+$ss->assign("TOUR_AREA", $area_options);
 // custom
 if ($focus->tour_code) {
-    $tour_code_area = substr($focus->tour_code, 0, 5);
-    preg_match('/^(' . $tour_code_area . ')(\d+)(\/)(\w+?)(\-)(\d+)$/', $focus->tour_code, $matches);
-    if (count($matches)) {
-        $tour_code_num = $matches[2];
-        $tour_code_department = $matches[4];
+   // $tour_code_area = substr($focus->tour_code, 0, 5);
+    if (preg_match('/^('.$frame_types_pattern.')('.$area_pattern.')(\d+)(\/)(\w+)-(\d+)$/', $focus->tour_code, $matches)) {
+        $tour_frame_type = $matches[1];
+        $tour_code_area = $matches[2];
+        $tour_code_num = $matches[3];
+        $tour_code_department = $matches[5];
         $tour_num = $matches[6];
-    } else {
-        preg_match('/^(' . $tour_code_area . ')(\d+)(\/)(\w+)$/', $focus->tour_code, $matches);
-        $tour_code_num = $matches[2];
-        $tour_code_department = $matches[4];
+    } else if(preg_match('/^('.$frame_types_pattern.')('.$area_pattern.')(\d+)(\/)(\w+)$/', $focus->tour_code, $matches)) {
+        $tour_frame_type = $matches[1];
+        $tour_code_area = $matches[2];
+        $tour_code_num = $matches[3];
+        $tour_code_department = $matches[5];
+    }else{
+        $tour_num = Tour::get_tour_num();
     }
 
 }
@@ -103,14 +125,14 @@ if (empty($focus->id)) {
     $tour_num = Tour::get_tour_num();
 }
 
-$ss->assign("TOUR_CODE_AREA", $tour_code_area);
+$ss->assign("TOUR_CODE_AREA",$tour_frame_type.$tour_code_area);
 $ss->assign("TOUR_CODE_DEPARTMENT", $tour_code_department);
 $ss->assign("TOUR_CODE_NUM", $tour_code_num);
 $ss->assign("TOUR_NUM", $tour_num);
 //$ss->assign("TOURCODE", $focus->tour_code);
 $ss->assign("TOUR_NAME", $focus->tour_name);
-$ss->assign("TO_PLACE", $focus->to_place);
-$ss->assign("FROM_PLACE", $focus->from_place);
+//$ss->assign("TO_PLACE", $focus->to_place);
+//$ss->assign("FROM_PLACE", $focus->from_place);
 $ss->assign("DESTINATION_TO_ID", $focus->destination_to_id);
 $ss->assign("DESTINATION_FROM_ID", $focus->destination_from_id);
 $ss->assign("START_DATE", $focus->start_date);
@@ -123,15 +145,7 @@ $ss->assign("DESCRIPTION", $focus->description);
 $ss->assign("ACCOUNT_NAME", $focus->accounts_tours_name);
 $ss->assign("ACCOUNT_ID", $focus->accounts_t4d21ccounts_ida);
 $ss->assign("DURATION", $focus->duration);
-/***
- * Code generate ra tour area
- */
-$areas = $focus->getListAreas();
-$area_options = "<option data-code='' value=''>--None--</option>";
-foreach ($areas as $value) {
-    $area_options .= "<option data-code='" . $value['code'] . "' value='" . $value['id'] . "'>" . $value['name'] . "</option>";
-}
-$ss->assign("TOUR_AREA", $area_options);
+
 ////end
 $ss->assign("IS_HOT_TOUR", $focus->is_hot_tour);
 $ss->assign("IS_FAVORITE_TOUR", $focus->is_favorite_tour);

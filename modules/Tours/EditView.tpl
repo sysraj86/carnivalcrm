@@ -219,7 +219,7 @@ addToValidate('EditView', 'area', 'string', true, 'Tour area');
             {if $PICTURE neq ''}
                 {$PICTURE}<br/>
             {/if}
-                <input type="file" name="upload_image" id="upload_image"/>
+                <input type="file" name="tour_image" id="upload_image"/>
             </td>
             <td></td>
             <td style="font-size:15px; line-height: 24px">
@@ -290,7 +290,7 @@ addToValidate('EditView', 'area', 'string', true, 'Tour area');
                     <table cellpadding="0" cellspacing="0" width="100%" id="tour_program_1" class="tabForm">
                         <thead>
                         <tr>
-                            <td colspan="4">
+                            <td colspan="8">
                                 <h2 class="font_6 in_line">
                                     NGÀY <span class="day_num">1</span>:
                                 </h2>
@@ -301,21 +301,42 @@ addToValidate('EditView', 'area', 'string', true, 'Tour area');
                             <td class="dataField">
                                 <input type="text" name="title[]" size="35" id="title_1"/>
                             </td>
-                            <td class="dataLabel" colspan="2">
-                                <span>Countries: </span>
+                            <td class="dataLabel">&nbsp;</td>
+                            <td class="dataField" colspan="5">
+                               &nbsp;
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="dataLabel">
+                                Countries:
+                            </td>
+                            <td class="dataField">
                                 <select name="tour_country" class="jk_list_countries" multiple="multiple" size="4">
                                     {$COUNTRIES}
                                 </select>
-                                <span>Areas: </span>
+                            </td>
+                            <td class="dataLabel">
+                                Areas:
+                            </td>
+                            <td class="dataField">
                                 <select name="tour_country" class="jk_list_areas" multiple="multiple" size="4">
                                     <option value=''>--None--</option>
                                 </select>
-                                <span>Cities: </span>
+                            </td>
+                            <td class="dataLabel">
+                                Cities:
+                            </td>
+                            <td class="dataField">
                                 <select name="destinations[]" class="jk_list_destinations" multiple="multiple" size="4">
                                     {$DESTINATION}
                                 </select>
                                 <input type="hidden" value="0" name="destination_selected_count[]"/>
+                            </td>
+                            <td class="dataLabel">
                                 <span>Locations:</span>
+
+                            </td>
+                            <td class="dataField">
                                 <select multiple="multiple" name="locations[]" class="jk_list_locations" size="4"
                                         data-editorId="description_pro_1">
                                     <option value="">None</option>
@@ -325,11 +346,14 @@ addToValidate('EditView', 'area', 'string', true, 'Tour area');
                         </tr>
                         <tr>
                             <td class="dataLabel">Notes</td>
-                            <td class="dataField"><input type="text" name="notes[]" size="35" id="notes_1"/></td>
-                            <td class="dataLabel">
-                                <span>Picture:</span>
+                            <td class="dataField" colspan="5">
+                                <input type="text" name="notes[]" size="35" id="notes_1"/>
                             </td>
-                            <td class="dataLabel"><input type="file" name="uploadfile[]" id="uploadfile_1"/>
+                            <td class="dataLabel">
+                               Picture:
+                            </td>
+                            <td class="dataLabel">
+                                <input type="file" name="uploadfile[]" id="uploadfile_1"/>
                                 <input class="clear" name="clear[]" id="clear_1" type="button"
                                        accesskey="{$APP.LBL_CLEAR_BUTTON_KEY}" title="{$APP.LBL_CLEAR_BUTTON_TITLE}"
                                        value="{$APP.LBL_CLEAR_BUTTON_LABEL}">
@@ -337,7 +361,7 @@ addToValidate('EditView', 'area', 'string', true, 'Tour area');
                         </tr>
                         <tr>
                             <td class="dataLabel">Description</td>
-                            <td class="dataField">
+                            <td class="dataField" colspan="5">
                                 <textarea class="jk_editor" cols="75" rows="15" id="description_pro_1"
                                           name="description_pro[]"></textarea></td>
                             <td class="dataLabel">&nbsp;</td>

@@ -63,6 +63,7 @@ class C_Areas_sugar extends Basic {
 		var $assigned_user_id;
 		var $assigned_user_name;
 		var $assigned_user_link;
+		var $code;
 		function C_Areas_sugar(){	
 		parent::Basic();
 	}

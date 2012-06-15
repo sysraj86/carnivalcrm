@@ -35,6 +35,7 @@
  ********************************************************************************/
 
 $mod_strings = array(
+    'LBL_MODULE_ID'=>'ID',
     'LBL_ASSIGNED_TO_ID' => 'Assigned User Id',
     'LBL_ASSIGNED_TO_NAME' => 'Sale Man',
     'LBL_ID' => 'ID',
