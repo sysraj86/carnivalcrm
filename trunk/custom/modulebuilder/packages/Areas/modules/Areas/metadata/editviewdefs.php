@@ -20,6 +20,7 @@ array (
           'field' => '30',
         ),
       ),
+      'useTabs' => false,
     ),
     'panels' => 
     array (
@@ -32,11 +33,20 @@ array (
         ),
         1 => 
         array (
-          0 => 'description',
+          0 => 
+          array (
+            'name' => 'code',
+            'label' => 'LBL_AREAS_CODE',
+          ),
           1 => 
           array (
             'name' => 'c_areas_countries_name',
           ),
+        ),
+        2 => 
+        array (
+          0 => 'description',
+          1 => '',
         ),
       ),
     ),

@@ -1,6 +1,7 @@
 <?php
 // created: 2012-03-19 09:23:06
 $mod_strings = array (
+
   'LBL_DIVISION' => 'Division',
   'LNK_NEW_RECORD' => 'Create Tour',
   'LBL_TRANSPORT_2' => 'Transport',

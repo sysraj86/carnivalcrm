@@ -67,11 +67,11 @@ if (isset($_POST['is_template'])) {
 if (isset($_POST['tour_picture_name'])) {
     $focus->picture = $_POST['tour_picture_name'];
 }
-if (!empty($_FILES['upload_image'])) {
+if (!empty($_FILES['tour_image'])) {
     global $sugar_config;
-    if ($_FILES['upload_image']['error'] == 0) {
-        $file_name = $_FILES['upload_image']['name'];
-        $tmp_name = $_FILES['upload_image']['tmp_name'];
+    if ($_FILES['tour_image']['error'] == 0) {
+        $file_name = $_FILES['tour_image']['name'];
+        $tmp_name = $_FILES['tour_image']['tmp_name'];
         $ext = explode('.', $file_name);
         $img_ext = $ext[count($ext) - 1];
         $img_valid = false;

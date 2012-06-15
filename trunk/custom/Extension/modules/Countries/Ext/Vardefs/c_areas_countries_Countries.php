@@ -1,5 +1,5 @@
 <?php
-// created: 2012-03-02 10:56:44
+// created: 2012-06-15 16:58:50
 $dictionary["Country"]["fields"]["c_areas_countries"] = array (
   'name' => 'c_areas_countries',
   'type' => 'link',

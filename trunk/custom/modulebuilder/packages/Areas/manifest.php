@@ -51,8 +51,8 @@
           'icon' => '',
           'is_uninstallable' => true,
           'name' => 'Areas',
-          'published_date' => '2012-03-02 03:56:39',
+          'published_date' => '2012-06-15 08:58:48',
           'type' => 'module',
-          'version' => '1330660600',
+          'version' => '1339750728',
           'remove_tables' => 'prompt',
           );

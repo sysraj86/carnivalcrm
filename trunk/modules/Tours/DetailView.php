@@ -59,11 +59,11 @@ require_once('XTemplate\xtpl.php');
             $xtpl->assign("NAME",'');
      }
     $xtpl->assign("TOURCODE",  $focus->tour_code);  
-    $xtpl->assign("FROM",  $focus->from_place);
+   // $xtpl->assign("FROM",  $focus->from_place);
     $xtpl->assign("ASSIGNED_USER_NAME",  $focus->assigned_user_name); 
     $xtpl->assign("ASSIGNED_USER_ID",  $focus->assigned_user_id);
     $xtpl->assign("DESTINATION_FROM_ID",  $focus->destination_from_id); 
-    $xtpl->assign("TO",  $focus->to_place); 
+   // $xtpl->assign("TO",  $focus->to_place);
     $xtpl->assign("DESTINATION_TO_ID",  $focus->destination_to_id); 
     $xtpl->assign("START_DATE",  $focus->start_date); 
     $xtpl->assign("END_DATE",  $focus->end_date); 
@@ -75,15 +75,11 @@ require_once('XTemplate\xtpl.php');
     $xtpl->assign("CREATED_BY_NAME",  $focus->created_by_name); 
     $xtpl->assign("MODIFIED_BY_NAME",  $focus->modified_by_name); 
     $xtpl->assign("TEMPLATE_NAME",($focus->is_template==1)?"<strong>$focus->template_name</strong>":"");
-    
     if(!empty($focus->status)){
      $xtpl->assign("STATUS",translate('tour_status_dom','',$focus->status));     
     }else{
                  $xtpl->assign("STATUS", ''); 
     }
-
-         
-        
     if(!empty($focus->transport)){
         $values = explode('^,^', $focus->transport);
         $translated ='';
@@ -125,8 +121,8 @@ require_once('XTemplate\xtpl.php');
     }  
     else{$xtpl->assign("DEPARMENT",  '');  }
     
-    if(!empty($focus->tour_type)){
-        $xtpl->assign('TYPE', translate('tour_type_dom','',$focus->tour_type));
+    if(!empty($focus->type)){
+        $xtpl->assign('TYPE', translate('tourprogram_type_dom','',$focus->type));
     }
     else{
         $xtpl->assign('TYPE', '');

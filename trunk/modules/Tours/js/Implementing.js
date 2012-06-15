@@ -272,6 +272,7 @@ $(document).ready(function () {
                 optionList = "<option value=''>--None--</option>",
                 $optionSelected = $("option:selected", $this),
                 count = $optionSelected.length;
+            loader.insertAfter($this);
             $optionSelected.each(function (index) {
                 countries += this.value;
                 if (index < count - 1) countries += "|";
@@ -284,6 +285,7 @@ $(document).ready(function () {
                     data:{action:"get_area_by_countries", countries:countries},
                     async:false,
                     success:function (data) {
+                        loader.remove();
                         data = $.parseJSON(data);
 
                         $.each(data, function (key, value) {
@@ -311,6 +313,7 @@ $(document).ready(function () {
                 if (areas != '')
                     if (index < count - 1) areas += "|";
             });
+            loader.insertAfter($this);
             ///console.log(areas);
             $.ajax(
                 {
@@ -320,6 +323,7 @@ $(document).ready(function () {
                     async:false,
                     success:function (data) {
                         data = $.parseJSON(data);
+                        loader.remove();
                         $.each(data, function (key, value) {
                             optionList += "<option value='" + key + "'>" + value + "</option>";
                         });

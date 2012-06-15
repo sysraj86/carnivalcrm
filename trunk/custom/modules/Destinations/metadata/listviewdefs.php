@@ -22,14 +22,6 @@ array (
     'label' => 'LBL_AREA',
     'default' => true,
   ),
-  'C_AREAS_DESTINATIONS_NAME' => 
-  array (
-    'type' => 'relate',
-    'link' => 'c_areas_destinations',
-    'label' => 'LBL_C_AREAS_DESTINATIONS_FROM_C_AREAS_TITLE',
-    'width' => '10%',
-    'default' => true,
-  ),
   'ASSIGNED_USER_NAME' => 
   array (
     'width' => '9%',

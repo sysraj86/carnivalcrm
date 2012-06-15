@@ -63,5 +63,7 @@ $mod_strings = array (
   'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Activities',
   'LBL_C_AREAS_SUBPANEL_TITLE' => 'Areas',
   'LBL_NEW_FORM_TITLE' => 'New Areas',
+  'LBL_AREAS_CODE' => 'code',
+  'LBL_EDITVIEW_PANEL1' => 'New Panel 1',
 );
 ?>

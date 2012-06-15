@@ -9,6 +9,7 @@
     var Tours = function () {
         var _url = "index.php?module=Tours&entryPoint=TourAjax",
             tour = this;
+
         tour.id = "";
         tour.name = "";
         tour.description = "";
@@ -29,6 +30,7 @@
         tour.tourProgramLines = [];
         tour.editting = false;
         tour.template_name = "";
+
         tour.getTourNum = function () {
             $.ajax({
                 type:"POST",
@@ -86,7 +88,15 @@
         }
         tour.init = function () {
             /** xac dinh xem dang o mang hinh nao**/
-            tour.id = $('[name="record"]').val();
+            //tour.id = $('[name="record"]').val();
+            //neu dang o mang hinh edit
+            console.log(tour.id);
+            if(tour.id){
+                if(!$("#tour_code_area").val()){
+                    alert("Cảnh báo: Tour code không đúng định dạng!");
+                }
+            }
+
             jk_cloned = $('tr#TR_table_clone_1').clone();
             /**
              * tim dong co id lon nhat
@@ -203,14 +213,14 @@
                 if (confirm("Would you want to fill description?")) {
                     if (description) {
                         if (editorId) {
-                            if (!tinymce.EditorManager.execInstanceCommand(editorId, "mceReplaceContent", false,"<b>"+$this.text()+":</b>"+description)) {
+                            if (!tinymce.EditorManager.execInstanceCommand(editorId, "mceReplaceContent", false, "<b>" + $this.text() + ":</b>" + description)) {
                                 alert("ERROR!");
                             }
                         } else {
                             alert("ERROR: editor id not found");
                         }
                     } else {
-                        tinymce.EditorManager.execInstanceCommand(editorId, "mceReplaceContent", false, "<b>"+$this.text()+"</b>");
+                        tinymce.EditorManager.execInstanceCommand(editorId, "mceReplaceContent", false, "<b>" + $this.text() + "</b>");
                     }
                 }
             });
@@ -299,7 +309,8 @@
         }
         tour.fill = function () {
 
-            var code = tour.tour_code, num, area, department, tour_num;
+            var code = tour.tour_code,
+                $tour_areas = $("#area");
             //tour name:
             $("[name='name']").val(tour.name);
             //tour description
@@ -313,15 +324,33 @@
             //tour code
             $("#contract_value").val(tour.contract_value);
             //console.log(tour.area);
-            $("[name='area']").find("option[value='" + tour.area + "']").attr("selected", "selected");
-            area = code.substr(0, 5);
-            code = code.substr(5, code.length);
-            num = /^\d+/.exec(code)[0];
-            department = /\/\w+$/.exec(code)[0];
-            department = department.substr(1, department.length);
-            $("#tour_code_area").val(area);
-            $("#tour_code_department").val(department);
-            $("#tour_code_num").val(num);
+            //generate area pattern
+            var areas_pattern = "";
+            $tour_areas.find("option").each(function () {
+                var $this = $(this),
+                    code = $this.attr("data-code");
+                if (code && code != "") {
+                    areas_pattern += (areas_pattern != "") ? "|" : "";
+                    areas_pattern += code;
+                }
+            });
+            var tour_code_pattern = new RegExp('^(F|H|O)(' + areas_pattern + ')([0-9]+)(\/)([A-z0-9]+)$');
+            console.log(tour_code_pattern);
+            code = tour_code_pattern.exec(code);
+            // $("[name='area']").find("option[value='" + tour.area + "']").attr("selected", "selected");
+            if (code.length == 6) {
+                var frame_type = code[1],
+                    area = code[2],
+                    num = code[3],
+                    department = code[5];
+                $("#tour_code_department").val(department);
+                $("#tour_code_num").val(num).attr("readonly", "readonly");
+                $tour_areas.find("[data-code='" + area + "']").attr("selected", "selected");
+                $("#tour_code_area").val(frame_type + area);
+                $tour_areas.attr("disabled", "disabled");
+            } else {
+                alert("'Tour code' không đúng định dạng! bạn có thể điểu chĩnh tour code");
+            }
             //picture
             if (tour.picture && tour.picture != "") {
                 var $tour_picture = $("#tour_picture");
