@@ -30,6 +30,17 @@ array (
           'field' => '30',
         ),
       ),
+      'includes' => 
+      array (
+        0 => 
+        array (
+          'file' => 'custom/include/js/jquery.js',
+        ),                
+        1 => 
+        array (
+          'file' => 'custom/modules/Contacts/js/editview.js',
+        )      
+      ),
     ),
     'panels' => 
     array (

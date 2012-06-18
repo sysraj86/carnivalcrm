@@ -2,6 +2,11 @@
  <script type="text/javascript" src="custom/include/js/jquery.js"></script>
  <script type="text/javascript" src="custom/include/js/CustomDatePicker.js"></script>
  <script type="text/javascript" src="custom/include/js/CustomSelectField.js"></script>
+ <script type="text/javascript">
+    addToValidate('MadeTourQuickCreate', 'groupprogram_code', 'varchar', true,'Code' );
+    addToValidate('MadeTourQuickCreate', 'tour_name', 'varchar', true,'Tour name' );
+    addToValidate('MadeTourQuickCreate', 'grouplists_pprograms_name', 'relate', true,'GroupLists' );
+ </script>
 {/literal}
 <form name="MadeTourQuickCreate" id="MadeTourQuickCreate" action="index.php" method="post">
 <table cellpadding="0" cellspacing="0" width="100%" border="0">
@@ -50,61 +55,67 @@
  <table cellpadding="0" cellspacing="0" width="100%" class="tabForm">
  <legend><h1>Overview Information</h1></legend>
      <tr>
-         <td class="dataLabel">Code<span class="required">*</span></td>
+         <td class="dataLabel">Code <span class="required">*</span></td>
          <td class="dataField"><input type="text" size="50" id="groupprogram_code" name="groupprogram_code" value="{$CODE}"</td>
      </tr>
      <tr>
-        <td class="dataLabel">Group List</td>
+        <td class="dataLabel">Group List <span class="required">*</span></td>
         <td class="dataField">
-            <input type="text" data="Button=cleardata,selectdata|Module=GroupLists|Fields=id,name|Inputs=group_id,group_name" class="select" name="group_name" id="group_name" size="50" value="{$GITS}"/> 
-            <input type="hidden" name="group_id" id="group_id" value="{$GIT_ID}"/>
+            <input type="text" data="Button=cleardata,selectdata|Module=GroupLists|Fields=id,name|Inputs=grouplists87eduplists_ida,grouplists_pprograms_name" class="select" name="grouplists_pprograms_name" id="grouplists_pprograms_name" size="50" value="{$GITS}"/> 
+            <input type="hidden" name="grouplists87eduplists_ida" id="grouplists87eduplists_ida" value="{$GIT_ID}"/>
             <!--<input title="{$APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{$APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='2' class="button" value='{$APP.LBL_SELECT_BUTTON_LABEL}' name="bnt_tour_name_group" id="bnt_tour_name_group" onclick='open_popup("GroupLists", 600, 400, "", true, false, {$gits_popup_request_data}, "single", true);'>-->
         </td>
      </tr>
      <tr>
-        <td class="dataLabel">Tour name</td>
+        <td class="dataLabel">Tour name <span class="required">*</span></td>
         <td class="dataField">
-        <input class="select" data="Button=cleardata,selectdata|Module=Tours|Fields=id,name,start_date,end_date|Inputs=tour_id,tour_name,start_date_group,end_date_group" name="tour_name" id="tour_name" size="50" type="text" value="{$TOUR_NAME}"/> <input type="hidden" id="tour_id" name="tour_id" value="{$TOUR_ID}" />
+        <input class="select" data="Button=cleardata,selectdata|Module=Tours|Fields=id,name,start_date,end_date,tour_code|Inputs=tour_id,tour_name,start_date_group,end_date_group,tour_code" name="tour_name" id="tour_name" size="50" type="text" value="{$TOUR_NAME}"/> <input type="hidden" id="tour_id" name="tour_id" value="{$TOUR_ID}" />
+        <!--<input title="{$APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{$APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='2' class="button" value='{$APP.LBL_SELECT_BUTTON_LABEL}' name="bnt_tour_name_group" id="bnt_tour_name_group" onclick='open_popup("Tours", 600, 400, "", true, false, {$tour_popup_request_data}, "single", true);'>--></td>
+        
+     </tr>
+     <tr>
+        <td class="dataLabel">Tour Code</td>
+        <td class="dataField">
+        <input readonly="true" name="tour_code" id="tour_code" size="50" type="text" value="{$TOUR_CODE}"/>
         <!--<input title="{$APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{$APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='2' class="button" value='{$APP.LBL_SELECT_BUTTON_LABEL}' name="bnt_tour_name_group" id="bnt_tour_name_group" onclick='open_popup("Tours", 600, 400, "", true, false, {$tour_popup_request_data}, "single", true);'>--></td>
         
      </tr>
      <tr>
         <td class="dataLabel">Time</td> 
         <td class="dataField" > 
-            From <input type="text" class="datePicker" size="11" id="start_date_group" name="start_date_group" value="{$START_DATE_GROUP}"/>&nbsp;&nbsp;&nbsp; 
-        <br/>
+            From <input type="text" class="datePicker" size="11" id="start_date_group" name="start_date_group" value="{$START_DATE_GROUP}"/>&nbsp;&nbsp;&nbsp;
             To <input type="text" size="11" class="datePicker" id="end_date_group" name="end_date_group" value="{$END_DATE_GROUP}"/>
         </td>
      </tr>
      <tr>
         <td class="dataLabel">Worksheet</td>
         <td class="dataField">
-            <input type="text" data="Button=cleardata,selectdata|Module=Worksheets|Fields=id,name|Inputs=worksheet_id,worksheet" class="select" name="worksheet" id="worksheet" value="{$WORKSHEET}" size="50"/>
-            <input type="hidden" id="worksheet_id" name="worksheet_id" value="{$WORKSHEET_ID}"/>
+            <input type="text" data="Button=cleardata,selectdata|Module=Worksheets|Fields=id,name|Inputs=groupprogr53b5ksheets_idb,groupprograorksheets_name" class="select" name="groupprograorksheets_name" id="groupprograorksheets_name" value="{$WORKSHEET}" size="50"/>
+            <input type="hidden" id="groupprogr53b5ksheets_idb" name="groupprogr53b5ksheets_idb" value="{$WORKSHEET_ID}"/>
             <!--<input title="{$APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{$APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='2' class="button" value='{$APP.LBL_SELECT_BUTTON_LABEL}' name="bnt_worksheet" id="bnt_worksheet" onclick='open_popup("Worksheets", 600, 400, "", true, false, {$worksheet_popup_request_data}, "single", true);'>-->
         </td>
      </tr> 
       <tr>
         <td class="dataLabel">Insurance List</td>
         <td class="dataField">
-            <input type="text" data="Button=cleardata,selectdata|Module=Insurances|Fields=id,name|Inputs=insurance_id,insurance" class="select" name="insurance" id="insurance" value="{$INSURANCE}" size="50"/>
-            <input type="hidden" id="insurance_id" name="insurance_id" value="{$INSURANCE_ID}"/>
+            <input type="text" data="Button=cleardata,selectdata|Module=Insurances|Fields=id,name|Inputs=groupprogr5003urances_idb,groupprogransurances_name" class="select" name="groupprogransurances_name" id="groupprogransurances_name" value="{$INSURANCE}" size="50"/>
+            <input type="hidden" id="groupprogr5003urances_idb" name="groupprogr5003urances_idb" value="{$INSURANCE_ID}"/>
             <!--<input title="{$APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{$APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='2' class="button" value='{$APP.LBL_SELECT_BUTTON_LABEL}' name="bnt_insurance" id="bnt_insurance" onclick='open_popup("Insurances", 600, 400, "", true, false, {$insurance_popup_request_data}, "single", true);'></td>-->
         </td>
      </tr>      
       <tr>
         <td class="dataLabel">Visa List</td>
         <td class="dataField">
-            <input type="text" data="Button=cleardata,selectdata|Module=Passports|Fields=id,name|Inputs=passport_id,passport" class="select" name="passport" id="passport" value="{$WORKSHEET}" size="50"/>
-            <input type="hidden" id="passport_id" name="passport_id" value="{$WORKSHEET_ID}"/>
+            <input type="text" data="Button=cleardata,selectdata|Module=PassportList|Fields=id,name|Inputs=groupprogrc66dortlist_idb,groupprograsportlist_name" class="select" name="groupprograsportlist_name" id="groupprograsportlist_name" value="{$PASSPORT}" size="50"/>
+            <input type="hidden" id="groupprogrc66dortlist_idb" name="groupprogrc66dortlist_idb" value="{$PASSPORT_ID}"/>
             <!--<input title="{$APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{$APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='2' class="button" value='{$APP.LBL_SELECT_BUTTON_LABEL}' name="bnt_passport" id="bnt_passport" onclick='open_popup("Passports", 600, 400, "", true, false, {$passport_popup_request_data}, "single", true);'></td> -->
         </td>
      </tr> 
      <tr>
         <td class="dataLabel">Airlines Tickets</td>
         <td class="dataField">
-            <input type="text" data="Button=cleardata,selectdata|Module=AirlinesTickets|Fields=id,name|Inputs=airlines_tickets_id,airlines_tickets" class="select" name="airlines_tickets" id="airlines_tickets" value="{$WORKSHEET}" size="50"/>
-            <input type="hidden" id="airlines_tickets_id" name="airlines_tickets_id" value="{$WORKSHEET_ID}"/>
+            <input type="text" data="Button=cleardata,selectdata|Module=AirlinesTicketsLists|Fields=id,name|Inputs=groupprogr60cctslists_idb,groupprograketslists_name" class="select" name="groupprograketslists_name" id="groupprograketslists_name" value="{$TICKER}" size="50"/>
+            <input type="hidden" id="groupprogr60cctslists_idb" name="groupprogr60cctslists_idb" value="{$TICKET_ID}"/>
             <!--<input title="{$APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{$APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='2' class="button" value='{$APP.LBL_SELECT_BUTTON_LABEL}' name="bnt_airlines_tickets" id="bnt_airlines_tickets" onclick='open_popup("AirlinesTickets", 600, 400, "", true, false, {$airlines_tickets_popup_request_data}, "single", true);'></td>       -->
         </td>
      </tr>                                                                                                  
