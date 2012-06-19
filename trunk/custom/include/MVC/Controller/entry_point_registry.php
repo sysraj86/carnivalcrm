@@ -8,6 +8,8 @@ $entry_point_registry['generateDoc3'] = array('file' => 'modules/AOS_PDF_Templat
  $entry_point_registry['autocomplete'] = array('file' => 'autocomplete.php', 'auth' => true);
     // check duplicate   
  $entry_point_registry['AjaxCheckDuplicate']  = array('file' => 'AjaxCheckDuplicate.php', 'auth' => true);
+ $entry_point_registry['AjaxCheckDuplicateAccount']  = array('file' => 'custom/modules/Accounts/AjaxCheckDuplicateAccount.php', 'auth' => true);
+ $entry_point_registry['AjaxCheckDuplicateCustomer']  = array('file' => 'custom/modules/FITs/AjaxCheckDuplicateCustomer.php', 'auth' => true);
     // report
  $entry_point_registry['ReportCustomer']  = array('file' => 'ReportCustomer.php', 'auth' => true);
  $entry_point_registry['ParentType']    =  array('file'=>'modules/Contracts/ParentType.php','auth'=>true);

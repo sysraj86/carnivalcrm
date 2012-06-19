@@ -37,7 +37,6 @@ array (
         array (
           'file' => 'modules/Accounts/jquery.min.js',
         ),
-        /*  Xoa bo autocomplete vi ly do chay nang      
         2 => 
         array (
           'file' => 'modules/Accounts/js/jquery-ui-1.8.13.custom.min.js',
@@ -45,12 +44,12 @@ array (
         3 => 
         array (
           'file' => 'modules/Accounts/Validate.js',
-        ),*/
-        2 => 
+        ),
+        4 => 
         array (
           'file' => 'modules/Accounts/duplicate.js',
         ),
-        3 => 
+        5 => 
         array (
           'file' => 'custom/modules/Accounts/js/dropdown.js',
         ),

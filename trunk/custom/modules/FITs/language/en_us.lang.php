@@ -20,5 +20,6 @@ $mod_strings = array (
   'LBL_FITS_PASSPORTS_FROM_PASSPORTS_TITLE' => 'Visa',
   'LBL_FIT_TYPE' => 'Marital Status',
   'LBL_VISITED_COUNTRY' => 'Visited Countries',
+  'LBL_IDENTY_CARD' => 'Identy Card Number',
 );
 ?>

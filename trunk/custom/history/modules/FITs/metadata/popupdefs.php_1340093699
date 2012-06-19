@@ -20,7 +20,6 @@ $popupMeta = array (
   'accounts_fits_name' => 'fits.accounts_fits_name',
   'current_user_only' => 'fits.current_user_only',
   'assigned_user_name' => 'fits.assigned_user_name',
-  'identy_card' => 'fits.identy_card',
 ),
     'searchInputs' => array (
   2 => 'code',
@@ -39,7 +38,6 @@ $popupMeta = array (
   15 => 'accounts_fits_name',
   16 => 'current_user_only',
   17 => 'assigned_user_name',
-  18 => 'identy_card',
 ),
     'searchdefs' => array (
   'code' => 
@@ -161,13 +159,6 @@ $popupMeta = array (
     'label' => 'LBL_ASSIGNED_TO_NAME',
     'width' => '10%',
     'name' => 'assigned_user_name',
-  ),
-  'identy_card' => 
-  array (
-    'type' => 'varchar',
-    'label' => 'LBL_IDENTY_CARD',
-    'width' => '10%',
-    'name' => 'identy_card',
   ),
 ),
     'listviewdefs' => array (

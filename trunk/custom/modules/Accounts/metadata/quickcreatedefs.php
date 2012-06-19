@@ -1,11 +1,18 @@
 <?php
-$module_name = 'FITs';
-$viewdefs [$module_name] = 
+$viewdefs ['Accounts'] = 
 array (
   'QuickCreate' => 
   array (
     'templateMeta' => 
     array (
+      'form' => 
+      array (
+        'buttons' => 
+        array (
+          0 => 'SAVE',
+          1 => 'CANCEL',
+        ),
+      ),
       'maxColumns' => '2',
       'widths' => 
       array (
@@ -24,29 +31,28 @@ array (
       array (
         0 => 
         array (
-          'file' => 'custom/include/js/jquery.js',
+          'file' => 'modules/Accounts/Account.js',
         ),
         1 => 
         array (
-          'file' => 'custom/modules/FITs/js/duplicate.js',
+          'file' => 'modules/Accounts/jquery.min.js',
+        ),
+        2 => 
+        array (
+          'file' => 'modules/Accounts/duplicate.js',
         ),
       ),
       'useTabs' => false,
     ),
     'panels' => 
     array (
-      'lbl_contact_information' => 
+      'default' => 
       array (
         0 => 
         array (
           0 => 
           array (
-            'name' => 'first_name',
-            'customCode' => '{html_options name="salutation" options=$fields.salutation.options selected=$fields.salutation.value}&nbsp;<input name="first_name" size="25" maxlength="25" type="text" value="{$fields.first_name.value}">',
-          ),
-          1 => 
-          array (
-            'name' => 'last_name',
+            'name' => 'name',
             'displayParams' => 
             array (
               'required' => true,
@@ -55,31 +61,32 @@ array (
         ),
         1 => 
         array (
-          0 => 'gender',
+          0 => 
+          array (
+            'name' => 'phone_office',
+          ),
           1 => 
           array (
-            'name' => 'birthday',
-            'label' => 'LBL_BIRTHDAY',
+            'name' => 'phone_fax',
           ),
         ),
         2 => 
         array (
           0 => 
           array (
-            'name' => 'identy_card',
-            'label' => 'LBL_IDENTY_CARD',
+            'name' => 'email1',
           ),
-          1 => 'phone_mobile',
+          1 => 
+          array (
+            'name' => 'industry',
+          ),
         ),
         3 => 
         array (
-          0 => 'email1',
-          1 => 'phone_home',
-        ),
-        4 => 
-        array (
-          0 => 'deparment',
-          1 => 'assigned_user_name',
+          0 => 
+          array (
+            'name' => 'assigned_user_name',
+          ),
         ),
       ),
     ),

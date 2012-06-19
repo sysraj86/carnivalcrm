@@ -38,11 +38,11 @@ array (
         0 => 
         array (
           'file' => 'custom/include/js/jquery.js',
-        ),                
+        ),
         1 => 
         array (
           'file' => 'custom/modules/FITs/js/detailview.js',
-        )      
+        ),
       ),
       'useTabs' => false,
       'syncDetailEditViews' => true,
@@ -73,10 +73,18 @@ array (
         ),
         2 => 
         array (
+          0 => 
+          array (
+            'name' => 'identy_card',
+            'label' => 'LBL_IDENTY_CARD',
+          ),
+        ),
+        3 => 
+        array (
           0 => 'fit_type',
           1 => 'religion',
         ),
-        3 => 
+        4 => 
         array (
           0 => 'phone_mobile',
           1 => 
@@ -86,7 +94,7 @@ array (
             'label' => 'LBL_HOME_PHONE',
           ),
         ),
-        4 => 
+        5 => 
         array (
           0 => 
           array (
@@ -100,17 +108,17 @@ array (
             'label' => 'LBL_FAX_PHONE',
           ),
         ),
-        5 => 
+        6 => 
         array (
           0 => 'nationality',
           1 => 'provice_city',
         ),
-        6 => 
+        7 => 
         array (
           0 => 'address',
           1 => 'district',
         ),
-        7 => 
+        8 => 
         array (
           0 => 
           array (
