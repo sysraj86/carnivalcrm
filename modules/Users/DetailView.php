@@ -366,7 +366,13 @@ if($focus->type_sale != null){
 }else{
     $sugar_smarty->assign('TYPE_SALE','');  
 }
-///
+
+
+// Custom code by Hieu Nguyen
+$sugar_smarty->assign('BIRTHDAY', $focus->birthday);
+// End custom code
+
+
 $sugar_smarty->assign("REPORTS_TO_ID", $focus->reports_to_id);
 $sugar_smarty->assign("REPORTS_TO_NAME", $focus->reports_to_name);
 $sugar_smarty->assign("PHONE_HOME", $focus->phone_home);

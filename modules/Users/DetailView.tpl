@@ -120,8 +120,8 @@ user_detailview_tabs.on('contentReady', function(e){
                 </tr><tr>
                 <td width="15%" valign="top" scope="row"><slot>{$MOD.LBL_EMPLOYEE_STATUS}:</slot></td>
                 <td width="35%" valign="top"><slot>{$EMPLOYEE_STATUS}&nbsp;</slot></td>
-                <td valign="top" scope="row"><slot>&nbsp;</slot></td>
-                <td valign="top"><slot>&nbsp;</slot></td>
+                <td width="15%" valign="top" scope="row"><slot>{$MOD.LBL_BIRTHDAY}:</slot></td>
+                <td width="35%" valign="top"><slot>{$BIRTHDAY}&nbsp;</slot></td>
                 </tr><tr>
                 <td width="15%" valign="top" scope="row"><slot>{$MOD.LBL_TITLE}:</slot></td>
                 <td width="35%" valign="top"><slot>{$TITLE}&nbsp;</slot></td>

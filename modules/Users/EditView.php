@@ -165,7 +165,13 @@ if($focus->type_sale != null){
 }else{
     $sugar_smarty->assign('TYPE_SALE', get_select_options($app_list_strings['user_typesale_dom'],''));  
 }
-///
+
+
+// Custom code by Hieu Nguyen
+$sugar_smarty->assign('BIRTHDAY', $focus->birthday);
+// End custom code
+
+
 $sugar_smarty->assign('REPORTS_TO_ID', $focus->reports_to_id);
 $sugar_smarty->assign('REPORTS_TO_NAME', get_assigned_user_name($focus->reports_to_id));
 $sugar_smarty->assign('PHONE_HOME', $focus->phone_home);
