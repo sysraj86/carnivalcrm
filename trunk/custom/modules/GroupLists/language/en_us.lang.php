@@ -7,5 +7,6 @@ $mod_strings = array (
   'LBL_LIST_FORM_TITLE' => 'GroupLists ',
   'LBL_GROUPLISTS_FITS_FROM_FITS_TITLE' => 'Customers',
   'LBL_GROUPLISTS_ACCOUNTS_FROM_ACCOUNTS_TITLE' => 'Companies',
+  'LBL_GROUP_TYPE' => 'Group Type',
 );
 ?>
