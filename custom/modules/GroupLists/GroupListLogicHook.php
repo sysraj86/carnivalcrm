@@ -139,7 +139,7 @@
 
         }
 
-        function get_num_of_cus(&$bean,$event,$arguments){
+        function updateNumberOfCusomer(&$bean,$event,$arguments){
             global $db;
             $id = $_REQUEST['record'];
             if($id){
@@ -160,7 +160,14 @@
                 AND f.deleted = 0
                 AND af.deleted = 0 AND g.id ='".$id."'";
                 $result = $db->query($sql);
-                $bean->num_of_cus = $db->getRowCount($result);
+                $numberOfCus = $db->getRowCount($result);
+                
+                // Display new number to detailview
+                $bean->num_of_cus = $numberOfCus;
+                
+                // Update number of customer to database
+                $sql_update = 'UPDATE grouplists SET num_of_cus = '.$numberOfCus.' WHERE id = "'.$id.'"';
+                $db->query($sql_update);
             }
 
         }
