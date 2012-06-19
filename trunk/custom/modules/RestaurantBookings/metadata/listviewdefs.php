@@ -1,49 +1,45 @@
 <?php
-$module_name = 'TransportBookings';
+$module_name = 'RestaurantBookings';
 $listViewDefs [$module_name] = 
 array (
   'CODE' => 
   array (
-    'type' => 'relate',
-    'link' => true,
+    'width' => '15%',
     'label' => 'LBL_CODE',
-    'width' => '8%',
     'default' => true,
+    'link' => true,
   ),
   'NAME' => 
   array (
-    'type' => 'relate',
-    'link' => 'name',
+    'width' => '15%',
     'label' => 'LBL_NAME',
-    'width' => '20%',
     'default' => true,
+    'link' => true,
   ),
   'DEADLINE' => 
   array (
-    'type' => 'date',
-    'default' => true,
+    'width' => '15%',
     'label' => 'LBL_DEADLINE',
-    'width' => '8%',
+    'default' => true,
   ),
   'CONFIRM' => 
   array (
-    'type' => 'radioenum',
-    'default' => true,
+    'width' => '15%',
     'label' => 'LBL_CONFIRM',
-    'width' => '8%',
+    'default' => true,
   ),
-  'OPERATOR' => 
+  'DEPARMENT' => 
   array (
     'width' => '9%',
-    'label' => 'LBL_OPERATOR',
+    'label' => 'LBL_DEPARMENT',
     'default' => true,
   ),
   'ASSIGNED_USER_NAME' => 
   array (
-    'width' => '9%',
+    'link' => 'assigned_user_link',
+    'type' => 'relate',
     'label' => 'LBL_ASSIGNED_TO_NAME',
-    'module' => 'Employees',
-    'id' => 'ASSIGNED_USER_ID',
+    'width' => '10%',
     'default' => true,
   ),
 );
