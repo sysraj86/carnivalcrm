@@ -20,17 +20,6 @@ array (
           'field' => '30',
         ),
       ),
-      'includes' => 
-      array (
-        0 => 
-        array (
-          'file' => 'custom/include/js/jquery.js',
-        ),
-        1 => 
-        array (
-          'file' => 'custom/modules/FITs/js/duplicate.js',
-        ),
-      ),
       'useTabs' => false,
     ),
     'panels' => 
@@ -55,20 +44,16 @@ array (
         ),
         1 => 
         array (
-          0 => 'gender',
-          1 => 
+          0 => 
           array (
-            'name' => 'birthday',
-            'label' => 'LBL_BIRTHDAY',
+            'name' => 'fit_relationship_type',
+            'label' => 'LBL_RELATIONSHIP_TYPE',
           ),
+          1 => '',
         ),
         2 => 
         array (
-          0 => 
-          array (
-            'name' => 'identy_card',
-            'label' => 'LBL_IDENTY_CARD',
-          ),
+          0 => 'gender',
           1 => 'phone_mobile',
         ),
         3 => 
