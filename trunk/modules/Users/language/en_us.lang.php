@@ -518,6 +518,7 @@ $mod_strings = array (
 	'LBL_EAPM_SUBPANEL_TITLE' => 'External Accounts',
     // Le Gia Thanh Them loai Sale cho nhan vien
     'LBL_TYPE_SALE' => 'Sale Type',
+    'LBL_BIRTHDAY' => 'Birthday',
 ); // END STRINGS DEFS
 
 ?>

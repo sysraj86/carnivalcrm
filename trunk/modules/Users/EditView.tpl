@@ -46,6 +46,8 @@
 <script type='text/javascript' src='{sugar_getjspath file='include/javascript/sugar_grp_overlib.js'}'></script>
 <script type="text/javascript" src="{sugar_getjspath file='include/javascript/sugar_grp_yui_widgets.js'}"></script>
 <script type='text/javascript' src='{sugar_getjspath file='include/SubPanel/SubPanelTiles.js'}'></script>
+<script type='text/javascript' src='{sugar_getjspath file='custom/include/js/jquery.js'}'></script>
+<script type='text/javascript' src='{sugar_getjspath file='custom/include/js/CustomDatePicker.js'}'></script>
 <script type='text/javascript'>
 var ERR_RULES_NOT_MET = '{$MOD.ERR_RULES_NOT_MET}';
 var ERR_ENTER_OLD_PASSWORD = '{$MOD.ERR_ENTER_OLD_PASSWORD}';
@@ -198,8 +200,8 @@ EditView_tabs.on('contentReady', function(e){
                             <tr>
                                 <td width="17%" scope="row"><slot>{$MOD.LBL_EMPLOYEE_STATUS}:</slot></td>
                                 <td width="33%" ><slot>{$EMPLOYEE_STATUS_OPTIONS}</slot></td>
-                                <td scope="row"><slot>&nbsp;</slot></td>
-                                <td  ><slot>&nbsp;</slot></td>
+                                <td width="17%" scope="row"><slot>{$MOD.LBL_BIRTHDAY}:</slot></td>
+                                <td width="33%" ><slot><input id="birthday" name='birthday' type="text" tabindex='6' size='20' maxlength='25' value='{$BIRTHDAY}' class="datePicker"></slot></td>
                             </tr>
                             <tr>
                                 <td width="17%" scope="row"><slot>{$MOD.LBL_TITLE}:</slot></td>
