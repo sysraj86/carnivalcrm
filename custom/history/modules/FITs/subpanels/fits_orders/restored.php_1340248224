@@ -1,0 +1,43 @@
+<?php
+// created: 2012-06-21 11:10:26
+$layout_defs = array (
+  'name' => 
+  array (
+    'vname' => 'LBL_NAME',
+    'widget_class' => 'SubPanelDetailViewLink',
+    'width' => '20%',
+  ),
+  'sodienthoai' => 
+  array (
+    'vname' => 'LBL_SODIENTHOAI',
+    'width' => '15%',
+  ),
+  'ngaykhoihanh' => 
+  array (
+    'vname' => 'LBL_NGAYKHOIHANH',
+    'width' => '15%',
+  ),
+  'ketqua' => 
+  array (
+    'vname' => 'LBL_KETQUA',
+    'width' => '15%',
+  ),
+  'date_modified' => 
+  array (
+    'vname' => 'LBL_DATE_MODIFIED',
+    'width' => '7%',
+  ),
+  'edit_button' => 
+  array (
+    'widget_class' => 'SubPanelEditButton',
+    'module' => 'Orders',
+    'width' => '4%',
+  ),
+  'remove_button' => 
+  array (
+    'widget_class' => 'SubPanelRemoveButton',
+    'module' => 'Orders',
+    'width' => '5%',
+  ),
+);
+?>
