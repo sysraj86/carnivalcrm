@@ -51,9 +51,9 @@
           'icon' => '',
           'is_uninstallable' => true,
           'name' => 'Areas',
-          'published_date' => '2012-06-15 08:58:49',
+          'published_date' => '2012-06-21 12:31:07',
           'type' => 'module',
-          'version' => '1339750730',
+          'version' => '1340281868',
           'remove_tables' => 'prompt',
           );
 $installdefs = array (

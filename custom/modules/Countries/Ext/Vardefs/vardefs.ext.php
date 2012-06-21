@@ -57,7 +57,7 @@ $dictionary["Country"]["fields"]["countries_transports"] = array (
 );
 
 
-// created: 2012-06-15 16:58:50
+// created: 2012-06-21 20:31:09
 $dictionary["Country"]["fields"]["c_areas_countries"] = array (
   'name' => 'c_areas_countries',
   'type' => 'link',

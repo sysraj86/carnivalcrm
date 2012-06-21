@@ -167,7 +167,7 @@ addToValidate('EditView', 'area', 'string', true, 'Tour area');
                     align="absmiddle"> (dd/mm/yy)
             </td>
 
-            <td class="dataLabel">{$MOD.LBL_TYPE} :</td>
+            <td class="dataLabel">{$MOD.LBL_TOUR_TYPE} :</td>
             <td class="dataField"><select id="type" name="type">{$TYPE}</select></td>
         </tr>
         <tr>
@@ -223,13 +223,13 @@ addToValidate('EditView', 'area', 'string', true, 'Tour area');
             </td>
             <td></td>
             <td style="font-size:15px; line-height: 24px">
-                <input style="height:22px" {if $IS_HOT_TOUR eq 1}checked{/if} name="is_hot_tour"
+               {* <input style="height:22px" {if $IS_HOT_TOUR eq 1}checked{/if} name="is_hot_tour"
                        type="checkbox">&nbsp;<span>Hot Tour</span><br/>
                 <input style="height:22px" {if $IS_FAVORITE_TOUR eq 1}checked{/if} name="is_favorite_tour"
                        type="checkbox">&nbsp;<span>Favorite Tour</span><br/>
                 <input style="height:22px" {if $SHOW_IN_HOME eq 1}checked{/if} name="show_in_home" type="checkbox">&nbsp;<span>Show In Home</span><br>
                 <input style="height:22px" {if $IS_ACTIVE eq 1}checked{/if} name="is_active"
-                       type="checkbox">&nbsp;<span>Publish in web</span><br>
+                       type="checkbox">&nbsp;<span>Publish in web</span><br>*}
             </td>
         </tr>
         <tr>
@@ -328,7 +328,7 @@ addToValidate('EditView', 'area', 'string', true, 'Tour area');
                             </td>
                             <td class="dataField">
                                 <select name="destinations[]" class="jk_list_destinations" multiple="multiple" size="4">
-                                    {$DESTINATION}
+                                    <option value=''>--None--</option>
                                 </select>
                                 <input type="hidden" value="0" name="destination_selected_count[]"/>
                             </td>

@@ -103,7 +103,7 @@ class  Tour extends SugarBean
             $location_html = '<option data-description=""value="">None</option>';
             $lc_selected_count = 0;
             //neu destination rong~
-            if (!empty($row['destination'])) {
+           /* if (!empty($row['destination'])) {
                 //get selected destination
                 $des_selected = json_decode(base64_decode($row['destination']));
                 $des_selected_count = is_array($des_selected) ? count($des_selected) : 0;
@@ -132,9 +132,9 @@ class  Tour extends SugarBean
             }
             else {
                 $parent = get_select_options_with_id($app_list_strings['destination_dom_list'], '');
-            }
+            }*/
             //    echo "<!--";print_r($parent); echo "-->";
-            $list_countries = get_select_options_with_id($app_list_strings['countries_dom'],'');
+           // $list_countries = get_select_options_with_id($app_list_strings['countries_dom'],'');
             $html .= '<tr id="TR_table_clone_' . $count . '">';
             $html .= '<td>';
             $html .= '<fieldset>';
@@ -174,9 +174,9 @@ class  Tour extends SugarBean
                             </td>
                             <td class="dataField">
                                 <select name="destinations[]" class="jk_list_destinations" multiple="multiple" size="4">
-                                    '. $parent .'
+                                    <option value="">--None--</option>
                                 </select>
-                                <input type="hidden" value="' . $des_selected_count . '" name="destination_selected_count[]"/>
+                                <input type="hidden" value="0" name="destination_selected_count[]"/>
                             </td>
                             <td class="dataLabel">
                                 <span>Locations:</span>
@@ -185,37 +185,11 @@ class  Tour extends SugarBean
                             <td class="dataField">
                                 <select multiple="multiple" name="locations[]" class="jk_list_locations" size="4"
                                         data-editorId="description_pro_'.$count.'">
-                                    '. $location_html.'
+                                     <option value="">--None--</option>
                                 </select>
-                                <input type="hidden" value="' . $lc_selected_count . '" name="location_selected_count[]"/>
+                                <input type="hidden" value="0" name="location_selected_count[]"/>
                             </td>
                     </tr>';
-           /* $html .= '<td colspan="2">';
-            $html .= '<span>Countries:</span>';
-            $html .= '<select multiple size="3">';
-            $html .= $list_countries;
-            $html .= '</select>';
-            $html .= '<span>Areas:</span>';
-            $html .= '<select multiple size="3">';
-            $html .= '<option value="">--None--</option>';
-            $html .= '</select>';
-            $html .= '<span>Cities:</span>';
-            $html .= '<select name="destinations[]" class="jk_list_destinations" multiple="multiple" size="4">';
-            $html .= $parent;
-            $html .= '</select>';
-            $html .= ' <input type="hidden" value="' . $des_selected_count . '" name="destination_selected_count[]"/>';
-            // $html .= '<td class="dataLabel">Type <select id="parent" name="parent[]" class="parent">'.$parent.'</select> </td>';
-            $html .= '' .
-                '<span>Locations:</span>' .
-                '<select multiple="multiple" name="locations[]" class="jk_list_locations" size="4" data-editorId="description_pro_' . $count . '">' .
-                $location_html .
-                '</select>' .
-                ' <input type="hidden" value="' . $lc_selected_count . '" name="location_selected_count[]"/>' .
-                '</td>';
-
-            //$html .= '<td class="dataLabel">Destination</td>' ;
-            //$html .= '<td class="dataField"><input type="text" name="destination[]" size="35" id="destination" value="'.$row['destination'].'"/></td>';
-            $html .= '</tr>';*/
             $html .= '<tr>';
             $html .= '<td class="dataLabel">Notes</td>';
             $html .= '<td class="dataField" colspan="5"><input type="text" name="notes[]" size="35" id="notes_' . $count . '" value="' . $row['notes'] . '"/></td>';
@@ -269,12 +243,12 @@ class  Tour extends SugarBean
 
         $i = 1;
         while ($row = $this->db->fetchByAssoc($result)) {
-            $tp_destination = json_decode(base64_decode($row['destination']));
+           /* $tp_destination = json_decode(base64_decode($row['destination']));
             $tp_locations = json_decode(base64_decode($row['location']));
             $ds = $app_list_strings['destination_dom_list'];
             $destination_html = "";
-            $location_html = "";
-            if (count($tp_destination) > 0) {
+            $location_html = "";*/
+           /* if (count($tp_destination) > 0) {
                 $destination_html = "<ul>";
                 foreach ($tp_destination as $id) {
                     $destination_html .= "<li>" . $ds[$id] . "</li>";
@@ -291,7 +265,7 @@ class  Tour extends SugarBean
                 }
                 $location_html .= '</ul>';
 
-            }
+            }*/
 
             $html .= '<tr>';
             $html .= '<td>';
@@ -305,15 +279,15 @@ class  Tour extends SugarBean
             $html .= '<tr>';
             $html .= '<td class="tabDetailViewDL" width ="15%" >Title:</td>';
             $html .= '<td class="tabDetailViewDF" width ="35%">' . $row['title'] . '</td>';
-            $html .= '<td class="tabDetailViewDL" width ="15%" >Destinations:</td>';
-            $html .= '<td class="tabDetailViewDF" width ="35%">' . $destination_html . '</td>';
+            $html .= '<td class="tabDetailViewDL" width ="15%" >&nbsp;</td>';
+            $html .= '<td class="tabDetailViewDF" width ="35%">&nbsp;</td>';
             $html .= '</tr>';
 
             $html .= '<tr>';
             $html .= '<td class="tabDetailViewDL" width ="15%" >Notes</td>';
             $html .= '<td class="tabDetailViewDF">' . $row['notes'] . '</td>';
-            $html .= '<td class="tabDetailViewDL" width ="15%" >Location: </td>';
-            $html .= '<td class="tabDetailViewDF" width ="35%">' . $location_html . '</td>';
+            $html .= '<td class="tabDetailViewDL" width ="15%" >&nbsp; </td>';
+            $html .= '<td class="tabDetailViewDF" width ="35%">&nbsp;</td>';
             $html .= '</tr>';
             $html .= '<tr>';
             $html .= '<td class="tabDetailViewDL" width ="15%">Description</td>';

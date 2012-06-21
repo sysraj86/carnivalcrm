@@ -46,7 +46,6 @@ array (
         2 => 
         array (
           0 => 'description',
-          1 => '',
         ),
       ),
     ),
