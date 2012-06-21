@@ -105,7 +105,7 @@ require_once('XTemplate\xtpl.php');
  
     
     if(!empty($focus->picture)){
-      $xtpl->assign('PICTURE',"<img src='".$sugar_config['site_url']."/modules/images/".$focus->picture."' width='300' height='300'/>") ; 
+      $xtpl->assign('PICTURE',"<img src='modules/images/".$focus->picture."' width='300' height='300'/>") ;
     }
     else {$xtpl->assign('PICTURE','');}
     

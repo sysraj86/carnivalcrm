@@ -146,13 +146,13 @@ $ss->assign("ACCOUNT_NAME", $focus->accounts_tours_name);
 $ss->assign("ACCOUNT_ID", $focus->accounts_t4d21ccounts_ida);
 $ss->assign("DURATION", $focus->duration);
 
-////end
+/*////end
 $ss->assign("IS_HOT_TOUR", $focus->is_hot_tour);
 $ss->assign("IS_FAVORITE_TOUR", $focus->is_favorite_tour);
 $ss->assign("PUBLISH_IN_WEB", $focus->is_active);
 $ss->assign("SHOW_IN_HOME", $focus->show_in_home);
 $ss->assign("IS_ACTIVE", $focus->is_active);
-$ss->assign("ORDER", $focus->order_num);
+$ss->assign("ORDER", $focus->order_num);*/
 if (!empty($focus->status)) {
     $ss->assign('STATUS', get_select_options_with_id($app_list_strings['tour_status_dom'], $focus->status));
 }
@@ -174,13 +174,13 @@ if (!empty($focus->transport)) {
 else {
     $ss->assign('TRANSPORT', get_select_options_with_id($app_list_strings['transport_dom'], ''));
 }
-if (!empty($focus->noiden)) {
+/*if (!empty($focus->noiden)) {
     $destination = explode('^,^', $focus->noiden);
     $ss->assign('DESTINATION', get_select_options_with_id($app_list_strings['destination_dom_list'], $destination));
 }
 else {
     $ss->assign('DESTINATION', get_select_options_with_id($app_list_strings['destination_dom_list'], ''));
-}
+}*/
 if (!empty($focus->type)) {
     $ss->assign('TYPE', get_select_options_with_id($app_list_strings['tourprogram_type_dom'], $focus->type));
 }
@@ -189,7 +189,7 @@ else {
 }
 
 if (!empty($focus->picture)) {
-    $ss->assign('PICTURE', "<img src='" . $sugar_config['site_url'] . "/modules/images/" . $focus->picture . "' width='300' height='300'/>");
+    $ss->assign('PICTURE', "<img src='modules/images/" . $focus->picture . "' width='300' height='300'/>");
 }
 else {
     $ss->assign('PICTURE', '');

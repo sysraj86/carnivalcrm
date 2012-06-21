@@ -29,7 +29,7 @@
                             '</td>'+
                             '<td class="dataField">'+
                                  '<select name="destinations[]" class="jk_list_destinations" multiple="multiple" size="4">'+
-                                     '{{countries}}'+
+                                        '<option value="">--None--</option>'+
                                  '</select>'+
                             '</td>'+
                             '<td class="dataLabel">'+
