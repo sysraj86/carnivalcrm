@@ -340,10 +340,11 @@ $layout_defs["FITs"]["subpanel_setup"]["fits_oders"] = array (
   'get_subpanel_data' => 'fits_oders',
   'top_buttons' => 
   array (
+    /* Fix issue 1169
     0 => 
     array (
       'widget_class' => 'SubPanelTopButtonQuickCreate',
-    ),
+    ),*/
     1 => 
     array (
       'widget_class' => 'SubPanelTopSelectButton',
@@ -364,10 +365,11 @@ $layout_defs["FITs"]["subpanel_setup"]["fits_orders"] = array (
   'get_subpanel_data' => 'fits_orders',
   'top_buttons' => 
   array (
+    /* Fix issue 1169
     0 => 
     array (
       'widget_class' => 'SubPanelTopButtonQuickCreate',
-    ),
+    ),*/
     1 => 
     array (
       'widget_class' => 'SubPanelTopSelectButton',
