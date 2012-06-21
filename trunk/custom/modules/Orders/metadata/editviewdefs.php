@@ -61,7 +61,7 @@ array (
           1 => 
           array (
             'name' => 'name',
-            'customCode'   => '<input type="text" name="name" id="name" size="30" value="{$fields.name.value}" title="Nếu loại khách hàng là khách hàng cũ nhập tên rồi click ra ngoài để được kết quả" /> <input type="hidden" name="cus_old_id" id="cus_old_id" value="{$fields.cus_old_id.value}"/>',
+            'customCode'   => '<input type="text" name="name" id="name" size="30" value="{$fields.name.value}" title="Nếu loại khách hàng là khách hàng cũ nhập tên rồi click ra ngoài để được kết quả" /> <input type="hidden" name="cus_old_id" id="cus_old_id" value="{$fields.cus_old_id.value}"/><input id="fits_orders_name" type="hidden" value="{$fields.fits_orders_name.value}" name="fits_orders_name"><input id="fits_order6297ersfits_ida" type="hidden" value="{$fields.fits_order6297ersfits_ida.value}" name="fits_order6297ersfits_ida">',
           ),
           2 => 
           array (
@@ -114,6 +114,7 @@ array (
           2 => '',
         ),
       ),
+      /* Fixbug 1172
       'lbl_editview_panel1' => 
       array (
         0 => 
@@ -137,7 +138,7 @@ array (
             ),
           ),
         ),
-      ),
+      ),*/
       'LBL_THONGTINCHUYENDI' => 
       array (
         0 => 

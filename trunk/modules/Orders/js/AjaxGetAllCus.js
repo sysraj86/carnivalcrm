@@ -39,6 +39,9 @@ $(document).ready(function(){
         $('#email').val($(this).attr('email')); 
         $('#diachi').val($(this).attr('address'));
         $('#cus_old_id').val($(this).attr('id'));
+        // Fix bug 1172
+        $('#fits_orders_name').val($(this).attr('name'));
+        $('#fits_order6297ersfits_ida').val($(this).attr('id'));
     });
 
 });
