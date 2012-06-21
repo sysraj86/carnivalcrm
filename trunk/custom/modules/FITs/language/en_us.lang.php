@@ -1,5 +1,5 @@
 <?php
-// created: 2012-06-11 17:23:29
+// created: 2012-06-21 11:10:26
 $mod_strings = array (
   'LBL_FITS_GROUPPROGRAMS_FROM_GROUPPROGRAMS_TITLE' => 'List Tours',
   'LBL_FITS_CONTRACTS_FROM_CONTRACTS_TITLE' => 'Contracts',
@@ -21,5 +21,6 @@ $mod_strings = array (
   'LBL_FIT_TYPE' => 'Marital Status',
   'LBL_VISITED_COUNTRY' => 'Visited Countries',
   'LBL_IDENTY_CARD' => 'Identy Card Number',
+  'LBL_FITS_ORDERS_FROM_ORDERS_TITLE' => 'Orders',
 );
 ?>
