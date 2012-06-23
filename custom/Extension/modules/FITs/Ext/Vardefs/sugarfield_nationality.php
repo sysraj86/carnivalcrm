@@ -1,5 +1,5 @@
 <?php
- // created: 2012-06-08 00:13:47
-$dictionary['FITs']['fields']['nationality']['default']='^VIETNAM^';
+ // created: 2012-06-23 11:44:40
+$dictionary['FITs']['fields']['nationality']['default']='^^';
 
  ?>

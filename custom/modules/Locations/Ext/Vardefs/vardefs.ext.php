@@ -41,4 +41,5 @@ $dictionary["Location"]["fields"]["tours_locations"] = array (
   'source' => 'non-db',
   'vname' => 'LBL_TOURS_LOCATIONS_FROM_TOURS_TITLE',
 );
+
 ?>
