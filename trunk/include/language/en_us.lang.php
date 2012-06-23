@@ -289,6 +289,7 @@ $app_list_strings = array(
     // city or province
 
     'city_province_dom' => array(
+        ''  => '',
         'hochiminh' => 'TP. Hồ Chí Minh',
         'hanoi' => 'Hà nội',
         'hue' => 'Huế',

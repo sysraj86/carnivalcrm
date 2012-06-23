@@ -361,13 +361,13 @@ $dictionary["FITs"]["fields"]["insurances87aeurances_ida"] = array (
 );
 
 
- // created: 2012-06-08 00:13:47
-$dictionary['FITs']['fields']['nationality']['default']='^VIETNAM^';
+ // created: 2012-06-23 11:44:40
+$dictionary['FITs']['fields']['nationality']['default']='^^';
 
  
 
- // created: 2012-06-08 00:16:04
-$dictionary['FITs']['fields']['provice_city']['default']='hochiminh';
+ // created: 2012-06-23 12:01:27
+$dictionary['FITs']['fields']['provice_city']['default']='';
 
  
 
