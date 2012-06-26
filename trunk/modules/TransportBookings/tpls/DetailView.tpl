@@ -19,7 +19,7 @@
      <input title="{$APP.LBL_DUPLICATE_BUTTON_TITLE}" 
             accessKey="{$APP.LBL_DUPLICATE_BUTTON_KEY}" 
             class="button" 
-            onclick="this.form.return_module.value='TransportBookings'; this.form.return_action.value='DetailView'; this.form.isDuplicate.value=true; this.form.action.value='EditView';this.form.return_id.value='{ID}';SUGAR.ajaxUI.submitForm(this.form);" 
+            onclick="this.form.return_module.value='TransportBookings'; this.form.return_action.value='DetailView'; this.form.isDuplicate.value=true; this.form.action.value='EditView';this.form.return_id.value='{$ID}';SUGAR.ajaxUI.submitForm(this.form);" 
             type="submit" 
             name="Duplicate" 
             value=" {$APP.LBL_DUPLICATE_BUTTON_LABEL} "> 
