@@ -69,7 +69,7 @@ class  Destination extends SugarBean
                     $this->image = $file_name;
                 }
             }
-            
+
         }
         return parent::save($check_notify);
     }
@@ -91,7 +91,7 @@ class  Destination extends SugarBean
             $query = "SELECT D.id,D.name FROM destinations D JOIN c_areas_destinations_c AD
             ON D.ID = AD.c_areas_de577anations_idb JOIN c_areas A
             ON A.ID = AD.c_areas_de9d4fc_areas_ida
-            WHERE A.ID = '$area' and D.deleted=0";
+            WHERE A.ID = '$area' and D.deleted=0 and A.deleted = 0 AND AD.deleted=0";
 
             $result = $db->query($query);
             while ($row = $db->fetchByAssoc($result)) {

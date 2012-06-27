@@ -29,7 +29,7 @@
             $days_in_month_leap = array(31, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
             $days_in_month = array(31, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
 
-            $this->dateRangeLimit(1, 13, 12, "m", "y", &$base);
+            $this->dateRangeLimit(1, 13, 12, "m", "y", $base);
 
             $year = $base["y"];
             $month = $base["m"];
@@ -74,7 +74,7 @@
             $result = $this->dateRangeLimit(0, 24, 24, "h", "d", $result);
             $result = $this->dateRangeLimit(0, 12, 12, "m", "y", $result);
 
-            $result = $this->dateRangeLimitDays(&$base, &$result);
+            $result = $this->dateRangeLimitDays($base, $result);
 
             $result = $this->dateRangeLimit(0, 12, 12, "m", "y", $result);
 
@@ -107,9 +107,9 @@
             $result["days"] = intval(abs(($one - $two)/86400));
 
             if ($invert) {
-                $this->dateNormalize(&$a, &$result);
+                $this->dateNormalize($a, $result);
             } else {
-                $this->dateNormalize(&$b, &$result);
+                $this->dateNormalize($b, $result);
             }
 
             return $result;

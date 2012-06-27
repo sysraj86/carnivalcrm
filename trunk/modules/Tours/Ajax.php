@@ -180,7 +180,7 @@ else if ($action == "get_cities_by_areas") {
         foreach ($areas as $id) {
             $query .= " or A.id = '$id'";
         }
-        $query .= ') and D.deleted = 0';
+        $query .= ') and D.deleted = 0 and AD.deleted=0 and A.deleted = 0';
         $result = $db->query($query);
 
         while ($row = $db->fetchByAssoc($result)) {
@@ -200,7 +200,7 @@ else if ($action == "get_area_by_countries") {
         foreach ($countries as $id) {
             $query .= " or c.id = '$id'";
         }
-        $query .= ') and a.deleted = 0';
+        $query .= ') and a.deleted = 0 and ac.deleted = 0 and c.deleted = 0';
         $result = $db->query($query);
         while ($row = $db->fetchByAssoc($result)) {
             $areas[$row['id']] = $row['name'];

@@ -271,12 +271,17 @@ $(document).ready(function () {
                 countries = "",
                 optionList = "<option value=''>--None--</option>",
                 $optionSelected = $("option:selected", $this),
-                count = $optionSelected.length;
+                count = $optionSelected.length,
+                $tr = $this.closest("tr");
             loader.insertAfter($this);
             $optionSelected.each(function (index) {
                 countries += this.value;
                 if (index < count - 1) countries += "|";
             });
+
+
+            $tr.find(".jk_list_destinations").html("<option value=''>--None--</option>");
+            $tr.find(".jk_list_locations").html("<option value=''>--None--</option>");
             //console.log(countries);
             $.ajax(
                 {
@@ -291,7 +296,6 @@ $(document).ready(function () {
                         $.each(data, function (key, value) {
                             optionList += "<option value='" + key + "'>" + value + "</option>";
                         });
-
                     }
                 }
             );
@@ -313,6 +317,7 @@ $(document).ready(function () {
                 if (areas != '')
                     if (index < count - 1) areas += "|";
             });
+            $this.closest("tr").find(".jk_list_locations").html("<option value=''>--None--</option>");
             loader.insertAfter($this);
             ///console.log(areas);
             $.ajax(
@@ -346,15 +351,14 @@ $(document).ready(function () {
             startDate.setFullYear(start_date_arr[2], start_date_arr[1], start_date_arr[0]);
             endDate.setFullYear(end_date_arr[2], end_date_arr[1], end_date_arr[0]);
             var days = (endDate - startDate) / (3600 * 1000 * 24);
-           console.log("--"+startDate+" - "+endDate);
-                        console.log("---"+days);
+            console.log("--" + startDate + " - " + endDate);
+            console.log("---" + days);
             days = Number(days);
 
-            console.log(typeof days);
-            console.log(days>0);
-            if (days > 0)
-            {
-            console.log(jk_cloned);
+            //console.log(typeof days);
+            // console.log(days>0);
+            if (days > 0) {
+                //  console.log(jk_cloned);
                 $("#table_clone tr").hide();
                 $("#table_clone tr input[name='deleted[]']").val(1);
                 for (var i = 0; i < days; i++) {

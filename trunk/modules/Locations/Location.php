@@ -70,7 +70,7 @@
                     }
                     if($img_valid == false) {
                         echo "<script language='javascript'> alert('file ảnh không hợp lệ'); </script>";
-                        break;
+                        return;
                     }
                     if(is_file('modules/images/'.$this->image)){
                         @unlink('modules/images/'.$this->image) ;
