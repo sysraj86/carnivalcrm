@@ -54,14 +54,6 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'address' => 
-      array (
-        'type' => 'varchar',
-        'label' => 'LBL_ADDRESS',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'address',
-      ),
       'countries_dtinations_name' => 
       array (
         'type' => 'relate',
@@ -70,24 +62,6 @@ array (
         'width' => '10%',
         'default' => true,
         'name' => 'countries_dtinations_name',
-      ),
-      'area' => 
-      array (
-        'type' => 'enum',
-        'label' => 'LBL_AREA',
-        'sortable' => false,
-        'width' => '10%',
-        'default' => true,
-        'name' => 'area',
-      ),
-      'city_province' => 
-      array (
-        'type' => 'enum',
-        'label' => 'LBL_CITY_PROVINCE',
-        'sortable' => false,
-        'width' => '10%',
-        'default' => true,
-        'name' => 'city_province',
       ),
       'current_user_only' => 
       array (

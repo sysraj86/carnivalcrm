@@ -52,11 +52,12 @@ $viewdefs [$module_name] =
                         0 =>
                         array(
                             'name' => 'countries_dtinations_name',
-                            'label' => 'LBL_COUNTRIES_DESTINATIONS_FROM_COUNTRIES_TITLE',
+                            'label' => 'LBL_COUNTRY_NAME',
                         ),
-                        1 =>array('name'=> 'c_areas_destinations_name', 'label'=>'Areas')
-
-
+                        1 => array(
+                            'name' => 'c_areas_destinations_name',
+                            'label' => 'LBL_C_AREAS_DESTINATIONS_FROM_C_AREAS_TITLE'
+                        )
                     ),
                     2 =>
                     array(

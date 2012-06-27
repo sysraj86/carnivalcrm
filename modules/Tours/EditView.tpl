@@ -196,7 +196,7 @@ addToValidate('EditView', 'area', 'string', true, 'Tour area');
             <td class="dataLabel" valign="top">{$MOD.LBL_DESTINATION}&nbsp;<span class="required">({$MOD.LBL_NOTE}
                 ) :</span>
             </td>
-            <td class="dataField"><select id="noiden" name="noiden[]" multiple="multiple">{$DESTINATION}</select>
+            <td class="dataField"><select id="noiden" name="noiden[]" multiple="multiple">{$DESTINATIONS}</select>
             </td>
             <td class="dataLabel">
             {$MOD.LBL_TOUR_IS_TEMPLATE}:

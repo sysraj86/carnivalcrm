@@ -5,6 +5,6 @@ $mod_strings = array (
   'LBL_PICTURE2' => 'Picture2',
   'LBL_LIST_NAME' => 'Name',
   'LBL_NAME' => 'Name',
-  'LBL_AREA' => 'Region',
+  'LBL_AREA' => 'Area',
 );
 ?>

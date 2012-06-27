@@ -88,12 +88,19 @@ $areas = $focus->getListAreas();
 $area_options = "<option data-code='' value=''>--None--</option>";
 $area_pattern = "";
 $frame_types_pattern = "F|H|O";
+if(!empty($focus->noiden)){
+    $noiden = explode('^,^',$focus->noiden);
+    $ss->assign('DESTINATIONS',get_select_options_with_id($app_list_strings['destination_dom_list'],$noiden));
+}else{
+    $ss->assign('DESTINATIONS',get_select_options_with_id($app_list_strings['destination_dom_list'],''));
+
+}
 foreach ($areas as $value) {
     $selected = "";
     if($value['id']==$focus->area){
         $selected = "selected";
     }
-    $area_options .= "<option $selected data-code='" . $value['code'] . "' value='" . $value['id'] . "'>" . $value['name'] . "</option>";
+    $area_options .= "<option $selected data-code='" . $value['code'] . "' value='" . $value['id'] . "'>" . $value['name'].' - '.$value['country'] . "</option>";
     $area_pattern .= ($area_pattern=="")? "":"|";
     $area_pattern .= $value['code'];
 }
@@ -146,13 +153,7 @@ $ss->assign("ACCOUNT_NAME", $focus->accounts_tours_name);
 $ss->assign("ACCOUNT_ID", $focus->accounts_t4d21ccounts_ida);
 $ss->assign("DURATION", $focus->duration);
 
-/*////end
-$ss->assign("IS_HOT_TOUR", $focus->is_hot_tour);
-$ss->assign("IS_FAVORITE_TOUR", $focus->is_favorite_tour);
-$ss->assign("PUBLISH_IN_WEB", $focus->is_active);
-$ss->assign("SHOW_IN_HOME", $focus->show_in_home);
-$ss->assign("IS_ACTIVE", $focus->is_active);
-$ss->assign("ORDER", $focus->order_num);*/
+
 if (!empty($focus->status)) {
     $ss->assign('STATUS', get_select_options_with_id($app_list_strings['tour_status_dom'], $focus->status));
 }
