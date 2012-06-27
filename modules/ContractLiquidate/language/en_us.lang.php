@@ -36,7 +36,7 @@
 
 $mod_strings = array (
   'LBL_ASSIGNED_TO_ID' => 'Assigned User Id',
-  'LBL_ASSIGNED_TO_NAME' => 'Sale man',
+  'LBL_ASSIGNED_TO_NAME' => 'Nhân viên',
   'LBL_ID' => 'ID',
   'LBL_DATE_ENTERED' => 'Date Created',
   'LBL_DATE_MODIFIED' => 'Date Modified',
@@ -72,6 +72,23 @@ $mod_strings = array (
   //////////////////////////
   'LBL_CONTENT'     => 'Nội dung thanh toán',
   'LBL_NUMBER'      => 'Số',
+  'LBL_CONTRACT'      => 'Hợp đồng gốc',
+  'LBL_DATE'      => 'Ngày',
+  'LBL_NOIDUNG'      => 'Nội dung',
+  'LBL_KEHOACH'      => 'Kế hoạch',
+  'LBL_THUCTE'      => 'Thực tế',
+  'LBL_DONGIA'      => 'Đơn giá (USD)',
+  'LBL_SL'      => 'SL',
+  'LBL_THANHTIEN'      => 'Thành Tiền (USD)',
+  'LBL_TONGGIATRIHD'      => 'Tổng giá trị hợp đồng',
+  'LBL_TONGCONG'      => 'Tổng cộng',
+  'LBL_CHIPHIPHATSINHTANG'      => 'Chi phí phát sinh tăng',
+  'LBL_CHIPHIPHATSINHGIAM'      => 'Chi phí phát sinh giảm',
+  'LBL_TONGTRIGIATOUR'      => 'Tổng giá trị tour',
+  'LBL_BENBTHANHTOANBENA'      => 'Bên B đã thanh toán cho bên A',
+  'LBL_BENBNOBENA'      => 'Bên B còn nợ bên A',
+  'LBL_BENANOBENB'      => 'Bên A còn nợ bên B',
+  'LBL_BANGCHU'      => 'Bằng chữ',
   
 
 );

@@ -3,9 +3,9 @@
     $(function(){
         
         // Ham lay thong tin cua Hop dong goc
-        $('.contract').click(function(){
-             open_popup('Contracts', 600, 400, "", true, false, {"call_back_function":"set_return","form_name": "EditView","field_to_name_array":{"id":"contract_id", "number": "contract","parent_type":"parent_type"}}, "single", true);        
-        });
+       // $('.contract').click(function(){
+//             open_popup('Contracts', 600, 400, "", true, false, {"call_back_function":"set_return","form_name": "EditView","field_to_name_array":{"id":"contract_id", "number": "contract","parent_type":"parent_type"}}, "single", true);        
+//        });
         
         // Ham tinh toan gia tri dong cot cua gia tri hop dong 
         $('.tinhtoan').blur(function(){
