@@ -37,6 +37,8 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 require_once("include/EditView/EditView2.php");
 require_once("include/upload_file.php");
+require_once("modules/FITs/FITs.php");
+
 
 class ViewConvertLead extends SugarView
 {
@@ -57,6 +59,9 @@ class ViewConvertLead extends SugarView
 
     public function preDisplay()
     {
+        // Add by Thanh Le At 27/06/2012
+        ViewConvertLead::convertToCustomer();
+        // End
         if (!$this->bean->ACLAccess('edit')) {
             ACLController::displayNoAccess();
             sugar_die('');
@@ -68,6 +73,7 @@ class ViewConvertLead extends SugarView
 	 */
 	public function display()
     {
+        
         if (!empty($_REQUEST['handle']) && $_REQUEST['handle'] == 'save')
         {
         	return $this->handleSave();
@@ -741,5 +747,35 @@ class ViewConvertLead extends SugarView
     		echo "</span>";
     	}
     	return false;
+    }
+    
+    function convertToCustomer(){
+        $lead = new Lead();
+        $lead->retrieve($this->bean->id);
+        if(!$this->kiemTraTrung($lead)){
+            $customer = new FITs() ;
+            $customer->salutation  =  $lead->salutation;
+            $customer->first_name  =  $lead->first_name;
+            $customer->last_name   =  $lead->last_name;
+            $customer->phone_mobile   =  $lead->phone_mobile;
+            $customer->email1   =  $lead->email1;
+            $customer->address   =  $lead->primary_address_street;
+            return $customer->save();  
+        }
+    }
+    function kiemTraTrung($lead){
+        global $db;
+        $sql = '
+        SELECT *
+        FROM fits a
+        WHERE a.deleted = 0
+            AND a.last_name = "'.$lead->last_name.'"
+            AND a.first_name = "'.$lead->first_name.'"
+            AND a.salutation = "'.$lead->salutation.'"
+            AND a.phone_mobile = "'.$lead->phone_mobile.'"
+            AND a.address = "'.$lead->primary_address_street.'"';
+        $result = $db->query($sql);
+        $row = $db->getRowCount($result);
+        return $row;
     }
 }

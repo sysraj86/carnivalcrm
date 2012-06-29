@@ -179,12 +179,14 @@
         var tientralai = 0;
         if(tong_thucte >= tienthanhtoan){
             tienconlai = tong_thucte - tienthanhtoan;
+            $('#bangchu').val(DocTienBangChu(tienconlai));
         }else{
             tientralai = tienthanhtoan - tong_thucte;
+            $('#bangchu').val(DocTienBangChu(tientralai));
         }
         
         $('#tienconlai').val(tienconlai.toString());
         $('#tientralai').val(tientralai.toString());
+        
     }
-    
-       //   $('#bangchu').val(DocTienBangChu($('#tongtien').val()));
+      

@@ -42,15 +42,6 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'type' => 
-      array (
-        'type' => 'enum',
-        'label' => 'LBL_TYPE',
-        'sortable' => false,
-        'width' => '10%',
-        'default' => true,
-        'name' => 'type',
-      ),
       'phone' => 
       array (
         'name' => 'phone',

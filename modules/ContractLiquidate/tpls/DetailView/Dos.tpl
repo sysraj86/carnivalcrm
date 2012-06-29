@@ -32,7 +32,7 @@
                     value=" {$APP.LBL_DELETE_BUTTON_LABEL} ">
 
                 <input title="View Change Log" class="button" onclick='open_popup("Audit", "600", "400", "&record={$ID}&module_name=ContractLiquidate", true, false,  ); return false;' type="submit" value="View Change Log">
-                <input title="export to word" class="button" type="button" onclick="window.location.href='index.php?module=ContractLiquidate&action=export2word&record={$ID}'" value=" Export to Word" />
+                <input title="export to word" class="button" type="button" onclick="window.location.href='index.php?module=ContractLiquidate&action=export2word&record={$ID}'" value=" Export to Word" /> 
             </td> 
         </tr>
     </form>
