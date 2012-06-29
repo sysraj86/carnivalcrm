@@ -15,6 +15,10 @@ $(document).ready(function () {
     var $frameType = $("#frame_type");
 
     /**disable somefield**/
+    editorKeydown = function (ed, e) {
+        tinymce.dom.Event.cancel(e);
+    };
+
     /**
      * Vo hieu hoa key press trong Editor
      */
@@ -22,13 +26,22 @@ $(document).ready(function () {
         try {
             $.each(tinymce.editors, function (key, editor) {
                 //  console.log(editor.id);
-                editor.onKeyDown.add(
-                    function (ed, e) {
-                        tinymce.dom.Event.cancel(e);
-                    }
-                );
+                editor.onKeyDown.add(editorKeydown);
             });
         } catch (e) {
+            console.log(e);
+        }
+    }
+
+    function enableEditor() {
+        console.log("enable editor");
+        try {
+            $.each(tinymce.editors, function (key, editor) {
+                //  console.log(editor.id);
+                editor.onKeyDown.remove(editorKeydown);
+                editor
+            });
+        }catch(e){
             console.log(e);
         }
     }
@@ -38,7 +51,7 @@ $(document).ready(function () {
      */
     function FullFrameFields() {
         var $EditView = $("#EditView");
-        $EditView.find("#duration,#name,#transport,[name='title[]'],[name='notes[]']").attr("disabled", "disabled");
+        $EditView.find("#duration,#name,#transport,[name='title[]'],[name='notes[]'],#noiden").attr("disabled", "disabled");
         disableEditors();
         // $("#department").attr("disabled", "disabled");
     }
@@ -57,12 +70,14 @@ $(document).ready(function () {
      */
     function OpenFrameFields() {
         var $EditView = $("#EditView");
-        $EditView.find("#duration,#name,#transport,[name='title[]'],[name='notes[]']").attr("disabled", "disabled");
+        $EditView.find("#duration,#name,#transport,[name='title[]'],[name='notes[]'],#area,#noiden").removeAttr("disabled", "disabled");
+
         $.each(tinymce.editors, function (key, editor) {
             if (editor.id != "description") {
                 editor.setContent("");
             }
         });
+        enableEditor();
     }
 
     /***
@@ -91,11 +106,12 @@ $(document).ready(function () {
                 tpls.append(tplTour.OptionListHTML.join());
                 ///
                 tpls.removeAttr("disabled");
+    //
 
             } else {
                 tpls.attr("disabled", "disabled");
                 $("#tour_code_num").removeAttr("readonly");
-                $("#area").removeAttr("disabled");
+                OpenFrameFields();
                 //  $("#department").removeAttr("disabled");
             }
         }

@@ -208,7 +208,7 @@ class  Tour extends SugarBean
                                             <input type="hidden" name="images[]" id="images_' . $count . '" value="' . $row['picture'] . '"/> </td>';
             $html .= '<td class="dataLabel"></td>';
             if (!empty($row['picture'])) {
-                $html .= '<td class="tour_program_image dataField"> <img src="' . $sugar_config['site_url'] . "/modules/images/" . $row['picture'] . '" width="300" height="300"/> </td>';
+                $html .= '<td class="tour_program_image dataField"> <img src="modules/images/' . $row['picture'] . '" width="300" height="300"/> </td>';
             }
             else {
                 $html .= '<td class="dataLabel tour_program_image">&nbsp;</td>';
@@ -295,7 +295,7 @@ class  Tour extends SugarBean
             $html .= '<td class="tabDetailViewDF" width ="35%">' . html_entity_decode($row['description'], ENT_QUOTES, 'UTF-8') . '</td>';
             $html .= '<td class="tabDetailViewDL" width ="15%">&nbsp;</td>';
             if (!empty($row['picture'])) {
-                $html .= '<td class="tabDetailViewDF" width ="35%"> <img src="' . $sugar_config['site_url'] . "/modules/images/" . $row['picture'] . '" width="300" height="300"/> </td>';
+                $html .= '<td class="tabDetailViewDF" width ="35%"> <img src="modules/images/' . $row['picture'] . '" width="300" height="300"/> </td>';
             }
             else {
                 $html .= '<td class="tabDetailViewDF" width ="35%">&nbsp;</td>';

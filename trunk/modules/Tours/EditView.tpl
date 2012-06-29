@@ -239,10 +239,10 @@ addToValidate('EditView', 'area', 'string', true, 'Tour area');
                 <select name="currency" id="currency">{$CURRENCY}</select>
             </td>
             <td class="dataLabel">
-                Order
+                &nbsp;
             </td>
             <td class="dataField">
-                <input type="text" style="width:50px" value="{$ORDER}" name="order_num"/>
+               &nbsp;
             </td>
         </tr>
 
