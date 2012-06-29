@@ -60,33 +60,19 @@ array (
               'required' => true,
             ),
           ),
-          1 => 
-          array (
-            'name' => 'gender',
-            'studio' => 'visible',
-            'label' => 'LBL_GENDER',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'type',
-            'label' => 'LBL_TYPE',
-          ),
           1 => 'phone_work',
         ),
-        3 => 
+        2 => 
         array (
           0 => 'title',
           1 => 'phone_mobile',
         ),
-        4 => 
+        3 => 
         array (
           0 => 'department',
           1 => 'phone_fax',
         ),
-        5 => 
+        4 => 
         array (
           0 => 
           array (
@@ -94,7 +80,7 @@ array (
           ),
           1 => 'website',
         ),
-        6 => 
+        5 => 
         array (
           0 => 
           array (
@@ -124,7 +110,7 @@ array (
             ),
           ),
         ),
-        7 => 
+        6 => 
         array (
           0 => 'email1',
           1 => 'description',

@@ -63,14 +63,6 @@ array (
     'label' => 'LBL_TITLE',
     'default' => false,
   ),
-  'GENDER' => 
-  array (
-    'type' => 'radioenum',
-    'default' => false,
-    'studio' => 'visible',
-    'label' => 'LBL_GENDER',
-    'width' => '10%',
-  ),
   'REFERED_BY' => 
   array (
     'width' => '10%',

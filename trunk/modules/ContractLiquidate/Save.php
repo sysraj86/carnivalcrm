@@ -50,6 +50,7 @@ $date = explode('/',$focus->date,3);
 $focus->day = $date[0];
 $focus->month = $date[1];
 $focus->year = $date[2];
+$focus->name = $focus->number;
 $focus->save($check_notify); 
  
   

@@ -568,6 +568,7 @@ $GLOBALS['app_list_strings']['fit_relationship_dom']=array (
   'Hohang' => 'Họ hàng',
   
 );
+
 $GLOBALS['app_list_strings']['countries_dom']=array (
   '' => '',
   'VIETNAM' => 'VIỆT NAM',
@@ -844,4 +845,10 @@ $GLOBALS['app_list_strings']['parent_type_display']=array (
   'Tours' => 'Tours',
   'Transports' => 'Transports',
   'TravelGuides' => 'TravelGuides',
+);
+
+$GLOBALS['app_list_strings']['lead_type_dom']=array (
+  ''  => '',
+  'Lead' => 'Lead',
+  'Current' => 'Current',
 );

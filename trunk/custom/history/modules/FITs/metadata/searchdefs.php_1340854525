@@ -34,13 +34,13 @@ array (
     ),
     'advanced_search' => 
     array (
-      'search_name' => 
+      'name' => 
       array (
-        'label' => 'LBL_NAME',
         'type' => 'name',
-        'default' => true,
+        'label' => 'LBL_NAME',
         'width' => '10%',
-        'name' => 'search_name',
+        'default' => true,
+        'name' => 'name',
       ),
       'email1' => 
       array (
