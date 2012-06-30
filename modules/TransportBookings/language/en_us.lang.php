@@ -88,6 +88,7 @@ $mod_strings = array (
   'LBL_OPERATOR'    => 'Operator',
   'LBL_MADETOUR'    => 'Made Tour',
   'LBL_TITLE'    => 'FAX TRANSPORTATION BOOKING',
+  'LBL_GIA'    => 'Giá',
   
 );
 ?>
