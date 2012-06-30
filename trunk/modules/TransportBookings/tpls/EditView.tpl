@@ -115,7 +115,7 @@
   {if $ID eq '' or $TRANSPORTSBOOKING_LINE_COUNT eq 0}
   <tr>
     <td class="dataField"><input name="name_booking[]" id="name_booking" type="text" value=""></td>
-    <td class="dataField"><input name="operating_date[]" class="datetime" id="operating_date" type="text" value=""/></td>
+    <td class="dataField"><input name="operating_date[]" class="datetime datePicker" id="operating_date" type="text" value=""/></td>
     <td class="dataField"><input name="unit_price[]" id="unit_price" type="text" value=""></td>
     <td class="dataField"><input name="type[]" id="type" type="text" value=""></td>
     <td class="dataField"><textarea cols="40" rows="5" name="route[]" id="route"></textarea>

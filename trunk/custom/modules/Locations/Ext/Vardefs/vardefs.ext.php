@@ -12,7 +12,6 @@ $dictionary["Location"]["fields"]["destinations_locations"] = array (
 );
 $dictionary["Location"]["fields"]["destinationlocations_name"] = array (
   'name' => 'destinationlocations_name',
-    'required'=>true,
   'type' => 'relate',
   'source' => 'non-db',
   'vname' => 'LBL_DESTINATIONS_LOCATIONS_FROM_DESTINATIONS_TITLE',
