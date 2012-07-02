@@ -44,7 +44,7 @@
         </tr>
         <tr>
              <td class="dataLabel">{$MOD.LBL_DATE_OF_CONTRACTS} &nbsp;<span class="required">*</span> &nbsp;:</td>
-             <td class="dataField"><input class="datePicker" id='date' name='date' align="absmiddle"></td>
+             <td class="dataField"><input class="datePicker" id='date' name='date' align="absmiddle" value="{$DATE}"></td>
              <td class="dataLabel">&nbsp;</td> 
              <td class="dataField">&nbsp;</td> 
         </tr>
@@ -62,8 +62,7 @@
         <tr>
             <td class="dataLabel">{$MOD.LBL_DO}<span class="required">*</span>:</td>
             <td class="dataField"> <select id="salutation_a" name="salutation_a" >{$SALUTATION_A}</select>
-            <input type="text" data="Button=cleardata,selectdata|Module=Users|Fields=full_name|Inputs=daidienbena" class="select" name="daidienbena" id="daidienbena" size="35" value="{$DAIDIENBENA}" />
-            <!--<input title="{$APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{$APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='2' class="button daidienbena" value='{$APP.LBL_SELECT_BUTTON_LABEL}' name="bnt_daidienbena" id="bnt_daidienbena">-->  
+            <input type="text" name="daidienbena" id="daidienbena" size="35" value="{$DAIDIENBENA}" />
             </td>
             <td class="dataLabel"> {$MOD.LBL_CHUCVU}:   </td>
             <td class="dataField"><select id="position_a" name="position_a" >{$POSITION_A}</select></td>
