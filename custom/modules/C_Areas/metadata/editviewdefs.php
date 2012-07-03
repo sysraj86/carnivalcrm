@@ -31,7 +31,7 @@ array (
           0 => 'name',
           1 => 
           array (
-            'name' => 'code_c',
+            'name' => 'code',
             'label' => 'LBL_CODE',
           ),
         ),
