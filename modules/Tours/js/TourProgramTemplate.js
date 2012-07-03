@@ -29,7 +29,7 @@
                             '</td>'+
                             '<td class="dataField">'+
                                  '<select name="destinations[]" class="jk_list_destinations" multiple="multiple" size="4">'+
-                                        '<option value="">--None--</option>'+
+                                        '{{countries}}'+
                                  '</select>'+
                             '</td>'+
                             '<td class="dataLabel">'+
@@ -45,7 +45,7 @@
                             '</td>'+
                             '<td>'+
                                 '<select name="destinations[]" class="jk_list_destinations" multiple="multiple" size="4">'+
-                                    '{{destinations}}'+
+                                     '<option value="">--None--</option>'+
                                 '</select>'+
                                 '<input type="hidden" value="0" name="destination_selected_count[]"/>'+
                             '</td>'+
@@ -53,9 +53,8 @@
                                     'Locations'+
                             '</td>'+
                              '<td>'+
-                                    '<select name="locations[]" multiple="multiple" class="jk_list_locations" size="4" data-editorId="description_pro_{{current_row}}">'+
-                                    '<option value="">None</option>'+
-                                    '{{locations}}'+
+								'<select name="locations[]" multiple="multiple" class="jk_list_locations" size="4" data-editorId="description_pro_{{current_row}}">'+
+                                    '<option value="">--None--</option>'+
                                 '</select>'+
                                 '<input type="hidden" name="location_selected_count[]" value="0"/>'+
                             '</td>'+
