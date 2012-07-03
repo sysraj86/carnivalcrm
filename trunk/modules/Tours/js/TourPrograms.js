@@ -58,9 +58,9 @@
             //title
             tpl = tpl.replace(/\{\{title\}\}/g, (program.title) ? program.title : "");
             //destination
-            tpl = tpl.replace(/\{\{destinations\}\}/g, program.destination_option_list);
+          // tpl = tpl.replace(/\{\{destinations\}\}/g, program.destination_option_list);
             //locations
-            tpl = tpl.replace(/\{\{locations\}\}/g, program.location_option_list);
+           // tpl = tpl.replace(/\{\{locations\}\}/g, program.location_option_list);
             //note
             tpl = tpl.replace(/\{\{note\}\}/g, (program.note) ? program.note : "");
             //picture
