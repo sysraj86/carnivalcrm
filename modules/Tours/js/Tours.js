@@ -95,6 +95,8 @@
                 if(!$("#tour_code_area").val()){
                     alert("Cảnh báo: Tour code không đúng định dạng!");
                 }
+            }else{
+                $(".btnAddRow, .btnDelRow").hide();
             }
 
             jk_cloned = $('tr#TR_table_clone_1').clone();

@@ -352,22 +352,20 @@ class  Tour extends SugarBean
             $html .= "<p class=MsoBodyText style='line-height:115%'>";
             //image
             if (!empty($img)) {
-                $html .= '<!--[if gte vml 1]>
-                    <v:shape id="Picture_x0020_12"
-                             o:spid="_x0000_s1027" type="#_x0000_t75"
-                             alt="Description: Description: http://files.myopera.com/phanthietvn/blog/94413770.jpg"
-                             style="position:absolute;margin-left:113pt;margin-top:15.6pt;width:153pt;
-                 height:111.5pt;z-index:-251658240;visibility:visible;mso-wrap-style:square;
+                $html .= '<!--[if gte vml 1]><v:shape id="_x0000_s1026"
+                 type="#_x0000_t75" alt="Description: Description: Description: http://files.myopera.com/phanthietvn/blog/94413770.jpg"
+                 style="position:absolute;margin-left:113pt;margin-top:15.6pt;width:153pt;
+                 height:111.5pt;z-index:-251657216;visibility:visible;mso-wrap-style:square;
                  mso-width-percent:0;mso-height-percent:0;mso-wrap-distance-left:9pt;
                  mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
                  mso-wrap-distance-bottom:0;mso-position-horizontal:right;
                  mso-position-horizontal-relative:margin;mso-position-vertical:absolute;
                  mso-position-vertical-relative:text;mso-width-percent:0;mso-height-percent:0;
                  mso-width-relative:page;mso-height-relative:page">
-                        <v:imagedata src="' . $img . '" o:title="94413770"/>
-                        <w:wrap type="square" anchorx="margin"/>
-                    </v:shape>
-                    <![endif]-->
+                 <v:imagedata src="' . $img . '"
+                  o:title="94413770"/>
+                 <w:wrap type="square" anchorx="margin"/>
+                </v:shape><![endif]-->
                     <![if !vml]>
                     <img width=204 height=149 src="' . $img . '"
                          align=right hspace=12 alt="Description: Description: http://files.myopera.com/phanthietvn/blog/94413770.jpg"

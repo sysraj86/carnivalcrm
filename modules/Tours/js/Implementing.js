@@ -41,7 +41,7 @@ $(document).ready(function () {
                 editor.onKeyDown.remove(editorKeydown);
                 editor
             });
-        }catch(e){
+        } catch (e) {
             console.log(e);
         }
     }
@@ -106,7 +106,7 @@ $(document).ready(function () {
                 tpls.append(tplTour.OptionListHTML.join());
                 ///
                 tpls.removeAttr("disabled");
-    //
+                //
 
             } else {
                 tpls.attr("disabled", "disabled");
@@ -367,26 +367,30 @@ $(document).ready(function () {
             startDate.setFullYear(start_date_arr[2], start_date_arr[1], start_date_arr[0]);
             endDate.setFullYear(end_date_arr[2], end_date_arr[1], end_date_arr[0]);
             var days = (endDate - startDate) / (3600 * 1000 * 24);
-            console.log("--" + startDate + " - " + endDate);
-            console.log("---" + days);
-            days = Number(days);
+            /*   console.log("--" + startDate + " - " + endDate);
+             console.log("---" + days);*/
+            //tinh tu ngay bat dau di la 1 ngay
+            days = Number(days)+1;
 
-            //console.log(typeof days);
-            // console.log(days>0);
-            if (days > 0) {
-                //  console.log(jk_cloned);
-                $("#table_clone tr").hide();
-                $("#table_clone tr input[name='deleted[]']").val(1);
-                for (var i = 0; i < days; i++) {
+            //  console.log(jk_cloned);
+            //  $("#table_clone tr").hide();
+            //$("#table_clone tr input[name='deleted[]']").val(1);
+            // $("#table_clone tr").remove();
+           //neu days =  0 ngay thi tinh 1 ngay. (di trong ngay)
+
+            if (CurrentTourProgramLine < days) {
+                for (var i = CurrentTourProgramLine; i < days; i++) {
+                    CurrentTourProgramLine = i + 1;
+
                     var trCloned = jk_cloned.clone(),
                         trId = trCloned.attr('id'), //get id
                         editorId = trCloned.find('textarea').attr('id'),
                         location = trCloned.find('.jk_list_locations'),
                         day = 0,
                         program = new TourPrograms();
-
+                    trId = trId.replace(/_\d+$/, "_" + CurrentTourProgramLine);
                     //cap nhat id cho tr
-                    trCloned.attr('id', trId.replace(/_\d+$/, "_" + CurrentTourProgramLine));
+                    trCloned.attr('id', trId);
                     //cap nhat "data-editorId" cho locations de nhan biet editor hien tai
                     editorId = editorId.replace(/\d+$/, CurrentTourProgramLine);
                     //cap nhat data-editorId cho locations list. de nhan biet editor hien tai la editor nao
@@ -407,12 +411,23 @@ $(document).ready(function () {
                     $('.day_num:visible').each(function () {
                         day++;
                         $(this).text(day);
-                        console.log($(this));
+                       // console.log($(this));
                     });
+                    console.log(editorId);
                     //setup editor
                     program.renderEditor(editorId);
                 }
+            } else if (CurrentTourProgramLine > days) {
+                for (var i = CurrentTourProgramLine; i > days; i--) {
+
+                    var trCloned = jk_cloned.clone(),
+                        trId = trCloned.attr('id');
+                    trId = trId.replace(/_\d+$/, "_" + CurrentTourProgramLine);
+                    $("#" + trId).remove();
+                    CurrentTourProgramLine--;
+                }
             }
+
 
         }
     );

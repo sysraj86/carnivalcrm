@@ -178,7 +178,10 @@ addToValidate('EditView', 'area', 'string', true, 'Tour area');
                        tabindex='1' size='15' maxlength='10' value="{$END_DATE}"/> <img
                     src="themes/default/images/jscalendar.gif" alt="{$APP.LBL_ENTER_DATE}" id="end_date_trigger"
                     align="absmiddle">(dd/mm/yy)
-                <input type="button" id="addDays" value="Add days"/>
+                {if $ID eq ''}
+                    <input type="button" id="addDays" value="Add days"/>
+                {/if}
+
             </td>
             <td class="dataLabel">{$MOD.LBL_STATUS} :</td>
             <td class="dataField"><select id="status" name="status">{$STATUS}</select></td>
