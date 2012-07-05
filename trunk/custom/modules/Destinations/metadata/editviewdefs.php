@@ -41,11 +41,7 @@ $viewdefs [$module_name] =
                     0 =>
                     array(
                         0 => 'name',
-                        1 =>
-                        array(
-                            'name' => 'code',
-                            'label' => 'LBL_CODE',
-                        ),
+                        1 => 'assigned_user_name',
                     ),
                     1 =>
                     array(
@@ -61,16 +57,8 @@ $viewdefs [$module_name] =
                     ),
                     2 =>
                     array(
-                        0 => '',
-                    ),
-                    3 =>
-                    array(
                         0 => 'description',
-                    ),
-                    4 =>
-                    array(
-                        0 => 'assigned_user_name',
-                        1 => '',
+                        1 => 'area'
                     ),
                 ),
             ),

@@ -132,8 +132,7 @@
         }
         program.renderEditor = function (editorId) {
             try {
-
-                var editor = new tinymce.Editor(editorId, {
+               var editor = new tinymce.Editor(editorId, {
                     mode:"textareas",
                     theme:"advanced",
                     editor_selector:"jk_editor",
@@ -160,6 +159,9 @@
                     }
 
                 });
+              /*  console.log("editor:");
+                console.log(typeof editor);
+                myEditor = editor;*/
                 editor.render();
             }
             catch (e) {

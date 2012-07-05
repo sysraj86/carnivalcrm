@@ -32,10 +32,10 @@ $sugar_config = array (
   'datef' => 'm/d/Y',
   'dbconfig' => 
   array (
-    'db_host_name' => 'sugarcrm-vn',
-    'db_user_name' => 'root',
-    'db_password' => '123',
-    'db_name' => 'carnival',
+    'db_host_name' => '180.148.1.166',
+    'db_user_name' => 'sugarcrm_cnv',
+    'db_password' => 'carnival',
+    'db_name' => 'sugarcrm_cnv',
     'db_type' => 'mysql',
   ),
   'dbconfigoption' => 
