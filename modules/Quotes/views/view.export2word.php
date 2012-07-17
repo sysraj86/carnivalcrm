@@ -95,10 +95,10 @@
                     $html .= '<td align="justify"><u><b>Khách sạn:</b></u><br/>'.html_entity_decode(nl2br($quotes->hotel)).'</td>';
                  $html .= '</tr>';
                  $html .= '<tr>';
-                    $html .= '<td align="justify"><u><b>Hướng dẫn viên</b></u>: <br/> {GUIDE}</td>';
+                    $html .= '<td align="justify"><u><b>Hướng dẫn viên</b></u>: <br/> '.html_entity_decode(nl2br($quotes->guide)).'</td>';
                  $html .= '</tr>';
                  $html .= '<tr>';
-                    $html .= '<td align="justify"><u><b>Phòng hội nghị <sup>1</sup>/<sub>2</sub> ngày</b></u><br/>'.html_entity_decode(nl2br($quotes->room)).'</td>';
+                    $html .= '<td align="justify"><u><b>Tham quan</b></u><br/>'.html_entity_decode(nl2br($quotes->room)).'</td>';
                  $html .= '</tr>';
                  $html .= '<tr>';
                     $html .= '<td align="justify"><u><b>Ăn uống</b></u>: '.html_entity_decode(nl2br($quotes->food)).'</td>';
