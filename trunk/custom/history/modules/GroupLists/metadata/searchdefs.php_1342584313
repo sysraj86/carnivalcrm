@@ -1,0 +1,117 @@
+<?php
+$module_name = 'GroupLists';
+$searchdefs [$module_name] = 
+array (
+  'layout' => 
+  array (
+    'basic_search' => 
+    array (
+      'code' => 
+      array (
+        'name' => 'code',
+        'default' => true,
+        'width' => '10%',
+      ),
+      'name' => 
+      array (
+        'name' => 'name',
+        'default' => true,
+        'width' => '10%',
+      ),
+      'group_type' => 
+      array (
+        'type' => 'enum',
+        'label' => 'LBL_GROUP_TYPE',
+        'sortable' => false,
+        'width' => '10%',
+        'default' => true,
+        'name' => 'group_type',
+      ),
+      'grouplists_pprograms_name' => 
+      array (
+        'type' => 'relate',
+        'link' => 'grouplists_groupprograms',
+        'label' => 'LBL_GROUPLISTS_GROUPPROGRAMS_FROM_GROUPPROGRAMS_TITLE',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'grouplists_pprograms_name',
+      ),
+      'current_user_only' => 
+      array (
+        'name' => 'current_user_only',
+        'label' => 'LBL_CURRENT_USER_FILTER',
+        'type' => 'bool',
+        'default' => true,
+        'width' => '10%',
+      ),
+    ),
+    'advanced_search' => 
+    array (
+      'code' => 
+      array (
+        'name' => 'code',
+        'default' => true,
+        'width' => '10%',
+      ),
+      'name' => 
+      array (
+        'name' => 'name',
+        'default' => true,
+        'width' => '10%',
+      ),
+      'group_type' => 
+      array (
+        'type' => 'enum',
+        'label' => 'LBL_GROUP_TYPE',
+        'sortable' => false,
+        'width' => '10%',
+        'default' => true,
+        'name' => 'group_type',
+      ),
+      'num_of_cus' => 
+      array (
+        'type' => 'int',
+        'label' => 'LBL_NUM_OF_CUS',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'num_of_cus',
+      ),
+      'grouplists_pprograms_name' => 
+      array (
+        'type' => 'relate',
+        'link' => 'grouplists_groupprograms',
+        'label' => 'LBL_GROUPLISTS_GROUPPROGRAMS_FROM_GROUPPROGRAMS_TITLE',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'grouplists_pprograms_name',
+      ),
+      'assigned_user_id' => 
+      array (
+        'name' => 'assigned_user_id',
+        'label' => 'LBL_ASSIGNED_TO',
+        'type' => 'enum',
+        'function' => 
+        array (
+          'name' => 'get_user_array',
+          'params' => 
+          array (
+            0 => false,
+          ),
+        ),
+        'default' => true,
+        'width' => '10%',
+      ),
+    ),
+  ),
+  'templateMeta' => 
+  array (
+    'maxColumns' => '3',
+    'maxColumnsBasic' => '4',
+    'widths' => 
+    array (
+      'label' => '10',
+      'field' => '30',
+    ),
+  ),
+);
+?>

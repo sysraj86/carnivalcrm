@@ -73,7 +73,7 @@ array (
     ),
     'advanced_search' => 
     array (
-'code' => 
+      'code' => 
       array (
         'type' => 'varchar',
         'label' => 'LBL_TRANSPORT_CODE',
@@ -119,6 +119,38 @@ array (
         'width' => '10%',
         'default' => true,
         'name' => 'email1',
+      ),
+      'created_by' => 
+      array (
+        'type' => 'assigned_user_name',
+        'label' => 'LBL_CREATED',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'created_by',
+      ),
+      'modified_user_id' => 
+      array (
+        'type' => 'assigned_user_name',
+        'label' => 'LBL_MODIFIED',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'modified_user_id',
+      ),
+      'date_modified' => 
+      array (
+        'type' => 'datetime',
+        'label' => 'LBL_DATE_MODIFIED',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'date_modified',
+      ),
+      'date_entered' => 
+      array (
+        'type' => 'datetime',
+        'label' => 'LBL_DATE_ENTERED',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'date_entered',
       ),
       'assigned_user_name' => 
       array (

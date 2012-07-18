@@ -34,6 +34,12 @@ array (
         'default' => true,
         'width' => '10%',
       ),
+      'last_name' => 
+      array (
+        'name' => 'last_name',
+        'default' => true,
+        'width' => '10%',
+      ),
       'email' => 
       array (
         'name' => 'email',
@@ -56,12 +62,6 @@ array (
         'name' => 'phone',
         'label' => 'LBL_ANY_PHONE',
         'type' => 'name',
-        'default' => true,
-        'width' => '10%',
-      ),
-      'last_name' => 
-      array (
-        'name' => 'last_name',
         'default' => true,
         'width' => '10%',
       ),
@@ -118,6 +118,38 @@ array (
         'name' => 'lead_source',
         'default' => true,
         'width' => '10%',
+      ),
+      'created_by' => 
+      array (
+        'type' => 'assigned_user_name',
+        'label' => 'LBL_CREATED',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'created_by',
+      ),
+      'modified_user_id' => 
+      array (
+        'type' => 'assigned_user_name',
+        'label' => 'LBL_MODIFIED',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'modified_user_id',
+      ),
+      'date_modified' => 
+      array (
+        'type' => 'datetime',
+        'label' => 'LBL_DATE_MODIFIED',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'date_modified',
+      ),
+      'date_entered' => 
+      array (
+        'type' => 'datetime',
+        'label' => 'LBL_DATE_ENTERED',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'date_entered',
       ),
       'assigned_user_id' => 
       array (

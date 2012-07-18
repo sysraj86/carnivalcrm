@@ -113,6 +113,30 @@ array (
         'default' => true,
         'name' => 'description',
       ),
+      'date_modified' => 
+      array (
+        'type' => 'datetime',
+        'label' => 'LBL_DATE_MODIFIED',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'date_modified',
+      ),
+      'modified_user_id' => 
+      array (
+        'type' => 'assigned_user_name',
+        'label' => 'LBL_MODIFIED',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'modified_user_id',
+      ),
+      'current_user_only' => 
+      array (
+        'label' => 'LBL_CURRENT_USER_FILTER',
+        'type' => 'bool',
+        'default' => true,
+        'width' => '10%',
+        'name' => 'current_user_only',
+      ),
       'assigned_user_id' => 
       array (
         'name' => 'assigned_user_id',

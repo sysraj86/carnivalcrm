@@ -128,6 +128,22 @@ array (
         'default' => true,
         'name' => 'date_entered',
       ),
+      'created_by' => 
+      array (
+        'type' => 'assigned_user_name',
+        'label' => 'LBL_CREATED',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'created_by',
+      ),
+      'modified_user_id' => 
+      array (
+        'type' => 'assigned_user_name',
+        'label' => 'LBL_MODIFIED',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'modified_user_id',
+      ),
       'assigned_user_id' => 
       array (
         'name' => 'assigned_user_id',
