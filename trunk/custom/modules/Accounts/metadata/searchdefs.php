@@ -139,14 +139,6 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'date_entered' => 
-      array (
-        'type' => 'datetime',
-        'label' => 'LBL_DATE_ENTERED',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'date_entered',
-      ),
       'email' => 
       array (
         'name' => 'email',
@@ -258,13 +250,13 @@ array (
         'width' => '10%',
         'name' => 'current_user_only',
       ),
-      'modified_user_id' => 
+      'date_entered' => 
       array (
-        'type' => 'assigned_user_name',
-        'label' => 'LBL_MODIFIED',
+        'type' => 'datetime',
+        'label' => 'LBL_DATE_ENTERED',
         'width' => '10%',
         'default' => true,
-        'name' => 'modified_user_id',
+        'name' => 'date_entered',
       ),
       'created_by' => 
       array (
@@ -273,6 +265,14 @@ array (
         'width' => '10%',
         'default' => true,
         'name' => 'created_by',
+      ),
+      'modified_user_id' => 
+      array (
+        'type' => 'assigned_user_name',
+        'label' => 'LBL_MODIFIED',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'modified_user_id',
       ),
       'date_modified' => 
       array (
