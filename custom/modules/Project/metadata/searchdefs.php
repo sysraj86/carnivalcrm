@@ -39,14 +39,6 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'date_modified' => 
-      array (
-        'type' => 'datetime',
-        'label' => 'LBL_DATE_MODIFIED',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'date_modified',
-      ),
       'date_entered' => 
       array (
         'type' => 'datetime',
@@ -62,6 +54,22 @@ array (
         'width' => '10%',
         'default' => true,
         'name' => 'created_by',
+      ),
+      'date_modified' => 
+      array (
+        'type' => 'datetime',
+        'label' => 'LBL_DATE_MODIFIED',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'date_modified',
+      ),
+      'modified_user_id' => 
+      array (
+        'type' => 'assigned_user_name',
+        'label' => 'LBL_MODIFIED_USER_ID',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'modified_user_id',
       ),
       'current_user_only' => 
       array (
