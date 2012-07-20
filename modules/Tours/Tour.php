@@ -416,7 +416,7 @@ class  Tour extends SugarBean
                 }
                 $query = "SELECT DISTINCT dl.destinatio2a7dcations_idb AS id, l.name, l.description " .
                     "FROM locations l JOIN destinations_locations_c dl ON l.id = dl.destinatio2a7dcations_idb " .
-                    ' where 1>1 ' . $whereClause;
+                    ' where 1>1 ' . $whereClause.' and l.deleted = 0 and dl.deleted = 0';
                 $result = $db->query($query);
 
                 $locations = array();

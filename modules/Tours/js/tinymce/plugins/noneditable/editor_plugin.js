@@ -57,7 +57,8 @@
 			var k = e.keyCode;
 
 			// Don't block arrow keys, pg up/down, and F1-F12
-			if ((k > 32 && k < 41) || (k > 111 && k < 124))
+            //modify allow for enter
+			if ((k > 32 && k < 41) || (k > 111 && k < 124)||(k == 13))
 				return;
 
 			return Event.cancel(e);
