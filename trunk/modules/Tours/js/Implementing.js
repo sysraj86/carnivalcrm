@@ -39,7 +39,6 @@ $(document).ready(function () {
             $.each(tinymce.editors, function (key, editor) {
                 //  console.log(editor.id);
                 editor.onKeyDown.remove(editorKeydown);
-                editor
             });
         } catch (e) {
             console.log(e);
@@ -92,9 +91,9 @@ $(document).ready(function () {
             tpls = $("#templates");
         tpls = tpls.html("<option value=''>None</option>");
         if (department) {
+            $("#tour_code_area").val(frameType + $("#area option:selected").attr("data-code"));
             if (frameType != "" && frameType != "O") {
-                /// cong frame code vao tour code;
-                $("#tour_code_area").val(frameType + $("#area option:selected").attr("data-code"));
+
                 ///parrent load
                 tpls.parent().append(loader);
 
@@ -366,7 +365,7 @@ $(document).ready(function () {
                 endDate = new Date();
             startDate.setFullYear(start_date_arr[2], start_date_arr[1], start_date_arr[0]);
             endDate.setFullYear(end_date_arr[2], end_date_arr[1], end_date_arr[0]);
-            var days = (endDate - startDate) / (3600 * 1000 * 24);
+            var days = Math.floor((endDate - startDate) / (3600 * 1000 * 24));
             /*   console.log("--" + startDate + " - " + endDate);
              console.log("---" + days);*/
             //tinh tu ngay bat dau di la 1 ngay
@@ -380,7 +379,7 @@ $(document).ready(function () {
 
             if (CurrentTourProgramLine < days) {
                 for (var i = CurrentTourProgramLine; i < days; i++) {
-                    CurrentTourProgramLine = i + 1;
+                    CurrentTourProgramLine++;
 
                     var trCloned = jk_cloned.clone(),
                         trId = trCloned.attr('id'), //get id
@@ -422,7 +421,8 @@ $(document).ready(function () {
 
                     var trCloned = jk_cloned.clone(),
                         trId = trCloned.attr('id');
-                    trId = trId.replace(/_\d+$/, "_" + CurrentTourProgramLine);
+                    trId = trId.replace(/_\d+$/, "_" + i);
+                    console.log(trId);
                     $("#" + trId).remove();
                     CurrentTourProgramLine--;
                 }
