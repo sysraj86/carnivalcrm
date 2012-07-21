@@ -361,6 +361,22 @@ $dictionary["FITs"]["fields"]["insurances87aeurances_ida"] = array (
 );
 
 
+ // created: 2012-07-21 09:55:31
+$dictionary['FITs']['fields']['account_name']['importable']='false';
+
+ 
+
+ // created: 2012-07-21 09:54:00
+$dictionary['FITs']['fields']['date_of_issue']['importable']='false';
+$dictionary['FITs']['fields']['date_of_issue']['enable_range_search']=false;
+
+ 
+
+ // created: 2012-07-21 09:55:31
+$dictionary['FITs']['fields']['department']['importable']='false';
+
+ 
+
  // created: 2012-06-23 11:44:40
 $dictionary['FITs']['fields']['nationality']['default']='^^';
 
@@ -368,6 +384,11 @@ $dictionary['FITs']['fields']['nationality']['default']='^^';
 
  // created: 2012-06-23 12:01:27
 $dictionary['FITs']['fields']['provice_city']['default']='';
+
+ 
+
+ // created: 2012-07-21 09:49:33
+$dictionary['FITs']['fields']['title']['importable']='false';
 
  
 
