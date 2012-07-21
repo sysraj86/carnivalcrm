@@ -1,5 +1,5 @@
 <?php
-// created: 2012-06-21 11:32:20
+// created: 2012-07-21 09:55:31
 $mod_strings = array (
   'LBL_FITS_GROUPPROGRAMS_FROM_GROUPPROGRAMS_TITLE' => 'List Tours',
   'LBL_FITS_CONTRACTS_FROM_CONTRACTS_TITLE' => 'Contracts',
@@ -23,5 +23,8 @@ $mod_strings = array (
   'LBL_IDENTY_CARD' => 'Identy Card Number',
   'LBL_FITS_ORDERS_FROM_ORDERS_TITLE' => 'Orders',
   'LBL_FITS_CASES_FROM_CASES_TITLE' => 'Cases',
+  'LBL_TITLE' => 'Position',
+  'LBL_DATE_ISSUE' => 'Date of issue',
+  'LBL_DEPARTMENT' => 'Department',
 );
 ?>
