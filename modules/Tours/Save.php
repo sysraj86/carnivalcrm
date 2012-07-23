@@ -20,10 +20,7 @@ if (!empty($_POST['assigned_user_id']) && ($focus->assigned_user_id != $_POST['a
 } else {
     $check_notify = FALSE;
 }
-/**
- * Khi edit thi se set trang thai cho tour la chua dong bo
- */
-$focus->synced = false;
+
 foreach ($focus->column_fields as $field) {
     if (isset($_POST[$field])) {
         $value = $_POST[$field];
@@ -125,6 +122,38 @@ $focus->save($check_notify);
 
 $return_id = $focus->id;
 /**
+ * Countries HANDLE
+ */
+$tour_program_countries = $_POST['tour_program_countries'];
+$countries = array();
+//get destination selected in one line
+$count = $_POST['tour_program_countries_count'];
+for ($i = 0; $i < count($count); $i++) {
+    $countriesArr = array();
+    for ($j = 0; $j < $count[$i]; $j++) {
+        if (!empty($tour_program_countries[$j])) {
+            $countriesArr[] = $tour_program_countries[$j];
+        }
+    }
+    $countries[] = base64_encode(json_encode($countriesArr));
+}
+/**
+ * Areas HANDLE
+ */
+$a = $_POST['tour_program_areas'];
+$areas = array();
+//get destination selected in one line
+$count = $_POST['tour_program_areas_count'];
+for ($i = 0; $i < count($count); $i++) {
+    $areasArr = array();
+    for ($j = 0; $j < $count[$i]; $j++) {
+        if (!empty($a[$j])) {
+            $areasArr[] = $a[$j];
+        }
+    }
+    $areas[] = base64_encode(json_encode($areasArr));
+}
+/**
  * Destinations HANDLE
  */
 $d = $_POST['destinations'];
@@ -143,7 +172,7 @@ for ($i = 0; $i < count($destination_count); $i++) {
 /**
  * Locations hanlde
  */
-$location = $_POST['locations'];
+$location = $_POST['tour_program_locations'];
 //get num of location selected
 $location_count = $_POST['location_selected_count'];
 $locations = array();
@@ -159,6 +188,8 @@ for ($i = 0; $i < count($location_count); $i++) {
 $program = array(
     'ids' => $_POST['tour_program_id'],
     'titles' => $_POST['title'],
+    'countries'=>$countries,
+    'areas'=>$areas,
     'destinations' => $destination,
     'locations' => $locations,
     'notes' => $_POST['notes'],
@@ -182,6 +213,8 @@ for ($i = 0; $i < $tourProgramCountLine; $i++) {
     $tourProgram->id = $program['ids'][$i];
     $tourProgram->tour_id = $return_id;
     $tourProgram->title = $program['titles'][$i];
+    $tourProgram->areas = $program['areas'][$i];
+    $tourProgram->countries = $program['countries'][$i];
     $tourProgram->destination = $program['destinations'][$i];
     $tourProgram->location = $program['locations'][$i];
     $tourProgram->notes = $program['notes'][$i];

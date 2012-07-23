@@ -90,7 +90,7 @@
             /** xac dinh xem dang o mang hinh nao**/
             //tour.id = $('[name="record"]').val();
             //neu dang o mang hinh edit
-            console.log(tour.id);
+          //  console.log(tour.id);
             if(tour.id){
                 if(!$("#tour_code_area").val()){
                     alert("Cảnh báo: Tour code không đúng định dạng!");

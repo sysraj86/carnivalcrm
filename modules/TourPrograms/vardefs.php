@@ -84,7 +84,16 @@ $dictionary['TourProgram'] = array(
             'vname' => '',
             'type' => 'text',
         ),
-
+        'countries' => array(
+            'name' => 'countries',
+            'vname' => '',
+            'type' => 'text',
+        ),
+        'areas' => array(
+            'name' => 'areas',
+            'vname' => '',
+            'type' => 'text',
+        ),
         'destination' => array(
             'name' => 'destination',
             'vname' => '',

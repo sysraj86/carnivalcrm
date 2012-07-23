@@ -28,17 +28,19 @@
                                 'Countries:'+
                             '</td>'+
                             '<td class="dataField">'+
-                                 '<select name="destinations[]" class="jk_list_destinations" multiple="multiple" size="4">'+
+                                 '<select name="tour_program_countries[]" class="jk_list_destinations" multiple="multiple" size="4">'+
                                         '{{countries}}'+
                                  '</select>'+
+                                  '<input type="hidden" value="0" name="tour_program_countries_count[]"/>'+
                             '</td>'+
                             '<td class="dataLabel">'+
                                 'Area:'+
                             '</td>'+
                             '<td class="dataField">'+
-                                 '<select name="destinations[]" class="jk_list_destinations" multiple="multiple" size="4">'+
+                                 '<select name="tour_program_areas[]" class="jk_list_destinations" multiple="multiple" size="4">'+
                                      '<option value="">--None--</option>'+
                                  '</select>'+
+                                 '<input type="hidden" value="0" name="tour_program_areas_count[]"/>'+
                             '</td>'+
                             '<td class="dataLabel">'+
                                 'Citites'+
@@ -53,7 +55,7 @@
                                     'Locations'+
                             '</td>'+
                              '<td>'+
-								'<select name="locations[]" multiple="multiple" class="jk_list_locations" size="4" data-editorId="description_pro_{{current_row}}">'+
+								'<select name="tour_program_locations[]" multiple="multiple" class="jk_list_locations" size="4" data-editorId="description_pro_{{current_row}}">'+
                                     '<option value="">--None--</option>'+
                                 '</select>'+
                                 '<input type="hidden" name="location_selected_count[]" value="0"/>'+

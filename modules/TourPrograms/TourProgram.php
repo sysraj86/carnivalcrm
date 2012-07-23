@@ -54,6 +54,8 @@ class TourProgram extends SugarBean {
 	var $deleted;
     var $tour_id;
 	var $title;
+    var $countries;
+    var $areas;
     var $destination;
     var $location;
 	var $notes;

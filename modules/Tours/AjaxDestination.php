@@ -20,6 +20,7 @@ if (isset($_POST['destination'])) {
 
     while ($row = $db->fetchByAssoc($result)) {
         $location = array();
+        $location["id"] = $row["id"];
         $location["name"] = $row["name"];
         $location["description"] = $row["description"];
         $locations[$row['id']] = $location;

@@ -93,48 +93,37 @@ class  Tour extends SugarBean
         $result = $this->get_tour_program_lines($this->id);
         $html = "";
         $count = 0;
-        $list_countries = get_select_options_with_id(Country::get_list_countries(), '');
+        $allCountries = Country::get_list_countries();
+
         while ($row = $this->db->fetchByAssoc($result)) {
             $count++;
-            /**
-             * Xu li destination
-             */
-            // khoi tao phan tu dau tien cua list select/option
-            $location_html = '<option data-description=""value="">None</option>';
-            $lc_selected_count = 0;
-            //neu destination rong~
-            /* if (!empty($row['destination'])) {
-                //get selected destination
-                $des_selected = json_decode(base64_decode($row['destination']));
-                $des_selected_count = is_array($des_selected) ? count($des_selected) : 0;
-                //generate option list of destination
-                $parent = get_select_options_with_id($app_list_strings['destination_dom_list'], $des_selected);
-                if ($des_selected_count) {
-                    // load location theo nhung destination da chon
-                    $location = $this->getLocationsByDes($des_selected);
-                    // lay du lieu location da chon tu database
-                    $location_selected = json_decode(base64_decode($row['location'], true));
-                    ///dem xem co bao nhieu location da duoc chon
-                    $lc_selected_count = (is_array($location_selected) && count($location) > 0) ? count($location_selected) : 0;
-                    foreach ($location as $l) {
-                        //description
-                        $des = ($l['description'] != null) ? $l['description'] : '';
-                        //id
-                        $id = $l['id'];
-                        $name = $l['name'];
-                        $str_seected = '';
-                        if (is_array($location_selected))
-                            $str_seected = (in_array($l['id'], $location_selected)) ? 'selected' : '';
-
-                        $location_html .= '<option ' . $str_seected . ' data-description="' . $des . '" value="' . $id . '">' . $name . '</option>';
-                    }
-                }
+            //countries
+            //paser base64 string -> json string -> array
+            $countries = json_decode(base64_decode($row['countries']));
+            //countries -> html select
+            $list_countries = get_select_options_with_id($allCountries, $countries);
+            //areas
+            $allAreas = Tour::get_list_areas_by_countries($countries, 1);
+            //paser base64 string -> json string -> array
+            $areas = json_decode(base64_decode($row['areas']));
+            $list_areas = "<option value=''>--None--</option>";
+            if ($areas && count($areas) > 0) {
+                $list_areas = get_select_options_with_id($allAreas, $areas);
             }
-            else {
-                $parent = get_select_options_with_id($app_list_strings['destination_dom_list'], '');
-            }*/
-            //    echo "<!--";print_r($parent); echo "-->";
-            // $list_countries = get_select_options_with_id($app_list_strings['countries_dom'],'');
+            //cities
+            $allCities = Tour::get_list_cities_by_areas($areas);
+            $cities = json_decode(base64_decode($row['destination']));
+            $list_cities = "<option value=''>--None--</option>";
+           if(count($cities)>0){
+               $list_cities =  get_select_options_with_id($allCities, $cities);
+           }
+            //location
+            $allLocation = Tour::get_list_location_by_cities($cities);
+            $location = json_decode(base64_decode($row['location']));
+            $list_locations = "<option value=''>--None--</option>";
+            if(count($location)>0){
+                $list_locations = get_select_options_with_id($allLocation,$location);
+            }
             $html .= '<tr id="TR_table_clone_' . $count . '">';
             $html .= '<td>';
             $html .= '<fieldset>';
@@ -157,37 +146,39 @@ class  Tour extends SugarBean
                                 Countries:
                             </td>
                             <td class="dataField">
-                                <select name="tour_country" class="jk_list_countries" multiple="multiple" size="4">
+                                <select name="tour_program_countries[]" class="jk_list_countries" multiple="multiple" size="4">
                                     ' . $list_countries . '
                                 </select>
+                                <input type="hidden" value="'.count($countries).'" name="tour_program_countries_count[]"/>
                             </td>
                             <td class="dataLabel">
                                 Areas:
                             </td>
                             <td class="dataField">
-                                <select name="tour_country" class="jk_list_areas" multiple="multiple" size="4">
-                                    <option value="">--None--</option>
+                                <select name="tour_program_areas[]" class="jk_list_areas" multiple="multiple" size="4">
+                                   ' . $list_areas . '
                                 </select>
+                                <input type="hidden" value="'.count($areas).'" name="tour_program_areas_count[]"/>
                             </td>
                             <td class="dataLabel">
                                 Cities:
                             </td>
                             <td class="dataField">
                                 <select name="destinations[]" class="jk_list_destinations" multiple="multiple" size="4">
-                                    <option value="">--None--</option>
+                                   '.$list_cities.'
                                 </select>
-                                <input type="hidden" value="0" name="destination_selected_count[]"/>
+                                <input type="hidden" value="'.count($cities).'" name="destination_selected_count[]"/>
                             </td>
                             <td class="dataLabel">
                                 <span>Locations:</span>
 
                             </td>
                             <td class="dataField">
-                                <select multiple="multiple" name="locations[]" class="jk_list_locations" size="4"
+                                <select multiple="multiple" name="tour_program_locations[]" class="jk_list_locations" size="4"
                                         data-editorId="description_pro_' . $count . '">
-                                     <option value="">--None--</option>
+                                     '.$list_locations.'
                                 </select>
-                                <input type="hidden" value="0" name="location_selected_count[]"/>
+                                <input type="hidden" value="'.count($location).'" name="location_selected_count[]"/>
                             </td>
                     </tr>';
             $html .= '<tr>';
@@ -416,7 +407,7 @@ class  Tour extends SugarBean
                 }
                 $query = "SELECT DISTINCT dl.destinatio2a7dcations_idb AS id, l.name, l.description " .
                     "FROM locations l JOIN destinations_locations_c dl ON l.id = dl.destinatio2a7dcations_idb " .
-                    ' where 1>1 ' . $whereClause.' and l.deleted = 0 and dl.deleted = 0';
+                    ' where 1>1 ' . $whereClause . ' and l.deleted = 0 and dl.deleted = 0';
                 $result = $db->query($query);
 
                 $locations = array();
@@ -454,24 +445,121 @@ class  Tour extends SugarBean
         return $row['tour_num'];
     }
 
-    public function getListAreas()
+    public function getListAreas($type = 0)
     {
         global $db;
         $query = "SELECT DISTINCT a.id, a.name, a.code, c.name as country FROM  c_areas a JOIN c_areas_countries_c ac
-                                    ON a.id = ac.c_areas_co30d8c_areas_idb JOIN countries c
-                                    ON c.id = ac.c_areas_cobbabuntries_ida
-        WHERE a.deleted = 0 and c.deleted = 0 and ac.deleted = 0";
+                                                        ON a.id = ac.c_areas_co30d8c_areas_idb JOIN countries c
+                                                        ON c.id = ac.c_areas_cobbabuntries_ida
+                            WHERE a.deleted = 0 and c.deleted = 0 and ac.deleted = 0";
         $result = $db->query($query);
         $areas = array();
-        while ($row = $db->fetchByAssoc($result)) {
-            $area = array();
-            $area['id'] = $row['id'];
-            $area['name'] = $row['name'];
-            $area['code'] = $row['code'];
-            $area['country'] = $row['country'];
-            $areas[] = $area;
+        if (isset($type) && $type == 1) {
+
+            while ($row = $db->fetchByAssoc($result)) {
+                $areas[$row['id']] = $row['name'];
+            }
+
+        } else {
+
+            while ($row = $db->fetchByAssoc($result)) {
+                $area = array();
+                $area['id'] = $row['id'];
+                $area['name'] = $row['name'];
+                $area['code'] = $row['code'];
+                $area['country'] = $row['country'];
+                $area['countryId'] = $row['countryId'];
+                $areas[] = $area;
+            }
+
         }
         return $areas;
+    }
+
+    public function get_list_areas_by_countries($countries, $type = 0)
+    {
+        global $db;
+        $where = "(";
+        foreach ($countries as $c) {
+            if ($where !== "(") $where .= " or ";
+            $where .= "c.id = '$c'";
+        }
+        $where .= ")";
+        if (count($countries) == 0) $where = ""; else $where =" AND ".$where;
+        $query = "SELECT DISTINCT a.id, a.name, a.code,c.id as countryId, c.name as country FROM  c_areas a JOIN c_areas_countries_c ac
+                                                                            ON a.id = ac.c_areas_co30d8c_areas_idb JOIN countries c
+                                                                            ON c.id = ac.c_areas_cobbabuntries_ida
+                                                WHERE a.deleted = 0 and c.deleted = 0 and ac.deleted = 0 " . $where;
+        $result = $db->query($query);
+        $areas = array();
+        if ($type == 1) {
+
+            while ($row = $db->fetchByAssoc($result)) {
+                $areas[$row['id']] = $row['name'];
+            }
+
+        } else {
+
+            while ($row = $db->fetchByAssoc($result)) {
+                $area = array();
+                $area['id'] = $row['id'];
+                $area['name'] = $row['name'];
+                $area['code'] = $row['code'];
+                $area['country'] = $row['country'];
+                $area['countryId'] = $row['countryId'];
+                $areas[] = $area;
+            }
+
+        }
+        return $areas;
+    }
+
+    public function get_list_cities_by_areas($areas)
+    {
+        global $db;
+        $query = "SELECT D.* FROM destinations D JOIN c_areas_destinations_c AD
+                ON D.ID = AD.c_areas_de577anations_idb JOIN c_areas A
+                ON A.ID = AD.c_areas_de9d4fc_areas_ida
+                WHERE (1!=1 ";
+
+        foreach ($areas as $id) {
+            $query .= " or A.id = '$id'";
+        }
+        $query .= ') and D.deleted = 0 and AD.deleted=0 and A.deleted = 0';
+        $result = $db->query($query);
+        $cities = array();
+        while ($row = $db->fetchByAssoc($result)) {
+            $cities[$row['id']] = $row['name'];
+        }
+        return $cities;
+    }
+
+    public function get_list_location_by_cities($cities)
+    {
+        global $db;
+        $where = "(";
+                foreach ($cities as $c) {
+                    if ($where !== "(") $where .= " or ";
+                    $where .= "dl.destinatio010enations_ida = '$c'";
+                }
+                $where .= ")";
+                if (count($cities) == 0) $where = ""; else $where =" AND ".$where;
+
+        $query = "SELECT DISTINCT dl.destinatio2a7dcations_idb AS id, l.name, l.description
+                  FROM locations l JOIN destinations_locations_c dl
+                  ON l.id = dl.destinatio2a7dcations_idb
+                  WHERE l.deleted = 0 AND dl.deleted = 0 ".$where;
+
+        $result = $db->query($query);
+
+        $locations = array();
+
+        while ($row = $db->fetchByAssoc($result)) {
+
+            $locations[$row['id']] = $row['name'];
+            //  array_push($locations,$location);
+        }
+        return $locations;
     }
 
     function  sync()

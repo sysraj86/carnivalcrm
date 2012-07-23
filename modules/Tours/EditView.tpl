@@ -314,17 +314,19 @@ addToValidate('EditView', 'area', 'string', true, 'Tour area');
                                 Countries:
                             </td>
                             <td class="dataField">
-                                <select name="tour_country" class="jk_list_countries" multiple="multiple" size="4">
+                                <select name="tour_program_countries[]" class="jk_list_countries" multiple="multiple" size="4">
                                     {$COUNTRIES}
                                 </select>
+                                <input type="hidden" value="0" name="tour_program_countries_count[]"/>
                             </td>
                             <td class="dataLabel">
                                 Areas:
                             </td>
                             <td class="dataField">
-                                <select name="tour_country" class="jk_list_areas" multiple="multiple" size="4">
+                                <select name="tour_program_areas[]" class="jk_list_areas" multiple="multiple" size="4">
                                     <option value=''>--None--</option>
                                 </select>
+                                <input type="hidden" value="0" name="tour_program_areas_count[]"/>
                             </td>
                             <td class="dataLabel">
                                 Cities:
@@ -340,7 +342,7 @@ addToValidate('EditView', 'area', 'string', true, 'Tour area');
 
                             </td>
                             <td class="dataField">
-                                <select multiple="multiple" name="locations[]" class="jk_list_locations" size="4"
+                                <select multiple="multiple" name="tour_program_locations[]" class="jk_list_locations" size="4"
                                         data-editorId="description_pro_1">
                                     <option value="">None</option>
                                 </select>
