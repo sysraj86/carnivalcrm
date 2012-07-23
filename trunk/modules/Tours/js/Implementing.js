@@ -293,7 +293,7 @@ $(document).ready(function () {
                 countries += this.value;
                 if (index < count - 1) countries += "|";
             });
-
+            $tr.find("[name='tour_program_countries_count[]']").val(count);
 
             $tr.find(".jk_list_destinations").html("<option value=''>--None--</option>");
             $tr.find(".jk_list_locations").html("<option value=''>--None--</option>");
@@ -314,7 +314,7 @@ $(document).ready(function () {
                     }
                 }
             );
-            $(".jk_list_areas").html(optionList);
+            $tr.find(".jk_list_areas").html(optionList);
         }
     );
     /**
@@ -326,13 +326,15 @@ $(document).ready(function () {
                 areas = "",
                 optionList = "<option value=''>--None--</option>",
                 $optionSelected = $("option:selected", $this),
-                count = $optionSelected.length;
+                count = $optionSelected.length,
+                $tr = $this.closest("tr");
             $optionSelected.each(function (index) {
                 areas += $(this).val();
                 if (areas != '')
                     if (index < count - 1) areas += "|";
             });
-            $this.closest("tr").find(".jk_list_locations").html("<option value=''>--None--</option>");
+            $tr.find("[name='tour_program_areas_count[]']").val(count);
+           $tr.find(".jk_list_locations").html("<option value=''>--None--</option>");
             loader.insertAfter($this);
             ///console.log(areas);
             $.ajax(
@@ -350,7 +352,7 @@ $(document).ready(function () {
                     }
                 }
             );
-            $(".jk_list_destinations").html(optionList);
+           $tr.find(".jk_list_destinations").html(optionList);
         }
     );
     /**
