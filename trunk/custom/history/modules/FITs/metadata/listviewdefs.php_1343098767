@@ -10,21 +10,6 @@ array (
     'default' => true,
     'link' => true,
   ),
-  'NAME' => 
-  array (
-    'width' => '20%',
-    'label' => 'LBL_NAME',
-    'link' => true,
-    'orderBy' => 'last_name',
-    'default' => true,
-    'related_fields' => 
-    array (
-      0 => 'first_name',
-      1 => 'last_name',
-      2 => 'salutation',
-    ),
-    'customCode' => '<a href="index.php?module=FITs&action=DetailView&record={$ID}">{$SALUTATION} {$FIRST_NAME} {$LAST_NAME}</a>',
-  ),
   'PHONE_MOBILE' => 
   array (
     'width' => '10%',
