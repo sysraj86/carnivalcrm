@@ -64,9 +64,14 @@
                                 line.picture = program.picture;
                                 line.deleted = program.deleted;
                                 line.description = program.description;
-                                line.countries_list = val.countries_list;
-                                line.destination_option_list = val.destination_list;
-                                line.location_option_list = val.location_list;
+                                line.countries_option_list = val.countries_option_list;
+                                line.areas_option_list = val.areas_option_list;
+                                line.destination_option_list = val.destination_option_list;
+                                line.location_option_list = val.location_option_list;
+                                line.countries_count = val.countries_count;
+                                line.areas_count = val.areas_count;
+                                line.cities_count = val.cities_count;
+                                line.locations_count = val.locations_count;
                                 //  console.log(line);
                                 tour.tourProgramLines.push(line);
                                 // console.log(t)
@@ -90,12 +95,12 @@
             /** xac dinh xem dang o mang hinh nao**/
             //tour.id = $('[name="record"]').val();
             //neu dang o mang hinh edit
-          //  console.log(tour.id);
-            if(tour.id){
-                if(!$("#tour_code_area").val()){
+            //  console.log(tour.id);
+            if (tour.id) {
+                if (!$("#tour_code_area").val()) {
                     alert("Cảnh báo: Tour code không đúng định dạng!");
                 }
-            }else{
+            } else {
                 $(".btnAddRow, .btnDelRow").hide();
             }
 

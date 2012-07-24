@@ -20,10 +20,15 @@
         program.enabled = true;
         program.editor_id = "";
         program.table = "";
-        program.countries_list = "";
+        program.countries_option_list = "";
         program.areas = "";
         program.destination_option_list = "";
         program.location_option_list = "";
+        program.areas_option_list = "";
+        program.countries_count = 0;
+        program.areas_count = 0;
+        program.cities_count = 0;
+        program.locations_count = 0;
         //init option
         program.init = function (opt) {
             var t = this;
@@ -78,7 +83,18 @@
             tpl = tpl.replace(/\{\{description\}\}/g, (program.description) ? program.description : "");
             //descrition
             //Countries list
-            tpl = tpl.replace(/\{\{countries\}\}/g, (program.countries_list) ? program.countries_list:"");
+            tpl = tpl.replace(/\{\{countries\}\}/g,program.countries_option_list);
+            //countries count
+            tpl = tpl.replace(/\{\{countries_count\}\}/g,program.countries_count);
+            //areas
+            tpl = tpl.replace(/\{\{areas\}\}/g,program.areas_option_list);
+            tpl = tpl.replace(/\{\{areas_count\}\}/g,program.areas_count);
+            //cities
+            tpl = tpl.replace(/\{\{cities\}\}/g,program.destination_option_list);
+            tpl = tpl.replace(/\{\{cities_count\}\}/g,program.cities_count);
+            //locations
+            tpl = tpl.replace(/\{\{locations\}\}/g,program.location_option_list);
+            tpl = tpl.replace(/\{\{locations_count\}\}/g,program.locations_count);
             // tpl to jQuery Object
             tpl = $(tpl);
             //add template to page

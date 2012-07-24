@@ -128,11 +128,16 @@ $tour_program_countries = $_POST['tour_program_countries'];
 $countries = array();
 //get destination selected in one line
 $count = $_POST['tour_program_countries_count'];
+//bien dem
+$k = 0;
+//duyet mang count = so luong program
 for ($i = 0; $i < count($count); $i++) {
+
     $countriesArr = array();
-    for ($j = 0; $j < $count[$i]; $j++) {
-        if (!empty($tour_program_countries[$j])) {
-            $countriesArr[] = $tour_program_countries[$j];
+    //duyet tu $k hien tai den $count[$i]*$i (hang * cot);
+    for ($k = $k  ; $k < $count[$i]*($i+1); $k++) {
+        if (!empty($tour_program_countries[$k])) {
+            $countriesArr[] = $tour_program_countries[$k];
         }
     }
     $countries[] = base64_encode(json_encode($countriesArr));
@@ -142,13 +147,14 @@ for ($i = 0; $i < count($count); $i++) {
  */
 $a = $_POST['tour_program_areas'];
 $areas = array();
+$k= 0;
 //get destination selected in one line
 $count = $_POST['tour_program_areas_count'];
 for ($i = 0; $i < count($count); $i++) {
     $areasArr = array();
-    for ($j = 0; $j < $count[$i]; $j++) {
-        if (!empty($a[$j])) {
-            $areasArr[] = $a[$j];
+    for ($k = $k; $k < $count[$i]*($i+1); $k++) {
+        if (!empty($a[$k])) {
+            $areasArr[] = $a[$k];
         }
     }
     $areas[] = base64_encode(json_encode($areasArr));
@@ -158,13 +164,14 @@ for ($i = 0; $i < count($count); $i++) {
  */
 $d = $_POST['destinations'];
 $destination = array();
+$k = 0;
 //get destination selected in one line
 $destination_count = $_POST['destination_selected_count'];
 for ($i = 0; $i < count($destination_count); $i++) {
     $des = array();
-    for ($j = 0; $j < $destination_count[$i]; $j++) {
-        if (!empty($d[$j])) {
-            $des[] = $d[$j];
+    for ($k = 0; $k < $destination_count[$i]*($i+1); $k++) {
+        if (!empty($d[$k])) {
+            $des[] = $d[$k];
         }
     }
     $destination[] = base64_encode(json_encode($des));
@@ -176,11 +183,12 @@ $location = $_POST['tour_program_locations'];
 //get num of location selected
 $location_count = $_POST['location_selected_count'];
 $locations = array();
+$k = 0;
 for ($i = 0; $i < count($location_count); $i++) {
     $loc = array();
-    for ($j = 0; $j < $location_count[$i]; $j++) {
-        if (!empty($location[$j])) {
-            $loc[] = $location[$j];
+    for ($k = 0; $k < $location_count[$i]*($i+1); $k++) {
+        if (!empty($location[$k])) {
+            $loc[] = $location[$k];
         }
     }
     $locations[] = base64_encode(json_encode($loc));

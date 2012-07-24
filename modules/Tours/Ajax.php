@@ -63,48 +63,36 @@ else if (isset($_POST['tour_id'])) {
     ///get program line
     $result = $tour->get_tour_program_lines($tour_id);
     $lines = array();
-    //duyet ket qua
-    $list_countries =  get_select_options_with_id(Country::get_list_countries(), '');
+    $allCountries = Country::get_list_countries();
     while ($row = $db->fetchByAssoc($result)) {
         $line = array();
         $programs = array();
         $selectedKey = array();
-        $destination_list = "";
-        $location_html = "";
-        if (!empty($row['destination'])) {
-            //get selected destination
-            $des_selected = json_decode(base64_decode($row['destination']));
-            //set output
-            $programs['destinations'] = $des_selected;
-            $des_selected_count = is_array($des_selected) ? count($des_selected) : 0;
-            //generate option list of destination
-            $destination_list = get_select_options_with_id($app_list_strings['destination_dom_list'], $des_selected);
-            if ($des_selected_count) {
-                // LAY TAT CA LOCATION CUA CAC DESTINATION DA CHON
-                $location = $tour->getLocationsByDes($des_selected);
-                // LOAD LOCATION DA CHON
-                $location_selected = json_decode(base64_decode($row['location'], true));
-                //set output
-                $programs['locations'] = $location_selected;
-                ///dem xem co bao nhieu location da duoc chon
-                $lc_selected_count = (is_array($location_selected) && count($location) > 0) ? count($location_selected) : 0;
-                //DUYET TUNG LOCATION
-                foreach ($location as $l) {
-                    //description
-                    $des = ($l['description'] != null) ? $l['description'] : '';
-                    //id
-                    $id = $l['id'];
-                    $name = $l['name'];
-                    $str_seected = '';
-                    if (is_array($location_selected))
-                        $str_seected = (in_array($l['id'], $location_selected)) ? 'selected' : '';
-
-                    $location_html .= '<option ' . $str_seected . ' data-description="' . $des . '" value="' . $id . '">' . $name . '</option>';
-                }
-            }
+        //countries
+        $countries = json_decode(base64_decode($row['countries']));
+        //countries -> html select
+        $list_countries = get_select_options_with_id($allCountries, $countries);
+        //areas
+        $allAreas = Tour::get_list_areas_by_countries($countries, 1);
+        //paser base64 string -> json string -> array
+        $areas = json_decode(base64_decode($row['areas']));
+        $list_areas = "<option value=''>--None--</option>";
+        if ($areas && count($areas) > 0) {
+            $list_areas = get_select_options_with_id($allAreas, $areas);
         }
-        else {
-            $destination_list = get_select_options_with_id($app_list_strings['destination_dom_list'], '');
+        //cities
+        $allCities = Tour::get_list_cities_by_areas($areas);
+        $cities = json_decode(base64_decode($row['destination']));
+        $list_cities = "<option value=''>--None--</option>";
+        if (count($cities) > 0) {
+            $list_cities = get_select_options_with_id($allCities, $cities);
+        }
+        //location
+        $allLocation = Tour::get_list_location_by_cities($cities);
+        $location = json_decode(base64_decode($row['location']));
+        $list_locations = "<option value=''>--None--</option>";
+        if (count($location) > 0) {
+            $list_locations = get_select_options_with_id($allLocation, $location);
         }
         /* $location_list = get_select_options_with_id($app_list_strings['location_dom_list'], "");*/
         $programs['id'] = $row['id'];
@@ -113,9 +101,15 @@ else if (isset($_POST['tour_id'])) {
         $programs['description'] = $row['description'];
         $programs['picture'] = $row['picture'];
         $line['program'] = $programs;
-        $line['destination_list'] = $destination_list;
-        $line['location_list'] = $location_html;
-        $line['countries_list'] = $list_countries;
+        $line['countries_option_list'] = $list_countries;
+        $line['areas_option_list'] = $list_areas;
+        $line['destination_option_list'] = $list_cities;
+       $line['location_option_list'] = $list_locations;
+        $line['countries_count'] = count($countries);
+        $line['areas_count'] = count($areas);
+        $line['cities_count'] = count($cities);
+        $line['locations_count'] = count($locations);
+
         $lines[] = $line;
     }
 
