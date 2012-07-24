@@ -363,6 +363,11 @@ include('custom/metadata/groupprograms_passportlistMetaData.php');
 
  
  //WARNING: The contents of this file are auto-generated
+include('custom/metadata/groupprograms_restaurantbookingsMetaData.php');
+
+
+ 
+ //WARNING: The contents of this file are auto-generated
 include('custom/metadata/groupprograms_roombookingsMetaData.php');
 
 
@@ -619,6 +624,11 @@ include('custom/metadata/restaurants_foodmenuMetaData.php');
  
  //WARNING: The contents of this file are auto-generated
 include('custom/metadata/restaurants_groupprogramsMetaData.php');
+
+
+ 
+ //WARNING: The contents of this file are auto-generated
+include('custom/metadata/restaurants_restaurantbookingsMetaData.php');
 
 
  
