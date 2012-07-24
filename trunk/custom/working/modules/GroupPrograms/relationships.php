@@ -37,7 +37,7 @@
 $relationships = array (
   'accounts_groupprograms' => 
   array (
-    'id' => '4723056f-5c5c-c4cc-dfe8-4e9d0c5cf93b',
+    'id' => '648bd522-e014-ffe0-4c97-500e17b86ed3',
     'relationship_name' => 'accounts_groupprograms',
     'lhs_module' => 'Accounts',
     'lhs_table' => 'accounts',
@@ -63,7 +63,7 @@ $relationships = array (
   ),
   'c_approval_groupprograms' => 
   array (
-    'id' => '4dba0776-d3a1-597b-4dd6-4e9d0cf2b041',
+    'id' => '204fc667-107e-9301-2017-500e17bf6a7e',
     'relationship_name' => 'c_approval_groupprograms',
     'lhs_module' => 'GroupPrograms',
     'lhs_table' => 'groupprograms',
@@ -89,7 +89,7 @@ $relationships = array (
   ),
   'grouplists_groupprograms' => 
   array (
-    'id' => '55d0004d-1325-c152-c44b-4e9d0cb3593e',
+    'id' => 'e702fcad-bdac-7329-1323-500e17de1c5c',
     'relationship_name' => 'grouplists_groupprograms',
     'lhs_module' => 'GroupLists',
     'lhs_table' => 'grouplists',
@@ -115,7 +115,7 @@ $relationships = array (
   ),
   'groupprograms_activities_calls' => 
   array (
-    'id' => '565e4a59-b545-21fd-d365-4e9d0c838a04',
+    'id' => 'ece5e1e3-dc69-6483-0c8f-500e177aaa76',
     'relationship_name' => 'groupprograms_activities_calls',
     'lhs_module' => 'GroupPrograms',
     'lhs_table' => 'groupprograms',
@@ -141,7 +141,7 @@ $relationships = array (
   ),
   'groupprograms_activities_meetings' => 
   array (
-    'id' => '574a3985-3b72-bc0b-e4a2-4e9d0cbb2775',
+    'id' => '4c6807bf-6c5d-6e43-6120-500e17e03bed',
     'relationship_name' => 'groupprograms_activities_meetings',
     'lhs_module' => 'GroupPrograms',
     'lhs_table' => 'groupprograms',
@@ -167,7 +167,7 @@ $relationships = array (
   ),
   'groupprograms_activities_notes' => 
   array (
-    'id' => '57a4c1eb-ecd1-d410-244b-4e9d0c941c7f',
+    'id' => 'ad27096d-3048-d442-62ee-500e176995c1',
     'relationship_name' => 'groupprograms_activities_notes',
     'lhs_module' => 'GroupPrograms',
     'lhs_table' => 'groupprograms',
@@ -193,7 +193,7 @@ $relationships = array (
   ),
   'groupprograms_activities_tasks' => 
   array (
-    'id' => '580a2316-d2c0-7543-46f0-4e9d0c8350b9',
+    'id' => '10d06b0a-8a2a-657f-3011-500e17ac74ec',
     'relationship_name' => 'groupprograms_activities_tasks',
     'lhs_module' => 'GroupPrograms',
     'lhs_table' => 'groupprograms',
@@ -219,7 +219,7 @@ $relationships = array (
   ),
   'groupprograms_airlinestickets' => 
   array (
-    'id' => '5867e358-c9b6-6e3d-3522-4e9d0cd512dc',
+    'id' => '16876f32-7629-0b76-4f99-500e17494bde',
     'relationship_name' => 'groupprograms_airlinestickets',
     'lhs_module' => 'GroupPrograms',
     'lhs_table' => 'groupprograms',
@@ -245,7 +245,7 @@ $relationships = array (
   ),
   'groupprograms_airlinesticketslists' => 
   array (
-    'id' => '58c5bd1f-30fd-b8dd-7515-4e9d0c1d906a',
+    'id' => '1ca75b63-1781-9247-88d3-500e17360e55',
     'relationship_name' => 'groupprograms_airlinesticketslists',
     'lhs_module' => 'GroupPrograms',
     'lhs_table' => 'groupprograms',
@@ -271,33 +271,33 @@ $relationships = array (
   ),
   'groupprograms_billing' => 
   array (
-    'id' => '5925db1c-173c-6d68-95cb-4e9d0c419e8e',
+    'id' => '22ae483a-72f5-72f0-a874-500e17d41468',
     'relationship_name' => 'groupprograms_billing',
     'lhs_module' => 'GroupPrograms',
     'lhs_table' => 'groupprograms',
     'lhs_key' => 'id',
     'rhs_module' => 'Billing',
     'rhs_table' => 'billing',
-    'rhs_key' => 'id',
-    'join_table' => 'groupprograms_billing_c',
-    'join_key_lhs' => 'groupprogr28ddrograms_ida',
-    'join_key_rhs' => 'groupprogrff05billing_idb',
+    'rhs_key' => 'parent_id',
+    'join_table' => NULL,
+    'join_key_lhs' => NULL,
+    'join_key_rhs' => NULL,
     'relationship_type' => 'one-to-many',
-    'relationship_role_column' => NULL,
-    'relationship_role_column_value' => NULL,
+    'relationship_role_column' => 'parent_type',
+    'relationship_role_column_value' => 'GroupPrograms',
     'reverse' => '0',
     'deleted' => '0',
     'readonly' => true,
     'rhs_subpanel' => 'default',
     'lhs_subpanel' => NULL,
-    'from_studio' => true,
     'is_custom' => true,
     'relationship_only' => false,
     'for_activities' => false,
+    'from_studio' => true,
   ),
   'groupprograms_cases' => 
   array (
-    'id' => '59832443-0de5-5b71-189d-4e9d0c935f09',
+    'id' => '28726108-c7c1-28a5-90ee-500e17509338',
     'relationship_name' => 'groupprograms_cases',
     'lhs_module' => 'GroupPrograms',
     'lhs_table' => 'groupprograms',
@@ -321,9 +321,35 @@ $relationships = array (
     'relationship_only' => false,
     'for_activities' => false,
   ),
+  'groupprograms_comments' => 
+  array (
+    'id' => '2e864acf-390a-6cf3-8ec5-500e179b1047',
+    'relationship_name' => 'groupprograms_comments',
+    'lhs_module' => 'GroupPrograms',
+    'lhs_table' => 'groupprograms',
+    'lhs_key' => 'id',
+    'rhs_module' => 'Comments',
+    'rhs_table' => 'Comments',
+    'rhs_key' => 'id',
+    'join_table' => 'groupprograms_comments_c',
+    'join_key_lhs' => 'groupprogrcc65rograms_ida',
+    'join_key_rhs' => 'groupprogr9957omments_idb',
+    'relationship_type' => 'one-to-many',
+    'relationship_role_column' => NULL,
+    'relationship_role_column_value' => NULL,
+    'reverse' => '0',
+    'deleted' => '0',
+    'readonly' => true,
+    'rhs_subpanel' => 'default',
+    'lhs_subpanel' => NULL,
+    'from_studio' => true,
+    'is_custom' => true,
+    'relationship_only' => false,
+    'for_activities' => false,
+  ),
   'groupprograms_contracts' => 
   array (
-    'id' => '59e13950-cd92-ad47-303f-4e9d0cff29af',
+    'id' => '349cf18f-10d4-2386-c033-500e1731c6ad',
     'relationship_name' => 'groupprograms_contracts',
     'lhs_module' => 'GroupPrograms',
     'lhs_table' => 'groupprograms',
@@ -349,7 +375,7 @@ $relationships = array (
   ),
   'groupprograms_documents' => 
   array (
-    'id' => '5a48f00f-2c24-048d-082d-4e9d0ce38c87',
+    'id' => '3ace8da7-e7d2-37f9-2273-500e1745ded3',
     'relationship_name' => 'groupprograms_documents',
     'lhs_module' => 'GroupPrograms',
     'lhs_table' => 'groupprograms',
@@ -375,7 +401,7 @@ $relationships = array (
   ),
   'groupprograms_fits' => 
   array (
-    'id' => '5ad4cb7e-90df-7ed0-e0d1-4e9d0c7961ed',
+    'id' => '409b6fba-da28-2489-5ca4-500e17a27b53',
     'relationship_name' => 'groupprograms_fits',
     'lhs_module' => 'GroupPrograms',
     'lhs_table' => 'groupprograms',
@@ -401,7 +427,7 @@ $relationships = array (
   ),
   'groupprograms_insurances' => 
   array (
-    'id' => '5b3c840f-57a6-28a3-9449-4e9d0c5c0b65',
+    'id' => '46678f07-6402-63b0-95e3-500e17d0384c',
     'relationship_name' => 'groupprograms_insurances',
     'lhs_module' => 'GroupPrograms',
     'lhs_table' => 'groupprograms',
@@ -427,7 +453,7 @@ $relationships = array (
   ),
   'groupprograms_passportlist' => 
   array (
-    'id' => '5bc7b718-360a-6481-e6af-4e9d0c640a5e',
+    'id' => '4c7b9b0f-5d1a-cf44-a899-500e1713c709',
     'relationship_name' => 'groupprograms_passportlist',
     'lhs_module' => 'GroupPrograms',
     'lhs_table' => 'groupprograms',
@@ -453,7 +479,7 @@ $relationships = array (
   ),
   'groupprograms_roombookings' => 
   array (
-    'id' => '5c2ce9f2-e461-7056-e674-4e9d0cf20bfa',
+    'id' => '528c2b06-9886-3a2d-b95a-500e173f5c15',
     'relationship_name' => 'groupprograms_roombookings',
     'lhs_module' => 'GroupPrograms',
     'lhs_table' => 'groupprograms',
@@ -479,7 +505,7 @@ $relationships = array (
   ),
   'groupprograms_servicebookings' => 
   array (
-    'id' => '5cbd435d-986d-6d3e-d8d2-4e9d0cd5711a',
+    'id' => '58b05bcb-0dcf-4ccb-e938-500e179015cc',
     'relationship_name' => 'groupprograms_servicebookings',
     'lhs_module' => 'GroupPrograms',
     'lhs_table' => 'groupprograms',
@@ -505,7 +531,7 @@ $relationships = array (
   ),
   'groupprograms_transportbookings' => 
   array (
-    'id' => '5d4b121f-8826-7d1c-0719-4e9d0c4b2a25',
+    'id' => '5fa21de9-d890-9f47-3ba8-500e17a3fd68',
     'relationship_name' => 'groupprograms_transportbookings',
     'lhs_module' => 'GroupPrograms',
     'lhs_table' => 'groupprograms',
@@ -531,7 +557,7 @@ $relationships = array (
   ),
   'groupprograms_worksheets' => 
   array (
-    'id' => '5e0f1091-a021-7dd0-9429-4e9d0c3706e4',
+    'id' => '65de2210-c2d0-b6ba-5eea-500e17755d94',
     'relationship_name' => 'groupprograms_worksheets',
     'lhs_module' => 'GroupPrograms',
     'lhs_table' => 'groupprograms',
@@ -555,13 +581,65 @@ $relationships = array (
     'relationship_only' => false,
     'for_activities' => false,
   ),
-  'groupprograms_comments' => 
+  'hotels_groupprograms' => 
   array (
-    'rhs_label' => 'Comments',
+    'id' => '940dec5f-b53a-a59a-51dd-500e170fb74f',
+    'relationship_name' => 'hotels_groupprograms',
+    'lhs_module' => 'Hotels',
+    'lhs_table' => 'hotels',
+    'lhs_key' => 'id',
+    'rhs_module' => 'GroupPrograms',
+    'rhs_table' => 'groupprograms',
+    'rhs_key' => 'id',
+    'join_table' => 'hotels_groupprograms_c',
+    'join_key_lhs' => 'hotels_gro0d05shotels_ida',
+    'join_key_rhs' => 'hotels_gro0886rograms_idb',
+    'relationship_type' => 'one-to-many',
+    'relationship_role_column' => NULL,
+    'relationship_role_column_value' => NULL,
+    'reverse' => '0',
+    'deleted' => '0',
+    'readonly' => true,
+    'rhs_subpanel' => 'default',
+    'lhs_subpanel' => NULL,
+    'from_studio' => true,
+    'is_custom' => true,
+    'relationship_only' => false,
+    'for_activities' => false,
+  ),
+  'restaurants_groupprograms' => 
+  array (
+    'id' => '9ee5e71f-8aa5-f6b3-c10d-500e17ebb4a5',
+    'relationship_name' => 'restaurants_groupprograms',
+    'lhs_module' => 'Restaurants',
+    'lhs_table' => 'restaurants',
+    'lhs_key' => 'id',
+    'rhs_module' => 'GroupPrograms',
+    'rhs_table' => 'groupprograms',
+    'rhs_key' => 'id',
+    'join_table' => 'restaurantsroupprograms_c',
+    'join_key_lhs' => 'restaurant7162aurants_ida',
+    'join_key_rhs' => 'restaurantccbbrograms_idb',
+    'relationship_type' => 'one-to-many',
+    'relationship_role_column' => NULL,
+    'relationship_role_column_value' => NULL,
+    'reverse' => '0',
+    'deleted' => '0',
+    'readonly' => true,
+    'rhs_subpanel' => 'default',
+    'lhs_subpanel' => NULL,
+    'from_studio' => true,
+    'is_custom' => true,
+    'relationship_only' => false,
+    'for_activities' => false,
+  ),
+  'groupprograms_restaurantbookings' => 
+  array (
+    'rhs_label' => 'Restaurant Bookings',
     'lhs_label' => 'Made Tours',
     'rhs_subpanel' => 'default',
     'lhs_module' => 'GroupPrograms',
-    'rhs_module' => 'Comments',
+    'rhs_module' => 'RestaurantBookings',
     'relationship_type' => 'one-to-many',
     'readonly' => true,
     'deleted' => false,
@@ -569,7 +647,7 @@ $relationships = array (
     'for_activities' => false,
     'is_custom' => false,
     'from_studio' => true,
-    'relationship_name' => 'groupprograms_comments',
+    'relationship_name' => 'groupprograms_restaurantbookings',
   ),
 );
 ?>

@@ -164,6 +164,17 @@ $dictionary["Restaurants"]["fields"]["restaurants_groupprograms"] = array (
 );
 
 
+// created: 2012-07-24 15:40:55
+$dictionary["Restaurants"]["fields"]["restaurantsaurantbookings"] = array (
+  'name' => 'restaurantsaurantbookings',
+  'type' => 'link',
+  'relationship' => 'restaurants_restaurantbookings',
+  'source' => 'non-db',
+  'side' => 'right',
+  'vname' => 'LBL_RESTAURANTS_RESTAURANTBOOKINGS_FROM_RESTAURANTBOOKINGS_TITLE',
+);
+
+
 // created: 2011-08-24 10:11:51
 $dictionary["Restaurants"]["fields"]["restaurantservicebookings"] = array (
   'name' => 'restaurantservicebookings',
