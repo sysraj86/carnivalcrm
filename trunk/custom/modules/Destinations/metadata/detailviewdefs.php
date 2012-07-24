@@ -59,10 +59,18 @@ $viewdefs [$module_name] =
                     ),
                     2 =>
                     array(
+                        0 => array(
+                            'name' => 'area',
+                            'customLabel' => '{$MOD.LBL_AREA}&nbsp;<em>(Uses for Worksheets)</em>'
+                        ),
+                        1 => '',
+                    ),
+                    3 =>
+                    array(
                         0 => 'description',
                         1 => 'assigned_user_name',
                     ),
-                    3 =>
+                    4 =>
                     array(
                         array(
                             'name' => 'date_entered',
