@@ -58,7 +58,10 @@ $viewdefs [$module_name] =
                     2 =>
                     array(
                         0 => 'description',
-                        1 => 'area'
+                        1 => array(
+                            'name' => 'area',
+                            'customCode' => '{html_options name="area" id="area" options=$fields.area.options selected=$fields.area.value}&nbsp;<em>(Uses for Worksheets)</em>'
+                        )
                     ),
                 ),
             ),
