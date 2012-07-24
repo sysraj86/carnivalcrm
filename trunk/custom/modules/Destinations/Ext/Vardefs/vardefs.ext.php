@@ -119,6 +119,31 @@ $dictionary["Destination"]["fields"]["destinations_transports"] = array (
 );
 
 
+ // created: 2012-07-24 11:20:20
+$dictionary['Destination']['fields']['area']['massupdate']=1;
+
+ 
+
+ // created: 2012-07-24 11:20:20
+$dictionary['Destination']['fields']['city_province']['massupdate']=0;
+
+ 
+
+ // created: 2012-07-24 11:20:20
+$dictionary['Destination']['fields']['countries_dtinations_name']['massupdate']=1;
+
+ 
+
+ // created: 2012-07-24 11:20:20
+$dictionary['Destination']['fields']['country']['massupdate']=0;
+
+ 
+
+ // created: 2012-07-24 11:20:20
+$dictionary['Destination']['fields']['c_areas_destinations_name']['massupdate']=1;
+
+ 
+
  // created: 2011-07-29 11:01:45
 
  
