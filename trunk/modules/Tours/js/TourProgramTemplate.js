@@ -28,37 +28,37 @@
                                 'Countries:'+
                             '</td>'+
                             '<td class="dataField">'+
-                                 '<select name="tour_program_countries[]" class="jk_list_destinations" multiple="multiple" size="4">'+
+                                 '<select name="tour_program_countries[]" class="jk_list_countries" multiple="multiple" size="4">'+
                                         '{{countries}}'+
                                  '</select>'+
-                                  '<input type="hidden" value="0" name="tour_program_countries_count[]"/>'+
+                                  '<input type="hidden" value="{{countries_count}}" name="tour_program_countries_count[]"/>'+
                             '</td>'+
                             '<td class="dataLabel">'+
                                 'Area:'+
                             '</td>'+
                             '<td class="dataField">'+
-                                 '<select name="tour_program_areas[]" class="jk_list_destinations" multiple="multiple" size="4">'+
-                                     '<option value="">--None--</option>'+
+                                 '<select name="tour_program_areas[]" class="jk_list_areas" multiple="multiple" size="4">'+
+                                     '{{areas}}'+
                                  '</select>'+
-                                 '<input type="hidden" value="0" name="tour_program_areas_count[]"/>'+
+                                 '<input type="hidden" value="{{areas_count}}" name="tour_program_areas_count[]"/>'+
                             '</td>'+
                             '<td class="dataLabel">'+
                                 'Citites'+
                             '</td>'+
                             '<td>'+
                                 '<select name="destinations[]" class="jk_list_destinations" multiple="multiple" size="4">'+
-                                     '<option value="">--None--</option>'+
+                                     '{{cities}}'+
                                 '</select>'+
-                                '<input type="hidden" value="0" name="destination_selected_count[]"/>'+
+                                '<input type="hidden" value="{{cities_count}}" name="destination_selected_count[]"/>'+
                             '</td>'+
                             '<td>'+
                                     'Locations'+
                             '</td>'+
                              '<td>'+
 								'<select name="tour_program_locations[]" multiple="multiple" class="jk_list_locations" size="4" data-editorId="description_pro_{{current_row}}">'+
-                                    '<option value="">--None--</option>'+
+                                    '{{locations}}'+
                                 '</select>'+
-                                '<input type="hidden" name="location_selected_count[]" value="0"/>'+
+                                '<input type="hidden" name="location_selected_count[]" value="{{locations_count}}"/>'+
                             '</td>'+
                         '</tr>'+
                         '<tr>'+
