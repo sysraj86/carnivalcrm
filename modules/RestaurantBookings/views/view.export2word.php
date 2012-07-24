@@ -14,10 +14,12 @@
             // ONLY LOAD A RECORD IF A RECORD ID IS GIVEN;
             // A RECORD ID IS NOT GIVEN WHEN VIEWING IN LAYOUT EDITOR
 
+            
             $record    = isset($_GET["record"]) ? htmlspecialchars($_GET["record"]) : '';
 
             $template = file_get_contents('modules/RestaurantBookings/tpls/export.tpl');
 
+            /* Delete by Hieu Nguyen 270712
             //$sql = "select * from tours where id ='".$record."' and deleted = 0";
             $sql = " SELECT
              srv.res_address
@@ -55,7 +57,8 @@
    
     
             $result = $db->query($sql);
-            $row = $db->fetchByAssoc($result); 
+            $row = $db->fetchByAssoc($result);
+            */ 
             
             $template = str_replace("{LBL_TO}",$mod_strings['LBL_TO'],$template );
             $template = str_replace("{LBL_RES_ADDRESS}",$mod_strings['LBL_RES_ADDRESS'],$template );
@@ -83,40 +86,40 @@
             
             ////////////  
             $template = str_replace("{SITE_URL}",$sugar_config['site_url'],$template );  
-            $template = str_replace("{RES}",$row['name'],$template);
-            $template = str_replace("{ADDRESS}",$row['res_address'],$template);
-            $template = str_replace("{ATTN_RES_NAME}",$row['attn_res_name'],$template);
-            $template = str_replace("{ATTN_RES_PHONE}",$row['attn_res_phone'],$template );  
-            $template = str_replace("{RES_TEL}", $row['res_tel'],$template); 
-            $template = str_replace("{RES_FAX}",$row['res_fax'],$template );  
-            $template = str_replace("{FROM}", $row['company'],$template);  
-            $template = str_replace("{ATTN_NAME}", $row['attn_name'],$template ); 
-            $template = str_replace("{ATTN_PHONE}", $row['attn_phone'],$template); 
-            $template = str_replace("{ATTN_EMAIL}", $row['attn_email'],$template); 
-            $template = str_replace("{TEL}", $row['attn_tel'],$template);  
-            $template = str_replace("{FAX}",  $row['attn_fax'],$template);  
-            $template = str_replace("{DATE_TIME}",  $row['date_time'],$template);  
-            $template = str_replace("{OPERATING_DATE}",  $row['operating_date'],$template);  
-            $template = str_replace("{QUANTITY_PAX}",  $row['quantity_pax'],$template);  
-            $template = str_replace("{GUIDE}",  $row['guide'],$template);  
-            $template = str_replace("{GUIDE_PHONE}",  $row['guide_phone'],$template);  
-            $template = str_replace("{MADETOUR}",   $row['groupprogram_code'],$template);  
-            if(!empty($row['nationlity'])){
-                $template = str_replace("{NATIONLITY}", translate('countries_dom','',$row['nationlity']),$template);
+            $template = str_replace("{RES}",$this->bean->restaurantstbookings_name,$template);
+            $template = str_replace("{ADDRESS}",$this->bean->res_address,$template);
+            $template = str_replace("{ATTN_RES_NAME}",$this->bean->attn_res_name,$template);
+            $template = str_replace("{ATTN_RES_PHONE}",$this->bean->attn_res_phone,$template );  
+            $template = str_replace("{RES_TEL}", $this->bean->res_tel,$template); 
+            $template = str_replace("{RES_FAX}",$this->bean->res_fax,$template );  
+            $template = str_replace("{FROM}", $this->bean->company,$template);  
+            $template = str_replace("{ATTN_NAME}", $this->bean->attn_name,$template ); 
+            $template = str_replace("{ATTN_PHONE}", $this->bean->attn_phone,$template); 
+            $template = str_replace("{ATTN_EMAIL}", $this->bean->attn_email,$template); 
+            $template = str_replace("{TEL}", $this->bean->attn_tel,$template);  
+            $template = str_replace("{FAX}",  $this->bean->attn_fax,$template);  
+            $template = str_replace("{DATE_TIME}",  $this->bean->date_time,$template);  
+            $template = str_replace("{OPERATING_DATE}",  $this->bean->operating_date,$template);  
+            $template = str_replace("{QUANTITY_PAX}",  $this->bean->quantity_pax,$template);  
+            $template = str_replace("{GUIDE}",  $this->bean->guide,$template);  
+            $template = str_replace("{GUIDE_PHONE}",  $this->bean->guide_phone,$template);  
+            $template = str_replace("{MADETOUR}",   $this->bean->groupprogram_code,$template);  
+            if(!empty($this->bean->nationlity)){
+                $template = str_replace("{NATIONLITY}", translate('countries_dom','',$this->bean->nationlity),$template);
             }
             else{$template = str_replace("{NATIONLITY}", translate('countries_dom','',''),$template); } 
             $template = str_replace("{BOOKINGLINE}", $focus->get_servicebooking_detailview($record),$template);  
-            $template = str_replace("{NOTES}", html_entity_decode(nl2br($row['notes'])),$template);  
-            if($row['confirm']== 0 ){
+            $template = str_replace("{NOTES}", html_entity_decode(nl2br($this->bean->notes)),$template);  
+            if($this->bean->confirm == 0 ){
                $template = str_replace("{CONFIRM}", 'No',$template); 
             }
             else {$template = str_replace("{CONFIRM}", 'Yes',$template); }
-            $template = str_replace("{DATE}", date("d/m/Y",strtotime($row['date'])),$template);    
-            $template = str_replace("{DEPARMENT}", $row['deparment'],$template);    
+            $template = str_replace("{DATE}", $this->bean->date,$template);    
+            $template = str_replace("{DEPARMENT}", $this->bean->deparment,$template);    
             
             
             $size=strlen($template);
-            $filename = "Restaurant_Booking_".strtoupper($row['code'])."_To_".strtoupper($row['res_code']).".doc";
+            $filename = "Restaurant_Booking_".strtoupper($this->bean->code)."_To_".strtoupper($this->bean->restaurantstbookings_name).".doc";
             ob_end_clean();
             header("Cache-Control: private");
             header("Content-Type: application/force-download;");
