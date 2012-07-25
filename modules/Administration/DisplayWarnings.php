@@ -121,14 +121,14 @@ if($smtp_error) {
 			if(isset($_SESSION['invalid_versions'])){
 				$invalid_versions = $_SESSION['invalid_versions'];
 				foreach($invalid_versions as $invalid){
-					displayAdminError(translate('WARN_UPGRADE', 'Administration'). $invalid['name'] .translate('WARN_UPGRADE2', 'Administration'));
+					//displayAdminError(translate('WARN_UPGRADE', 'Administration'). $invalid['name'] .translate('WARN_UPGRADE2', 'Administration'));
 				}
 			}
 		
 			if (isset($_SESSION['available_version'])){
 				if($_SESSION['available_version'] != $sugar_version)
 				{
-					displayAdminError(translate('WARN_UPGRADENOTE', 'Administration').$_SESSION['available_version_description']);
+					//displayAdminError(translate('WARN_UPGRADENOTE', 'Administration').$_SESSION['available_version_description']);
 				}
 			}
         }
