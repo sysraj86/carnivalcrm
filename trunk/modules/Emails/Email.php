@@ -354,7 +354,17 @@ class Email extends SugarBean {
 
 
 	function sendEmailTest($mailserver_url, $port, $ssltls, $smtp_auth_req, $smtp_username, $smtppassword, $fromaddress, $toaddress, $mail_sendtype = 'smtp') {
-		global $current_user,$app_strings;
+		//global $current_user,$app_strings;
+        //added 26-06-2012 -- them vao cac global sau
+        global $mod_strings;
+        global $app_strings;
+        global $current_user;
+        global $sugar_config;
+        global $locale;
+        global $timedate;
+        global $beanList;
+        global $beanFiles;
+        
 		$mod_strings = return_module_language($GLOBALS['current_language'], 'Emails'); //Called from EmailMan as well.
 	    $mail = new SugarPHPMailer();
 		$mail->Mailer = strtolower($mail_sendtype);
