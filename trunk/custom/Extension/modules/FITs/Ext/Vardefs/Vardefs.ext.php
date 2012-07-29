@@ -10,3 +10,15 @@ $dictionary["FITs"]["fields"]["identy_card"] = array (
   'type' => 'varchar',
   'vname' => 'LBL_IDENTY_CARD',
 );
+$dictionary["FITs"]["fields"]["company_name"] = array (
+  'name' => 'company_name',
+  'type' => 'varchar',
+  'source' => 'non-db',
+  'vname' => 'LBL_COMPANY_NAME',
+);
+$dictionary["FITs"]["fields"]["company_phone"] = array (
+  'name' => 'company_phone',
+  'type' => 'varchar',
+  'source' => 'non-db',
+  'vname' => 'LBL_COMPANY_PHONE',
+);
