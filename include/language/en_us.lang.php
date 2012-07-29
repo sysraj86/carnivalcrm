@@ -285,7 +285,11 @@ $app_list_strings = array(
         '1' => 'Có VMB',
     ),
 
-    'city_province_dom_c' => array(),
+    // Company province / cty
+    'city_province_dom_c' => array(
+        ''  => '',
+    ),
+    
     // city or province
 
     'city_province_dom' => array(

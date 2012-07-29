@@ -1,6 +1,6 @@
 <?php
- // created: 2012-05-23 11:42:43
-$dictionary['Account']['fields']['province_city']['default']='baclieu';
+ // created: 2012-07-30 07:42:53
+$dictionary['Account']['fields']['province_city']['default']='';
 $dictionary['Account']['fields']['province_city']['options']='city_province_dom';
 
  ?>

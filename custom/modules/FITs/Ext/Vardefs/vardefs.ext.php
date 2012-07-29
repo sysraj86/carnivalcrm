@@ -377,6 +377,11 @@ $dictionary['FITs']['fields']['department']['importable']='false';
 
  
 
+ // created: 2012-07-21 09:49:33
+$dictionary['FITs']['fields']['email1']['importable']='true';
+
+ 
+
  // created: 2012-06-23 11:44:40
 $dictionary['FITs']['fields']['nationality']['default']='^^';
 
@@ -412,5 +417,17 @@ $dictionary["FITs"]["fields"]["identy_card"] = array (
   'name' => 'identy_card',
   'type' => 'varchar',
   'vname' => 'LBL_IDENTY_CARD',
+);
+$dictionary["FITs"]["fields"]["company_name"] = array (
+  'name' => 'company_name',
+  'type' => 'varchar',
+  'source' => 'non-db',
+  'vname' => 'LBL_COMPANY_NAME',
+);
+$dictionary["FITs"]["fields"]["company_phone"] = array (
+  'name' => 'company_phone',
+  'type' => 'varchar',
+  'source' => 'non-db',
+  'vname' => 'LBL_COMPANY_PHONE',
 );
 ?>

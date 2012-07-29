@@ -26,5 +26,7 @@ $mod_strings = array (
   'LBL_TITLE' => 'Position',
   'LBL_DATE_ISSUE' => 'Date of issue',
   'LBL_DEPARTMENT' => 'Department',
+  'LBL_COMPANY_NAME' => 'Company Name',
+  'LBL_COMPANY_PHONE' => 'Company Phone',
 );
 ?>

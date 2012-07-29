@@ -849,15 +849,15 @@ $GLOBALS['app_list_strings']['parent_type_display']=array (
 
 $GLOBALS['app_list_strings']['salutation_dom'] = array(
         '' => '',
-        'Fr.' => 'Fr.',
-        'Sr.' => 'Sr.',
-        'Chd.' => 'Chd.',
-        'Rev.' => 'Rev.',
-        'Pope.' => 'Pope.',
-        'Cardinal.' => 'Cardinal.',
-        'Mr.' => 'Mr.',
-        'Mrs.' => 'Mrs.', 
-        'Ms.' => 'Ms.',        
+        'Fr' => 'Fr.',
+        'Sr' => 'Sr.',
+        'Chd' => 'Chd.',
+        'Rev' => 'Rev.',
+        'Pope' => 'Pope.',
+        'Cardinal' => 'Cardinal.',
+        'Mr' => 'Mr.',
+        'Mrs' => 'Mrs.', 
+        'Ms' => 'Ms.',        
 );
 
 $GLOBALS['app_list_strings']['lead_type_dom']=array (
