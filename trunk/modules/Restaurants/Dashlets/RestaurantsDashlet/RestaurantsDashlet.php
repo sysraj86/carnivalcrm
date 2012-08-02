@@ -46,7 +46,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 require_once('include/Dashlets/DashletGeneric.php');
 require_once('modules/Restaurants/Restaurants.php');
 
-class a_RestaurantsDashlet extends DashletGeneric { 
+class RestaurantsDashlet extends DashletGeneric { 
     function RestaurantsDashlet($id, $def = null) {
 		global $current_user, $app_strings;
 		require('modules/Restaurants/metadata/dashletviewdefs.php');
@@ -55,7 +55,7 @@ class a_RestaurantsDashlet extends DashletGeneric {
 
         if(empty($def['title'])) $this->title = translate('LBL_HOMEPAGE_TITLE', 'Restaurants');
 
-        $this->searchFields = $dashletData['a_RestaurantsDashlet']['searchFields'];
+        $this->searchFields = $dashletData['RestaurantsDashlet']['searchFields'];
         $this->columns = $dashletData['RestaurantsDashlet']['columns'];
 
         $this->seedBean = new Restaurants();        
