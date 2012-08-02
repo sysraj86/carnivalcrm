@@ -547,6 +547,51 @@ table.MsoTableGrid
     <body>
 
         <div class="WordSection1">
+
+            <p class=MsoNormal style='text-align:justify'><!--[if gte vml 1]>
+                <v:shapetype
+                        id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+                        path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+                    <v:stroke joinstyle="miter"/>
+                    <v:formulas>
+                        <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+                        <v:f eqn="sum @0 1 0"/>
+                        <v:f eqn="sum 0 0 @1"/>
+                        <v:f eqn="prod @2 1 2"/>
+                        <v:f eqn="prod @3 21600 pixelWidth"/>
+                        <v:f eqn="prod @3 21600 pixelHeight"/>
+                        <v:f eqn="sum @0 0 1"/>
+                        <v:f eqn="prod @6 1 2"/>
+                        <v:f eqn="prod @7 21600 pixelWidth"/>
+                        <v:f eqn="sum @8 21600 0"/>
+                        <v:f eqn="prod @7 21600 pixelHeight"/>
+                        <v:f eqn="sum @10 21600 0"/>
+                    </v:formulas>
+                    <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+                    <o:lock v:ext="edit" aspectratio="t"/>
+                </v:shapetype>
+                <v:shape id="Picture_x0020_6" o:spid="_x0000_s1029" type="#_x0000_t75"
+                         alt="Description: Description: TV" style='position:absolute;left:0;
+             text-align:left;margin-left:-72pt;margin-top:-76.2pt;width:621pt;height:126pt;
+             z-index:251656192;visibility:visible;mso-wrap-style:square;
+             mso-width-percent:0;mso-height-percent:0;mso-wrap-distance-left:9pt;
+             mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+             mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+             mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+             mso-position-vertical-relative:text;mso-width-percent:0;mso-height-percent:0;
+             mso-width-relative:page;mso-height-relative:page'>
+                    <v:imagedata src="{SITE_URL}/modules/Quotes/tpls/Quotes_files/image001.jpg" o:title=" TV"/>
+                </v:shape><![endif]--><![if !vml]><span style='mso-ignore:vglayout;position:
+            relative;z-index:251656192'><span style='left:0px;position:absolute;left:-105px;
+            top:-102px;width:828px;height:168px'><img width=828 height=168
+                                                      src="{SITE_URL}/modules/Quotes/tpls/Quotes_files/image001.jpg"
+                                                      alt="Description: Description: TV" v:shapes="Picture_x0020_6"></span></span><![endif]>
+                
+            </p>
+            <o:p>&nbsp;</o:p>
+            <o:p>&nbsp;</o:p>
+            <o:p>&nbsp;</o:p>
+                
             {HEAD}            
             <legend><h1>Tour program</h1></legend>  
             <!--<table cellpadding="0"  cellspacing="0" width="100%"  border="0" style="border-top: 0px solid;" class="content1">-->
