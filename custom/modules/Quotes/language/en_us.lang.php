@@ -9,5 +9,6 @@ $mod_strings = array (
   'LBL_FITS_QUOTES_FROM_FITS_TITLE' => 'Customer',
   'LBL_QUOTES_ODERS_FROM_ODERS_TITLE' => 'Order',
   'LBL_QUOTES_TOURS_FROM_TOURS_TITLE' => 'Tour',
+  'LBL_QUOTES_STATUS' => 'Status',
 );
 ?>

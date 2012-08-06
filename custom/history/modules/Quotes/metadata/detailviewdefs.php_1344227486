@@ -58,11 +58,7 @@ array (
             'name' => 'department',
             'label' => 'LBL_DEPARTMENT',
           ),
-          1 => 
-          array (
-            'name' => 'quotes_status',
-            'label' => 'LBL_QUOTES_STATUS',
-          ),
+          1 => '',
         ),
         1 => 
         array (

@@ -125,15 +125,6 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'quotes_status' => 
-      array (
-        'type' => 'enum',
-        'label' => 'LBL_QUOTES_STATUS',
-        'sortable' => false,
-        'width' => '10%',
-        'default' => true,
-        'name' => 'quotes_status',
-      ),
       'insurance' => 
       array (
         'type' => 'text',

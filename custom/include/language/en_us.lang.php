@@ -865,3 +865,10 @@ $GLOBALS['app_list_strings']['lead_type_dom']=array (
   'Lead' => 'Lead',
   'Current' => 'Current',
 );
+
+$GLOBALS['app_list_strings']['quotes_status_dom']=array (
+  ''  => '',
+  'dagui' => 'Đã Gửi',
+  'dangtheodoi' => 'Đang Theo Dõi',
+  'bihuy' => 'Bị Hủy',
+);
