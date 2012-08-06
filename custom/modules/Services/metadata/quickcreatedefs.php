@@ -2,7 +2,7 @@
 $module_name = 'Services';
 $viewdefs [$module_name] = 
 array (
-  'EditView' => 
+  'QuickCreate' => 
   array (
     'templateMeta' => 
     array (
@@ -29,11 +29,20 @@ array (
         0 => 
         array (
           0 => 'name',
-          1 => 'tel',
+          1 => 
+          array (
+            'name' => 'tel',
+            'comment' => 'tel of service company',
+            'label' => 'LBL_RES_TEL',
+          ),
         ),
         1 => 
         array (
-          0 => 'service_type',
+          0 => 
+          array (
+            'name' => 'service_type',
+            'label' => 'LBL_SERVICE_TYPE',
+          ),
           1 => 
           array (
             'name' => 'area',
@@ -45,17 +54,22 @@ array (
           0 => 
           array (
             'name' => 'address',
-            'displayParams' => 
-            array (
-              'cols' => 50,
-              'rows' => 2,
-            ),
+            'comment' => 'address of restaurant',
+            'label' => 'LBL_RES_ADDRESS',
           ),
-          1 => 'destination_services_name',
+          1 => 
+          array (
+            'name' => 'destination_services_name',
+            'label' => 'LBL_DESTINATIONS_SERVICES_FROM_DESTINATIONS_TITLE',
+          ),
         ),
         3 => 
         array (
-          0 => 'email1',
+          0 => 
+          array (
+            'name' => 'email1',
+            'label' => 'LBL_EMAIL_ADDRESS',
+          ),
           1 => 
           array (
             'name' => 'fax',
@@ -64,7 +78,12 @@ array (
         ),
         4 => 
         array (
-          0 => 'description',
+          0 => 
+          array (
+            'name' => 'description',
+            'comment' => 'Full text of the note',
+            'label' => 'LBL_DESCRIPTION',
+          ),
           1 => 'assigned_user_name',
         ),
         5 => 
@@ -72,6 +91,7 @@ array (
           0 => 
           array (
             'name' => 'countries_services_name',
+            'label' => 'LBL_COUNTRIES_SERVICES_FROM_COUNTRIES_TITLE',
           ),
         ),
       ),
@@ -79,14 +99,15 @@ array (
       array (
         0 => 
         array (
-          0 => 'giathamkhao',
+          0 => 
+          array (
+            'name' => 'giathamkhao',
+            'label' => 'LBL_GIATHAMKHAO',
+          ),
           1 => 
           array (
             'name' => 'ngaythamkhaogia',
-            'displayParams' => 
-            array (
-              'showFormats' => true,
-            ),
+            'label' => 'LBL_NGAYTHAMKHAOGIA',
           ),
         ),
       ),

@@ -2,10 +2,19 @@
 $module_name = 'Services';
 $viewdefs [$module_name] = 
 array (
-  'EditView' => 
+  'DetailView' => 
   array (
     'templateMeta' => 
     array (
+      'form' => 
+      array (
+        'buttons' => 
+        array (
+          0 => 'EDIT',
+          1 => 'DUPLICATE',
+          2 => 'DELETE',
+        ),
+      ),
       'maxColumns' => '2',
       'widths' => 
       array (
@@ -29,45 +38,51 @@ array (
         0 => 
         array (
           0 => 'name',
-          1 => 'tel',
+          1 => 'code',
         ),
         1 => 
         array (
           0 => 'service_type',
+          1 => 'tel',
+        ),
+        2 => 
+        array (
+          0 => 'email1',
           1 => 
           array (
             'name' => 'area',
             'label' => 'LBL_AREA',
           ),
         ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'address',
-            'displayParams' => 
-            array (
-              'cols' => 50,
-              'rows' => 2,
-            ),
-          ),
-          1 => 'destination_services_name',
-        ),
         3 => 
         array (
-          0 => 'email1',
-          1 => 
-          array (
-            'name' => 'fax',
-            'label' => 'LBL_FAX',
-          ),
+          0 => 'address',
+          1 => 'destination_services_name',
         ),
         4 => 
         array (
           0 => 'description',
-          1 => 'assigned_user_name',
         ),
         5 => 
+        array (
+          0 => 'assigned_user_name',
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_entered',
+            'customCode' => '{$fields.date_entered.value} {$APP.LBL_BY} {$fields.created_by_name.value}',
+            'label' => 'LBL_DATE_ENTERED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_modified',
+            'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
+            'label' => 'LBL_DATE_MODIFIED',
+          ),
+        ),
+        7 => 
         array (
           0 => 
           array (
@@ -80,14 +95,7 @@ array (
         0 => 
         array (
           0 => 'giathamkhao',
-          1 => 
-          array (
-            'name' => 'ngaythamkhaogia',
-            'displayParams' => 
-            array (
-              'showFormats' => true,
-            ),
-          ),
+          1 => 'ngaythamkhaogia',
         ),
       ),
     ),

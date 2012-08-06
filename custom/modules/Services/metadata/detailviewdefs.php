@@ -57,15 +57,20 @@ array (
         3 => 
         array (
           0 => 'address',
-          1 => 'destination_services_name',
+          1 => 
+          array (
+            'name' => 'fax',
+            'label' => 'LBL_FAX',
+          ),
         ),
         4 => 
         array (
-          0 => 'description',
+          0 => 'destination_services_name',
         ),
         5 => 
         array (
           0 => 'assigned_user_name',
+          1 => 'description',
         ),
         6 => 
         array (

@@ -4,5 +4,6 @@ $mod_strings = array (
   'LBL_AREA' => 'Region',
   'LBL_GIATHAMKHAO' => 'Preference Price',
   'LBL_NGAYTHAMKHAOGIA' => 'Date Preference',
+  'LBL_FAX' => 'Fax',
 );
 ?>
