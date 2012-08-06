@@ -3,5 +3,6 @@
 $mod_strings = array (
   'LBL_LIST_ASSIGNED_USER' => 'Assigned to',
   'LBL_ACCOUNT_CONTACT_NAME' => 'Company Name',
+  'LBL_GENDER' => 'Gender',
 );
 ?>

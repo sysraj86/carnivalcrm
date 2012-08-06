@@ -35,13 +35,12 @@ array (
         0 => 
         array (
           'file' => 'custom/include/js/jquery.js',
-        ),
+        ),                
         1 => 
         array (
           'file' => 'custom/modules/Contacts/js/editview.js',
-        ),
+        )      
       ),
-      'useTabs' => false,
     ),
     'panels' => 
     array (
@@ -63,8 +62,9 @@ array (
           ),
           1 => 
           array (
-            'name' => 'gender',
-            'label' => 'LBL_GENDER',
+            'name' => 'phone_work',
+            'comment' => 'Work phone number of the contact',
+            'label' => 'LBL_OFFICE_PHONE',
           ),
         ),
         2 => 
@@ -87,9 +87,9 @@ array (
           0 => 'department',
           1 => 
           array (
-            'name' => 'phone_work',
-            'comment' => 'Work phone number of the contact',
-            'label' => 'LBL_OFFICE_PHONE',
+            'name' => 'phone_fax',
+            'comment' => 'Contact fax number',
+            'label' => 'LBL_FAX_PHONE',
           ),
         ),
         4 => 
@@ -100,12 +100,7 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_COMPANY_NAME',
           ),
-          1 => 
-          array (
-            'name' => 'phone_fax',
-            'comment' => 'Contact fax number',
-            'label' => 'LBL_FAX_PHONE',
-          ),
+          1 => '',
         ),
         5 => 
         array (
@@ -153,7 +148,9 @@ array (
             'name' => 'description',
             'label' => 'LBL_DESCRIPTION',
           ),
+
         ),
+
       ),
       'LBL_PANEL_ADVANCED' => 
       array (

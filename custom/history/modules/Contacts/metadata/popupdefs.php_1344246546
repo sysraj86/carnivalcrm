@@ -153,28 +153,12 @@ $popupMeta = array (
       3 => 'account_name',
       4 => 'account_id',
     ),
-    'name' => 'name',
-  ),
-  'GENDER' => 
-  array (
-    'type' => 'radioenum',
-    'label' => 'LBL_GENDER',
-    'width' => '10%',
-    'default' => true,
-  ),
-  'BIRTHDATE' => 
-  array (
-    'type' => 'date',
-    'label' => 'LBL_BIRTHDATE',
-    'width' => '10%',
-    'default' => true,
   ),
   'PHONE_MOBILE' => 
   array (
     'width' => '5%',
     'label' => 'LBL_MOBILE_PHONE',
     'default' => true,
-    'name' => 'phone_mobile',
   ),
   'PARENT_NAME' => 
   array (
@@ -191,21 +175,18 @@ $popupMeta = array (
       0 => 'parent_id',
       1 => 'parent_type',
     ),
-    'name' => 'parent_name',
   ),
   'TITLE' => 
   array (
     'width' => '15%',
     'label' => 'LBL_LIST_TITLE',
     'default' => true,
-    'name' => 'title',
   ),
   'LEAD_SOURCE' => 
   array (
     'width' => '15%',
     'label' => 'LBL_LEAD_SOURCE',
     'default' => true,
-    'name' => 'lead_source',
   ),
 ),
 );
