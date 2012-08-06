@@ -73,13 +73,6 @@ array (
             'name' => 'groupprograebookings_name',
           ),
         ),
-        5 => 
-        array (
-          0 => 
-          array (
-            'name' => 'services_seebookings_name',
-          ),
-        ),
       ),
     ),
   ),
