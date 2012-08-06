@@ -6,6 +6,9 @@
 <script type="text/javascript" src="custom/include/js/popupRequest.js"> </script>
 <script type="text/javascript" src="custom/include/js/CustomDatePicker.js"></script>
 <script type="text/javascript" src="custom/include/js/CustomSelectField.js"></script>
+<script type="text/javascript">
+    addToValidate('EditView', 'groupprogrd5earograms_ida', 'relate', true,'Made Tour' );
+</script>
 {/literal}
 
 <form action="index.php"  name="EditView" id="EditView" method="post">
