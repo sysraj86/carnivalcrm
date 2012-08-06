@@ -82,7 +82,8 @@
     $ss->assign('TRANSPORTSBOOKING_LINE', $focus->get_transportBookings_detailview());
     $ss->assign('DEADLINE', $focus->deadline);
     $ss->assign('GIA', $focus->gia);
-    
+    $ss->assign('DATE_ENTERED',$focus->date_entered. ' ('.$focus->created_by_name.')');
+    $ss->assign('DATE_MODIFIED',$focus->date_modified. ' ('.$focus->modified_by_name.')');    
     // view change log
     
      $view_chang_log_data = array(

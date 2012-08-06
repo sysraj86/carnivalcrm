@@ -100,6 +100,8 @@
     $xtpl->assign('DEPARMENT',$focus->deparment);
     $xtpl->assign('DEADLINE',$focus->deadline);
     $xtpl->assign('GIA',$focus->gia);
+    $xtpl->assign('DATE_ENTERED',$focus->date_entered. ' ('.$focus->created_by_name.')');
+    $xtpl->assign('DATE_MODIFIED',$focus->date_modified. ' ('.$focus->modified_by_name.')');
      
      
     /*$xtpl->assign("TOURCODE",  $focus->tour_code);  
