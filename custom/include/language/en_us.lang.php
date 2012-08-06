@@ -1,4 +1,6 @@
 <?php
+$app_strings['LBL_VIEW_CHANGE_LOG'] = 'View Change Log';
+$app_strings['LBL_EXPORT_TO_WORD'] = 'Export To Word';
 $app_strings['LBL_GROUPTAB5_1310004002'] = 'Hotel & Restaurant';
 $app_strings['LBL_GROUPTAB6_1310355519'] = 'Transportation';
 $app_strings['LBL_GROUPTAB7_1315359289'] = 'Bookings';
