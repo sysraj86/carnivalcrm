@@ -33,13 +33,6 @@ array (
       4 => 'account_id',
     ),
   ),
-  'GENDER' => 
-  array (
-    'type' => 'radioenum',
-    'label' => 'LBL_GENDER',
-    'width' => '10%',
-    'default' => true,
-  ),
   'TITLE' => 
   array (
     'width' => '10%',

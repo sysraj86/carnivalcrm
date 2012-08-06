@@ -5,29 +5,11 @@ array (
   array (
     'basic_search' => 
     array (
-      'search_name' => 
+      0 => 
       array (
         'name' => 'search_name',
         'label' => 'LBL_NAME',
         'type' => 'name',
-        'default' => true,
-        'width' => '10%',
-      ),
-      'birthdate' => 
-      array (
-        'type' => 'date',
-        'label' => 'LBL_BIRTHDATE',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'birthdate',
-      ),
-      'gender' => 
-      array (
-        'type' => 'radioenum',
-        'label' => 'LBL_GENDER',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'gender',
       ),
       'parent_name' => 
       array (
@@ -38,13 +20,11 @@ array (
         'default' => true,
         'name' => 'parent_name',
       ),
-      'current_user_only' => 
+      1 => 
       array (
         'name' => 'current_user_only',
         'label' => 'LBL_CURRENT_USER_FILTER',
         'type' => 'bool',
-        'default' => true,
-        'width' => '10%',
       ),
     ),
     'advanced_search' => 
@@ -54,28 +34,6 @@ array (
         'name' => 'first_name',
         'default' => true,
         'width' => '10%',
-      ),
-      'last_name' => 
-      array (
-        'name' => 'last_name',
-        'default' => true,
-        'width' => '10%',
-      ),
-      'birthdate' => 
-      array (
-        'type' => 'date',
-        'label' => 'LBL_BIRTHDATE',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'birthdate',
-      ),
-      'gender' => 
-      array (
-        'type' => 'radioenum',
-        'label' => 'LBL_GENDER',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'gender',
       ),
       'email' => 
       array (
@@ -90,6 +48,12 @@ array (
         'name' => 'phone',
         'label' => 'LBL_ANY_PHONE',
         'type' => 'name',
+        'default' => true,
+        'width' => '10%',
+      ),
+      'last_name' => 
+      array (
+        'name' => 'last_name',
         'default' => true,
         'width' => '10%',
       ),

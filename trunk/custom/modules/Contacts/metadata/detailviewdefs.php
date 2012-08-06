@@ -40,6 +40,7 @@ array (
           'file' => 'modules/Leads/Lead.js',
         ),
       ),
+      'useTabs' => false,
     ),
     'panels' => 
     array (
@@ -51,6 +52,11 @@ array (
           array (
             'name' => 'full_name',
             'label' => 'LBL_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'gender',
+            'label' => 'LBL_GENDER',
           ),
         ),
         1 => 

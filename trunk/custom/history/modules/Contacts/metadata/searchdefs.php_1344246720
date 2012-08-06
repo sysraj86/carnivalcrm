@@ -55,28 +55,6 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'last_name' => 
-      array (
-        'name' => 'last_name',
-        'default' => true,
-        'width' => '10%',
-      ),
-      'birthdate' => 
-      array (
-        'type' => 'date',
-        'label' => 'LBL_BIRTHDATE',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'birthdate',
-      ),
-      'gender' => 
-      array (
-        'type' => 'radioenum',
-        'label' => 'LBL_GENDER',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'gender',
-      ),
       'email' => 
       array (
         'name' => 'email',
@@ -90,6 +68,12 @@ array (
         'name' => 'phone',
         'label' => 'LBL_ANY_PHONE',
         'type' => 'name',
+        'default' => true,
+        'width' => '10%',
+      ),
+      'last_name' => 
+      array (
+        'name' => 'last_name',
         'default' => true,
         'width' => '10%',
       ),
