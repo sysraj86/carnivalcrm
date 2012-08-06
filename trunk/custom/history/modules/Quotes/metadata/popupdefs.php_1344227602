@@ -14,7 +14,6 @@ $popupMeta = array (
   'quotes_tours_name' => 'quotes.quotes_tours_name',
   'current_user_only' => 'quotes.current_user_only',
   'assigned_user_id' => 'quotes.assigned_user_id',
-  'quotes_status' => 'quotes.quotes_status',
 ),
     'searchInputs' => array (
   1 => 'name',
@@ -27,7 +26,6 @@ $popupMeta = array (
   10 => 'quotes_tours_name',
   11 => 'current_user_only',
   12 => 'assigned_user_id',
-  13 => 'quotes_status',
 ),
     'searchdefs' => array (
   'code' => 
@@ -41,14 +39,6 @@ $popupMeta = array (
   array (
     'name' => 'name',
     'width' => '10%',
-  ),
-  'quotes_status' => 
-  array (
-    'type' => 'enum',
-    'label' => 'LBL_QUOTES_STATUS',
-    'sortable' => false,
-    'width' => '10%',
-    'name' => 'quotes_status',
   ),
   'contacts_quotes_name' => 
   array (

@@ -242,4 +242,12 @@ $dictionary["Quotes"]["fields"]["quotes_toufa8brstours_idb"] = array (
   'vname' => 'LBL_QUOTES_TOURS_FROM_TOURS_TITLE',
 );
 
+
+// created: 2011-09-06 11:44:45
+$dictionary["Quotes"]["fields"]["quotes_status"] = array (
+  'name' => 'quotes_status',
+  'type' => 'enum',
+  'options' => 'quotes_status_dom',
+  'vname' => 'LBL_QUOTES_STATUS',
+);
 ?>

@@ -40,11 +40,27 @@ array (
     'width' => '10%',
     'default' => true,
   ),
-  'QUOTES_STATUS' => 
+  'SERVICE_COST' => 
   array (
-    'type' => 'enum',
-    'label' => 'LBL_QUOTES_STATUS',
-    'sortable' => false,
+    'type' => 'currency',
+    'label' => 'LBL_SERVICE_COST',
+    'currency_format' => true,
+    'width' => '10%',
+    'default' => true,
+  ),
+  'AIRLINE_TICKET_COST' => 
+  array (
+    'type' => 'currency',
+    'label' => 'LBL_ARILINE_TICKET_COST',
+    'currency_format' => true,
+    'width' => '10%',
+    'default' => true,
+  ),
+  'TOTAL_COST' => 
+  array (
+    'type' => 'currency',
+    'label' => 'LBL_TOTAL_COST',
+    'currency_format' => true,
     'width' => '10%',
     'default' => true,
   ),
