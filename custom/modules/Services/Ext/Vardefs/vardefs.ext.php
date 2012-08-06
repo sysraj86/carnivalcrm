@@ -120,6 +120,17 @@ $dictionary["Services"]["fields"]["services_contacts"] = array (
 );
 
 
+// created: 2012-08-06 15:50:49
+$dictionary["Services"]["fields"]["services_servicebookings"] = array (
+  'name' => 'services_servicebookings',
+  'type' => 'link',
+  'relationship' => 'services_servicebookings',
+  'source' => 'non-db',
+  'side' => 'right',
+  'vname' => 'LBL_SERVICES_SERVICEBOOKINGS_FROM_SERVICEBOOKINGS_TITLE',
+);
+
+
 // created: 2011-12-06 08:51:25
 $dictionary["Services"]["fields"]["tours_services"] = array (
   'name' => 'tours_services',
