@@ -60,11 +60,11 @@
                         $html .= '<tr height="15">';
                             $html .= '<td class="tdborder"><select name="ib_hotel_standard[]" id="ib_hotel_standard">'.get_select_options_with_id($app_list_strings['quotes_ib_hotel_standard'],$val->ib_hotel_standard).'</select></td>';
                             $html .= '<td class="tdborder"><input type="text" name="group_site1_cost[]" id="group_site1_cost" value="'.$val->group_site1_cost.'"/></td>';
-                            $html .= '<td class="tdborder"><input type="text" name="group_site2_cost[]" id="group_site2_cost" value="'.$val->group_site1_cost.'"/></td>';
-                            $html .= '<td class="tdborder"><input type="text" name="group_site3_cost[]" id="group_site3_cost" value="'.$val->group_site1_cost.'"/></td>';
-                            $html .= '<td class="tdborder"><input type="text" name="group_site4_cost[]" id="group_site4_cost" value="'.$val->group_site1_cost.'"/></td>';
-                            $html .= '<td class="tdborder"><input type="text" name="group_site5_cost[]" id="group_site5_cost" value="'.$val->group_site1_cost.'"/></td>';
-                            $html .= '<td class="tdborder"><input type="text" name="group_site6_cost[]" id="group_site6_cost" value="'.$val->group_site1_cost.'"/></td>';
+                            $html .= '<td class="tdborder"><input type="text" name="group_site2_cost[]" id="group_site2_cost" value="'.$val->group_site2_cost.'"/></td>';
+                            $html .= '<td class="tdborder"><input type="text" name="group_site3_cost[]" id="group_site3_cost" value="'.$val->group_site3_cost.'"/></td>';
+                            $html .= '<td class="tdborder"><input type="text" name="group_site4_cost[]" id="group_site4_cost" value="'.$val->group_site4_cost.'"/></td>';
+                            $html .= '<td class="tdborder"><input type="text" name="group_site5_cost[]" id="group_site5_cost" value="'.$val->group_site5_cost.'"/></td>';
+                            $html .= '<td class="tdborder"><input type="text" name="group_site6_cost[]" id="group_site6_cost" value="'.$val->group_site6_cost.'"/></td>';
                             $html .= '<td class="tdborder"><input type="button" class="btnAddRow" value="Add Row" /> &nbsp; <input type="button" class="btnDeleteRow" value="Delete Row"/></td>';
                         $html .= '</tr>';
                     }
