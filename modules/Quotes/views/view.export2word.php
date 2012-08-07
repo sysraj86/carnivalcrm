@@ -146,6 +146,7 @@
                 $template = str_replace('{DETAIL}',$html,$template);  
             }
             elseif($quotes->department == 'ib'){
+                $html .= '<p align="center" style="font-size: 24px;">&nbsp;</p>';
                 $html .= '<p align="center" style="font-size: 24px;">'.$focus->name.'</p>';
                 $html .= '<table align="center" cellpadding="0" cellspacing="0">';
                 $html .= '<tr> <td>Duration : </td> <td>'.$focus->duration.'</td></tr>';
@@ -161,7 +162,7 @@
                 
                 $html .= '<tr> <td>Start : </td> <td>'.$start_date.'</td></tr>';
                 $html .= '<tr> <td>Transport : </td> <td>'.$focus->transport2.'</td></tr>';
-                $html .= '<tr> <td>Depart from : </td> <td>Ha Noi City</td></tr>';
+//                $html .= '<tr> <td>Depart from : </td> <td>'.$focus->.'</td></tr>';
                 $html .= '</table>';
 
                 $html .= '<div align="center">'.$img.'</div>';
