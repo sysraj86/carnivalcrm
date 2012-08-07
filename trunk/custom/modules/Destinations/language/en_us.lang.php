@@ -1,5 +1,5 @@
 <?php
-// created: 2012-07-24 11:19:16
+// created: 2012-08-07 12:15:11
 $mod_strings = array (
   '' => 'Image',
   'LBL_PICTURE2' => 'Picture2',
@@ -7,5 +7,6 @@ $mod_strings = array (
   'LBL_NAME' => 'Name',
   'LBL_AREA' => 'Area',
   'LBL_CITY_PROVINCE' => 'City / Province',
+  'LBL_COUNTRY_NAME' => 'Countries',
 );
 ?>
