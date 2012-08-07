@@ -41,13 +41,13 @@ $(document).ready(function(){
     
     $('.showdiv').hide();
     
-    $('.hidediv').click(function(){
+    $('.hidediv').live('click',function(){
         $(this).closest('fieldset').find('.displayandshow').hide();
         $(this).closest('fieldset').find('.showdiv').show();
         $(this).hide();
     });
     
-    $('.showdiv').click(function(){
+    $('.showdiv').live('click',function(){
         $(this).closest('fieldset').find('.displayandshow').show();
         $(this).closest('fieldset').find('.hidediv').show();
         $(this).hide();
