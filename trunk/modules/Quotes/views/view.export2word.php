@@ -193,11 +193,11 @@
                         $html .= '<tr height="15">';
                         $html .= '<td class="tdborder">'.translate('quotes_ib_hotel_standard','',$val->ib_hotel_standard).'</td>';
                         $html .= '<td class="tdborder">'.$val->group_site1_cost.'</td>';
-                        $html .= '<td class="tdborder">'.$val->group_site1_cost.'</td>';
-                        $html .= '<td class="tdborder">'.$val->group_site1_cost.'</td>';
-                        $html .= '<td class="tdborder">'.$val->group_site1_cost.'</td>';
-                        $html .= '<td class="tdborder">'.$val->group_site1_cost.'</td>';
-                        $html .= '<td class="tdborder">'.$val->group_site1_cost.'</td>';
+                        $html .= '<td class="tdborder">'.$val->group_site2_cost.'</td>';
+                        $html .= '<td class="tdborder">'.$val->group_site3_cost.'</td>';
+                        $html .= '<td class="tdborder">'.$val->group_site4_cost.'</td>';
+                        $html .= '<td class="tdborder">'.$val->group_site5_cost.'</td>';
+                        $html .= '<td class="tdborder">'.$val->group_site6_cost.'</td>';
                         $html .= '</tr>';
                     }
                 }
