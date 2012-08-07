@@ -944,7 +944,7 @@
      ),
      
      'worksheet_tour_name' => array(
-       'name'       => 'tour_name',
+       'name'       => 'worksheet_tour_name',
        'vname'      => 'LBL_TOUR_NAME',
        'type'       => 'varchar',
        'len'        => 255,
