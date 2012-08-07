@@ -596,8 +596,8 @@ table.MsoTableGrid
             <legend><h1>Tour program</h1></legend>  
             <!--<table cellpadding="0"  cellspacing="0" width="100%"  border="0" style="border-top: 0px solid;" class="content1">-->
                 {TOUR_PROGRAM_LINE_DETAIL}
-                <p></p>
             <!--</table> -->
+             <br />
                 {COST_DETAIL}
             <p>&nbsp;</p>
               
