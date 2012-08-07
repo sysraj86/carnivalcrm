@@ -259,3 +259,92 @@
 06/09/12 12:30:24 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
 06/09/12 12:30:35 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
 06/09/12 12:30:55 [6792][seed_jim_id][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 11:32:51 [5364][1][FATAL] Notifications: e-mail successfully sent
+08/07/12 11:32:51 [5364][1][FATAL]  Query Failed: INSERT into worksheets set id='b1872927-8386-ceb5-9e3d-50209ad6ec22', date_entered='2012-08-07 04:32:49', date_modified='2012-08-07 04:32:49', modified_user_id='1', created_by='1', deleted='0', worksheet_code='Worksheet_91', type='Inbound', content='eyJraGFjaHNhbl90b25ndGhhbmh0aWVuIjowLCJraGFjaHNhbl90b25ndGh1ZSI6MCwia2hhY2hzYW5fdG9uZ3RoYW5odGllbl9taWVuYmFjIjowLCJraGFjaHNhbl90b25ndGh1ZV9taWVuYmFjIjowLCJraGFjaHNhbl90b25ndGhhbmh0aWVuX21pZW50cnVuZyI6MCwia2hhY2hzYW5fdG9uZ3RodWVfbWllbnRydW5nIjowLCJraGFjaHNhbl90b25ndGhhbmh0aWVuX21pZW5uYW0iOjAsImtoYWNoc2FuX3Rvbmd0aHVlX21pZW5uYW0iOjAsInRoYW1xdWFuX3Rvbmd0aGFuaHRpZW4iOjAsInRoYW1xdWFuX3Rvbmd0aHVlIjowLCJ0aGFtcXVhbl90b25ndGhhbmh0aWVuX21pZW5iYWMiOjAsInRoYW1xdWFuX3Rvbmd0aHVlX21pZW5iYWMiOjAsInRoYW1xdWFuX21pZW5iYWMiOm51bGwsInRoYW1xdWFuX3Rvbmd0aGFuaHRpZW5fbWllbnRydW5nIjowLCJ0aGFtcXVhbl90b25ndGh1ZV9taWVudHJ1bmciOjAsInRoYW1xdWFuX21pZW50cnVuZyI6bnVsbCwidGhhbXF1YW5fdG9uZ3RoYW5odGllbl9taWVubmFtIjowLCJ0aGFtcXVhbl90b25ndGh1ZV9taWVuYW0iOjAsInRoYW1xdWFuX21pZW5uYW0iOm51bGx9', version=null, worksheet_tour_name='NHA TRANG - DỐC LẾT', worksheet_tour_id='e30a2e1b-a809-2425-24a6-4fdb2d91b739', tourcode='FMT110/inbound', duration='4 ngày – 3 đêm', transport='Ô Tô,Thuyền', thuesuathoa='5', sokhach=3, tyle='13', lotrinh='Nha Trang ': MySQL error 1054: Unknown column 'worksheet_tour_name' in 'field list'
+08/07/12 11:40:18 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 11:40:22 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 11:40:25 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 11:40:26 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 11:40:28 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 11:40:30 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 11:40:31 [5364][1][FATAL] Missing relationship definition tours_accounts. skipping tours_accounts subpanel
+08/07/12 11:40:31 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 11:40:33 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 11:40:34 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 11:40:35 [5364][1][FATAL] Missing relationship definition tours_billing. skipping tours_billing subpanel
+08/07/12 11:40:35 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 11:40:37 [5364][1][FATAL] Missing relationship definition tours_contracts. skipping tours_contracts subpanel
+08/07/12 11:40:37 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 11:40:38 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 11:40:40 [5364][1][FATAL] Missing relationship definition tours_fits. skipping tours_fits subpanel
+08/07/12 11:40:40 [5364][1][FATAL] Missing relationship definition tours_groupprograms. skipping tours_groupprograms subpanel
+08/07/12 11:40:40 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 11:40:43 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 11:40:46 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 11:40:49 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 11:40:50 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 12:42:51 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 12:43:00 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 12:43:09 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 12:43:12 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 12:43:13 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 12:43:15 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 12:43:16 [5364][1][FATAL] Missing relationship definition tours_accounts. skipping tours_accounts subpanel
+08/07/12 12:43:16 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 12:43:17 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 12:43:18 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 12:43:19 [5364][1][FATAL] Missing relationship definition tours_billing. skipping tours_billing subpanel
+08/07/12 12:43:20 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 12:43:20 [5364][1][FATAL] Missing relationship definition tours_contracts. skipping tours_contracts subpanel
+08/07/12 12:43:21 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 12:43:22 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 12:43:22 [5364][1][FATAL] Missing relationship definition tours_fits. skipping tours_fits subpanel
+08/07/12 12:43:22 [5364][1][FATAL] Missing relationship definition tours_groupprograms. skipping tours_groupprograms subpanel
+08/07/12 12:43:23 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 12:43:23 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 12:43:24 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 12:43:25 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 12:43:26 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 12:54:41 [5364][1][FATAL] Notifications: e-mail successfully sent
+08/07/12 13:50:06 [5364][-none-][FATAL] Could not connect to DB server 180.148.1.166 as sugarcrm_cnv. port : Lost connection to MySQL server at 'reading initial communication packet', system error: 2
+08/07/12 15:51:42 [5364][1][FATAL] Notifications: e-mail successfully sent
+08/07/12 16:30:04 [5364][1][FATAL] Error fetching relationship from cache accounts_accounts
+08/07/12 16:30:06 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 16:30:10 [5364][1][FATAL] Error fetching relationship from cache accounts_accounts
+08/07/12 16:30:11 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 16:30:11 [5364][1][FATAL] Error fetching relationship from cache accounts_accounts
+08/07/12 16:30:12 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 16:30:30 [5364][1][FATAL] Error fetching relationship from cache accounts_accounts
+08/07/12 16:30:31 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 16:30:33 [5364][1][FATAL] Error fetching relationship from cache accounts_accounts
+08/07/12 16:30:34 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 16:30:34 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 16:39:45 [5364][1][FATAL] Error fetching relationship from cache accounts_accounts
+08/07/12 16:39:47 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 16:39:49 [5364][1][FATAL] Error fetching relationship from cache accounts_accounts
+08/07/12 16:39:49 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 16:39:50 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 16:40:24 [5364][1][FATAL] Error fetching relationship from cache accounts_accounts
+08/07/12 16:40:25 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 16:43:28 [5364][1][FATAL] Error fetching relationship from cache accounts_accounts
+08/07/12 16:43:29 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 16:43:30 [5364][1][FATAL] Error fetching relationship from cache accounts_accounts
+08/07/12 16:43:30 [5364][1][FATAL] Error fetching relationship from cache accounts_accounts
+08/07/12 16:43:31 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 16:43:34 [5364][1][FATAL] Error fetching relationship from cache accounts_accounts
+08/07/12 16:43:35 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 16:43:38 [5364][1][FATAL] Error fetching relationship from cache accounts_accounts
+08/07/12 16:43:39 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 16:43:39 [5364][1][FATAL] Error fetching relationship from cache accounts_accounts
+08/07/12 16:43:40 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 16:44:01 [5364][1][FATAL] Error fetching relationship from cache accounts_accounts
+08/07/12 16:44:03 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 16:44:33 [5364][1][FATAL] Error fetching relationship from cache accounts_accounts
+08/07/12 16:44:34 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 16:44:34 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 16:49:54 [5364][1][FATAL] Error fetching relationship from cache accounts_accounts
+08/07/12 16:49:56 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 16:50:01 [5364][1][FATAL] Error fetching relationship from cache accounts_accounts
+08/07/12 16:50:02 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 16:50:02 [5364][1][FATAL] Error fetching relationship from cache fits_tours
+08/07/12 16:53:18 [5364][1][FATAL] Notifications: e-mail successfully sent
