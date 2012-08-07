@@ -17,19 +17,19 @@ $(function(){
             document.getElementById("thuesuathoa").focus();
             return;
         }
-        if($("#sokhach").val()== ""){ 
+        /*if($("#sokhach").val()== ""){ 
             //alert("bạn chưa nhập số khách hoặc nhập sai dữ liệu");
             $('#getdata').html('<p><font color="red"><h1 align="center">BẠN CHƯA NHẬP SỐ LƯỢNG TRẺ EM</h1></font </p>'); 
             document.getElementById("sokhach").focus();
             return;
-        }
+        }*/
         if(isNaN(parseFloat($("#sokhach").val()))){
             $('#getdata').html('<p><font color="red"><h1 align="center">SỐ LƯỢNG TRẺ EM PHẢI NHẬP SỐ</h1></font </p>'); 
             document.getElementById("sokhach").focus();
             return;
         }
-        if(parseFloat($("#sokhach").val()) <=0 ){
-            $('#getdata').html('<p><font color="red"><h1 align="center">SỐ KHÁCH PHẢI NHẬP LỚN HƠN KHÔNG</h1></font </p>'); 
+        if(parseFloat($("#sokhach").val()) <0 ){
+            $('#getdata').html('<p><font color="red"><h1 align="center">SỐ LƯỢNG TRẺ EM NHẬP LỚN HƠN KHÔNG</h1></font </p>'); 
             document.getElementById("sokhach").focus();
             return; 
         }
