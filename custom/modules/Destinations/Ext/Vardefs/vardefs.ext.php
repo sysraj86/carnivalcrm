@@ -131,11 +131,13 @@ $dictionary['Destination']['fields']['city_province']['massupdate']=0;
 
  // created: 2012-07-24 11:20:20
 $dictionary['Destination']['fields']['countries_dtinations_name']['massupdate']=1;
+$dictionary['Destination']['fields']['countries_dtinations_name']['importable']= true;
 
  
 
- // created: 2012-07-24 11:20:20
+ // created: 2012-08-07 12:07:39
 $dictionary['Destination']['fields']['country']['massupdate']=0;
+$dictionary['Destination']['fields']['country']['importable']='false';
 
  
 
@@ -155,6 +157,14 @@ $dictionary["Destination"]["fields"]["tours_destinations"] = array (
   'relationship' => 'tours_destinations',
   'source' => 'non-db',
   'vname' => 'LBL_TOURS_DESTINATIONS_FROM_TOURS_TITLE',
+);
+
+
+// created: 2011-10-26 10:56:10
+$dictionary['Destination']['indices'][] = array(
+    'name' =>'idx_destination_name', 
+    'type' =>'index', 
+    'fields'=>array('name')
 );
 
 ?>
