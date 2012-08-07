@@ -69,7 +69,7 @@
                 $html .= '<a class="showdiv"><img src="custom/themes/default/images/btndown.png" width="30" height="30" title="phóng to"/></a> &nbsp; <a class="hidediv"><img src="custom/themes/default/images/btnup.png" width="30" height="30" title="thu nhỏ"/></a>' ; 
                 $html .= '<div class="displayandshow">';
                 $html .= '<legend><h3>VÉ MÁY BAY</h3></legend>';
-                $html .= '<table width="100%" class="tabForm" id="vemaybay" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
+                $html .= '<table width="100%" class="tabForm" id="vemaybay" border="0" cellspacing="2" cellpadding="2" style="border-collapse:collapse">';
                 $html .= '<thead>'; 
                 $html .= '</thead>';
                 
@@ -81,7 +81,7 @@
                 $html .= '<tr>';
                     $html .= '<td colspan="7">';
                        $html .= '<fieldset><legend><h3>MIỀN BẮC</h3></legend>';
-                        $html .= '<table width="100%" class="table_clone" id="vemaybay_mb" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
+                        $html .= '<table width="100%" class="table_clone" id="vemaybay_mb" border="0" cellspacing="2" cellpadding="2" style="border-collapse:collapse">';
                             $html .= '<thead>' ;
                                 $html .= '<tr>';
                                     $html .= '<th>Tên chuyến bay</th>';
@@ -144,7 +144,7 @@
                 $html .= '<tr>';
                     $html .= '<td colspan="7">';
                        $html .= '<fieldset><legend><h3>MIỀN TRUNG</h3></legend>';
-                        $html .= '<table width="100%" class="tabForm" id="vemaybay_mt" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
+                        $html .= '<table width="100%" class="tabForm" id="vemaybay_mt" border="0" cellspacing="2" cellpadding="2" style="border-collapse:collapse">';
                             $html .= '<thead>' ;
                                 $html .= '<tr>';
                                     $html .= '<th>Tên chuyến bay</th>';
@@ -205,7 +205,7 @@
                 $html .= '<tr>';
                     $html .= '<td colspan="7">';
                        $html .= '<fieldset><legend><h3>MIỀN NAM</h3></legend>';
-                        $html .= '<table width="100%" class="tabForm" id="vemaybay_mn" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
+                        $html .= '<table width="100%" class="tabForm" id="vemaybay_mn" border="0" cellspacing="2" cellpadding="2" style="border-collapse:collapse">';
                             $html .= '<thead>' ;
                                 $html .= '<tr>';
                                     $html .= '<th>Tên chuyến bay</th>';
@@ -312,7 +312,7 @@
                 $html .= '<p>&nbsp;</p>'; 
                 $html .= '<a class="showdiv"><img src="custom/themes/default/images/btndown.png" width="30" height="30" title="phóng to"/></a> &nbsp; <a class="hidediv"><img src="custom/themes/default/images/btnup.png" width="30" height="30" title="thu nhỏ"/></a>' ; 
                 $html .= '<div class="displayandshow">';
-                $html .= '<table width="100%" class="tabForm"  id="nhahang" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
+                $html .= '<table width="100%" class="tabForm"  id="nhahang" border="0" cellspacing="2" cellpadding="2" style="border-collapse:collapse">';
                 $html .= '<thead>'; 
                 $html .= '</thead>';
                 $html .= '<tbody>';
@@ -324,7 +324,7 @@
                 $html .= '<tr> <td colspan="9">';
                 $html .= '<fieldset >';
                 $html .= '<legend><h3>MIỀN BẮC</h3></legend>';
-                $html .= '<table width="100%" class="table_clone" id="nhahang_mienbac" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
+                $html .= '<table width="100%" class="table_clone" id="nhahang_mienbac" border="0" cellspacing="2" cellpadding="2" style="border-collapse:collapse">';
                 $html .= '<thead>';
                 $html .= '<tr>';
                     $html .= '<th width="20%">Tên nhà hàng</th>';
@@ -393,7 +393,7 @@
                 $html .= '<tr> <td colspan="9">';
                 $html .= '<fieldset>';
                 $html .= '<legend><h3>MIỀN TRUNG</h3></legend>';
-                $html .= '<table width="100%" class="table_clone" id="nhahang_mientrung" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
+                $html .= '<table width="100%" class="table_clone" id="nhahang_mientrung" border="0" cellspacing="2" cellpadding="2" style="border-collapse:collapse">';
                 $html .= '<thead>';
                 $html .= '<tr>';
                     $html .= '<th width="20%">Tên nhà hàng</th>';
@@ -464,7 +464,7 @@
                 $html .= '<tr> <td colspan="9">';
                 $html .= '<fieldset>';
                 $html .= '<legend><h3>MIỀN NAM</h3></legend>';
-                $html .= '<table width="100%" class="table_clone" id="nhahang_miennam" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
+                $html .= '<table width="100%" class="table_clone" id="nhahang_miennam" border="0" cellspacing="2" cellpadding="2" style="border-collapse:collapse">';
                 $html .= '<thead>';
                 $html .= '<tr>';
                     $html .= '<th width="20%">Tên nhà hàng</th>';
@@ -571,7 +571,7 @@
                 $html .= '<p>&nbsp;</p>'; 
                 $html .= '<a class="showdiv"><img src="custom/themes/default/images/btndown.png" width="30" height="30" title="phóng to"/></a> &nbsp; <a class="hidediv"><img src="custom/themes/default/images/btnup.png" width="30" height="30" title="thu nhỏ"/></a>' ; 
                 $html .= '<div class="displayandshow">';
-                $html .= '<table width="100%" class="tabForm" border="0" class="tabForm" id="khachsan" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
+                $html .= '<table width="100%" class="tabForm" border="0" class="tabForm" id="khachsan" cellspacing="2" cellpadding="2" style="border-collapse:collapse">';
                 $html .= '<tfoot>';
                 $html .= '<tr>';
                 $html .= '<th>TỔNG CỘNG</th>';
@@ -598,7 +598,7 @@
                 $html .= '<tr><td colspan="13">';
                 $html .= '<fieldset >';
                 $html .= '<legend><h3>MIỀN BẮC</h3></legend>';
-                $html .= '<table width="100%" border="0" class="table_clone" id="ks_mb" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
+                $html .= '<table width="100%" border="0" class="table_clone" id="ks_mb" cellspacing="2" cellpadding="2" style="border-collapse:collapse">';
                 $html .= '<thead>';
                 
                 $html .= '<tr>';
@@ -626,6 +626,7 @@
                 $html .= '<th>SL Double</th>';
                 $html .= '<th>Triple</th>';
                 $html .= '<th>SL Triple</th>';
+                $html .= '<th>FOC</th>';
                 $html .= '<th>Hạng phòng</th>';
                 $html .= '<th>Số đêm</th>';
                 $html .= '<th>Thành tiền</th>';
@@ -649,6 +650,7 @@
                     $html .= '<th>&nbsp;</th>';
                     $html .= '<th>&nbsp;</th>';
                     $html .= '<th>&nbsp;</th>';
+                    $html .= '<th>&nbsp;</th>';
                     $html .= '<th><input type="text" size="15" class="center" name="khachsan_tongthanhtien_mienbac" id="khachsan_tongthanhtien_mienbac"/></th>';
                     $html .= '<th>&nbsp;</th>';
                     $html .= '<th><input type="text" size="15" class="center" name="khachsan_tongthue_mienbac" id="khachsan_tongthue_mienbac"/></th>';
@@ -663,7 +665,7 @@
                 $html .= '<tr><td colspan="13">';
                 $html .= '<fieldset >';
                 $html .= '<legend><h3>MIỀN TRUNG</h3></legend>';
-                $html .= '<table width="100%" border="0" class="table_clone" id="ks_mt" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
+                $html .= '<table width="100%" border="0" class="table_clone" id="ks_mt" cellspacing="2" cellpadding="2" style="border-collapse:collapse">';
                 $html .= '<thead>';
                 $html .= '<tr>';
                 $html .= '<th>Nơi đến</th>';
@@ -689,6 +691,7 @@
                 $html .= '<th>SL Double</th>';
                 $html .= '<th>Triple</th>';
                 $html .= '<th>SL Triple</th>';
+                $html .= '<th>FOC</th>';
                 $html .= '<th>Hạng phòng</th>';
                 $html .= '<th>Số đêm</th>';
                 $html .= '<th>Thành tiền</th>';
@@ -703,6 +706,8 @@
                 $html .= '<tfoot>';
                     $html .= '<tr>';
                     $html .= '<th>Tổng cộng</th>';
+                    $html .= '<th>&nbsp;</th>';
+                    $html .= '<th>&nbsp;</th>';
                     $html .= '<th>&nbsp;</th>';
                     $html .= '<th>&nbsp;</th>';
                     $html .= '<th>&nbsp;</th>';
@@ -727,7 +732,7 @@
                 $html .= '<tr><td colspan="13">';
                 $html .= '<fieldset >';
                 $html .= '<legend><h3>MIỀN NAM</h3></legend>';
-                $html .= '<table width="100%" border="0" class="table_clone" id="ks_mn" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
+                $html .= '<table width="100%" border="0" class="table_clone" id="ks_mn" cellspacing="2" cellpadding="2" style="border-collapse:collapse">';
                 $html .= '<thead>';
                 $html .= '<tr>';
                 $html .= '<th>Nơi đến</th>';
@@ -752,6 +757,7 @@
                 $html .= '<th>SL Double</th>';
                 $html .= '<th>Triple</th>';
                 $html .= '<th>SL Triple</th>';
+                $html .= '<th>FOC</th>';
                 $html .= '<th>Hạng phòng</th>';
                 $html .= '<th>Số đêm</th>';
                 $html .= '<th>Thành tiền</th>';
@@ -765,6 +771,7 @@
                 $html .= '<tfoot>';
                     $html .= '<tr>';
                     $html .= '<th>Tổng cộng</th>';
+                    $html .= '<th>&nbsp;</th>';
                     $html .= '<th>&nbsp;</th>';
                     $html .= '<th>&nbsp;</th>';
                     $html .= '<th>&nbsp;</th>';
@@ -815,7 +822,7 @@
                 $html .= '<p>&nbsp;</p>'; 
                 $html .= '<a class="showdiv"><img src="custom/themes/default/images/btndown.png" width="30" height="30" title="phóng to"/></a> &nbsp; <a class="hidediv"><img src="custom/themes/default/images/btnup.png" width="30" height="30" title="thu nhỏ"/></a>' ; 
                 $html .= '<div class="displayandshow">';
-                $html .= '<table width="100%" class="tabForm" id="vanchuyen" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
+                $html .= '<table width="100%" class="tabForm" id="vanchuyen" border="0" cellspacing="2" cellpadding="2" style="border-collapse:collapse">';
                 $html .= '<thead>';
                 /*$html .= '<tr>';
                     $html .= '<th width="10%">Lọai xe</th>';
@@ -835,7 +842,7 @@
                 $html .= '<tr><td colspan="8">';
                 $html .= '<fieldset >';
                 $html .= '<legend><h3>MIỀN BẮC</h3></legend>';
-                $html .= '<table width="100%" class="table_clone" id="vanchuyen_mienbac" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
+                $html .= '<table width="100%" class="table_clone" id="vanchuyen_mienbac" border="0" cellspacing="2" cellpadding="2" style="border-collapse:collapse">';
                 $html .= '<thead>';
                 $html .= '<tr>';
                     $html .= '<th width="10%">Lọai xe</th>';
@@ -899,7 +906,7 @@
                 $html .= '<tr><td colspan="8">';
                 $html .= '<fieldset >';
                 $html .= '<legend><h3>MIỀN TRUNG</h3></legend>';
-                $html .= '<table width="100%" class="table_clone" id="vanchuyen_mientrung" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
+                $html .= '<table width="100%" class="table_clone" id="vanchuyen_mientrung" border="0" cellspacing="2" cellpadding="2" style="border-collapse:collapse">';
                 $html .= '<thead>';
                 $html .= '<tr>';
                     $html .= '<th width="10%">Lọai xe</th>';
@@ -961,7 +968,7 @@
                 $html .= '<tr><td colspan="8">';
                 $html .= '<fieldset >';
                 $html .= '<legend><h3>MIỀN NAM</h3></legend>';
-                $html .= '<table width="100%" class="table_clone" id="vanchuyen_miennam" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
+                $html .= '<table width="100%" class="table_clone" id="vanchuyen_miennam" border="0" cellspacing="2" cellpadding="2" style="border-collapse:collapse">';
                 $html .= '<thead>';
                 $html .= '<tr>';
                     $html .= '<th width="10%">Lọai xe</th>';
@@ -1066,7 +1073,7 @@
                 $html .= '<p>&nbsp;</p>'; 
                 $html .= '<a class="showdiv"><img src="custom/themes/default/images/btndown.png" width="30" height="30" title="phóng to"/></a> &nbsp; <a class="hidediv"><img src="custom/themes/default/images/btnup.png" width="30" height="30" title="thu nhỏ"/></a>' ; 
                 $html .= '<div class="displayandshow">';
-                $html .= '<table width="100%" class="tabForm" border="0" id="dichvu" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
+                $html .= '<table width="100%" class="tabForm" border="0" id="dichvu" cellspacing="2" cellpadding="2" style="border-collapse:collapse">';
                 $html .= '<tfoot>';
                 $html .= '<tr>';
                     $html .= '<th>TỔNG CỘNG</th>';
@@ -1087,7 +1094,7 @@
                 $html .= '<tr><td colspan="8">';
                 $html .= '<fieldset >';
                 $html .= '<legend><h3>MIỀN BẮC</h3></legend>';
-                $html .= '<table width="100%" class="table_clone" id="dichvu_mienbac" border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
+                $html .= '<table width="100%" class="table_clone" id="dichvu_mienbac" border="1" cellspacing="2" cellpadding="2" style="border-collapse:collapse">';
                 $html .= '<thead>';
                 $html .= '<tr>';
                     $html .= '<th>Loại dịch vụ</th>';
@@ -1148,7 +1155,7 @@
                 $html .= '<tr><td colspan="8">';
                 $html .= '<fieldset >';
                 $html .= '<legend><h3>MIỀN TRUNG</h3></legend>';
-                $html .= '<table width="100%" class="table_clone" id="dichvu_mientrung" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
+                $html .= '<table width="100%" class="table_clone" id="dichvu_mientrung" border="0" cellspacing="2" cellpadding="2" style="border-collapse:collapse">';
                 $html .= '<thead>';
                 $html .= '<tr>';
                     $html .= '<th>Loại dịch vụ</th>';
@@ -1210,7 +1217,7 @@
                 $html .= '<tr><td colspan="8">';
                 $html .= '<fieldset>';
                 $html .= '<legend><h3>MIỀN NAM</h3></legend>';
-                $html .= '<table width="100%" class="table_clone" id="dichvu_miennam" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
+                $html .= '<table width="100%" class="table_clone" id="dichvu_miennam" border="0" cellspacing="2" cellpadding="2" style="border-collapse:collapse">';
                 $html .= '<thead>';
                 $html .= '<tr>';
                     $html .= '<th>Loại dịch vụ</th>';
@@ -1299,7 +1306,7 @@
                 $html .= '<a class="showdiv"><img src="custom/themes/default/images/btndown.png" width="30" height="30" title="phóng to"/></a> &nbsp; <a class="hidediv"><img src="custom/themes/default/images/btnup.png" width="30" height="30" title="thu nhỏ"/></a>' ; 
                 $html .= '<div class="displayandshow">';
                 $html .= '<legend> <h3>THAM QUAN</h3></legend>';
-                $html .= '<table width="100%" class="tabForm" border="0" id="thamquan" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
+                $html .= '<table width="100%" class="tabForm" border="0" id="thamquan" cellspacing="2" cellpadding="2" style="border-collapse:collapse">';
                 $html .= '<thead>';
                 
                 $html .= '<tr>';
@@ -1324,7 +1331,7 @@
                 $html .= '<tr><td colspan="10">';
                 $html .= '<fieldset >';
                 $html .= '<legend><h3>MIỀN BẮC</h3></legend>';
-                $html .= '<table width="100%" class="table_clone" id="thamquan_mienbac" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
+                $html .= '<table width="100%" class="table_clone" id="thamquan_mienbac" border="0" cellspacing="2" cellpadding="2" style="border-collapse:collapse">';
                 $html .= '<thead>';
                 $html .= '<tr>';
                     $html .= '<th>Địa điểm tham quan</th>';
@@ -1394,7 +1401,7 @@
                 $html .= '<tr><td colspan="10">';
                 $html .= '<fieldset >';
                 $html .= '<legend><h3>MIỀN TRUNG</h3></legend>';
-                $html .= '<table width="100%" class="table_clone" id="thamquan_mientrung" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
+                $html .= '<table width="100%" class="table_clone" id="thamquan_mientrung" border="0" cellspacing="2" cellpadding="2" style="border-collapse:collapse">';
                 $html .= '<thead>';
                 $html .= '<tr>';
                     $html .= '<th>Địa điểm tham quan</th>';
@@ -1464,7 +1471,7 @@
                 $html .= '<tr><td colspan="10">';
                 $html .= '<fieldset >';
                 $html .= '<legend><h3>MIỀN NAM</h3></legend>';
-                $html .= '<table width="100%" class="table_clone" id="thamquan_miennam" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
+                $html .= '<table width="100%" class="table_clone" id="thamquan_miennam" border="0" cellspacing="2" cellpadding="2" style="border-collapse:collapse">';
                 $html .= '<thead>';
                 $html .= '<tr>';
                     $html .= '<th>Địa điểm tham quan</th>';
