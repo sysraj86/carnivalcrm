@@ -26,6 +26,13 @@ $moduleList[] = 'C_Approval';
 $moduleList[] = 'ECalendar';
 
 
+ 
+ //WARNING: The contents of this file are auto-generated
+$beanList['C_Helper'] = 'C_Helper';
+$beanFiles['C_Helper'] = 'modules/C_Helper/C_Helper.php';
+$moduleList[] = 'C_Helper';
+
+
 
 $beanList['LandFee'] = 'LandFee';
 $beanFiles['LandFee'] = 'modules/LandFee/LandFee.php';

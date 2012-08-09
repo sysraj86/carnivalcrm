@@ -55,9 +55,10 @@ $GLOBALS['app_list_strings']['parent_type_display_custom'] = array(
     'ContractLiquidate' => 'Contract Liquidates',
 );
 $GLOBALS['app_list_strings']['khachsan_area'] = array(
-    'mienbac' => 'Miền Bắc',
-    'miennam' => 'Miền Nam',
-    'mientrung' => 'Miền Trung',
+        '' => '',
+        'mienbac' => 'Miền Bắc',
+        'miennam' => 'Miền Nam',
+        'mientrung' => 'Miền Trung',
 );
 $GLOBALS['app_list_string']['list_destination_north_dom'] = array();
 $GLOBALS['app_list_string']['list_destination_middle_dom'] = array();
