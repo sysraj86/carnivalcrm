@@ -8,5 +8,6 @@ $mod_strings = array (
   'LBL_AREA' => 'Area',
   'LBL_CITY_PROVINCE' => 'City / Province',
   'LBL_COUNTRY_NAME' => 'Countries',
+  'LBL_DEPARTMENT' => 'Department',
 );
 ?>

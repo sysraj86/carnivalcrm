@@ -167,4 +167,10 @@ $dictionary['Destination']['indices'][] = array(
     'fields'=>array('name')
 );
 
+$dictionary["Destination"]["fields"]["department"] = array (
+  'name' => 'department',
+  'type' => 'enum',
+  'options' => 'deparment_dom',
+  'vname' => 'LBL_DEPARTMENT',
+);
 ?>
