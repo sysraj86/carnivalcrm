@@ -156,7 +156,8 @@ else if ($action == "get_tour_num") {
 else if ($action == "get_destination_by_area") {
     if (isset($_POST['area'])) {
         $area = $_POST['area'];
-        $destinations = Destination::getDestinationsByArea($area);
+        $department = $_POST['department']; 
+        $destinations = Destination::getDestinationsByArea($area,$department);
         $response = get_select_options_with_id($destinations, '');
     }
 }

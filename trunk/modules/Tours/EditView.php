@@ -95,7 +95,7 @@ if(!empty($focus->noiden)){
     $ss->assign('DESTINATIONS',get_select_options_with_id($app_list_strings['destination_dom_list'],''));
 
 }
-foreach ($areas as $value) {
+/*foreach ($areas as $value) {
     $selected = "";
     if($value['id']==$focus->area){
         $selected = "selected";
@@ -105,7 +105,8 @@ foreach ($areas as $value) {
     $area_pattern .= $value['code'];
 }
 
-$ss->assign("TOUR_AREA", $area_options);
+$ss->assign("TOUR_AREA", $area_options);*/
+$ss->assign("TOUR_AREA", get_select_options_with_id($app_list_strings['destination_region_dom'],$focus->area)); 
 // custom
 if ($focus->tour_code) {
    // $tour_code_area = substr($focus->tour_code, 0, 5);

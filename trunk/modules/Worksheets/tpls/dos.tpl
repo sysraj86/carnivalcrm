@@ -65,6 +65,10 @@
                 <legend><h3>THÔNG TIN CHUNG</h3></legend>
                 <table width="100%" border="1" class="tabForm" style="border-collapse:collapse;" cellspacing="0" cellpadding="0">
                     <tr>
+                        <td class="dataLabel">Tên chiết tính</td>
+                        <td colspan="8" style="text-align: left;"><input type="text" name="name" id="name" value="{$name}" size="50"></td>
+                    </tr>
+                    <tr>
                         <td class="dataLabel">Tên tour <span class="required">*</span></td>
                         <td><span class="center">
                                 <input name="worksheet_tour_name" type="text" id="worksheet_tour_name" value="{$TOUR_NAME}" size="50" />

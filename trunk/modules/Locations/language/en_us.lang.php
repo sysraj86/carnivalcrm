@@ -69,7 +69,7 @@ $mod_strings = array (
   'LBL_AREA_CODE'   => 'Area code',
   'LBL_COUNTRY_NAME'    => 'Country' ,
   'LBL_PICTURE'         => 'Picture',
-   'LBL_DESTINATION'         => 'Destination',
+   'LBL_DESTINATION'         => 'Destination',              
   'LBL_CODE'  => 'Code',
   'LBL_EMAIL_ADDRESS'   => 'Email',
   'LBL_PHONE'       => 'Phone',
@@ -77,5 +77,6 @@ $mod_strings = array (
   'LBL_GIATHAMKHAO' => 'Giá tham khảo',
   'LBL_NGAYTHAMKHAOGIA' => 'Ngày tham khảo giá',
   'LBL_AREA'    => 'Area',
+  'LBL_DEPARTMENT'  => 'Department',
 );
 ?>

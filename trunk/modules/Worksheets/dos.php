@@ -28,6 +28,7 @@
          $type = $_REQUEST['type'];
          $ss->assign("TYPE", $type);
      }
+     $ss->assign("name", $focus->name);
      $ss->assign("TOUR_NAME", $focus->worksheet_tour_name);
      $ss->assign("TOUR_ID", $focus->worksheet_tour_id);
      $ss->assign("TOURCODE", $focus->tourcode);

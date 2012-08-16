@@ -33,6 +33,7 @@ else {
 }
 $temp = base64_decode($focus->content);
 $noidung = json_decode($temp);
+$ss->assign("name", $focus->name);
 $ss->assign("TOUR_NAME", $focus->worksheet_tour_name);
 $ss->assign("TOUR_ID", $focus->worksheet_tour_id);
 $ss->assign("TOURCODE", $focus->tourcode);
@@ -1244,15 +1245,15 @@ $vcArrMN = array();
 $vcArr = $focus->getTransportData($focus->worksheet_tour_id);
 foreach ($vcArr as $arrvc) {
     if ($arrvc['area'] == 'mienbac') {
-        $app_list_strings['list_vanchuyen_dom_north'][$arrvc['id']] = 'Xe ' . $arrvc['name'] . ' chỗ';
+        $app_list_strings['list_vanchuyen_dom_north'][$arrvc['id']] = $arrvc['number_plates'];
         $vcArrMB[] = array('id' => $arrvc['id'], 'name' => $arrvc['name'], 'area' => $arrvc['area']);
     }
     if ($arrvc['area'] == 'mientrung') {
-        $app_list_strings['list_vanchuyen_dom_middle'][$arrvc['id']] = 'Xe ' . $arrvc['name'] . ' chỗ';
+        $app_list_strings['list_vanchuyen_dom_middle'][$arrvc['id']] =  $arrvc['number_plates'];
         $vcArrMT[] = array('id' => $arrvc['id'], 'name' => $arrvc['name'], 'area' => $arrvc['area']);
     }
     if ($arrvc['area'] == 'miennam') {
-        $app_list_strings['list_vanchuyen_dom_south'][$arrvc['id']] = 'Xe ' . $arrvc['name'] . ' chỗ';
+        $app_list_strings['list_vanchuyen_dom_south'][$arrvc['id']] = $arrvc['number_plates'];
         $vcArrMN[] = array('id' => $arrvc['id'], 'name' => $arrvc['name'], 'area' => $arrvc['area']);
     }
 }

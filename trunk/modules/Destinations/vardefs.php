@@ -111,6 +111,13 @@ $dictionary['Destination'] = array('audited' => true,
             'reportable' => 0,
             'len' => '25',
         ),
+        
+        'destination_region' => array(
+          'name'    =>  'destination_region',
+          'vname'   => 'LBL_DESTINATION_REGION',
+          'type'    => 'enum',
+          'options' => 'destination_region_dom',
+        ),
 
     ),
 

@@ -29,14 +29,30 @@ $popupMeta = array (
     'link' => true,
     'name' => 'name',
   ),
-  'C_AREAS_DESTINATIONS_NAME' => 
+  'COUNTRIES_DTINATIONS_NAME' => 
   array (
     'type' => 'relate',
-    'link' => 'c_areas_destinations',
+    'link' => 'countries_destinations',
+    'label' => 'LBL_COUNTRIES_DESTINATIONS_FROM_COUNTRIES_TITLE',
+    'width' => '10%',
+    'default' => true,
+    'name' => 'countries_dtinations_name',
+  ),
+  'DESTINATION_REGION' => 
+  array (
+    'type' => 'enum',
+    'label' => 'LBL_DESTINATION_REGION',
+    'sortable' => false,
+    'width' => '10%',
+    'default' => true,
+    'name' => 'destination_region',
+  ),
+  'AREA' => 
+  array (
     'width' => '10%',
     'label' => 'LBL_AREA',
     'default' => true,
-    'name' => 'c_areas_destinations_name',
+    'name' => 'area',
   ),
   'DEPARTMENT' => 
   array (

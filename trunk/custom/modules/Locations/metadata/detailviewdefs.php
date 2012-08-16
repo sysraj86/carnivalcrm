@@ -34,6 +34,7 @@ array (
         ),
       ),
       'useTabs' => false,
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -42,37 +43,49 @@ array (
         0 => 
         array (
           0 => 'name',
-          1 => 'code',
-        ),
-        1 => 
-        array (
-          0 => 'destinationlocations_name',
           1 => 
           array (
             'name' => 'phone',
             'label' => 'LBL_PHONE',
           ),
         ),
-        2 => 
+        1 => 
         array (
-          0 => 
+          0 => 'destinationlocations_name',
+          1 => 
           array (
             'name' => 'address',
             'comment' => 'address of destination',
             'label' => 'LBL_ADDRESS',
           ),
-          1 => 'assigned_user_name',
         ),
-        3 => 
+        2 => 
         array (
-          0 => 'description',
+          0 => 
+          array (
+            'name' => 'department',
+            'label' => 'LBL_DEPARTMENT',
+          ),
           1 => 
           array (
             'name' => 'area',
             'label' => 'LBL_AREA',
           ),
         ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'email1',
+            'label' => 'LBL_EMAIL_ADDRESS',
+          ),
+          1 => 'assigned_user_name',
+        ),
         4 => 
+        array (
+          0 => 'description',
+        ),
+        5 => 
         array (
           0 => 
           array (
@@ -85,6 +98,22 @@ array (
             'name' => 'date_modified',
             'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
             'label' => 'LBL_DATE_MODIFIED',
+          ),
+        ),
+      ),
+      'lbl_editview_panel1' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'giathamkhao',
+            'label' => 'LBL_GIATHAMKHAO',
+          ),
+          1 => 
+          array (
+            'name' => 'ngaythamkhaogia',
+            'label' => 'LBL_NGAYTHAMKHAOGIA',
           ),
         ),
       ),

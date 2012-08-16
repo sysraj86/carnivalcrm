@@ -5,3 +5,5 @@ $dictionary['Location']['indices'][] = array(
     'type' =>'index', 
     'fields'=>array('name')
 );
+
+

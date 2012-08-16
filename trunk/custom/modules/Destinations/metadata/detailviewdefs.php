@@ -53,8 +53,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'c_areas_destinations_name',
-            'label' => 'LBL_C_AREAS_DESTINATIONS_FROM_C_AREAS_TITLE',
+            'name' => 'destination_region',
+            'label' => 'LBL_DESTINATION_REGION',
           ),
         ),
         2 => 
@@ -74,6 +74,19 @@ array (
         array (
           0 => 'assigned_user_name',
           1 => 'description',
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_entered',
+            'label' => 'LBL_DATE_ENTERED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_modified',
+            'label' => 'LBL_DATE_MODIFIED',
+          ),
         ),
       ),
     ),
