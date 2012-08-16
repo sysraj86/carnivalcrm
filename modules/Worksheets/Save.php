@@ -1255,9 +1255,9 @@
 
 
     }
-    if($focus->worksheet_code !=''){
+    /*if($focus->worksheet_code !=''){
         $focus->name = $focus->worksheet_code;
-    }
+    }*/
 
     $_SESSION['content']  = $focus->noidung;
     $content = json_encode($_SESSION['content'] );

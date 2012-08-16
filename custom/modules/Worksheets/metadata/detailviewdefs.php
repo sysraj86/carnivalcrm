@@ -68,27 +68,29 @@ array (
         array (
           0 => 'type',
         ),
-        7 => 
+        6 => 
         array (
           0 => 
           array (
             'name' => 'overview',
             'customCode' => '{$HTML}',
+            'hidelabel' => true
           ),
         ),
-        8 => 
+        7 => 
         array (
           0 => 
           array (
             'name' => 'report',
             'customCode' => '{$REPORT}',
+            'hidelabel' => true
           ),
         ),
-         9=> 
+        8 => 
         array (
           0 => 'assigned_user_name',
         ),
-        10 => 
+        9 => 
         array (
           0 => 
           array (
@@ -97,7 +99,7 @@ array (
             'label' => 'LBL_DATE_ENTERED',
           ),
         ),
-        11 => 
+        10 => 
         array (
           0 => 
           array (

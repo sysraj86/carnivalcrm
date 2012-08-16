@@ -149,7 +149,7 @@ $(document).ready(function () {
     $("#area").live("change", function () {
         var $this = $(this),
             val = $this.val(),
-            tourType = $frameType.val();
+            tourType = $frameType.val(); 
         if (val) {
             $("#tour_code_area").val(tourType + $("option:selected", $this).attr("data-code"));
             $this.parent().append(loader);
@@ -157,7 +157,7 @@ $(document).ready(function () {
             $.ajax({
                 type:"post",
                 url:"index.php?module=Tours&entryPoint=TourAjax",
-                data:{action:"get_destination_by_area", area:val},
+                data:{action:"get_destination_by_area", area:val,department :jQuery('#department').val()},
                 success:function (data) {
                     loader.remove();
                     if (data) {

@@ -25,6 +25,7 @@ array (
         ),
       ),
       'useTabs' => false,
+      'syncDetailEditViews' => false,
     ),
     'panels' => 
     array (
@@ -49,7 +50,11 @@ array (
         ),
         2 => 
         array (
-          0 => 'description',
+          0 => 
+          array (
+            'name' => 'department',
+            'label' => 'LBL_DEPARTMENT',
+          ),
           1 => 
           array (
             'name' => 'area',
@@ -58,8 +63,12 @@ array (
         ),
         3 => 
         array (
-          0 => 'email1',
-          1 => 'assigned_user_name',
+          0 => 'description',
+          1 => 'email1',
+        ),
+        4 => 
+        array (
+          0 => 'assigned_user_name',
         ),
       ),
       'lbl_editview_panel1' => 

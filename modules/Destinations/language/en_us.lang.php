@@ -73,6 +73,7 @@ $mod_strings = array (
   'LBL_CODE' => 'Code' ,
   'LBL_AREA_CODE' => 'Area Code',
   'LBL_COUNTRY_NAME' => 'Country',
+  'LBL_DESTINATION_REGION'  => 'Area',
   
   
   /*'LBL_HOTEL_CODE'  => 'Hotel code',

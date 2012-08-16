@@ -183,8 +183,14 @@
         'vname' => 'LBL_EMAIL_ADDRESS_PRIMARY',
         'duplicate_merge' => 'disabled',
         'required' => true,
-    ) ,    
+    ) , 
     
+   'department' => array( 
+    'name' => 'department',
+    'type' => 'enum',
+    'options' => 'deparment_dom',
+    'vname' => 'LBL_DEPARTMENT',   
+     ),
     ),
     
     'indices' => array (

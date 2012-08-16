@@ -16,10 +16,24 @@ array (
     'default' => true,
     'link' => true,
   ),
-  'C_AREAS_DESTINATIONS_NAME' => 
+  'COUNTRIES_DTINATIONS_NAME' => 
   array (
     'type' => 'relate',
-    'link' => 'c_areas_destinations',
+    'link' => 'countries_destinations',
+    'label' => 'LBL_COUNTRIES_DESTINATIONS_FROM_COUNTRIES_TITLE',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'DESTINATION_REGION' => 
+  array (
+    'type' => 'enum',
+    'label' => 'LBL_DESTINATION_REGION',
+    'sortable' => false,
+    'width' => '10%',
+    'default' => true,
+  ),
+  'AREA' => 
+  array (
     'width' => '10%',
     'label' => 'LBL_AREA',
     'default' => true,

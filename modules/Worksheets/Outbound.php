@@ -36,6 +36,7 @@
      }
      $temp = base64_decode($focus->content);
     $noidung = json_decode($temp);
+    $ss->assign("name", $focus->name); 
     $ss->assign("TYGIA", $focus->tygia); 
     $ss->assign("outbound_currency", get_select_options_with_id($app_list_strings['currency_dom'],$noidung->outbound_currency)); 
     $ss->assign("NGAYTYGIA", $focus->ngaytygia); 

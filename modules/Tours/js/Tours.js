@@ -139,9 +139,7 @@
                 entity_encoding:"raw",
                 setup:function (ed) {
                     ed.onChange.add(function (ed, l) {
-                        // console.debug('Editor contents was modified. Contents: ' + l.content);
                         ed.save();
-                        //   editor = ed;
                     });
                 }
             });

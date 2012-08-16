@@ -34,7 +34,22 @@
         </style>
 
         <script type="text/javascript">
-            $(function(){
+            window.onbeforeunload = function(){
+                var isEnabled = false;  
+                if(isEnabled){  
+                    var e = e || window.event;  
+
+                    if (e) {  
+                        e.returnValue = 'WHY?';  
+                    }  
+                    else{  
+                        return 'WHY?';  
+                    }  
+                }
+                fConfirm();
+            } 
+
+            $(document).ready(function(){
                 $('#btntourname').click(function(){
                     filterPopup("deparment_advanced", "type", "Tours",  {"call_back_function":"set_return", "form_name": "inbound", "field_to_name_array":{"id": "worksheet_tour_id", "name":"worksheet_tour_name","duration":"duration","tour_code":"tourcode","transport2":"transport","tour_destination":"lotrinh","start_date":"ngaybatdau","end_date":"ngayketthuc"}});
                     /*open_popup("Tours", 600, 400, "", true, false, {"call_back_function":"set_return", "form_name": "inbound", "field_to_name_array":{"id": "worksheet_tour_id", "name":"worksheet_tour_name","duration":"duration","tour_code":"tourcode","transport2":"transport","tour_destination":"lotrinh"}}, "single", true);*/
@@ -48,6 +63,20 @@
                     open_popup('Users',600,400,'',true,false, {"call_back_function":"set_return","form_name":"inbound","field_to_name_array":{"id":"assigned_user_id","user_name":"assigned_user_name"}}) ;
                 });
             });
+
+
+            function fConfirm()
+            {    
+                //do something with p1, p2, p3, p4....
+                //this shows the default dialog box  
+                //event.returnValue = 'Any changes will be lost if you proceed.';
+                //this shows the custom confirm box, but it doesn't stop the page from 
+                //refreshing even the user click the "Cancel" button
+                if(!confirm("Bạn có muốn thoát không? nếu thoát thì sẽ mất dữ liệu không được lưu!.")){
+                    return false;
+                }
+                return true;
+            }
         </script>
         {/literal}
 
@@ -76,6 +105,10 @@
             <fieldset>
                 <legend><h3>THÔNG TIN CHUNG</h3></legend>
                 <table width="100%" border="1" class="tabForm" style="border-collapse:collapse;" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td class="dataLabel">Tên chiết tính</td>
+                    <td style="text-align: left;" colspan="8"><input type="text" name="name" id="name" value="{$name}" size="50"></td>
+                </tr>
                     <tr>
                         <td class="dataLabel">Tên tour</td>
                         <td><span class="center">
@@ -118,7 +151,7 @@
                         <td class="dataLabel">Số lượng người lớn</td>
                         <td class="dataField"><input name="thuesuathoa" type="text" id="thuesuathoa" class="khoanmuc soluongnguoilon" size="15" value="{$THUESUATHOA}" /></td>
                         <td class="dataLabel">Số lượng trẻ em</td>
-                        <td class="dataField"><input name="sokhach" type="text" id="sokhach" class="khoanmuc soluongtreem" size="15"  value="{$SOKHACH}"/></td>
+                        <td class="dataField"><input name="sokhach" type="text" id="sokhach" class="soluongtreem" style="text-align: center;" size="15"  value="{$SOKHACH}"/></td>
                         <td class="dataLabel">Tỷ lệ</td>
                         <td class="dataField"><input name="tyle" type="text" id="tyle" size="15" class="khoanmuc" value="{$TYLE}" /></td>
                         <td><input type="button" class="button" name="btnAction" id="btnAction" value="Thực hiện" {if $ID neq ''} style="display: none;" {/if} /> </td>

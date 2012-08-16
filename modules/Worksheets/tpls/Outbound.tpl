@@ -178,6 +178,14 @@
 
         <!-- PHAN THIET LAP CHUNG -->
         <table class="table-main-setting" width="100%" cellspacing="0" cellpadding="0">
+           <tr>
+                <td class="dataLabel">Tên chiết tính</td>
+                <td>
+                    <input type="text" name="name" id="name" value="{$name}"/>
+                </td>
+                <td class="dataLabel">&nbsp;</td>
+                <td class="dataLabel">&nbsp;</td>
+            </tr>
             <tr>
                 <td class="dataLabel">Tour code</td>
                 <td>

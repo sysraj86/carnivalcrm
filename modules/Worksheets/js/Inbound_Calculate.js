@@ -3,63 +3,66 @@
 * Author: Nguyễn Đức Hải
 * Date Publish: 2011/12/14
 */
+
 $(document).ready(function(){
+    /* */
+
     $('.highlight').css('background','#FFF531'); 
     setInterval(
-        (function x() {
-           getSokhach();
-            return x;
-        })(), 5000
+    (function x() {
+        getSokhach();
+        return x;
+    })(), 5000
     );
     /////////////
     /*slNguoilon = $('#thuesuathoa').val();
     slTreem = $('#sokhach').val();
-    
+
     soluongvmb = parseFloat(unformat($('.soluongnguoilon').val()))+parseFloat(unformat($('.soluongtreem').val())) ;
-//    $('.vemaybay_soluong').val(soluongvmb);
+    //    $('.vemaybay_soluong').val(soluongvmb);
     if($('.vemaybay_soluong').val()==0 || $('.vemaybay_soluong').val() == ''){
-        $(this).val(soluongvmb);
+    $(this).val(soluongvmb);
     }
     if($('.thamquan_soluongte').val()==0 || $('.thamquan_soluongte').val() ==''){
-        $('.thamquan_soluongnl').val(slTreem);  
+    $('.thamquan_soluongnl').val(slTreem);  
     }
     if($('.thamquan_soluongnl').val()==0 || $('.thamquan_soluongnl').val()==''){
-        $('.thamquan_soluongnl').val(slNguoilon);
+    $('.thamquan_soluongnl').val(slNguoilon);
     }
-    
+
     if($('.cpk_soluong').val()==0 ||$('.cpk_soluong').val() == ''){
-       $('.cpk_soluong').val(slNguoilon+slTreem);
+    $('.cpk_soluong').val(slNguoilon+slTreem);
     }
-    
+
     if($('.giaban_sl_nl').val() == 0 || $('.giaban_sl_nl').val()==''){
-        $('.giaban_sl_nl').val(slNguoilon);
+    $('.giaban_sl_nl').val(slNguoilon);
     }
     if($('.giaban_sl_te').val() == 0 || $('.giaban_sl_te').val() ==''){
-        $('.giaban_sl_te').val(slTreem);
+    $('.giaban_sl_te').val(slTreem);
     } */
     ///////////////
-    
+
     $('.showdiv').hide();
-    
+
     $('.hidediv').live('click',function(){
         $(this).closest('fieldset').find('.displayandshow').hide();
         $(this).closest('fieldset').find('.showdiv').show();
         $(this).hide();
     });
-    
+
     $('.showdiv').live('click',function(){
         $(this).closest('fieldset').find('.displayandshow').show();
         $(this).closest('fieldset').find('.hidediv').show();
         $(this).hide();
     });
-    
-    
-    
-    
+
+
+
+
     if($('.thuesuat').val() == '' || $('.thuesuat').val()==0){
-       $('.thuesuat').val('10');
+        $('.thuesuat').val('10');
     }
-    
+
     if($(".center").val()==""){
         $(this).val("0");         
     }
@@ -73,7 +76,20 @@ $(document).ready(function(){
             $(this).val("0");
         }
     });
-    
+
+    // neu so luong tre em la null mac dinh se la 0;
+    if($('#sokhach').val()==''){
+        $('#sokhach').val('0');
+    }  
+
+    if($('#thuesuathoa').val()==''){
+        $('#thuesuathoa').val('0');
+    }
+
+    if($('#tyle').val()==''){
+        $('#tyle').val('0');
+    }
+
     // only input number in text box
     $(".center, .khoanmuc").live('keypress', function(event) {
         // Backspace, tab, enter, end, home, left, right
@@ -118,18 +134,18 @@ $(document).ready(function(){
     $('.btnAddHDV').live('click',function(i){
         if($(this).closest('tr').find('.listcongtacphi').val()==null){
             alert('bạn chưa chọn loại chi phí');
-           $(this).closest('tr').find('.listcongtacphi').focus();
-           return; 
+            $(this).closest('tr').find('.listcongtacphi').focus();
+            return; 
         }
-         var tableID = $(this).closest('table').attr('id');
-         var val = $(this).closest('tr').find('.listcongtacphi').val();
-         var label = $(this).closest("tr").find(".listcongtacphi option:[value="+val+"]").text();
-         addNewRowHDV(val,label,tableID);
-         CheckTableClone(); 
-         $(this).closest('tr').find('.listcongtacphi').val(null);
+        var tableID = $(this).closest('table').attr('id');
+        var val = $(this).closest('tr').find('.listcongtacphi').val();
+        var label = $(this).closest("tr").find(".listcongtacphi option:[value="+val+"]").text();
+        addNewRowHDV(val,label,tableID);
+        CheckTableClone(); 
+        $(this).closest('tr').find('.listcongtacphi').val(null);
     });
-    
-    
+
+
     // add new row 
     $(".btnAddRow").live('click',function(){
         if($(this).closest('table').attr('class')=='table_clone') {
@@ -173,8 +189,8 @@ $(document).ready(function(){
     });
 
     $('.dongia,.thanhtien').live('blur',function(){
-          $this = $(this);
-          fmCurrency($this,2);
+        $this = $(this);
+        fmCurrency($this,2);
     });
 
     // tinh toan 
@@ -182,12 +198,12 @@ $(document).ready(function(){
         $this = $(this);
         tinhtoan($this);
     }) ;
-    
+
     $('.dongia_option').live('change',function(){
-          $this = $(this);
-          tinhtoan($this);
+        $this = $(this);
+        tinhtoan($this);
     }) ;
-    
+
     function tinhtoan(name){
         dongia = parseFloat(unformat($(name).closest('tr').find('.dongia').val()));
         soluong = parseFloat(unformat($(name).closest('tr').find('.soluong').val()));
@@ -212,7 +228,7 @@ $(document).ready(function(){
                 thanhtien = (soluong-foc)*dongia*songay; 
             }   
         }
-        
+
         thuesuat = parseFloat(unformat($(name).closest('tr').find('.thuesuat').val()));
         vat =  Math.round(thanhtien/((100/thuesuat)+1)).toFixed(2);
         if(!isNaN(thanhtien)){
@@ -236,7 +252,7 @@ $(document).ready(function(){
         tinhtoangiaban();
         tinhtoanchitiet();
     }
-        
+
     // tinh toan chi tiet phan tham quan
     $('.thamquan_dongianl, .thamquan_soluongnl, .thamquan_dongiate, .thamquan_soluongte, .thanhtien, .songay , .thuesuat, .vat, .center').live('blur',function(){
         giathamquannl = parseFloat(unformat($(this).closest('tr').find('.thamquan_dongianl').val()));
@@ -256,18 +272,18 @@ $(document).ready(function(){
             $(this).closest('tr').find('.vat').val(vat);
             fmCurrency($(this).closest('tr').find('.vat'),2);
         }
-            tinhtongchichovemaybay();
-            tinhtongchinhahang();
-            tinhtoanchiphikhachsan();
-            tinhtoanchiphivanchuyen();
-            tinhtoanchiphivanchuyen();
-            tinhtoanchiphidichvu();
-            tinhtoanchiphithamquan();
-            tinhtoanchohdvvalaixe();
-            tinhtoanchiphikhac();
-            tinhtoantongchiphi();
-            tinhtoangiaban();
-            tinhtoanchitiet();
+        tinhtongchichovemaybay();
+        tinhtongchinhahang();
+        tinhtoanchiphikhachsan();
+        tinhtoanchiphivanchuyen();
+        tinhtoanchiphivanchuyen();
+        tinhtoanchiphidichvu();
+        tinhtoanchiphithamquan();
+        tinhtoanchohdvvalaixe();
+        tinhtoanchiphikhac();
+        tinhtoantongchiphi();
+        tinhtoangiaban();
+        tinhtoanchitiet();
     }); 
     // hotel calculate
     $('.phongdon, .soluongphongdon, .phongdoi, .soluongphongdoi, .phongba, .soluongphongba, .songaydem, .thanhtien, .thuesuat, .center').live('blur' ,function(){
@@ -303,8 +319,8 @@ $(document).ready(function(){
         tinhtoangiaban();
         tinhtoanchitiet();
     });
-    
-    
+
+
 
 });
 
@@ -322,8 +338,8 @@ function tinhtongchichovemaybay(){
             thue1 = parseFloat(unformat($('#vemaybay_mb_vat'+i).val()));
             if(isNaN(thanhtien1)){thanhtien1=0;}
             tongthanhtienmb += thanhtien1;
-             if(isNaN(thue1)){thue1=0;} 
-             tongthuemb += thue1;
+            if(isNaN(thue1)){thue1=0;} 
+            tongthuemb += thue1;
         }
     }
     if(!isNaN(tongthanhtienmb)){
@@ -425,9 +441,11 @@ function tinhtongchinhahang(){
             tongthuemn += parseFloat(unformat($('#nh_thue_mn'+i).val()));
         }
         if(!isNaN(tongthanhtienmn)){
+            $('#nhahang_tongthanhtien_miennam').val(tongthanhtienmn);
             fmCurrency($('#nhahang_tongthanhtien_miennam'),2);
         }
         if(!isNaN(tongthuemn)){
+            $('#nhahang_tongthue_miennam').val(tongthuemn);
             fmCurrency($('#nhahang_tongthue_miennam'),2);
         }
     }
@@ -569,6 +587,7 @@ function tinhtoanchiphivanchuyen(){
         fmCurrency($('#vanchuyen_tongthanhtien'),2);
     }
     if(!isNaN(tongthue)){
+        $('#vanchuyen_tongthue').val(tongthue);
         fmCurrency($('#vanchuyen_tongthue'),2);
     }
 
@@ -821,13 +840,21 @@ function tinhtoangiaban(){
 // tinh toan tong chi phi
 function tinhtoantongchiphi(){
     vemaybay = parseFloat(unformat($('#vemaybay_tongthanhtien').val()));
+    if(isNaN(vemaybay)){vemaybay =0}
     nhahang = parseFloat(unformat($('#nhahang_tongthanhtien').val()));
+    if(isNaN(nhahang)){nhahang =0} 
     khachsan = parseFloat(unformat($('#khachsan_tongthanhtien').val()));
+    if(isNaN(khachsan)){khachsan =0} 
     dichvu = parseFloat(unformat($('#service_tongthanhtien').val()));
+    if(isNaN(dichvu)){dichvu =0} 
     vanchuyen = parseFloat(unformat($('#vanchuyen_tongthanhtien').val()));
+    if(isNaN(vanchuyen)){vanchuyen =0} 
     thamquan = parseFloat(unformat($('#thamquan_tongthanhtien').val()));
+    if(isNaN(thamquan)){thamquan =0} 
     huongdanvien= parseFloat(unformat($('#tongchi_hvd').val()));
+    if(isNaN(huongdanvien)){huongdanvien =0} 
     chiphikhac = parseFloat(unformat($('#chiphikhac_tongcong').val()));
+    if(isNaN(chiphikhac)){chiphikhac =0} 
     tongchi = vemaybay+nhahang+khachsan+dichvu+vanchuyen+thamquan+chiphikhac+huongdanvien;
     if(!isNaN(tongchi)){
         $('#tongchiphi').val(tongchi);
@@ -835,13 +862,21 @@ function tinhtoantongchiphi(){
     }
     // tong chi thue
     vemaybaythue = parseFloat(unformat($('#vemaybay_tongthue').val()));
+    if(isNaN(vemaybaythue)){vemaybaythue =0}   
     nhahangthue = parseFloat(unformat($('#nhahang_tongthue').val()));
+    if(isNaN(nhahangthue)){nhahangthue =0}   
     khachsanthue = parseFloat(unformat($('#khachsan_tongthue').val()));
+    if(isNaN(khachsanthue)){khachsanthue =0}   
     dichvuthue = parseFloat(unformat($('#service_tongthue').val()));
+    if(isNaN(dichvuthue)){dichvuthue =0}   
     vanchuyenthue = parseFloat(unformat($('#vanchuyen_tongthue').val()));
+    if(isNaN(vanchuyenthue)){vanchuyenthue =0}   
     thamquanthue = parseFloat(unformat($('#thamquan_tongthue').val()));
+    if(isNaN(thamquanthue)){thamquanthue =0}   
     chiphikhacthue = parseFloat(unformat($('#chiphikhac_tongthue').val()));
+    if(isNaN(chiphikhacthue)){chiphikhacthue =0}   
     huongdanvienthue = parseFloat(unformat($('#tongthue_hvd').val()));
+    if(isNaN(huongdanvienthue)){huongdanvienthue =0}   
     tongchithue = vemaybaythue+nhahangthue+khachsanthue+dichvuthue+vanchuyenthue+thamquanthue+chiphikhacthue+huongdanvienthue;
     if(!isNaN(tongchithue)){
         $('#tongthue').val(tongchithue);
@@ -852,12 +887,19 @@ function tinhtoantongchiphi(){
 // tinh toan chi tiet
 function tinhtoanchitiet(){
     vatdauvao = parseFloat(unformat($('#tongthue').val()));
+    if(isNaN(vatdauvao)){vatdauvao =0} 
     vatdaura = parseFloat(unformat($('#tongthue_giaban').val()));
+    if(isNaN(vatdaura)){vatdaura =0} 
     tonggiaban = parseFloat(unformat($('#tongcong_giaban').val()));
+    if(isNaN(tonggiaban)){tonggiaban =0} 
     tongchi = parseFloat(unformat($('#tongchiphi').val()));
+    if(isNaN(tongchi)){tongchi =0} 
     sokhach = parseFloat(unformat($('#sokhach').val()));
+    if(isNaN(sokhach)){sokhach =0} 
     thuesuathoa = parseFloat(unformat($('#thuesuathoa').val()));
+    if(isNaN(thuesuathoa)){thuesuathoa =0} 
     tyle = parseFloat(unformat($('#tyle').val()));
+    if(isNaN(tyle)){tyle =0} 
     vatphaidong = vatdaura-vatdauvao;
     doanhthu = tonggiaban-vatdaura;
     tongchiphi = tongchi-vatdauvao;
@@ -961,7 +1003,7 @@ function addNewRowHDV(value,label,tableID){
     newRow += '<td> <input type="text" class="center vat"  name="vat_'+tableID+'[]" id="vat_'+tableID+'" value="0"/> </td>';
     newRow += '<td align="center"><input type="button" class="btnDelRow" value="Delete Row" /></td>';  
     newRow += '</tr>';
-     $('#'+tableID).find('tbody').append(newRow); 
+    $('#'+tableID).find('tbody').append(newRow); 
 }
 
 function CheckTableClone()
