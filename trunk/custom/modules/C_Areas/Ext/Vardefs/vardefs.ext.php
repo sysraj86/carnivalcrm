@@ -39,4 +39,10 @@ $dictionary['C_Areas']['indices'][] = array(
     'fields'=>array('code')
 );
 
+$dictionary["C_Areas"]["fields"]["country"] = array (
+    'name' => 'country',
+    'type' => 'varchar',
+    'vname' => 'LBL_COUNTRY',
+);
+
 ?>

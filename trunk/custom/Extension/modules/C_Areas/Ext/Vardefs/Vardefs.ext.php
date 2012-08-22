@@ -11,4 +11,10 @@ $dictionary['C_Areas']['indices'][] = array(
     'type' =>'index', 
     'fields'=>array('code')
 );
+
+$dictionary["C_Areas"]["fields"]["country"] = array (
+    'name' => 'country',
+    'type' => 'varchar',
+    'vname' => 'LBL_COUNTRY',
+);
 ?>

@@ -3,5 +3,6 @@
 $mod_strings = array (
   'LBL_CODE' => 'Code',
   'LBL_AREA_CODE' => 'Area Code',
+  'LBL_COUNTRY' => 'Country',
 );
 ?>

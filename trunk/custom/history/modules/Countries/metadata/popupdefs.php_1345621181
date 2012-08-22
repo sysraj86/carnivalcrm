@@ -6,6 +6,7 @@ $popupMeta = array (
     'whereClauses' => array (
   'name' => 'countries.name',
   'code' => 'countries.code',
+  'areas_name' => 'countries.areas_name',
   'continent' => 'countries.continent',
   'assigned_user_name' => 'countries.assigned_user_name',
   'current_user_only' => 'countries.current_user_only',
@@ -17,6 +18,7 @@ $popupMeta = array (
     'searchInputs' => array (
   1 => 'name',
   4 => 'code',
+  5 => 'areas_name',
   6 => 'continent',
   7 => 'assigned_user_name',
   8 => 'current_user_only',
@@ -37,6 +39,14 @@ $popupMeta = array (
   array (
     'name' => 'name',
     'width' => '10%',
+  ),
+  'areas_name' => 
+  array (
+    'type' => 'relate',
+    'link' => 'countries_c_areas',
+    'label' => 'LBL_COUNTRIES_C_AREAS_FROM_C_AREAS_TITLE',
+    'width' => '10%',
+    'name' => 'areas_name',
   ),
   'continent' => 
   array (
