@@ -108,6 +108,11 @@ include('custom/metadata/contracts_appendixcontractMetaData.php');
 
  
  //WARNING: The contents of this file are auto-generated
+include('custom/metadata/countries_c_areasMetaData.php');
+
+
+ 
+ //WARNING: The contents of this file are auto-generated
 include('custom/metadata/countries_destinationsMetaData.php');
 
 
@@ -164,11 +169,6 @@ include('custom/metadata/c_approval_transportbookingsMetaData.php');
  
  //WARNING: The contents of this file are auto-generated
 include('custom/metadata/c_approval_worksheetsMetaData.php');
-
-
- 
- //WARNING: The contents of this file are auto-generated
-include('custom/metadata/c_areas_countriesMetaData.php');
 
 
  

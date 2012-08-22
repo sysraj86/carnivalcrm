@@ -1,8 +1,8 @@
 <?php
-$module_name = 'C_Areas';
+$module_name = 'Countries';
 $viewdefs [$module_name] = 
 array (
-  'EditView' => 
+  'QuickCreate' => 
   array (
     'templateMeta' => 
     array (
@@ -29,19 +29,29 @@ array (
         0 => 
         array (
           0 => 'name',
-          1 => 
-          array (
-            'name' => 'code',
-            'label' => 'LBL_CODE',
-          ),
         ),
         1 => 
         array (
-          0 => 'description',
+          0 => 
+          array (
+            'name' => 'continent',
+            'label' => 'LBL_CONTINENT',
+          ),
+          1 => 
+          array (
+            'name' => 'department',
+            'label' => 'LBL_DEPARTMENT',
+          ),
         ),
         2 => 
         array (
-          0 => 'assigned_user_name',
+          0 => 
+          array (
+            'name' => 'description',
+            'comment' => 'Full text of the note',
+            'label' => 'LBL_DESCRIPTION',
+          ),
+          1 => 'assigned_user_name',
         ),
       ),
     ),

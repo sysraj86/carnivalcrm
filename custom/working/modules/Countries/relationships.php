@@ -37,7 +37,7 @@
 $relationships = array (
   'countries_destinations' => 
   array (
-    'id' => 'e01cdb57-77b4-9b3b-bf78-4f3e0235cd6d',
+    'id' => 'f2da4095-6b42-bf00-94b6-503442c5559d',
     'relationship_name' => 'countries_destinations',
     'lhs_module' => 'Countries',
     'lhs_table' => 'countries',
@@ -63,7 +63,7 @@ $relationships = array (
   ),
   'countries_hotels' => 
   array (
-    'id' => 'e132e02d-11b4-ea4b-1a77-4f3e0212678e',
+    'id' => '5628002e-e398-ad86-bc6b-50344259a005',
     'relationship_name' => 'countries_hotels',
     'lhs_module' => 'Countries',
     'lhs_table' => 'countries',
@@ -89,7 +89,7 @@ $relationships = array (
   ),
   'countries_restaurants' => 
   array (
-    'id' => 'e29759c0-3604-5964-0065-4f3e02c4214c',
+    'id' => 'bbf00eac-c371-41ef-577d-5034426949d3',
     'relationship_name' => 'countries_restaurants',
     'lhs_module' => 'Countries',
     'lhs_table' => 'countries',
@@ -113,9 +113,35 @@ $relationships = array (
     'relationship_only' => false,
     'for_activities' => false,
   ),
+  'countries_services' => 
+  array (
+    'id' => '129f39c4-a822-03fc-e64f-50344270e7f1',
+    'relationship_name' => 'countries_services',
+    'lhs_module' => 'Countries',
+    'lhs_table' => 'countries',
+    'lhs_key' => 'id',
+    'rhs_module' => 'Services',
+    'rhs_table' => 'services',
+    'rhs_key' => 'id',
+    'join_table' => 'countries_services_c',
+    'join_key_lhs' => 'countries_22abuntries_ida',
+    'join_key_rhs' => 'countries_6accervices_idb',
+    'relationship_type' => 'one-to-many',
+    'relationship_role_column' => NULL,
+    'relationship_role_column_value' => NULL,
+    'reverse' => '0',
+    'deleted' => '0',
+    'readonly' => true,
+    'rhs_subpanel' => 'default',
+    'lhs_subpanel' => NULL,
+    'from_studio' => true,
+    'is_custom' => true,
+    'relationship_only' => false,
+    'for_activities' => false,
+  ),
   'countries_transports' => 
   array (
-    'id' => 'e3c5290a-688c-0588-1ea3-4f3e0220b6a1',
+    'id' => '1920ecf8-0606-4cc5-9e8b-50344237349a',
     'relationship_name' => 'countries_transports',
     'lhs_module' => 'Countries',
     'lhs_table' => 'countries',
@@ -139,21 +165,22 @@ $relationships = array (
     'relationship_only' => false,
     'for_activities' => false,
   ),
-  'countries_services' => 
+  'countries_c_areas' => 
   array (
-    'rhs_label' => 'Services',
+    'rhs_label' => 'Areas',
     'lhs_label' => 'Countries',
+    'lhs_subpanel' => 'default',
     'rhs_subpanel' => 'default',
     'lhs_module' => 'Countries',
-    'rhs_module' => 'Services',
-    'relationship_type' => 'one-to-many',
+    'rhs_module' => 'C_Areas',
+    'relationship_type' => 'many-to-many',
     'readonly' => true,
     'deleted' => false,
     'relationship_only' => false,
     'for_activities' => false,
     'is_custom' => false,
     'from_studio' => true,
-    'relationship_name' => 'countries_services',
+    'relationship_name' => 'countries_c_areas',
   ),
 );
 ?>

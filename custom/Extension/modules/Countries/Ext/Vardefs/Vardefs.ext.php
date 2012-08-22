@@ -5,3 +5,10 @@ $dictionary['Country']['indices'][] = array(
     'type' =>'index', 
     'fields'=>array('name')
 );
+
+$dictionary["Country"]["fields"]["department"] = array (
+    'name' => 'department',
+    'type' => 'enum',
+    'options' => 'deparment_dom',
+    'vname' => 'LBL_DEPARTMENT',
+);

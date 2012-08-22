@@ -38,6 +38,11 @@ array (
         1 => 
         array (
           0 => 'description',
+          1 => 
+          array (
+            'name' => 'countries_name',
+            'label' => 'LBL_COUNTRIES_C_AREAS_FROM_COUNTRIES_TITLE',
+          ),
         ),
         2 => 
         array (
