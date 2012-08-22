@@ -2,6 +2,15 @@
  //WARNING: The contents of this file are auto-generated
 
 
+// created: 2012-08-22 10:31:18
+$dictionary["Country"]["fields"]["countries_c_areas"] = array (
+  'name' => 'countries_c_areas',
+  'type' => 'link',
+  'relationship' => 'countries_c_areas',
+  'source' => 'non-db',
+  'vname' => 'LBL_COUNTRIES_C_AREAS_FROM_C_AREAS_TITLE',
+);
+
 // created: 2011-08-19 16:16:42
 $dictionary["Country"]["fields"]["countries_destinations"] = array (
   'name' => 'countries_destinations',
@@ -57,22 +66,18 @@ $dictionary["Country"]["fields"]["countries_transports"] = array (
 );
 
 
-// created: 2012-06-21 20:31:09
-$dictionary["Country"]["fields"]["c_areas_countries"] = array (
-  'name' => 'c_areas_countries',
-  'type' => 'link',
-  'relationship' => 'c_areas_countries',
-  'source' => 'non-db',
-  'side' => 'right',
-  'vname' => 'LBL_C_AREAS_COUNTRIES_FROM_C_AREAS_TITLE',
-);
-
-
 // created: 2011-10-26 10:56:10
 $dictionary['Country']['indices'][] = array(
     'name' =>'idx_countries_name', 
     'type' =>'index', 
     'fields'=>array('name')
+);
+
+$dictionary["Country"]["fields"]["department"] = array (
+    'name' => 'department',
+    'type' => 'enum',
+    'options' => 'deparment_dom',
+    'vname' => 'LBL_DEPARTMENT',
 );
 
 ?>

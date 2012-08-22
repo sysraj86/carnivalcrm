@@ -1,5 +1,5 @@
 <?php
-$module_name = 'C_Areas';
+$module_name = 'Countries';
 $viewdefs [$module_name] = 
 array (
   'EditView' => 
@@ -29,19 +29,20 @@ array (
         0 => 
         array (
           0 => 'name',
-          1 => 
-          array (
-            'name' => 'code',
-            'label' => 'LBL_CODE',
-          ),
         ),
         1 => 
         array (
-          0 => 'description',
+          0 => 'continent',
+          1 => 
+          array (
+            'name' => 'department',
+            'label' => 'LBL_DEPARTMENT',
+          ),
         ),
         2 => 
         array (
-          0 => 'assigned_user_name',
+          0 => 'description',
+          1 => 'assigned_user_name',
         ),
       ),
     ),

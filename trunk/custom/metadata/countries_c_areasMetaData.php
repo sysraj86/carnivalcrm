@@ -1,10 +1,11 @@
 <?php
-// created: 2012-06-21 20:31:09
-$dictionary["c_areas_countries"] = array (
-  'true_relationship_type' => 'one-to-many',
+// created: 2012-08-22 10:31:18
+$dictionary["countries_c_areas"] = array (
+  'true_relationship_type' => 'many-to-many',
+  'from_studio' => true,
   'relationships' => 
   array (
-    'c_areas_countries' => 
+    'countries_c_areas' => 
     array (
       'lhs_module' => 'Countries',
       'lhs_table' => 'countries',
@@ -13,12 +14,12 @@ $dictionary["c_areas_countries"] = array (
       'rhs_table' => 'c_areas',
       'rhs_key' => 'id',
       'relationship_type' => 'many-to-many',
-      'join_table' => 'c_areas_countries_c',
-      'join_key_lhs' => 'c_areas_cobbabuntries_ida',
-      'join_key_rhs' => 'c_areas_co30d8c_areas_idb',
+      'join_table' => 'countries_c_areas_c',
+      'join_key_lhs' => 'countries_f060untries_ida',
+      'join_key_rhs' => 'countries_92a9c_areas_idb',
     ),
   ),
-  'table' => 'c_areas_countries_c',
+  'table' => 'countries_c_areas_c',
   'fields' => 
   array (
     0 => 
@@ -42,13 +43,13 @@ $dictionary["c_areas_countries"] = array (
     ),
     3 => 
     array (
-      'name' => 'c_areas_cobbabuntries_ida',
+      'name' => 'countries_f060untries_ida',
       'type' => 'varchar',
       'len' => 36,
     ),
     4 => 
     array (
-      'name' => 'c_areas_co30d8c_areas_idb',
+      'name' => 'countries_92a9c_areas_idb',
       'type' => 'varchar',
       'len' => 36,
     ),
@@ -57,7 +58,7 @@ $dictionary["c_areas_countries"] = array (
   array (
     0 => 
     array (
-      'name' => 'c_areas_countriesspk',
+      'name' => 'countries_c_areasspk',
       'type' => 'primary',
       'fields' => 
       array (
@@ -66,20 +67,12 @@ $dictionary["c_areas_countries"] = array (
     ),
     1 => 
     array (
-      'name' => 'c_areas_countries_ida1',
-      'type' => 'index',
-      'fields' => 
-      array (
-        0 => 'c_areas_cobbabuntries_ida',
-      ),
-    ),
-    2 => 
-    array (
-      'name' => 'c_areas_countries_alt',
+      'name' => 'countries_c_areas_alt',
       'type' => 'alternate_key',
       'fields' => 
       array (
-        0 => 'c_areas_co30d8c_areas_idb',
+        0 => 'countries_f060untries_ida',
+        1 => 'countries_92a9c_areas_idb',
       ),
     ),
   ),

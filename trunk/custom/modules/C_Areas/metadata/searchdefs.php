@@ -12,14 +12,13 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'c_areas_countries_name' => 
+      'code' => 
       array (
-        'type' => 'relate',
-        'link' => 'c_areas_countries',
-        'label' => 'LBL_C_AREAS_COUNTRIES_FROM_COUNTRIES_TITLE',
+        'type' => 'varchar',
+        'label' => 'LBL_AREAS_CODE',
         'width' => '10%',
         'default' => true,
-        'name' => 'c_areas_countries_name',
+        'name' => 'code',
       ),
       'current_user_only' => 
       array (
@@ -38,14 +37,13 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'c_areas_countries_name' => 
+      'code' => 
       array (
-        'type' => 'relate',
-        'link' => 'c_areas_countries',
-        'label' => 'LBL_C_AREAS_COUNTRIES_FROM_COUNTRIES_TITLE',
+        'type' => 'varchar',
+        'label' => 'LBL_AREAS_CODE',
         'width' => '10%',
         'default' => true,
-        'name' => 'c_areas_countries_name',
+        'name' => 'code',
       ),
       'assigned_user_id' => 
       array (

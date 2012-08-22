@@ -1,25 +1,31 @@
 <?php
-$module_name = 'C_Areas';
+$module_name = 'Countries';
 $listViewDefs [$module_name] = 
 array (
   'CODE' => 
   array (
-    'type' => 'varchar',
-    'label' => 'LBL_AREAS_CODE',
     'width' => '10%',
+    'label' => 'LBL_COUNTRY_CODE',
     'default' => true,
+    'link' => true,
   ),
   'NAME' => 
   array (
-    'width' => '32%',
+    'width' => '10%',
     'label' => 'LBL_NAME',
     'default' => true,
     'link' => true,
   ),
-  'DESCRIPTION' => 
+  'CONTINENT' => 
   array (
-    'type' => 'text',
-    'label' => 'LBL_DESCRIPTION',
+    'width' => '10%',
+    'label' => 'LBL_CONTINENT',
+    'default' => true,
+  ),
+  'DEPARTMENT' => 
+  array (
+    'type' => 'enum',
+    'label' => 'LBL_DEPARTMENT',
     'sortable' => false,
     'width' => '10%',
     'default' => true,
