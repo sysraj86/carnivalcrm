@@ -125,14 +125,55 @@ $(document).ready(function () {
     /***
      * Add event handler
      */
+    loadAreaByDepartment($('#department').val());
+     
     $('#department').live('change', function (e) {
         department_change(e);
         var $this = $(this),
             val = $this.val();
         if (val) {
             $("#tour_code_department").val(val);
+            $this.parent().append(loader);
+            loadAreaByDepartment(val);
+            /*
+            $this.parent().append(loader);
+            $.ajaxSetup({async:false});
+            $.ajax({
+                type:"post",
+                url:"index.php?module=Tours&action=loadareabydepartment&sugar_body_only=true",
+                data:{department:val},
+                success:function (data) {
+                    loader.remove();
+                    if (data) {
+                        $("#area").html(data);
+                    } else {
+                        $("#area").html("<option value=''>None</option>");
+                    }
+                }
+            })
+            */
         }
+        
     });
+    
+    function loadAreaByDepartment(department){
+            
+        $.ajaxSetup({async:false});
+        $.ajax({
+            type:"post",
+            url:"index.php?module=Tours&action=loadareabydepartment&sugar_body_only=true",
+            data:{department:department},
+            success:function (data) {
+                loader.remove();
+                if (data) {
+                    $("#area").html(data);
+                } else {
+                    $("#area").html("<option value=''>None</option>");
+                }
+            }
+        });
+    }
+    
     /***
      * Add event handler
      */
