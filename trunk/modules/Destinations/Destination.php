@@ -83,24 +83,40 @@
             return false;
         }
 
-        public static function getDestinationsByArea($area ='',$deparment = '')
+        public static function getDestinationsByArea($country_id = '', $area_id ='',$deparment = '')
         {
             global $db, $app_list_strings;
             $destinations = array();
-            if (!empty($area) && !empty($deparment)) {
+            if (!empty($country_id) && !empty($area_id) && !empty($deparment)) {
                 /*$query = "  D JOIN c_areas_destinations_c AD
                 ON D.ID = AD.c_areas_de577anations_idb JOIN c_areas A
                 ON A.ID = AD.c_areas_de9d4fc_areas_ida
                 WHERE A.ID = '$area' and D.deleted=0 and A.deleted = 0 AND AD.deleted=0";*/
-                $query = "SELECT DISTINCT
-                id,
-                NAME
-                FROM destinations
-                WHERE destination_region = '".$area."' AND deleted =0 AND department ='".$deparment."'"  ;
+                // Fix issue 1567
+                $query = "
+                    SELECT d.id, d.name
+                    FROM destinations d, countries_destinations_c cd, countries c
+                    WHERE d.id = cd.countries_bc13nations_idb
+                        AND cd.countries_5a12untries_ida = c.id
+                        AND d.department = '".$deparment."'
+                        AND c.id = '".$country_id."'
+                        AND d.id IN (
+                            SELECT d.id
+                            FROM destinations d, c_areas_destinations_c ad, c_areas a
+                            WHERE d.id= ad.c_areas_de577anations_idb
+                            AND ad.c_areas_de9d4fc_areas_ida = a.id
+                            AND a.id = '".$area_id."'
+                            AND d.deleted = 0
+                            AND ad.deleted = 0
+                            AND a.deleted = 0
+                        )
+                        AND d.deleted = 0
+                        AND cd.deleted = 0
+                        AND c.deleted = 0";
 
                 $result = $db->query($query);
                 while ($row = $db->fetchByAssoc($result)) {
-                    $destinations[$row['id']] = $row['NAME'];
+                    $destinations[$row['id']] = $row['name'];
                 }
                 return $destinations;
             }

@@ -448,10 +448,12 @@ class  Tour extends SugarBean
     public function getListAreas($type = 0)
     {
         global $db;
-        $query = "SELECT DISTINCT a.id, a.name, a.code, c.name as country FROM  c_areas a JOIN c_areas_countries_c ac
-                                                        ON a.id = ac.c_areas_co30d8c_areas_idb JOIN countries c
-                                                        ON c.id = ac.c_areas_cobbabuntries_ida
-                            WHERE a.deleted = 0 and c.deleted = 0 and ac.deleted = 0";
+        $query = "
+            SELECT DISTINCT a.id, a.name, a.code, c.name as country, c.id as country_id 
+            FROM  c_areas a JOIN countries_c_areas_c ca
+                ON a.id = ca.countries_92a9c_areas_idb JOIN countries c
+                ON c.id = ca.countries_f060untries_ida
+            WHERE a.deleted = 0 and c.deleted = 0 and ca.deleted = 0";
         $result = $db->query($query);
         $areas = array();
         if (isset($type) && $type == 1) {
@@ -468,7 +470,7 @@ class  Tour extends SugarBean
                 $area['name'] = $row['name'];
                 $area['code'] = $row['code'];
                 $area['country'] = $row['country'];
-                $area['countryId'] = $row['countryId'];
+                $area['country_id'] = $row['country_id'];
                 $areas[] = $area;
             }
 

@@ -1,13 +1,25 @@
 <?php
-$module_name = 'Destinations';
-$listViewDefs [$module_name] = 
-array (
+$popupMeta = array (
+    'moduleMain' => 'Destinations',
+    'varName' => 'Destination',
+    'orderBy' => 'destinations.name',
+    'whereClauses' => array (
+  'name' => 'destinations.name',
+),
+    'searchInputs' => array (
+  0 => 'destinations_number',
+  1 => 'name',
+  2 => 'priority',
+  3 => 'status',
+),
+    'listviewdefs' => array (
   'CODE' => 
   array (
     'width' => '15%',
     'label' => 'LBL_CODE',
     'default' => true,
     'link' => true,
+    'name' => 'code',
   ),
   'NAME' => 
   array (
@@ -15,6 +27,7 @@ array (
     'label' => 'LBL_NAME',
     'default' => true,
     'link' => true,
+    'name' => 'name',
   ),
   'COUNTRIES_DTINATIONS_NAME' => 
   array (
@@ -23,20 +36,23 @@ array (
     'label' => 'LBL_COUNTRIES_DESTINATIONS_FROM_COUNTRIES_TITLE',
     'width' => '10%',
     'default' => true,
+    'name' => 'countries_dtinations_name',
   ),
-  'C_AREAS_DESTINATIONS_NAME' => 
+  'DESTINATION_REGION' => 
   array (
-    'type' => 'relate',
-    'link' => 'c_areas_destinations',
-    'label' => 'LBL_C_AREAS_DESTINATIONS_FROM_C_AREAS_TITLE',
+    'type' => 'enum',
+    'label' => 'LBL_DESTINATION_REGION',
+    'sortable' => false,
     'width' => '10%',
     'default' => true,
+    'name' => 'destination_region',
   ),
   'AREA' => 
   array (
     'width' => '10%',
     'label' => 'LBL_AREA',
     'default' => true,
+    'name' => 'area',
   ),
   'DEPARTMENT' => 
   array (
@@ -45,6 +61,7 @@ array (
     'sortable' => false,
     'width' => '10%',
     'default' => true,
+    'name' => 'department',
   ),
   'ASSIGNED_USER_NAME' => 
   array (
@@ -54,6 +71,7 @@ array (
     'link' => true,
     'id' => 'ASSIGNED_USER_ID',
     'default' => true,
+    'name' => 'assigned_user_name',
   ),
+),
 );
-?>

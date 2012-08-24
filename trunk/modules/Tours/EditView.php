@@ -95,18 +95,19 @@ if(!empty($focus->noiden)){
     $ss->assign('DESTINATIONS',get_select_options_with_id($app_list_strings['destination_dom_list'],''));
 
 }
-/*foreach ($areas as $value) {
+// fix bug 1567
+foreach ($areas as $value) {
     $selected = "";
     if($value['id']==$focus->area){
         $selected = "selected";
     }
-    $area_options .= "<option $selected data-code='" . $value['code'] . "' value='" . $value['id'] . "'>" . $value['name'].' - '.$value['country'] . "</option>";
+    $area_options .= "<option $selected data-code='" . $value['code'] . "' data-country='" . $value['country_id'] . "' value='" . $value['id'] . "'>" . $value['name'].' - '.$value['country'] . "</option>";
     $area_pattern .= ($area_pattern=="")? "":"|";
     $area_pattern .= $value['code'];
 }
 
-$ss->assign("TOUR_AREA", $area_options);*/
-$ss->assign("TOUR_AREA", get_select_options_with_id($app_list_strings['destination_region_dom'],$focus->area)); 
+$ss->assign("TOUR_AREA", $area_options);
+//$ss->assign("TOUR_AREA", get_select_options_with_id($app_list_strings['destination_region_dom'],$focus->area)); 
 // custom
 if ($focus->tour_code) {
    // $tour_code_area = substr($focus->tour_code, 0, 5);

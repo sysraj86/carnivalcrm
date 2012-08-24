@@ -24,11 +24,11 @@ array (
     'width' => '10%',
     'default' => true,
   ),
-  'C_AREAS_DESTINATIONS_NAME' => 
+  'DESTINATION_REGION' => 
   array (
-    'type' => 'relate',
-    'link' => 'c_areas_destinations',
-    'label' => 'LBL_C_AREAS_DESTINATIONS_FROM_C_AREAS_TITLE',
+    'type' => 'enum',
+    'label' => 'LBL_DESTINATION_REGION',
+    'sortable' => false,
     'width' => '10%',
     'default' => true,
   ),

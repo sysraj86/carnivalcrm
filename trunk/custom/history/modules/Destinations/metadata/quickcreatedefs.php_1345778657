@@ -2,14 +2,10 @@
 $module_name = 'Destinations';
 $viewdefs [$module_name] = 
 array (
-  'EditView' => 
+  'QuickCreate' => 
   array (
     'templateMeta' => 
     array (
-      'form' => 
-      array (
-        'enctype' => 'multipart/form-data',
-      ),
       'maxColumns' => '2',
       'widths' => 
       array (
@@ -24,15 +20,7 @@ array (
           'field' => '30',
         ),
       ),
-      'includes' => 
-      array (
-        0 => 
-        array (
-          'file' => 'custom/modules/Destinations/js/dropdown.js',
-        ),
-      ),
       'useTabs' => false,
-      'syncDetailEditViews' => false,
     ),
     'panels' => 
     array (
@@ -65,13 +53,18 @@ array (
           1 => 
           array (
             'name' => 'area',
-            'customCode' => '{html_options name="area" id="area" options=$fields.area.options selected=$fields.area.value}&nbsp;<em>(Uses for Worksheets)</em>',
+            'label' => 'LBL_AREA',
           ),
         ),
         3 => 
         array (
           0 => 'assigned_user_name',
-          1 => 'description',
+          1 => 
+          array (
+            'name' => 'description',
+            'comment' => 'Full text of the note',
+            'label' => 'LBL_DESCRIPTION',
+          ),
         ),
       ),
     ),

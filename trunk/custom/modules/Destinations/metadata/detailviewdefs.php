@@ -51,11 +51,7 @@ array (
             'name' => 'countries_dtinations_name',
             'label' => 'LBL_COUNTRIES_DESTINATIONS_FROM_COUNTRIES_TITLE',
           ),
-          1 => 
-          array (
-            'name' => 'destination_region',
-            'label' => 'LBL_DESTINATION_REGION',
-          ),
+          1 => 'c_areas_destinations_name',
         ),
         2 => 
         array (
