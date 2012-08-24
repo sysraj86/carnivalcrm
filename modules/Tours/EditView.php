@@ -92,7 +92,7 @@ if(!empty($focus->noiden)){
     $noiden = explode('^,^',$focus->noiden);
     $ss->assign('DESTINATIONS',get_select_options_with_id($app_list_strings['destination_dom_list'],$noiden));
 }else{
-    $ss->assign('DESTINATIONS',get_select_options_with_id($app_list_strings['destination_dom_list'],''));
+    $ss->assign('DESTINATIONS','<option data-code="" value="">--None--</option>');
 
 }
 // fix bug 1567
