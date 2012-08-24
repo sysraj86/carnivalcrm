@@ -155,9 +155,10 @@ else if ($action == "get_tour_num") {
 }
 else if ($action == "get_destination_by_area") {
     if (isset($_POST['area'])) {
-        $area = $_POST['area'];
-        $department = $_POST['department']; 
-        $destinations = Destination::getDestinationsByArea($area,$department);
+        $area_id = $_POST['area'];
+        $department = $_POST['department'];
+        $country_id = $_POST['country_id'];
+        $destinations = Destination::getDestinationsByArea($country_id, $area_id, $department);
         $response = get_select_options_with_id($destinations, '');
     }
 }
@@ -189,13 +190,13 @@ else if ($action == "get_area_by_countries") {
         $countries = $_POST['countries'];
         $countries = explode("|", $countries);
         $areas = array();
-        $query = "SELECT a.id,a.name FROM  c_areas a JOIN c_areas_countries_c ac
-                    ON a.id = ac.c_areas_co30d8c_areas_idb JOIN countries c
-                    ON c.id = ac.c_areas_cobbabuntries_ida WHERE (1 != 1";
+        $query = "SELECT a.id,a.name FROM  c_areas a JOIN countries_c_areas_c ca
+                    ON a.id = ca.countries_92a9c_areas_idb JOIN countries c
+                    ON c.id = ca.countries_f060untries_ida WHERE (1 != 1";
         foreach ($countries as $id) {
             $query .= " or c.id = '$id'";
         }
-        $query .= ') and a.deleted = 0 and ac.deleted = 0 and c.deleted = 0';
+        $query .= ') and a.deleted = 0 and ca.deleted = 0 and c.deleted = 0';
         $result = $db->query($query);
         while ($row = $db->fetchByAssoc($result)) {
             $areas[$row['id']] = $row['name'];

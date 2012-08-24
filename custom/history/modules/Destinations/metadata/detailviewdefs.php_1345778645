@@ -2,13 +2,22 @@
 $module_name = 'Destinations';
 $viewdefs [$module_name] = 
 array (
-  'EditView' => 
+  'DetailView' => 
   array (
     'templateMeta' => 
     array (
       'form' => 
       array (
         'enctype' => 'multipart/form-data',
+      ),
+      0 => 
+      array (
+        'buttons' => 
+        array (
+          0 => 'EDIT',
+          1 => 'DUPLICATE',
+          2 => 'DELETE',
+        ),
       ),
       'maxColumns' => '2',
       'widths' => 
@@ -24,15 +33,8 @@ array (
           'field' => '30',
         ),
       ),
-      'includes' => 
-      array (
-        0 => 
-        array (
-          'file' => 'custom/modules/Destinations/js/dropdown.js',
-        ),
-      ),
       'useTabs' => false,
-      'syncDetailEditViews' => false,
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -47,12 +49,12 @@ array (
           0 => 
           array (
             'name' => 'countries_dtinations_name',
-            'label' => 'LBL_COUNTRY_NAME',
+            'label' => 'LBL_COUNTRIES_DESTINATIONS_FROM_COUNTRIES_TITLE',
           ),
           1 => 
           array (
-            'name' => 'c_areas_destinations_name',
-            'label' => 'LBL_C_AREAS_DESTINATIONS_FROM_C_AREAS_TITLE',
+            'name' => 'destination_region',
+            'label' => 'LBL_DESTINATION_REGION',
           ),
         ),
         2 => 
@@ -65,13 +67,26 @@ array (
           1 => 
           array (
             'name' => 'area',
-            'customCode' => '{html_options name="area" id="area" options=$fields.area.options selected=$fields.area.value}&nbsp;<em>(Uses for Worksheets)</em>',
+            'customLabel' => '{$MOD.LBL_AREA}&nbsp;<em>(Uses for Worksheets)</em>',
           ),
         ),
         3 => 
         array (
           0 => 'assigned_user_name',
           1 => 'description',
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_entered',
+            'label' => 'LBL_DATE_ENTERED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_modified',
+            'label' => 'LBL_DATE_MODIFIED',
+          ),
         ),
       ),
     ),

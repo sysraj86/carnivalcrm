@@ -51,8 +51,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'c_areas_destinations_name',
-            'label' => 'LBL_C_AREAS_DESTINATIONS_FROM_C_AREAS_TITLE',
+            'name' => 'destination_region',
+            'label' => 'LBL_DESTINATION_REGION',
           ),
         ),
         2 => 

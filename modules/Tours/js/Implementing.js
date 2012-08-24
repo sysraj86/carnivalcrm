@@ -147,17 +147,20 @@ $(document).ready(function () {
      * Vung Mien
      */
     $("#area").live("change", function () {
-        var $this = $(this),
-            val = $this.val(),
-            tourType = $frameType.val(); 
+        var $this = $(this);
+        var val = $this.val();
+        var depatment = $('#department').val();
+        var country = $("option:selected", $this).attr("data-country");
+        var tourType = $frameType.val();
         if (val) {
             $("#tour_code_area").val(tourType + $("option:selected", $this).attr("data-code"));
+            
             $this.parent().append(loader);
             $.ajaxSetup({async:false});
             $.ajax({
                 type:"post",
                 url:"index.php?module=Tours&entryPoint=TourAjax",
-                data:{action:"get_destination_by_area", area:val,department :jQuery('#department').val()},
+                data:{action:"get_destination_by_area", area:val, department:depatment, country_id:country},
                 success:function (data) {
                     loader.remove();
                     if (data) {
