@@ -24,7 +24,7 @@
                         AND ca.deleted = 0";
                 $result_get_area = $db->query($sql_get_area);
                 while($row = $db->fetchByAssoc($result_get_area)){
-                     $area_options .= "<option data-code='" . $row['code'] . "' data-country='" . $row['country_id'] . "' value='" . $row['id'] . "'>" . $row['name'].' - '.$row['country'] . "</option>";       
+                     $area_options .= "<option data-code='" . $row['code'] . "' data-country='" . $row['country_id'] . "' value='" . $row['id'] . "'>" . $row['name'].'-'.$row['country']."</option>";       
                 }
                 echo $area_options;    
             }
