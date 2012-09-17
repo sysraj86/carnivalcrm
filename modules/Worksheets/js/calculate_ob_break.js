@@ -1,23 +1,39 @@
 $(function(){
-     if($(".giaban,.phuthukhac, .treem, .calculate, .disable, .numbers").val()==''){
-         $(".giaban,.phuthukhac, .treem, .calculate, .disable, .numbers").val('0');
-     }
-   //$(".giaban,.phuthukhac, .treem, .calculate").numeric();
-    
+    if($(".giaban,.phuthukhac, .treem, .calculate, .disable, .numbers").val()==''){
+        $(".giaban,.phuthukhac, .treem, .calculate, .disable, .numbers").val('0');
+    }
+    //$(".giaban,.phuthukhac, .treem, .calculate").numeric();
+
     $(".giaban,.phuthukhac, .treem, .calculate, .disable, .numbers").focus(function(){
-       if($('#'+this.id).val()== 0){
-        $('#'+this.id).val('');   
-       }
-     
+        if($('#'+this.id).val()== 0){
+            $('#'+this.id).val('');   
+        }
+
     });
-    
+
     $('.dongia').blur(function(){
         $this = $(this);
         fmCurrency($this);
     });
-    
-     $(".giaban,.phuthukhac, .treem, .calculate, .numbers").blur(function(){
-         if($('#'+this.id).val()==''){
+
+    // convert currency
+
+    jQuery('#outbound_currency').live('change',function(){
+        if(jQuery(this).val()!=''){
+            val=unformat(parseFloat(jQuery('#tygia').val()));
+            if(!isNaN(val)){
+                jQuery('.convertcurrency').each(function(){
+                    currency = parseFloat(unformat(jQuery(this).val()));
+                    value = currency*val;
+                    jQuery(this).val(value);
+                    fmCurrency(jQuery(this));
+                });
+            }
+        }
+    });
+
+    $(".giaban,.phuthukhac, .treem, .calculate, .numbers").blur(function(){
+        if($('#'+this.id).val()==''){
             $('#'+this.id).val('0');
         }
         giaban();
@@ -34,11 +50,11 @@ $(function(){
         tinhchiphihuongdanvien();
         reportsummary();
         checkfoc();
-     });
-     
-     $('.chioption, .thuoption').blur(function(){
-         var eID = $(this).attr('id');
-         id = eID.match(/\d+$/);
+    });
+
+    $('.chioption, .thuoption').blur(function(){
+        var eID = $(this).attr('id');
+        id = eID.match(/\d+$/);
         $('#thu_dichvu'+id).val($('#chi_dichvu'+id).val());
         $('#thu_soluong'+id).val($('#chi_soluong'+id).val());
         thuchioption($(this));
@@ -46,31 +62,31 @@ $(function(){
         tinhtongchioption();
         tinhtongchiphi(); 
         reportsummary();
-     });
+    });
     /*(function(){
-        if ( event.keyCode == 46 || event.keyCode == 8 ) {
-        }
-        else {
-            // Ensure that it is a number and stop the keypress
-            if ((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105 )) {
-                event.preventDefault(); 
-            }   
-        } */
+    if ( event.keyCode == 46 || event.keyCode == 8 ) {
+    }
+    else {
+    // Ensure that it is a number and stop the keypress
+    if ((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105 )) {
+    event.preventDefault(); 
+    }   
+    } */
     //});
 
 });
 
 function thuchioption(name){
-   var eID = $(name).attr('id');
-   id = eID.match(/\d+$/);
-   $('#chi_thanhtien'+id).val(Math.round(parseFloat(unformat($('#chi_soluong'+id).val()))*parseFloat(unformat($('#chi_dongia'+id).val()))).toFixed(2));
+    var eID = $(name).attr('id');
+    id = eID.match(/\d+$/);
+    $('#chi_thanhtien'+id).val(Math.round(parseFloat(unformat($('#chi_soluong'+id).val()))*parseFloat(unformat($('#chi_dongia'+id).val()))).toFixed(2));
     fmCurrency($('#chi_thanhtien'+id),2);
-   $('#chi_thanhtienmot'+id).val(Math.round(parseFloat(unformat($('#chi_soluong'+id).val()))*parseFloat(unformat($('#chi_dongiamot'+id).val()))).toFixed(2));
-   fmCurrency($('#chi_thanhtienmot'+id),2);
-   $('#thu_thanhtienmot'+id).val(Math.round(parseFloat(unformat($('#thu_soluong'+id).val()))*parseFloat(unformat($('#thu_dongiamot'+id).val()))).toFixed(2));
-   fmCurrency($('#thu_thanhtienmot'+id),2);
-   $('#thu_thanhtien'+id).val(Math.round(parseFloat(unformat($('#thu_soluong'+id).val()))*parseFloat(unformat($('#thu_dongia'+id).val()))).toFixed(2));
-   fmCurrency($('#thu_thanhtien'+id),2);
+    $('#chi_thanhtienmot'+id).val(Math.round(parseFloat(unformat($('#chi_soluong'+id).val()))*parseFloat(unformat($('#chi_dongiamot'+id).val()))).toFixed(2));
+    fmCurrency($('#chi_thanhtienmot'+id),2);
+    $('#thu_thanhtienmot'+id).val(Math.round(parseFloat(unformat($('#thu_soluong'+id).val()))*parseFloat(unformat($('#thu_dongiamot'+id).val()))).toFixed(2));
+    fmCurrency($('#thu_thanhtienmot'+id),2);
+    $('#thu_thanhtien'+id).val(Math.round(parseFloat(unformat($('#thu_soluong'+id).val()))*parseFloat(unformat($('#thu_dongia'+id).val()))).toFixed(2));
+    fmCurrency($('#thu_thanhtien'+id),2);
 }
 
 // tinh toan tong thu option
@@ -92,8 +108,8 @@ function tinhtongthuoption(){
 
 // tinh toan tong chi option
 function tinhtongchioption(){
-   var count = $('#chi_option').find('tbody > tr').length;
-   var sum = 0;
+    var count = $('#chi_option').find('tbody > tr').length;
+    var sum = 0;
     for(i=1;i<=count;i++){
         var tt = parseFloat(unformat($('#chi_thanhtien'+i).val()));
         sum += tt;
@@ -105,174 +121,174 @@ function tinhtongchioption(){
 // tinh toan gia ban
 function giaban(){
     // phan tre em
-        $('#treem2tuoi1').val($('#TreEm2Tuoi1').val());
-        $('#treem2tuoi2').val(Math.round(unformat(($('#ks3saonguoilon2').val())* 0.3)).toFixed(2));
-        if(!isNaN(unformat($('#treem2tuoi1').val()))*unformat($('#treem2tuoi2').val())){
-            $('#treem2tuoi3').val(Math.round((unformat($('#treem2tuoi1').val()))*(unformat($('#treem2tuoi2').val()))).toFixed(2));
-            fmCurrency($('#treem2tuoi3'),2) ;
-        }
+    $('#treem2tuoi1').val($('#TreEm2Tuoi1').val());
+    $('#treem2tuoi2').val(Math.round(unformat(($('#ks3saonguoilon2').val())* 0.3)).toFixed(2));
+    if(!isNaN(unformat($('#treem2tuoi1').val()))*unformat($('#treem2tuoi2').val())){
+        $('#treem2tuoi3').val(Math.round((unformat($('#treem2tuoi1').val()))*(unformat($('#treem2tuoi2').val()))).toFixed(2));
+        fmCurrency($('#treem2tuoi3'),2) ;
+    }
 
-        $('#treem2tuoi4').val(Math.round(unformat($('#ks4saonguoilon1').val())*0.3).toFixed(2));
-        if(!isNaN((parseFloat(unformat($('#treem2tuoi4').val())))*(parseFloat(unformat($('#treem2tuoi1').val()))))){
-            $('#treem2tuoi5').val(Math.round((parseFloat(unformat($('#treem2tuoi4').val())))*(parseFloat(unformat($('#treem2tuoi1').val())))).toFixed(2));
-            fmCurrency($('#treem2tuoi5'),2);
-        }
+    $('#treem2tuoi4').val(Math.round(unformat($('#ks4saonguoilon1').val())*0.3).toFixed(2));
+    if(!isNaN((parseFloat(unformat($('#treem2tuoi4').val())))*(parseFloat(unformat($('#treem2tuoi1').val()))))){
+        $('#treem2tuoi5').val(Math.round((parseFloat(unformat($('#treem2tuoi4').val())))*(parseFloat(unformat($('#treem2tuoi1').val())))).toFixed(2));
+        fmCurrency($('#treem2tuoi5'),2);
+    }
 
-        $('#treem12tuoi1').val($('#TreEm12Tuoi1').val());       
-        $('#treem12tuoi2').val(Math.round(unformat($('#ks3saonguoilon2').val())* 0.75).toFixed(2));
-        $('#treem12tuoi3').val(Math.round(unformat(($('#treem12tuoi1').val()))*($('#treem12tuoi2').val())).toFixed(2));
-        fmCurrency($('#treem12tuoi3'),2);
+    $('#treem12tuoi1').val($('#TreEm12Tuoi1').val());       
+    $('#treem12tuoi2').val(Math.round(unformat($('#ks3saonguoilon2').val())* 0.75).toFixed(2));
+    $('#treem12tuoi3').val(Math.round(unformat(($('#treem12tuoi1').val()))*($('#treem12tuoi2').val())).toFixed(2));
+    fmCurrency($('#treem12tuoi3'),2);
 
-        $('#treem2tuoi7').val($('#TreEm2Tuoi2').val());
-        $('#treem2tuoi8').val(Math.round(unformat($('#ks3saonguoilon5').val())* 0.3).toFixed(2));
-        if(!isNaN(unformat($('#treem2tuoi7').val())*(unformat($('#treem2tuoi8').val())))){
-            $('#treem2tuoi9').val(Math.round((parseFloat(unformat($('#treem2tuoi7').val())))*(parseFloat(unformat($('#treem2tuoi8').val())))).toFixed(2)); 
-            fmCurrency($('#treem2tuoi9'),2);
-        }
-        $('#treem12tuoi7').val($('#TreEm12Tuoi2').val());
-        $('#treem12tuoi8').val(Math.round((unformat($('#ks3saonguoilon5').val())* 0.75)).toFixed(2));
-        if(!isNaN(unformat($('#treem2tuoi8').val())* unformat($('#treem12tuoi7').val()))){
-            $('#treem12tuoi9').val(Math.round((unformat($('#treem12tuoi8').val()))*( unformat($('#treem12tuoi7').val()))).toFixed(2));
-            fmCurrency($('#treem12tuoi9'),2);
-        }
+    $('#treem2tuoi7').val($('#TreEm2Tuoi2').val());
+    $('#treem2tuoi8').val(Math.round(unformat($('#ks3saonguoilon5').val())* 0.3).toFixed(2));
+    if(!isNaN(unformat($('#treem2tuoi7').val())*(unformat($('#treem2tuoi8').val())))){
+        $('#treem2tuoi9').val(Math.round((parseFloat(unformat($('#treem2tuoi7').val())))*(parseFloat(unformat($('#treem2tuoi8').val())))).toFixed(2)); 
+        fmCurrency($('#treem2tuoi9'),2);
+    }
+    $('#treem12tuoi7').val($('#TreEm12Tuoi2').val());
+    $('#treem12tuoi8').val(Math.round((unformat($('#ks3saonguoilon5').val())* 0.75)).toFixed(2));
+    if(!isNaN(unformat($('#treem2tuoi8').val())* unformat($('#treem12tuoi7').val()))){
+        $('#treem12tuoi9').val(Math.round((unformat($('#treem12tuoi8').val()))*( unformat($('#treem12tuoi7').val()))).toFixed(2));
+        fmCurrency($('#treem12tuoi9'),2);
+    }
 
-        $('#treem12tuoi4').val(Math.round(($('#ks4saonguoilon1').val()*0.75)).toFixed(2));
-        if(!isNaN((unformat($('#treem12tuoi4').val()))*(unformat($('#treem12tuoi1').val())))){
-            $('#treem12tuoi5').val(Math.round(unformat(($('#treem12tuoi4').val()))*(unformat($('#treem12tuoi1').val()))).toFixed(2)); 
-            fmCurrency($('#treem12tuoi5'),2);
-        }
+    $('#treem12tuoi4').val(Math.round(($('#ks4saonguoilon1').val()*0.75)).toFixed(2));
+    if(!isNaN((unformat($('#treem12tuoi4').val()))*(unformat($('#treem12tuoi1').val())))){
+        $('#treem12tuoi5').val(Math.round(unformat(($('#treem12tuoi4').val()))*(unformat($('#treem12tuoi1').val()))).toFixed(2)); 
+        fmCurrency($('#treem12tuoi5'),2);
+    }
 
-        $('#treem2tuoi10').val(Math.round(($('#ks4saonguoilon3').val()*0.3)).toFixed(2));
-        if(!isNaN((unformat($('#treem2tuoi7').val()))*(unformat($('#treem2tuoi10').val())))){
-            $('#treem2tuoi11').val(Math.round(unformat(($('#treem2tuoi7').val()))*(unformat($('#treem2tuoi10').val()))).toFixed(2));
-        }
+    $('#treem2tuoi10').val(Math.round(($('#ks4saonguoilon3').val()*0.3)).toFixed(2));
+    if(!isNaN((unformat($('#treem2tuoi7').val()))*(unformat($('#treem2tuoi10').val())))){
+        $('#treem2tuoi11').val(Math.round(unformat(($('#treem2tuoi7').val()))*(unformat($('#treem2tuoi10').val()))).toFixed(2));
+    }
 
-        $('#treem12tuoi10').val(Math.round(($('#ks4saonguoilon3').val()*0.75)).toFixed(2));
-        if(!isNaN(unformat($('#treem12tuoi10').val())*unformat($('#treem12tuoi7').val()))){
-            $('#treem12tuoi11').val(Math.round(unformat($('#treem12tuoi10').val())*unformat($('#treem12tuoi7').val())).toFixed(2));
-            fmCurrency($('#treem12tuoi11'),2);
-        }
-        // phan ben trai
-        $('#ks3saonguoilon2').val($('#giaban5').val());
-        $('#ks3saonguoilon1').val(Math.round(parseInt(unformat($('#NguoiLon1').val()))-parseInt(unformat($('#foc_number').val()))).toFixed(2));
-        var soluong = parseFloat(unformat($('#ks3saonguoilon1').val()));
-        var ks3sao1 = parseFloat(unformat($('#ks3saonguoilon2').val()));
-        var ttks3sao1 = soluong * ks3sao1;
-        if(!isNaN(ttks3sao1)){
-            $('#ks3saonguoilon3').val(Math.round(ttks3sao1).toFixed(2));
-            fmCurrency($('#ks3saonguoilon3'),2);
-        }
-        $('#ks4saonguoilon1').val($('#giaban6').val());
-        var ks4sao1 = parseFloat(unformat($('#ks4saonguoilon1').val()));
-        var ttks4sao1 = soluong*ks4sao1;
-        if(!isNaN(ttks4sao1)){
-            $('#ks4saonguoilon2').val(Math.round(ttks4sao1).toFixed(2));
-            fmCurrency($('#ks4saonguoilon2'),2);
-        }
+    $('#treem12tuoi10').val(Math.round(($('#ks4saonguoilon3').val()*0.75)).toFixed(2));
+    if(!isNaN(unformat($('#treem12tuoi10').val())*unformat($('#treem12tuoi7').val()))){
+        $('#treem12tuoi11').val(Math.round(unformat($('#treem12tuoi10').val())*unformat($('#treem12tuoi7').val())).toFixed(2));
+        fmCurrency($('#treem12tuoi11'),2);
+    }
+    // phan ben trai
+    $('#ks3saonguoilon2').val($('#giaban5').val());
+    $('#ks3saonguoilon1').val(Math.round(parseInt(unformat($('#NguoiLon1').val()))-parseInt(unformat($('#foc_number').val()))).toFixed(2));
+    var soluong = parseFloat(unformat($('#ks3saonguoilon1').val()));
+    var ks3sao1 = parseFloat(unformat($('#ks3saonguoilon2').val()));
+    var ttks3sao1 = soluong * ks3sao1;
+    if(!isNaN(ttks3sao1)){
+        $('#ks3saonguoilon3').val(Math.round(ttks3sao1).toFixed(2));
+        fmCurrency($('#ks3saonguoilon3'),2);
+    }
+    $('#ks4saonguoilon1').val($('#giaban6').val());
+    var ks4sao1 = parseFloat(unformat($('#ks4saonguoilon1').val()));
+    var ttks4sao1 = soluong*ks4sao1;
+    if(!isNaN(ttks4sao1)){
+        $('#ks4saonguoilon2').val(Math.round(ttks4sao1).toFixed(2));
+        fmCurrency($('#ks4saonguoilon2'),2);
+    }
 
-        // phan ben phai
-        $('#ks3saonguoilon4').val(parseFloat(unformat($('#NguoiLon2').val()))-parseFloat(unformat($('#foc_number').val())));
-        $('#ks3saonguoilon5').val($('#giaban11').val());
-        var soluong1 = parseFloat(unformat($('#ks3saonguoilon4').val()));
-        var ks3sao2 = parseFloat( unformat($('#ks3saonguoilon5').val()));
-        var ttks3sao2 = soluong1*ks3sao2;
-        if(!isNaN(ttks3sao2)){
-            $('#ks3saonguoilon6').val(Math.round(ttks3sao2).toFixed(2));
-            fmCurrency($('#ks3saonguoilon6'),2);
-        }
+    // phan ben phai
+    $('#ks3saonguoilon4').val(parseFloat(unformat($('#NguoiLon2').val()))-parseFloat(unformat($('#foc_number').val())));
+    $('#ks3saonguoilon5').val($('#giaban11').val());
+    var soluong1 = parseFloat(unformat($('#ks3saonguoilon4').val()));
+    var ks3sao2 = parseFloat( unformat($('#ks3saonguoilon5').val()));
+    var ttks3sao2 = soluong1*ks3sao2;
+    if(!isNaN(ttks3sao2)){
+        $('#ks3saonguoilon6').val(Math.round(ttks3sao2).toFixed(2));
+        fmCurrency($('#ks3saonguoilon6'),2);
+    }
 
-        $('#ks4saonguoilon3').val($('#giaban12').val());
-        var ks4sao2 = parseFloat(unformat($('#ks4saonguoilon3').val()));
-        var ttks4sao2 = soluong1*ks4sao2; 
-        if(!isNaN(ttks4sao2)){
-            $('#ks4saonguoilon4').val(Math.round(ttks4sao2).toFixed(2)) ;
-            fmCurrency($('#ks4saonguoilon4'),2);
-        }
+    $('#ks4saonguoilon3').val($('#giaban12').val());
+    var ks4sao2 = parseFloat(unformat($('#ks4saonguoilon3').val()));
+    var ttks4sao2 = soluong1*ks4sao2; 
+    if(!isNaN(ttks4sao2)){
+        $('#ks4saonguoilon4').val(Math.round(ttks4sao2).toFixed(2)) ;
+        fmCurrency($('#ks4saonguoilon4'),2);
+    }
 }
 function phuthu(){
-   var sl1 = parseFloat(unformat($('#ks3saophuthukhac1').val()));
-        var dg1 = parseFloat(unformat($('#ks3saophuthukhac2').val()));
-        var tt1 = sl1*dg1;
-        if(!isNaN(tt1)){
-            $('#ks3saophuthukhac3').val(Math.round(tt1).toFixed(2));
-            fmCurrency($('#ks3saophuthukhac3'),2);
-        }
+    var sl1 = parseFloat(unformat($('#ks3saophuthukhac1').val()));
+    var dg1 = parseFloat(unformat($('#ks3saophuthukhac2').val()));
+    var tt1 = sl1*dg1;
+    if(!isNaN(tt1)){
+        $('#ks3saophuthukhac3').val(Math.round(tt1).toFixed(2));
+        fmCurrency($('#ks3saophuthukhac3'),2);
+    }
 
-        var dg2 = parseFloat(unformat($('#ks4saophuthukhac1').val()));
-        var tt2 = sl1*dg2;
-        if(!isNaN(tt2)){
-            $('#ks4saophuthukhac2').val(Math.round(tt2).toFixed(2)); 
-            fmCurrency($('#ks4saophuthukhac2'),2);
-        }
+    var dg2 = parseFloat(unformat($('#ks4saophuthukhac1').val()));
+    var tt2 = sl1*dg2;
+    if(!isNaN(tt2)){
+        $('#ks4saophuthukhac2').val(Math.round(tt2).toFixed(2)); 
+        fmCurrency($('#ks4saophuthukhac2'),2);
+    }
 
-        var sl2 = parseFloat(unformat($('#ks3saophuthukhac4').val()));
-        var dg3 = parseFloat(unformat($('#ks3saophuthukhac5').val()));
-        var tt3 = sl2*dg3;
-        if(!isNaN(tt3)){
-            $('#ks3saophuthukhac6').val(Math.round(tt3).toFixed(2));
-            fmCurrency($('#ks3saophuthukhac6'),2);
-        }
+    var sl2 = parseFloat(unformat($('#ks3saophuthukhac4').val()));
+    var dg3 = parseFloat(unformat($('#ks3saophuthukhac5').val()));
+    var tt3 = sl2*dg3;
+    if(!isNaN(tt3)){
+        $('#ks3saophuthukhac6').val(Math.round(tt3).toFixed(2));
+        fmCurrency($('#ks3saophuthukhac6'),2);
+    }
 
-        var dg4 = parseFloat(unformat($('#ks4saophuthukhac3').val()));
-        var tt4 = sl2*dg4;
-        if(!isNaN(tt4)){
-            $('#ks4saophuthukhac4').val(Math.round(tt4).toFixed(2));
-            fmCurrency($('#ks4saophuthukhac4'),2);
-        }
+    var dg4 = parseFloat(unformat($('#ks4saophuthukhac3').val()));
+    var tt4 = sl2*dg4;
+    if(!isNaN(tt4)){
+        $('#ks4saophuthukhac4').val(Math.round(tt4).toFixed(2));
+        fmCurrency($('#ks4saophuthukhac4'),2);
+    }
 
-        var sl3 = parseFloat(unformat($('#ks3saophuthukhac_1').val()));
-        var dg5 = parseFloat(unformat($('#ks3saophuthukhac_2').val()));
-        var tt5 = sl3*dg5;
-        if(!isNaN(tt5)){
-            $('#ks3saophuthukhac_3').val(Math.round(tt5).toFixed(2));
-            fmCurrency($('#ks3saophuthukhac_3'),2);
-        }
-        var dg6 = parseFloat(unformat($('#ks4saophuthukhac_1').val()));
-        var tt6 = sl3*dg6;
-        if(!isNaN(tt6)){
-            $('#ks4saophuthukhac_2').val(Math.round(tt6).toFixed(2));
-            fmCurrency($('#ks4saophuthukhac_2'),2);
-        }
-        var sl4 = parseFloat(unformat($('#ks3saophuthukhac_4').val()));
-        var dg7 = parseFloat(unformat($('#ks3saophuthukhac_5').val()));
-        var tt7 = sl4*dg7;
-        if(!isNaN(tt7)){
-            $('#ks3saophuthukhac_6').val(Math.round(tt7).toFixed(2));
-            fmCurrency($('#ks3saophuthukhac_6'),2);
-        }
-        var dg8 = parseFloat(unformat($('#ks4saophuthukhac_3').val()));
-        var tt8 = sl4*dg8;
-        if(!isNaN(tt8)){
-            $('#ks4saophuthukhac_4').val(Math.round(tt8).toFixed(2));
-            fmCurrency($('#ks4saophuthukhac_4'),2);
-        }
-        var sl5 = parseFloat(unformat($('#ks3saosinglesupp1').val()));
-        var dg9 = parseFloat(unformat($('#ks3saosinglesupp2').val()));
-        var tt9 = sl5*dg9;
-        if(!isNaN(tt9)){
-            $('#ks3saosinglesupp3').val(Math.round(tt9).toFixed(2));
-            fmCurrency($('#ks3saosinglesupp3'),2);
-        }
-        var dg10 =parseFloat(unformat($('#ks4saosinglesupp1').val()));
-        var tt10 = sl5*dg10;
-        if(!isNaN(tt10)){
-            $('#ks4saosinglesupp2').val(Math.round(tt10).toFixed(2));
-            fmCurrency($('#ks4saosinglesupp2'),2);
-        }
+    var sl3 = parseFloat(unformat($('#ks3saophuthukhac_1').val()));
+    var dg5 = parseFloat(unformat($('#ks3saophuthukhac_2').val()));
+    var tt5 = sl3*dg5;
+    if(!isNaN(tt5)){
+        $('#ks3saophuthukhac_3').val(Math.round(tt5).toFixed(2));
+        fmCurrency($('#ks3saophuthukhac_3'),2);
+    }
+    var dg6 = parseFloat(unformat($('#ks4saophuthukhac_1').val()));
+    var tt6 = sl3*dg6;
+    if(!isNaN(tt6)){
+        $('#ks4saophuthukhac_2').val(Math.round(tt6).toFixed(2));
+        fmCurrency($('#ks4saophuthukhac_2'),2);
+    }
+    var sl4 = parseFloat(unformat($('#ks3saophuthukhac_4').val()));
+    var dg7 = parseFloat(unformat($('#ks3saophuthukhac_5').val()));
+    var tt7 = sl4*dg7;
+    if(!isNaN(tt7)){
+        $('#ks3saophuthukhac_6').val(Math.round(tt7).toFixed(2));
+        fmCurrency($('#ks3saophuthukhac_6'),2);
+    }
+    var dg8 = parseFloat(unformat($('#ks4saophuthukhac_3').val()));
+    var tt8 = sl4*dg8;
+    if(!isNaN(tt8)){
+        $('#ks4saophuthukhac_4').val(Math.round(tt8).toFixed(2));
+        fmCurrency($('#ks4saophuthukhac_4'),2);
+    }
+    var sl5 = parseFloat(unformat($('#ks3saosinglesupp1').val()));
+    var dg9 = parseFloat(unformat($('#ks3saosinglesupp2').val()));
+    var tt9 = sl5*dg9;
+    if(!isNaN(tt9)){
+        $('#ks3saosinglesupp3').val(Math.round(tt9).toFixed(2));
+        fmCurrency($('#ks3saosinglesupp3'),2);
+    }
+    var dg10 =parseFloat(unformat($('#ks4saosinglesupp1').val()));
+    var tt10 = sl5*dg10;
+    if(!isNaN(tt10)){
+        $('#ks4saosinglesupp2').val(Math.round(tt10).toFixed(2));
+        fmCurrency($('#ks4saosinglesupp2'),2);
+    }
 
-        var sl6 = parseFloat(unformat($('#ks3saosinglesupp4').val()));
-        var dg11 = parseFloat(unformat($('#ks3saosinglesupp5').val()));
-        var tt11 = sl6*dg11;
-        if(!isNaN(tt11)){
-            $('#ks3saosinglesupp6').val(Math.round(tt11).toFixed(2));
-            fmCurrency($('#ks3saosinglesupp6'),2);
-        }
-        var dg12 =parseFloat(unformat($('#ks4saosinglesupp3').val()));
-        var tt12 = sl6*dg12;
-        if(!isNaN(tt12)){
-            $('#ks4saosinglesupp4').val(Math.round(tt12).toFixed(2));
-            fmCurrency($('#ks4saosinglesupp4'),2)
-        }  
+    var sl6 = parseFloat(unformat($('#ks3saosinglesupp4').val()));
+    var dg11 = parseFloat(unformat($('#ks3saosinglesupp5').val()));
+    var tt11 = sl6*dg11;
+    if(!isNaN(tt11)){
+        $('#ks3saosinglesupp6').val(Math.round(tt11).toFixed(2));
+        fmCurrency($('#ks3saosinglesupp6'),2);
+    }
+    var dg12 =parseFloat(unformat($('#ks4saosinglesupp3').val()));
+    var tt12 = sl6*dg12;
+    if(!isNaN(tt12)){
+        $('#ks4saosinglesupp4').val(Math.round(tt12).toFixed(2));
+        fmCurrency($('#ks4saosinglesupp4'),2)
+    }  
 }
 function tongthunguoilon(){
     // tong thu khách sạn 3 sao một
@@ -351,19 +367,19 @@ function getvaluevanchuyen(){
     $('#upgrade_meal1').val(parseFloat($('#txtTourLeader1').val())+parseFloat($('#NguoiLon1').val())-parseFloat($('#txtFOCLand1').val())- parseFloat($('#focupgrademeal').val()));
     $('#optional_tour1').val(parseFloat($('#txtTourLeader1').val())+parseFloat($('#NguoiLon1').val())-parseFloat($('#txtFOCLand1').val())- parseFloat($('#focoptionaltour').val()));
     $('#single_supp_1').val(parseFloat($('#single1').val())- parseFloat($('#focsinglesupp').val()));
-    
+
     //$('.visa_value').val(parseInt($('#txtTourLeader1').val())+parseInt($('#NguoiLon1').val()));
-    
+
     $('#visathonghanh1').val(parseInt($('#txtTourLeader1').val())+parseInt($('#NguoiLon1').val())- parseFloat($('#focvisa').val()));
     $('#visadichthuat1').val(parseInt($('#txtTourLeader1').val())+parseInt($('#NguoiLon1').val())- parseFloat($('#focdichthuatcongchung').val()));
     $('#phichuyenphathoso1').val(parseInt($('#txtTourLeader1').val())+parseInt($('#NguoiLon1').val())- parseFloat($('#focchuyenphat').val()));
     $('#phithumoi1').val(parseInt($('#txtTourLeader1').val())+parseInt($('#NguoiLon1').val())- parseFloat($('#focchiphimoi').val()));
-    
+
     $('#baohiem1').val(parseInt($('#txtTourLeader1').val())+parseInt($('#NguoiLon1').val())- parseFloat($('#focbaohiem').val()));
     $('#baohiemtreem2tuoi1').val(parseInt($('#TreEm2Tuoi2').val())- parseFloat($('#focbaohiemteduoi2tuoi').val()));
     $('#baohiemtreem12tuoi1').val(parseInt($('#TreEm12Tuoi2').val())- parseFloat($('#focbaohiemte12tuoi').val()));
-    
-    
+
+
     $('#visatreem2tuoi1').val(parseInt($('#TreEm2Tuoi1').val())- parseFloat($('#focphivisate2tuoi').val()));
     $('#visatreem12tuoi1').val(parseInt($('#TreEm12Tuoi1').val())- parseFloat($('#focchiphivisate12tuoi').val()));
     $('#tour_leader1').val(parseInt($('#txtTourLeader1').val())- parseInt($('#foctourleader').val()));
@@ -372,22 +388,22 @@ function getvaluevanchuyen(){
     //$('.treem12').val(parseInt($('#TreEm12Tuoi1').val()));
     //$('.quatang').val($('#NguoiLon1').val());
     $('#taxtreem1').val(parseInt($('#TreEm2Tuoi1').val())+parseFloat($('#TreEm12Tuoi1').val())-parseFloat($('#foctaxte').val()));
-    
+
     //$('#visatip1, #cpk1, #chenhlechtygia1, #quatang1').val($('#NguoiLon1').val());  
-    
+
     $('#visatip1').val($('#NguoiLon1').val()- parseFloat($('#foctip').val()));
     $('#quatang1').val(parseFloat($('#NguoiLon1').val())-parseFloat($('#focquatang').val()));
     $('#cpk1').val(parseFloat($('#NguoiLon1').val())-parseFloat($('#foccpk').val()));
     $('#chenhlechtygia1').val(parseFloat($('#NguoiLon1').val())-parseFloat($('#focchenhlechtygia').val()));
-        
+
     $('#land2_1').val(parseFloat($('#NguoiLon1').val())+ parseFloat($('#land_treem').val()) -parseFloat($('#focland2').val()));  
-    
+
     $('#landfeetreem_2_3sao1').val(parseFloat($('#TreEm2Tuoi1').val())- parseFloat($('#foclandfeete3saoteduoi2tuoi').val()));
-    
+
     $('#landfee4sao_treem2tuoi1').val(parseFloat($('#TreEm2Tuoi1').val())- parseFloat($('#foclandfee4saoteduoi2tuoi').val()));
-    
+
     $('#landfeetreem12_3sao1').val(parseFloat($('#TreEm12Tuoi1').val())- parseFloat($('#foclandfeete3saote12tuoi').val()));
-    
+
     $('#landfee4sao_treem12tuoi1').val(parseFloat($('#TreEm12Tuoi1').val())- parseFloat($('#foclandfee4saote12tuoi').val()));
     // get value bên phái
     // phan van chuyen
@@ -400,44 +416,44 @@ function getvaluevanchuyen(){
     $('#vmbtreem12tuoind5').val(parseFloat($('#TreEm12Tuoi2').val()));
     $('#taxtreem5').val(parseFloat($('#TreEm2Tuoi2').val())+parseFloat($('#TreEm12Tuoi2').val()));
     $('#chiphikhac5').val(parseFloat($('#txtTourLeader2').val()));
-    
-    
+
+
     // phan landfee
     $('#landfee1_3_5').val(parseFloat($('#NguoiLon2').val()) + parseFloat($('#txtTourLeader2').val())-parseFloat($('#txtFOCLand2').val())- parseFloat($('#foclandfee1_3sao').val()));
-    
+
     $('#landfee_2_3_5').val(parseFloat($('#NguoiLon2').val())+parseFloat($('#txtTourLeader2').val())-parseFloat($('#txtFOCLand2').val())- parseFloat($('#foclandfee2_3sao').val()));
-    
+
     $('#landfee_1_4_5').val(parseFloat($('#NguoiLon2').val())+parseFloat($('#txtTourLeader2').val())-parseFloat($('#txtFOCLand2').val())- parseFloat($('#foclandfee1_4sao').val()));
-                                                                                                                                                                               
+
     $('#landfee_2_4_5').val(parseFloat($('#NguoiLon2').val())+parseFloat($('#txtTourLeader2').val())-parseFloat($('#txtFOCLand2').val())- parseFloat($('#foclandfee2_4sao').val()));
-                                                                                                                                                    
+
     $('#upgrade_meal5').val(parseFloat($('#NguoiLon2').val())+parseFloat($('#txtTourLeader2').val())-parseFloat($('#txtFOCLand2').val())- parseFloat($('#focupgrademeal').val()));
-    
+
     $('#optional_tour5').val(parseFloat($('#NguoiLon2').val())+parseFloat($('#txtTourLeader2').val())-parseFloat($('#txtFOCLand2').val())- parseFloat($('#focoptionaltour').val()));
-    
+
     $('#single_supp_5').val(parseFloat($('#single2').val())- parseFloat($('#focsinglesupp').val()));
-    
+
     $('#landfeetreem_2_3sao5').val(parseFloat($('#TreEm2Tuoi2').val())-parseFloat($('#foclandfeete3saoteduoi2tuoi').val()));
-    
+
     $('#landfee4sao_treem2tuoi5').val(parseFloat($('#TreEm2Tuoi2').val())- parseFloat($('#foclandfee4saoteduoi2tuoi').val()));
-    
+
     $('#landfeetreem12_3sao5').val(parseFloat($('#TreEm12Tuoi2').val())- parseFloat($('#foclandfeete3saote12tuoi').val()));
-    
+
     $('#landfee4sao_treem12tuoi5').val(parseFloat($('#TreEm12Tuoi2').val())- parseFloat($('#foclandfee4saote12tuoi').val()));
-    
+
     //$('.visa_value1').val(parseFloat($('#NguoiLon2').val())+parseFloat($('#txtTourLeader2').val()));
     $('#visathonghanh5').val(parseFloat($('#NguoiLon2').val())+parseFloat($('#txtTourLeader2').val())- parseFloat($('#focvisa').val()));
-     $('#visadichthuat5').val(parseInt($('#txtTourLeader2').val())+parseInt($('#NguoiLon2').val())- parseFloat($('#focdichthuatcongchung').val()));
+    $('#visadichthuat5').val(parseInt($('#txtTourLeader2').val())+parseInt($('#NguoiLon2').val())- parseFloat($('#focdichthuatcongchung').val()));
     $('#phichuyenphathoso5').val(parseInt($('#txtTourLeader2').val())+parseInt($('#NguoiLon2').val())- parseFloat($('#focchuyenphat').val()));
     $('#phithumoi5').val(parseInt($('#txtTourLeader2').val())+parseInt($('#NguoiLon2').val())- parseFloat($('#focchiphimoi').val()));
     $('#baohiem5').val(parseInt($('#txtTourLeader2').val())+parseInt($('#NguoiLon2').val())- parseFloat($('#focbaohiem').val()));
-                                                                 
+
     $('#visatreem2tuoi5').val(parseFloat($('#TreEm2Tuoi2').val())- parseFloat($('#focphivisate2tuoi').val()));
-    
+
     $('#visatreem12tuoi5').val(parseFloat($('#TreEm12Tuoi2').val())- parseFloat($('#focchiphivisate12tuoi').val()));
-    
+
     $('#baohiemtreem2tuoi5').val(parseFloat($('#TreEm2Tuoi2').val())- parseFloat($('#focbaohiemteduoi2tuoi').val()));
-    
+
     $('#baohiemtreem12tuoi5').val(parseFloat($('#TreEm12Tuoi2').val())-parseFloat($('#focbaohiemte12tuoi').val()));
     $('#visatip5').val(parseFloat($('#NguoiLon2').val())- parseFloat($('#foctip').val()));
     $('#quatang5').val(parseFloat($('#NguoiLon2').val())-parseFloat($('#focquatang').val()));
@@ -446,8 +462,8 @@ function getvaluevanchuyen(){
     $('#land2_5').val(parseFloat($('#NguoiLon2').val())+ parseFloat($('#land_treem').val())- parseFloat($('#focland2').val()));   
 
     $('#tour_leader5').val(parseFloat($('#txtTourLeader2').val())- parseFloat($('#foctourleader').val()));
-    
-    
+
+
     // tính số ngày của thực hiện tour
     var start = $('#ngaykhoihanh').val();
     var end = $('#ngayketthuc').val();
@@ -457,14 +473,14 @@ function getvaluevanchuyen(){
         var start_date = new Date(startarr[2],startarr[1]-1,startarr[0]);
         var end_date = new Date(endarr[2],endarr[1]-1,endarr[0]);
         var no_date = end_date - start_date;
-        no_date = no_date/1000/60/60/24;
+        no_date = (no_date/1000/60/60/24)+1;
         $('#tour_leader2').val(no_date);
         $('#tour_leader6').val(no_date);
         $('#visatip2').val(no_date);
         $('#visatip6').val(no_date);
     }
-    
-    
+
+
     // lay chi phi cua tre em trong van chuyen
     // bên trái
     $('#vmbtreem2tuoi3').val(Math.round(unformat($('#vmbnguoilon3').val())*(parseFloat(unformat($('#focvmbteduoi2tuoi').val()))/100)).toFixed(2));
@@ -474,7 +490,7 @@ function getvaluevanchuyen(){
     $('#taxtreem3').val(unformat($('#taxtamtinh3').val()));
     $('#vmbtreem12tuoind3').val(unformat($('#vmbnguoilonnd3').val()));
     $('#vmbtreem2tuoind3').val(parseFloat(unformat($('#vmbnguoilonnd3').val())));
-    
+
     // bên phải
     $('#vmbtreem2tuoi7').val(Math.round(unformat($('#vmbnguoilon7').val())*(parseFloat(unformat($('#focvmbteduoi2tuoi').val()))/100)).toFixed(2));
     fmCurrency($('#vmbtreem2tuoi7'),2);
@@ -483,7 +499,7 @@ function getvaluevanchuyen(){
     $('#taxtreem7').val($('#taxtamtinh7').val());
     $('#vmbtreem12tuoind7').val($('#vmbnguoilonnd7').val());
     $('#vmbtreem2tuoind7').val(parseFloat($('#vmbnguoilonnd7').val()));
-    
+
     //lấy chi phí của trẻ em phần landfee 
     // bên trái
     $('#landfeetreem_2_3sao3').val(Math.round(parseFloat(unformat($('#landfee1_3_3').val())*0.7)).toFixed(2));  
@@ -494,7 +510,7 @@ function getvaluevanchuyen(){
     fmCurrency($('#landfee4sao_treem2tuoi3'),2);
     $('#landfee4sao_treem12tuoi3').val(Math.round(parseFloat(unformat($('#landfee_2_4_3').val()))*0.7).toFixed(2));
     fmCurrency($('#landfee4sao_treem12tuoi3'),2);
-    
+
     // bên phải
     $('#landfeetreem_2_3sao7').val(Math.round(parseFloat(unformat($('#landfee1_3_7').val())*0.7)).toFixed(2));
     fmCurrency($('#landfeetreem_2_3sao7'),2);
@@ -504,7 +520,7 @@ function getvaluevanchuyen(){
     fmCurrency($('#landfee4sao_treem2tuoi7'),2);
     $('#landfee4sao_treem12tuoi7').val(Math.round(parseFloat(unformat($('#landfee_2_4_7').val())*0.7)).toFixed(2));
     fmCurrency($('#landfee4sao_treem12tuoi7'),2);
-    
+
     // lấy số bữa ăn
     $('#upgrade_meal2').val($('#txtSoBuaAn1').val());
     $('#upgrade_meal6').val($('#txtSoBuaAn2').val());
@@ -608,7 +624,7 @@ function calculator(){
     if(!isNaN(parseFloat(unformat($('#landfee1_3_5').val()))*parseFloat(unformat($('#landfee1_3_7').val())))){
         $('#landfee1_3_8').val(Math.round(parseFloat(unformat($('#landfee1_3_5').val()))*parseFloat(unformat($('#landfee1_3_7').val()))).toFixed(2));
         fmCurrency( $('#landfee1_3_8'),2);
-        
+
     }
 
     // landfee 2:3 sao 
@@ -875,7 +891,7 @@ function calculator(){
     var tygia3sao1 = parseFloat(unformat($('#tongthunguoilon3').val())) + parseFloat(unformat($('#tongthute4').val()));
     var tygia4sao1 = parseFloat(unformat($('#tongthunguoilon3').val())) + parseFloat(unformat($('#tongthute4').val()));
     if(tygia3sao1 > tygia4sao1){
-        
+
         $('#chenhlechtygia8').val(Math.round(tygia3sao1 * (parseFloat($('#txtCLTG').val())/100)).toFixed(2));
         fmCurrency($('#chenhlechtygia8'),2)
     }
@@ -913,7 +929,7 @@ function tinhtongchiphi(){
         $('#tongchi3').val(Math.round((parseFloat(unformat($('#vmbtreem12tuoi4').val()))+parseFloat(unformat($('#vmbtreem12tuoind4').val())))+(parseFloat(unformat($('#taxtreem4').val()))/parseFloat(unformat($('#taxtreem1').val())))*parseFloat(unformat($('#treem12tuoi1').val()))+parseFloat(unformat($('#landfee_1_4_4').val()))+parseFloat(unformat($('#landfee_2_4_4').val()))+parseFloat(unformat($('#visatreem12tuoi4').val()))+parseFloat(unformat($('#baohiemtreem12tuoi4').val()))).toFixed(2));
         fmCurrency($('#tongchi3'),2);
     }
-    
+
     else{ $('#tongchi3').val('0');}
 
     if(parseFloat(unformat($('#treem12tuoi1').val()))>0){
@@ -924,7 +940,7 @@ function tinhtongchiphi(){
 
     // tong chi nguoi lon
     // tong chi ks3* nguoi lon 
-     if(parseFloat(unformat($('#landfee1_3_4').val()))+parseFloat(unformat($('#landfee_2_3_4').val()))> 0){
+    if(parseFloat(unformat($('#landfee1_3_4').val()))+parseFloat(unformat($('#landfee_2_3_4').val()))> 0){
         var tongcongchi = parseFloat(unformat($('#tongchivanchuyen1').val())) + parseFloat(unformat($('#sumlandfeepackage1').val())) + parseFloat(unformat($('#sumvisa1').val())) + parseFloat(unformat($('#sumguide1').val())) + parseFloat(unformat($('#sumotherservice1').val()))+parseFloat(unformat($('#tongtien_chi').val()));
         var giaban; 
         if(parseFloat(unformat($('#giaban6').val()))> parseFloat(unformat($('#giaban5').val()))){
@@ -959,7 +975,7 @@ function tinhtongchiphi(){
     }
 
     // tong chi ks3* tre em tu 2 - 12 tuoi 2
-   if(parseFloat(unformat($('#treem12tuoi7').val()))>0){
+    if(parseFloat(unformat($('#treem12tuoi7').val()))>0){
         $('#tongchi9').val(Math.round(parseFloat(unformat($('#vmbtreem12tuoi8').val())) + parseFloat(unformat($('#vmbtreem12tuoind8').val())) + (parseFloat(unformat($('#taxtreem8').val()))/parseFloat(unformat($('#taxtreem5').val()))) * parseFloat(unformat($('#treem12tuoi7').val())) + parseFloat(unformat($('#landfeetreem_2_3sao8').val()))+parseFloat(unformat($('#landfeetreem12_3sao8').val())) + parseFloat(unformat($('#visatreem12tuoi8').val())) + parseFloat(unformat($('#baohiemtreem12tuoi8').val()))).toFixed(2));
         fmCurrency($('#tongchi9'),2);
     }
@@ -1139,8 +1155,8 @@ function tinhtoanvisa(){
         $('#sumvisa1').val(tongcong.toString());
         fmCurrency($('#sumvisa1'),2);
     }
-    
-        // tính tổng chi visa 2
+
+    // tính tổng chi visa 2
     // visa thông hành 2 
     var visathonghanh2 = parseFloat(unformat($('#visathonghanh8').val()));
     // visa dịch thuật công chứng hồ sơ
@@ -1159,7 +1175,7 @@ function tinhtoanvisa(){
         $('#sumvisa2').val(tongcong2);
         fmCurrency($('#sumvisa2'),2);
     }
-    
+
 }
 
 // tính toán chi phí hướng dẫn viên 
@@ -1175,7 +1191,7 @@ function tinhchiphihuongdanvien(){
         $('#sumguide1').val(tongcong);
         fmCurrency($('#sumguide1'),2);
     }
-    
+
     // chi phí hướng dẫn viên 2
     // Tour leader
     var tour_leader2 = parseFloat(unformat($('#tour_leader8').val()));
@@ -1195,10 +1211,10 @@ function chiphidichvukhac(){
     // bảo hiểm 1
     var baohiem1 = parseFloat(unformat($('#baohiem4').val()));
     // bảo hiểm trẻ em dưới 2 tuổi
-   // var baohiemtreem2tuoi1 = parseFloat($('#baohiemtreem2tuoi4').val());
+    // var baohiemtreem2tuoi1 = parseFloat($('#baohiemtreem2tuoi4').val());
     // bảo hiểm trẻ từ 2- 12 tuổi
     //var baohiemtreem12tuoi1 = parseFloat($('#baohiemtreem12tuoi4').val());
-     // visa tip 
+    // visa tip 
     var visatip1 = parseFloat(unformat($('#visatip4').val()));
     // quà tặng 
     var quatang1 = parseFloat(unformat($('#quatang4').val()));
@@ -1221,7 +1237,7 @@ function chiphidichvukhac(){
     //var baohiemtreem2tuoi2 = parseFloat($('#baohiemtreem2tuoi8').val());
     // bảo hiểm trẻ từ 2- 12 tuổi
     //var baohiemtreem12tuoi2 = parseFloat($('#baohiemtreem12tuoi8').val());
-     // visa tip 
+    // visa tip 
     var visatip2 = parseFloat(unformat($('#visatip8').val()));
     // quà tặng 
     var quatang2 = parseFloat(unformat($('#quatang8').val()));
@@ -1231,7 +1247,7 @@ function chiphidichvukhac(){
     var cpk2 = parseFloat(unformat($('#cpk8').val()));
     // chênh lệch tỷ giá
     var chenhlechtygia2 = parseFloat(unformat($('#chenhlechtygia8').val()));
-    
+
     var tongcong1 = baohiem2+visatip2+quatang2+land2_2+cpk2+chenhlechtygia2;
     if(!isNaN(tongcong1)){
         $('#sumotherservice2').val(Math.round(tongcong1).toFixed(2));
@@ -1259,21 +1275,21 @@ function reportsummary(){
         $('#gianet6').val(Math.round(parseFloat(unformat($('#tongchi6').val()))/parseFloat(unformat($('#ks3saonguoilon1').val()))).toFixed(2));
         fmCurrency($('#gianet6'),2);
     }
-    
+
     if($('#treem2tuoi7').val()!= 0){
         $('#gianet7').val(Math.round(parseFloat(unformat($('#tongchi7').val()))/parseFloat(unformat($('#treem2tuoi7').val()))).toFixed(2));
         fmCurrency($('#gianet7'),2);
         $('#gianet8').val(Math.round(parseFloat(unformat($('#tongchi8').val()))/parseFloat(unformat($('#treem2tuoi7').val()))).toFixed(2));
         fmCurrency($('#gianet8'),2);
     }
-    
+
     if($('#treem12tuoi7').val()!= 0){
         $('#gianet9').val(Math.round(parseFloat(unformat($('#tongchi9').val()))/parseFloat(unformat($('#treem12tuoi7').val()))).toFixed(2));
         fmCurrency($('#gianet9'));
         $('#gianet10').val(Math.round(parseFloat(unformat($('#tongchi10').val()))/parseFloat(unformat($('#treem12tuoi7').val()))).toFixed(2));
         fmCurrency($('#gianet10'),2);
     }
-    
+
     if($('#ks3saonguoilon4').val()!= 0){
         $('#gianet11').val(Math.round(parseFloat(unformat($('#tongchi11').val()))/parseFloat(unformat($('#ks3saonguoilon4').val()))).toFixed(2));
         fmCurrency($('#gianet11'),2);
@@ -1289,7 +1305,7 @@ function reportsummary(){
     $('#giaban8').val($('#treem2tuoi10').val());
     $('#giaban9').val($('#treem12tuoi8').val());
     $('#giaban10').val($('#treem12tuoi10').val());
-    
+
     // lãi khách
     $('#laikhach1').val(parseFloat(unformat($('#giaban1').val()))-parseFloat(unformat($('#gianet1').val())));
     fmCurrency($('#laikhach1'),2);
@@ -1315,7 +1331,7 @@ function reportsummary(){
     fmCurrency($('#laikhach11'),2);
     $('#laikhach12').val(parseFloat(unformat($('#giaban12').val()))-parseFloat(unformat($('#gianet12').val())));
     fmCurrency($('#laikhach12'),2);
-    
+
     // tổng lãi
     $('#tonglai1').val(parseFloat(unformat($('#treem2tuoi3').val()))-parseFloat(unformat($('#tongchi1').val())));
     fmCurrency($('#tonglai1'),2);
@@ -1345,24 +1361,24 @@ function reportsummary(){
     fmCurrency($('#tonglai11'),2);
     $('#tonglai12').val(parseFloat(unformat($('#tongthunguoilon4').val()))-parseFloat(unformat($('#tongchi12').val())));
     fmCurrency($('#tonglai12'),2);
-    
+
     var tl1 = (parseFloat(unformat($('#tonglai1').val()))/parseFloat(unformat($('#treem2tuoi3').val())))*100;
     if(!isNaN(tl1)){
-         $('#tyle1').val((Math.round(tl1).toFixed(2)));
-         fmCurrency($('#tyle1'),2);
+        $('#tyle1').val((Math.round(tl1).toFixed(2)));
+        fmCurrency($('#tyle1'),2);
     }
     else{
         $('#tyle1').val(0)
     }
     var tl2 = (parseFloat(unformat($('#tonglai2').val()))/parseFloat(unformat($('#treem2tuoi5').val())))*100;
     if(!isNaN(tl2)){
-          $('#tyle2').val((Math.round(tl2).toFixed(2)));
-          fmCurrency($('#tyle2'),2);
+        $('#tyle2').val((Math.round(tl2).toFixed(2)));
+        fmCurrency($('#tyle2'),2);
     }
     else{
         $('#tyle2').val('0');
     }
-    
+
     var tl3 = (parseFloat(unformat($('#tonglai3').val()))/parseFloat(unformat($('#treem12tuoi3').val())))*100;
     if(!isNaN(tl3)){
         $('#tyle3').val((Math.round(tl3).toFixed(2)));  
@@ -1371,7 +1387,7 @@ function reportsummary(){
     else{
         $('#tyle3').val('0');
     }
-    
+
     var tl4 = (parseFloat(unformat($('#tonglai4').val()))/parseFloat(unformat($('#treem12tuoi5').val())))*100;
     if(!isNaN(tl4)){
         $('#tyle4').val((Math.round(tl4).toFixed(2)));  
@@ -1380,17 +1396,17 @@ function reportsummary(){
     else{
         $('#tyle4').val('0');
     }
-    
+
     var tl5 = (parseFloat(unformat($('#tonglai5').val()))/parseFloat(unformat($('#tongthunguoilon1').val())))*100;
-    
+
     if(!isNaN(tl5)){
-      $('#tyle5').val((Math.round(tl5).toFixed(2)));     
-      fmCurrency($('#tyle5'),2);
+        $('#tyle5').val((Math.round(tl5).toFixed(2)));     
+        fmCurrency($('#tyle5'),2);
     }
     else{
         $('#tyle5').val('0 %');
     }
-    
+
     var tl6 = (parseFloat(unformat($('#tonglai6').val()))/parseFloat(unformat($('#tongthunguoilon2').val())))*100;
     if(!isNaN(tl6)){
         $('#tyle6').val((Math.round(tl6).toFixed(2)));
@@ -1399,11 +1415,11 @@ function reportsummary(){
     else{
         $('#tyle6').val('0 %');
     }
-    
+
     var tl7 = (parseFloat(unformat($('#tonglai7').val()))/parseFloat(unformat($('#treem2tuoi9').val())))*100;
     if(!isNaN(tl7)){
-       $('#tyle7').val((Math.round(tl7).toFixed(2)));  
-       fmCurrency($('#tyle7'),2);
+        $('#tyle7').val((Math.round(tl7).toFixed(2)));  
+        fmCurrency($('#tyle7'),2);
     }
     else{
         $('#tyle7').val('0 %');
@@ -1416,25 +1432,25 @@ function reportsummary(){
     else{
         $('#tyle8').val('0 %');
     }
-    
+
     var tl9 = (parseFloat(unformat($('#tonglai9').val()))/parseFloat(unformat($('#treem12tuoi9').val())))*100;
     if(!isNaN(tl9)){
-         $('#tyle9').val((Math.round(tl9).toFixed(2))); 
-         fmCurrency($('#tyle9'),2);
+        $('#tyle9').val((Math.round(tl9).toFixed(2))); 
+        fmCurrency($('#tyle9'),2);
     }
     else{
         $('#tyle9').val('0 %');
     }
-    
+
     var tl10 = (parseFloat(unformat($('#tonglai10').val()))/parseFloat(unformat($('#treem12tuoi11').val())))*100;
     if(!isNaN(tl10)){
-       $('#tyle10').val((Math.round(tl10).toFixed(2))); 
-       fmCurrency($('#tyle10'),2);
+        $('#tyle10').val((Math.round(tl10).toFixed(2))); 
+        fmCurrency($('#tyle10'),2);
     }
     else{
         $('#tyle10').val('0 %');
     }
-    
+
     var tl11 = (parseFloat(unformat($('#tonglai11').val()))/parseFloat(unformat($('#tongthunguoilon3').val())))*100;
     if(!isNaN(tl11)){
         $('#tyle11').val((Math.round(tl11).toFixed(2)));
@@ -1444,16 +1460,16 @@ function reportsummary(){
         $('#tyle11').val('0');
     }
     var tl12 = (parseFloat(unformat($('#tonglai12').val()))/parseFloat(unformat($('#tongthunguoilon4').val())))*100;
-    
+
     if(!isNaN(tl12)){
-       $('#tyle12').val((Math.round(tl12).toFixed(2))); 
-       fmCurrency($('#tyle12'),2);
+        $('#tyle12').val((Math.round(tl12).toFixed(2))); 
+        fmCurrency($('#tyle12'),2);
     }
     else{
         $('#tyle12').val('0');
     }
-    
-    
+
+
 }
 
 function checkfoc(){
@@ -1462,103 +1478,103 @@ function checkfoc(){
         $('#focvmbnguoilon').focus();
         //return;
     }
-    
+
     if(parseFloat($('#foctaxtamtinh').val()) > parseFloat($('NguoiLon1').val()) || parseFloat($('#foctaxtamtinh').val()) > parseFloat($('#NguoiLon2').val()) ){
         alert ('FOC phải nhỏ hơn số lượng khách');
         $('#foctaxtamtinh').focus();
         //return;
     }
-    
+
     if(parseFloat($('#focvmbndnguoilon').val()) > parseFloat($('NguoiLon1').val()) || parseFloat($('#focvmbndnguoilon').val()) > parseFloat($('#NguoiLon2').val()) ){
         alert ('FOC phải nhỏ hơn số lượng khách');
         $('#focvmbndnguoilon').focus();
         //return;
     }
-    
+
     if(parseFloat($('#foclandfee1_3sao').val()) > parseFloat($('NguoiLon1').val()) || parseFloat($('#foclandfee1_3sao').val()) > parseFloat($('#NguoiLon2').val()) ){
         alert ('FOC phải nhỏ hơn số lượng khách');
         $('#foclandfee1_3sao').focus();
         //return;
     }
-    
+
     if(parseFloat($('#foclandfee2_3sao').val()) > parseFloat($('NguoiLon1').val()) || parseFloat($('#foclandfee2_3sao').val()) > parseFloat($('#NguoiLon2').val()) ){
         alert ('FOC phải nhỏ hơn số lượng khách');
         $('#foclandfee2_3sao').focus();
         //return;
     }
-    
+
     if(parseFloat($('#foclandfee1_4sao').val()) > parseFloat($('NguoiLon1').val()) || parseFloat($('#foclandfee1_4sao').val()) > parseFloat($('#NguoiLon2').val()) ){
         alert ('FOC phải nhỏ hơn số lượng khách');
         $('#foclandfee1_4sao').focus();
         //return;
     }
-    
+
     if(parseFloat($('#foclandfee2_4sao').val()) > parseFloat($('NguoiLon1').val()) || parseFloat($('#foclandfee2_4sao').val()) > parseFloat($('#NguoiLon2').val()) ){
         alert ('FOC phải nhỏ hơn số lượng khách');
         $('#foclandfee2_4sao').focus();
         //return;
     }
-    
+
     if(parseFloat($('#focupgrademeal').val()) > parseFloat($('NguoiLon1').val()) || parseFloat($('#focupgrademeal').val()) > parseFloat($('#NguoiLon2').val()) ){
         alert ('FOC phải nhỏ hơn số lượng khách');
         $('#focupgrademeal').focus();
         //return;
     }
-    
+
     if(parseFloat($('#focoptionaltour').val()) > parseFloat($('NguoiLon1').val()) || parseFloat($('#focoptionaltour').val()) > parseFloat($('#NguoiLon2').val()) ){
         alert ('FOC phải nhỏ hơn số lượng khách');
         $('#focoptionaltour').focus();
         //return;
     }
-    
+
     if(parseFloat($('#focvisa').val()) > parseFloat($('NguoiLon1').val()) || parseFloat($('#focvisa').val()) > parseFloat($('#NguoiLon2').val()) ){
         alert ('FOC phải nhỏ hơn số lượng khách');
         $('#focvisa').focus();
         //return;
     }
-    
+
     if(parseFloat($('#focdichthuatcongchung').val()) > parseFloat($('NguoiLon1').val()) || parseFloat($('#focdichthuatcongchung').val()) > parseFloat($('#NguoiLon2').val()) ){
         alert ('FOC phải nhỏ hơn số lượng khách');
         $('#focdichthuatcongchung').focus();
         //return;
     }
-    
+
     if(parseFloat($('#focchuyenphat').val()) > parseFloat($('NguoiLon1').val()) || parseFloat($('#focchuyenphat').val()) > parseFloat($('#NguoiLon2').val()) ){
         alert ('FOC phải nhỏ hơn số lượng khách');
         $('#focchuyenphat').focus();
         //return;
     }
-    
+
     if(parseFloat($('#focbaohiem').val()) > parseFloat($('NguoiLon1').val()) || parseFloat($('#focbaohiem').val()) > parseFloat($('#NguoiLon2').val()) ){
         alert ('FOC phải nhỏ hơn số lượng khách');
         $('#focbaohiem').focus();
         //return;
     }
-    
+
     if(parseFloat($('#foctip').val()) > parseFloat($('NguoiLon1').val()) || parseFloat($('#foctip').val()) > parseFloat($('#NguoiLon2').val()) ){
         alert ('FOC phải nhỏ hơn số lượng khách');
         $('#foctip').focus();
         //return;
     }
-    
+
     if(parseFloat($('#focquatang').val()) > parseFloat($('NguoiLon1').val()) || parseFloat($('#focquatang').val()) > parseFloat($('#NguoiLon2').val()) ){
         alert ('FOC phải nhỏ hơn số lượng khách');
         $('#focquatang').focus();
         //return;
     }
-    
+
     if(parseFloat($('#focland2').val()) > parseFloat($('NguoiLon1').val()) || parseFloat($('#focland2').val()) > parseFloat($('#NguoiLon2').val()) ){
         alert ('FOC phải nhỏ hơn số lượng khách');
         $('#focland2').focus();
         //return;
     }
-    
+
     if(parseFloat($('#foccpk').val()) > parseFloat($('NguoiLon1').val()) || parseFloat($('#foccpk').val()) > parseFloat($('#NguoiLon2').val()) ){
         alert ('FOC phải nhỏ hơn số lượng khách');
         $('#foccpk').focus();
         //return;
     }
-    
+
     if(parseFloat($('#focchenhlechtygia').val()) > parseFloat($('NguoiLon1').val()) || parseFloat($('#focchenhlechtygia').val()) > parseFloat($('#NguoiLon2').val()) ){
         alert ('FOC phải nhỏ hơn số lượng khách');
         $('#focchenhlechtygia').focus();

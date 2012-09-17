@@ -29,7 +29,7 @@
         function get_summary_text() {
             return "$this->name";
         }
-        public  static  function get_list_countries(){
+        public static function get_list_countries(){
             global $db;
             $countries = array();
             $result = $db->query("select * from countries where deleted = 0");

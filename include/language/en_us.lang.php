@@ -848,6 +848,7 @@ $app_list_strings = array(
     // currency
 
     'currency_dom' => array(
+        ''      => '',
         'usd'   => 'USD',
         'eur'   => 'EUR',
         'vnd'   => 'VND',

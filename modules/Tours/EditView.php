@@ -207,7 +207,7 @@ $ss->assign("IS_TEMPLATE", $focus->is_template);
 //TEMPLATE NAME
 $ss->assign("TEMPLATE_NAME", $focus->template_name);
 // load dat nuoc
-$ss->assign("COUNTRIES", get_select_options_with_id(Country::get_list_countries(), ''));
+//$ss->assign("COUNTRIES", get_select_options_with_id(Country::get_list_countries(), ''));
 $popup_request_data = array(
     'call_back_function' => 'set_return',
     'form_name' => 'EditView',
