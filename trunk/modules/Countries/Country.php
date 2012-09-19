@@ -29,10 +29,10 @@
         function get_summary_text() {
             return "$this->name";
         }
-        public static function get_list_countries(){
+        public static function get_list_countries($department = ''){
             global $db;
             $countries = array();
-            $result = $db->query("select * from countries where deleted = 0");
+            $result = $db->query("select * from countries where deleted = 0 and department = '".$department."' order by name");
             while($row = $db->fetchByAssoc($result)){
                 $countries[$row['id']]=$row['name'];
             }

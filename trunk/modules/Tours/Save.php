@@ -132,7 +132,6 @@ $count = $_POST['tour_program_countries_count'];
 $k = 0;
 //duyet mang count = so luong program
 for ($i = 0; $i < count($count); $i++) {
-
     $countriesArr = array();
     //duyet tu $k hien tai den $count[$i]*$i (hang * cot);
     for ($k = $k  ; $k < $count[$i]*($i+1); $k++) {
@@ -186,7 +185,7 @@ $locations = array();
 $k = 0;
 for ($i = 0; $i < count($location_count); $i++) {
     $loc = array();
-    for ($k = 0; $k < $location_count[$i]*($i+1); $k++) {
+    for ($k = $k; $k < $location_count[$i]*($i+1); $k++) {
         if (!empty($location[$k])) {
             $loc[] = $location[$k];
         }
