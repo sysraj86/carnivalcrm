@@ -443,7 +443,7 @@ $(document).ready(function () {
         console.log("---" + days);*/
         //tinh tu ngay bat dau di la 1 ngay
         days = Number(days)+1;
-        if(days <0){
+        if((days+1) <= 0){
             alert('Date of the end is not before Date of departure ');
             return;
         }
