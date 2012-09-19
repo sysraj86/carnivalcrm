@@ -395,15 +395,24 @@ $(document).ready(function () {
             if (areas != '')
                 if (index < count - 1) areas += "|";
         });
+        countries = "";
+        $countriesSelected =jQuery("option:selected",jQuery(this).closest('tr').find('.jk_list_countries'));
+        countries_lenght = $countriesSelected.length,
+        countries += jQuery(this).closest('tr').find('.jk_list_countries').val(); 
+        //$countriesSelected.each(function(index){
+             
+            // if(contries != ''){
+                // if(index < countries_lenght-1) countries+= "|" ;
+             //}
+        //});
         $tr.find("[name='tour_program_areas_count[]']").val(count);
         $tr.find(".jk_list_locations").html("<option value=''>--None--</option>");
         loader.insertAfter($this);
         ///console.log(areas);
-        $.ajax(
-        {
+        $.ajax({
             url:"index.php?module=Tours&entryPoint=TourAjax",
             type:"POST",
-            data:{action:"get_cities_by_areas", areas:areas},
+            data:{action:"get_cities_by_areas", areas:areas, country:countries},
             async:false,
             success:function (data) {
                 data = $.parseJSON(data);
