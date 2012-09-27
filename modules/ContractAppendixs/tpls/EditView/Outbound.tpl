@@ -176,11 +176,11 @@
                             </td>
                             <td align="center">
                                 <input readonly="readonly" name="thanhtien[]" type="text" id="thanhtien" class="tinhtoan thanhtien" value="{$THANHTIEN}"  /> USD
-                                <input type="hidden" name="contract_appendixs_value_id[]" id="contract_appendixs_value_id" value=""/> <input type="hidden" name="deleted[]" id="deleted" value="0"/>
                             </td>
                             <td align="center">
-                                <input type="button" class="btnAddRow
-                                " value="Add row" />
+                                <input type="hidden" name="contract_appendixs_value_id[]" id="contract_appendixs_value_id" value=""/>
+                                <input type="hidden" name="deleted[]" id="deleted" value="0"/>
+                                <input type="button" class="btnAddRow" value="Add row" />
                                 <input type="button"  class="btnDelRow" value="Delete row" />
                             </td>
                         </tr>
@@ -255,7 +255,7 @@
     </div>
 
     <fieldset>
-        <legend>{$MOD.LBL_TEMPLATE} :</legend>
+        <legend>{$MOD.LBL_TEMPLATE}&nbsp;<span class="required">*</span>&nbsp;:</legend>
         <table class="tabForm" width="100%" cellpadding="0" cellspacing="0" border="0">
             <tr>
                 <td class="dataField"><select name="template_ddown_c[]" id="template_ddown_c" multiple="multiple">{$TEMPLATE} </select></td>

@@ -9,6 +9,7 @@
     global $mod_strings;
     global $mod_strings;
     global $current_user;
+    global $timedate;
     global $sugar_version, $sugar_config;
     $focus       = new ContractAppendixs();
     $contract_condition = new ContractCondition();

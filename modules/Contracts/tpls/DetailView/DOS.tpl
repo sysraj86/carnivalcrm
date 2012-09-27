@@ -180,11 +180,14 @@
         <td class="tabDetailViewDF"> {$PHONE_B} </td>
     </tr>
 </table>
+
 {if $PARENT eq 'Transports'} 
+
+
 <!-- hợp đồng thuê xe -->
 <table class="hopdongthuexe tabForm" {if $ID eq ''} style="display: none;" {/if}cellpadding="0" cellspacing="0" border="0" width="100%">
 <tr>
-    <td class="tabDetailViewDL" colspan="6"><h2>NỘI DUNG HỢP ĐỒNG</h2></td>
+    <td colspan="6"><h2>NỘI DUNG HỢP ĐỒNG</h2></td>
 </tr>
 <tr>
     <td colspan="6">
@@ -267,7 +270,7 @@
 <div class="hopdongdichvu">
     <table class="tabForm" cellpadding="0" cellspacing="0" border="0" width="100%">
         <tr>
-            <td colspan="4" class="tabDetailViewDL"><h1>GIÁ TRỊ HỢP ĐỒNG</h1></td>
+            <td colspan="4"><h1>GIÁ TRỊ HỢP ĐỒNG</h1></td>
         </tr>
         <tr>
             <td class="tabDetailViewDL"> Giá tour trọn gói</td>
@@ -338,7 +341,7 @@
     </table>
     <table class="tabDetailView" cellpadding="0" cellspacing="0" border="0" width="100%">
         <tr>
-            <td class="tabDetailViewDL" colspan="4"><h1>ĐIỀU KHOẢN VỀ THANH TOÁN</h1></td>
+            <td colspan="4"><h1>ĐIỀU KHOẢN VỀ THANH TOÁN</h1></td>
         </tr>
         <tr> 
             <td class="tabDetailViewDL">Số đợt thanh toán :{$SOLANTHANHTOAN}</td>
@@ -384,7 +387,11 @@
     <tr>
         <td class="tabDetailViewDL" width="20%">{$MOD.LBL_ASSIGNED_TO_NAME} </td>
         <td class="tabDetailViewDF">{$ASSIGNED_USER_NAME} </td>
-        <td class="tabDetailViewDL">&nbsp;</td>
-        <td class="tabDetailViewDF">&nbsp;</td>
+        <td class="tabDetailViewDL">
+              Template :  
+        </td>
+        <td class="tabDetailViewDF">
+               <a href="index.php?module=AOS_PDF_Templates&action=DetailView&record={$template_ddown_c_id}" target="_blank">{$template_ddown_c_name}</a>
+        </td>
     </tr>
 </table>

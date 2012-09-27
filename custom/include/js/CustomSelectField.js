@@ -38,7 +38,7 @@ $(document).ready(function(){
         var moduleName = param[1].substr(7,param[1].length - 7);
         var fields = param[2].substr(7,param[2].length - 7);
         var inputs = param[3].substr(7,param[3].length - 7);
-        var filterURLParams = '';
+        
         // Chuan bi param cho Filter
         if (currentInput.attr('filter') != null){
             var data_filter = currentInput.attr('filter').split('|');
@@ -48,7 +48,7 @@ $(document).ready(function(){
             
             var filterFieldsArray = filterFields.split(',');
             var filterInputsArray = filterInputs.split(',');
-            var filterURLParams = generateURLParams(filterFieldsArray, filterInputsArray);
+            var filterURLParams = generateURLParams(filterFieldsArray, filterInputsArray, endNum);
         }
         
         // Form name
@@ -67,7 +67,7 @@ $(document).ready(function(){
                     var field_to_input_array = generateObjectArray(fieldsArray, inputsArray, "");
                     
                     var data_select = 'Module='+moduleName+'|Fields='+fields+'|'+'Inputs='+input.join(',');
-                    var data_filter = filterURLParams;
+                    //var data_filter = filterURLParams;
                     $('<button class=\'button '+btnClass+'\' data-select="'+data_select+'" data-filter="'+data_filter+'" onclick=\'open_popup("'+moduleName+'", 600, 400, "'+filterURLParams+'", true, false, {"call_back_function":"set_return","form_name":"'+formName+'","field_to_name_array":'+field_to_input_array+'}, "single", true); return false;\' style=\'margin-left: 3px;\'><img src=\'themes/default/images/id-ff-select.png\'></button>').insertAfter($(this));
                 }else{
                     var clearInputss = "";
@@ -119,7 +119,7 @@ $(document).ready(function(){
                 }
             }
         }
-    }
+    }                             
      
     //$('.select').each(generateButton);
     
@@ -133,10 +133,10 @@ $(document).ready(function(){
     }
         
     // Tao Filter URL Params
-    function generateURLParams(fieldArray, inputArray){
+    function generateURLParams(fieldArray, inputArray, endNum){
         var result = '';
         for (i = 0; i < fieldArray.length; i++){
-            var value = $('#'+inputArray[i]).val();
+            var value = $('#'+inputArray[i]+endNum).val();
             result+='&'+fieldArray[i]+'='+value;
         }
         return result;

@@ -8,7 +8,7 @@ $dictionary["airlinestickets_accounts"] = array (
     'airlinestickets_accounts' => 
     array (
       'lhs_module' => 'AirlinesTickets',
-      'lhs_table' => 'AirlinesTickets',
+      'lhs_table' => 'airlinestickets',
       'lhs_key' => 'id',
       'rhs_module' => 'Accounts',
       'rhs_table' => 'accounts',

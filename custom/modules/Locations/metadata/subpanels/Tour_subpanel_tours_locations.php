@@ -1,5 +1,5 @@
 <?php
-// created: 2012-03-19 09:10:56
+// created: 2012-09-27 17:57:40
 $subpanel_layout['list_fields'] = array (
   'name' => 
   array (
@@ -19,6 +19,14 @@ $subpanel_layout['list_fields'] = array (
   array (
     'type' => 'varchar',
     'vname' => 'LBL_ADDRESS',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'destinationlocations_name' => 
+  array (
+    'type' => 'relate',
+    'link' => 'destinations_locations',
+    'vname' => 'LBL_DESTINATIONS_LOCATIONS_FROM_DESTINATIONS_TITLE',
     'width' => '10%',
     'default' => true,
   ),

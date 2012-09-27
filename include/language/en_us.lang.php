@@ -1343,6 +1343,7 @@ $app_list_strings = array(
 
     'tinhtranghonnhan_list' =>
     array(
+        '' => '',
         'docthan' => 'Độc thân',
         'cogiadinh' => 'Có gia đình',
         'lythan' => 'Ly thân',

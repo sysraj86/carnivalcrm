@@ -138,5 +138,7 @@ $mod_strings = array (
   'LBL_TUONGDUONG'       => 'Tương đương',
   'LBL_DIEUKHOANTHANHTOAN'       => 'Điều Khoản Thanh Toán',
   'LBL_TEMPLATE'       => 'Chọn Mẫu Hợp Đồng',
+  'LBL_TEMPLATE_DDOWN_C'       => 'Mẫu Hợp Đồng',
+  
 );
 ?>

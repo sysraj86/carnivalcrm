@@ -226,6 +226,7 @@ $dictionary['Passports'] = array(
     'options' => 'tinhtranghonnhan_list',
     'studio' => 'visible',
     'dbType' => 'enum',
+    'default' => '',
     'separator' => '',
   ),
   'noisinh' => 
@@ -1431,6 +1432,7 @@ $dictionary['Passports'] = array(
     'options' => 'tinhtranghonnhan_list',
     'studio' => 'visible',
     'dbType' => 'enum',
+    'default' => '',
     'separator' => '',
   ),
   'diachithannhan' => 

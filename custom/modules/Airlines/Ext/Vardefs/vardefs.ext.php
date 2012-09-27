@@ -47,17 +47,6 @@ $dictionary["Airline"]["fields"]["airlines_activities_tasks"] = array (
 );
 
 
-// created: 2011-09-06 14:37:07
-$dictionary["Airline"]["fields"]["airlines_ailinestickets_1"] = array (
-  'name' => 'airlines_ailinestickets_1',
-  'type' => 'link',
-  'relationship' => 'airlines_airlinestickets_1',
-  'source' => 'non-db',
-  'side' => 'right',
-  'vname' => 'LBL_AIRLINES_AIRLINESTICKETS_1_FROM_AIRLINESTICKETS_TITLE',
-);
-
-
 // created: 2011-09-06 15:05:38
 $dictionary["Airline"]["fields"]["airlines_airlinestickets"] = array (
   'name' => 'airlines_airlinestickets',

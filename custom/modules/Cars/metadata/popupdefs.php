@@ -51,7 +51,7 @@ $popupMeta = array (
   ),
   'transports_cars_name' => 
   array (
-    'type' => 'relate',
+    'type' => 'varchar',
     'link' => 'transports_cars',
     'label' => 'LBL_TRANSPORTS_CARS_FROM_TRANSPORTS_TITLE',
     'width' => '10%',
@@ -82,17 +82,30 @@ $popupMeta = array (
   ),
 ),
     'listviewdefs' => array (
-
   'NUMBER_PLATES' => 
   array (
     'width' => '7%',
     'label' => 'LBL_NUMBER_PLATES',
     'default' => true,
     'name' => 'number_plates',
-    'link' =>'true',
+    'link' => 'true',
   ),
-  
-    'NUMOFSEAT' => 
+  'DRIVER_NAME' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_NAME',
+    'width' => '10%',
+    'default' => true,
+    'name' => 'driver_name',
+  ),
+  'PHONE' => 
+  array (
+    'width' => '7%',
+    'label' => 'LBL_PHONE',
+    'default' => true,
+    'name' => 'phone',
+  ),
+  'NUMOFSEAT' => 
   array (
     'type' => 'int',
     'label' => 'LBL_NUMOFSEAT',
@@ -100,15 +113,23 @@ $popupMeta = array (
     'default' => true,
     'name' => 'numofseat',
   ),
-  
-  'TRANSPORTS_CARS_NAME' => 
+  'TRANSPORT_NAME' => 
   array (
     'type' => 'relate',
-    'link' => 'transports_cars',
-    'label' => 'LBL_TRANSPORTS_CARS_FROM_TRANSPORTS_TITLE',
-    'width' => '15%',
+    'studio' => 'visible',
+    'label' => 'LBL_TRANSPORT_NAME',
+    'width' => '10%',
     'default' => true,
-    'name' => 'transports_cars_name',
+    'link' => true,
+    'name' => 'transport_name',
+  ),
+  'DATE_MODIFIED' => 
+  array (
+    'type' => 'datetime',
+    'label' => 'LBL_DATE_MODIFIED',
+    'width' => '10%',
+    'default' => true,
+    'name' => 'date_modified',
   ),
   'AREA' => 
   array (

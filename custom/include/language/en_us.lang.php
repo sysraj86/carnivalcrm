@@ -18,7 +18,6 @@ $app_list_strings['moduleList']['AOS_PDF_Templates'] = 'Templates';
 $app_list_strings['moduleList']['AOS_Contracts'] = 'Contracts2';
 $app_strings['LBL_GROUPTAB7_1317624069'] = 'Accounting';
 $app_strings['LBL_GROUPTAB7_1317697871'] = 'Board - Manager';
-$app_list_strings['moduleList']['AirlinesTickets'] = 'Airline Tickets';
 $app_list_strings['moduleList']['AirlinesTicketsLists'] = 'Airline Ticket Lists';
 $app_list_strings['moduleList']['TransportBookings'] = 'Transport Bookings';
 $app_list_strings['moduleList']['PassportList'] = 'Visa Lists';
@@ -902,3 +901,10 @@ $GLOBALS['app_list_strings']['destination_region_dom']=array (
     'duyenhainamtrungbo' => 'Duyên Hải Nam Trung Bộ',
     'dongbangsonghong'  => 'Đồng Bằng Sông Hồng',
 );
+$GLOBALS['app_list_strings']['type_air_train_dom']=array (
+    ''              => '',
+    'transport'       => 'Transport',
+    'air'     => 'Air',
+);
+
+$app_list_strings['moduleList']['AirlinesTickets']='Air/Train Booking';

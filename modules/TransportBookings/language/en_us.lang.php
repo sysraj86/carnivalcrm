@@ -48,6 +48,7 @@ $mod_strings = array (
   'LBL_DESCRIPTION' => 'Description',
   'LBL_DELETED' => 'Deleted',
   'LBL_NAME' => 'Transport Bookings name',
+  'LBL_NAME_FIRST' => 'Transport Bookings To',
   'LBL_CODE'    => 'Code',
   'LBL_TRANSPORT' => 'To',
   'LBL_ADDRESS' => 'Address',

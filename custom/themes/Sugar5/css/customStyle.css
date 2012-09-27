@@ -1,0 +1,106 @@
+  
+ /****************************Lê Gia Thành****************************/
+ 
+ /* Tạo màu cho các record của ListView cho các module Booking       */
+
+ .near_deadline{
+     background-color: #FFFF00;
+ }
+ .after_deadline{
+     background-color: #D3D3D3;
+ }
+ .deadline{
+     background-color: #FF0000;
+ }
+ .confirm{
+     background-color: #9ACD32;
+ }
+ /********************************************************************/
+ 
+ /* Chỉnh độ rộng của fields potential trong phần search module FITs */
+#Accountsbasic_searchSearchForm select[name^=potential_basic]{
+     width: 170px !important;
+ }
+#Accountsbasic_searchSearchForm select[name^=potential_advanced]{
+     width: 170px !important;
+ }
+ /********************************************************************/
+ 
+ /* Custom description text. Added by DuyHieu 25/12/2011*/
+.description_text {
+    font-size: 11px;
+    font-weight: normal;
+    font-style: italic;
+}
+
+/* Custom select and clear data. Added by DuyHieu 25/12/2011 */
+input.selectdata, input.cleardata{
+    width: 32px;
+    height: 18px;
+    text-indent: -999px;
+    margin-left: 3px;
+}
+
+input.selectdata:hover, input.cleardata:hover{
+    background-color: #4E8CCF !important;
+}
+
+input.selectdata{
+    background: #ECF1F4 url(../../../themes/default/images/id-ff-select.png) 50% 50% no-repeat !important;
+}
+
+input.cleardata{
+    background: #ECF1F4 url(../../../themes/default/images/id-ff-clear.png) 50% 50% no-repeat !important;
+}
+
+/* Custom panel title */
+.panel_title{
+    padding-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.panel_body{
+    margin-left: 10px;
+    color: #444444;
+}
+
+/* Header style for data table */
+.table_header td{
+    border-bottom: 1px solid #CBDAE6;    
+}
+
+/* No-Wrap text for td */
+.noWrap{
+    white-space: nowrap;
+}
+#birthdayReminder{
+    background:#f3f3f3;
+    border:1px solid #ccc;
+    width:200px;
+    height:100px;
+    position: fixed;
+    bottom:-127px;
+    right:0;
+      
+    transition: bottom 1s ease-out;
+    -moz-transition:bottom 1s ease-out;
+    -webkit-transition:bottom 1s ease-out;
+}
+#birthdayReminder #toggleClose{
+    display:block;
+    background:#333;
+    position:absolute;
+    top:-25px;
+    left: 0;
+    width:50px;
+    height:30px;
+    
+}
+.birthdayReminderHide{
+    bottom:-102px !important;
+}
+div#birthdayReminder div#dataList{
+    height: 90px;
+    overflow: auto !important;
+}

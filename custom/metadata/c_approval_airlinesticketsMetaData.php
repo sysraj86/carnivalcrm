@@ -7,7 +7,7 @@ $dictionary["c_approval_airlinestickets"] = array (
     'c_approval_airlinestickets' => 
     array (
       'lhs_module' => 'AirlinesTickets',
-      'lhs_table' => 'AirlinesTickets',
+      'lhs_table' => 'airlinestickets',
       'lhs_key' => 'id',
       'rhs_module' => 'C_Approval',
       'rhs_table' => 'c_approval',

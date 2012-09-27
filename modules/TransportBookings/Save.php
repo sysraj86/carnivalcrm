@@ -35,7 +35,7 @@ foreach($focus->additional_column_fields as $field){
     }
 }
 
-$focus->name = $mod_strings["LBL_NAME_FIRST"].'_'.$focus->transports_tbookings_name;
+$focus->name = $mod_strings["LBL_NAME_FIRST"].' '.$focus->transports_tbookings_name;
 $focus->save($check_notify); 
 
 $return_id = $focus->id; 

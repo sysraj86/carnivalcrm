@@ -81,7 +81,7 @@ class  GroupProgram extends SugarBean
                         <td class="dataLabel" width="26.4%">Guide :</td>
                         <td class="dataField">
                         <input type="text" name="guide_name[]" id="guide_name" size="25" value="' . $row['guide_name'] . '"/>
-                        <input type="text" name="guide_phone[]"  id="guide_phone" value="' . $row['guide_phone'] . '" />
+                        <input type="text" name="guide_phone[]"  id="guide_phone" data="Button=cleardata,selectdata|Module=TravelGuides|Fields=id,name,phone|Inputs=guide_id,guide_name,guide_phone" class="select" value="' . $row['guide_phone'] . '" />
                         <input type="hidden" name="guide_id[]" id="guide_id" value="' . $row['guide_id'] . '"/>
                         <input type="hidden" name="guide_record[]" id="guide_record" value="' . $row['id'] . '"/>
                         <input type="hidden" name="deleted[]" id="deleted" class="deleted" value="0"/>
@@ -112,7 +112,7 @@ class  GroupProgram extends SugarBean
                         <td class="dataLabel" width="26.4%">' . $mod['LBL_TEAM_LEADER'] . ' :</td>
                         <td class="dataField">
                         <input type="text" name="team_leader[]" id="team_leader" size="25" value="' . $row['team_leader'] . '"/>
-                        <input type="text" name="leader_phone[]"  id="leader_phone" value="' . $row['leader_phone'] . '" />
+                        <input type="text" name="leader_phone[]"  id="leader_phone" data="Button=cleardata,selectdata|Module=TravelGuides|Fields=id,name,phone|Inputs=leader_id,team_leader,leader_phone" class="select" value="' . $row['leader_phone'] . '" />
                         <input type="hidden" name="leader_id[]" id="leader_id" value="' . $row['leader_id'] . '"/>
                         <input type="hidden" name="team_leader_id[]" id="team_leader_id" value="' . $row['id'] . '"/>
                         <input type="hidden" name="deleted[]" id="deleted" class="deleted" value="0"/>
@@ -189,12 +189,12 @@ class  GroupProgram extends SugarBean
             $html .= '<td>'.$mod['LBL_DRIVER'].':'.'<input type="text" id="driver" name="driver[]" value="' . $row['driver'] . '"/></td>';
             $html .= '<td>';
             $html .= $mod['LBL_DRIVER_PHONE'].':'.'<input type="text" id="driver_phone" name="driver_phone[]" value="' . $row['driver_phone'] . '"/>';
-            $html .= '<input type="hidden" id="pick_up_car_id" name="pick_up_car_id[]" value="' . $row['pick_up_car_id'] . '"/>';
-            $html .= '<input type="hidden" id="pick_id" name="pick_id[]" value="' . $row['id'] . '"/> ';
-            $html .= '<input type="hidden" id="deleted" name="deleted[]" class="deleted" value="0"/>';
+
             $html .= '</td>';
             $html .= '<td>';
-            $html .= '<input title="{$APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{$APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex=\'2\' class="button pick_up_car" value=\'Select\' name="bnt_pick_up_car" id="bnt_pick_up_car[]"/>';
+            $html .= '<input type="hidden" id="pick_up_car_id" name="pick_up_car_id[]" data="Button=cleardata,selectdata|Module=Cars|Fields=id,number_plates,driver_name,phone|Inputs=pick_up_car_id,number_plates,driver,driver_phone" class="select" value="' . $row['pick_up_car_id'] . '"/>';
+            $html .= '<input type="hidden" id="pick_id" name="pick_id[]" value="' . $row['id'] . '"/> ';
+            $html .= '<input type="hidden" id="deleted" name="deleted[]" class="deleted" value="0"/>';
             $html .= '</td>';
             $html .= '<td>';
             $html .= '<input type="button" class="btnAddRow"  value="Add Row"/>';
@@ -242,12 +242,12 @@ class  GroupProgram extends SugarBean
             $html .= '<td>'.$mod['LBL_DRIVER'].':'.'<input type="text" id="driver_sight" name="driver_sight[]" value="' . $row['driver_sight'] . '"/></td>';
             $html .= '<td>';
             $html .= $mod['LBL_DRIVER_PHONE'].':'.'<input type="text" id="driver_phone_sight" name="driver_phone_sight[]" value="' . $row['driver_phone_sight'] . '"/> ';
-            $html .= '<input type="hidden" id="sightseeing_id" name="sightseeing_id[]" value="' . $row['sightseeing_id'] . '"> ';
-            $html .= '<input type="hidden" id="deleted" name="deleted[]"  class="deleted" value="0"> ';
-            $html .= '<input type="hidden" id="sightseeing_car_id" name="sightseeing_car_id[]" value="' . $row['id'] . '"/> ';
+            
             $html .= '</td>';
             $html .= '<td>';
-            $html .= '<input title="{$APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{$APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex=\'2\' class="button sightseeing_btn" value=\'Select\' name="sightseeing_btn" id="sightseeing_btn[]"/>';
+            $html .= '<input type="hidden" id="sightseeing_id" name="sightseeing_id[]" value="' . $row['sightseeing_id'] . '"> ';
+            $html .= '<input type="hidden" id="deleted" name="deleted[]"  class="deleted" value="0"> ';
+            $html .= '<input type="hidden" id="sightseeing_car_id" name="sightseeing_car_id[]" data="Button=cleardata,selectdata|Module=Cars|Fields=id,number_plates,driver_name,phone|Inputs=sightseeing_car_id,number_plates_sight,driver_sight,driver_phone_sight" class="select" value="' . $row['id'] . '"/> ';
             $html .= '</td>';
             $html .= '<td>';
             $html .= '<input type="button" class="btnAddRow"  value="Add Row"/>';
@@ -357,18 +357,16 @@ class  GroupProgram extends SugarBean
             $html .= '<td class="dataField">';
             $html .= '<input type="text" name="contact_name[]" id="contact_name" value="' . $row['contact'] . '" size="30"/>';
             $html .= '<input type="text" name="contact_phone[]" id="contact_phone" value="' . $row['contact_phone'] . '" size="30"/>';
-            $html .= '<input type="hidden" name="contact_id[]" id="contact_id" value="' . $row['contact_id'] . '"/>';
-            $html .= '<input title="{$APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{$APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex="2" class="button contact" value="Select" name="btn_contact[]" id="btn_contact" >';
+            $html .= '<input type="hidden" name="contact_id[]" id="contact_id" data="Button=cleardata,selectdata|Module=Contacts|Fields=id,name,phone_mobile|Inputs=contact_id,contact_name,contact_phone" class="select" value="' . $row['contact_id'] . '"/>';
             $html .= '</td> ';
             $html .= '</tr>';
             $html .= '<tr>';
             $html .= '<td class="dataLabel">Content</td>';
-            $html .= '<td class="dataField"><textarea cols="90" rows="6" id="content" name="content[]">' . $row['content'] . '</textarea>';
+            $html .= '<td class="dataField"><textarea data="Button=cleardata,selectdata|Module=FoodMenu|Fields=id,description|Inputs=content_id,content" class="select" cols="90" rows="6" id="content" name="content[]">' . $row['content'] . '</textarea>';
             $html .= '<input type="hidden" name="content_id[]" id="content_id" value="' . $row['content_id'] . '" />
                                     <input type="hidden" name="deleted[]" class="deleted" id="deleted" value="0" />
                                     <input type="hidden" name="groupprogramline_id[]" id="groupprogramline_id" value="' . $row['id'] . '" />';
-            $html .= '<input title="Select [Alt+T]" accessKey="T" type="button" class="button foodmenu" value="' . $mod['LBL_SELECTMENU'] . '" name="btn_foodmenu[]" id="btn_foodmenu"</td> ';
-            $html .= '</tr>';
+            $html .= '</td></tr>';
             $html .= '</table>';
             $html .= '</td>';
             $html .= '<td>';

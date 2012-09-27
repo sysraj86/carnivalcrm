@@ -404,6 +404,7 @@
         'options' => 'template_ddown_c_list',
         'studio' => 'visible',
         'isMultiSelect' => true,
+        'required' => true,
       ),
       
        'type' => array(

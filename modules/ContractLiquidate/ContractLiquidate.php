@@ -157,7 +157,7 @@
            $html = '';
            while($row = $this->db->fetchByAssoc($result)){
                $html.='<tr>
-                <td class="td_row"><p align="right">'.$row['contract_value_name'].'</p></td>
+                <td class="td_row"><p align="center">'.$row['contract_value_name'].'</p></td>
                 <td class="td_row"><p align="right">'.number_format($row['contract_dongia_kehoach'],'1','.','').'</p></td>
                 <td class="td_row"><p align="right">'.$row['contract_soluong_kehoach'].'</p></td>
                 <td class="td_row"><p align="right">'.number_format($row['contract_thanhtien_kehoach'],'1','.','').'</p></td>
@@ -195,7 +195,7 @@
            $html = '';
            while($row = $this->db->fetchByAssoc($result)){
                $html.='<tr>
-                <td class="td_row"><p align="right">'.$row['phatsinhgiam_name'].'</p></td>
+                <td class="td_row"><p align="center">'.$row['phatsinhgiam_name'].'</p></td>
                 <td class="td_row"><p align="right">'.number_format($row['phatsinhgiam_dongia_kehoach'],'1','.','').'</p></td>
                 <td class="td_row"><p align="right">'.$row['phatsinhgiam_soluong_kehoach'].'</p></td>
                 <td class="td_row"><p align="right">'.number_format($row['phatsinhgiam_thanhtien_kehoach'],'1','.','').'</p></td>

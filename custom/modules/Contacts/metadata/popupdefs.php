@@ -161,6 +161,7 @@ $popupMeta = array (
     'label' => 'LBL_GENDER',
     'width' => '10%',
     'default' => true,
+    'name' => 'gender',
   ),
   'BIRTHDATE' => 
   array (
@@ -168,6 +169,7 @@ $popupMeta = array (
     'label' => 'LBL_BIRTHDATE',
     'width' => '10%',
     'default' => true,
+    'name' => 'birthdate',
   ),
   'PHONE_MOBILE' => 
   array (

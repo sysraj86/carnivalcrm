@@ -63,8 +63,13 @@
                 $this->dv->ss->assign("SALUTATION",'');
             }
             $this->dv->ss->assign("DAIDIENBENA", $this->bean->daidienbena);
+            if(!empty($this->bean->position_a))  {
+                $this->dv->ss->assign("POSITION_A", translate('position_dom','', $this->bean->position_a));     
+            }
+            else{
+                $this->dv->ss->assign("POSITION_A","" );
+            }
             $this->dv->ss->assign("DAIDIENBENB", $this->bean->daidienbenb);
-            $this->dv->ss->assign("POSITION_A", translate('position_dom','',$this->bean->position_a));
             $this->dv->ss->assign("ADDRESS_A", $this->bean->address_a);
             $this->dv->ss->assign("PHONE_A", $this->bean->phone_a);
             $this->dv->ss->assign("PHONE_A", $this->bean->phone_a);
@@ -131,6 +136,7 @@
             $this->dv->ss->assign("NGUOIDAIDIENBENA", $this->bean->nguoidaidienbena);
             $this->dv->ss->assign("TENSANBAY", $this->bean->tensanbay);
             $this->dv->ss->assign("TRANSPORTCONTRACT_LINE", $this->bean->get_transportcontract_detailview());
+            $this->dv->ss->assign("SOTAIKHOANBENB", $this->bean->sotaikhoanbenb);
 
             parent::display();
         }

@@ -116,8 +116,16 @@
         'source'=>'non-db',
             'vname'=>'LBL_CALLS',
       ),
+      
+     'area' => array(
+        'name'  => 'area',
+        'vname' => 'LBL_AREA',
+        'type'  => 'enum',
+        'options'   => 'khachsan_area',
+      ),
     
     ),
+      
     
     'indices' => array (
         array('name' =>'idx_transport_id_del', 'type' =>'index', 'fields'=>array('id', 'deleted')),

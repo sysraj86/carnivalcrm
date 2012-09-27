@@ -18,7 +18,8 @@ class AOS_PDF_TemplatesViewEdit extends ViewEdit {
 	function displayJSInclude(){
 		echo '
 			<script type="text/javascript" language="Javascript" src="include/JSON.js"></script>
-			<script type="text/javascript" language="Javascript" src="include/javascript/tiny_mce/tiny_mce.js"></script>
+            <script type="text/javascript" language="Javascript" src="include/javascript/tiny_mce/tiny_mce.js"></script>
+			<script type="text/javascript" language="Javascript" src="modules/AOS_PDF_Templates/js/loadPage.js"></script>
 			<link type="text/css" href="include/javascript/tiny_mce/advanced/css/editor_ui.css" />
 			<script type="text/javascript" language="Javascript">
 			
@@ -133,25 +134,28 @@ class AOS_PDF_TemplatesViewEdit extends ViewEdit {
 
 			function insertSample(smpl){
 				if(smpl != 0){
-				var body = tinyMCE.getInstanceById("description");
-				var header = tinyMCE.getInstanceById("pdfheader");
-				var footer = tinyMCE.getInstanceById("pdffooter");
-				var cnf = true;
-				if(body.getContent() != \'\' || header.getContent() != \'\' || footer.getContent() != \'\'){
-					cnf=confirm(\'Warning this will overwrite you current Work\');
-				}
-				if(cnf){
-				smpl = eval(smpl);
-				setType(smpl[0]);
-				body.setContent(smpl[1]);
-				header.setContent(smpl[2]);
-				footer.setContent(smpl[3]);
-				selected = document.getElementById(\'sample\').options.selectedIndex;
-				}
-				else{
-				document.getElementById(\'sample\').options.selectedIndex =selected;
-				}
-			}
+				    var body = tinyMCE.getInstanceById("description");
+				    var header = tinyMCE.getInstanceById("pdfheader");
+				    var footer = tinyMCE.getInstanceById("pdffooter");
+				    var cnf = true;
+				    if(body.getContent() != \'\' || header.getContent() != \'\' || footer.getContent() != \'\'){
+					    cnf=confirm(\'Warning this will overwrite you current Work\');
+				    }
+				    if(cnf){
+				    smpl = eval(smpl);
+				    setType(smpl[0]);
+				    body.setContent(smpl[1]);
+				    header.setContent(smpl[2]);
+				    footer.setContent(smpl[3]);
+				    selected = document.getElementById(\'sample\').options.selectedIndex;
+				    }
+				    else{
+				    document.getElementById(\'sample\').options.selectedIndex =selected;
+				    }
+			    }else{
+                    var body = tinyMCE.getInstanceById("description");
+                    body.setContent("");
+                }
 		}
 			</script>';
 	}
@@ -443,7 +447,7 @@ class AOS_PDF_TemplatesViewEdit extends ViewEdit {
 		<select name='variable_name' id='variable_name' tabindex="50" onchange="showVariable(this.options[this.selectedIndex].value);">
 			$var_options
 		</select>
-		<input type="text" size="30" tabindex="60" name="variable_text" id="variable_text" />
+		<input type="text" size="30" tabindex="60" name="variable_text" readonly id="variable_text" />
 		<input type='button' tabindex="70" onclick='insert_variable(document.EditView.variable_text.value);' class='button' value='Insert'>
 		<script type="text/javascript">
 			var accountOptions = "$account_options";
