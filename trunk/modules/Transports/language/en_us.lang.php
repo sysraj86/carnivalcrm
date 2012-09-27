@@ -74,7 +74,7 @@ $mod_strings = array (
   'LBL_PHONE'   => 'Phone',    
   'LBL_TYPE'    => 'Type',
   'LBL_TRANSPORT_CODE'  => 'Code',
-  'LBL_CONTRACTS_SUBPANEL_TITLE' => 'Contracts'
-
+  'LBL_CONTRACTS_SUBPANEL_TITLE' => 'Contracts',
+  'LBL_AREA'    => 'Area',
 );
 ?>

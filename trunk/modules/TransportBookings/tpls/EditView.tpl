@@ -33,6 +33,7 @@
  <fieldset>
  <table cellpadding="0" cellspacing="0" width="100%" class="tabForm">
  <legend><h1>Overview Information</h1></legend>
+     
      <tr>
          <td class="dataLabel">{$MOD.LBL_TRANSPORT} :</td>
          <td class="dataField">

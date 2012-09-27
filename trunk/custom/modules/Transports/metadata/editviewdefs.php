@@ -24,6 +24,7 @@ array (
           'field' => '30',
         ),
       ),
+      'useTabs' => false,
     ),
     'panels' => 
     array (
@@ -32,8 +33,14 @@ array (
         0 => 
         array (
           0 => 'name',
+          1 => 'type',
         ),
         1 => 
+        array (
+          0 => 'phone',
+          1 => 'email1',
+        ),
+        2 => 
         array (
           0 => 
           array (
@@ -45,38 +52,26 @@ array (
               'row' => 3,
             ),
           ),
-          1 => 'LBL_ADDRESS',
-          2 => 'LBL_ADDRESS',
-        ),
-        2 => 
-        array (
-          0 => 'type',
+          1 => 
+          array (
+            'name' => 'countries_transports_name',
+          ),
         ),
         3 => 
         array (
-          0 => 'phone',
-        ),
-        4 => 
-        array (
-          0 => 'email1',
-        ),
-        5 => 
-        array (
-          0 => 'description',
-        ),
-        6 => 
-        array (
           0 => 
+          array (
+            'name' => 'area',
+            'label' => 'LBL_AREA',
+          ),
+          1 => 
           array (
             'name' => 'destinationransports_name',
           ),
         ),
-        7 => 
+        4 => 
         array (
-          0 => 
-          array (
-            'name' => 'countries_transports_name',
-          ),
+          0 => 'description',
           1 => 'assigned_user_name',
         ),
       ),

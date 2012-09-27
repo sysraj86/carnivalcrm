@@ -141,6 +141,8 @@
     $xtpl->assign("NGUOIDAIDIENBENB", $focus->nguoidaidienbenb);
     $xtpl->assign("NGUOIDAIDIENBENA", $focus->nguoidaidienbena);
     $xtpl->assign("TENSANBAY", $focus->tensanbay);
+    $xtpl->assign("template_ddown_c_id", $focus->template_ddown_c);
+    $xtpl->assign("template_ddown_c_name", translate('template_ddown_c_list','',$focus->template_ddown_c));
     
     
     

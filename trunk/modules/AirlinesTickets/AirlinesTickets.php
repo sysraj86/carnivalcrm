@@ -6,7 +6,7 @@
     var $new_schema = true;
     var $module_dir = 'AirlinesTickets';
     var $object_name = 'AirlinesTickets';
-    var $table_name = 'AirlinesTickets';
+    var $table_name = 'airlinestickets';
     var $importable = true; 
 
     var $id;

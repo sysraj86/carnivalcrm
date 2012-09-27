@@ -44,69 +44,7 @@ $dictionary["AirlinesTickets"]["fields"]["airlinestickets_accounts"] = array (
 );
 
 
-// created: 2011-09-01 14:52:59
-$dictionary["AirlinesTickets"]["fields"]["airlinesticlinestickets_1"] = array (
-  'name' => 'airlinesticlinestickets_1',
-  'type' => 'link',
-  'relationship' => 'airlinestickets_airlinestickets_1',
-  'source' => 'non-db',
-  'vname' => 'LBL_AIRLINESTICKETS_AIRLINESTICKETS_1_FROM_AIRLINESTICKETS_L_TITLE',
-);
-$dictionary["AirlinesTickets"]["fields"]["airlinestictickets_1_name"] = array (
-  'name' => 'airlinestictickets_1_name',
-  'type' => 'relate',
-  'source' => 'non-db',
-  'vname' => 'LBL_AIRLINESTICKETS_AIRLINESTICKETS_1_FROM_AIRLINESTICKETS_L_TITLE',
-  'save' => true,
-  'id_name' => 'airlinesti765dtickets_ida',
-  'link' => 'airlinesticlinestickets_1',
-  'table' => 'airlines_tickets',
-  'module' => 'AirlinesTickets',
-  'rname' => 'name',
-);
-$dictionary["AirlinesTickets"]["fields"]["airlinesti765dtickets_ida"] = array (
-  'name' => 'airlinesti765dtickets_ida',
-  'type' => 'link',
-  'relationship' => 'airlinestickets_airlinestickets_1',
-  'source' => 'non-db',
-  'reportable' => false,
-  'side' => 'right',
-  'vname' => 'LBL_AIRLINESTICKETS_AIRLINESTICKETS_1_FROM_AIRLINESTICKETS_R_TITLE',
-);
-
-
-// created: 2011-09-01 14:59:03
-$dictionary["AirlinesTickets"]["fields"]["airlinesticlinestickets_2"] = array (
-  'name' => 'airlinesticlinestickets_2',
-  'type' => 'link',
-  'relationship' => 'airlinestickets_airlinestickets_2',
-  'source' => 'non-db',
-  'vname' => 'LBL_AIRLINESTICKETS_AIRLINESTICKETS_2_FROM_AIRLINESTICKETS_L_TITLE',
-);
-$dictionary["AirlinesTickets"]["fields"]["airlinestictickets_2_name"] = array (
-  'name' => 'airlinestictickets_2_name',
-  'type' => 'relate',
-  'source' => 'non-db',
-  'vname' => 'LBL_AIRLINESTICKETS_AIRLINESTICKETS_2_FROM_AIRLINESTICKETS_L_TITLE',
-  'save' => true,
-  'id_name' => 'airlinestib3f4tickets_ida',
-  'link' => 'airlinesticlinestickets_2',
-  'table' => 'airlines_tickets',
-  'module' => 'AirlinesTickets',
-  'rname' => 'name',
-);
-$dictionary["AirlinesTickets"]["fields"]["airlinestib3f4tickets_ida"] = array (
-  'name' => 'airlinestib3f4tickets_ida',
-  'type' => 'link',
-  'relationship' => 'airlinestickets_airlinestickets_2',
-  'source' => 'non-db',
-  'reportable' => false,
-  'side' => 'right',
-  'vname' => 'LBL_AIRLINESTICKETS_AIRLINESTICKETS_2_FROM_AIRLINESTICKETS_R_TITLE',
-);
-
-
-// created: 2011-09-01 14:51:34
+// created: 2012-09-25 18:15:46
 $dictionary["AirlinesTickets"]["fields"]["airlinesticirlinestickets"] = array (
   'name' => 'airlinesticirlinestickets',
   'type' => 'link',
@@ -114,25 +52,11 @@ $dictionary["AirlinesTickets"]["fields"]["airlinesticirlinestickets"] = array (
   'source' => 'non-db',
   'vname' => 'LBL_AIRLINESTICKETS_AIRLINESTICKETS_FROM_AIRLINESTICKETS_L_TITLE',
 );
-$dictionary["AirlinesTickets"]["fields"]["airlinesticestickets_name"] = array (
-  'name' => 'airlinesticestickets_name',
-  'type' => 'relate',
-  'source' => 'non-db',
-  'vname' => 'LBL_AIRLINESTICKETS_AIRLINESTICKETS_FROM_AIRLINESTICKETS_L_TITLE',
-  'save' => true,
-  'id_name' => 'airlinesti1265tickets_ida',
-  'link' => 'airlinesticirlinestickets',
-  'table' => 'airlines_tickets',
-  'module' => 'AirlinesTickets',
-  'rname' => 'name',
-);
-$dictionary["AirlinesTickets"]["fields"]["airlinesti1265tickets_ida"] = array (
-  'name' => 'airlinesti1265tickets_ida',
+$dictionary["AirlinesTickets"]["fields"]["airlinesticirlinestickets"] = array (
+  'name' => 'airlinesticirlinestickets',
   'type' => 'link',
   'relationship' => 'airlinestickets_airlinestickets',
   'source' => 'non-db',
-  'reportable' => false,
-  'side' => 'right',
   'vname' => 'LBL_AIRLINESTICKETS_AIRLINESTICKETS_FROM_AIRLINESTICKETS_R_TITLE',
 );
 
@@ -145,37 +69,6 @@ $dictionary["AirlinesTickets"]["fields"]["airlinestickets_fits"] = array (
   'source' => 'non-db',
   'side' => 'right',
   'vname' => 'LBL_AIRLINESTICKETS_FITS_FROM_FITS_TITLE',
-);
-
-
-// created: 2011-09-06 14:37:07
-$dictionary["AirlinesTickets"]["fields"]["airlines_ailinestickets_1"] = array (
-  'name' => 'airlines_ailinestickets_1',
-  'type' => 'link',
-  'relationship' => 'airlines_airlinestickets_1',
-  'source' => 'non-db',
-  'vname' => 'LBL_AIRLINES_AIRLINESTICKETS_1_FROM_AIRLINES_TITLE',
-);
-$dictionary["AirlinesTickets"]["fields"]["airlines_aitickets_1_name"] = array (
-  'name' => 'airlines_aitickets_1_name',
-  'type' => 'relate',
-  'source' => 'non-db',
-  'vname' => 'LBL_AIRLINES_AIRLINESTICKETS_1_FROM_AIRLINES_TITLE',
-  'save' => true,
-  'id_name' => 'airlines_a60edirlines_ida',
-  'link' => 'airlines_ailinestickets_1',
-  'table' => 'airlines',
-  'module' => 'Airlines',
-  'rname' => 'name',
-);
-$dictionary["AirlinesTickets"]["fields"]["airlines_a60edirlines_ida"] = array (
-  'name' => 'airlines_a60edirlines_ida',
-  'type' => 'link',
-  'relationship' => 'airlines_airlinestickets_1',
-  'source' => 'non-db',
-  'reportable' => false,
-  'side' => 'right',
-  'vname' => 'LBL_AIRLINES_AIRLINESTICKETS_1_FROM_AIRLINESTICKETS_TITLE',
 );
 
 
@@ -292,16 +185,6 @@ $dictionary["AirlinesTickets"]["fields"]["groupprogr0fd9rograms_ida"] = array (
 
  
 
-// created: 2012-03-14 15:47:46
-$dictionary["AirlinesTickets"]["fields"]["tours_airlinestickets_1"] = array (
-  'name' => 'tours_airlinestickets_1',
-  'type' => 'link',
-  'relationship' => 'tours_airlinestickets_1',
-  'source' => 'non-db',
-  'vname' => 'LBL_TOURS_AIRLINESTICKETS_1_FROM_TOURS_TITLE',
-);
-
-
 // created: 2011-12-20 09:20:57
 $dictionary["AirlinesTickets"]["fields"]["tours_airlinestickets"] = array (
   'name' => 'tours_airlinestickets',
@@ -332,4 +215,12 @@ $dictionary["AirlinesTickets"]["fields"]["tours_airl9600tstours_ida"] = array (
   'vname' => 'LBL_TOURS_AIRLINESTICKETS_FROM_AIRLINESTICKETS_TITLE',
 );
 
+
+$dictionary["AirlinesTickets"]["fields"]["type_air_train"] = array (
+  'name' => 'type_air_train',
+  'type' => 'enum',
+  'options' => 'type_air_train_dom',
+  'vname' => 'LBL_TYPE_AIR_TRAIN',
+);
+ 
 ?>

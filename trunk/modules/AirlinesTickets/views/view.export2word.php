@@ -70,8 +70,8 @@
             airt.name as name,
             air.name as airline
             FROM 
-            airlinestickets airt  INNER JOIN airlines_ailinestickets_c airairt ON airt.id = airairt.airlines_a1d09tickets_idb
-            INNER JOIN airlines air ON air.id = airairt.airlines_a476cirlines_ida WHERE air.deleted =0  AND airt.deleted =0 AND airairt.deleted =0 and airt.id='".$record."'";
+            airlinestickets airt  LEFT JOIN airlines_ailinestickets_c airairt ON airt.id = airairt.airlines_a1d09tickets_idb AND airairt.deleted =0
+            LEFT JOIN airlines air ON air.id = airairt.airlines_a476cirlines_ida AND air.deleted =0 WHERE airt.deleted =0  AND airt.id='".$record."'";
 
             $result2 = $db->query($sql2);
             $row = $db->fetchByAssoc($result2);

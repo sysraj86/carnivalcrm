@@ -1,0 +1,640 @@
+<?php
+$module_name = 'ContractAppendixs';
+$listViewDefs [$module_name] = 
+array (
+  'NAME' => 
+  array (
+    'width' => '15%',
+    'label' => 'LBL_NAME',
+    'default' => true,
+    'link' => true,
+  ),
+  'NUMBER' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_NUMBER',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'DATE_CONTRACT' => 
+  array (
+    'type' => 'date',
+    'label' => 'LBL_DATE',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'NUMBER_CONTRACT' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_CONTRACT',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'DAIDIENBENA' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_BEN_A',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'DAIDIENBENB_NAME' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_BEN_B_NAME',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'ASSIGNED_USER_NAME' => 
+  array (
+    'width' => '9%',
+    'label' => 'LBL_ASSIGNED_TO_NAME',
+    'module' => 'Employees',
+    'id' => 'ASSIGNED_USER_ID',
+    'default' => true,
+  ),
+  'DATE_OF_CONTRACTS' => 
+  array (
+    'type' => 'date',
+    'label' => 'LBL_DATE_OF_CONTRACTS',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'DATE_ISSUED_GUIDE' => 
+  array (
+    'type' => 'date',
+    'label' => 'LBL_DATE_ISSUED_GUIDE',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'SOTAIKHOANBENB' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_SOTAIKHOANBENB',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'ACCOUNT_NAME_B' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_ACCOUNT_NAME_B',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'BANK_NAME_B' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_BANK_NAME_B',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'GUIDE_INWORD' => 
+  array (
+    'type' => 'text',
+    'label' => 'LBL_GUIDE_INWORD',
+    'sortable' => false,
+    'width' => '10%',
+    'default' => false,
+  ),
+  'CONTRACT_GUIDE_COST' => 
+  array (
+    'type' => 'currency',
+    'label' => 'LBL_CONTRACT_GUIDE_COST',
+    'currency_format' => true,
+    'width' => '10%',
+    'default' => false,
+  ),
+  'NUM_OF_CUS_GUIDE' => 
+  array (
+    'type' => 'int',
+    'label' => 'LBL_NUM_OF_CUS_DATE',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'HOPDONGTHUEXE_INWORD' => 
+  array (
+    'type' => 'text',
+    'label' => 'LBL_HOPDONGTHUEXE_INWORD',
+    'sortable' => false,
+    'width' => '10%',
+    'default' => false,
+  ),
+  'HOPDONGTHUEXE_PERCENT' => 
+  array (
+    'type' => 'double',
+    'label' => 'LBL_HOPDONGXE_PERCENT',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'GIATRIHOPDONGXE' => 
+  array (
+    'type' => 'currency',
+    'label' => 'LBL_GIATRIHOPDONGXE',
+    'currency_format' => true,
+    'width' => '10%',
+    'default' => false,
+  ),
+  'PASSPORT_NO_GUIDE' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_PASSPORT_NO',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'BIRTHDAY' => 
+  array (
+    'type' => 'date',
+    'label' => 'LBL_BIRTHDAY',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'GUIDE_BONUS' => 
+  array (
+    'type' => 'currency',
+    'label' => 'LBL_GUIDE_BONUS',
+    'currency_format' => true,
+    'width' => '10%',
+    'default' => false,
+  ),
+  'GUIDE_CARD_NO' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_GUIDE_CARD_NO',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'GUIDER_TYPE' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_GUIDER_TYPE',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'EXPIRATION_DATE' => 
+  array (
+    'type' => 'date',
+    'label' => 'LBL_EXPIRATION_DATE',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'INWORD' => 
+  array (
+    'type' => 'text',
+    'label' => 'LBL_INWORD',
+    'sortable' => false,
+    'width' => '10%',
+    'default' => false,
+  ),
+  'TOTAL_BONUS' => 
+  array (
+    'type' => 'currency',
+    'label' => 'LBL_TOTAL_BONUS',
+    'currency_format' => true,
+    'width' => '10%',
+    'default' => false,
+  ),
+  'GUIDE_NUM_OF_DATE' => 
+  array (
+    'type' => 'int',
+    'label' => 'LBL_GUIDE_NUM_OF_DATE',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'GUIDE_CURRENCY' => 
+  array (
+    'type' => 'enum',
+    'label' => 'LBL_CURRENCY',
+    'sortable' => false,
+    'width' => '10%',
+    'default' => false,
+  ),
+  'JOURNEY' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_JOURNEY',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'START_DATE_GUIDE' => 
+  array (
+    'type' => 'date',
+    'label' => 'LBL_START_DATE_GUIDE',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'PARENT_TYPE' => 
+  array (
+    'type' => 'parent_type',
+    'label' => 'LBL_CONTRACT_PARENT_TYPE',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'END_DATE_GUIDE' => 
+  array (
+    'type' => 'date',
+    'label' => 'LBL_END_DATE_GUIDE',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'TYPE' => 
+  array (
+    'type' => 'radioenum',
+    'label' => 'LBL_WORKSHEET_TYPE',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'TEMPLATE_DDOWN_C' => 
+  array (
+    'type' => 'multienum',
+    'studio' => 'visible',
+    'label' => 'LBL_TEMPLATE_DDOWN_C',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'TIENTE_VND' => 
+  array (
+    'type' => 'enum',
+    'label' => 'LBL_TIENTE',
+    'sortable' => false,
+    'width' => '10%',
+    'default' => false,
+  ),
+  'TIENTE_USD' => 
+  array (
+    'type' => 'enum',
+    'label' => 'LBL_TIENTE',
+    'sortable' => false,
+    'width' => '10%',
+    'default' => false,
+  ),
+  'TIGIA' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_TIGIA',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'TIENTE' => 
+  array (
+    'type' => 'enum',
+    'label' => 'LBL_TIENTE',
+    'sortable' => false,
+    'width' => '10%',
+    'default' => false,
+  ),
+  'TREPERCENT_1' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'trepercent_1',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'TREPERCENT' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'trepercent',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'NUM_OF_NIGHT' => 
+  array (
+    'type' => 'int',
+    'label' => 'LBL_NUM_OF_NIGHT',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'NUM_OF_DATE' => 
+  array (
+    'type' => 'int',
+    'label' => 'LBL_NUM_OF_DATE',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'TENSANBAY' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'tensanbay',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'NGUOIDAIDIENBENA' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_NGUOIDAIDIENBENA',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'NGUOIDAIDIENBENB' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_NGUOIDAIDIENBENB',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'BANGCHU' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_BANGCHU',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'SOLANTHANHTOAN' => 
+  array (
+    'type' => 'int',
+    'label' => 'LBL_SOLANTHANHTOAN',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'TEN_NGANHANG' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_TEN_NGANHANG',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'SL_KHACH_1' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_SL_KHACH',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'GIA_TOUR_1' => 
+  array (
+    'type' => 'currency',
+    'label' => 'LBL_GIATOUR',
+    'currency_format' => true,
+    'width' => '10%',
+    'default' => false,
+  ),
+  'BAOGOM' => 
+  array (
+    'type' => 'text',
+    'label' => 'LBL_BAOGOM',
+    'sortable' => false,
+    'width' => '10%',
+    'default' => false,
+  ),
+  'KHONGBAOGOM' => 
+  array (
+    'type' => 'text',
+    'label' => 'LBL_KHONGBAOGOM',
+    'sortable' => false,
+    'width' => '10%',
+    'default' => false,
+  ),
+  'TONGTHANHTOAN' => 
+  array (
+    'type' => 'currency',
+    'label' => 'LBL_TONGTHANHTOAN',
+    'currency_format' => true,
+    'width' => '10%',
+    'default' => false,
+  ),
+  'TONGTIEN' => 
+  array (
+    'type' => 'currency',
+    'label' => 'LBL_TONGTIEN',
+    'currency_format' => true,
+    'width' => '10%',
+    'default' => false,
+  ),
+  'SL_KHACH' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_SL_KHACH',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'NAM' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_NAM',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'THANG' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_THANG',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'NGAY' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_NGAY',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'DATE' => 
+  array (
+    'type' => 'date',
+    'label' => 'LBL_DATE',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'END_DATE_CONTRACT' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_END_DATE',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'START_DATE_CONTRACT' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_START_DATE',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'PURPOSE' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_PURPOSE',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'ASSOCIATE' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_ASSOCIATE',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'SALUTATION_B' => 
+  array (
+    'type' => 'enum',
+    'label' => 'LBL_SALUTATION',
+    'sortable' => false,
+    'width' => '10%',
+    'default' => false,
+  ),
+  'SALUTATION_A' => 
+  array (
+    'type' => 'enum',
+    'label' => 'LBL_SALUTATION',
+    'sortable' => false,
+    'width' => '10%',
+    'default' => false,
+  ),
+  'ACCOUNT_USD' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_ACCOUNT_USD',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'ACCOUNT_VND' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_ACCOUNT_VND',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'ACCOUNT_NAME' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_BANK_ACCOUNT_NAME',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'SWIFT_CODE' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_SWIFT_CODE',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'BANK_NAME' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_BANK_ACCOUNT',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'BANK_ADDRESS' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_BANK_ADDRESS',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'PHONE_B' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_PHONE',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'PHONE_A' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_PHONE',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'ADDRESS_B' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_ADDRESS',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'ADDRESS_A' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_ADDRESS',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'POSITION_B' => 
+  array (
+    'type' => 'enum',
+    'label' => 'LBL_POSITION',
+    'sortable' => false,
+    'width' => '10%',
+    'default' => false,
+  ),
+  'POSITION_A' => 
+  array (
+    'type' => 'enum',
+    'label' => 'LBL_POSITON',
+    'sortable' => false,
+    'width' => '10%',
+    'default' => false,
+  ),
+  'MST_BENB' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_TAX',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'MST_BENA' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_TAX',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'DAIDIENBENB' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_BEN_B',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'FAX' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_FAX',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'TOUR' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_TOUR',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'DESCRIPTION' => 
+  array (
+    'type' => 'text',
+    'label' => 'LBL_DESCRIPTION',
+    'sortable' => false,
+    'width' => '10%',
+    'default' => false,
+  ),
+  'CREATED_BY_NAME' => 
+  array (
+    'type' => 'relate',
+    'link' => 'created_by_link',
+    'label' => 'LBL_CREATED',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'MODIFIED_BY_NAME' => 
+  array (
+    'type' => 'relate',
+    'link' => 'modified_user_link',
+    'label' => 'LBL_MODIFIED_NAME',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'DATE_MODIFIED' => 
+  array (
+    'type' => 'datetime',
+    'label' => 'LBL_DATE_MODIFIED',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'DATE_ENTERED' => 
+  array (
+    'type' => 'datetime',
+    'label' => 'LBL_DATE_ENTERED',
+    'width' => '10%',
+    'default' => false,
+  ),
+);
+?>

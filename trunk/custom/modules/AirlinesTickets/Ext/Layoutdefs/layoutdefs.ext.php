@@ -26,63 +26,15 @@ $layout_defs["AirlinesTickets"]["subpanel_setup"]["airlinestickets_accounts"] = 
 );
 
 
-// created: 2011-09-01 14:52:59
-$layout_defs["AirlinesTickets"]["subpanel_setup"]["airlinesti765dtickets_ida"] = array (
-  'order' => 100,
-  'module' => 'AirlinesTickets',
-  'subpanel_name' => 'default',
-  'sort_order' => 'asc',
-  'sort_by' => 'id',
-  'title_key' => 'LBL_AIRLINESTICKETS_AIRLINESTICKETS_1_FROM_AIRLINESTICKETS_R_TITLE',
-  'get_subpanel_data' => 'airlinesti765dtickets_ida',
-  'top_buttons' => 
-  array (
-    0 => 
-    array (
-      'widget_class' => 'SubPanelTopButtonQuickCreate',
-    ),
-    1 => 
-    array (
-      'widget_class' => 'SubPanelTopSelectButton',
-      'mode' => 'MultiSelect',
-    ),
-  ),
-);
-
-
-// created: 2011-09-01 14:59:03
-$layout_defs["AirlinesTickets"]["subpanel_setup"]["airlinestib3f4tickets_ida"] = array (
-  'order' => 100,
-  'module' => 'AirlinesTickets',
-  'subpanel_name' => 'default',
-  'sort_order' => 'asc',
-  'sort_by' => 'id',
-  'title_key' => 'LBL_AIRLINESTICKETS_AIRLINESTICKETS_2_FROM_AIRLINESTICKETS_R_TITLE',
-  'get_subpanel_data' => 'airlinestib3f4tickets_ida',
-  'top_buttons' => 
-  array (
-    0 => 
-    array (
-      'widget_class' => 'SubPanelTopButtonQuickCreate',
-    ),
-    1 => 
-    array (
-      'widget_class' => 'SubPanelTopSelectButton',
-      'mode' => 'MultiSelect',
-    ),
-  ),
-);
-
-
-// created: 2011-09-01 14:51:34
-$layout_defs["AirlinesTickets"]["subpanel_setup"]["airlinesti1265tickets_ida"] = array (
+// created: 2012-09-25 18:15:46
+$layout_defs["AirlinesTickets"]["subpanel_setup"]["airlinesticirlinestickets"] = array (
   'order' => 100,
   'module' => 'AirlinesTickets',
   'subpanel_name' => 'default',
   'sort_order' => 'asc',
   'sort_by' => 'id',
   'title_key' => 'LBL_AIRLINESTICKETS_AIRLINESTICKETS_FROM_AIRLINESTICKETS_R_TITLE',
-  'get_subpanel_data' => 'airlinesti1265tickets_ida',
+  'get_subpanel_data' => 'airlinesticirlinestickets',
   'top_buttons' => 
   array (
     0 => 
@@ -171,30 +123,6 @@ $layout_defs["AirlinesTickets"]["subpanel_setup"]["c_approval_irlinestickets"] =
 
 
 
-// created: 2012-03-14 15:47:46
-$layout_defs["AirlinesTickets"]["subpanel_setup"]["tours_airlinestickets_1"] = array (
-  'order' => 100,
-  'module' => 'Tours',
-  'subpanel_name' => 'default',
-  'sort_order' => 'asc',
-  'sort_by' => 'id',
-  'title_key' => 'LBL_TOURS_AIRLINESTICKETS_1_FROM_TOURS_TITLE',
-  'get_subpanel_data' => 'tours_airlinestickets_1',
-  'top_buttons' => 
-  array (
-    0 => 
-    array (
-      'widget_class' => 'SubPanelTopButtonQuickCreate',
-    ),
-    1 => 
-    array (
-      'widget_class' => 'SubPanelTopSelectButton',
-      'mode' => 'MultiSelect',
-    ),
-  ),
-);
-
-
 // created: 2011-12-24 21:20:11
 $layout_defs["AirlinesTickets"]["subpanel_setup"]["tours_airlinestickets"] = array (
   'order' => 100,
@@ -217,13 +145,5 @@ $layout_defs["AirlinesTickets"]["subpanel_setup"]["tours_airlinestickets"] = arr
     ),
   ),
 );
-
-
-//auto-generated file DO NOT EDIT
-$layout_defs['AirlinesTickets']['subpanel_setup']['airlinestickets_accounts']['override_subpanel_name'] = 'AirlinesTickets_subpanel_airlinestickets_accounts';
-
-
-//auto-generated file DO NOT EDIT
-$layout_defs['AirlinesTickets']['subpanel_setup']['airlinestickets_fits']['override_subpanel_name'] = 'AirlinesTickets_subpanel_airlinestickets_fits';
 
 ?>

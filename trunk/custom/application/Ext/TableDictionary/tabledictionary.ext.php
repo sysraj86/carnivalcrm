@@ -38,12 +38,12 @@ include('custom/metadata/accounts_toursMetaData.php');
 
  
  //WARNING: The contents of this file are auto-generated
-include('custom/metadata/airlinesticketslists_airlinesticketsMetaData.php');
+include('custom/metadata/airlinestickets_accountsMetaData.php');
 
 
  
  //WARNING: The contents of this file are auto-generated
-include('custom/metadata/airlinestickets_accountsMetaData.php');
+include('custom/metadata/airlinestickets_airlinesticketsMetaData.php');
 
 
  
@@ -734,11 +734,6 @@ include('custom/metadata/tours_airlinesMetaData.php');
  
  //WARNING: The contents of this file are auto-generated
 include('custom/metadata/tours_airlinesticketsMetaData.php');
-
-
- 
- //WARNING: The contents of this file are auto-generated
-include('custom/metadata/tours_airlinestickets_1MetaData.php');
 
 
  

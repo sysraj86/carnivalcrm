@@ -104,68 +104,7 @@
     $ss->assign('TRANSPORTSBOOKING_LINE_COUNT', $focus->transportBookings_line_count());
     $ss->assign('DEADLINE', $focus->deadline);
     $ss->assign('GIA', $focus->gia);
-     
-    /*if(!empty($focus->confirm)){
-        $ss->assign('CONFIRM', get_select_options($app_list_strings['confirm_service_list'],$focus->confirm));
-    }
-    else {$ss->assign('CONFIRM', get_select_options($app_list_strings['confirm_service_list'],''));}*/
-    // transports popup request data
-    //$transports_popup_request_data = array(
-//      'call_back_function'  => 'set_return',
-//      'form_name'       => 'EditView',
-//      'field_to_name_array' => array(
-//        'id'   => 'transports6e65nsports_ida',
-//        'name'  => 'transports_tbookings_name',
-//        'address' => 'address',
-//        'phone' => 'tel_to',
-//      ),
-//    );
-//    
-//    $ss->assign('transports_popup_request_data', json_encode($transports_popup_request_data));
-    
-    
-    // attn_to popup request data
-    
-    //$attn_to_popup_request_data = array(
-//        'call_back_function'    => 'set_return',
-//        'form_name'     => 'EditView',
-//        'field_to_name_array'   => array(
-//          'id' => 'attn_to_name_id',
-//          'name'  => 'attn_to_name' ,
-//          'phone_mobile' => 'attn_to_phone',
-//        ),
-//    );
-//    
-//    $ss->assign('attn_to_popup_request_data', json_encode($attn_to_popup_request_data));
-//    
-    
-    // attn_from popup request data
-    
-    //$attn_from_popup_request_data = array(
-//        'call_back_function'    => 'set_return',
-//        'form_name'     => 'EditView',
-//        'field_to_name_array'   => array(
-//          'id' => 'attn_from_name_id',
-//          'user_name'  => 'attn_from_name' ,
-//          'phone_work' => 'attn_from_phone',
-//          'email1' => 'email',
-//        ),
-//    );
-//    
-//    $ss->assign('attn_from_popup_request_data', json_encode($attn_from_popup_request_data));
-//   
-   /// made tour code popup
-   
-   //$madetour_popup_request_data = array(
-//      'call_back_function' => 'set_return',
-//        'form_name' => 'EditView',
-//        'field_to_name_array' => array(
-//            'id' => 'groupprogrd5earograms_ida',
-//            'groupprogram_code' => 'groupprogratbookings_name',
-//        ),
-//  );
-//  $ss->assign('madetour_from_popup_request_data',json_encode($madetour_popup_request_data));
-//  
+
    
    $view_chang_log_data = array(
          "call_back_function" => "set_return",

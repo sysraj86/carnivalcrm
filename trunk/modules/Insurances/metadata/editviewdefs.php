@@ -48,7 +48,7 @@ $viewdefs[$module_name]['EditView'] = array(
   'default' => 
   array (
      array(
-       'code', 
+       'code',     
        'name',     
      ),
      array (

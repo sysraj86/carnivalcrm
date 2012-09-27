@@ -1,17 +1,17 @@
 <?php
-// created: 2011-09-01 14:51:34
+// created: 2012-09-25 18:15:46
 $dictionary["airlinestickets_airlinestickets"] = array (
-  'true_relationship_type' => 'one-to-many',
+  'true_relationship_type' => 'many-to-many',
   'from_studio' => true,
   'relationships' => 
   array (
     'airlinestickets_airlinestickets' => 
     array (
       'lhs_module' => 'AirlinesTickets',
-      'lhs_table' => 'airlines_tickets',
+      'lhs_table' => 'AirlinesTickets',
       'lhs_key' => 'id',
       'rhs_module' => 'AirlinesTickets',
-      'rhs_table' => 'airlines_tickets',
+      'rhs_table' => 'AirlinesTickets',
       'rhs_key' => 'id',
       'relationship_type' => 'many-to-many',
       'join_table' => 'airlinesticlinestickets_c',
@@ -67,20 +67,12 @@ $dictionary["airlinestickets_airlinestickets"] = array (
     ),
     1 => 
     array (
-      'name' => 'airlinesticirlinestickets_ida1',
-      'type' => 'index',
-      'fields' => 
-      array (
-        0 => 'airlinesti1265tickets_ida',
-      ),
-    ),
-    2 => 
-    array (
       'name' => 'airlinesticirlinestickets_alt',
       'type' => 'alternate_key',
       'fields' => 
       array (
-        0 => 'airlinesti185ftickets_idb',
+        0 => 'airlinesti1265tickets_ida',
+        1 => 'airlinesti185ftickets_idb',
       ),
     ),
   ),

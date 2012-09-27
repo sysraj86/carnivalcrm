@@ -3,6 +3,7 @@
 <script type="text/javascript" src="custom/include/js/jquery.js"></script>
 <script type="text/javascript" src="custom/include/js/jquery.table.clone.js"></script>
 <script type="text/javascript" src="custom/include/js/jquery-ui-DateFormat.js"></script>
+<script type="text/javascript" src="custom/include/js/CustomSelectField.js"></script>
 <script type="text/javascript">
 
         $(function(){
@@ -292,15 +293,15 @@ function parent_namechangeQS(parent_name) {
                         <td class="dataLabel" width="26.2%">{$MOD.LBL_TEAM_LEADER}</td>
                         <td class="dataField">
                             <input type="text" name="team_leader[]" id="team_leader" size="25" value=""/>
-                            <input type="text" name="leader_phone[]" id="leader_phone" value=""/>
+                            <input type="text" name="leader_phone[]" id="leader_phone" data="Button=cleardata,selectdata|Module=TravelGuides|Fields=id,name,phone|Inputs=leader_id,team_leader,leader_phone" class="select" value=""/>
+                            
+                            <!--<input title="{$APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{$APP.LBL_SELECT_BUTTON_KEY}"
+                                   type="button" value='{$APP.LBL_SELECT_BUTTON_LABEL}' class="button leader"
+                                   name="btn_leader[]" id="btn_leader">-->
+
                             <input type="hidden" name="leader_id[]" id="leader_id" value=""/>
                             <input type="hidden" name="team_leader_id[]" id="team_leader_id" value=""/>
                             <input type="hidden" name="deleted[]" id="deleted" class="deleted" value="0"/>
-                            <input title="{$APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{$APP.LBL_SELECT_BUTTON_KEY}"
-                                   type="button" value='{$APP.LBL_SELECT_BUTTON_LABEL}' class="button leader"
-                                   name="btn_leader[]" id="btn_leader">
-
-
                             <input type="button" class="btnAddRow" value="Add Row"/>
                             <input type="button" class="btnDelRow" value="Delete Row"/>
                         </td>
@@ -319,14 +320,15 @@ function parent_namechangeQS(parent_name) {
                        type="text" value="{$GUIDE_PICK_UP_AIRPORT}"/>
                 <input type="text" name="pick_up_phone" name="pick_up_phone" value="{$PICK_UP_PHONE}"/>
                 <input type="hidden" id="guide_pick_up_at_airport_id" name="guide_pick_up_at_airport_id"
-                       value="{$GUIDE_PICK_UP_AT_AIRPORT_ID}"/>
-                <input title="{$APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{$APP.LBL_SELECT_BUTTON_KEY}" type="button"
+                 data="Button=cleardata,selectdata|Module=TravelGuides|Fields=id,name,phone|Inputs=guide_pick_up_at_airport_id,guide_pick_up_at_airport,pick_up_phone" class="select" value="{$GUIDE_PICK_UP_AT_AIRPORT_ID}"/>
+                       
+<!--                <input title="{$APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{$APP.LBL_SELECT_BUTTON_KEY}" type="button"
                        class="button" value='{$APP.LBL_SELECT_BUTTON_LABEL}' name="bnt_pick_up_name"
                        id="bnt_pick_up_name"
                        onclick='open_popup("TravelGuides", 600, 400, "", true, false, {$pick_up_airport}, "single", true);'>
                 <input title="{$APP.LBL_CLEAR_BUTTON_TITLE}" accessKey="{$APP.LBL_CLEAR_BUTTON_KEY}" type="button"
                        class="button" value='{$APP.LBL_CLEAR_BUTTON_LABEL}' name="" id=""
-                       onclick='this.form.guide_pick_up_at_airport.value="";this.form.pick_up_phone.value="";this.form.guide_pick_up_at_airport_id.value="";'>
+                       onclick='this.form.guide_pick_up_at_airport.value="";this.form.pick_up_phone.value="";this.form.guide_pick_up_at_airport_id.value="";'>-->
             </td>
         </tr>
         <tr>
@@ -339,13 +341,13 @@ function parent_namechangeQS(parent_name) {
                         <td class="dataLabel" width="26.2%">{$MOD.LBL_GUIDE}</td>
                         <td class="dataField">
                             <input type="text" name="guide_name[]" id="guide_name" size="25" value=""/>
-                            <input type="text" name="guide_phone[]" id="guide_phone" value=""/>
+                            <input type="text" name="guide_phone[]" id="guide_phone" data="Button=cleardata,selectdata|Module=TravelGuides|Fields=id,name,phone|Inputs=guide_id,guide_name,guide_phone" class="select" value=""/>
                             <input type="hidden" name="guide_id[]" id="guide_id" value=""/>
                             <input type="hidden" name="guide_record[]" id="guide_record" value=""/>
                             <input type="hidden" name="deleted[]" id="deleted" class="deleted" value="0"/>
-                            <input title="{$APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{$APP.LBL_SELECT_BUTTON_KEY}"
+                            <!--<input title="{$APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{$APP.LBL_SELECT_BUTTON_KEY}"
                                    type="button" class="button guide" value='{$APP.LBL_SELECT_BUTTON_LABEL}'
-                                   name="btn_guide[]" id="btn_guide">
+                                   name="btn_guide[]" id="btn_guide">-->
 
 
                             <input type="button" class="btnAddRow" value="Add Row"/>
@@ -363,14 +365,14 @@ function parent_namechangeQS(parent_name) {
             <td class="dataField">
                 <input class="sqsEnabled" name="operator" id="operator" size="25" type="text" value="{$OPERATOR}"/>
                 <input type="hidden" id="assigned_user_id" name="assigned_user_id" value="{$ASSIGNED_USER_ID}"/>
-                <input type="text" name="operator_phone" id="operator_phone" value="{$OPERATOR_PHONE}"/>
-                <input title="{$APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{$APP.LBL_SELECT_BUTTON_KEY}" type="button"
+                <input type="text" name="operator_phone" id="operator_phone" data="Button=cleardata,selectdata|Module=Users|Fields=id,name,phone|Inputs=assigned_user_id,operator,operator_phone" class="select" value="{$OPERATOR_PHONE}"/>
+<!--                <input title="{$APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{$APP.LBL_SELECT_BUTTON_KEY}" type="button"
                        class="button" value='{$APP.LBL_SELECT_BUTTON_LABEL}' name="bnt_operator_name"
                        id="bnt_operator_name"
                        onclick='open_popup("Users", 600, 400, "", true, false, {$operator_users}, "single", true);'>
                 <input title="{$APP.LBL_CLEAR_BUTTON_TITLE}" accessKey="{$APP.LBL_CLEAR_BUTTON_KEY}" type="button"
                        class="button" value='{$APP.LBL_CLEAR_BUTTON_LABEL}' name="" id=""
-                       onclick='this.form.operator.value="";this.form.operator_phone.value="";this.form.assigned_user_id.value="";'>
+                       onclick='this.form.operator.value="";this.form.operator_phone.value="";this.form.assigned_user_id.value="";'> -->
             </td>
         </tr>
     </table>
@@ -387,17 +389,16 @@ function parent_namechangeQS(parent_name) {
             <td>{$MOD.LBL_NUM_PLATE}:<input type="text" id="number_plates" name="number_plates[]" value=""/></td>
             <td> {$MOD.LBL_DRIVER}: <input type="text" id="driver" name="driver[]" value=""/></td>
             <td>
-                {$MOD.LBL_DRIVER_PHONE}: <input type="text" id="driver_phone" name="driver_phone[]" value=""/>
-                <input type="hidden" id="pick_up_car_id" name="pick_up_car_id[]" value=""/>
-                <input type="hidden" id="pick_id" name="pick_id[]" value=""/>
-                <input type="hidden" id="deleted" name="deleted[]" class="deleted" value="0"/>
+                {$MOD.LBL_DRIVER_PHONE}: 
+                <input type="text" id="driver_phone" name="driver_phone[]" value=""/>
+                
             </td>
             <td>
-                <input title="{$APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{$APP.LBL_SELECT_BUTTON_KEY}" type="button"
-                       tabindex='2' class="button pick_up_car" value='{$APP.LBL_SELECT_BUTTON_LABEL}'
-                       name="bnt_pick_up_car" id="bnt_pick_up_car[]"/>
+                <input type="hidden" id="pick_up_car_id" name="pick_up_car_id[]" data="Button=cleardata,selectdata|Module=Cars|Fields=id,number_plates,driver_name,phone|Inputs=pick_up_car_id,number_plates,driver,driver_phone" class="select" value=""/>
+                <input type="hidden" id="pick_id" name="pick_id[]" value=""/>
+                <input type="hidden" id="deleted" name="deleted[]" class="deleted" value="0"/>
 
-            </td>
+            </td> 
             <td>
                 <input type="button" class="btnAddRow" value="Add Row"/>
                 <input type="button" class="btnDelRow" value="Delete Row"/>
@@ -419,15 +420,14 @@ function parent_namechangeQS(parent_name) {
             <td>{$MOD.LBL_NUM_PLATE}:<input type="text" id="number_plates_sight" name="number_plates_sight[]" value=""/></td>
             <td>{$MOD.LBL_DRIVER}:<input type="text" id="driver_sight" name="driver_sight[]" value=""/></td>
             <td>
-                {$MOD.LBL_DRIVER_PHONE}:<input type="text" id="driver_phone_sight" name="driver_phone_sight[]" value=""/>
-                <input type="hidden" id="sightseeing_id" name="sightseeing_id[]" value=""/>
-                <input type="hidden" id="sightseeing_car_id" name="sightseeing_car_id[]" value=""/>
-                <input type="hidden" id="deleted" name="deleted[]" class="deleted" value="0"/>
+                {$MOD.LBL_DRIVER_PHONE}:
+                <input type="text" id="driver_phone_sight" name="driver_phone_sight[]" value=""/>
+                
             </td>
             <td>
-                <input title="{$APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{$APP.LBL_SELECT_BUTTON_KEY}" type="button"
-                       tabindex='2' class="button sightseeing_btn" value='{$APP.LBL_SELECT_BUTTON_LABEL}'
-                       name="sightseeing_btn" id="sightseeing_btn[]"/>
+                <input type="hidden" id="sightseeing_id" name="sightseeing_id[]" value=""/>
+                <input type="hidden" id="sightseeing_car_id" name="sightseeing_car_id[]" data="Button=cleardata,selectdata|Module=Cars|Fields=id,number_plates,driver_name,phone|Inputs=sightseeing_car_id,number_plates_sight,driver_sight,driver_phone_sight" class="select" value=""/>
+                <input type="hidden" id="deleted" name="deleted[]" class="deleted" value="0"/>
 
             </td>
             <td>
@@ -449,7 +449,7 @@ function parent_namechangeQS(parent_name) {
         {if $ID eq '' or $GROUPPROGRAM_LINE_COUNT eq 0}
         <tr>
             <td>
-                <table class="tabForm" cellpadding="0" cellspacing="0" width="100%">
+                <table class="table_clone" cellpadding="0" cellspacing="0" width="100%">
                     <tr>
                         <td class="dataLabel">Date</td>
                         <td class="dataField"><input id='date' class="datetime" name='date[]'
@@ -511,10 +511,10 @@ function parent_namechangeQS(parent_name) {
                         <td class="dataField">
                             <input type="text" name="contact_name[]" id="contact_name" value="" size="30"/>
                             <input type="text" name="contact_phone[]" id="contact_phone" value="" size="30"/>
-                            <input type="hidden" name="contact_id[]" id="contact_id" value=""/>
-                            <input title="{$APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{$APP.LBL_SELECT_BUTTON_KEY}"
+                            <input type="hidden" name="contact_id[]" id="contact_id" data="Button=cleardata,selectdata|Module=Contacts|Fields=id,name,phone_mobile|Inputs=contact_id,contact_name,contact_phone" class="select" value=""/>
+                            <!--<input title="{$APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{$APP.LBL_SELECT_BUTTON_KEY}"
                                    type="button" tabindex='2' class="button contact"
-                                   value='{$APP.LBL_SELECT_BUTTON_LABEL}' name="btn_contact[]" id="btn_contact">
+                                   value='{$APP.LBL_SELECT_BUTTON_LABEL}' name="btn_contact[]" id="btn_contact">-->
 
                         </td>
                     </tr>
@@ -522,10 +522,10 @@ function parent_namechangeQS(parent_name) {
                         <td class="dataLabel">Content</td>
                         <input type="hidden" name="content_id[]" id="content_id" value=""/>
                         <td class="dataField">
-                            <textarea cols="90" rows="6" id="content" name="content[]"></textarea>
-                            <input title="{$APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{$APP.LBL_SELECT_BUTTON_KEY}"
+                            <textarea data="Button=cleardata,selectdata|Module=FoodMenu|Fields=id,description|Inputs=content_id,content" filter="Fields=restaurants_foodmenu_name_advanced|Inputs=parent_id3" class="select" cols="90" rows="6" id="content" name="content[]"></textarea>
+                            <!--<input title="{$APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{$APP.LBL_SELECT_BUTTON_KEY}"
                                    type="button" tabindex='2' class="button foodmenu" value='{$MOD.LBL_SELECTMENU}'
-                                   name="btn_foodmenu[]" id="btn_foodmenu">
+                                   name="btn_foodmenu[]" id="btn_foodmenu">-->
                             <input type="hidden" name="deleted[]" class="deleted" id="deleted" value="0"/>
                             <input type="hidden" name="groupprogramline_id[]" id="groupprogramline_id" value=""/>
                         </td>

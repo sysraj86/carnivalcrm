@@ -1,0 +1,37 @@
+<?php
+$module_name = 'Cars';
+$listViewDefs [$module_name] = 
+array (
+  'NUMBER_PLATES' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_NUMBER_PLATES',
+    'default' => true,
+    'link' => 'true',
+  ),
+  'NUMOFSEAT' => 
+  array (
+    'type' => 'int',
+    'label' => 'LBL_NUMOFSEAT',
+    'width' => '5%',
+    'default' => true,
+  ),
+  'TRANSPORT_NAME' => 
+  array (
+    'type' => 'relate',
+    'studio' => 'visible',
+    'label' => 'LBL_TRANSPORT_NAME',
+    'width' => '10%',
+    'default' => true, 
+    'link' => true,
+  ),
+  'ASSIGNED_USER_NAME' => 
+  array (
+    'width' => '9%',
+    'label' => 'LBL_ASSIGNED_TO_NAME',
+    'module' => 'Employees',
+    'id' => 'ASSIGNED_USER_ID',
+    'default' => true,
+  ),
+);
+?>

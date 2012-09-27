@@ -6,7 +6,7 @@
         var $new_schema = true;
         var $module_dir = 'TransportBookings';
         var $object_name = 'TransportBookings';
-        var $table_name = 'TransportBookings';
+        var $table_name = 'transportbookings';
         var $importable = true; 
         
         var $id;
@@ -68,16 +68,18 @@
                 $html.="<tr>
                         <td class='dataLabel'><input name='name_booking[]' id='name_booking' type='text' value='".$row['name_booking']."'></td>";
                 if(!empty($row['operating_date'])){
-                    $html .= "<td class='dataField'><input id='date' class='datetime' name='operating_date[]' onblur='parseDate(this, \"{$CALENDAR_DATEFORMAT}\");'  type='text'' tabindex='1' size='15' maxlength='10' value='".date('d/m/Y',strtotime($row['operating_date']))."'/> </td>";  
+                    $html .= "<td class='dataField'><input id='date' class='datetime datePicker' name='operating_date[]'  type='text' tabindex='1' size='15' maxlength='10' value='".date('d/m/Y',strtotime($row['operating_date']))."'/> </td>";  
                                     }
                 else{ 
                     $html .= "<td class='dataField'>
-                    <input id='operating_date' class='datetime' name='operating_date[]' onblur='parseDate(this, \"{$CALENDAR_DATEFORMAT}\");'  type='text' tabindex='1' size='15' maxlength='10' value=''/> </td>";}
+                    <input id='operating_date' class='datetime datePicker' name='operating_date[]'   type='text' tabindex='1' size='15' maxlength='10' value=''/> </td>";
+                }
                 $html.="<td class='dataField'><input name='unit_price[]' id='unit_price' type='text' value='".$row['unit_price']."'></td>
                         <td class='dataField'><input name='type[]' id='type' type='text' value='".$row['type']."'></td>
-                        <td class='dataField'><textarea cols='60' rows='5' name='route[]' id='route'>".$row['route']."</textarea></td>
+                        <td class='dataField'><textarea cols='40' rows='5' name='route[]' id='route'>".$row['route']."</textarea></td>
                         <input type='hidden' name='id_booking[]' id='id_booking' value='".$row['id']."' />
-                        <input type='hidden' name='deleted[]' class='deleted' id='deleted' value='0' /> </td>
+                        <input type='hidden' name='deleted[]' class='deleted' id='deleted' value='0' />
+                        </td>
                         <td>
                                 <input type='button' class='btnAddRow'  value='Add Row'/>
                                 <input type='button' class='btnDelRow' value='Delete Row'/>

@@ -1,5 +1,5 @@
 <?php
-// created: 2011-10-14 14:24:55
+// created: 2012-09-26 09:51:35
 $sugar_config = array (
   'admin_access_control' => false,
   'admin_export_only' => false,
@@ -271,7 +271,7 @@ $sugar_config = array (
   'session_dir' => '',
   'showDetailData' => true,
   'showThemePicker' => true,
-  'site_url' => 'http://localhost:88/carnival',
+  'site_url' => 'http://localhost/carnivalcrm',
   'slow_query_time_msec' => '100',
   'stack_trace_errors' => false,
   'sugar_version' => '6.2.0',

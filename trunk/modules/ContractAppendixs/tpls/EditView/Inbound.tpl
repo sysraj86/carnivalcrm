@@ -255,7 +255,7 @@
     </div>
 
     <fieldset>
-        <legend>{$MOD.LBL_TEMPLATE} :</legend>
+        <legend>{$MOD.LBL_TEMPLATE}&nbsp;<span class="required">*</span>&nbsp;:</legend> 
         <table class="tabForm" width="100%" cellpadding="0" cellspacing="0" border="0">
             <tr>
                 <td class="dataField"><select name="template_ddown_c[]" id="template_ddown_c" multiple="multiple">{$TEMPLATE} </select></td>

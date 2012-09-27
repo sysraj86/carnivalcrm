@@ -52,6 +52,7 @@
     $ss->assign("ID",           $focus->id);
     
     $ss->assign('CODE', $focus->code); 
+    $ss->assign('NAME', $focus->name); 
     $ss->assign('TRANSPORTS_ID', $focus->transports6e65nsports_ida);
     $ss->assign('TRANSPORTS', $focus->transports_tbookings_name);
     $ss->assign('ADDRESS', $focus->address);

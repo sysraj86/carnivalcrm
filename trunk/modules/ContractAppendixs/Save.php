@@ -63,7 +63,7 @@ $return_id = $focus->id;
 
 
 $contracts_values = array(
-  'id'          => $_POST['contract_appendixs_value_id'], 
+  'id'          => $_REQUEST['contract_appendixs_value_id'], 
   'num_of_service'  => $_POST['num_of_service'],
   'service'         => $_POST['service'],
   'unit'   => $_POST['unit'],

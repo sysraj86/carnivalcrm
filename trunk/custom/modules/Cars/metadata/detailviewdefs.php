@@ -37,7 +37,7 @@ array (
       array (
         0 => 
         array (
-          0 => 'number_plates',
+          0 => 'driver_name',
           1 => 'transport_name',
         ),
         1 => 
@@ -47,26 +47,34 @@ array (
             'name' => 'numofseat',
             'label' => 'LBL_NUMOFSEAT',
           ),
-          1 => 
-          array (
-            'name' => 'area',
-            'label' => 'LBL_AREA',
-          ),
+          1 => 'number_plates',
         ),
-        2 =>
-        array(
-           0 => 'driver_name',
-          1 => 'phone',
+        2 => 
+        array (
+          0 => 'phone',
+          1 => 'assigned_user_name',
         ),
         3 => 
         array (
           0 => 'description',
         ),
-        4 => 
+      ),
+      'lbl_editview_panel1' => 
+      array (
+        0 => 
         array (
-          0 => 'assigned_user_name',
+          0 => 
+          array (
+            'name' => 'giathamkhao',
+            'label' => 'LBL_GIATHAMKHAO',
+          ),
+          1 => 
+          array (
+            'name' => 'ngaythamkhaogia',
+            'label' => 'LBL_NGAYTHAMKHAOGIA',
+          ),
         ),
-        5 => 
+        1 => 
         array (
           0 => 
           array (

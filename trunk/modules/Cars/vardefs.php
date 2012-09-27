@@ -8,7 +8,7 @@
     
     'fields'  => array(
     
-        'number_plates'   => array(
+    'number_plates'   => array(
           'name'    => 'number_plates',
           'vname'   => 'LBL_NUMBER_PLATES',
           'type'    => 'varchar',

@@ -3,7 +3,7 @@
    
    $dictionary['TransportBookings'] = array ('audited'=>true,
     'comment' => '',
-    'table' => 'TransportBookings',
+    'table' => 'transportbookings',
     'unified_search' => true,
     
     'fields'  => array(

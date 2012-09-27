@@ -190,8 +190,8 @@
         <td class="tabDetailViewDL" width="20%">
             {$MOD.LBL_ASSIGNED_TO_NAME} :
         </td>
-        <td class="tabDetailViewDF">{$ASSIGNED_USER_NAME} </td>
+        <td class="tabDetailViewDF" width="30%">{$ASSIGNED_USER_NAME} </td>
         <td class="tabDetailViewDL">&nbsp;</td>
-        <td class="tabDetailViewDF">&nbsp;</td>
+        <td class="tabDetailViewDL">&nbsp;</td>
     </tr>
 </table>
