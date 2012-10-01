@@ -1,25 +1,25 @@
 <?php
-// created: 2011-09-21 10:55:25
-$dictionary["contracts_appendixcontract"] = array (
+// created: 2012-10-01 16:15:59
+$dictionary["contracts_contractappendixs"] = array (
   'true_relationship_type' => 'one-to-many',
   'from_studio' => true,
   'relationships' => 
   array (
-    'contracts_appendixcontract' => 
+    'contracts_contractappendixs' => 
     array (
       'lhs_module' => 'Contracts',
       'lhs_table' => 'contracts',
       'lhs_key' => 'id',
-      'rhs_module' => 'AppendixContract',
-      'rhs_table' => 'appendixcontract',
+      'rhs_module' => 'ContractAppendixs',
+      'rhs_table' => 'contractappendixs',
       'rhs_key' => 'id',
       'relationship_type' => 'many-to-many',
-      'join_table' => 'contracts_andixcontract_c',
-      'join_key_lhs' => 'contracts_2fafntracts_ida',
-      'join_key_rhs' => 'contracts_18e4ontract_idb',
+      'join_table' => 'contracts_cactappendixs_c',
+      'join_key_lhs' => 'contracts_2225ntracts_ida',
+      'join_key_rhs' => 'contracts_4745pendixs_idb',
     ),
   ),
-  'table' => 'contracts_andixcontract_c',
+  'table' => 'contracts_cactappendixs_c',
   'fields' => 
   array (
     0 => 
@@ -43,13 +43,13 @@ $dictionary["contracts_appendixcontract"] = array (
     ),
     3 => 
     array (
-      'name' => 'contracts_2fafntracts_ida',
+      'name' => 'contracts_2225ntracts_ida',
       'type' => 'varchar',
       'len' => 36,
     ),
     4 => 
     array (
-      'name' => 'contracts_18e4ontract_idb',
+      'name' => 'contracts_4745pendixs_idb',
       'type' => 'varchar',
       'len' => 36,
     ),
@@ -58,7 +58,7 @@ $dictionary["contracts_appendixcontract"] = array (
   array (
     0 => 
     array (
-      'name' => 'contracts_apendixcontractspk',
+      'name' => 'contracts_ctractappendixsspk',
       'type' => 'primary',
       'fields' => 
       array (
@@ -67,20 +67,20 @@ $dictionary["contracts_appendixcontract"] = array (
     ),
     1 => 
     array (
-      'name' => 'contracts_apendixcontract_ida1',
+      'name' => 'contracts_ctractappendixs_ida1',
       'type' => 'index',
       'fields' => 
       array (
-        0 => 'contracts_2fafntracts_ida',
+        0 => 'contracts_2225ntracts_ida',
       ),
     ),
     2 => 
     array (
-      'name' => 'contracts_apendixcontract_alt',
+      'name' => 'contracts_ctractappendixs_alt',
       'type' => 'alternate_key',
       'fields' => 
       array (
-        0 => 'contracts_18e4ontract_idb',
+        0 => 'contracts_4745pendixs_idb',
       ),
     ),
   ),
