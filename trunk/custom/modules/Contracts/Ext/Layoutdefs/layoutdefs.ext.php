@@ -50,7 +50,7 @@ $layout_defs["Contracts"]["subpanel_setup"]["contracts_apendixcontract"] = array
 );
 
 
-// created: 2012-09-28 11:39:58
+// created: 2012-10-01 16:15:59
 $layout_defs["Contracts"]["subpanel_setup"]["contracts_ctractappendixs"] = array (
   'order' => 100,
   'module' => 'ContractAppendixs',

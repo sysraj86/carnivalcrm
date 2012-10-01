@@ -24,7 +24,7 @@ $dictionary["Contract"]["fields"]["contracts_apendixcontract"] = array (
 );
 
 
-// created: 2012-09-28 11:39:59
+// created: 2012-10-01 16:16:00
 $dictionary["Contract"]["fields"]["contracts_ctractappendixs"] = array (
   'name' => 'contracts_ctractappendixs',
   'type' => 'link',

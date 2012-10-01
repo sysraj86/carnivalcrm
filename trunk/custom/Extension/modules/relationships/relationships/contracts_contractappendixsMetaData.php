@@ -1,5 +1,5 @@
 <?php
-// created: 2012-09-28 11:39:58
+// created: 2012-10-01 16:15:59
 $dictionary["contracts_contractappendixs"] = array (
   'true_relationship_type' => 'one-to-many',
   'from_studio' => true,

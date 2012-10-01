@@ -37,7 +37,7 @@
 $relationships = array (
   'account_contracts' => 
   array (
-    'id' => '1064cd34-dba9-c80f-a044-50650ba5bba8',
+    'id' => '42b264c8-0626-0aa4-73d2-50695182d7da',
     'relationship_name' => 'account_contracts',
     'lhs_module' => 'Accounts',
     'lhs_table' => 'accounts',
@@ -59,11 +59,11 @@ $relationships = array (
     'relationship_only' => false,
     'for_activities' => false,
     'is_custom' => false,
-    'from_studio' => true,
+    'from_studio' => false,
   ),
   'restaurant_contracts' => 
   array (
-    'id' => '3555e6ab-a4d1-b425-d99e-50650bae47c8',
+    'id' => '9ef36635-0de9-7336-80c8-506951784db5',
     'relationship_name' => 'restaurant_contracts',
     'lhs_module' => 'Restaurants',
     'lhs_table' => 'restaurants',
@@ -85,11 +85,11 @@ $relationships = array (
     'relationship_only' => false,
     'for_activities' => false,
     'is_custom' => false,
-    'from_studio' => true,
+    'from_studio' => false,
   ),
   'hotel_contracts' => 
   array (
-    'id' => '7366a9de-372b-6628-e841-50650b04874c',
+    'id' => 'ed9381b7-aa50-b23f-c563-5069510b9d7b',
     'relationship_name' => 'hotel_contracts',
     'lhs_module' => 'Hotels',
     'lhs_table' => 'hotels',
@@ -111,11 +111,11 @@ $relationships = array (
     'relationship_only' => false,
     'for_activities' => false,
     'is_custom' => false,
-    'from_studio' => true,
+    'from_studio' => false,
   ),
   'fits_contracts' => 
   array (
-    'id' => 'bec9c831-7879-20bd-50e3-50650b4eebab',
+    'id' => '3b64cf0b-a176-6e8e-2de9-506951f95138',
     'relationship_name' => 'fits_contracts',
     'lhs_module' => 'FITs',
     'lhs_table' => 'fits',
@@ -137,11 +137,11 @@ $relationships = array (
     'relationship_only' => false,
     'for_activities' => false,
     'is_custom' => false,
-    'from_studio' => true,
+    'from_studio' => false,
   ),
   'contracts_documents' => 
   array (
-    'id' => '131aed35-a2f8-abff-56ea-50650c509f8c',
+    'id' => '2a0d0773-497f-3f72-12a3-506951e3e929',
     'relationship_name' => 'contracts_documents',
     'lhs_module' => 'Contracts',
     'lhs_table' => 'contracts',
@@ -163,11 +163,37 @@ $relationships = array (
     'relationship_only' => false,
     'for_activities' => false,
     'is_custom' => false,
+    'from_studio' => false,
+  ),
+  'contracts_contractappendixs' => 
+  array (
+    'id' => '46fa0cba-6ab9-62ba-2038-50695186be18',
+    'relationship_name' => 'contracts_contractappendixs',
+    'lhs_module' => 'Contracts',
+    'lhs_table' => 'contracts',
+    'lhs_key' => 'id',
+    'rhs_module' => 'ContractAppendixs',
+    'rhs_table' => 'contractappendixs',
+    'rhs_key' => 'id',
+    'join_table' => 'contracts_cactappendixs_c',
+    'join_key_lhs' => 'contracts_2225ntracts_ida',
+    'join_key_rhs' => 'contracts_4745pendixs_idb',
+    'relationship_type' => 'one-to-many',
+    'relationship_role_column' => NULL,
+    'relationship_role_column_value' => NULL,
+    'reverse' => '0',
+    'deleted' => '0',
+    'readonly' => true,
+    'rhs_subpanel' => 'default',
+    'lhs_subpanel' => NULL,
     'from_studio' => true,
+    'is_custom' => true,
+    'relationship_only' => false,
+    'for_activities' => false,
   ),
   'c_approval_contracts' => 
   array (
-    'id' => '1a05906a-dcf7-a817-2152-50650c9b7500',
+    'id' => '3bd8f1a0-234b-c990-4fd9-506951f3214d',
     'relationship_name' => 'c_approval_contracts',
     'lhs_module' => 'Contracts',
     'lhs_table' => 'contracts',
@@ -189,11 +215,11 @@ $relationships = array (
     'is_custom' => true,
     'relationship_only' => false,
     'for_activities' => false,
-    'from_studio' => true,
+    'from_studio' => false,
   ),
   'groupprograms_contracts' => 
   array (
-    'id' => '3e4ab9d8-434a-8150-bafb-50650c54ac8d',
+    'id' => '5048d623-719a-d920-81db-506951cebfb6',
     'relationship_name' => 'groupprograms_contracts',
     'lhs_module' => 'GroupPrograms',
     'lhs_table' => 'groupprograms',
@@ -216,22 +242,6 @@ $relationships = array (
     'is_custom' => true,
     'relationship_only' => false,
     'for_activities' => false,
-  ),
-  'contracts_contractappendixs' => 
-  array (
-    'rhs_label' => 'Contract Appendixs',
-    'lhs_label' => 'Contracts',
-    'rhs_subpanel' => 'default',
-    'lhs_module' => 'Contracts',
-    'rhs_module' => 'ContractAppendixs',
-    'relationship_type' => 'one-to-many',
-    'readonly' => true,
-    'deleted' => false,
-    'relationship_only' => false,
-    'for_activities' => false,
-    'is_custom' => false,
-    'from_studio' => true,
-    'relationship_name' => 'contracts_contractappendixs',
   ),
 );
 ?>

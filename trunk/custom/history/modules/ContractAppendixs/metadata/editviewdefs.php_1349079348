@@ -20,19 +20,15 @@ array (
           'field' => '30',
         ),
       ),
-      'includes' => 
-      array (
-        0 => 
-        array (
-          'file' => 'custom/include/js/jquery.table.clone.js',
+      'includes' => array(
+        array(
+            'file' => 'custom/include/js/jquery.table.clone.js',
         ),
-        1 => 
-        array (
-          'file' => 'modules/ContractAppendixs/js/calculating.js',
+        array(
+            'file' => 'modules/ContractAppendixs/js/calculating.js',
         ),
-        2 => 
-        array (
-          'file' => 'custom/include/js/doctien.js',
+        array(
+            'file' => 'custom/include/js/doctien.js',
         ),
       ),
       'useTabs' => false,
@@ -52,8 +48,7 @@ array (
         ),
         2 => 
         array (
-          0 => 
-          array (
+          0 => array(
             'name' => 'daidienbena',
             'customCode' => '
             {html_options id=salutation_a name=salutation_a options=$fields.salutation_a.options selected=$fields.salutation_a.value}
@@ -78,8 +73,7 @@ array (
         ),
         6 => 
         array (
-          0 => 
-          array (
+          0 => array(
             'name' => 'daidienbenb_name',
             'customCode' => '
             {html_options id=salutation_b name=salutation_b options=$fields.salutation_b.options selected=$fields.salutation_b.value}
@@ -114,8 +108,7 @@ array (
         ),
         14 => 
         array (
-          0 => 
-          array (
+          0 => array(
             'name' => 'tour',
             'customCode' => '{$contract_value}',
             'customLabel' => '{$MOD.LBL_CONTRACT_VALUE}:',
@@ -124,8 +117,7 @@ array (
         12 => 
         array (
           0 => 'tongtien',
-          1 => 
-          array (
+          1 => array(
             'name' => 'bangchu',
             'customCode' => '
             <input id="bangchu" name="bangchu" readonly value="{$fields.bangchu.value}"/>
@@ -140,7 +132,6 @@ array (
         16 => 
         array (
           0 => 'tongtien2',
-          1 => 'contracts_cappendixs_name',
         ),
         15 => 
         array (

@@ -180,13 +180,12 @@ array (
         ),
         12 => 
         array (
-          0 => 
-          array (
+          0 => array(
             'name' => 'tour',
             'customCode' => '{$contract_value}',
             'customLabel' => '{$MOD.LBL_CONTRACT_VALUE}:',
           ),
-        ),
+        ), 
         13 => 
         array (
           0 => 
@@ -244,13 +243,6 @@ array (
             'name' => 'date_modified',
             'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
             'label' => 'LBL_DATE_MODIFIED',
-          ),
-        ),
-        18 => 
-        array (
-          0 => 
-          array (
-            'name' => 'contracts_cappendixs_name',
           ),
         ),
       ),
