@@ -61,6 +61,14 @@ array (
             'label' => 'LBL_DATE_MODIFIED',
           ),
         ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'contracts_axcontract_name',
+          ),
+          1 => '',
+        ),
       ),
     ),
   ),

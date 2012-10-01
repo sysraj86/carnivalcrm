@@ -16,26 +16,17 @@ array (
     'width' => '10%',
     'default' => true,
   ),
-  'DATE' => 
+  'DATE_CONTRACT' => 
   array (
     'type' => 'date',
     'label' => 'LBL_DATE',
     'width' => '10%',
     'default' => true,
   ),
-  'CONTRACTS_CAPPENDIXS_NAME' => 
+  'NUMBER_CONTRACT' => 
   array (
-    'type' => 'relate',
-    'link' => 'contracts_ctractappendixs',
-    'label' => 'LBL_CONTRACTS_CONTRACTAPPENDIXS_FROM_CONTRACTS_TITLE',
-    'width' => '10%',
-    'default' => true,
-  ),
-  'TOURS_CONTRAPPENDIXS_NAME' => 
-  array (
-    'type' => 'relate',
-    'link' => 'tours_contractappendixs',
-    'label' => 'LBL_TOURS_CONTRACTAPPENDIXS_FROM_TOURS_TITLE',
+    'type' => 'varchar',
+    'label' => 'LBL_CONTRACT',
     'width' => '10%',
     'default' => true,
   ),
@@ -61,28 +52,6 @@ array (
     'id' => 'ASSIGNED_USER_ID',
     'default' => true,
   ),
-  'NUMBER_CONTRACT' => 
-  array (
-    'type' => 'varchar',
-    'label' => 'LBL_CONTRACT',
-    'width' => '10%',
-    'default' => false,
-  ),
-  'PLACE_ISSUED_GUIDE' => 
-  array (
-    'type' => 'varchar',
-    'label' => 'LBL_PLACE_ISSUED_GUIDE',
-    'width' => '10%',
-    'default' => false,
-  ),
-  'TONGTIEN2' => 
-  array (
-    'type' => 'currency',
-    'label' => 'LBL_TUONGDUONG',
-    'currency_format' => true,
-    'width' => '10%',
-    'default' => false,
-  ),
   'DATE_OF_CONTRACTS' => 
   array (
     'type' => 'date',
@@ -101,6 +70,66 @@ array (
   array (
     'type' => 'varchar',
     'label' => 'LBL_SOTAIKHOANBENB',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'ACCOUNT_NAME_B' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_ACCOUNT_NAME_B',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'BANK_NAME_B' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_BANK_NAME_B',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'GUIDE_INWORD' => 
+  array (
+    'type' => 'text',
+    'label' => 'LBL_GUIDE_INWORD',
+    'sortable' => false,
+    'width' => '10%',
+    'default' => false,
+  ),
+  'CONTRACT_GUIDE_COST' => 
+  array (
+    'type' => 'currency',
+    'label' => 'LBL_CONTRACT_GUIDE_COST',
+    'currency_format' => true,
+    'width' => '10%',
+    'default' => false,
+  ),
+  'NUM_OF_CUS_GUIDE' => 
+  array (
+    'type' => 'int',
+    'label' => 'LBL_NUM_OF_CUS_DATE',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'HOPDONGTHUEXE_INWORD' => 
+  array (
+    'type' => 'text',
+    'label' => 'LBL_HOPDONGTHUEXE_INWORD',
+    'sortable' => false,
+    'width' => '10%',
+    'default' => false,
+  ),
+  'HOPDONGTHUEXE_PERCENT' => 
+  array (
+    'type' => 'double',
+    'label' => 'LBL_HOPDONGXE_PERCENT',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'GIATRIHOPDONGXE' => 
+  array (
+    'type' => 'currency',
+    'label' => 'LBL_GIATRIHOPDONGXE',
+    'currency_format' => true,
     'width' => '10%',
     'default' => false,
   ),
@@ -133,6 +162,43 @@ array (
     'width' => '10%',
     'default' => false,
   ),
+  'GUIDER_TYPE' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_GUIDER_TYPE',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'EXPIRATION_DATE' => 
+  array (
+    'type' => 'date',
+    'label' => 'LBL_EXPIRATION_DATE',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'INWORD' => 
+  array (
+    'type' => 'text',
+    'label' => 'LBL_INWORD',
+    'sortable' => false,
+    'width' => '10%',
+    'default' => false,
+  ),
+  'TOTAL_BONUS' => 
+  array (
+    'type' => 'currency',
+    'label' => 'LBL_TOTAL_BONUS',
+    'currency_format' => true,
+    'width' => '10%',
+    'default' => false,
+  ),
+  'GUIDE_NUM_OF_DATE' => 
+  array (
+    'type' => 'int',
+    'label' => 'LBL_GUIDE_NUM_OF_DATE',
+    'width' => '10%',
+    'default' => false,
+  ),
   'GUIDE_CURRENCY' => 
   array (
     'type' => 'enum',
@@ -141,10 +207,38 @@ array (
     'width' => '10%',
     'default' => false,
   ),
+  'JOURNEY' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_JOURNEY',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'START_DATE_GUIDE' => 
+  array (
+    'type' => 'date',
+    'label' => 'LBL_START_DATE_GUIDE',
+    'width' => '10%',
+    'default' => false,
+  ),
   'PARENT_TYPE' => 
   array (
     'type' => 'parent_type',
     'label' => 'LBL_CONTRACT_PARENT_TYPE',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'END_DATE_GUIDE' => 
+  array (
+    'type' => 'date',
+    'label' => 'LBL_END_DATE_GUIDE',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'TYPE' => 
+  array (
+    'type' => 'radioenum',
+    'label' => 'LBL_WORKSHEET_TYPE',
     'width' => '10%',
     'default' => false,
   ),
@@ -288,6 +382,14 @@ array (
     'width' => '10%',
     'default' => false,
   ),
+  'TONGTHANHTOAN' => 
+  array (
+    'type' => 'currency',
+    'label' => 'LBL_TONGTHANHTOAN',
+    'currency_format' => true,
+    'width' => '10%',
+    'default' => false,
+  ),
   'TONGTIEN' => 
   array (
     'type' => 'currency',
@@ -324,17 +426,17 @@ array (
     'width' => '10%',
     'default' => false,
   ),
+  'DATE' => 
+  array (
+    'type' => 'date',
+    'label' => 'LBL_DATE',
+    'width' => '10%',
+    'default' => false,
+  ),
   'END_DATE_CONTRACT' => 
   array (
     'type' => 'varchar',
     'label' => 'LBL_END_DATE',
-    'width' => '10%',
-    'default' => false,
-  ),
-  'DATE_CONTRACT' => 
-  array (
-    'type' => 'date',
-    'label' => 'LBL_DATE',
     'width' => '10%',
     'default' => false,
   ),

@@ -1,0 +1,113 @@
+<?php
+$module_name = 'ContractAppendixs';
+$viewdefs [$module_name] = 
+array (
+  'EditView' => 
+  array (
+    'templateMeta' => 
+    array (
+      'maxColumns' => '2',
+      'widths' => 
+      array (
+        0 => 
+        array (
+          'label' => '10',
+          'field' => '30',
+        ),
+        1 => 
+        array (
+          'label' => '10',
+          'field' => '30',
+        ),
+      ),
+      'useTabs' => false,
+    ),
+    'panels' => 
+    array (
+      'default' => 
+      array (
+
+        array (
+           'number',
+           'number_contract',
+        ), 
+         
+        array (
+        //   'parent_name',  //
+           'date',
+        ), 
+ 
+        array (
+           'daidienbena',
+           'position_a',
+        ), 
+        
+        array (
+           'address_a',
+           'phone_a',
+        ), 
+         
+        array (
+           'fax',
+           'mst_bena',
+        ), 
+        
+        array (
+           'parent_name',
+        ),
+         
+        array (
+           'daidienbenb_name',
+           'position_b',
+        ),
+         
+        array (
+           'address_b',
+           'phone_b',
+        ),
+         
+        array (
+           'sotaikhoanbenb',
+           'mst_benb',
+        ),         
+        array (
+           'birthday',
+           'passport_no_guide',
+        ),         
+        array (
+           'date_issued_guide',
+           'place_issued_guide',
+        ),
+         
+        array (
+           'tour',
+        ),
+         
+        array (
+           'tongtien',
+           'bangchu',
+        ),
+         
+        array (
+           'tigia',
+           'tongtien2',
+        ),
+         
+        array (
+           'tiente',
+           'tongtien2',
+        ),
+         
+        array (
+           'template_ddown_c',
+        ),
+         
+        array (
+           'description',
+           'assigned_user_name',
+        ),
+      ),
+    ),
+  ),
+);
+?>

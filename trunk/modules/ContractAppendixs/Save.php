@@ -28,14 +28,14 @@ if (!empty($_POST['assigned_user_id']) && ($focus->assigned_user_id != $_POST['a
 foreach($focus->column_fields as $field){
     if(isset($_POST[$field])){
         $value = $_POST[$field];
-        switch ($field) {
-            case 'template_ddown_c':
-                $value = implode("^,^",$_POST[$field]);
-                break;
-           
-            default:
-            break;
-        } 
+//        switch ($field) {
+//            case 'template_ddown_c':
+//                $value = implode("^,^",$_POST[$field]);
+//                break;
+//           
+//            default:
+//            break;
+//        } 
         $focus->$field = $value;
     }
 }
