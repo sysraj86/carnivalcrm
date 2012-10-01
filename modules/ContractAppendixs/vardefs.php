@@ -93,7 +93,7 @@
         
         'position_a' =>array(
             'name'  => 'position_a',
-            'vname' => 'LBL_POSITON',
+            'vname' => 'LBL_POSITION',
             'type'  => 'enum',
             'options' => 'position_dom',
             'len'   => 150,
@@ -222,7 +222,7 @@
             'name'      => 'date',
             'vname'     => 'LBL_DATE',
             'type'      => 'date',
-            'required'  => true,
+         //   'required'  => true,
             'len'       => 36,
         ),
         'ngay'  => array(
@@ -258,6 +258,12 @@
         'tongtien'  => array(
             'name'  => 'tongtien',
             'vname' => 'LBL_TONGTIEN',
+            'type'  => 'currency',
+            'len'   => 26,6,
+        ),                
+        'tongtien2'  => array(
+            'name'  => 'tongtien2',
+            'vname' => 'LBL_TUONGDUONG',
             'type'  => 'currency',
             'len'   => 26,6,
         ),
@@ -391,7 +397,7 @@
       array (
         'name' => 'template_ddown_c',
         'vname' => 'LBL_TEMPLATE_DDOWN_C',
-        'type' => 'multienum',
+        'type' => 'enum',
         'massupdate' => 0,
         'comments' => '',
         'help' => '',
@@ -403,7 +409,6 @@
         'len' => 255,
         'options' => 'template_ddown_c_list',
         'studio' => 'visible',
-        'isMultiSelect' => true,
         'required' => true,
       ),
       
@@ -435,7 +440,7 @@
             'parent_type'=>'contract_record_type_display' ,
             'type_name'=>'parent_type',
             'id_name'=>'parent_id',
-            'vname'=>'LBL_LIST_RELATED_TO',
+            'vname'=>'LBL_BEN_B',
             'type'=>'parent',
             'group'=>'parent_name',
             'dbType'=>'varchar',
@@ -652,6 +657,11 @@
          'name'     => 'date_issued_guide',
          'vname'    => 'LBL_DATE_ISSUED_GUIDE',
          'type'     => 'date',
+       ),
+       'place_issued_guide'  => array(
+         'name'     => 'place_issued_guide',
+         'vname'    => 'LBL_PLACE_ISSUED_GUIDE',
+         'type'     => 'varchar',
        ),
        
        'date_of_contracts'  => array(

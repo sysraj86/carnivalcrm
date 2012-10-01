@@ -37,7 +37,7 @@
 $relationships = array (
   'accounts_tours' => 
   array (
-    'id' => 'a84c703b-5e10-94ff-d200-4f604fa870bf',
+    'id' => '763863c2-7699-64c0-ccdc-50651cc9e6ed',
     'relationship_name' => 'accounts_tours',
     'lhs_module' => 'Accounts',
     'lhs_table' => 'accounts',
@@ -63,7 +63,7 @@ $relationships = array (
   ),
   'quotes_tours' => 
   array (
-    'id' => 'cec2a817-f0c5-95d3-8da7-4f604fe53f08',
+    'id' => '7560fd91-ad31-ed64-94de-50651ce79703',
     'relationship_name' => 'quotes_tours',
     'lhs_module' => 'Quotes',
     'lhs_table' => 'quotes',
@@ -89,7 +89,7 @@ $relationships = array (
   ),
   'tours_activities_calls' => 
   array (
-    'id' => 'db4c0bf0-f9fa-4bb7-a7bb-4f604f7951b1',
+    'id' => 'ce226fbc-6a82-4a23-ed31-50651cc3c8e3',
     'relationship_name' => 'tours_activities_calls',
     'lhs_module' => 'Tours',
     'lhs_table' => 'tours',
@@ -115,7 +115,7 @@ $relationships = array (
   ),
   'tours_activities_meetings' => 
   array (
-    'id' => 'dc0ddafd-3e70-d53e-2ab2-4f604f3d53c9',
+    'id' => 'dd1dd3e5-9d52-b9ce-aec1-50651cf38620',
     'relationship_name' => 'tours_activities_meetings',
     'lhs_module' => 'Tours',
     'lhs_table' => 'tours',
@@ -141,7 +141,7 @@ $relationships = array (
   ),
   'tours_activities_notes' => 
   array (
-    'id' => 'dc7719e7-c267-df07-891a-4f604f0dc135',
+    'id' => 'e42605a9-8718-60a9-063e-50651cf13eab',
     'relationship_name' => 'tours_activities_notes',
     'lhs_module' => 'Tours',
     'lhs_table' => 'tours',
@@ -167,7 +167,7 @@ $relationships = array (
   ),
   'tours_activities_tasks' => 
   array (
-    'id' => 'dcd88ee0-2c34-7461-5fad-4f604f2b708a',
+    'id' => 'eb3ccd9f-6ef8-da20-8bf1-50651cf1d56e',
     'relationship_name' => 'tours_activities_tasks',
     'lhs_module' => 'Tours',
     'lhs_table' => 'tours',
@@ -191,19 +191,71 @@ $relationships = array (
     'for_activities' => false,
     'from_studio' => true,
   ),
+  'tours_airlines' => 
+  array (
+    'id' => 'f2b51e2e-64ba-887b-e9b3-50651cdf6226',
+    'relationship_name' => 'tours_airlines',
+    'lhs_module' => 'Tours',
+    'lhs_table' => 'tours',
+    'lhs_key' => 'id',
+    'rhs_module' => 'Airlines',
+    'rhs_table' => 'airlines',
+    'rhs_key' => 'id',
+    'join_table' => 'tours_airlines_c',
+    'join_key_lhs' => 'tours_airl69b4estours_ida',
+    'join_key_rhs' => 'tours_airl6d54irlines_idb',
+    'relationship_type' => 'one-to-many',
+    'relationship_role_column' => NULL,
+    'relationship_role_column_value' => NULL,
+    'reverse' => '0',
+    'deleted' => '0',
+    'readonly' => true,
+    'rhs_subpanel' => 'default',
+    'lhs_subpanel' => NULL,
+    'from_studio' => true,
+    'is_custom' => true,
+    'relationship_only' => false,
+    'for_activities' => false,
+  ),
   'tours_airlinestickets' => 
   array (
-    'id' => 'dd38dcc7-b963-2d32-1652-4f604f7e1c1e',
+    'id' => '7377034c-5106-2387-b8ba-50651ceaa186',
     'relationship_name' => 'tours_airlinestickets',
+    'lhs_module' => 'Tours',
+    'lhs_table' => 'tours',
+    'lhs_key' => 'id',
+    'rhs_module' => 'AirlinesTickets',
+    'rhs_table' => 'airlinestickets',
+    'rhs_key' => 'id',
+    'join_table' => 'tours_airlinestickets_c',
+    'join_key_lhs' => 'tours_airl9600tstours_ida',
+    'join_key_rhs' => 'tours_airl00e8tickets_idb',
+    'relationship_type' => 'one-to-many',
+    'relationship_role_column' => NULL,
+    'relationship_role_column_value' => NULL,
+    'reverse' => '0',
+    'deleted' => '0',
+    'readonly' => true,
+    'rhs_subpanel' => 'default',
+    'lhs_subpanel' => 'default',
+    'from_studio' => true,
+    'is_custom' => true,
+    'relationship_only' => false,
+    'for_activities' => false,
+  ),
+  'tours_airlinestickets_1' => 
+  array (
+    'id' => '13499e1a-32dc-1eac-0a7d-50651c468968',
+    'relationship_name' => 'tours_airlinestickets_1',
     'lhs_module' => 'Tours',
     'lhs_table' => 'tours',
     'lhs_key' => 'id',
     'rhs_module' => 'AirlinesTickets',
     'rhs_table' => 'AirlinesTickets',
     'rhs_key' => 'id',
-    'join_table' => 'tours_airlinestickets_c',
-    'join_key_lhs' => 'tours_airl9600tstours_ida',
-    'join_key_rhs' => 'tours_airl00e8tickets_idb',
+    'join_table' => 'tours_airlinestickets_1_c',
+    'join_key_lhs' => 'tours_airlaf74_1tours_ida',
+    'join_key_rhs' => 'tours_airlefbatickets_idb',
     'relationship_type' => 'many-to-many',
     'relationship_role_column' => NULL,
     'relationship_role_column_value' => NULL,
@@ -212,14 +264,14 @@ $relationships = array (
     'readonly' => true,
     'rhs_subpanel' => 'default',
     'lhs_subpanel' => 'default',
+    'from_studio' => true,
+    'is_custom' => true,
     'relationship_only' => false,
     'for_activities' => false,
-    'is_custom' => false,
-    'from_studio' => true,
   ),
   'tours_cars' => 
   array (
-    'id' => 'dd9bfc14-f0b6-b07e-99c3-4f604f4cc7b7',
+    'id' => '1b14e6ba-e13a-c46f-e7db-50651ce07935',
     'relationship_name' => 'tours_cars',
     'lhs_module' => 'Tours',
     'lhs_table' => 'tours',
@@ -245,7 +297,7 @@ $relationships = array (
   ),
   'tours_costguides' => 
   array (
-    'id' => 'de058dbb-2001-9f9a-905a-4f604fe85f8a',
+    'id' => '222fa889-7130-cc48-9c26-50651cf67555',
     'relationship_name' => 'tours_costguides',
     'lhs_module' => 'Tours',
     'lhs_table' => 'tours',
@@ -271,7 +323,7 @@ $relationships = array (
   ),
   'tours_destinations' => 
   array (
-    'id' => 'de6e1d49-d606-5623-234f-4f604f589eb2',
+    'id' => '31b41cdf-e496-d6db-9987-50651cd80bdd',
     'relationship_name' => 'tours_destinations',
     'lhs_module' => 'Tours',
     'lhs_table' => 'tours',
@@ -297,7 +349,7 @@ $relationships = array (
   ),
   'tours_hotels' => 
   array (
-    'id' => 'ded1811e-4562-270a-798c-4f604f82e8e0',
+    'id' => '4ca66911-0f99-8c7e-3660-50651c21ded4',
     'relationship_name' => 'tours_hotels',
     'lhs_module' => 'Tours',
     'lhs_table' => 'tours',
@@ -323,7 +375,7 @@ $relationships = array (
   ),
   'tours_locations' => 
   array (
-    'id' => 'df3408cb-c7c9-1f73-cd4e-4f604f1a8237',
+    'id' => '539494fc-fc2c-4f8e-98eb-50651cdcef12',
     'relationship_name' => 'tours_locations',
     'lhs_module' => 'Tours',
     'lhs_table' => 'tours',
@@ -347,9 +399,35 @@ $relationships = array (
     'relationship_only' => false,
     'for_activities' => false,
   ),
+  'tours_oders' => 
+  array (
+    'id' => '6037ce8f-097a-8f41-14f1-50651c4aaacc',
+    'relationship_name' => 'tours_oders',
+    'lhs_module' => 'Tours',
+    'lhs_table' => 'tours',
+    'lhs_key' => 'id',
+    'rhs_module' => 'Oders',
+    'rhs_table' => 'oders',
+    'rhs_key' => 'id',
+    'join_table' => 'tours_oders_c',
+    'join_key_lhs' => 'tours_odere23crstours_ida',
+    'join_key_rhs' => 'tours_oder61c7rsoders_idb',
+    'relationship_type' => 'one-to-many',
+    'relationship_role_column' => NULL,
+    'relationship_role_column_value' => NULL,
+    'reverse' => '0',
+    'deleted' => '0',
+    'readonly' => true,
+    'rhs_subpanel' => 'default',
+    'lhs_subpanel' => NULL,
+    'from_studio' => true,
+    'is_custom' => true,
+    'relationship_only' => false,
+    'for_activities' => false,
+  ),
   'tours_restaurants' => 
   array (
-    'id' => 'df965442-a015-f943-e934-4f604fbae920',
+    'id' => '6b8dd25e-0d0c-7ded-3d16-50651c74302d',
     'relationship_name' => 'tours_restaurants',
     'lhs_module' => 'Tours',
     'lhs_table' => 'tours',
@@ -375,7 +453,7 @@ $relationships = array (
   ),
   'tours_services' => 
   array (
-    'id' => 'dff7dc26-6eed-786d-32f7-4f604f0cb686',
+    'id' => '7c94d0a1-fb1a-c6fb-f99e-50651c086881',
     'relationship_name' => 'tours_services',
     'lhs_module' => 'Tours',
     'lhs_table' => 'tours',
@@ -399,22 +477,21 @@ $relationships = array (
     'relationship_only' => false,
     'for_activities' => false,
   ),
-  'tours_airlinestickets_1' => 
+  'tours_contractappendixs' => 
   array (
-    'rhs_label' => 'Airline Tickets',
+    'rhs_label' => 'Contract Appendixs',
     'lhs_label' => 'Tours',
-    'lhs_subpanel' => 'default',
     'rhs_subpanel' => 'default',
     'lhs_module' => 'Tours',
-    'rhs_module' => 'AirlinesTickets',
-    'relationship_type' => 'many-to-many',
+    'rhs_module' => 'ContractAppendixs',
+    'relationship_type' => 'one-to-many',
     'readonly' => true,
     'deleted' => false,
     'relationship_only' => false,
     'for_activities' => false,
     'is_custom' => false,
     'from_studio' => true,
-    'relationship_name' => 'tours_airlinestickets_1',
+    'relationship_name' => 'tours_contractappendixs',
   ),
 );
 ?>

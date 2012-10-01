@@ -16,7 +16,7 @@ array (
     'width' => '10%',
     'default' => true,
   ),
-  'DATE' => 
+  'DATE_CONTRACT' => 
   array (
     'type' => 'date',
     'label' => 'LBL_DATE',
@@ -324,17 +324,17 @@ array (
     'width' => '10%',
     'default' => false,
   ),
+  'DATE' => 
+  array (
+    'type' => 'date',
+    'label' => 'LBL_DATE',
+    'width' => '10%',
+    'default' => false,
+  ),
   'END_DATE_CONTRACT' => 
   array (
     'type' => 'varchar',
     'label' => 'LBL_END_DATE',
-    'width' => '10%',
-    'default' => false,
-  ),
-  'DATE_CONTRACT' => 
-  array (
-    'type' => 'date',
-    'label' => 'LBL_DATE',
     'width' => '10%',
     'default' => false,
   ),

@@ -124,22 +124,31 @@
             var id = this.id.substring(this.id.length-1,this.id.length); 
             var sl =  parseFloat($('#num_of_service'+id).val());
             var giatour = parseFloat($('#unit'+id).val());  
-            var thue = parseFloat($('#thue'+id).val());  
+            var thue = parseFloat($('#thue'+id).val()); 
+            if(isNaN(sl)){
+               sl = 0; 
+            }  
+            if(isNaN(giatour)){
+               giatour = 0; 
+            }  
+            if(isNaN(thue)){
+               thue = 0; 
+            } 
             var thanhtien  = (sl*giatour)+thue;
-            if(!isNaN(thanhtien)){
-                $('#thanhtien'+id).val(thanhtien.toString()); 
-            }
+            $('#thanhtien'+id).val(thanhtien.toString()); 
+
             calculateSum(this);
             $('#bangchu').val(DocTienBangChu($('#tongtien').val()));
             calculatePersent();
+            tinhTuongDuong();
         }) ;
         $('#tigia').blur(function(){
             tinhTuongDuong();  
         });
         function tinhTuongDuong(){
-            var tongtien = $('#tongtien').val();
-            var tiGia = $('#tigia').val();
-            $('#tongtien2').val((tongtien*tiGia).toString());
+            var tongtien = unformatNumber($('#tongtien').val(),num_grp_sep, dec_sep);
+            var tiGia = unformatNumber($('#tigia').val(),num_grp_sep, dec_sep);
+            $('#tongtien2').val(formatNumber(tongtien*tiGia,num_grp_sep, dec_sep));
         }
 
         $('.percent').blur(function(){
@@ -149,7 +158,8 @@
 
         $('.tientethanhtoan').change(function(){
             var id = this.id.substring(this.id.length-1,this.id.length);
-            calculatePersent(id);             
+            calculatePersent(id);
+            tinhTuongDuong();             
             //var id = this.id.substring(this.id.length-1,this.id.length);
 //            var str = '' ;
 //            var currency = $('#tiente_thanhtoan'+id).val();
@@ -166,6 +176,11 @@
 //                $('#in_word'+id).val(str);
 //            }
         });
+        
+          $('#tiente').change(function(){
+              $('#tigia').val('');
+              tinhTuongDuong();
+          });
          
         //jQuery(".tiente").change(function(){
 //            if($('#tiente').val()=='usd' || $('#tiente').val() == ''){
@@ -191,7 +206,7 @@
             }     
         } 
         $('#tongtien').val(sum.toString());
-        $('#tongtien_').val(sum.toString());
+        //$('#tongtien_').val(sum.toString());
         var tiGia = $('#tigia').val();
         $('#tongtien2').val((sum*tiGia).toString());
     }

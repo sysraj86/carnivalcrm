@@ -38,6 +38,11 @@ include('custom/metadata/accounts_toursMetaData.php');
 
  
  //WARNING: The contents of this file are auto-generated
+include('custom/metadata/airlinesticketslists_airlinesticketsMetaData.php');
+
+
+ 
+ //WARNING: The contents of this file are auto-generated
 include('custom/metadata/airlinestickets_accountsMetaData.php');
 
 
@@ -103,7 +108,7 @@ include('custom/metadata/contacts_quotesMetaData.php');
 
  
  //WARNING: The contents of this file are auto-generated
-include('custom/metadata/contracts_appendixcontractMetaData.php');
+include('custom/metadata/contracts_contractappendixsMetaData.php');
 
 
  
@@ -738,7 +743,17 @@ include('custom/metadata/tours_airlinesticketsMetaData.php');
 
  
  //WARNING: The contents of this file are auto-generated
+include('custom/metadata/tours_airlinestickets_1MetaData.php');
+
+
+ 
+ //WARNING: The contents of this file are auto-generated
 include('custom/metadata/tours_carsMetaData.php');
+
+
+ 
+ //WARNING: The contents of this file are auto-generated
+include('custom/metadata/tours_contractappendixsMetaData.php');
 
 
  
