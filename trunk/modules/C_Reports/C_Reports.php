@@ -76,7 +76,7 @@
             }
             // Lay danh sach nhan vien ///////////
             $sql = '
-                SELECT CONCAT(u.last_name," ",u.first_name) AS name
+                SELECT CONCAT(IFNULL(u.last_name,"")," ",IFNULL(u.first_name,"")) AS name
                 ,u.id AS id
                 ,u.department
                 FROM users u
@@ -90,7 +90,7 @@
             ///////////////////////////////////////
             // Voi moi nhan vien, ta lay tung gia tri ve khach hang
             for($i = 0 ; $i < count($ds_ketqua) ; $i ++){
-                $department  =   $ds_ketqua[$i]['department'];
+                $department  =   strtolower($ds_ketqua[$i]['department']);
                 
                 //
                 /**
@@ -111,7 +111,11 @@
                 $total = $db->getRowCount($result); 
                 $ds_ketqua[$i]['list']['quantity'] = $total;
                 if($department != ''){ // neu phong ban ton tai thi moi cham diem phan list
-                    $value = ($total / $sales_quytactinhdiem['telesales_'.$department]['list'])*$sales_quytactinhdiem['telesales_score']['list'];
+                    $value = 0;
+                    if($sales_quytactinhdiem['telesales_'.$department]['list']){
+                        $value = ($total / $sales_quytactinhdiem['telesales_'.$department]['list'])*$sales_quytactinhdiem['telesales_score']['list'];
+                    }
+                    
                     if( $value > $sales_quytactinhdiem['telesales_score']['list']){
                         $ds_ketqua[$i]['list']['score'] = $sales_quytactinhdiem['telesales_score']['list'] ;  
                     }else{
@@ -138,7 +142,10 @@
                 $total = $db->getRowCount($result); 
                 $ds_ketqua[$i]['leads']['quantity'] = $total;
                 if($department != ''){
-                    $value = ($total / $sales_quytactinhdiem['telesales_'.$department]['leads'])*$sales_quytactinhdiem['telesales_score']['leads'];
+                    $value = 0;
+                    if($sales_quytactinhdiem['telesales_'.$department]['leads']){
+                        $value = ($total / $sales_quytactinhdiem['telesales_'.$department]['leads'])*$sales_quytactinhdiem['telesales_score']['leads'];
+                    }
                     if( $value > $sales_quytactinhdiem['telesales_score']['leads']){
                         $ds_ketqua[$i]['leads']['score'] = $sales_quytactinhdiem['telesales_score']['leads'] ;  
                     }else{
@@ -165,7 +172,10 @@
                 $total = $db->getRowCount($result); 
                 $ds_ketqua[$i]['opp_new']['quantity'] = $total;
                 if($department != ''){
-                    $value = ($total / $sales_quytactinhdiem['telesales_'.$department]['opp_new'])*$sales_quytactinhdiem['telesales_score']['opp_new'];
+                    $value = 0;
+                    if($sales_quytactinhdiem['telesales_'.$department]['opp_new']){
+                        $value = ($total / $sales_quytactinhdiem['telesales_'.$department]['opp_new'])*$sales_quytactinhdiem['telesales_score']['opp_new'];
+                    }
                     if( $value > $sales_quytactinhdiem['telesales_score']['opp_new']){
                         $ds_ketqua[$i]['opp_new']['score'] = $sales_quytactinhdiem['telesales_score']['opp_new'] ;  
                     }else{
@@ -191,7 +201,10 @@
                 $total = $db->getRowCount($result); 
                 $ds_ketqua[$i]['success']['quantity'] = $total;
                 if($department != ''){
-                    $value = ($total / $sales_quytactinhdiem['telesales_'.$department]['success'])*$sales_quytactinhdiem['telesales_score']['success'];
+                    $value = 0;
+                    if($sales_quytactinhdiem['telesales_'.$department]['success']){
+                        $value = ($total / $sales_quytactinhdiem['telesales_'.$department]['success'])*$sales_quytactinhdiem['telesales_score']['success'];
+                    }
                     if( $value > $sales_quytactinhdiem['telesales_score']['success']){
                         $ds_ketqua[$i]['success']['score'] = $sales_quytactinhdiem['telesales_score']['success'] ;  
                     }else{
@@ -215,6 +228,7 @@
                 // Kiem tra phong ban:
                 if($ds_ketqua[$i]['department'] != ''){
                     $department = translate('deparment_dom','',$ds_ketqua[$i]['department']);
+                    if(is_array($department))$department='';
                 }else{
                     $department = '';
                 }
@@ -329,7 +343,7 @@
             }
             // Lay danh sach nhan vien ///////////
             $sql = '
-                SELECT CONCAT(u.last_name," ",u.first_name) AS name
+                SELECT CONCAT(IFNULL(u.last_name,"")," ",IFNULL(u.first_name,"")) AS name
                 ,u.id AS id
                 ,u.department
                 FROM users u
@@ -342,7 +356,7 @@
             ///////////////////////////////////////
             // Voi moi nhan vien, ta lay tung gia tri ve khach hang
             for($i = 0 ; $i < count($ds_ketqua) ; $i ++){
-                $department  =   $ds_ketqua[$i]['department'];
+                $department  =   strtolower($ds_ketqua[$i]['department']);
                 
                 
                 
@@ -450,7 +464,11 @@
                 $total = $db->getRowCount($result);
                 $ds_ketqua[$i]['opp_new']['quantity'] = $total ;
                 if($department != ''){
-                    $value = ($total / $sales_quytactinhdiem['sales_'.$department]['opp_new'])*$sales_quytactinhdiem['sales_score']['opp_new'];
+                    $value = 0;
+                    if($sales_quytactinhdiem['sales_'.$department]['opp_new']){
+                       $value = ($total / $sales_quytactinhdiem['sales_'.$department]['opp_new'])*$sales_quytactinhdiem['sales_score']['opp_new']; 
+                    }
+                    
                     if( $value > $sales_quytactinhdiem['sales_score']['opp_new']){
                         $ds_ketqua[$i]['opp_new']['score'] = $sales_quytactinhdiem['sales_score']['opp_new'] ;  
                     }else{
@@ -476,7 +494,10 @@
                 $total = $db->getRowCount($result); 
                 $ds_ketqua[$i]['success']['quantity'] = $total;
                 if($department != ''){
-                    $value = ($total / $sales_quytactinhdiem['sales_'.$department]['success'])*$sales_quytactinhdiem['sales_score']['success'];
+                    $value = 0;
+                    if($sales_quytactinhdiem['sales_'.$department]['success']){
+                        $value = ($total / $sales_quytactinhdiem['sales_'.$department]['success'])*$sales_quytactinhdiem['sales_score']['success'];
+                    }
                     if( $value > $sales_quytactinhdiem['sales_score']['success']){
                         $ds_ketqua[$i]['success']['score'] = $sales_quytactinhdiem['sales_score']['success'] ;  
                     }else{
@@ -498,6 +519,7 @@
                 // Kiem tra phong ban:
                 if($ds_ketqua[$i]['department'] != ''){
                     $department = translate('deparment_dom','',$ds_ketqua[$i]['department']);
+                    if(is_array($department))$department='';
                 }else{
                     $department = '';
                 }

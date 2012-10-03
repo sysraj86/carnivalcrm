@@ -40,12 +40,12 @@
      </tr>
      <tr>
         <td colspan="10" align="center">
-            <input type="submit" name="tinhdiemsales" id="tinhdiemsales" value="{$MOD.LBL_TINH_DIEM_SALES}">
-            <input type="submit" name="tinhdiemtelesales" id="tinhdiemtelesales" value="{$MOD.LBL_TINH_DIEM_TELESALES}">
-            <input type="submit" name="xephangsales" id="xephangsales" value="{$MOD.LBL_XEP_HANG_SALES}">
-            <input type="submit" name="xephangtelesales" id="xephangtelesales" value="{$MOD.LBL_XEP_HANG_TELESALES}">
-            <input style="display: none;" type="submit" name="tinhdiem" id="tinhdiem" value="{$MOD.LBL_TINH_DIEM}">
-            <input style="display: none;" type="submit" name="xephang" id="xephang" value="{$MOD.LBL_XEP_HANG}">
+            <!--<input type="submit" name="tinhdiemsales" id="tinhdiemsales" value="{$MOD.LBL_TINH_DIEM_SALES}">-->
+            <!--<input type="submit" name="tinhdiemtelesales" id="tinhdiemtelesales" value="{$MOD.LBL_TINH_DIEM_TELESALES}">-->
+            <input type="submit" name="xephangsales" id="xephangsales" value="{$MOD.LBL_TINH_DIEM_SALES}">
+            <input type="submit" name="xephangtelesales" id="xephangtelesales" value="{$MOD.LBL_TINH_DIEM_TELESALES}">
+            <!--<input style="display: none;" type="submit" name="tinhdiem" id="tinhdiem" value="{$MOD.LBL_TINH_DIEM}">-->
+            <input style="display: none;" type="submit" name="xephang" id="xephang" value="{$MOD.LBL_TINH_DIEM}">
         </td>
     </tr>
     </table>
