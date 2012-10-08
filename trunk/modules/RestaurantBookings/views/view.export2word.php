@@ -102,8 +102,13 @@
             $template = str_replace("{OPERATING_DATE}",  $this->bean->operating_date,$template);  
             $template = str_replace("{QUANTITY_PAX}",  $this->bean->quantity_pax,$template);  
             $template = str_replace("{GUIDE}",  $this->bean->guide,$template);  
-            $template = str_replace("{GUIDE_PHONE}",  $this->bean->guide_phone,$template);  
-            $template = str_replace("{MADETOUR}",   $this->bean->groupprogram_code,$template);  
+            $template = str_replace("{GUIDE_PHONE}",  $this->bean->guide_phone,$template);
+            
+            // Lay ra code cua MadeTour
+            $made_tour = new GroupProgram();
+            $made_tour->retrieve($this->bean->groupprogr880erograms_ida);
+              
+            $template = str_replace("{MADETOUR}",  $made_tour->groupprogram_code, $template);   // fix bug 1487  
             if(!empty($this->bean->nationlity)){
                 $template = str_replace("{NATIONLITY}", translate('countries_dom','',$this->bean->nationlity),$template);
             }
