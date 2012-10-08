@@ -124,7 +124,7 @@
             
             
             $size=strlen($template);
-            $filename = "Restaurant_Booking_".strtoupper($this->bean->code)."_To_".strtoupper($this->bean->restaurantstbookings_name).".doc";
+            $filename = "Restaurant_Booking_".strtoupper($this->bean->code)."_To_".mb_strtoupper($this->bean->restaurantstbookings_name, 'UTF-8').".doc"; // fix issue 1485
             ob_end_clean();
             header("Cache-Control: private");
             header("Content-Type: application/force-download;");
