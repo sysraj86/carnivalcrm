@@ -43,7 +43,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
             $sql = '
                 SELECT f.id
                 FROM fits f JOIN accounts_fits_c afc ON f.id = afc.accounts_f7035itsfits_idb AND afc.deleted = 0
-                JOIN accounts a ON a.id = afc.accounts_fd483ccounts_ida AND a.deleted = 0 AND a.id = "'.$customer_id.'"
+                LEFT JOIN accounts a ON a.id = afc.accounts_fd483ccounts_ida AND a.deleted = 0 AND a.id = "'.$customer_id.'"
                 WHERE f.deleted = 0
             ';
             $result = $db->query($sql);
@@ -71,14 +71,16 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
         
         $rate = $this->getRating($type,$deparment,$total);
         if($rate != ''){
-            $rate = translate('fit_level_dom','',$rate);
-        }
-        $sql = '
+            //$rate = translate('fit_level_dom','',$rate);
+            $sql = '
             UPDATE fits
             SET fits.level = "'.$rate.'"
             WHERE fits.id = "'.$customer->id.'"
-        ';
-        $db->query($sql);  
+            ';
+            $result = $db->query($sql);
+        }
+        
+          
     }
     /**
     * Tinh loai khach hang va lay loai khach hang.
