@@ -21,6 +21,7 @@ $dictionary["Location"]["fields"]["destinationlocations_name"] = array (
   'table' => 'destinations',
   'module' => 'Destinations',
   'rname' => 'name',
+  'required' => true,
 );
 $dictionary["Location"]["fields"]["destinatio010enations_ida"] = array (
   'name' => 'destinatio010enations_ida',

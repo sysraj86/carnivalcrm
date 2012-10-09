@@ -7,5 +7,6 @@ $mod_strings = array (
   'LBL_AREA' => 'Region',
   'LBL_GIATHAMKHAO' => 'Preference Price',
   'LBL_NGAYTHAMKHAOGIA' => 'Date Preference Price',
+  'LBL_DESTINATIONS_LOCATIONS_FROM_DESTINATIONS_TITLE' => 'Destination', 
 );
 ?>
