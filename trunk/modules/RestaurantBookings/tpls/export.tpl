@@ -641,15 +641,14 @@ table.MsoTableGrid
     </tr>
     <tr>
         <br/>
-        <td class="tabDetailViewDF">{LBL_CONFIRM}: {CONFIRM}</td>
+        <td class="tabDetailViewDF">{LBL_CONFIRM_SERVICE}</td>
         <td class="tabDetailViewDF" align="center">{LBL_DATE}: {DATE}
-            <br/>{DEPARMENT}
         </td>
     </tr>
     
     <tr>
-    <td class="tabDetailViewDF">{LBL_CONFIRM_2}&nbsp;{FROM} :</td>
-    <td class="tabDetailViewDF">{LBL_CONFIRM_2}&nbsp;{RES} :</td>
+    <td class="tabDetailViewDF"></td>
+    <td class="tabDetailViewDF" align="center">{LBL_CONFIRM_CARNIVAL}&nbsp;{DEPARMENT}</td>
     </tr>
 </table>
 </div>
