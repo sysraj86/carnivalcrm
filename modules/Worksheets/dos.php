@@ -485,7 +485,7 @@
                 $vcArr = array();
                 $vcArr = $focus->getTransportData($focus->worksheet_tour_id);
                 foreach($vcArr as $arrvc){
-                    $app_list_strings['list_vanchuyen_dom'][$arrvc['id']] ='Xe '.$arrvc['name'].' chỗ';
+                    $app_list_strings['list_vanchuyen_dom'][$arrvc['id']] =$arrvc['number_plates'];
                     $app_list_strings['list_vanchuyengiathamkhao_dom'][$arrvc['id']] = $arrvc['giathamkhao'];
                 }
                 $VANCHUYEN = $noidung->vanchuyen;
@@ -918,7 +918,7 @@
                          }
                          else{ $checked = ''; }
                         $htmlchiphikhac .= '<td class="center"><input type = "checkbox" name="cpk_check_tam_ung[]" class ="check_tam_ung" id="cpk_check_tam_ung'.$cpk.'" '.$checked.' > <input class="center tamung" name="chiphikhac_tamung[]" type="text" id="chiphikhac_tamung'.$cpk.'" size="10" value="'.$chiphikhacval->chiphikhac_tamung.'"/></td>';
-                        $htmlchiphikhac .= '<td class="dataField center"><input type="button" class="btnAddRow" value="Add Row"> <input type="button" class="btnDelRow" value="Add Row"></td>'; 
+                        $htmlchiphikhac .= '<td class="dataField center"><input type="button" class="btnAddRow" value="Add Row"> <input type="button" class="btnDelRow" value="Delete Row"></td>'; 
                     $htmlchiphikhac .= '</tr>'; 
                     $cpk ++;
                  }

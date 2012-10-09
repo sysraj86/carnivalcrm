@@ -10,7 +10,7 @@
         OptionListHTML:[],
         stack:[],
         destination_dom:"",
-        _url:"index.php?module=Tours&entryPoint=TourAjax",
+        url:"index.php?module=Tours&entryPoint=TourAjax",
         /***
          * load temlate by department
          * @param department inbound || outbound || dos

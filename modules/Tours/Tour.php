@@ -99,32 +99,35 @@
                 $count++;
                 //countries
                 //paser base64 string -> json string -> array
-                $countries = json_decode(base64_decode($row['countries']));
+                $countries = explode(',',$row['countries']);
                 //countries -> html select
                 $list_countries = get_select_options_with_id($allCountries, $countries);
                 //areas
                 $allAreas = Tour::get_list_areas_by_countries($countries, 1);
                 //paser base64 string -> json string -> array
-                $areas = json_decode(base64_decode($row['areas']));
+                $areas = explode(',',$row['areas']);
                 $list_areas = "<option value=''>--None--</option>";
                 if ($areas && count($areas) > 0) {
                     $list_areas = get_select_options_with_id($allAreas, $areas);
                 }
                 //cities
                 $allCities = Tour::get_list_cities_by_areas($areas);
-                $cities = json_decode(base64_decode($row['destination']));
+                $cities = explode(',',$row['destination']);
                 $list_cities = "<option value=''>--None--</option>";
                 if (count($cities) > 0) {
                     $list_cities = get_select_options_with_id($allCities, $cities);
                 }
                 //location
                 $allLocation = Tour::get_list_location_by_cities($cities);
-                $location = json_decode(base64_decode($row['location']));
+                $location = explode(',',$row['location']);
                 $list_locations = "<option value=''>--None--</option>";
-                if (count($location) > 0) {
-                    $list_locations = get_select_options_with_id($allLocation, $location);
+                if (count($allLocation) > 0) {
+                    foreach($allLocation as $value){
+                        $selected = in_array($value['id'], $location) ? 'selected=""':'';
+                        $list_locations .= '<option value="'.$value['id'].'" '.$selected.' data-description="'.$value['description'].'">'.$value['name'].'</option>';//     get_select_options_with_id($allLocation, $location); 
+                    }
                 }
-                $html .= '<tr id="TR_table_clone_' . $count . '">';
+                $html .= '<tr id="TR_table_clone_' . $count . '" class="TR_table_clone">';
                 $html .= '<td>';
                 $html .= '<fieldset>';
                 $html .= '<table  cellpadding="0" cellspacing="0" width="100%" class="tabForm">';
@@ -573,11 +576,8 @@
                 WHERE l.deleted = 0 AND dl.deleted = 0 " . $where;
 
                 $result = $db->query($query);
-
-
                 while ($row = $db->fetchByAssoc($result)) {
-
-                    $locations[$row['id']] = $row['name'];
+                    $locations[] = $row;
                     //  array_push($locations,$location);
                 }
 
@@ -744,6 +744,25 @@
             }
             //echo $html;
             return $html;
+        }
+        
+        function loadAreaByDepartment($department = ''){
+            global $db;
+            if(isset($department) && isset($department) != ''){
+                $sql_get_area = "
+                    SELECT DISTINCT a.id, a.name, a.code, c.name as country, c.id as country_id 
+                    FROM c_areas a JOIN countries_c_areas_c ca ON a.id = ca.countries_92a9c_areas_idb 
+                        JOIN countries c ON c.id = ca.countries_f060untries_ida
+                    WHERE c.department = '".$department."'
+                        AND a.deleted = 0 
+                        AND c.deleted = 0 
+                        AND ca.deleted = 0";
+                $result_get_area = $db->query($sql_get_area);
+                while($row = $db->fetchByAssoc($result_get_area)){
+                     $area_options[] = $row;
+                }
+                return $area_options;    
+            }
         }
 
         function bean_implements($interface)
