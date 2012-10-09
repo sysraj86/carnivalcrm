@@ -643,18 +643,16 @@ table.MsoTableGrid
         </tr>
         <br /><br />
         <tr>
-            <td colspan="3">
-            {LBL_DATE}:{DATE}
-            <br/>
-            {LBL_DEPARMENT} :{DEPARMENT}</td>
-        </tr>
-         <br /><br />
-        <tr>
-            <td> {LBL_CONFIRM_2}&nbsp;{FROM} :</td>
-            <td>&nbsp;</td>
-            <td> {LBL_CONFIRM_2}&nbsp;{HOTEL} :</td>
+        <br/>
+        <td class="tabDetailViewDF">{LBL_CONFIRM_SERVICE}</td>
+        <td class="tabDetailViewDF" align="center">{LBL_DATE}: {DATE}
+        </td>
         </tr>
         
+        <tr>
+        <td class="tabDetailViewDF"></td>
+        <td class="tabDetailViewDF" align="center">{LBL_CONFIRM_CARNIVAL}&nbsp;{DEPARMENT}</td>
+        </tr>
     </table>
 </div>
 </body>

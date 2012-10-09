@@ -612,22 +612,16 @@ table.MsoTableGrid
                     <tr>
                         <td colspan="5" >&nbsp;</td>
                     </tr>
-                    <tr> 
-                        <td colspan="2" class="label">
-                            {LBL_CONFIRM} : &nbsp;&nbsp; {CONFIRM}
+                    <tr>
+                        <br/>
+                        <td class="tabDetailViewDF">{LBL_CONFIRM_SERVICE}</td>
+                        <td class="tabDetailViewDF" align="center">{LBL_DATE}: {DATE}
                         </td>
-                        <td colspan="1" class="label"></td>
-                        <td colspan="2" class="field">{LBL_DATE} :{DATE}</td>  
                     </tr>
+                    
                     <tr>
-                        <td colspan="2" class="label"></td>
-                        <td colspan="1" class="label"></td>
-                        <td colspan="2" class="field">{LBL_OPERATOR} :{OPERATOR}</td>  
-                    </tr> <br /><br /><br />
-                    <tr>
-                        <td colspan="2" class="label">{LBL_CONFIRM_2}&nbsp;{FROM_CO} : </td>
-                        <td colspan="1" class="label"></td>
-                        <td colspan="2" class="field">{LBL_CONFIRM_2}&nbsp;{TRANSPORTS} :</td>  
+                        <td class="tabDetailViewDF"></td>
+                        <td class="tabDetailViewDF" align="center">{LBL_CONFIRM_CARNIVAL}&nbsp;{OPERATOR}</td>
                     </tr>
                 </table>
             </fieldset>

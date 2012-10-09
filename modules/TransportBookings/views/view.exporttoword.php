@@ -8,7 +8,7 @@ require_once('modules/TransportBookings/TransportBookings.php');
         }
 
         function display(){
-            global $sugar_config,$mod_strings,$app_strings;
+            global $sugar_config,$mod_strings,$app_strings, $timedate;
             $focus = new TransportBookings();
             $ss = new Sugar_Smarty();
             $db = DBManagerFactory::getInstance(); 
@@ -66,10 +66,10 @@ require_once('modules/TransportBookings/TransportBookings.php');
             $template = str_replace("{LBL_REQUIRE}", $mod_strings['LBL_REQUIRE'],$template);
             $template = str_replace("{LBL_VAT1}", $mod_strings['LBL_VAT1'],$template);
             $template = str_replace("{LBL_VAT2}", $mod_strings['LBL_VAT2'],$template);
-            $template = str_replace("{LBL_CONFIRM}", $mod_strings['LBL_CONFIRM'],$template);
+            $template = str_replace("{LBL_CONFIRM_SERVICE}",$mod_strings['LBL_CONFIRM_SERVICE'],$template );
             $template = str_replace("{LBL_DATE}", $mod_strings['LBL_DATE'],$template);
             $template = str_replace("{LBL_OPERATOR}", $mod_strings['LBL_OPERATOR'],$template);
-            $template = str_replace("{LBL_CONFIRM_2}", $mod_strings['LBL_CONFIRM_2'],$template);
+            $template = str_replace("{LBL_CONFIRM_CARNIVAL}",$mod_strings['LBL_CONFIRM_CARNIVAL'],$template );
             
             //////////     
             $template = str_replace("{TRANSPORTS}", $row['name'],$template);     
@@ -92,8 +92,9 @@ require_once('modules/TransportBookings/TransportBookings.php');
             }
              else{
                 $template = str_replace("{CONFIRM}", 'Yes',$template);   
-             }    
-            $template = str_replace("{DATE}", $row['date'],$template);
+             }
+            $date = $timedate->to_display_date($row['date'], true);    
+            $template = str_replace("{DATE}", $date,$template);
             $template = str_replace("{OPERATOR}", $row['operator'],$template);
             $template = str_replace("{TRANSPORTSBOOKING_LINE}", $focus->get_transportBookings_export($record),$template);
             $size=strlen($template);
