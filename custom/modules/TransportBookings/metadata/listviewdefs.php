@@ -38,12 +38,11 @@ array (
     'label' => 'LBL_OPERATOR',
     'default' => true,
   ),
-  'ASSIGNED_USER_NAME' => 
+  'ATTN_FROM_NAME' => 
   array (
-    'width' => '9%',
+    'type' => 'varchar',
     'label' => 'LBL_ASSIGNED_TO_NAME',
-    'module' => 'Employees',
-    'id' => 'ASSIGNED_USER_ID',
+    'width' => '10%',
     'default' => true,
   ),
 );
