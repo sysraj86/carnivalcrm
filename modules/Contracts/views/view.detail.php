@@ -61,7 +61,13 @@
             }
             $this->dv->ss->assign("DAIDIENBENA", $this->bean->daidienbena);
             $this->dv->ss->assign("DAIDIENBENB", $this->bean->daidienbenb);
-            $this->dv->ss->assign("POSITION_A", translate('position_dom','',$this->bean->position_a));
+            // $this->dv->ss->assign("POSITION_A", translate('position_dom','',$this->bean->position_a));   fix bug 1270
+            if(!empty($this->bean->position_a))  {
+                $this->dv->ss->assign("POSITION_A", translate('position_dom','', $this->bean->position_a));     
+            }
+            else{
+                $this->dv->ss->assign("POSITION_A","" );
+            }
             $this->dv->ss->assign("ADDRESS_A", $this->bean->address_a);
             $this->dv->ss->assign("PHONE_A", $this->bean->phone_a);
             $this->dv->ss->assign("PHONE_A", $this->bean->phone_a);
