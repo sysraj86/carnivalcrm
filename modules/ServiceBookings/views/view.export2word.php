@@ -116,8 +116,9 @@
             $template = str_replace("{MADETOUR}",   $row['groupprogram_code'],$template);  
             if(!empty($row['nationlity'])){
                 $template = str_replace("{NATIONLITY}", translate('countries_dom','',$row['nationlity']),$template);
-            }
-            else{$template = str_replace("{NATIONLITY}", translate('countries_dom','',''),$template); } 
+            }else{
+                $template = str_replace("{NATIONLITY}", "",$template); 
+            } 
             $template = str_replace("{BOOKINGLINE}", $focus->get_servicebooking_detailview($record),$template);  
             $template = str_replace("{NOTES}", html_entity_decode(nl2br($row['notes'])),$template);  
             if($row['confirmed']== 0 ){
