@@ -107,7 +107,7 @@
         <td class="dataLabel">{$MOD.LBL_MADE_TOUR} :<span class="required">*</span></td>
             <td class="dataField">
                 
-                <input data="Button=cleardata,selectdata|Module=GroupPrograms|Fields=id,groupprogram_code|Inputs=groupprogr880erograms_ida,groupprogratbookings_name" class="select" type="text" name="groupprogratbookings_name" id="groupprogratbookings_name" size="50" value="{$MADETOUR}"/>
+                <input data="Button=cleardata,selectdata|Module=GroupPrograms|Fields=id,groupprogram_code,countofcus|Inputs=groupprogr880erograms_ida,groupprogratbookings_name,quantity_pax" class="select" type="text" name="groupprogratbookings_name" id="groupprogratbookings_name" size="50" value="{$MADETOUR}"/>
                 <input type="hidden" name="groupprogr880erograms_ida" id="groupprogr880erograms_ida" value="{$MADETOUR_ID}"/>
             </td>
         </tr>
