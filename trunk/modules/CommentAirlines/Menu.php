@@ -40,4 +40,4 @@ global $mod_strings, $app_strings, $sugar_config;
  
 if(ACLController::checkAccess('CommentAirlines', 'edit', true))$module_menu[]=Array("index.php?module=CommentAirlines&action=EditView&return_module=CommentAirlines&return_action=DetailView", $mod_strings['LNK_NEW_RECORD'],"CreateCommentAirlines", 'CommentAirlines');
 if(ACLController::checkAccess('CommentAirlines', 'list', true))$module_menu[]=Array("index.php?module=CommentAirlines&action=index&return_module=CommentAirlines&return_action=DetailView", $mod_strings['LNK_LIST'],"CommentAirlines", 'CommentAirlines');
-if(ACLController::checkAccess('CommentAirlines', 'import', true))$module_menu[]=Array("index.php?module=Import&action=Step1&import_module=CommentAirlines&return_module=CommentAirlines&return_action=index", $app_strings['LBL_IMPORT'],"Import", 'CommentAirlines');
+//if(ACLController::checkAccess('CommentAirlines', 'import', true))$module_menu[]=Array("index.php?module=Import&action=Step1&import_module=CommentAirlines&return_module=CommentAirlines&return_action=index", $app_strings['LBL_IMPORT'],"Import", 'CommentAirlines');

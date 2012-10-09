@@ -40,4 +40,4 @@ global $mod_strings, $app_strings, $sugar_config;
  
 if(ACLController::checkAccess('Comments', 'edit', true))$module_menu[]=Array("index.php?module=Comments&action=EditView&return_module=Comments&return_action=DetailView", $mod_strings['LNK_NEW_RECORD'],"CreateComments", 'Comments');
 if(ACLController::checkAccess('Comments', 'list', true))$module_menu[]=Array("index.php?module=Comments&action=index&return_module=Comments&return_action=DetailView", $mod_strings['LNK_LIST'],"Comments", 'Comments');
-if(ACLController::checkAccess('Comments', 'import', true))$module_menu[]=Array("index.php?module=Import&action=Step1&import_module=Comments&return_module=Comments&return_action=index", $app_strings['LBL_IMPORT'],"Import", 'Comments');
+//if(ACLController::checkAccess('Comments', 'import', true))$module_menu[]=Array("index.php?module=Import&action=Step1&import_module=Comments&return_module=Comments&return_action=index", $app_strings['LBL_IMPORT'],"Import", 'Comments');

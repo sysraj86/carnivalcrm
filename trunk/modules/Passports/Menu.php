@@ -40,4 +40,4 @@ global $mod_strings, $app_strings, $sugar_config;
  
 if(ACLController::checkAccess('Passports', 'edit', true))$module_menu[]=Array("index.php?module=Passports&action=EditView&return_module=Passports&return_action=DetailView", $mod_strings['LNK_NEW_RECORD'],"CreatePassports", 'Passports');
 if(ACLController::checkAccess('Passports', 'list', true))$module_menu[]=Array("index.php?module=Passports&action=index&return_module=Passports&return_action=DetailView", $mod_strings['LNK_LIST'],"Passports", 'Passports');
-if(ACLController::checkAccess('Passports', 'import', true))$module_menu[]=Array("index.php?module=Import&action=Step1&import_module=Passports&return_module=Passports&return_action=index", $app_strings['LBL_IMPORT'],"Import", 'Passports');
+//if(ACLController::checkAccess('Passports', 'import', true))$module_menu[]=Array("index.php?module=Import&action=Step1&import_module=Passports&return_module=Passports&return_action=index", $app_strings['LBL_IMPORT'],"Import", 'Passports');
