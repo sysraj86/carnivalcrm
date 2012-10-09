@@ -80,9 +80,9 @@
             $template = str_replace("{LBL_UNIT_PRICE}",$mod_strings['LBL_UNIT_PRICE'],$template );
             $template = str_replace("{LBL_MENU}",$mod_strings['LBL_MENU'],$template );
             $template = str_replace("{LBL_NOTES}",$mod_strings['LBL_NOTES'],$template );
-            $template = str_replace("{LBL_CONFIRM}",$mod_strings['LBL_CONFIRM'],$template );
+            $template = str_replace("{LBL_CONFIRM_SERVICE}",$mod_strings['LBL_CONFIRM_SERVICE'],$template );
             $template = str_replace("{LBL_DATE}",$mod_strings['LBL_DATE'],$template );
-            $template = str_replace("{LBL_CONFIRM_2}",$mod_strings['LBL_CONFIRM_2'],$template );
+            $template = str_replace("{LBL_CONFIRM_CARNIVAL}",$mod_strings['LBL_CONFIRM_CARNIVAL'],$template );
             
             ////////////  
             $template = str_replace("{SITE_URL}",$sugar_config['site_url'],$template );  
