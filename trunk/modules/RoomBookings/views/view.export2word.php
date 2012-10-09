@@ -73,8 +73,9 @@
             $template = str_replace("{LBL_ROOM_CONVENTION}",$mod_strings['LBL_ROOM_CONVENTION'],$template );  
             $template = str_replace("{LBL_ROOM_OTHER_SERVICE}",$mod_strings['LBL_ROOM_OTHER_SERVICE'],$template );  
             $template = str_replace("{LBL_DATE}",$mod_strings['LBL_DATE'],$template );  
-            $template = str_replace("{LBL_DEPARMENT}",$mod_strings['LBL_DEPARMENT'],$template );  
-            $template = str_replace("{LBL_CONFIRM_2}",$mod_strings['LBL_CONFIRM_2'],$template );  
+            $template = str_replace("{LBL_DEPARMENT}",$mod_strings['LBL_DEPARMENT'],$template );
+            $template = str_replace("{LBL_CONFIRM_SERVICE}",$mod_strings['LBL_CONFIRM_SERVICE'],$template );  
+            $template = str_replace("{LBL_CONFIRM_CARNIVAL}",$mod_strings['LBL_CONFIRM_CARNIVAL'],$template );  
             /////////////// 
             $template = str_replace("{SITE_URL}",$sugar_config['site_url'],$template );  
             $template = str_replace("{HOTEL}",$row['name'],$template);
