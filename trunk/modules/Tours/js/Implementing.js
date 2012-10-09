@@ -6,6 +6,7 @@
 */
 
 $(document).ready(function () {
+    updateID('TR_table_clone'); 
     var tour_id = $('[name="record"]').val(),
     tour = new Tours(),
     loader = $('<img src="modules/images/ajax-loader.gif" alt="loading..."/>');
@@ -80,7 +81,7 @@ $(document).ready(function () {
     }
 
     /***
-    *  Ham dung de su li khi chon department (dos|ob|ib)
+    *  Ham dung de xu li khi chon department (dos|ob|ib)
     * @param e
     */
     function department_change(e) {
@@ -91,6 +92,7 @@ $(document).ready(function () {
         tpls = $("#templates");
         tpls = tpls.html("<option value=''>None</option>");
         if (department) {
+            $("#tour_code_area").val('');
             $("#tour_code_area").val(frameType + $("#area option:selected").attr("data-code"));
             if (frameType != "" && frameType != "O") {
 
@@ -128,7 +130,7 @@ $(document).ready(function () {
     loadAreaByDepartment($('#department').val());
 
     $('#department').live('change', function (e) {
-        department_change(e);
+        //department_change(e);
         var $this = $(this),
         val = $this.val();
         if (val) {
@@ -210,6 +212,7 @@ $(document).ready(function () {
         var val = $this.val();
         var depatment = $('#department').val();
         var country = $("option:selected", $this).attr("data-country");
+        jQuery('#country_id').val(country);
         var tourType = $frameType.val();
         if (val) {
             $("#tour_code_area").val(tourType + $("option:selected", $this).attr("data-code"));
@@ -438,78 +441,125 @@ $(document).ready(function () {
         endDate = new Date();
         startDate.setFullYear(start_date_arr[2], start_date_arr[1], start_date_arr[0]);
         endDate.setFullYear(end_date_arr[2], end_date_arr[1], end_date_arr[0]);
-        var days = Math.floor((endDate - startDate) / (3600 * 1000 * 24));
+        //var days = Math.floor((endDate - startDate) / (3600 * 1000 * 24));
+        var days = jQuery('#num_of_day').val();
         /*   console.log("--" + startDate + " - " + endDate);
         console.log("---" + days);*/
         //tinh tu ngay bat dau di la 1 ngay
-        if((days) < 0){
-            alert('Date of the end is not before Date of departure ');
+        if(days == ''){
+            alert('Bạn phải nhập số ngày trước!');
+            document.getElementById('num_of_day').focus();
             return;
         }
-        days = Number(days)+1;
-
-        if(days >0){
-            //  console.log(jk_cloned);
-            //  $("#table_clone tr").hide();
-            //$("#table_clone tr input[name='deleted[]']").val(1);
-            // $("#table_clone tr").remove();
-            //neu days =  0 ngay thi tinh 1 ngay. (di trong ngay)
-            if (CurrentTourProgramLine < days) {
-                for (var i = CurrentTourProgramLine; i < days; i++) {
-                    CurrentTourProgramLine++;
-
-                    var trCloned = jk_cloned.clone(),
-                    trId = trCloned.attr('id'), //get id
-                    countries_option = jQuery('#'+trId).find('.jk_list_countries').html(),
-                    editorId = trCloned.find('textarea').attr('id'),
-                    location = trCloned.find('.jk_list_locations'),
-                    day = 0,
-                    program = new TourPrograms();
-                    trId = trId.replace(/_\d+$/, "_" + CurrentTourProgramLine);
-                    //cap nhat id cho tr
-                    trCloned.attr('id', trId);
-                    //cap nhat "data-editorId" cho locations de nhan biet editor hien tai
-                    editorId = editorId.replace(/\d+$/, CurrentTourProgramLine);
-                    //cap nhat data-editorId cho locations list. de nhan biet editor hien tai la editor nao
-                    location.attr("data-editorId", editorId);
-                    //cap nhat cai tour program id
-                    $("[name='tour_program_id[]']", trCloned).val("");
-                    //cap nhat ID
-                    trCloned.find("[id]").each(function (index) {
-                        var $this = $(this),
-                        id = $this.attr('id');
-                        $this.attr('id', id.replace(/_\d+$/, "_" + CurrentTourProgramLine));
-                    });
-                    //destination
-                    jQuery(trCloned).find('.jk_list_countries').html(countries_option);
-                    $("#table_clone").append(trCloned);
-                    //cap nhat ngay:
-
-                    $('.day_num:visible').each(function () {
-                        day++;
-                        $(this).text(day);
-                        // console.log($(this));
-                    });
-                    console.log(editorId);
-                    //setup editor
-                    program.renderEditor(editorId);
-                }
-            } else if (CurrentTourProgramLine > days) {
-                for (var i = CurrentTourProgramLine; i > days; i--) {
-
-                    var trCloned = jk_cloned.clone(),
-                    trId = trCloned.attr('id');
-                    trId = trId.replace(/_\d+$/, "_" + i);
-                    console.log(trId);
-                    $("#" + trId).remove();
-                    CurrentTourProgramLine--;
-                }
+        else {
+            if((days) <= 0){
+                alert('Số ngày phải nhập lớn hơn 0!');
+                document.getElementById('#um_of_day').focus();
+                return;
             }
+            else if(isNaN(days)){
+                alert('Số ngày phải nhập chữ số!');
+                document.getElementById('num_of_day').focus();
+                return;  
+            }
+            else{
+                if(days == 1){
+                    jQuery('#duration').val(days+" Ngày ");  
+                }
+                else{
+                    jQuery('#duration').val(days+" Ngày "+ (days-1)+" Đêm");
+                }
+
+                //  console.log(jk_cloned);
+                //  $("#table_clone tr").hide();
+                //$("#table_clone tr input[name='deleted[]']").val(1);
+                // $("#table_clone tr").remove();
+                //neu days =  0 ngay thi tinh 1 ngay. (di trong ngay)
+                if (CurrentTourProgramLine < days) {
+                    for (var i = CurrentTourProgramLine; i < days; i++) {
+                        CurrentTourProgramLine++;
+
+                        var trCloned = jk_cloned.clone(),
+                        trId = trCloned.attr('id'), //get id
+                        countries_option = jQuery('#'+trId).find('.jk_list_countries').html(),
+                        editorId = trCloned.find('textarea').attr('id'),
+                        location = trCloned.find('.jk_list_locations'),
+                        day = 0,
+                        program = new TourPrograms();
+                        trId = trId.replace(/_\d+$/, "_" + CurrentTourProgramLine);
+                        //cap nhat id cho tr
+                        trCloned.attr('id', trId);
+                        //cap nhat "data-editorId" cho locations de nhan biet editor hien tai
+                        editorId = editorId.replace(/\d+$/, CurrentTourProgramLine); 
+                        //cap nhat data-editorId cho locations list. de nhan biet editor hien tai la editor nao
+                        location.attr("data-editorId", editorId);
+                        //cap nhat cai tour program id
+                        $("[name='tour_program_id[]']", trCloned).val("");
+                        //cap nhat ID
+                        trCloned.find("[id]").each(function (index) {
+                            var $this = $(this),
+                            id = $this.attr('id');
+                            $this.attr('id', id.replace(/_\d+$/, "_" + CurrentTourProgramLine));
+                        });
+                        //destination
+                        jQuery(trCloned).find('.jk_list_countries').html(countries_option);
+                        // add by hai duc cap lai ten cho cac dropdown
+
+                        jQuery(trCloned).find('select').each(function(){
+                            nameTMP = jQuery(this).attr('name');
+                            nameTMP = nameTMP.substr(0,nameTMP.indexOf('['));
+                            nameTMP = nameTMP.replace(/_\d+$/,CurrentTourProgramLine);
+                            jQuery(this).attr('name',nameTMP+'[]'); 
+                        });
+                        $("#table_clone").append(trCloned);
+                        //cap nhat ngay:
+
+                        $('.day_num:visible').each(function () {
+                            day++;
+                            $(this).text(day);
+                        });
+                        console.log(editorId);
+                        //setup editor
+                        program.renderEditor(editorId);
+                    }
+                } else if (CurrentTourProgramLine > days) {
+                    for (var i = CurrentTourProgramLine; i > days; i--) {
+
+                        var trCloned = jk_cloned.clone(),
+                        trId = trCloned.attr('id');
+                        trId = trId.replace(/_\d+$/, "_" + i);
+                        console.log(trId);
+                        $("#" + trId).remove();
+                        CurrentTourProgramLine--;
+                    }
+                }
+            } 
         }
 
 
+        updateID('TR_table_clone');
 
-    }
-    );
+    });
 
 });
+
+
+function updateID(trClass){
+    jQuery('.'+trClass).each(function(){
+        digit = jQuery(this).attr('id').match(/\d+$/);
+        jQuery(this).find("select").each(function(){
+            var eName = $(this).attr('name'); 
+            name = eName.substr(0,eName.indexOf('['));
+            num = name.match(/\d+$/);
+            if(num !=null && !isNaN(num)){
+                nameAfter = name.replace(num,digit); 
+            }
+            else{
+                nameAfter = name+digit;
+            }
+            nameAfter = nameAfter+"[]" ;
+            jQuery(this).attr('name',nameAfter);
+        });
+    })
+
+}

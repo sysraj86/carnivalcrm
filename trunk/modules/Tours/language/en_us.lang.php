@@ -93,6 +93,7 @@ $mod_strings = array(
     'LBL_TOUR_IS_TEMPLATE' => 'Is tempalte',
     'LBL_TEMPLATE_NAME' => 'Template name',
     'LBL_TOUR_AREA' => 'Area',
-    'LBL_TOUR_IS_SYNCED'=>'Synced'
+    'LBL_TOUR_IS_SYNCED'=>'Synced' ,
+    'LBL_NUMOF_DAY'     => 'Num of day',
 );
 ?>

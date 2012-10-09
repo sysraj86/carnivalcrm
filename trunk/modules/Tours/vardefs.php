@@ -214,6 +214,20 @@ $dictionary['Tour'] = array('audited' => true,
             'name' => 'order_num',
             'type' => 'int',
         ),
+        
+        'country_id' => array(
+          'name'    => 'country_id' ,
+          'vname'   => 'LBL_COUNTRY_ID',
+          'type'    => 'id',
+        ),
+        
+        'num_of_day'    => array(
+          'name'    => 'num_of_day',
+          'vname'   => 'LBL_NUMOF_DAY',
+          'type'    => 'varchar',
+          'len'     => 10,
+        ),
+        
     ),
 
     'relationship' => array(

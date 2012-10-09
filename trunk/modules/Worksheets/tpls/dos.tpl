@@ -191,7 +191,7 @@
                                 <td class="dataField"><input size="10" type="text" class="vat center" name="chiphikhac_vat[]" id="chiphikhac_vat"></td>
                                 <td class="center"><select name="chiphikhac_hinhthucthanhtoan[]" id="chiphikhac_hinhthucthanhtoan">{$CHIPHIKHACHHINHTHUCTHANHTOAN}</select> </td>
                                 <td class="center"><input type = "checkbox" name="cpk_check_tam_ung[]" class ="check_tam_ung" id="cpk_check_tam_ung" > <input class="tq_tinhtoan center tamung" name="chiphikhac_tamung[]" type="text" id="chiphikhac_tamung" size="10" /></td>
-                                <td class="dataField"><input type="button" class="btnAddRow" value="Add Row"> <input type="button" class="btnDelRow" value="Add Row"></td>
+                                <td class="dataField"><input type="button" class="btnAddRow" value="Add Row"> <input type="button" class="btnDelRow" value="Delete Row"></td>
                             </tr>
                             {/if}
                             {$CHIPHIKHACHTML}

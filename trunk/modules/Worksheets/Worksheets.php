@@ -115,9 +115,16 @@
         function getAirlineTicket ($id = ''){
             global $db;
             $airArrtk = array();
-            $sql = "SELECT airtk.name , airtk.area, airtk.id
-            FROM airlinestickets airtk INNER JOIN tours_airlinestickets_1_c tairtk ON airtk.id = tairtk.tours_airlefbatickets_idb
-            WHERE airtk.deleted = 0 AND tairtk.deleted = 0 AND tairtk.tours_airlaf74_1tours_ida='".$id."'"; 
+            $sql = "SELECT 
+            airtk.name,
+            airtk.area,
+            airtk.id 
+            FROM
+            airlinestickets airtk 
+            INNER JOIN tours_airlinestickets_c tairtk 
+            ON airtk.id = tairtk.tours_airl00e8tickets_idb 
+            WHERE airtk.deleted = 0 
+            AND tairtk.deleted = 0 AND tairtk.tours_airl9600tstours_ida='".$id."'"; 
             $result = $db->query($sql/*"CALL getAirlineTicket('".$id."')"*/);
             while($row = $db->fetchByAssoc($result)){
                 $airArrtk[] = array('id' => $row['id'], 'name'=> $row['name'], 'area'=>$row['area']);
@@ -143,7 +150,7 @@
             return $listDestination;
 
         }
-        
+
         function getCostGuide($tour_id = '',$area =''){
             global $db;
             $costguide = array();
