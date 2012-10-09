@@ -34,10 +34,9 @@ array (
     'label' => 'LBL_DEPARMENT',
     'default' => true,
   ),
-  'ASSIGNED_USER_NAME' => 
+  'ATTN_NAME' => 
   array (
-    'link' => 'assigned_user_link',
-    'type' => 'relate',
+    'type' => 'varchar',
     'label' => 'LBL_ASSIGNED_TO_NAME',
     'width' => '10%',
     'default' => true,
