@@ -145,4 +145,5 @@ $layout_defs["Destinations"]["subpanel_setup"]["tours_destinations"] = array (
   ),
 );
 
+unset($layout_defs["Destinations"]["subpanel_setup"]["tours_destinations"]['top_buttons'][0]);
 ?>

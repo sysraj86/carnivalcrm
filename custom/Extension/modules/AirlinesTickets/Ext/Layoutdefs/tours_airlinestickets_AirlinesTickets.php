@@ -21,3 +21,5 @@ $layout_defs["AirlinesTickets"]["subpanel_setup"]["tours_airlinestickets"] = arr
     ),
   ),
 );
+
+unset($layout_defs["AirlinesTickets"]["subpanel_setup"]["tours_airlinestickets"]['top_buttons'][0]);
