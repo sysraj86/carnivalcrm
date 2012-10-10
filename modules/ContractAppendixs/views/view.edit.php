@@ -21,8 +21,9 @@
                             <th align="center">'.$mod_strings['LBL_THANHTIEN'].'</th>
                             <th align="center">&nbsp;</th>
                         </tr>';
+            $kt = 0;
             while($row = $db->fetchByAssoc($result)){
-                
+                $kt = 1;
                 $html .= '<tr>';
                      $html .= '<td  align="center"> ';
                         $html .= '<input name="service[]" type="text" id="service" value="'.$row['service'].'" />';
@@ -47,7 +48,7 @@
                      $html .= '</td>';
                  $html .= '</tr> ';
             }
-            if(!$result){
+            if($kt==0){
                  $html .= '<tr>';
                      $html .= '<td  align="center"> ';
                         $html .= '<input name="service[]" type="text" id="service" value="" />';
