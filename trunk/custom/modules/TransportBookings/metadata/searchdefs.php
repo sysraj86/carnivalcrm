@@ -6,17 +6,34 @@ array (
   array (
     'basic_search' => 
     array (
-      0 => 
+      'code' => 
       array (
         'name' => 'code',
         'label' => 'LBL_CODE',
+        'default' => true,
+        'width' => '10%',
       ),
-      1 => 'name',
-      2 => 
+      'name' => 
+      array (
+        'name' => 'name',
+        'default' => true,
+        'width' => '10%',
+      ),
+      'confirm' => 
+      array (
+        'type' => 'radioenum',
+        'default' => true,
+        'label' => 'LBL_CONFIRM',
+        'width' => '10%',
+        'name' => 'confirm',
+      ),
+      'current_user_only' => 
       array (
         'name' => 'current_user_only',
         'label' => 'LBL_CURRENT_USER_FILTER',
         'type' => 'bool',
+        'default' => true,
+        'width' => '10%',
       ),
     ),
     'advanced_search' => 
@@ -33,6 +50,14 @@ array (
         'name' => 'name',
         'default' => true,
         'width' => '10%',
+      ),
+      'confirm' => 
+      array (
+        'type' => 'radioenum',
+        'default' => true,
+        'label' => 'LBL_CONFIRM',
+        'width' => '10%',
+        'name' => 'confirm',
       ),
       'created_by' => 
       array (

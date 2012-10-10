@@ -98,9 +98,9 @@
     $ss->assign('RES_FAX', $focus->res_fax);
     $ss->assign('RES_FAX', $focus->res_fax);
     $ss->assign('FROM', $focus->company);
-    $ss->assign('ATTN_NAME', $focus->attn_name);
+    //$ss->assign('ATTN_NAME', $focus->attn_name);
     $ss->assign('ATTN_PHONE', $focus->attn_phone);
-    $ss->assign('ATTN_ID', $focus->attn_id);
+    //$ss->assign('ATTN_ID', $focus->attn_id);
     $ss->assign('ATTN_EMAIL', $focus->attn_email);
     $ss->assign('TEL', $focus->attn_tel);
     $ss->assign('FAX', $focus->attn_fax);

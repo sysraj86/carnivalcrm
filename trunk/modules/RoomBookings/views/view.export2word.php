@@ -27,7 +27,7 @@
             , r.attn_hotel_phone
             , r.hotel_tel
             , r.hotel_fax
-            , r.attn_name
+            , r.assigned_user_id
             , r.attn_email
             , r.attn_tel
             , r.attn_fax
@@ -85,7 +85,10 @@
             $template = str_replace("{HOTEL_TEL}", $row['hotel_tel'],$template); 
             $template = str_replace("{HOTEL_FAX}",$row['hotel_fax'],$template );  
             $template = str_replace("{FROM}", $row['company'],$template);  
-            $template = str_replace("{ATTN_NAME}", $row['attn_name'],$template ); 
+            //$template = str_replace("{ATTN_NAME}", $row['attn_name'],$template );
+            $user = new User();
+            $user->retrieve($row['assigned_user_id']); 
+            $template = str_replace("{ATTN_NAME}", $user->name,$template ); 
             $template = str_replace("{ATTN_PHONE}", $row['attn_phone'],$template); 
             $template = str_replace("{ATTN_EMAIL}", $row['attn_email'],$template); 
             $template = str_replace("{TEL}", $row['attn_tel'],$template);  

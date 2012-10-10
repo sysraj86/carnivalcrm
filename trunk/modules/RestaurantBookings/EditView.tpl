@@ -75,9 +75,9 @@
         <tr>
             <td class="dataLabel">{$MOD.LBL_ATTN_NAME} :</td>
             <td class="dataField">
-                <input type="text" name="attn_name" id="attn_name" value="{$ATTN_NAME}" size="30"/> &nbsp;&nbsp;&nbsp;
-                <input data="Button=cleardata,selectdata|Module=Users|Fields=id,user_name,phone_work,email1|Inputs=attn_id,attn_name,attn_phone,attn_email" class="select" type="text" name="attn_phone" id="attn_phone" value="{$ATTN_PHONE}"/>
-                <input type="hidden" name="attn_id" id="attn_id" value="{$ATTN_ID}"/>
+                <input type="text" name="assigned_user_name" id="assigned_user_name" value="{$ASSIGNED_USER_NAME}" size="30"/> &nbsp;&nbsp;&nbsp;
+                <input data="Button=cleardata,selectdata|Module=Users|Fields=id,user_name,phone_work,email1|Inputs=assigned_user_id,assigned_user_name,attn_phone,attn_email" class="select" type="text" name="attn_phone" id="attn_phone" value="{$ATTN_PHONE}"/>
+                <input type="hidden" name="assigned_user_id" id="assigned_user_id" value="{$ASSIGNED_USER_ID}"/>
             </td>
         </tr>
         <tr>

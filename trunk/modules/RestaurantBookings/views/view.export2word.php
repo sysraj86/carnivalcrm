@@ -93,7 +93,8 @@
             $template = str_replace("{RES_TEL}", $this->bean->res_tel,$template); 
             $template = str_replace("{RES_FAX}",$this->bean->res_fax,$template );  
             $template = str_replace("{FROM}", $this->bean->company,$template);  
-            $template = str_replace("{ATTN_NAME}", $this->bean->attn_name,$template ); 
+            //$template = str_replace("{ATTN_NAME}", $this->bean->attn_name,$template ); 
+            $template = str_replace("{ATTN_NAME}", $this->bean->assigned_user_name,$template ); 
             $template = str_replace("{ATTN_PHONE}", $this->bean->attn_phone,$template); 
             $template = str_replace("{ATTN_EMAIL}", $this->bean->attn_email,$template); 
             $template = str_replace("{TEL}", $this->bean->attn_tel,$template);  

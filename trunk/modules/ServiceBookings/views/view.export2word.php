@@ -29,7 +29,7 @@
                   srv.res_tel,
                   srv.res_fax,
                   srv.company,
-                  srv.attn_name,
+                  srv.assigned_user_id,
                   srv.attn_phone,
                   srv.attn_id,
                   srv.attn_email,
@@ -103,7 +103,10 @@
             $template = str_replace("{RES_TEL}", $row['res_tel'],$template); 
             $template = str_replace("{RES_FAX}",$row['res_fax'],$template );  
             $template = str_replace("{FROM}", $row['company'],$template);  
-            $template = str_replace("{ATTN_NAME}", $row['attn_name'],$template ); 
+            //$template = str_replace("{ATTN_NAME}", $row['attn_name'],$template );
+            $user = new User();
+            $user->retrieve($row['assigned_user_id']); 
+            $template = str_replace("{ATTN_NAME}", $user->name,$template ); 
             $template = str_replace("{ATTN_PHONE}", $row['attn_phone'],$template); 
             $template = str_replace("{ATTN_EMAIL}", $row['attn_email'],$template); 
             $template = str_replace("{TEL}", $row['attn_tel'],$template);  

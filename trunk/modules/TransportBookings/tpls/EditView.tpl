@@ -71,9 +71,9 @@
      <tr>
         <td class="dataLabel">{$MOD.LBL_ATTN} :</td>
         <td class="dataField">
-            <input type="hidden" name="attn_from_name_id" id="attn_from_name_id" value="{$ATTN_FROM_NAME_ID}" size="32"/>
-            <input type="text" name="attn_from_name" id="attn_from_name" value="{$ATTN_FROM_NAME}" size="32"/>
-            <input data="Button=cleardata,selectdata|Module=Users|Fields=id,user_name,phone_work,email1|Inputs=attn_from_name_id,attn_from_name,attn_from_phone,email" class="select" type="text" id="attn_from_phone" name="attn_from_phone" size="20" value="{$ATTN_FROM_PHONE}"/>
+            <input type="hidden" name="assigned_user_id" id="assigned_user_id" value="{$ASSIGNED_USER_ID}" size="32"/>
+            <input type="text" name="assigned_user_name" id="assigned_user_name" value="{$ASSIGNED_USER_NAME}" size="32"/>
+            <input data="Button=cleardata,selectdata|Module=Users|Fields=id,user_name,phone_work,email1|Inputs=assigned_user_id,assigned_user_name,attn_from_phone,email" class="select" type="text" id="attn_from_phone" name="attn_from_phone" size="20" value="{$ATTN_FROM_PHONE}"/>
             <!--<input title="{$APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{$APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='2' class="button" value='{$APP.LBL_SELECT_BUTTON_LABEL}' name="btn_attn_from_name" id="btn_attn_from_name" onclick='open_popup("Users", 600, 400, "", true, false, {$attn_from_popup_request_data}, "single", true);'></td>-->
         </td>
      </tr> 

@@ -49,7 +49,6 @@
     $xtpl->assign("IMAGE_PATH",   $image_path);
     $xtpl->assign("PRINT_URL",   "index.php?".$GLOBALS['request_string']);
     $xtpl->assign("ID",           $focus->id);
-    $xtpl->assign("ASSIGNED_TO",  $focus->assigned_user_name);
     if(!empty($focus->name)){
         $xtpl->assign("NAME",  $focus->name); 
     }
@@ -67,9 +66,11 @@
     $xtpl->assign('RES_FAX', $focus->res_fax);
     $xtpl->assign('RES_FAX', $focus->res_fax);
     $xtpl->assign('FROM', $focus->company);
-    $xtpl->assign('ATTN_NAME', $focus->attn_name);
+    //$xtpl->assign('ATTN_NAME', $focus->attn_name);
+    $xtpl->assign('ATTN_NAME', $focus->assigned_user_name);
     $xtpl->assign('ATTN_PHONE', $focus->attn_phone);
-    $xtpl->assign('ATTN_ID', $focus->attn_id);
+    //$xtpl->assign('ATTN_ID', $focus->attn_id);
+    $xtpl->assign('ATTN_ID', $focus->assigned_user_id);
     $xtpl->assign('ATTN_EMAIL', $focus->attn_email);
     $xtpl->assign('TEL', $focus->attn_tel);
     $xtpl->assign('FAX', $focus->attn_fax);

@@ -67,7 +67,7 @@
         </tr>
         <tr>
             <td class="tabDetailViewDL">{$MOD.LBL_ATTN} :</td>
-            <td class="tabDetailViewDF"><a href="index.php?module=TravelGuides&action=DetailView&record={$ATTN_FROM_NAME_ID}" class="tabDetailViewDFLink">{$ATTN_FROM_NAME}</a> - {$ATTN_FROM_PHONE} </td>
+            <td class="tabDetailViewDF"><a href="index.php?module=Users&action=DetailView&record={$ATTN_FROM_NAME_ID}" class="tabDetailViewDFLink">{$ATTN_FROM_NAME}</a> - {$ATTN_FROM_PHONE} </td>
         </tr>
         <tr>
             <td class="tabDetailViewDL">{$MOD.LBL_EMAIL} :</td>
