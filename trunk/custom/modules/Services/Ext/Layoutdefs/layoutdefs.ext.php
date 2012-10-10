@@ -184,4 +184,5 @@ $layout_defs["Services"]["subpanel_setup"]["tours_services"] = array (
   ),
 );
 
+unset($layout_defs["Services"]["subpanel_setup"]["tours_services"]['top_buttons'][0]);
 ?>

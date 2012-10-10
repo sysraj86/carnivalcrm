@@ -10,10 +10,10 @@ $layout_defs["Cars"]["subpanel_setup"]["tours_cars"] = array (
   'get_subpanel_data' => 'tours_cars',
   'top_buttons' => 
   array (
-    0 => 
+    /*0 => 
     array (
       'widget_class' => 'SubPanelTopButtonQuickCreate',
-    ),
+    ),*/
     1 => 
     array (
       'widget_class' => 'SubPanelTopSelectButton',
@@ -21,3 +21,5 @@ $layout_defs["Cars"]["subpanel_setup"]["tours_cars"] = array (
     ),
   ),
 );
+
+unset($layout_defs["Cars"]["subpanel_setup"]["tours_cars"]['top_buttons'][0]);

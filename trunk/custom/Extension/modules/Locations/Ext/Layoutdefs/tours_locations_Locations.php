@@ -21,3 +21,5 @@ $layout_defs["Locations"]["subpanel_setup"]["tours_locations"] = array (
     ),
   ),
 );
+
+unset($layout_defs["Locations"]["subpanel_setup"]["tours_locations"]['top_buttons'][0]);

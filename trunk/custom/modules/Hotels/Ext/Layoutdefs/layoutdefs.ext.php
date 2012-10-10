@@ -232,4 +232,5 @@ $layout_defs["Hotels"]["subpanel_setup"]["tours_hotels"] = array (
   ),
 );
 
+unset($layout_defs["Hotels"]["subpanel_setup"]["tours_hotels"]['top_buttons'][0]);
 ?>
