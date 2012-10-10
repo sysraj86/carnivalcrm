@@ -76,9 +76,9 @@
         <tr>
             <td class="dataLabel">{$MOD.LBL_ATTN_NAME} :</td>
             <td class="dataField">
-                <input type="text" name="attn_name" id="attn_name" value="{$ATTN_NAME}" size="30"/>-
+                <input type="text" name="assigned_user_name" id="assigned_user_name" value="{$ASSIGNED_USER_NAME}" size="30"/>-
                 <input type="text" name="attn_phone" id="attn_phone" value="{$ATTN_PHONE}"/>
-                <input type="hidden" name="attn_id" id="attn_id" value="{$ATTN_ID}" class="select" data="Button=cleardata,selectdata|Module=Users|Fields=id,user_name,phone_work,email1|Inputs=attn_id,attn_name,attn_phone,attn_email"/>
+                <input type="hidden" name="assigned_user_id" id="assigned_user_id" value="{$ASSIGNED_USER_ID}" class="select" data="Button=cleardata,selectdata|Module=Users|Fields=id,user_name,phone_work,email1|Inputs=assigned_user_id,assigned_user_name,attn_phone,attn_email"/>
                 <!-- <input title="{$APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{$APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='2' class="button" value='Select' name="btn_attn_hotel_nam" id="btn_attn_hotel_nam" onclick='open_popup("Users", 600, 400, "", true, false, {$user_popup_request_data}, "single", true);'> -->
             </td>
         </tr>

@@ -20,6 +20,14 @@ array (
         'default' => true,
         'width' => '10%',
       ),
+      'confirm' => 
+      array (
+        'type' => 'radioenum',
+        'default' => true,
+        'label' => 'LBL_CONFIRM',
+        'width' => '10%',
+        'name' => 'confirm',
+      ),
       'current_user_only' => 
       array (
         'name' => 'current_user_only',
@@ -44,6 +52,14 @@ array (
         'name' => 'name',
         'default' => true,
         'width' => '10%',
+      ),
+      'confirm' => 
+      array (
+        'type' => 'radioenum',
+        'default' => true,
+        'label' => 'LBL_CONFIRM',
+        'width' => '10%',
+        'name' => 'confirm',
       ),
       'hotel_address' => 
       array (

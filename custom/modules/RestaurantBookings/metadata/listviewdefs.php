@@ -34,11 +34,12 @@ array (
     'label' => 'LBL_DEPARMENT',
     'default' => true,
   ),
-  'ATTN_NAME' => 
+   'ASSIGNED_USER_NAME' => 
   array (
-    'type' => 'varchar',
-    'label' => 'LBL_ASSIGNED_TO_NAME',
-    'width' => '10%',
+    'width' => '9%',
+    'label' => 'LBL_ATTN_NAME',
+    'module' => 'Employees',
+    'id' => 'ASSIGNED_USER_ID',
     'default' => true,
   ),
 );

@@ -67,7 +67,7 @@
     if (empty($focus->assigned_user_id) && empty($focus->id))  $focus->assigned_user_id   = $current_user->id;
     if (empty($focus->assigned_name)    && empty($focus->id))  $focus->assigned_user_name = $current_user->user_name;
     $ss->assign("ASSIGNED_USER_OPTIONS",    get_select_options_with_id(get_user_array(TRUE, "Active", $focus->assigned_user_id), $focus->assigned_user_id));
-    $ss->assign("ASSIGNED_USER_NAME",       $focus->operator);
+    $ss->assign("ASSIGNED_USER_NAME",       $focus->assigned_user_name);
     $ss->assign("ASSIGNED_USER_ID",         $focus->assigned_user_id );
     $ss->assign('CALENDAR_DATEFORMAT', $timedate->get_cal_date_format());
     $ss->assign('USER_DATEFORMAT', $timedate->get_user_date_format());
@@ -82,8 +82,8 @@
     $ss->assign('TEL_TO', $focus->tel_to);
     $ss->assign('FAX_TO', $focus->fax_to);
     $ss->assign('FROM_CO', $focus->from_co);
-    $ss->assign('ATTN_FROM_NAME_ID', $focus->attn_from_name_id);
-    $ss->assign('ATTN_FROM_NAME', $focus->attn_from_name);
+    //$ss->assign('ATTN_FROM_NAME_ID', $focus->attn_from_name_id);
+    //$ss->assign('ATTN_FROM_NAME', $focus->attn_from_name);
     $ss->assign('ATTN_FROM_PHONE', $focus->attn_from_phone);
     $ss->assign('EMAIL', $focus->email);
     $ss->assign('TEL_FROM', $focus->tel_from);

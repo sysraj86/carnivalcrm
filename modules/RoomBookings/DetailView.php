@@ -68,9 +68,11 @@
     $xtpl->assign('HOTEL_FAX', $focus->hotel_fax);
     $xtpl->assign('HOTEL_FAX', $focus->hotel_fax);
     $xtpl->assign('FROM', $focus->company);
-    $xtpl->assign('ATTN_NAME', $focus->attn_name);
+    //$xtpl->assign('ATTN_NAME', $focus->attn_name);
+    $xtpl->assign('ATTN_NAME', $focus->assigned_user_name);
     $xtpl->assign('ATTN_PHONE', $focus->attn_phone);
-    $xtpl->assign('ATTN_ID', $focus->attn_id);
+    //$xtpl->assign('ATTN_ID', $focus->attn_id);
+    $xtpl->assign('ATTN_ID', $focus->assigned_user_id);
     $xtpl->assign('ATTN_EMAIL', $focus->attn_email);
     $xtpl->assign('TEL', $focus->attn_tel);
     $xtpl->assign('FAX', $focus->attn_fax);

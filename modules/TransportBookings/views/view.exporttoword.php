@@ -21,7 +21,7 @@ require_once('modules/TransportBookings/TransportBookings.php');
             $sql = "SELECT 
             tb.address
             ,tb.code
-            ,tb.attn_from_name
+            ,tb.assigned_user_id
             ,tb.attn_from_phone
             ,tb.attn_to_name
             ,tb.attn_to_phone
@@ -48,20 +48,20 @@ require_once('modules/TransportBookings/TransportBookings.php');
             $result = $db->query($sql); 
             $row = $db->fetchByAssoc($result);
             
-            $template = str_replace("{LBL_TO}", $mod_strings['LBL_TO'],$template);
+            $template = str_replace("{LBL_TO}", $mod_strings['LBL_TRANSPORT'],$template);
             $template = str_replace("{LBL_ADDRESS}", $mod_strings['LBL_ADDRESS'],$template);
             $template = str_replace("{LBL_ATTN}", $mod_strings['LBL_ATTN'],$template);
             $template = str_replace("{LBL_TEL}", $mod_strings['LBL_TEL'],$template);
             $template = str_replace("{LBL_FAX}", $mod_strings['LBL_FAX'],$template);
-            $template = str_replace("{LBL_FROM}", $mod_strings['LBL_FROM'],$template);
+            $template = str_replace("{LBL_FROM}", $mod_strings['LBL_FROM_CO'],$template);
             $template = str_replace("{LBL_ATTN}", $mod_strings['LBL_ATTN'],$template);
             $template = str_replace("{LBL_EMAIL}", $mod_strings['LBL_EMAIL'],$template);
             $template = str_replace("{LBL_TEL}", $mod_strings['LBL_TEL'],$template);
             $template = str_replace("{LBL_TITLE}", $mod_strings['LBL_TITLE'],$template);
-            $template = str_replace("{LBL_ROUTE}", $mod_strings['LBL_ROUTE'],$template);
+            $template = str_replace("{LBL_ROUTE}", $mod_strings['LBL_NAMELINE'],$template);
             $template = str_replace("{LBL_DATELINE}", $mod_strings['LBL_DATELINE'],$template);
-            $template = str_replace("{LBL_UNITPRICE}", $mod_strings['LBL_UNITPRICE'],$template);
-            $template = str_replace("{LBL_TYPE}", $mod_strings['LBL_TYPE'],$template);
+            $template = str_replace("{LBL_UNITPRICE}", $mod_strings['LBL_UNITPRICELINE'],$template);
+            $template = str_replace("{LBL_TYPE}", $mod_strings['LBL_TYPELINE'],$template);
             $template = str_replace("{LBL_CONTENTLINE}", $mod_strings['LBL_CONTENTLINE'],$template);
             $template = str_replace("{LBL_REQUIRE}", $mod_strings['LBL_REQUIRE'],$template);
             $template = str_replace("{LBL_VAT1}", $mod_strings['LBL_VAT1'],$template);
@@ -80,7 +80,10 @@ require_once('modules/TransportBookings/TransportBookings.php');
             $template = str_replace("{TEL_TO}", $row['tel_to'],$template);     
             $template = str_replace("{FAX_TO}", $row['fax_to'],$template);
             $template = str_replace("{FROM_CO}", $row['from_co'],$template);  
-            $template = str_replace("{ATTN_FROM_NAME}", $row['attn_from_name'],$template);
+            //$template = str_replace("{ATTN_FROM_NAME}", $row['attn_from_name'],$template);
+            $user = new User();
+            $user->retrieve($row['assigned_user_id']);
+            $template = str_replace("{ATTN_FROM_NAME}", $user->name,$template);
             $template = str_replace("{ATTN_FROM_PHONE}", $row['attn_from_phone'],$template);     
             $template = str_replace("{EMAIL}", $row['email'],$template);
             $template = str_replace("{TEL_FROM}", $row['tel_from'],$template);  
