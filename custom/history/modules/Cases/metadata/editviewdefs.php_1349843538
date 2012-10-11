@@ -19,7 +19,6 @@ array (
           'field' => '30',
         ),
       ),
-      'useTabs' => false,
     ),
     'panels' => 
     array (
@@ -35,15 +34,14 @@ array (
         ),
         1 => 
         array (
-          0 => 
-          array (
+          0 => array (
             'name' => 'name',
             'displayParams' => 
             array (
               'size' => 60,
             ),
           ),
-          1 => 'priority',
+          1 =>'priority',
         ),
         2 => 
         array (
@@ -65,20 +63,18 @@ array (
             'name' => 'resolution',
             'nl2br' => true,
           ),
-          1 => 'type',
+          1 =>'type',
         ),
-        4 => 
+         4 => 
         array (
-          0 => 'fits_cases_name',
+          0 =>  'fits_cases_name',
+          
         ),
         5 => 
         array (
-          0 => 
-          array (
-            'name' => 'groupprograms_cases_name',
-            'label' => 'LBL_GROUPPROGRAMS_CASES_FROM_GROUPPROGRAMS_TITLE',
-          ),
+          0 => 'account_name',
         ),
+          
       ),
       'LBL_PANEL_ASSIGNMENT' => 
       array (
