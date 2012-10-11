@@ -45,8 +45,16 @@ array (
         ),
         2 => 
         array (
-          0 => 'assigned_user_name',
-          1 => 
+          0 => 
+          array (
+            'name' => 'groupprograms_cases_name',
+            'label' => 'LBL_GROUPPROGRAMS_CASES_FROM_GROUPPROGRAMS_TITLE',
+          ),
+          1 => 'assigned_user_name',
+        ),
+        3 => 
+        array (
+          0 => 
           array (
             'name' => 'description',
             'displayParams' => 

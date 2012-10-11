@@ -75,8 +75,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'groupprograms_cases_name',
-            'label' => 'LBL_GROUPPROGRAMS_CASES_FROM_GROUPPROGRAMS_TITLE',
+            'name' => 'groupprogras_cases_2_name',
+            'label' => 'LBL_GROUPPROGRAMS_CASES_2_FROM_GROUPPROGRAMS_TITLE',
           ),
         ),
       ),

@@ -35,14 +35,11 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'groupprograms_cases_name' => 
+      'account_name' => 
       array (
-        'type' => 'relate',
-        'link' => 'groupprograms_cases',
-        'label' => 'LBL_GROUPPROGRAMS_CASES_FROM_GROUPPROGRAMS_TITLE',
-        'width' => '10%',
+        'name' => 'account_name',
         'default' => true,
-        'name' => 'groupprograms_cases_name',
+        'width' => '10%',
       ),
       'status' => 
       array (

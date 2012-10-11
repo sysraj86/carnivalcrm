@@ -45,6 +45,19 @@ array (
         ),
         2 => 
         array (
+          0 => 
+          array (
+            'name' => 'fits_cases_name',
+            'label' => 'LBL_FITS_CASES_FROM_FITS_TITLE',
+          ),
+          1 => 
+          array (
+            'name' => 'groupprogras_cases_2_name',
+            'label' => 'LBL_GROUPPROGRAMS_CASES_2_FROM_GROUPPROGRAMS_TITLE',
+          ),
+        ),
+        3 => 
+        array (
           0 => 'assigned_user_name',
           1 => 
           array (

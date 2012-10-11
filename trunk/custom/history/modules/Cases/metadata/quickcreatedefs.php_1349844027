@@ -1,7 +1,7 @@
 <?php
 $viewdefs ['Cases'] = 
 array (
-  'EditView' => 
+  'QuickCreate' => 
   array (
     'templateMeta' => 
     array (
@@ -23,68 +23,52 @@ array (
     ),
     'panels' => 
     array (
-      'lbl_case_information' => 
+      'default' => 
       array (
         0 => 
-        array (
-          0 => 
-          array (
-            'name' => 'case_number',
-            'type' => 'readonly',
-          ),
-        ),
-        1 => 
         array (
           0 => 
           array (
             'name' => 'name',
             'displayParams' => 
             array (
-              'size' => 60,
+              'size' => 65,
+              'required' => true,
             ),
           ),
           1 => 'priority',
+        ),
+        1 => 
+        array (
+          0 => 'status',
+          1 => 'type',
         ),
         2 => 
         array (
           0 => 
           array (
-            'name' => 'description',
-            'nl2br' => true,
-            'displayParams' => 
-            array (
-              'cols' => 60,
-            ),
+            'name' => 'fits_cases_name',
+            'label' => 'LBL_FITS_CASES_FROM_FITS_TITLE',
           ),
-          1 => 'status',
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'resolution',
-            'nl2br' => true,
-          ),
-          1 => 'type',
-        ),
-        4 => 
-        array (
-          0 => 'fits_cases_name',
-        ),
-        5 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'groupprograms_cases_name',
             'label' => 'LBL_GROUPPROGRAMS_CASES_FROM_GROUPPROGRAMS_TITLE',
           ),
         ),
-      ),
-      'LBL_PANEL_ASSIGNMENT' => 
-      array (
-        0 => 
+        3 => 
         array (
           0 => 'assigned_user_name',
+          1 => 
+          array (
+            'name' => 'description',
+            'displayParams' => 
+            array (
+              'rows' => '4',
+              'cols' => '60',
+            ),
+            'nl2br' => true,
+          ),
         ),
       ),
     ),
