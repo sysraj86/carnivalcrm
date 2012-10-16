@@ -34,7 +34,7 @@
      <td style="text-align: right;">{$MOD.LBL_KY} :</td>
      <td class="dataField"><select name="ky" id="ky">{$KY}</select></td>
      <td style="text-align: right;">{$MOD.LBL_THANG} :</td>
-     <td class="dataField"><select name="thang" id="thang">{$THANG}</select></td>
+     <td class="dataField"><select multiple="multiple" name="thang[]" id="thang">{$THANG}</select></td>
      <td style="text-align: right;">{$MOD.LBL_NAM} :</td>
      <td class="dataField"><input type="text" name="nam" id="nam" value="{$NAM}"></td>
      </tr>
@@ -62,6 +62,7 @@
             <td colspan="2" class="head"><b>{$MOD.LBL_LEADS}</b></td>
             <td colspan="2" class="head"><b>{$MOD.LBL_ACCOUNT}</b></td>
             <td colspan="2" class="head"><b>{$MOD.LBL_SUCCESS}</b></td>
+            <td rowspan="2" class="head"><b>{$MOD.LBL_REVENUE}</b></td>
             <td rowspan="2" class="head"><b>{$MOD.LBL_TOTAL}</b></td>
         {if $RATE eq 1} 
             <td rowspan="2" class="head"><b>{$MOD.LBL_RAKING}</b></td>
@@ -86,6 +87,7 @@
             <td colspan="2" class="head"><b>{$MOD.LBL_ACCOUNT}</b></td>
             <td colspan="2" class="head"><b>{$MOD.LBL_SUCCESS}</b></td>
             <td colspan="5" class="head"><b>{$MOD.LBL_CUSTOMERS}</b></td>
+            <td rowspan="2" class="head"><b>{$MOD.LBL_REVENUE}</b></td>
             <td rowspan="2" class="head"><b>{$MOD.LBL_TOTAL}</b></td>
         {if $RATE eq 1} 
             <td rowspan="2" class="head"><b>{$MOD.LBL_RAKING}</b></td>

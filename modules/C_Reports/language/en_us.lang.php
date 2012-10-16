@@ -117,7 +117,34 @@ $mod_strings = array (
   // Export :
     'LBL_TITLE'     => 'RATING SALE MAN',
     'LBL_FILENAME'     => 'RatingSale',
-
-       
+    'LBL_REVENUE'     => 'Revenue',
+    'LBL_REPORT_USER_ACTIVITIVES' => 'Report User\'s Activitives',
+    'LBL_REPORT_USER_ACTIVITIVES_DESCRIPTION' => 'Report About Tasks Of Employees.',
+    'LBL_START' => 'Start',
+    'LBL_END' => 'End',
+    'LBL_DEPARTMENT' => 'Department',
+    'LBL_ASSIGNED_TO_NAME' => 'User',
+    'LBL_BUTTON_REPORT' => 'Report',
+    'LBL_CLEAR_BUTTON' => 'Clear',
+    'LBL_REPORT_USER_ACTIVITIVES' => 'Report User\'s Activitives',
+    'LBL_REPORT_USER_ACTIVITIVES_DESCRIPTION' => 'Report About Tasks Of Employees.',
+    'LBL_REPORT_SUMMARY' => 'Summary Report',
+    'LBL_REPORT_SUMMARY_DESCRIPTION' => 'Reported total activities of company, department, sale man.',
+    'LBL_DATE' => 'Date',
+    'LBL_TIME' => 'Time',
+    'LBL_SALER' => 'Saler',
+    'LBL_CONTENT' => 'Content',
+    'LBL_TYPE' => 'Type',
+    'LBL_CUSTOMER' => 'Customer',
+    'LBL_CUSTOMER_COMMENT' => 'Customer\'s Comment',
+    'LBL_SALES_COMMENT' => 'Saler\'s Comment',
+    'LBL_BUTTON_EXPORT' => 'Export To Excel',
+    
+    
+    //// report summary
+    'LBL_REPORT_FILTER'       => 'Filter',
+    'LBL_SYNTHESIS_REPORT'    => 'INTEGRATED REPORT',
+    'LBL_SALE_PERSON'         => 'By Sale man',
+    'LBL_SALE_GROUP'          => 'By Deparment',
 );
 ?>

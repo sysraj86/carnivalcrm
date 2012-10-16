@@ -50,7 +50,7 @@
         * Author: Lê Gia Thành
         * Des : Ham tinh diem cho nhan vien Telesales
         */
-        function getDanhSachDiemCuaNhanVienTeleSale($app,$mod,$ds_ketqua=null,$start_date = null,$end_date = null,$sale_man_id=null,$phongban=null,$xephang=null,$export=null,$report_type=null){
+        function getDanhSachDiemCuaNhanVienTeleSale($app,$mod,$ds_ketqua=null,$start_date = array(),$end_date = array(),$sale_man_id=null,$phongban=null,$xephang=null,$export=null,$report_type=null){
             // Khai bao bien /////////////////////
             global $db,$app_list_strings;
             $sales_quytactinhdiem = $app_list_strings;
@@ -100,10 +100,16 @@
                 SELECT *
                 FROM users a
                   JOIN prospects b
-                    ON a.id = b.assigned_user_id
-                      AND b.date_entered >= "'.$start_date.'"
-                      AND b.date_entered <= "'.$end_date.'"
-                      AND b.deleted = 0
+                    ON a.id = b.assigned_user_id ';
+                $sql .= ' AND ( ';
+                $or = '';
+                for($j = 0 ; $j < count($start_date) ; $j++){
+                    $sql .= $or.' (b.date_entered >= "'.$start_date[$j].'"
+                            AND b.date_entered <= "'.$end_date[$j].'" )';
+                    $or = ' OR ';
+                }
+                $sql .= ' ) ';
+                $sql .=' AND b.deleted = 0
                 WHERE a.deleted = 0
                     AND a.id = "'.$ds_ketqua[$i]['id'].'"
                 ';
@@ -132,8 +138,16 @@
                 FROM users a
                   JOIN leads b
                     ON a.id = b.assigned_user_id
-                      AND b.date_entered >= "'.$start_date.'"
-                      AND b.date_entered <= "'.$end_date.'"
+                      ';
+                $sql .= ' AND ( ';
+                $or = ''; 
+                for($j = 0 ; $j < count($start_date) ; $j++){
+                    $sql .= $or.' (b.date_entered >= "'.$start_date[$j].'"
+                            AND b.date_entered <= "'.$end_date[$j].'" )';
+                    $or = ' OR ';
+                }
+                $sql .= ' ) ';
+                $sql .='
                       AND b.deleted = 0
                 WHERE a.deleted = 0
                     AND a.id = "'.$ds_ketqua[$i]['id'].'"
@@ -162,9 +176,18 @@
                     FROM users a
                       JOIN opportunities b
                         ON a.id = b.assigned_user_id
-                          AND b.date_entered >= "'.$start_date.'"
-                          AND b.date_entered <= "'.$end_date.'"
+                        ';
+                $sql .= ' AND ( ';
+                $or = ''; 
+                for($j = 0 ; $j < count($start_date) ; $j++){
+                    $sql .= $or.' (b.date_entered >= "'.$start_date[$j].'"
+                            AND b.date_entered <= "'.$end_date[$j].'" )';
+                    $or = ' OR ';
+                }
+                $sql .= ' ) ';
+                $sql .='
                           AND b.deleted = 0
+                          AND b.sales_stage <> "Closed Lost"
                     WHERE a.deleted = 0
                         AND a.id = "'.$ds_ketqua[$i]['id'].'"
                 ';
@@ -191,8 +214,16 @@
                     FROM users a
                       JOIN contracts b
                         ON a.id = b.assigned_user_id
-                          AND b.date_entered >= "'.$start_date.'"
-                          AND b.date_entered <= "'.$end_date.'"
+                          ';
+                $sql .= ' AND ( ';
+                $or = ''; 
+                for($j = 0 ; $j < count($start_date) ; $j++){
+                    $sql .= $or.' (b.date_entered >= "'.$start_date[$j].'"
+                            AND b.date_entered <= "'.$end_date[$j].'" )';
+                    $or = ' OR ';
+                }
+                $sql .= ' ) ';
+                $sql .='
                           AND b.deleted = 0
                     WHERE a.deleted = 0
                         AND a.id = "'.$ds_ketqua[$i]['id'].'"
@@ -216,6 +247,31 @@
                 * Lay du lieu dua vao html
                 */
                 
+                /**
+                * Lay tong gia tri hop dong
+                */
+                $sql = '
+                    SELECT SUM(b.tongtien) as revenue
+                    FROM users a
+                      JOIN contracts b
+                        ON a.id = b.assigned_user_id
+                          ';
+                $sql .= ' AND ( ';
+                $or = ''; 
+                for($j = 0 ; $j < count($start_date) ; $j++){
+                    $sql .= $or.' (b.date_entered >= "'.$start_date[$j].'"
+                            AND b.date_entered <= "'.$end_date[$j].'" )';
+                    $or = ' OR ';
+                }
+                $sql .= ' ) ';
+                $sql .='
+                          AND b.deleted = 0
+                    WHERE a.deleted = 0
+                        AND a.id = "'.$ds_ketqua[$i]['id'].'"
+                ';
+                $result = $db->query($sql);
+                $total = $db->fetchByAssoc($result); 
+                $ds_ketqua[$i]['revenue']['quantity'] = $total['revenue'];
             }
             // End
             
@@ -253,6 +309,7 @@
                             <td class="line">'.round($ds_ketqua[$i]['opp_new']['score']).'</td>
                             <td class="line">'.round($ds_ketqua[$i]['success']['quantity']).'</td>
                             <td class="line">'.round($ds_ketqua[$i]['success']['score']).'</td>
+                            <td class="line">'.round($ds_ketqua[$i]['revenue']['quantity']).'</td>
                             <td class="line">'.round($ds_ketqua[$i]['total']).'</td>
                             '.$hang.'
                         </tr>
@@ -277,6 +334,7 @@
                               <td class=xl69 style="border-top:none;border-left:none">'.round($ds_ketqua[$i]['opp_new']['score']).' </td>
                               <td class=xl69 style="border-top:none;border-left:none">'.round($ds_ketqua[$i]['success']['quantity']).' </td>
                               <td class=xl69 style="border-top:none;border-left:none">'.round($ds_ketqua[$i]['success']['score']).' </td>
+                              <td class=xl69 style="border-top:none;border-left:none">'.round($ds_ketqua[$i]['revenue']['quantity']).' </td>
                               <td class=xl69 style="border-top:none;border-left:none">'.round($ds_ketqua[$i]['total']).' </td>
                               '.$hang.'
                           </tr>
@@ -291,6 +349,7 @@
                 }
                 $html .= '
                     <tr>
+                        <td class="nomal"></td>
                         <td class="nomal"></td>
                         <td class="nomal"></td>
                         <td class="nomal"></td>
@@ -373,7 +432,8 @@
                                                   u.id
                                                 FROM users u
                                                 WHERE u.department = "'.$department.'")
-                    AND o.opportunity_type <> "New Business" 
+                    AND o.opportunity_type <> "New Business"
+                    AND o.sales_stage <> "Closed Lost" 
                 ';
                 $result = $db->query($sql);
                 $total = $db->getRowCount($result); 
@@ -392,6 +452,7 @@
                           AND b.date_entered >= "'.$start_date.'"
                           AND b.date_entered <= "'.$end_date.'"
                           AND b.opportunity_type = "New Business"
+                          AND b.sales_stage <> "Closed Lost"
                           AND b.deleted = 0
                     WHERE a.deleted = 0
                         AND a.id = "'.$ds_ketqua[$i]['id'].'"
@@ -457,6 +518,7 @@
                           AND b.date_entered >= "'.$start_date.'"
                           AND b.date_entered <= "'.$end_date.'"
                           AND b.deleted = 0
+                          AND b.sales_stage <> "Closed Lost"
                     WHERE a.deleted = 0
                         AND a.id = "'.$ds_ketqua[$i]['id'].'"
                 ';
@@ -508,7 +570,31 @@
                 /**
                 * Lay du lieu dua vao html
                 */
-                
+                /**
+                * Lay tong gia tri hop dong
+                */
+                $sql = '
+                    SELECT SUM(b.tongtien) as revenue
+                    FROM users a
+                      JOIN contracts b
+                        ON a.id = b.assigned_user_id
+                          ';
+                $sql .= ' AND ( ';
+                $or = ''; 
+                for($j = 0 ; $j < count($start_date) ; $j++){
+                    $sql .= $or.' (b.date_entered >= "'.$start_date[$j].'"
+                            AND b.date_entered <= "'.$end_date[$j].'" )';
+                    $or = ' OR ';
+                }
+                $sql .= ' ) ';
+                $sql .='
+                          AND b.deleted = 0
+                    WHERE a.deleted = 0
+                        AND a.id = "'.$ds_ketqua[$i]['id'].'"
+                ';
+                $result = $db->query($sql);
+                $total = $db->fetchByAssoc($result); 
+                $ds_ketqua[$i]['revenue']['quantity'] = $total['revenue'];
             }
             // End
             
@@ -547,6 +633,7 @@
                             <td class="line">'.round($ds_ketqua[$i]['customer']['tyle']).' %</td>
                             <td class="line">'.round($ds_ketqua[$i]['customer']['score']).'</td>
                             <td class="line">'.round($ds_ketqua[$i]['customer']['scorex2']).'</td>
+                            <td class="line">'.round($ds_ketqua[$i]['revenue']['quantity']).'</td>
                             <td class="line">'.round($ds_ketqua[$i]['total']).'</td>
                             '.$hang.'
                         </tr>
@@ -575,6 +662,7 @@
                           <td class=xl68 style="border-top:none;border-left:none">'.round($ds_ketqua[$i]['customer']['tyle']).' </td>
                           <td class=xl68 style="border-top:none;border-left:none">'.round($ds_ketqua[$i]['customer']['score']).' </td>
                           <td class=xl68 style="border-top:none;border-left:none">'.round($ds_ketqua[$i]['customer']['scorex2']).' </td>
+                          <td class=xl68 style="border-top:none;border-left:none">'.round($ds_ketqua[$i]['revenue']['quantity']).' </td>
                           <td class=xl68 style="border-top:none;border-left:none">'.round($ds_ketqua[$i]['total']).' </td>
                           '.$hang.'
                         </tr>
@@ -589,6 +677,7 @@
                 }
                 $html .= '
                     <tr>
+                        <td class="nomal"></td>
                         <td class="nomal"></td>
                         <td class="nomal"></td>
                         <td class="nomal"></td>
@@ -634,5 +723,179 @@
             return $hang;
         }
         
+        
+        /**
+         * Ham tao mot list data(dropdown data) tu data cua mot module
+         * 
+         * @param mixed $module  : Bean Module
+         * @param mixed $list_name : Ten danh sach (dropdown)
+         * @param mixed $custom_where : Cau dieu kien (neu co)
+         */
+         function getList($module,$list_name,$custom_select = Null,$custom_where=null){
+            global $db,$app_list_strings;
+            if(!$custom_select) $custom_select = "id,name";
+            if($custom_where) $custom_where .= " AND ";
+            $sql = "SELECT {$custom_select} FROM {$module->table_name} WHERE {$custom_where} deleted = 0";
+            
+            $result = $db->query($sql);
+            // Bien kiem tra thanh cong/that bai cua ham
+            $kt = false;
+            
+            // Khoi tao gia tri ban dau cho list search
+            $app_list_strings[$list_name][''] = '';
+            while($row = $db->fetchByAssoc($result)){
+                $app_list_strings[$list_name][$row['id']] = $row['name'];
+                $kt = true;
+            }
+            return $kt;
+        }
+        
+        
+        function getName($module,$id){
+            global $db;
+            $table_name = strtolower($module);
+            $sql = 'SELECT CONCAT(IFNULL(last_name,"")," ",IFNULL(first_name,"")) AS name FROM '.$table_name.' WHERE id = "'.$id.'" AND deleted = 0';
+            $result = $db->query($sql);
+            $row = $db->fetchByAssoc($result);
+            if($row) return $row['name'];
+            return '';
+         }
+         
+         function getUserRole($moudle = '',$user_id){
+            global $app_list_strings, $db,$current_user;
+            $alcAction = new ACLAction();
+            $is_owner = true; 
+            $bool = ACLController::checkAccess($moudle, 'view', $is_owner);
+            $action = $alcAction->getUserActions($user_id,false,$moudle,'module','view');
+            if($current_user->is_admin == '1'){
+                $view = $action[$moudle]['module']['view']['aclaccess'];   
+            }
+            else{
+                $view = $action['aclaccess']; 
+            } 
+
+            $view2 = $action['aclaccess'];
+
+            $arr_role = array('access1' => $bool, 'access2' => $view,'access3' => $view2 ) ;
+            return  $arr_role;
+        }
+        function  getUserForReportAsRole(){
+            global $current_user,$app_list_strings, $db;
+            $role = $this->getUserRole('Reports',$current_user->id);
+            $list_user = array();
+            //$bool = $role['access1'];
+//            $view = $role['access2'];
+//            $view1 = $role['access3'];
+            // if this user can access module report
+            //if($bool){
+                // if this user access owner 
+//                if($view == 75 || $view1 == 75){
+//                    $list_user[]= array('id' => $current_user->id, 'name' => $current_user->user_name);  
+//                    $app_list_strings['report_user_dom'][$current_user->id] = $current_user->user_name;
+//                }
+                // else this user access group
+//                if($view == 80 || $view1 == 80) {
+//                    $query = "SELECT id , user_name FROM users WHERE deleted =0 AND status ='Active' AND id IN(
+//                    SELECT
+//                    DISTINCT user_id
+//                    FROM securitygroups_users
+//                    WHERE deleted = 0
+//                    AND securitygroup_id IN(SELECT
+//                    securitygroup_id
+//                    FROM securitygroups_users
+//                    WHERE user_id = '".$current_user->id."' AND deleted = 0))";
+//                    $list_user[]= array('id' => '0', 'user_name' => '---All---');
+//                    $app_list_strings['report_user_dom'][0] = '---All---';  
+//                    $result = $db->query($query);
+//                    while($row = $db->fetchByAssoc($result)){
+//                        $list_user[]= array('id' => $row['id'], 'user_name' => $row['user_name']);  
+//                        $app_list_strings['report_user_dom'][$row['id']] = $row['user_name'];
+//                    }
+//                }
+//                if($view == 90 || $view1 == 90){
+                    $query = "SELECT id , user_name FROM users WHERE deleted =0 AND status ='Active' ";
+                    $result = $db->query($query);
+                    $list_user[]= array('id' => '0', 'user_name' => '---All---');
+                    $app_list_strings['report_user_dom'][0] = '---All---';  
+                    while($row = $db->fetchByAssoc($result)){
+                        $list_user[]= array('id' => $row['id'], 'user_name' => $row['user_name']);
+                        $app_list_strings['report_user_dom'][$row['id']] = $row['user_name'];     
+                    } 
+//                }
+//                if($view == -99 || $view1 == -99){
+//                    $list_user[]= array();
+//                }
+                    return $list_user;
+            }
+//            
+       
+        /**
+        * GET all user of group 
+        * 
+        * @param mixed $id
+        */
+        function getAllUserBySecuritySuite($id =''){
+            global $db ,$app_list_strings;
+            $query = "SELECT id FROM users WHERE deleted =0 AND id IN(
+            SELECT
+            DISTINCT user_id
+            FROM securitygroups_users INNER JOIN securitygroups ON securitygroups_users.securitygroup_id = securitygroups.id
+            WHERE securitygroups_users.deleted = 0 AND securitygroups.deleted =0 
+            AND securitygroup_id = '".$id."')";
+            $result = $db->query($query) ;
+            $listData = array();
+            while($row = $db->fetchByAssoc($result)){
+                array_push($listData,$row['id']);
+            }
+            return $listData; 
+        }
+        function getAllSecuritySuite(){
+            global $db, $app_list_strings;
+            $query = "SELECT securitygroups.id , securitygroups.name FROM securitygroups WHERE securitygroups.deleted=0";
+            $result = $db->query($query);
+            while($row = $db->fetchByAssoc($result)){
+                $app_list_strings['report_securitysuite_dom'][$row['id']] = $row['name'];
+                $listData[] = $row; 
+            }
+            return $listData; 
+        }
+      
+       function countRecordCreate($table_name = '' , $user_id='', $start_date = '', $end_date){
+            global $db;
+            $dateOp = new AdvancedDatetimeOperations($this);
+            $start_date = $dateOp->sub_date($start_date,1);
+            $query = "SELECT id FROM ".$table_name ." WHERE deleted = 0 AND '".$start_date." 17:00:00' <= date_entered AND date_entered <= '".$end_date." 16:59:59' AND created_by IN('".$user_id."') ";
+            $result = $db->query($query);
+            $count = $db->getRowCount($result) ;
+            return $count ;
+        }
+        /**
+        * count of record modify
+        * 
+        * @param mixed $table_name
+        * @param mixed $user_id
+        * @param mixed $start_date
+        * @param mixed $end_date
+        */
+        function countRecordAsignedTo($table_name = '' , $user_id ='', $start_date = '', $end_date){
+            global $db;
+            $dateOp = new AdvancedDatetimeOperations($this); 
+            $date_start = $dateOp->sub_date($start_date,1);
+            $query = "SELECT id FROM ".$table_name ." WHERE deleted = 0 
+            AND ( '".$date_start." 17:00:00' <= date_modified AND date_modified <= '".$end_date." 16:59:59') 
+            AND assigned_user_id IN('".$user_id."') ";
+            $result = $db->query($query);
+            $count = $db->getRowCount($result) ;
+            return $count ;
+        }
+        function countRecordModify($table_name = '' , $user_id='', $start_date = '', $end_date){
+            global $db;
+            $dateOp = new AdvancedDatetimeOperations($this);
+            $start_date = $dateOp->sub_date($start_date,1);
+            $query = "SELECT id FROM ".$table_name ." WHERE deleted = 0 AND ( '".$start_date." 17:00:00' <= date_modified AND date_modified <= '".$end_date." 16:59:59') AND modified_user_id IN('".$user_id."') ";
+            $result = $db->query($query);
+            $count = $db->getRowCount($result) ;
+            return $count ;
+        }
     }
 ?>

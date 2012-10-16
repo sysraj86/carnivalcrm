@@ -62,15 +62,22 @@ class ViewTinhDiemNhanVien extends SugarView{
             ///////////////////////////////////////
             // Tinh ngay bat dau va ngay ket thuc de cham diem
             if(isset($_REQUEST['xephangsales']) || isset($_REQUEST['xephangtelesales']) || isset($_REQUEST['xephang']) || $report_type == 5 || $report_type == 6 || $report_type == 7 || $report_type == 8){
-                $start_date = $nam.'-'.$thang.'-01';
-                $end_date = date('Y-m-d',strtotime('-1 second',strtotime('+1 month',strtotime($thang.'/01/'.$nam.' 00:00:00')))); 
+                foreach($thang as $thang_unit){
+                    $start_date[] = $nam.'-'.$thang_unit.'-01';
+                    $end_date[] = date('Y-m-d',strtotime('-1 second',strtotime('+1 month',strtotime($thang_unit.'/01/'.$nam.' 00:00:00')))); 
+                }
+                
             }else{
                 if($ky == '1'){
-                    $start_date = $nam.'-'.$thang.'-01';
-                    $end_date = $nam.'-'.$thang.'-16';
+                    foreach($thang as $thang_unit){
+                        $start_date[] = $nam.'-'.$thang_unit.'-01';
+                        $end_date[] = $nam.'-'.$thang_unit.'-16';
+                    }
                 }else{
-                    $start_date = $nam.'-'.$thang.'-16';
-                    $end_date = date('Y-m-d',strtotime('-1 second',strtotime('+1 month',strtotime($thang.'/01/'.$nam.' 00:00:00'))));
+                    foreach($thang as $thang_unit){
+                        $start_date[] = $nam.'-'.$thang_unit.'-16';
+                        $end_date[] = date('Y-m-d',strtotime('-1 second',strtotime('+1 month',strtotime($thang_unit.'/01/'.$nam.' 00:00:00'))));
+                    }
                 }
             }
             
@@ -140,8 +147,8 @@ class ViewTinhDiemNhanVien extends SugarView{
                $end_date = $end_date_temp[0].'-'.$end_date_temp[1].'-'.$end_date_temp[2];
             }
             $file_name = $type_calculate;
-            $type_calculate .= $mod_strings['LBL_START_DATE'].'<font color=red>'.date('d-m-Y',strtotime($start_date)).'</font>'.$mod_strings['LBL_END_DATE'].'<font color=red>'.date('d-m-Y',strtotime($end_date)).'</font>' ;
-            $ss->assign('TYPE_CALCULATE',$type_calculate);
+         //   $type_calculate .= $mod_strings['LBL_START_DATE'].'<font color=red>'.date('d-m-Y',strtotime($start_date)).'</font>'.$mod_strings['LBL_END_DATE'].'<font color=red>'.date('d-m-Y',strtotime($end_date)).'</font>' ;
+          //  $ss->assign('TYPE_CALCULATE',$type_calculate);
             $ss->assign('TYPE_VALUE',$type_value);
             $ss->assign('RATE',$rate);
             if($ketqua == ''){
