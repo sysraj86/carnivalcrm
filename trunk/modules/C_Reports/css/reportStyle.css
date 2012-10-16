@@ -1,0 +1,59 @@
+.report_table{
+    border: 1px solid #4E8CCF !important;
+    border-width: thin !important;
+    border-collapse: collapse;
+}
+.report_table th{
+    border: 1px solid #4E8CCF !important;
+    border-width: thin !important;
+    padding: 5px !important;
+}
+
+.report_table tr td{
+    border: 1px solid #4E8CCF;
+    padding: 5px;
+}
+.report_title{
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.nopadding{
+    padding: 0px !important;
+}
+
+.notopborder{
+    border: none;
+}
+
+/* Custom horizontal line */
+.horizontal_line{
+    border-width: 2px;
+    border-color: #4E8CCF !important;
+}
+
+/* Custom description text. Added by DuyHieu 25/12/2011*/
+.description_text {
+    font-size: 11px;
+    font-weight: normal;
+    font-style: italic;
+}
+
+/* For JsChart */
+#chartdiv rect[width="145"]{
+    display: none;
+}
+
+#chartdiv text[transform="translate(5,8)"]{
+    display: none;
+}
+
+.chart_title{
+    margin-top: 10px;
+}
+
+.table_report #tabDetailViewDF{
+    border: 1px solid;
+    border-collapse: collapse;
+    
+}

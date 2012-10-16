@@ -46,6 +46,25 @@ class C_ReportsViewList extends SugarView {
                     </span>  
                 </td>
             </tr>
+            <tr>
+                <td class="tabDetailViewDF" nowrap="nowrap" width="20%">
+                    <a href="<?php echo "./index.php?module=".$currentModule."&action=reportuseractivitives"; ?>"><strong>
+                    <?php echo $mod_strings['LBL_REPORT_USER_ACTIVITIVES']; ?></strong></a>
+                </td>
+                <td class="tabDetailViewDL" width="30%"><?php echo $mod_strings['LBL_REPORT_USER_ACTIVITIVES_DESCRIPTION']; 
+                ?></td>
+            </tr>
+            <tr>
+                <td class="tabDetailViewDF" nowrap="nowrap" width="20%">
+                     <a class="integrated_report" id="integrated_report" 
+                     href="<?php echo "./index.php?module=".$currentModule."&action=synthesis_report"; ?>"><strong> <?php
+    echo $mod_strings['LBL_REPORT_SUMMARY'];
+    ?></strong></a></td>  
+                </td>
+                 <td class="tabDetailViewDL" width="30%"><?php
+    echo $mod_strings['LBL_REPORT_SUMMARY_DESCRIPTION'];
+    ?></td>
+            </tr>
         </table>    
             
        

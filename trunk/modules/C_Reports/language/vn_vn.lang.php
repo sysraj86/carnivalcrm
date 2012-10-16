@@ -111,5 +111,27 @@ $mod_strings = array (
     'LBL_KHACHCU'   => 'Khách Hàng Cũ',  
     'LBL_TYLE'      => 'Tỷ Lệ',  
     'LBL_RAKING'      => 'Xếp Hạng',  
+    'LBL_REVENUE'      => 'Doanh Số',
+    'LBL_REPORT_USER_ACTIVITIVES' => 'Report User\'s Activitives',
+    'LBL_REPORT_USER_ACTIVITIVES_DESCRIPTION' => 'Report About Tasks Of Employees.',
+    'LBL_START' => 'Từ Ngày',
+    'LBL_END' => 'Đến Ngày',
+    'LBL_DEPARTMENT' => 'Phòng Ban',
+    'LBL_ASSIGNED_TO_NAME' => 'Nhân Viên',
+    'LBL_BUTTON_REPORT' => 'Báo Cáo',
+    'LBL_CLEAR_BUTTON' => 'Xóa',
+    
+    // Add For Report User Task
+    'LBL_REPORT_USER_ACTIVITIVES' => 'Báo Cáo Công Việc',
+    'LBL_REPORT_USER_ACTIVITIVES_DESCRIPTION' => 'Báo Cáo Tổng Hợp Công Việc Của Nhân Viên Kinh Doanh Theo Thời Gian.',
+    'LBL_DATE' => 'Ngày',
+    'LBL_TIME' => 'Giờ',
+    'LBL_SALER' => 'Nhân Viên',
+    'LBL_CONTENT' => 'Công Việc',
+    'LBL_TYPE' => 'Loại',
+    'LBL_CUSTOMER' => 'Khách Hàng',
+    'LBL_CUSTOMER_COMMENT' => 'Ý Kiến Khách Hàng',
+    'LBL_SALES_COMMENT' => 'Ý Kiến Nhân Viên',
+    'LBL_BUTTON_EXPORT' => 'Xuất Ra Excel',  
 );
 ?>
