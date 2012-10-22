@@ -171,5 +171,10 @@
             }
 
         }
+        
+        function generateMadeTourLink(&$bean,$event,$arguments){
+            global $sugar_config;
+            $bean->grouplists_pprograms_name .= '<img src="custom/themes/Sugar5/images/edit_inline.gif" style="display: none" onload="this.parentNode.removeAttribute(\'href\',0); this.parentNode.href = \''.$sugar_config['site_url'].'/index.php?module=GroupPrograms&action=DetailView&record='.$bean->grouplistsf242rograms_idb.'\'; ">';
+        }
     }
 ?>

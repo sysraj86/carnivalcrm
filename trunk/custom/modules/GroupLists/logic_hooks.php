@@ -6,4 +6,7 @@
     $hook_array['before_save'][] = Array(2,'updateDateTime', 'custom/modules/GroupLists/GroupListLogicHook.php','GroupListLogicHook', 'updateDateTime');  
     $hook_array['before_save'][] = Array(3,'updateAge', 'custom/modules/GroupLists/GroupListLogicHook.php','GroupListLogicHook', 'updateAge');  
     $hook_array['after_retrieve'][] = Array(1,'getnumofcus', 'custom/modules/GroupLists/GroupListLogicHook.php','GroupListLogicHook', 'updateNumberOfCusomer');  
+
+    $hook_array['process_record'] = Array();
+    $hook_array['process_record'][] = array(1,'AutoCode','custom/modules/GroupLists/GroupListLogicHook.php','GroupListLogicHook','generateMadeTourLink');    
 ?>
