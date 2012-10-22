@@ -546,7 +546,7 @@ table.MsoTableGrid
 
   <div class="WordSection1">
   <br />
-            <table align="center">
+            <table>
                 
                 <tr>
                     <td class="label">{LBL_TO} :</td>
