@@ -29,21 +29,21 @@
             $template = str_replace('{SITE_URL}',$sugar_config['site_url'],$template);   
 
             if(!empty($focus->picture)){
-                $img = "<img src='".$sugar_config['site_url']."/modules/images/".$focus->picture."' width='600' height='350'/>";
+                $img = "<br/><img src='".$sugar_config['site_url']."/modules/images/".$focus->picture."' width='600'/><br/><br/>";
             }else{
-                $template = str_replace("{PICTURE}",'',$template); 
+                $img = ""; 
             }
             $html = '';
             if($quotes->department == 'dos'){
-                $html .= '<table cellpadding="0" cellspacing="0" width="100%" border="0" class="content1">';
+                $html .= '<table cellpadding="0" cellspacing="0" border="0" class="content1" align="center">';
                 $html .= '<tr><td>&nbsp;&nbsp; </td> </tr>';
                 $html .= '<tr><td align="center"><i>'.$mod_strings['LBL_MOD_STRING_DOS_HEAD'].'</i></td> </tr>' ;
-                $html .= '<tr><td align="center" style="font-size: 24px;">'.$focus->name.'</td></tr>';
+                $html .= '<tr><td align="center" style="font-size: 24px; color: blue">'.$focus->name.'</td></tr>';
                 $html .= '<tr><td align="justify">'.$focus->description.' </tr>';
                 $html .= '<tr>';
-                $html .= '<td class="tabDetailViewDL" align="center">'.$img.'</td>';
+                $html .= '<tr><td class="tabDetailViewDL" align="center">'.$img.'</td></tr>';
                 $html .= '</tr>';
-                $html .= '<tr>';
+                $html .= '</table>';
                 if(!empty($focus->start_date)){
                     $start_date = $timedate->to_display($focus->start_date,$timedate->get_date_format($current_user),'d/m/Y');
                     //                                    $start_date = date('d/m/Y',strtotime());
@@ -52,9 +52,11 @@
                     $start_date = '';
                 }
 
-                $html .= '<td class="tabDetailViewDL" align="left"><p>Thời gian : '.$focus->duration.' <br/> Mã tour: '.$focus->tour_code.' <br/> Phương tiện : '.$focus->transport2.' <br/> Khởi hành : '.$start_date.'</p></td>';
+                $html .= '<table align="center">';
+                $html .= '<tr>';
+                $html .= '<td class="tabDetailViewDL" align="left"><p>Thời gian : '.$focus->duration.' <br/> Mã tour: '.$focus->tour_code.' <br/> Phương tiện : '.$focus->transport2.' <br/> Khởi hành : '.$start_date.'<br/></p></td>';
                 $html .= '</tr>';
-                $html .= '</table> ';
+                $html .= '</table><br/>';
                 $template = str_replace('{HEAD}',$html,$template); 
                 $html = '';
                 $cost_detail =  $content->dos_cost_detail;
@@ -147,7 +149,10 @@
             }
             elseif($quotes->department == 'ib'){
                 $html .= '<p align="center" style="font-size: 24px;">&nbsp;</p>';
-                $html .= '<p align="center" style="font-size: 24px;">'.$focus->name.'</p>';
+                $html .= '<p align="center" style="font-size: 24px; color: blue">'.$focus->name.'</p>';
+                $html .= '<table>';
+                $html .= '<tr><td class="tabDetailViewDL" align="center">'.$img.'</td></tr>';
+                $html .= '</table>';
                 $html .= '<table align="center" cellpadding="0" cellspacing="0">';
                 $html .= '<tr> <td>Duration : </td> <td>'.$focus->duration.'</td></tr>';
                 $html .= '<tr> <td>Code tour : </td> <td>'.$focus->tour_code.'</td></tr>';
@@ -163,9 +168,8 @@
                 $html .= '<tr> <td>Start : </td> <td>'.$start_date.'</td></tr>';
                 $html .= '<tr> <td>Transport : </td> <td>'.$focus->transport2.'</td></tr>';
 //                $html .= '<tr> <td>Depart from : </td> <td>'.$focus->.'</td></tr>';
-                $html .= '</table>';
+                $html .= '</table><br />';
 
-                $html .= '<div align="center">'.$img.'</div>';
                 $template = str_replace("{HEAD}",$html,$template); 
 
                 $html = '';
@@ -246,12 +250,14 @@
             }
             elseif($quotes->department == 'ob'){
                 $html .= '<table align="center" width="100%" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
+                $html .= '<tr><td><br /><br /><br /></td> </tr>';
                 $html .= '<tr>';
                 $html .= '<td align="center">Chương trình du lịch</td>';
                 $html .= '</tr>';
                 $html .= '<tr>';
-                $html .= '<td align="center"><font size="18pt">'.$focus->name.'</font></td>';
+                $html .= '<td align="center"><p align="center" style="font-size: 24px; color: blue">'.$focus->name.'</p></td>';
                 $html .= '</tr>';
+                $html .= '<tr><td class="tabDetailViewDL" align="center">'.$img.'</td></tr>';
                 $html .= '<tr>';
                 $html .= '<td>';
                 $html .= '<table align="center" border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
@@ -275,7 +281,7 @@
                 $html .= '</table>';
                 $html .= '</td>';
                 $html .= '</tr>';
-                $html .= '</table>';
+                $html .= '</table><br/>';
 
                 $html .= '<table width="100%" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
                 $html .= '<tr>';

@@ -592,8 +592,7 @@ table.MsoTableGrid
             <o:p>&nbsp;</o:p>
             <o:p>&nbsp;</o:p>
                 
-            {HEAD}            
-            <legend><h1>Tour program</h1></legend>  
+            {HEAD}  
             <!--<table cellpadding="0"  cellspacing="0" width="100%"  border="0" style="border-top: 0px solid;" class="content1">-->
                 {TOUR_PROGRAM_LINE_DETAIL}
             <!--</table> -->
