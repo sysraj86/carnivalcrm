@@ -80,6 +80,7 @@ $mod_strings = array (
   'LBL_TEL'                         => 'Tel',
   'LBL_ATTN_FAX'                    => 'Fax',
   'LBL_FROM'                        => 'From',
+  'LBL_TO'                          => 'To',
   'LBL_NATIONLITY'                  => 'Nationlity',
   'LBL_CONFIRM'                     => 'Confirm service',
   'LBL_CONFIRM_SERVICE' => 'Xác nhận dịch vụ',
