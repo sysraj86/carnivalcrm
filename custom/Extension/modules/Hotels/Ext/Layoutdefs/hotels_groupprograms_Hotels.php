@@ -21,3 +21,5 @@ $layout_defs["Hotels"]["subpanel_setup"]["hotels_groupprograms"] = array (
     ),
   ),
 );
+
+unset($layout_defs["Hotels"]["subpanel_setup"]["hotels_groupprograms"]['top_buttons'][0]);

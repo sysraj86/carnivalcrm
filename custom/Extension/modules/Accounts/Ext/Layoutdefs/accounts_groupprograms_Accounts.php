@@ -21,3 +21,5 @@ $layout_defs["Accounts"]["subpanel_setup"]["accounts_groupprograms"] = array (
     ),
   ),
 );
+
+unset($layout_defs["Accounts"]["subpanel_setup"]["accounts_groupprograms"]['top_buttons'][0]);

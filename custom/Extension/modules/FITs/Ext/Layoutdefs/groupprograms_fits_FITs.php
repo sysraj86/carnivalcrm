@@ -21,3 +21,5 @@ $layout_defs["FITs"]["subpanel_setup"]["groupprograms_fits"] = array (
     ),
   ),
 );
+
+unset($layout_defs["FITs"]["subpanel_setup"]["groupprograms_fits"]['top_buttons'][0]);

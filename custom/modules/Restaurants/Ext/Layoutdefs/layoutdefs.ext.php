@@ -232,6 +232,7 @@ $layout_defs["Restaurants"]["subpanel_setup"]["restaurants_groupprograms"] = arr
   ),
 );
 
+unset($layout_defs["Restaurants"]["subpanel_setup"]["restaurants_groupprograms"]['top_buttons'][0]);
 
 // created: 2012-07-24 15:40:55
 $layout_defs["Restaurants"]["subpanel_setup"]["restaurantsaurantbookings"] = array (
