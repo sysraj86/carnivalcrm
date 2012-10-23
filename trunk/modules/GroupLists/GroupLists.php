@@ -153,6 +153,37 @@
             return $html;
             
          }
+         
+         function get_customer_list($grouplist_id =''){
+            $sql = " SELECT
+            f.last_name ,f.first_name ,f.phone_mobile
+            FROM grouplists_fits_c gf
+            INNER JOIN fits f
+            ON f.id = gf.grouplists4843itsfits_idb
+            WHERE gf.deleted = 0
+            AND f.deleted = 0
+            AND gf.grouplistsd262uplists_ida IN ";
+            $sql .= $grouplist_id;
+            
+            $result = $this->db->query($sql);
+            $stt = 1;
+            $html = '';
+            while($row = $this->db->fetchByAssoc($result)){
+               $html .= '<tr>' ;
+                    $html .= '<td>'.$stt.'</td>';
+                    $html .= '<td>'.$row['first_name'].' '.$row['last_name'].'</td>';
+                    $html .= '<td align="center">'.$row['phone_mobile'].'</td>';
+               $html .= '</tr>' ;
+               $stt ++;
+            }
+            $html .= '<tr>' ; 
+                $html .= '<td colspan="2" align="center">Tổng cộng </td>';
+                $html .= '<td><b>'.$this->db->getRowCount($result).' Khách</b></td>';  
+            $html .= '</tr>';
+            
+            return $html;
+            
+         }
         
         /*function create_new_list_query($order_by, $where,$filter=array(),$params=array(), $show_deleted = 0,$join_type='', $return_array = false, $parentbean=null, $singleSelect = false){
         
