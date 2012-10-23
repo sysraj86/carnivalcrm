@@ -139,7 +139,7 @@ require_once('XTemplate\xtpl.php');
     require_once('include/SubPanel/SubPanelTiles.php');
    $subpanel = new SubPanelTiles($focus, 'Tours');
    echo $subpanel->display();
-      echo $focus->description;
+
    /* $str = "<script>
     YAHOO.util.Event.addListener(window, 'load', SUGAR.util.fillShortcuts, $savedSearchSelects);
    </script>";
