@@ -160,11 +160,10 @@ $(document).ready(function () {
     });
 
     function loadAreaByDepartment(department){
-
         $.ajaxSetup({async:false});
         $.ajax({
             type:"post",
-            url:"index.php?module=Tours&action=loadareabydepartment&sugar_body_only=true",
+            url:"index.php?module=Tours&action=loadareabydepartment&sugar_body_only=true&record=" + $('input[name="record"]').val(),
             data:{department:department},
             success:function (data) {
                 loader.remove();
