@@ -171,6 +171,8 @@
         'vname' => 'LBL_DEADLINE',
         'type'  => 'date',
         'display_default'   => '' ,
+        'enable_range_search' => true,
+        'options' => 'date_range_search_dom'
         ) ,
         'gia'   => array(
         'name'  => 'gia',

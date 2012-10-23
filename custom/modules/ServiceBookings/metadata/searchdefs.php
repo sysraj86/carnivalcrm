@@ -49,29 +49,22 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'confirm' => 
+      'services_seebookings_name' => 
       array (
-        'type' => 'radioenum',
-        'default' => true,
-        'label' => 'LBL_CONFIRM',
+        'type' => 'relate',
+        'link' => 'services_servicebookings',
+        'label' => 'LBL_SERVICES_SERVICEBOOKINGS_FROM_SERVICES_TITLE',
         'width' => '10%',
-        'name' => 'confirm',
+        'default' => true,
+        'name' => 'services_seebookings_name',
       ),
-      'created_by' => 
+      'deadline' => 
       array (
-        'type' => 'assigned_user_name',
-        'label' => 'LBL_CREATED',
+        'type' => 'date',
+        'label' => 'LBL_DEADLINE',
         'width' => '10%',
         'default' => true,
-        'name' => 'created_by',
-      ),
-      'modified_user_id' => 
-      array (
-        'type' => 'assigned_user_name',
-        'label' => 'LBL_MODIFIED',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'modified_user_id',
+        'name' => 'deadline',
       ),
       'date_modified' => 
       array (
@@ -89,6 +82,22 @@ array (
         'default' => true,
         'name' => 'date_entered',
       ),
+      'modified_user_id' => 
+      array (
+        'type' => 'assigned_user_name',
+        'label' => 'LBL_MODIFIED',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'modified_user_id',
+      ),
+      'created_by' => 
+      array (
+        'type' => 'assigned_user_name',
+        'label' => 'LBL_CREATED',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'created_by',
+      ),
       'assigned_user_id' => 
       array (
         'name' => 'assigned_user_id',
@@ -104,6 +113,14 @@ array (
         ),
         'default' => true,
         'width' => '10%',
+      ),
+      'confirm' => 
+      array (
+        'type' => 'radioenum',
+        'default' => true,
+        'label' => 'LBL_CONFIRM',
+        'width' => '10%',
+        'name' => 'confirm',
       ),
     ),
   ),

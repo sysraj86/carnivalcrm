@@ -53,6 +53,15 @@ array (
         'default' => true,
         'width' => '10%',
       ),
+      'hotels_roombookings_name' => 
+      array (
+        'type' => 'relate',
+        'link' => 'hotels_roombookings',
+        'label' => 'LBL_HOTELS_ROOMBOOKINGS_FROM_HOTELS_TITLE',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'hotels_roombookings_name',
+      ),
       'confirm' => 
       array (
         'type' => 'radioenum',
@@ -61,14 +70,22 @@ array (
         'width' => '10%',
         'name' => 'confirm',
       ),
-      'hotel_address' => 
+      'current_user_only' => 
       array (
-        'type' => 'text',
-        'label' => 'LBL_RES_ADDRESS',
-        'sortable' => false,
+        'label' => 'LBL_CURRENT_USER_FILTER',
+        'type' => 'bool',
+        'default' => true,
+        'width' => '10%',
+        'name' => 'current_user_only',
+      ),
+      'groupprogrambookings_name' => 
+      array (
+        'type' => 'relate',
+        'link' => 'groupprogras_roombookings',
+        'label' => 'LBL_GROUPPROGRAMS_ROOMBOOKINGS_FROM_GROUPPROGRAMS_TITLE',
         'width' => '10%',
         'default' => true,
-        'name' => 'hotel_address',
+        'name' => 'groupprogrambookings_name',
       ),
       'attn_hotel_name' => 
       array (
@@ -86,32 +103,6 @@ array (
         'default' => true,
         'name' => 'attn_hotel_phone',
       ),
-      'confirmed' => 
-      array (
-        'type' => 'radioenum',
-        'default' => true,
-        'label' => 'LBL_CONFIRM',
-        'width' => '10%',
-        'name' => 'confirmed',
-      ),
-      'groupprogrambookings_name' => 
-      array (
-        'type' => 'relate',
-        'link' => 'groupprogras_roombookings',
-        'label' => 'LBL_GROUPPROGRAMS_ROOMBOOKINGS_FROM_GROUPPROGRAMS_TITLE',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'groupprogrambookings_name',
-      ),
-      'include' => 
-      array (
-        'type' => 'text',
-        'label' => 'LBL_INCLUDE',
-        'sortable' => false,
-        'width' => '10%',
-        'default' => true,
-        'name' => 'include',
-      ),
       'cost' => 
       array (
         'type' => 'varchar',
@@ -120,13 +111,13 @@ array (
         'default' => true,
         'name' => 'cost',
       ),
-      'current_user_only' => 
+      'deadline' => 
       array (
-        'label' => 'LBL_CURRENT_USER_FILTER',
-        'type' => 'bool',
-        'default' => true,
+        'type' => 'date',
+        'label' => 'LBL_DEADLINE',
         'width' => '10%',
-        'name' => 'current_user_only',
+        'default' => true,
+        'name' => 'deadline',
       ),
       'date_modified' => 
       array (
@@ -175,6 +166,24 @@ array (
         ),
         'default' => true,
         'width' => '10%',
+      ),
+      'hotel_address' => 
+      array (
+        'type' => 'text',
+        'label' => 'LBL_RES_ADDRESS',
+        'sortable' => false,
+        'width' => '10%',
+        'default' => true,
+        'name' => 'hotel_address',
+      ),
+      'include' => 
+      array (
+        'type' => 'text',
+        'label' => 'LBL_INCLUDE',
+        'sortable' => false,
+        'width' => '10%',
+        'default' => true,
+        'name' => 'include',
       ),
     ),
   ),
