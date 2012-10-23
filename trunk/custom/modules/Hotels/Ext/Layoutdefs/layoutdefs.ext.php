@@ -184,6 +184,7 @@ $layout_defs["Hotels"]["subpanel_setup"]["hotels_groupprograms"] = array (
   ),
 );
 
+unset($layout_defs["Hotels"]["subpanel_setup"]["hotels_groupprograms"]['top_buttons'][0]);
 
 // created: 2011-08-24 10:09:40
 $layout_defs["Hotels"]["subpanel_setup"]["hotels_roombookings"] = array (

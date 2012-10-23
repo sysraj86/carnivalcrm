@@ -21,3 +21,5 @@ $layout_defs["Restaurants"]["subpanel_setup"]["restaurants_groupprograms"] = arr
     ),
   ),
 );
+
+unset($layout_defs["Restaurants"]["subpanel_setup"]["restaurants_groupprograms"]['top_buttons'][0]);

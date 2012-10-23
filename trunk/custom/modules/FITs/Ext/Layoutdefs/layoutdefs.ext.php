@@ -328,6 +328,7 @@ $layout_defs["FITs"]["subpanel_setup"]["fits_groupprograms"] = array (
   ),
 );
 
+unset($layout_defs["FITs"]["subpanel_setup"]["fits_groupprograms"]['top_buttons'][0]);
 
 // created: 2011-10-26 00:43:22
 $layout_defs["FITs"]["subpanel_setup"]["fits_oders"] = array (
@@ -474,6 +475,7 @@ $layout_defs["FITs"]["subpanel_setup"]["groupprograms_fits"] = array (
   ),
 );
 
+unset($layout_defs["FITs"]["subpanel_setup"]["groupprograms_fits"]['top_buttons'][0]);
 
   unset($layout_defs['FITs']['subpanel_setup']['fits_airlinestickets']);
   unset($layout_defs['FITs']['subpanel_setup']['fits_groupprograms']);

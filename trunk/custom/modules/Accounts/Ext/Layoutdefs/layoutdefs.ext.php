@@ -98,6 +98,7 @@ $layout_defs["Accounts"]["subpanel_setup"]["accounts_groupprograms"] = array (
   ),
 );
 
+unset($layout_defs["Accounts"]["subpanel_setup"]["accounts_groupprograms"]['top_buttons'][0]);
 
 // created: 2012-02-20 11:43:35
 $layout_defs["Accounts"]["subpanel_setup"]["accounts_leads"] = array (
