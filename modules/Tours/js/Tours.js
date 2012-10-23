@@ -218,7 +218,7 @@
                 if (confirm("Would you want to fill description?")) {
                     if (description) {
                         if (editorId) {
-                            if (!tinymce.EditorManager.execInstanceCommand(editorId, "mceReplaceContent", false, "<b>" + $this.text() + ":</b>" + description)) {
+                            if (!tinymce.EditorManager.execInstanceCommand(editorId, "mceReplaceContent", false, description)) {
                                 alert("ERROR!");
                             }
                         } else {
