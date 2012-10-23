@@ -49,29 +49,22 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'confirm' => 
+      'restaurantstbookings_name' => 
       array (
-        'type' => 'radioenum',
-        'default' => true,
-        'label' => 'LBL_CONFIRM',
+        'type' => 'relate',
+        'link' => 'restaurantsaurantbookings',
+        'label' => 'LBL_RESTAURANTS_RESTAURANTBOOKINGS_FROM_RESTAURANTS_TITLE',
         'width' => '10%',
-        'name' => 'confirm',
+        'default' => true,
+        'name' => 'restaurantstbookings_name',
       ),
-      'created_by' => 
+      'deadline' => 
       array (
-        'type' => 'assigned_user_name',
-        'label' => 'LBL_CREATED',
+        'type' => 'date',
+        'label' => 'LBL_DEADLINE',
         'width' => '10%',
         'default' => true,
-        'name' => 'created_by',
-      ),
-      'modified_user_id' => 
-      array (
-        'type' => 'assigned_user_name',
-        'label' => 'LBL_MODIFIED',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'modified_user_id',
+        'name' => 'deadline',
       ),
       'date_modified' => 
       array (
@@ -89,13 +82,21 @@ array (
         'default' => true,
         'name' => 'date_entered',
       ),
-      'current_user_only' => 
+      'created_by' => 
       array (
-        'label' => 'LBL_CURRENT_USER_FILTER',
-        'type' => 'bool',
+        'type' => 'assigned_user_name',
+        'label' => 'LBL_CREATED',
         'width' => '10%',
         'default' => true,
-        'name' => 'current_user_only',
+        'name' => 'created_by',
+      ),
+      'modified_user_id' => 
+      array (
+        'type' => 'assigned_user_name',
+        'label' => 'LBL_MODIFIED',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'modified_user_id',
       ),
       'assigned_user_id' => 
       array (
@@ -112,6 +113,22 @@ array (
         ),
         'default' => true,
         'width' => '10%',
+      ),
+      'confirm' => 
+      array (
+        'type' => 'radioenum',
+        'default' => true,
+        'label' => 'LBL_CONFIRM',
+        'width' => '10%',
+        'name' => 'confirm',
+      ),
+      'current_user_only' => 
+      array (
+        'label' => 'LBL_CURRENT_USER_FILTER',
+        'type' => 'bool',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'current_user_only',
       ),
     ),
   ),
