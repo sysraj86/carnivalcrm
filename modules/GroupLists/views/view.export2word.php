@@ -8,7 +8,7 @@ require_once('modules/GroupLists/GroupLists.php');
         }
 
         function display(){
-            global $sugar_config;
+            global $sugar_config, $timedate;
             $focus = new GroupLists();
             $ss = new Sugar_Smarty();
             $db = DBManagerFactory::getInstance(); 
@@ -30,19 +30,19 @@ require_once('modules/GroupLists/GroupLists.php');
             $result = $db->query($sql); 
             $row = $db->fetchByAssoc($result);
             
-            $template = str_replace("{TOURNAME}", strtoupper($row['tour_name']),$template);     
+            $template = str_replace("{TOURNAME}", mb_strtoupper($row['tour_name'], 'utf-8'),$template);     
             $template = str_replace("{SITE_URL}", $sugar_config['site_url'],$template);     
-            $template = str_replace("{CODE}", $row['code'],$template);
-            $template = str_replace("{START_DATE}", $row['start_date_group'],$template);  
-            $template = str_replace("{END_DATE}", $row['end_date_group'],$template);
+            $template = str_replace("{CODE}", $row['groupprogram_code'],$template);
+            $template = str_replace("{START_DATE}", $timedate->to_display_date($row['start_date_group'], true),$template);  
+            $template = str_replace("{END_DATE}", $timedate->to_display_date($row['end_date_group'], true),$template);
             $template = str_replace("{SOLUONG}", $focus->get_count($record) ,$template);     
             $template = str_replace("{TEL}", '',$template);
             $template = str_replace("{FAX}", '',$template);  
-            $template = str_replace("{LIST_GIT}", $focus->get_GIT_to_report("('".$record."')"),$template);   
-            $template = str_replace("{LIST_FIT}", $focus->get_FIT_to_report("('".$record."')"),$template);   
+            //$template = str_replace("{LIST_GIT}", $focus->get_GIT_to_report("('".$record."')"),$template);   
+            $template = str_replace("{LIST_FIT}", $focus->get_customer_list("('".$record."')"),$template);   
             $template = str_replace("{DATE}", date('d/m/Y'),$template);   
             $size=strlen($template);
-            $filename = "DS Doan ".strtoupper($row['tour_name']).".doc";
+            $filename = "DS Doan ".mb_strtoupper($row['tour_name'], 'utf-8').".doc";
             ob_end_clean();
             header("Cache-Control: private");
             header("Content-Type: application/force-download;");

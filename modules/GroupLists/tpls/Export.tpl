@@ -568,12 +568,7 @@ table.MsoTableGrid
             <td>Fax: {FAX}</td>
         </tr>-->
     </table>   
-    <h3>KHÁCH ĐOÀN</h3>
-    <table cellpadding="0" cellspacing="0" width="100%" border="1" style="border-collapse: collapse; padding: 5px;">
-    <tr><th>STT</th><th>Họ Và Tên</th><th>Phone</th> <th>GIT Name</th></tr>
-        {LIST_GIT}
-    </table>
-    <h3>KHÁCH LẺ</h3>
+    <br/>
     <table cellpadding="0" cellspacing="0" width="100%" border="1" style="border-collapse: collapse; padding: 5px;">
     <tr><th>STT</th><th>Họ Và Tên</th><th>Phone</th></tr>
         {LIST_FIT}
