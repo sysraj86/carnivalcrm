@@ -88,11 +88,7 @@ array (
         ),
         5 => 
         array (
-          0 => 
-          array (
-            'name' => 'accounts_leads_name',
-          ),
-          1 => 'website',
+          0 => 'website',
         ),
         6 => 
         array (

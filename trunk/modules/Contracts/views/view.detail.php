@@ -122,10 +122,19 @@
             $this->dv->ss->assign("TONGTIEN",  number_format($this->bean->tongtien,'2',',','.'));   
             $this->dv->ss->assign("BANGCHU",  $this->bean->bangchu);   
             $this->dv->ss->assign("SL_KHACH_1",  $this->bean->sl_khach_1);   
-            $this->dv->ss->assign("GIA_TOUR_1",  number_format($this->bean->gia_tour_1,'2',',','.'));   
-            $this->dv->ss->assign("TIENTE",    translate('currency_dom','', $this->bean->tiente)); 
-            $this->dv->ss->assign("TIENTE_USD",    translate('currency_dom','', $this->bean->tiente_usd));
-            $this->dv->ss->assign("TIENTE_VND",    translate('currency_dom','', $this->bean->tiente_vnd));
+            $this->dv->ss->assign("GIA_TOUR_1",  number_format($this->bean->gia_tour_1,'2',',','.'));
+                
+                $tiente =  translate('currency_dom','', $focus->tiente);
+                if(is_array($tiente)) $tiente = 'VND';
+                $tiente_usd =  translate('currency_dom','', $focus->tiente_usd);
+                if(is_array($tiente_usd)) $tiente_usd = 'USD';  
+                $tiente_vnd =  translate('currency_dom','', $focus->tiente_vnd);
+                if(is_array($tiente_vnd)) $tiente_vnd = 'VND';
+                
+                   
+            $this->dv->ss->assign("TIENTE",    $tiente); 
+            $this->dv->ss->assign("TIENTE_USD",    $tiente_usd);
+            $this->dv->ss->assign("TIENTE_VND",    $tiente_vnd);
             $this->dv->ss->assign("TEN_NGANHANG",    $this->bean->ten_nganhang);
             $this->dv->ss->assign("BAOGOM",   html_entity_decode(nl2br($this->bean->baogom)));
             $this->dv->ss->assign("KHONGBAOGOM", html_entity_decode(nl2br($this->bean->khongbaogom)));

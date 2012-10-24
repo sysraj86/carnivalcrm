@@ -96,8 +96,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'accounts_contacts_name',
-            'label' => 'LBL_ACCOUNT_CONTACT_NAME',
+            'name' => 'parent_name',
+            'studio' => 'visible',
+            'label' => 'LBL_COMPANY_NAME',
           ),
           1 => 
           array (

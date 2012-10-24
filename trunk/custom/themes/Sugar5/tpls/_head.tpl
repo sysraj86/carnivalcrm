@@ -44,8 +44,8 @@
 {$SUGAR_CSS}                      
  <link rel="stylesheet" type="text/css" href="custom/themes/Sugar5/css/customStyle.css" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-<script type="text/javascript" src="custom/include/javascript/jquery.js"></script>
-<script type="text/javascript" src="custom/include/javascript/formatCurrency.js"></script>
+<script type="text/javascript" src="custom/include/js/jquery.js"> </script> 
+
 {$SUGAR_JS}
 {literal}
 <script type="text/javascript">

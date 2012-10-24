@@ -1,5 +1,5 @@
 {literal}
-<script type="text/javascript" src="custom/include/js/jquery.js"> </script> 
+
 <script type="text/javascript" src="custom/include/js/jquery.table.clone.js"> </script>    
 <script type="text/javascript" src="custom/include/js/doctien.js"> </script>
 <script type="text/javascript" src="custom/include/js/ParentType.js"> </script>
@@ -173,7 +173,7 @@
         <tr>
             <td class="dataLabel">Tên Tour  <span class="required">*</span>:</td>
             <td class="dataField">
-                <input type="text" name="groupprogracontracts_name" id="groupprogracontracts_name" size="40" value="{$TOUR_NAME}"/>
+                <input type="text" name="groupprogracontracts_name" id="groupprogracontracts_name" size="80" value="{$TOUR_NAME}"/>
                 <input type="hidden" name="groupprogr4251rograms_ida" id="groupprogr4251rograms_ida" value="{$TOUR_ID}"/>
                 <input title="{$APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{$APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='2' class="button tour_name" value='{$APP.LBL_SELECT_BUTTON_LABEL}' name="bnt_tour_name" id="bnt_tour_name">
                 <input title="{$APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{$APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='2' class="button" value="{$APP.LBL_CLEAR_BUTTON_LABEL}" onclick="this.form.groupprogracontracts_name.value=''; this.form.groupprogr4251rograms_ida.value='';";/> 
@@ -198,18 +198,18 @@
         <tr>
             <td class="dataLabel">Từ ngày:</td>
             <td class="dataField"><!--<input name="start_date_contract" type="text"  id="start_date_contract" value="{$START_DATE}"/>-->
-                <input id='start_date_contract' name='start_date_contract' onblur="parseDate(this, '{$CALENDAR_DATEFORMAT}');"  type="text" tabindex='1' size='15' maxlength='10' value="{$START_DATE}"/> <img src="themes/default/images/jscalendar.gif" alt="{$APP.LBL_ENTER_DATE}" id="date_start_trigger" align="absmiddle"> (dd/mm/yy) 
+                <input readonly="readonly" id='start_date_contract' name='start_date_contract' onblur="parseDate(this, '{$CALENDAR_DATEFORMAT}');"  type="text" tabindex='1' size='15' maxlength='10' value="{$START_DATE}"/> <img src="themes/default/images/jscalendar.gif" alt="{$APP.LBL_ENTER_DATE}" id="date_start_trigger" align="absmiddle"> (dd/mm/yy) 
             </td>
             <td class="dataLabel">Đến ngày:</td>
             <td class="dataField"><!--<input name="end_date_contract"  id="end_date_contract" type="text" value="{$END_DATE}" />-->
-                <input id='end_date_contract' name='end_date_contract' onblur="parseDate(this, '{$CALENDAR_DATEFORMAT}');"  type="text" tabindex='1' size='15' maxlength='10' value="{$END_DATE}"/> <img src="themes/default/images/jscalendar.gif" alt="{$APP.LBL_ENTER_DATE}" id="date_end_trigger" align="absmiddle"> (dd/mm/yy)
+                <input readonly="readonly" id='end_date_contract' name='end_date_contract' onblur="parseDate(this, '{$CALENDAR_DATEFORMAT}');"  type="text" tabindex='1' size='15' maxlength='10' value="{$END_DATE}"/> <img src="themes/default/images/jscalendar.gif" alt="{$APP.LBL_ENTER_DATE}" id="date_end_trigger" align="absmiddle"> (dd/mm/yy)
             </td>
         </tr>
         <tr>
             <td class="dataLabel">Tổng số ngày:</td>
-            <td class="dataField"><input id="num_of_date" name="num_of_date" size="5" type="text" value="{$NUM_OF_DATE}"/></td>
+            <td class="dataField"><input readonly="readonly" id="num_of_date" name="num_of_date" size="5" type="text" value="{$NUM_OF_DATE}"/></td>
             <td class="dataLabel">Tổng số đêm</td>
-            <td class="dataField"><input id="num_of_night" name="num_of_night" type="text" size="5" value="{$NUM_OF_NIGHT}"/></td>
+            <td class="dataField"><input readonly="readonly" id="num_of_night" name="num_of_night" type="text" size="5" value="{$NUM_OF_NIGHT}"/></td>
         </tr>
         <tr>
             <td class="dataLabel">Mục Đích chuyến đi:</td>
@@ -251,13 +251,13 @@
                                 <input name="tong_sl_khach[]" type="text" id="tong_sl_khach" class="tinhtoan" value="{$TONG_SL_KHACH}" />
                             </td>
                             <td align="center">
-                                <input name="gia_tour[]" type="text" id="gia_tour" class="tinhtoan " value="{$GIA_TOUR}" /> USD
+                                <input name="gia_tour[]" type="text" id="gia_tour" class="tinhtoan " value="{$GIA_TOUR}" />
                             </td>
                             <td align="center">
-                                <input name="thue[]" type="text" id="thue" class="tinhtoan" value="{$THUE}" />  USD
+                                <input name="thue[]" type="text" id="thue" class="tinhtoan" value="{$THUE}" />
                             </td>
                             <td align="center">
-                                <input readonly="readonly" name="thanhtien[]" type="text" id="thanhtien" class="tinhtoan thanhtien" value="{$THANHTIEN}"  /> USD
+                                <input readonly="readonly" name="thanhtien[]" type="text" id="thanhtien" class="tinhtoan thanhtien" value="{$THANHTIEN}"  />
                                 <input type="hidden" name="contract_value_id[]" id="contract_value_id" value=""/> <input type="hidden" name="deleted[]" id="deleted" value="0"/>
                             </td>
                             <td align="center">
@@ -276,12 +276,12 @@
         </tr>
         <tr>    
             <th class="dataLabel" align="center"> Tổng cộng</th>
-            <td align="center" class="dataField"> <input readonly="readonly" name="tongtien" type="text" id="tongtien" value="{$TONGTIEN}"  /> USD</td>
+            <td align="center" class="dataField"> <input readonly="readonly" name="tongtien" type="text" id="tongtien" value="{$TONGTIEN}"  /> </td>
             <td class="dataLabel">&nbsp;</td>
             <td class="dataField">&nbsp;</td>
         </tr>
         <tr>
-            <td colspan="4" class="dataField" align="center"> Bằng chữ: <input name="bangchu" type="text" size="90" id="bangchu" value="{$BANGCHU}" /> USD </td>
+            <td colspan="4" class="dataField" align="center"> Bằng chữ: <input name="bangchu" type="text" size="90" id="bangchu" value="{$BANGCHU}" />  </td>
         </tr>
         <tr>
             <td colspan="4"> Nếu đoàn từ <input name="sl_khach_1" size="5" type="text" id="sl_khach_1" value="{$SL_KHACH_1}" /> khách , giá tour <input name="gia_tour_1" type="text" id="gia_tour_1" value="{$GIA_TOUR_1}" /> <select name="tiente" id="tiente">{$TIENTE} </select> / khách </td>
