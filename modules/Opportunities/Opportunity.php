@@ -39,18 +39,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
  * Description:
  ********************************************************************************/
-
-
-
-
-
-
-
-
-
-
-
-
+// require_once("include/TimeDate.php");
 
 // Opportunity is used to store customer information.
 class Opportunity extends SugarBean {
@@ -108,10 +97,24 @@ class Opportunity extends SugarBean {
 
 	function Opportunity() {
 		parent::SugarBean();
-		global $sugar_config;
+		global $sugar_config,$timedate,$current_user;
 		if(!$sugar_config['require_accounts']){
 			unset($this->required_fields['account_name']);
 		}
+        // Fix By Thanh Le At 17/10/2012
+        // Tu dong cap nhat sale stage neu qua han cua co hoi
+        
+        if(isset($_REQUEST['record'])){
+           $this->retrieve($_REQUEST['record']);
+           $now = getdate();
+           $date =  $timedate->to_db_date($this->date_closed,false);
+           $deadline = strtotime($date);
+           if($now[0] - 86400 > $deadline && $this->sales_stage != 'Closed Won'){
+              $this->sales_stage = 'Closed Lost';
+              $this->save(); 
+           }
+        }
+        // End
 	}
 
 	var $new_schema = true;

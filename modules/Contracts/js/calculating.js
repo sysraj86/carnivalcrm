@@ -56,13 +56,13 @@ $(function(){
         }
     });       
     $('.daidienbenbname').click(function(){
-        if($('.parent_type').val() == 'FITs'){
+ //       if($('.parent_type').val() == 'FITs'){
             open_popup('FITs',600,400,'',true,false, {"call_back_function":"set_return","form_name":"EditView","field_to_name_array":{"name":"daidienbenb_name"}});
-        }
-        else{
-            filterPopup('parent_type','parent_id','Contacts',{"call_back_function":"set_return","form_name":"EditView","field_to_name_array":{"name":"daidienbenb_name"}});
+  //      }
+//        else{
+//            filterPopup('parent_type','parent_id','Contacts',{"call_back_function":"set_return","form_name":"EditView","field_to_name_array":{"name":"daidienbenb_name"}});
             //open_popup('Contacts',600,400,'',true,false, {"call_back_function":"set_return","form_name":"EditView","field_to_name_array":{"id":"parent_id","name":"daidienbenb_name"}});
-        }
+//        }
     });
 
     $('.parent_type').change(function(){ 

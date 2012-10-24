@@ -124,10 +124,17 @@
     $xtpl->assign("TONGTIEN",  number_format($focus->tongtien,'2',',','.'));   
     $xtpl->assign("BANGCHU",  $focus->bangchu);   
     $xtpl->assign("SL_KHACH_1",  $focus->sl_khach_1);   
-    $xtpl->assign("GIA_TOUR_1",  number_format($focus->gia_tour_1,'2',',','.'));   
-    $xtpl->assign("TIENTE",    translate('currency_dom','', $focus->tiente)); 
-    $xtpl->assign("TIENTE_USD",    translate('currency_dom','', $focus->tiente_usd));
-    $xtpl->assign("TIENTE_VND",    translate('currency_dom','', $focus->tiente_vnd));
+    $xtpl->assign("GIA_TOUR_1",  number_format($focus->gia_tour_1,'2',',','.'));
+    
+    $tiente =  translate('currency_dom','', $focus->tiente);
+    if(is_array($tiente)) $tiente = '';
+    $xtpl->assign("TIENTE",    $tiente);
+    $tiente_usd =  translate('currency_dom','', $focus->tiente_usd);
+    if(is_array($tiente_usd)) $tiente_usd = '';  
+    $xtpl->assign("TIENTE_USD",    $tiente_usd);
+    $tiente_vnd =  translate('currency_dom','', $focus->tiente_vnd);
+    if(is_array($tiente_vnd)) $tiente_vnd = '';
+    $xtpl->assign("TIENTE_VND",    $tiente_vnd);
     $xtpl->assign("TEN_NGANHANG",    $focus->ten_nganhang);
     $xtpl->assign("BAOGOM",   html_entity_decode(nl2br($focus->baogom)));
     $xtpl->assign("KHONGBAOGOM", html_entity_decode(nl2br($focus->khongbaogom)));

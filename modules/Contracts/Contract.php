@@ -97,6 +97,20 @@
         
         function Contract(){
             global $sugar_config;
+            $this->daidienbena = 'Đinh Kim Phượng';
+            $this->salutation_a = 'ba';
+            $this->position_a = 'giamdoc';
+            $this->address_a = '357 Võ Văn Tần, Phường 5, Quận 3, TP.HCM';
+            $this->phone_a = '(08) 3834 2384 – 3834 2385';
+            $this->fax_a = '(08) 3834 2386 – 3833 2837';
+            $this->mst_bena = '0302089445';
+            $this->bank_name = 'HSBC';
+            $this->account_name = 'Công Ty TNHH MTV DV DL Lễ Hội (Carnival Travel Service Company Limited)';
+            $this->account_vnd = '090-004987- 001';
+            $this->account_usd = '090.004987- 101';
+            $this->swift_code = 'HSBC VNVX';
+            $this->bank_address = 'Toà nhà Metropolitan, 235 Đồng Khởi, Quận 1, TPHCM';
+            
             parent::SugarBean();
             $this->populateTemplates();
         }
@@ -142,13 +156,13 @@
                          $html .= '<input name="tong_sl_khach[]" type="text" id="tong_sl_khach" class="tinhtoan" value="'.$row['num_of_cus'].'" />';
                      $html .= '</td> ';
                      $html .= '<td align="center">';
-                        $html .= '<input name="gia_tour[]" type="text" id="gia_tour" class="tinhtoan " value="'.$row['tour_cost'].'" /> USD';
+                        $html .= '<input name="gia_tour[]" type="text" id="gia_tour" class="tinhtoan " value="'.$row['tour_cost'].'" /> ';
                      $html .= '</td>';
                      $html .= '<td align="center">';
-                        $html .= '<input name="thue[]" type="text" id="thue" class="tinhtoan" value="'.$row['tax'].'" /> USD';
+                        $html .= '<input name="thue[]" type="text" id="thue" class="tinhtoan" value="'.$row['tax'].'" /> ';
                      $html .= '</td>';
                      $html .= '<td align="center">';
-                        $html .= '<input readonly="readonly" name="thanhtien[]" type="text" id="thanhtien" class="tinhtoan thanhtien" value="'.number_format($row['money'],'2','.','').'"  />USD';
+                        $html .= '<input readonly="readonly" name="thanhtien[]" type="text" id="thanhtien" class="tinhtoan thanhtien" value="'.number_format($row['money'],'2','.','').'"  />';
                         $html .= '<input type="hidden" name="contract_value_id[]" id="contract_value_id" value="'.$row['id'].'"/> <input type="hidden" name="deleted[]" id="deleted" value="0"/>';
                      $html .= '</td>';
                      $html .= '<td align="center">';
@@ -220,13 +234,13 @@
                          $html .= $row['num_of_cus'];
                      $html .= '</td> ';
                      $html .= '<td align="center" class="tabDetailViewDF">';
-                        $html .= $row['tour_cost'] . ' USD';
+                        $html .= $row['tour_cost'] . ' ';
                      $html .= '</td>';
                      $html .= '<td align="center" class="tabDetailViewDF">';
-                        $html .= $row['tax']. ' USD';
+                        $html .= $row['tax']. ' ';
                      $html .= '</td>';
                      $html .= '<td align="center" class="tabDetailViewDF">';
-                        $html .= number_format($row['money'],'2','.',''). 'USD';
+                        $html .= number_format($row['money'],'2','.',''). '';
                      $html .= '</td>';
                      $html .= '<td align="center" class="tabDetailViewDF">';
                            $html .= '&nbsp;';
