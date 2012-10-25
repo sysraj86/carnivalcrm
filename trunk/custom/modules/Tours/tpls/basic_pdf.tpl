@@ -1,0 +1,39 @@
+<h1>Detail Information of {$NAME}</h1>
+<table>
+    <tr>
+        <td>{$MOD.LBL_NAME}</td>
+        <td>{$NAME}</td>
+    </tr>
+    <tr>
+        <td>{$MOD.LBL_PHONE_OFFICE}</td>
+        <td>{$PHONE_OFFICE}</td>
+    </tr>
+    <tr>
+        <td>{$MOD.LBL_WEBSITE}</td>
+        <td>{$WEBSITE}</td>
+    </tr>
+    <tr>
+        <td>{$MOD.LBL_PHONE_FAX}</td>
+        <td>{$PHONE_FAX}</td>
+    </tr>
+    <tr>
+        <td>{$MOD.LBL_BILLING_ADDRESS}</td>
+        <td>{$ADDRESS}</td>
+    </tr>
+    <tr>
+        <td>{$MOD.LBL_ACCOUNT_TYPE}</td>
+        <td>{$ACCOUNT_TYPE}</td>
+    </tr>
+    <tr>
+        <td>{$MOD.LBL_INDUSTRY}</td>
+        <td>{$INDUSTRY}</td>
+    </tr>
+    <tr>
+        <td>{$MOD.LBL_ANNUAL_REVENUE}</td>
+        <td>{$ANNUAL_REVENUE}</td>
+    </tr>
+    <tr>
+        <td>{$MOD.LBL_RATING}</td>
+        <td>{$RATING}</td>
+    </tr>
+</table>
