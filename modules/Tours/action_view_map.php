@@ -5,5 +5,6 @@
                         'export2word'=>'export2word',
                         'popup'     => 'popup',
                         'loadareabydepartment'     => 'loadareabydepartment',
+                        'sugarpdf'     => 'sugarpdf',
                         );
 ?>

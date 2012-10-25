@@ -1,80 +1,47 @@
 <?php
-
-/*
-
-Modification information for LGPL compliance
-
-r56990 - 2010-06-16 13:05:36 -0700 (Wed, 16 Jun 2010) - kjing - snapshot "Mango" svn branch to a new one for GitHub sync
-
-r56989 - 2010-06-16 13:01:33 -0700 (Wed, 16 Jun 2010) - kjing - defunt "Mango" svn dev branch before github cutover
-
-r55980 - 2010-04-19 13:31:28 -0700 (Mon, 19 Apr 2010) - kjing - create Mango (6.1) based on windex
-
-r51719 - 2009-10-22 10:18:00 -0700 (Thu, 22 Oct 2009) - mitani - Converted to Build 3  tags and updated the build system 
-
-r51634 - 2009-10-19 13:32:22 -0700 (Mon, 19 Oct 2009) - mitani - Windex is the branch for Sugar Sales 1.0 development
-
-r50375 - 2009-08-24 18:07:43 -0700 (Mon, 24 Aug 2009) - dwong - branch kobe2 from tokyo r50372
-
-r46451 - 2009-04-23 16:57:40 -0700 (Thu, 23 Apr 2009) - jenny - tcpdf initial checkin.
-
-
-*/
-
-
 //============================================================+
 // File name   : htmlcolors.php
+// Version     : 1.0.008
 // Begin       : 2002-04-09
-// Last Update : 2008-11-17
-// Version     : 1.0.002
-// License     : GNU LGPL (http://www.gnu.org/copyleft/lesser.html)
-// 	----------------------------------------------------------------------------
-//  Copyright (C) 2002-2009  Nicola Asuni - Tecnick.com S.r.l.
-// 	
-// 	This program is free software: you can redistribute it and/or modify
-// 	it under the terms of the GNU Lesser General Public License as published by
-// 	the Free Software Foundation, either version 2.1 of the License, or
-// 	(at your option) any later version.
-// 	
-// 	This program is distributed in the hope that it will be useful,
-// 	but WITHOUT ANY WARRANTY; without even the implied warranty of
-// 	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// 	GNU Lesser General Public License for more details.
-// 	
-// 	You should have received a copy of the GNU Lesser General Public License
-// 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
-// 	
-// 	See LICENSE.TXT file for more information.
-//  ----------------------------------------------------------------------------
+// Last Update : 2010-12-16
+// Author      : Nicola Asuni - Tecnick.com LTD - Manor Coach House, Church Hill, Aldershot, Hants, GU12 4RQ, UK - www.tecnick.com - info@tecnick.com
+// License     : GNU-LGPL v3 (http://www.gnu.org/copyleft/lesser.html)
+// -------------------------------------------------------------------
+// Copyright (C) 2002-2012  Nicola Asuni - Tecnick.com LTD
+//
+// This file is part of TCPDF software library.
+//
+// TCPDF is free software: you can redistribute it and/or modify it
+// under the terms of the GNU Lesser General Public License as
+// published by the Free Software Foundation, either version 3 of the
+// License, or (at your option) any later version.
+//
+// TCPDF is distributed in the hope that it will be useful, but
+// WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+// See the GNU Lesser General Public License for more details.
+//
+// You should have received a copy of the GNU Lesser General Public License
+// along with TCPDF.  If not, see <http://www.gnu.org/licenses/>.
+//
+// See LICENSE.TXT file for more information.
+// -------------------------------------------------------------------
 //
 // Description : Array of WEB safe colors
 //
-// Author: Nicola Asuni
-//
-// (c) Copyright:
-//               Nicola Asuni
-//               Tecnick.com S.r.l.
-//               Via della Pace, 11
-//               09044 Quartucciu (CA)
-//               ITALY
-//               www.tecnick.com
-//               info@tecnick.com
 //============================================================+
 
 /**
- * Array of WEB safe colors.
+ * @file
+ * Array of WEB safe colors
  * @author Nicola Asuni
- * @copyright 2004-2009 Nicola Asuni - Tecnick.com S.r.l (www.tecnick.com) Via Della Pace, 11 - 09044 - Quartucciu (CA) - ITALY - www.tecnick.com - info@tecnick.com
  * @package com.tecnick.tcpdf
- * @link http://www.tcpdf.org
- * @license http://www.gnu.org/copyleft/lesser.html LGPL
  * @since 2.9.000 (2008-03-26)
-*/
+ */
 
 /**
  * Array of WEB safe colors
  */
-global $webcolor;
 $webcolor = array (
 'aliceblue' => 'f0f8ff',
 'antiquewhite' => 'faebd7',
@@ -100,6 +67,7 @@ $webcolor = array (
 'darkblue' => '00008b',
 'darkcyan' => '008b8b',
 'darkgoldenrod' => 'b8860b',
+'dkgray' => 'a9a9a9',
 'darkgray' => 'a9a9a9',
 'darkgrey' => 'a9a9a9',
 'darkgreen' => '006400',
@@ -135,8 +103,8 @@ $webcolor = array (
 'greenyellow' => 'adff2f',
 'honeydew' => 'f0fff0',
 'hotpink' => 'ff69b4',
-'indianred ' => 'cd5c5c',
-'indigo ' => '4b0082',
+'indianred' => 'cd5c5c',
+'indigo' => '4b0082',
 'ivory' => 'fffff0',
 'khaki' => 'f0e68c',
 'lavender' => 'e6e6fa',
@@ -147,6 +115,7 @@ $webcolor = array (
 'lightcoral' => 'f08080',
 'lightcyan' => 'e0ffff',
 'lightgoldenrodyellow' => 'fafad2',
+'ltgray' => 'd3d3d3',
 'lightgray' => 'd3d3d3',
 'lightgrey' => 'd3d3d3',
 'lightgreen' => '90ee90',
@@ -226,6 +195,5 @@ $webcolor = array (
 );
 
 //============================================================+
-// END OF FILE                                                 
+// END OF FILE
 //============================================================+
-?>
