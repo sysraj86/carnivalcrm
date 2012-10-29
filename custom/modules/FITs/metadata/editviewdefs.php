@@ -131,6 +131,13 @@ array (
           ),
           1 => 'nick_chat',
         ),
+        9 => 
+        array (
+          0 => 
+          array (
+            'name' => 'prospectlists_fits_name',
+          ),
+        ),
       ),
       'lbl_editview_panel1' => 
       array (

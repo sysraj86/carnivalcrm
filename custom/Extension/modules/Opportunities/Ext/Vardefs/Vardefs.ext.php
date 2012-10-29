@@ -1,23 +1,4 @@
-<?php 
- //WARNING: The contents of this file are auto-generated
-
-
-
-$dictionary['Opportunity']['fields']['SecurityGroups'] = array (
-  	'name' => 'SecurityGroups',
-    'type' => 'link',
-	'relationship' => 'securitygroups_opportunities',
-	'module'=>'SecurityGroups',
-	'bean_name'=>'SecurityGroup',
-    'source'=>'non-db',
-	'vname'=>'LBL_SECURITYGROUPS',
-);
-
-
-
-
-
-
+<?php
 $dictionary['Opportunity']['fields']['ngaykhoihanh'] = array (
     'required' => false,
     'name' => 'ngaykhoihanh',
@@ -78,5 +59,4 @@ $dictionary['Opportunity']['fields']['phuongtienmuondi'] = array (
     'vname' => 'LBL_PHUONGTIENMUONDI',
     'type' => 'varchar',
 );
-
 ?>

@@ -13,7 +13,7 @@
           'vname'   => 'LBL_NUMBER_PLATES',
           'type'    => 'varchar',
           'len'     => 50, 
-          'required' => true,
+          
         ),
         
     'phone' => array(
@@ -28,6 +28,7 @@
       'vname'   => 'LBL_NUMOFSEAT',
       'type'    => 'int',
       'len'     => 5,
+      'required' => true,
     ),      
     
     'giathamkhao' => array(
