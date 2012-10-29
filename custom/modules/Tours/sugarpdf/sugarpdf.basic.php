@@ -39,8 +39,13 @@ class ToursSugarpdfBasic extends SugarpdfSmarty{
             $main_picture = '';
         }
         
-        $this->ss->assign('PICTURE', $main_picture);        
-        $this->ss->assign('TOUR_PROGRAM_LINES',html_entity_decode_utf8($tour->get_data_to_export2pdf()));
+        $this->ss->assign('PICTURE', $main_picture);
+        
+        $tour_program_lines = nl2br(html_entity_decode_utf8($tour->get_data_to_export2pdf()));
+        //$tour_program_lines = str_replace('&lt;', '<', $tour_program_lines);        
+        //$tour_program_lines = str_replace('&gt;', '<', $tour_program_lines);        
+        $tour_program_lines = str_replace(array("\r","\n",'\r','\n'), '', $tour_program_lines);      
+        $this->ss->assign('TOUR_PROGRAM_LINES', $tour_program_lines);
         
         // Cleanup cache file
         ob_clean();
