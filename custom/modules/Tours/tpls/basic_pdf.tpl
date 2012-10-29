@@ -1,39 +1,19 @@
-<h1>Detail Information of {$NAME}</h1>
-<table>
-    <tr>
-        <td>{$MOD.LBL_NAME}</td>
-        <td>{$NAME}</td>
-    </tr>
-    <tr>
-        <td>{$MOD.LBL_PHONE_OFFICE}</td>
-        <td>{$PHONE_OFFICE}</td>
-    </tr>
-    <tr>
-        <td>{$MOD.LBL_WEBSITE}</td>
-        <td>{$WEBSITE}</td>
-    </tr>
-    <tr>
-        <td>{$MOD.LBL_PHONE_FAX}</td>
-        <td>{$PHONE_FAX}</td>
-    </tr>
-    <tr>
-        <td>{$MOD.LBL_BILLING_ADDRESS}</td>
-        <td>{$ADDRESS}</td>
-    </tr>
-    <tr>
-        <td>{$MOD.LBL_ACCOUNT_TYPE}</td>
-        <td>{$ACCOUNT_TYPE}</td>
-    </tr>
-    <tr>
-        <td>{$MOD.LBL_INDUSTRY}</td>
-        <td>{$INDUSTRY}</td>
-    </tr>
-    <tr>
-        <td>{$MOD.LBL_ANNUAL_REVENUE}</td>
-        <td>{$ANNUAL_REVENUE}</td>
-    </tr>
-    <tr>
-        <td>{$MOD.LBL_RATING}</td>
-        <td>{$RATING}</td>
-    </tr>
-</table>
+<p>Chương trình tham quan du lịch</p>
+
+<p>{$NAME}</p>
+
+<p>{$TOUR_NOTE}.</p>
+
+<p>{$PICTURE}<br></p>
+
+<p>{$CODE}</p>
+
+<p>Thời gian: {$DURATION}</p>
+
+<p>Phương tiện: {$TRANSPORT}</p>
+
+<p>Khởi hành: {$START_DATE}</p>
+
+{$TOUR_PROGRAM_LINES}
+                         
+<p>CARNIVAL TOURS HÂN HẠNH PHỤC VỤ QUÝ KHÁCH</p>
