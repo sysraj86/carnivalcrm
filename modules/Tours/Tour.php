@@ -373,6 +373,45 @@
             //echo $html;
             return $html;
         }
+        
+        function get_data_to_export2pdf($id = 0){
+            $id = ($id > 0) ? $id : $this->id;
+            global $sugar_config;
+            $result = $this->get_tour_program_lines($id);
+            $html = '';
+
+            $i = 1;
+            while ($row = $this->db->fetchByAssoc($result)) {
+                if (!empty($row['picture'])) {
+                    $img = $sugar_config['site_url'] . "/modules/images/" . $row['picture'];
+                }
+                else {
+                    $img = '';
+                }
+                
+                //title
+                $html .= '<p> Ngày '.$i.' '.$row['title'].'</p>';
+                //note
+                $html .= '<p>'.$row['notes'].'</p>';
+                //body
+                if(!empty($img) || strlen(trim($row['description'])) > 0){
+                    $html .= '<p>';
+                    //image
+                    if (!empty($img)) {
+                        $html .= '<img width="204" height="149" src="'.$img.'" align="right" >';
+                    }
+                    if(strlen(trim($row['description'])) > 0 ){
+                        //$html .= $row['description'];        
+                    }
+                    
+                    $html .= '</p>';    
+                }
+                
+                $i++;
+
+            }
+            return $html;
+        }
 
         function getDestinationToList()
         {
