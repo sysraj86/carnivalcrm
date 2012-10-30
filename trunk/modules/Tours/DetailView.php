@@ -53,7 +53,7 @@ require_once('XTemplate\xtpl.php');
     $xtpl->assign("ID",           $focus->id);
 
     if($focus->frame_type == 'F'){
-        $xtpl->assign("EXPORT_BUTTON",'<input title="Export to PDF" class="button" type="button" onclick="window.location.href=\'index.php?module=Tours&action=sugarpdf&sugarpdf=basic&record='.$focus->id.'\'" value="Export to PDF" />');    
+        $xtpl->assign("EXPORT_BUTTON",'<input title="Export to PDF" class="button" type="button" onclick="window.location.href=\'index.php?module=Tours&action=export2pdf&record='.$focus->id.'\'" value="Export to PDF" />');    
     }else{
         $xtpl->assign("EXPORT_BUTTON",'<input title="Export to Word" class="button" type="button" onclick="window.location.href=\'index.php?module=Tours&action=export2word&record='.$focus->id.'\'" value="Export to Word" />');    
     }
