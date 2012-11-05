@@ -111,6 +111,9 @@ $mod_strings = array (
     'LBL_PUBLISHED'=>'Published',
     'LBL_ACTIVITIES_REPORTS' 	=> 'Activities Report',
     'LNK_VIEW_MY_INBOX' => 'View My Email',
-	'LBL_ASSIGNED_TO_ID' => 'Assigned To',
+    'LBL_ASSIGNED_TO_ID' => 'Assigned To',
+    
+	'LBL_FITS' => 'Customer',
+    
 );
 ?>

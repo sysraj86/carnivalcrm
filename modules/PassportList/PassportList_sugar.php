@@ -45,7 +45,7 @@ class PassportList_sugar extends Basic {
 	var $new_schema = true;
 	var $module_dir = 'PassportList';
 	var $object_name = 'PassportList';
-	var $table_name = 'PassportList';
+	var $table_name = 'passportlist';
 	var $importable = true;
 	var $disable_row_level_security = true ; // to ensure that modules created and deployed under CE will continue to function under team security if the instance is upgraded to PRO
 		var $id;

@@ -20,16 +20,10 @@
         'type'      => 'date',
         'len'       => 36,
     ),
-        'number_contract'    => array(
-            'name'  =>  'number_contract',
-            'vname' => 'LBL_CONTRACT',
-            'type'  => 'varchar',
-            'required'  => true,
-            'len'   => 255,
-        ),
+        
         'tour'    => array(
             'name'  =>  'tour',
-            'vname' => 'LBL_TOUR',
+            'vname' => 'LBL_CONTRACT_VALUE',
             'type'  => 'varchar',
             'len'   => 255,
         ),
@@ -225,28 +219,28 @@
          //   'required'  => true,
             'len'       => 36,
         ),
-        'ngay'  => array(
-            'name'      => 'ngay',
-            'vname'     => 'LBL_NGAY',
-            'type'      => 'varchar',
-            'required'  => true,
-            'len'       => 25,
-        ),
-        
-        'thang'  => array(
-            'name'      => 'thang',
-            'vname'     => 'LBL_THANG',
-            'type'      => 'varchar',
-            'required'  => true,
-            'len'       => 25,
-        ),
-        'nam'  => array(
-            'name'      => 'nam',
-            'vname'     => 'LBL_NAM',
-            'type'      => 'varchar',
-            'required'  => true,
-            'len'       => 25,
-        ),
+        //'ngay'  => array(
+//            'name'      => 'ngay',
+//            'vname'     => 'LBL_NGAY',
+//            'type'      => 'varchar',
+//            'required'  => true,
+//            'len'       => 25,
+//        ),
+//        
+//        'thang'  => array(
+//            'name'      => 'thang',
+//            'vname'     => 'LBL_THANG',
+//            'type'      => 'varchar',
+//            'required'  => true,
+//            'len'       => 25,
+//        ),
+//        'nam'  => array(
+//            'name'      => 'nam',
+//            'vname'     => 'LBL_NAM',
+//            'type'      => 'varchar',
+//            'required'  => true,
+//            'len'       => 25,
+//        ),
         
         'sl_khach'  => array(
             'name'      => 'sl_khach',
@@ -318,6 +312,7 @@
           'name'    => 'bangchu',
           'vname'   => 'LBL_BANGCHU',
           'type'    => 'varchar',
+          'size'    => '100',
           'len'     => 255,
         ),
         
@@ -409,7 +404,6 @@
         'len' => 255,
         'options' => 'template_ddown_c_list',
         'studio' => 'visible',
-        'required' => true,
       ),
       
        'type' => array(
@@ -426,7 +420,6 @@
             'vname'=>'LBL_CONTRACT_PARENT_TYPE',
             'type' => 'parent_type',
             'dbType'=>'varchar',
-            'required'=>false,
             'group'=>'parent_name',
             'options'=> 'contract_parent_type_display',
             'len'=>255,

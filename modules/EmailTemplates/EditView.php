@@ -274,6 +274,9 @@ if(true) {
 	     $dropdown="<option value='Accounts'>
 						".$mod_strings['LBL_ACCOUNT']."
 		  	       </option>
+                   <option value='FITs'>
+                        ".$mod_strings['LBL_FITS']."
+                   </option>
 			       <option value='Contacts'>
 						".$mod_strings['LBL_CONTACT_AND_OTHERS']."
 			       </option>

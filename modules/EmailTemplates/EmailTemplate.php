@@ -128,7 +128,8 @@ class EmailTemplate extends SugarBean {
 		$contact = new Contact();
 		$account = new Account();
 		$lead = new Lead();
-		$prospect = new Prospect();
+        $prospect = new Prospect();
+		$FITs = new FITs();
 
 
 		$loopControl = array(
@@ -137,8 +138,11 @@ class EmailTemplate extends SugarBean {
 			    'Leads' => $lead,
 				'Prospects' => $prospect,
 			),
-			'Accounts' => array(
-				'Accounts' => $account,
+            'Accounts' => array(
+                'Accounts' => $account,
+            ),
+			'FITs' => array(
+				'FITs' => $FITs,
 			),
 			'Users' => array(
 				'Users' => $current_user,
@@ -147,7 +151,8 @@ class EmailTemplate extends SugarBean {
 
 		$prefixes = array(
 			'Contacts' => 'contact_',
-			'Accounts' => 'account_',
+            'Accounts' => 'account_',
+			'FITs' => 'customer_',
 			'Users'	=> 'contact_user_',
 		);
 
@@ -393,17 +398,26 @@ class EmailTemplate extends SugarBean {
 
 		// cn: bug 9277 - create a replace array with empty strings to blank-out invalid vars
 		if(!class_exists('Account'))
-		if(!class_exists('Contact'))
+        if(!class_exists('Contact'))
+		if(!class_exists('FITs'))
 		if(!class_exists('Leads'))
 		if(!class_exists('Prospects'))
 		
 		require_once('modules/Accounts/Account.php');
 		$acct = new Account();
+        $FITs = new FITs();
 		$contact = new Contact();
 		$lead = new Lead();
 		$prospect = new Prospect();
 		
-		foreach($lead->field_defs as $field_def) {
+        foreach($lead->field_defs as $field_def) {
+            if(($field_def['type'] == 'relate' && empty($field_def['custom_type'])) || $field_def['type'] == 'assigned_user_name') {
+                 continue;
+            }
+            $repl_arr["contact_".$field_def['name']] = '';
+            $repl_arr["contact_account_".$field_def['name']] = '';
+        }
+		foreach($FITs->field_defs as $field_def) {
 			if(($field_def['type'] == 'relate' && empty($field_def['custom_type'])) || $field_def['type'] == 'assigned_user_name') {
          		continue;
 			}
