@@ -8,7 +8,7 @@ $dictionary["passportlist_passports"] = array (
     'passportlist_passports' => 
     array (
       'lhs_module' => 'PassportList',
-      'lhs_table' => 'PassportList',
+      'lhs_table' => 'passportlist',
       'lhs_key' => 'id',
       'rhs_module' => 'Passports',
       'rhs_table' => 'passports',

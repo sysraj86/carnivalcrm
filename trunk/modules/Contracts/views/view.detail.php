@@ -147,7 +147,12 @@
             $this->dv->ss->assign("TIENHUYPHAT", $this->bean->tienhuyphat);
             $this->dv->ss->assign("SOHOCHIEUKHACHLE", $this->bean->sohochieukhachle);
             $this->dv->ss->assign("NGAYCAPHOCHIEU", $this->bean->ngaycaphochieu);
-            $this->dv->ss->assign("TIENTEHUYPHAT", translate('currency_dom','',$this->bean->tientehuyphat));
+            if($this->bean->tientehuyphat != ''){
+                $this->dv->ss->assign("TIENTEHUYPHAT", translate('currency_dom','',$this->bean->tientehuyphat));
+            }else{
+                $this->dv->ss->assign("TIENTEHUYPHAT", ''); 
+            }
+            
             $this->dv->ss->assign("TRANSPORTCONTRACT_LINE", $this->bean->get_transportcontract_detailview());
             $this->dv->ss->assign("template_ddown_c_id", $this->bean->template_ddown_c);
             $this->dv->ss->assign("template_ddown_c_name", translate('template_ddown_c_list','',$this->bean->template_ddown_c));

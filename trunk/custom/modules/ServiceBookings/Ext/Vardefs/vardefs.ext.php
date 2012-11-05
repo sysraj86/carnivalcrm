@@ -96,6 +96,7 @@ $dictionary["ServiceBookings"]["fields"]["services_seebookings_name"] = array (
   'table' => 'services',
   'module' => 'Services',
   'rname' => 'name',
+  'required' => true,
 );
 $dictionary["ServiceBookings"]["fields"]["services_sde2fervices_ida"] = array (
   'name' => 'services_sde2fervices_ida',
