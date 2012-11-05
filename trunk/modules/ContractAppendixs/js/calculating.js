@@ -22,30 +22,26 @@
                 $('.hopdongthuexe').hide();
             }  */
         tinhTuongDuong();
-        loadFormParentType();
         
-        $('.contract').click(function(){
-             open_popup('Contracts', 600, 400, "", true, false, {"call_back_function":"set_return","form_name": "EditView","field_to_name_array":{"id":"contract", "number": "number_contract","date_of_contracts":"date_contract","parent_type":"parent_type"}}, "single", true);   
-            
-        });
-        $('.tour').click(function(){
-             open_popup('GroupPrograms', 600, 400, "", true, false, {"call_back_function":"set_return","form_name": "EditView","field_to_name_array":{"id":"tour_id", "groupprogram_code": "tour"}}, "single", true);   
-            
-        });
+//        $('.contract').click(function(){
+//             open_popup('Contracts', 600, 400, "", true, false, {"call_back_function":"set_return","form_name": "EditView","field_to_name_array":{"id":"contract", "number": "number_contract","date_of_contracts":"date_contract","parent_type":"parent_type"}}, "single", true);   
+//            
+//        });
+//        $('.tour').click(function(){
+//             open_popup('GroupPrograms', 600, 400, "", true, false, {"call_back_function":"set_return","form_name": "EditView","field_to_name_array":{"id":"tour_id", "groupprogram_code": "tour"}}, "single", true);   
+//            
+//        });
         
-        $('.daidienbena').click(function(){
-             open_popup('Users', 600, 400, "", true, false, {"call_back_function":"set_return","form_name": "EditView","field_to_name_array":{ "full_name": "daidienbena"}}, "single", true);   
-            
-        });
+
         
-        $('.parent_name').click(function(){
-            if($('.parent_type').val()=='TravelGuides'){
-                open_popup('TravelGuides', 600, 400, "", true, false, {"call_back_function":"set_return","form_name": "EditView","field_to_name_array":{"id":"parent_id", "name": "parent_name","address":"address_b","phone":"phone_b","date_issued":"date_issued_guide","birthday":"birthday","passport_no":"passport_no_guide"}}, "single", true);   
-            }
-            else{
-                open_popup($('#parent_type').val(), 600, 400, "", true, false, {"call_back_function":"set_return","form_name": "EditView","field_to_name_array":{"id":"parent_id", "name": "parent_name"}}, "single", true);   
-            }
-        });
+//        $('.parent_name').click(function(){
+//            if($('.parent_type').val()=='TravelGuides'){
+//                open_popup('TravelGuides', 600, 400, "", true, false, {"call_back_function":"set_return","form_name": "EditView","field_to_name_array":{"id":"parent_id", "name": "parent_name","address":"address_b","phone":"phone_b","date_issued":"date_issued_guide","birthday":"birthday","passport_no":"passport_no_guide"}}, "single", true);   
+//            }
+//            else{
+//                open_popup($('#parent_type').val(), 600, 400, "", true, false, {"call_back_function":"set_return","form_name": "EditView","field_to_name_array":{"id":"parent_id", "name": "parent_name"}}, "single", true);   
+//            }
+//        });
 
         // tinh toan gia tri hop dong huong dan vien
         $('.giatrihopdonghdv').blur(function(){
@@ -82,43 +78,43 @@
             }
         });
 
-        $('.tour_name').click(function(){
-            if($('.parent_type').val()=='TravelGuides'){
+//        $('.tour_name').click(function(){
+//            if($('.parent_type').val()=='TravelGuides'){
                 //open_popup('GroupPrograms', 600, 400, "", true, false, {"call_back_function":"set_return","form_name": "EditView","field_to_name_array":{"id":"groupprogr4251rograms_ida", "name": "groupprogracontracts_name","start_date_group":"start_date_guide",}}, "single", true);   
-                open_popup("GroupPrograms", 600, 400, "", true, false, {"call_back_function":"set_return","form_name": "EditView","field_to_name_array":{"id":"groupprogr4251rograms_ida","name":"groupprogracontracts_name","start_date_group":"start_date_guide", "end_date_group":"end_date_guide","countofcus":"num_of_cus_guide"}}, "single", true);
-            }
-            else{
-                open_popup("GroupPrograms", 600, 400, "", true, false, {"call_back_function":"set_return","form_name": "EditView","field_to_name_array":{"id":"groupprogr4251rograms_ida","name":"groupprogracontracts_name","start_date_group":"start_date_guide", "end_date_group":"end_date_contract","countofcus":"num_of_cus_guide","numofdate":"num_of_date","numofnight":"num_of_night"}}, "single", true);
-            }
-        });       
-        $('.daidienbenbname').click(function(){
-            if($('.parent_type').val() == 'FITs'){
-                open_popup('FITs',600,400,'',true,false, {"call_back_function":"set_return","form_name":"EditView","field_to_name_array":{"id":"parent_id","name":"daidienbenb_name"}},"single", true);
-            }
-            else{
-                open_popup('Contacts',600,400,'',true,false, {"call_back_function":"set_return","form_name":"EditView","field_to_name_array":{"id":"parent_id","name":"daidienbenb_name"}},"single", true);
-            }
-        });
+//                open_popup("GroupPrograms", 600, 400, "", true, false, {"call_back_function":"set_return","form_name": "EditView","field_to_name_array":{"id":"groupprogr4251rograms_ida","name":"groupprogracontracts_name","start_date_group":"start_date_guide", "end_date_group":"end_date_guide","countofcus":"num_of_cus_guide"}}, "single", true);
+//            }
+//            else{
+//                open_popup("GroupPrograms", 600, 400, "", true, false, {"call_back_function":"set_return","form_name": "EditView","field_to_name_array":{"id":"groupprogr4251rograms_ida","name":"groupprogracontracts_name","start_date_group":"start_date_guide", "end_date_group":"end_date_contract","countofcus":"num_of_cus_guide","numofdate":"num_of_date","numofnight":"num_of_night"}}, "single", true);
+//            }
+//        });       
+ //       $('.daidienbenbname').click(function(){
+//            if($('.parent_type').val() == 'FITs'){
+//                open_popup('FITs',600,400,'',true,false, {"call_back_function":"set_return","form_name":"EditView","field_to_name_array":{"id":"parent_id","name":"daidienbenb_name"}},"single", true);
+//            }
+//            else{
+//                open_popup('Contacts',600,400,'',true,false, {"call_back_function":"set_return","form_name":"EditView","field_to_name_array":{"id":"parent_id","name":"daidienbenb_name"}},"single", true);
+//            }
+//        });
 
-        function loadFormParentType(){ 
-            if($('#parent_type').val()=='TravelGuides'){
-                $('.hopdongdichvu').hide();
-                $('.travelguide').show();
-            }
-            else{
-                $('.hopdongdichvu').show();
-                $('.travelguide').hide();
-            } 
-            
+        //function loadFormParentType(){ 
+//            if($('#parent_type').val()=='TravelGuides'){
+//                $('.hopdongdichvu').hide();
+//                $('.travelguide').show();
+//            }
+//            else{
+//                $('.hopdongdichvu').show();
+//                $('.travelguide').hide();
+//            } 
+//            
           //  parent_namechangeQS();
-            checkParentType($('#parent_type').val(), $('btn_parent_name'));       
-        }
+//            checkParentType($('#parent_type').val(), $('btn_parent_name'));       
+//        }
         
-        $('#parent_type').change(function(){
-            loadFormParentType();
-            $('#parent_name').val("");
-            $('#parent_id').val("");
-        });
+//        $('#parent_type').change(function(){
+//            loadFormParentType();
+//            $('#parent_name').val("");
+//            $('#parent_id').val("");
+//        });
                                 
         $('.tinhtoan').blur(function(){
             var id = this.id.substring(this.id.length-1,this.id.length); 
@@ -248,21 +244,21 @@
 //        }
 //        enableQS(false);
 //    }
-    Calendar.setup ({
-    inputField : "start_date_guide",daFormat : "%d/%m/%Y",button : "guide_date_start_trigger",singleClick : true,dateStr : "12/19/2009",step : 1
-     });addToValidate('EditView', 'expiration', 'date', false,'expiration' ); 
-    Calendar.setup ({ 
-    inputField : "end_date_guide",daFormat : "%d/%m/%Y",button : "guide_date_end_trigger",singleClick : true,dateStr : "12/19/2009",step : 1
-     });addToValidate('EditView', 'expiration', 'date', false,'expiration' );
-    Calendar.setup ({
-    inputField : "start_date_contract",daFormat : "%d/%m/%Y",button : "date_start_trigger",singleClick : true,dateStr : "12/19/2009",step : 1
- });addToValidate('EditView', 'expiration', 'date', false,'expiration' );
-    Calendar.setup ({ 
-    inputField : "end_date_contract",daFormat : "%d/%m/%Y",button : "date_end_trigger",singleClick : true,dateStr : "12/19/2009",step : 1
- });addToValidate('EditView', 'expiration', 'date', false,'expiration' );
-    Calendar.setup ({ 
-    inputField : "expiration_date",daFormat : "%d/%m/%Y",button : "expiration_date_trigger",singleClick : true,dateStr : "12/19/2009",step : 1
-     });addToValidate('EditView', 'expiration', 'date', false,'expiration' );
-    Calendar.setup ({ 
-        inputField : "date",daFormat : "%d/%m/%Y",button : "date_trigger",singleClick : true,dateStr : "12/19/2009",step : 1
- });addToValidate('EditView', 'expiration', 'date', false,'expiration' );
+ //   Calendar.setup ({
+//    inputField : "start_date_guide",daFormat : "%d/%m/%Y",button : "guide_date_start_trigger",singleClick : true,dateStr : "12/19/2009",step : 1
+//     });addToValidate('EditView', 'expiration', 'date', false,'expiration' ); 
+//    Calendar.setup ({ 
+//    inputField : "end_date_guide",daFormat : "%d/%m/%Y",button : "guide_date_end_trigger",singleClick : true,dateStr : "12/19/2009",step : 1
+//     });addToValidate('EditView', 'expiration', 'date', false,'expiration' );
+//    Calendar.setup ({
+//    inputField : "start_date_contract",daFormat : "%d/%m/%Y",button : "date_start_trigger",singleClick : true,dateStr : "12/19/2009",step : 1
+// });addToValidate('EditView', 'expiration', 'date', false,'expiration' );
+//    Calendar.setup ({ 
+//    inputField : "end_date_contract",daFormat : "%d/%m/%Y",button : "date_end_trigger",singleClick : true,dateStr : "12/19/2009",step : 1
+// });addToValidate('EditView', 'expiration', 'date', false,'expiration' );
+//    Calendar.setup ({ 
+//    inputField : "expiration_date",daFormat : "%d/%m/%Y",button : "expiration_date_trigger",singleClick : true,dateStr : "12/19/2009",step : 1
+//     });addToValidate('EditView', 'expiration', 'date', false,'expiration' );
+//    Calendar.setup ({ 
+//        inputField : "date",daFormat : "%d/%m/%Y",button : "date_trigger",singleClick : true,dateStr : "12/19/2009",step : 1
+// });addToValidate('EditView', 'expiration', 'date', false,'expiration' );

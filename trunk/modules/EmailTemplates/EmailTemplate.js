@@ -33,9 +33,19 @@
  * "Powered by SugarCRM".
  ********************************************************************************/
 var focus_obj=false;var label=SUGAR.language.get('app_strings','LBL_DEFAULT_LINK_TEXT');function remember_place(obj){focus_obj=obj;}
-function showVariable(){document.EditView.variable_text.value=document.EditView.variable_name.options[document.EditView.variable_name.selectedIndex].value;}
-function addVariables(the_select,the_module){the_select.options.length=0;for(var i=0;i<field_defs[the_module].length;i++){var new_option=document.createElement("option");new_option.value="$"+field_defs[the_module][i].name;new_option.text=field_defs[the_module][i].value;the_select.options.add(new_option,i);}
-showVariable();}
+function showVariable(){
+    document.EditView.variable_text.value=document.EditView.variable_name.options[document.EditView.variable_name.selectedIndex].value;
+}
+function addVariables(the_select,the_module){
+    the_select.options.length=0;
+    for(var i=0;i<field_defs[the_module].length;i++){
+        var new_option=document.createElement("option");
+        new_option.value="$"+field_defs[the_module][i].name;
+        new_option.text=field_defs[the_module][i].value;
+        the_select.options.add(new_option,i);
+    }
+    showVariable();
+}
 function toggle_text_only(firstRun){if(typeof(firstRun)=='undefined')
 firstRun=false;var text_only=document.getElementById('text_only');if(firstRun){setTimeout("tinyMCE.execCommand('mceAddControl', false, 'body_text');",500);var tiny=tinyMCE.getInstanceById('body_text');}
 if(document.getElementById('toggle_textonly').checked==true){document.getElementById('body_text_div').style.display='none';document.getElementById('toggle_textarea_option').style.display='none';document.getElementById('text_div').style.display='block';text_only.value=1;}else{document.getElementById('body_text_div').style.display='inline';document.getElementById('toggle_textarea_option').style.display='inline';document.getElementById('text_div').style.display='none';text_only.value=0;}

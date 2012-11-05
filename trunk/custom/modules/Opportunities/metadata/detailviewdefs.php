@@ -78,6 +78,17 @@ array (
             'nl2br' => true,
           ),
         ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'fits_opportunities_name',
+          ),
+          1 => 
+          array (
+            'name' => 'contacts_oprtunities_name',
+          ),
+        ),
       ),
       'lbl_editview_panel1' => 
       array (

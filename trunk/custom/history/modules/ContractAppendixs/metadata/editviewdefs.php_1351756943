@@ -112,7 +112,7 @@ array (
         array (
           0 => 'tours_contrappendixs_name',
         ),
-        12 => 
+        14 => 
         array (
           0 => 
           array (
@@ -120,7 +120,7 @@ array (
             'customCode' => '{$contract_value}',
           ),
         ),
-        13 => 
+        12 => 
         array (
           0 => 'tongtien',
           1 => 
@@ -131,16 +131,17 @@ array (
             ',
           ),
         ),
-        14 => 
+        13 => 
         array (
           0 => 'tigia',
           1 => 'tiente',
         ),
-        15 => 
+        16 => 
         array (
           0 => 'tongtien2',
+          1 => 'contracts_cappendixs_name',
         ),
-        16 => 
+        15 => 
         array (
           0 => 'template_ddown_c',
           1 => 'assigned_user_name',

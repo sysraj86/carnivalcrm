@@ -35,7 +35,7 @@
  ********************************************************************************/
 
 $dictionary['PassportList'] = array(
-	'table'=>'PassportList',
+	'table'=>'passportlist',
 	'audited'=>true,
 	'fields'=>array (
   'code' => 

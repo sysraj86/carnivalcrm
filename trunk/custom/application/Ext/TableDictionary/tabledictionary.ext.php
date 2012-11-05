@@ -103,6 +103,11 @@ include('custom/metadata/airlines_contactsMetaData.php');
 
  
  //WARNING: The contents of this file are auto-generated
+include('custom/metadata/contacts_opportunitiesMetaData.php');
+
+
+ 
+ //WARNING: The contents of this file are auto-generated
 include('custom/metadata/contacts_quotesMetaData.php');
 
 
@@ -259,6 +264,11 @@ include('custom/metadata/fits_fitsMetaData.php');
  
  //WARNING: The contents of this file are auto-generated
 include('custom/metadata/fits_odersMetaData.php');
+
+
+ 
+ //WARNING: The contents of this file are auto-generated
+include('custom/metadata/fits_opportunitiesMetaData.php');
 
 
  

@@ -37,7 +37,7 @@
 $relationships = array (
   'fits_contracts' => 
   array (
-    'id' => 'd6dd0163-ab9f-c12c-4686-4eca154d459d',
+    'id' => 'f177f31a-3132-e837-ad27-50922ea477b1',
     'relationship_name' => 'fits_contracts',
     'lhs_module' => 'FITs',
     'lhs_table' => 'fits',
@@ -63,7 +63,7 @@ $relationships = array (
   ),
   'accounts_fits' => 
   array (
-    'id' => '85e2d5e5-2343-4142-7bf7-4eca155e9327',
+    'id' => '425d14fd-509a-1aa9-df7e-50922e5f2ed0',
     'relationship_name' => 'accounts_fits',
     'lhs_module' => 'Accounts',
     'lhs_table' => 'accounts',
@@ -89,10 +89,10 @@ $relationships = array (
   ),
   'airlinestickets_fits' => 
   array (
-    'id' => '8a4db9c2-d319-1deb-baee-4eca15e60ab8',
+    'id' => '86a42e0a-947b-1da9-564b-50922e0c29c2',
     'relationship_name' => 'airlinestickets_fits',
     'lhs_module' => 'AirlinesTickets',
-    'lhs_table' => 'AirlinesTickets',
+    'lhs_table' => 'airlinestickets',
     'lhs_key' => 'id',
     'rhs_module' => 'FITs',
     'rhs_table' => 'fits',
@@ -107,7 +107,7 @@ $relationships = array (
     'deleted' => '0',
     'readonly' => true,
     'rhs_subpanel' => 'default',
-    'lhs_subpanel' => 'default',
+    'lhs_subpanel' => NULL,
     'from_studio' => true,
     'is_custom' => true,
     'relationship_only' => false,
@@ -115,7 +115,7 @@ $relationships = array (
   ),
   'fits_activities_calls' => 
   array (
-    'id' => 'a168f476-786f-503c-7c83-4eca1500e4dd',
+    'id' => '89b3e27f-8f5d-a54f-ce9e-50922e907241',
     'relationship_name' => 'fits_activities_calls',
     'lhs_module' => 'FITs',
     'lhs_table' => 'fits',
@@ -141,7 +141,7 @@ $relationships = array (
   ),
   'fits_activities_meetings' => 
   array (
-    'id' => 'a333318a-73ad-537d-4b22-4eca15df07db',
+    'id' => '97b0618f-321e-b4a6-87ae-50922e0f6bc9',
     'relationship_name' => 'fits_activities_meetings',
     'lhs_module' => 'FITs',
     'lhs_table' => 'fits',
@@ -167,7 +167,7 @@ $relationships = array (
   ),
   'fits_activities_notes' => 
   array (
-    'id' => 'a41f4018-f196-e67c-81e3-4eca1543b5eb',
+    'id' => '9ecd8a0b-f5a7-223f-7116-50922efb3607',
     'relationship_name' => 'fits_activities_notes',
     'lhs_module' => 'FITs',
     'lhs_table' => 'fits',
@@ -193,7 +193,7 @@ $relationships = array (
   ),
   'fits_activities_tasks' => 
   array (
-    'id' => 'a4fe5023-0811-9d39-8480-4eca15262fa0',
+    'id' => 'a5734448-e3dd-b8e2-e4c4-50922e0a16f1',
     'relationship_name' => 'fits_activities_tasks',
     'lhs_module' => 'FITs',
     'lhs_table' => 'fits',
@@ -219,33 +219,33 @@ $relationships = array (
   ),
   'fits_billing' => 
   array (
-    'id' => 'a5e2d492-f17e-90b6-a1ab-4eca154b6bbf',
+    'id' => 'abf3e8f3-7b1d-7012-9ace-50922e5bd949',
     'relationship_name' => 'fits_billing',
     'lhs_module' => 'FITs',
     'lhs_table' => 'fits',
     'lhs_key' => 'id',
     'rhs_module' => 'Billing',
     'rhs_table' => 'billing',
-    'rhs_key' => 'id',
-    'join_table' => 'fits_billing_c',
-    'join_key_lhs' => 'fits_billie73aingfits_ida',
-    'join_key_rhs' => 'fits_billi7cd5billing_idb',
+    'rhs_key' => 'parent_id',
+    'join_table' => NULL,
+    'join_key_lhs' => NULL,
+    'join_key_rhs' => NULL,
     'relationship_type' => 'one-to-many',
-    'relationship_role_column' => NULL,
-    'relationship_role_column_value' => NULL,
+    'relationship_role_column' => 'parent_type',
+    'relationship_role_column_value' => 'FITs',
     'reverse' => '0',
     'deleted' => '0',
     'readonly' => true,
     'rhs_subpanel' => 'default',
     'lhs_subpanel' => NULL,
-    'from_studio' => true,
     'is_custom' => true,
     'relationship_only' => false,
     'for_activities' => false,
+    'from_studio' => true,
   ),
   'fits_cases' => 
   array (
-    'id' => 'a6f0db79-c9c0-61e4-0f1d-4eca157569e3',
+    'id' => 'b25a4dbd-517c-9b86-386a-50922ec9ff8d',
     'relationship_name' => 'fits_cases',
     'lhs_module' => 'FITs',
     'lhs_table' => 'fits',
@@ -269,9 +269,35 @@ $relationships = array (
     'relationship_only' => false,
     'for_activities' => false,
   ),
+  'fits_commentairlines' => 
+  array (
+    'id' => 'baf3c7b3-7184-07b4-f1d4-50922e9e0bbb',
+    'relationship_name' => 'fits_commentairlines',
+    'lhs_module' => 'FITs',
+    'lhs_table' => 'fits',
+    'lhs_key' => 'id',
+    'rhs_module' => 'CommentAirlines',
+    'rhs_table' => 'commentairlines',
+    'rhs_key' => 'id',
+    'join_table' => 'fits_commentairlines_c',
+    'join_key_lhs' => 'fits_comme89bfnesfits_ida',
+    'join_key_rhs' => 'fits_comme5bf5irlines_idb',
+    'relationship_type' => 'one-to-many',
+    'relationship_role_column' => NULL,
+    'relationship_role_column_value' => NULL,
+    'reverse' => '0',
+    'deleted' => '0',
+    'readonly' => true,
+    'rhs_subpanel' => 'default',
+    'lhs_subpanel' => NULL,
+    'from_studio' => true,
+    'is_custom' => true,
+    'relationship_only' => false,
+    'for_activities' => false,
+  ),
   'fits_comments' => 
   array (
-    'id' => 'a784c5b2-6975-1170-dd52-4eca15bff695',
+    'id' => 'c4d8616e-2b22-4d1c-2646-50922e39397e',
     'relationship_name' => 'fits_comments',
     'lhs_module' => 'FITs',
     'lhs_table' => 'fits',
@@ -297,7 +323,7 @@ $relationships = array (
   ),
   'fits_fits' => 
   array (
-    'id' => 'a88400fa-30ab-688d-92e0-4eca15fd45d0',
+    'id' => 'cbe7dc96-7b5f-de19-dff9-50922eb28832',
     'relationship_name' => 'fits_fits',
     'lhs_module' => 'FITs',
     'lhs_table' => 'fits',
@@ -321,9 +347,35 @@ $relationships = array (
     'relationship_only' => false,
     'for_activities' => false,
   ),
+  'fits_oders' => 
+  array (
+    'id' => 'd6c491ab-71f0-d6fb-c59e-50922ed05975',
+    'relationship_name' => 'fits_oders',
+    'lhs_module' => 'FITs',
+    'lhs_table' => 'fits',
+    'lhs_key' => 'id',
+    'rhs_module' => 'Oders',
+    'rhs_table' => 'oders',
+    'rhs_key' => 'id',
+    'join_table' => 'fits_oders_c',
+    'join_key_lhs' => 'fits_oders2a96ersfits_ida',
+    'join_key_rhs' => 'fits_oders32e6rsoders_idb',
+    'relationship_type' => 'one-to-many',
+    'relationship_role_column' => NULL,
+    'relationship_role_column_value' => NULL,
+    'reverse' => '0',
+    'deleted' => '0',
+    'readonly' => true,
+    'rhs_subpanel' => NULL,
+    'lhs_subpanel' => NULL,
+    'from_studio' => true,
+    'is_custom' => true,
+    'relationship_only' => false,
+    'for_activities' => false,
+  ),
   'fits_orders' => 
   array (
-    'id' => 'a9680abd-9882-1966-1af4-4eca15e68ad3',
+    'id' => 'de191bb9-5e26-ebbe-9f05-50922e9f5f5d',
     'relationship_name' => 'fits_orders',
     'lhs_module' => 'FITs',
     'lhs_table' => 'fits',
@@ -349,7 +401,7 @@ $relationships = array (
   ),
   'fits_passports' => 
   array (
-    'id' => 'aa4a1a8f-7291-6e6e-1abe-4eca15f05b2d',
+    'id' => 'e5393669-a89c-8aa6-168a-50922ec4d668',
     'relationship_name' => 'fits_passports',
     'lhs_module' => 'FITs',
     'lhs_table' => 'fits',
@@ -375,7 +427,7 @@ $relationships = array (
   ),
   'fits_quotes' => 
   array (
-    'id' => 'ab29c7f8-47ef-b888-3b83-4eca1527e7e8',
+    'id' => 'ec09565f-49ae-7872-16f1-50922ecb9fe1',
     'relationship_name' => 'fits_quotes',
     'lhs_module' => 'FITs',
     'lhs_table' => 'fits',
@@ -401,7 +453,7 @@ $relationships = array (
   ),
   'grouplists_fits' => 
   array (
-    'id' => 'ac8be88c-599b-da73-ab25-4eca1570a6c9',
+    'id' => '57f90fbc-414d-fa56-075f-50922e27a5e2',
     'relationship_name' => 'grouplists_fits',
     'lhs_module' => 'GroupLists',
     'lhs_table' => 'grouplists',
@@ -427,7 +479,7 @@ $relationships = array (
   ),
   'groupprograms_fits' => 
   array (
-    'id' => 'b89bbe67-4f03-c5a0-2ca5-4eca158c8ed4',
+    'id' => '6c96a033-bc11-b7e1-71a6-50922e94f386',
     'relationship_name' => 'groupprograms_fits',
     'lhs_module' => 'GroupPrograms',
     'lhs_table' => 'groupprograms',
@@ -453,7 +505,7 @@ $relationships = array (
   ),
   'insurances_fits' => 
   array (
-    'id' => 'c64ddaab-cb78-05cd-37b8-4eca15824d24',
+    'id' => '16f40212-b703-66a4-7054-50922ef9e2fb',
     'relationship_name' => 'insurances_fits',
     'lhs_module' => 'Insurances',
     'lhs_table' => 'insurances',
@@ -477,13 +529,39 @@ $relationships = array (
     'relationship_only' => false,
     'for_activities' => false,
   ),
-  'fits_commentairlines' => 
+  'prospectlists_fits' => 
   array (
-    'rhs_label' => 'Airline Comments',
-    'lhs_label' => 'FITs',
+    'id' => 'ad95221a-29a8-18cc-5002-50922e2b85d5',
+    'relationship_name' => 'prospectlists_fits',
+    'lhs_module' => 'ProspectLists',
+    'lhs_table' => 'prospect_lists',
+    'lhs_key' => 'id',
+    'rhs_module' => 'FITs',
+    'rhs_table' => 'fits',
+    'rhs_key' => 'id',
+    'join_table' => 'prospectlists_fits_c',
+    'join_key_lhs' => 'prospectli3a05ctlists_ida',
+    'join_key_rhs' => 'prospectlif349itsfits_idb',
+    'relationship_type' => 'one-to-many',
+    'relationship_role_column' => NULL,
+    'relationship_role_column_value' => NULL,
+    'reverse' => '0',
+    'deleted' => '0',
+    'readonly' => true,
+    'rhs_subpanel' => 'default',
+    'lhs_subpanel' => NULL,
+    'from_studio' => true,
+    'is_custom' => true,
+    'relationship_only' => false,
+    'for_activities' => false,
+  ),
+  'fits_opportunities' => 
+  array (
+    'rhs_label' => 'Opportunities',
+    'lhs_label' => 'Customers',
     'rhs_subpanel' => 'default',
     'lhs_module' => 'FITs',
-    'rhs_module' => 'CommentAirlines',
+    'rhs_module' => 'Opportunities',
     'relationship_type' => 'one-to-many',
     'readonly' => true,
     'deleted' => false,
@@ -491,7 +569,7 @@ $relationships = array (
     'for_activities' => false,
     'is_custom' => false,
     'from_studio' => true,
-    'relationship_name' => 'fits_commentairlines',
+    'relationship_name' => 'fits_opportunities',
   ),
 );
 ?>

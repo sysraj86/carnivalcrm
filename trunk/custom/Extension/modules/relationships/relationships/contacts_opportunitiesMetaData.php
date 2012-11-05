@@ -1,25 +1,25 @@
 <?php
-// created: 2011-08-22 17:06:06
-$dictionary["groupprograms_passportlist"] = array (
-  'true_relationship_type' => 'one-to-one',
+// created: 2012-11-01 15:54:49
+$dictionary["contacts_opportunities"] = array (
+  'true_relationship_type' => 'one-to-many',
   'from_studio' => true,
   'relationships' => 
   array (
-    'groupprograms_passportlist' => 
+    'contacts_opportunities' => 
     array (
-      'lhs_module' => 'GroupPrograms',
-      'lhs_table' => 'groupprograms',
+      'lhs_module' => 'Contacts',
+      'lhs_table' => 'contacts',
       'lhs_key' => 'id',
-      'rhs_module' => 'PassportList',
-      'rhs_table' => 'passportlist',
+      'rhs_module' => 'Opportunities',
+      'rhs_table' => 'opportunities',
       'rhs_key' => 'id',
       'relationship_type' => 'many-to-many',
-      'join_table' => 'groupprograpassportlist_c',
-      'join_key_lhs' => 'groupprogr20c9rograms_ida',
-      'join_key_rhs' => 'groupprogrc66dortlist_idb',
+      'join_table' => 'contacts_opportunities_c',
+      'join_key_lhs' => 'contacts_ob501ontacts_ida',
+      'join_key_rhs' => 'contacts_o8d6cunities_idb',
     ),
   ),
-  'table' => 'groupprograpassportlist_c',
+  'table' => 'contacts_opportunities_c',
   'fields' => 
   array (
     0 => 
@@ -43,13 +43,13 @@ $dictionary["groupprograms_passportlist"] = array (
     ),
     3 => 
     array (
-      'name' => 'groupprogr20c9rograms_ida',
+      'name' => 'contacts_ob501ontacts_ida',
       'type' => 'varchar',
       'len' => 36,
     ),
     4 => 
     array (
-      'name' => 'groupprogrc66dortlist_idb',
+      'name' => 'contacts_o8d6cunities_idb',
       'type' => 'varchar',
       'len' => 36,
     ),
@@ -58,7 +58,7 @@ $dictionary["groupprograms_passportlist"] = array (
   array (
     0 => 
     array (
-      'name' => 'groupprogras_passportlistspk',
+      'name' => 'contacts_opportunitiesspk',
       'type' => 'primary',
       'fields' => 
       array (
@@ -67,20 +67,20 @@ $dictionary["groupprograms_passportlist"] = array (
     ),
     1 => 
     array (
-      'name' => 'groupprogras_passportlist_ida1',
+      'name' => 'contacts_opportunities_ida1',
       'type' => 'index',
       'fields' => 
       array (
-        0 => 'groupprogr20c9rograms_ida',
+        0 => 'contacts_ob501ontacts_ida',
       ),
     ),
     2 => 
     array (
-      'name' => 'groupprogras_passportlist_idb2',
-      'type' => 'index',
+      'name' => 'contacts_opportunities_alt',
+      'type' => 'alternate_key',
       'fields' => 
       array (
-        0 => 'groupprogrc66dortlist_idb',
+        0 => 'contacts_o8d6cunities_idb',
       ),
     ),
   ),
