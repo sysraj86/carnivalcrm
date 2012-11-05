@@ -34,6 +34,10 @@ array (
         array (
           'file' => 'custom/include/js/doctien.js',
         ),
+        3 => 
+        array (    
+          'file' => 'custom/include/js/CustomSelectField.js',
+        ),
       ),
       'useTabs' => false,
     ),
@@ -83,7 +87,7 @@ array (
             'name' => 'daidienbenb_name',
             'customCode' => '
             {html_options id=salutation_b name=salutation_b options=$fields.salutation_b.options selected=$fields.salutation_b.value}
-            <input id="daidienbenb_name" name="daidienbenb_name" value="{$fields.daidienbenb_name.value}"/>
+            <input data="Button=cleardata,selectdata|Module=Contacts|Fields=last_name|Inputs=daidienbenb_name" class="select" id="daidienbenb_name" name="daidienbenb_name" value="{$fields.daidienbenb_name.value}"/>
             ',
           ),
           1 => 'position_b',

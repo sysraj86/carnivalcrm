@@ -52,6 +52,7 @@ $dictionary["RestaurantBookings"]["fields"]["restaurantstbookings_name"] = array
   'table' => 'restaurants',
   'module' => 'Restaurants',
   'rname' => 'name',
+  'required' => true,
 );
 $dictionary["RestaurantBookings"]["fields"]["restaurant437baurants_ida"] = array (
   'name' => 'restaurant437baurants_ida',

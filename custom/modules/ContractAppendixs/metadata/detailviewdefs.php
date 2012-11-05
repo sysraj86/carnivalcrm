@@ -245,14 +245,7 @@ array (
             'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
             'label' => 'LBL_DATE_MODIFIED',
           ),
-        ),
-        18 => 
-        array (
-          0 => 
-          array (
-            'name' => 'contracts_cappendixs_name',
-          ),
-        ),
+        ), 
       ),
     ),
   ),
