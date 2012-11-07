@@ -1,5 +1,5 @@
 <?php
-// created: 2012-10-26 17:19:16
+// created: 2012-11-07 17:33:48
 $GLOBALS['tabStructure'] = array (
   'LBL_GROUPTAB6_1316423227' => 
   array (
@@ -24,13 +24,14 @@ $GLOBALS['tabStructure'] = array (
       1 => 'Leads',
       2 => 'Opportunities',
       3 => 'Quotes',
-      4 => 'Accounts',
-      5 => 'Tours',
-      6 => 'Worksheets',
-      7 => 'Prospects',
-      8 => 'ProspectLists',
-      9 => 'Campaigns',
-      10 => 'C_Reports',
+      4 => 'FITs',
+      5 => 'Accounts',
+      6 => 'Tours',
+      7 => 'Worksheets',
+      8 => 'Prospects',
+      9 => 'ProspectLists',
+      10 => 'Campaigns',
+      11 => 'C_Reports',
     ),
   ),
   'LBL_GROUPTAB9_1315466072' => 

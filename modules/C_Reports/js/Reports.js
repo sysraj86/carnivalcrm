@@ -14,24 +14,24 @@ $(document).ready(function(){
         if($('input:radio[name=report_option]').length >0){
             report_option = $('input:radio[name=report_option]:checked').val();
             if(!report_option){
-                $('#warning').html('<font color="red">'+SUGAR.language.get('C_Report','LBL_REPORT_OPTION_WARNING')+'</font>') ;
+                $('#warning').html('<font color="red">'+SUGAR.language.get('C_Reports','LBL_REPORT_OPTION_WARNING')+'</font>') ;
                 return false;
             }
         }
         if(!time_range && !$('#start_end_yes').is(':checked')){
-            $('#warning').html('<font color="red">'+SUGAR.language.get('C_Report','LBL_REPORT_TIME_WARNING')+'</font>') ;
+            $('#warning').html('<font color="red">'+SUGAR.language.get('C_Reports','LBL_REPORT_TIME_WARNING')+'</font>') ;
             return false;
         }
 
         if($('#start_end_yes').is(':checked')){
             start_date = $('#start_date').val();
             if(!start_date){
-                $('#warning').html('<font color="red">'+SUGAR.language.get('C_Report','LBL_REPORT_START_DATE_WARNING')+'</font>') ;
+                $('#warning').html('<font color="red">'+SUGAR.language.get('C_Reports','LBL_REPORT_START_DATE_WARNING')+'</font>') ;
                 return false;
             }
             end_date = $('#end_date').val();
             if(!end_date){
-                $('#warning').html('<font color="red">'+SUGAR.language.get('C_Report','LBL_REPORT_END_DATE_WARNING')+'</font>') ;
+                $('#warning').html('<font color="red">'+SUGAR.language.get('C_Reports','LBL_REPORT_END_DATE_WARNING')+'</font>') ;
                 return false;
             }
         }

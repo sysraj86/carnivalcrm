@@ -60,10 +60,10 @@
              <td class="tabDetailViewDF">{$END_DATE} </td>
         </tr>
         <tr>
-             <td class="tabDetailViewDL">Num of date</td>
-             <td class="tabDetailViewDF">{$NUM_OF_DATE}</td>
-             <td class="tabDetailViewDL">Num of night</td>
-             <td class="tabDetailViewDF">{$NUM_OF_NIGHT}</td>
+             <td class="tabDetailViewDL">{$MOD.LBL_DURATION}</td>
+             <td class="tabDetailViewDF">{$DURATION}</td>
+             <td class="tabDetailViewDL">&nbsp;</td>
+             <td class="tabDetailViewDF">&nbsp;</td>
         </tr>
         <tr>
             <td class="tabDetailViewDL">Worksheet</td>

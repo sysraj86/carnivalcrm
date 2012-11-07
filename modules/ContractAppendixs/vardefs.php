@@ -11,8 +11,8 @@
         'contract'=>
           array(
               'name'=>'contract',
-              'vname'=>'',
-              'type'=>'id',
+              'vname'=>'LBL_NUMBER_CONTRACT',
+              'type'=>'varchar',
           ),
       'date_contract'  => array(
         'name'      => 'date_contract',

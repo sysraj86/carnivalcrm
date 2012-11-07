@@ -71,7 +71,8 @@
     $ss->assign("TOUR_CODE",  $focus->tour_code); 
     $ss->assign("TOUR_ID",  $focus->tour_id); 
     $ss->assign("START_DATE",  $focus->start_date_group); 
-    $ss->assign("END_DATE",  $focus->end_date_group);  
+    $ss->assign("END_DATE",  $focus->end_date_group);
+    $ss->assign('DURATION', $focus->duration);  
     $ss->assign("PICK_UP_AIRPORT",  $focus->guide_pick_up_at_airport); 
     $ss->assign("AIRPORT_PHONE",  $focus->pick_up_phone); 
     $ss->assign("GUIDE_PICK_UP_AT_AIRPORT_ID",  $focus->guide_pick_up_at_airport_id); 
