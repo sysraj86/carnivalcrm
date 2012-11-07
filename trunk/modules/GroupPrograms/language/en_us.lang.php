@@ -105,6 +105,7 @@ $mod_strings = array (
   'LBL_DRIVER' => 'Driver',
   'LBL_NUM_PLATE' => 'Number plate',
   'LBL_DRIVER_PHONE' => 'Contact phone',
+  'LBL_DURATION' => 'Duration',
 
 );
 ?>

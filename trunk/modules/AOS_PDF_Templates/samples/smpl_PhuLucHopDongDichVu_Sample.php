@@ -21,7 +21,7 @@
                                  <td align="center" style="border-style: solid; border-width: 0.5px;"> $contractappendixvalue_num_of_service </td>
                                  <td align="center" style="border-style: solid; border-width: 0.5px;"> $contractappendixvalue_unit </td>
                                  <td align="center" style="border-style: solid; border-width: 0.5px;"> $contractappendixvalue_tax </td>
-                                 <td align="center" style="border-style: solid; border-width: 0.5px;">'.number_format('.$contractvalues_amount.','2','.',''). 'USD </td>
+                                 <td align="center" style="border-style: solid; border-width: 0.5px;">'.format_number('.$contractvalues_amount.'). 'USD </td>
                              </tr> 
                             </tbody>
             </table>
@@ -34,7 +34,7 @@
                         <fieldset>
                             <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse: collapse;"> 
                                 <tr>
-                                    <td style="border-style: solid; border-width: 0.5px;"> $contractconditions_contract_phase - $contractconditions_event Bên B thanh toán cho bên A $contractconditions_percent % số tiền là '.number_format('.$contractconditions_money.','2','.','').' '.translate('currency_dom','$contractconditions_currency').'
+                                    <td style="border-style: solid; border-width: 0.5px;"> $contractconditions_contract_phase - $contractconditions_event Bên B thanh toán cho bên A $contractconditions_percent % số tiền là '.format_number('.$contractconditions_money.').' '.translate('currency_dom','$contractconditions_currency').'
                                     </td>
                                 </tr>
                                 <tr>

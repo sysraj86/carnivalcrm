@@ -258,7 +258,7 @@
                             $html .= '<table cellpadding="0" cellspacing="0" border="1" width="100%" style="border-collapse: collapse;"> ';
                                 $html .= '<tr>';
                                     $html .= '<td style="font-size: 14px;">';
-                                        $html .= $row['contract_phase'].' -  Bên B thanh toán cho bên A <b>'.$row['percent'].'% </b> số tiền là <b>'.number_format($row['money'],'2','.','').' '.$curency.' </b><br/>';
+                                        $html .= $row['contract_phase'].' -  Bên B thanh toán cho bên A <b>'.$row['percent'].'% </b> số tiền là <b>'.format_number($row['money']).' '.translate('currency_dom','',$curency).' </b><br/>';
                                         $html .= 'Bằng chữ: <b> '.$row['in_word'].'</b>';
                                     $html .= '</td>';
                                 $html .= '</tr>';

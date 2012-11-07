@@ -16,6 +16,7 @@ array (
           3 => 
           array (
             'customCode' => '<input type="button" class="button" onClick="showPopup(\'doc\');" value="Export To Word">',
+           // 'customCode' => '<input type="button" class="button" title="{{$APP.LBL_EXPORT_TO_WORD}}" onClick="window.location.href=index.php?module=ContractAppendixs&action=export2word&record={$fields.id.value}" value="{$APP.LBL_EXPORT_TO_WORD}">',
           ),
         ),
       ),
@@ -46,33 +47,20 @@ array (
             'name' => 'number',
             'label' => 'LBL_NUMBER',
           ),
-        ),
-        1 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'contracts_cappendixs_name',
           ),
-          1 => 
-          array (
-            'name' => 'contract',
-            'label' => 'LBL_NUMBER_CONTRACT',
-          ),
         ),
-        2 => 
+        1 => 
         array (
           0 => 
           array (
             'name' => 'date',
             'label' => 'LBL_DATE',
           ),
-          1 => 
-          array (
-            'name' => 'date_of_contracts',
-            'label' => 'LBL_DATE_OF_CONTRACTS',
-          ),
         ),
-        3 => 
+        2 => 
         array (
           0 => 
           array (
@@ -85,7 +73,7 @@ array (
             'label' => 'LBL_POSITION',
           ),
         ),
-        4 => 
+        3 => 
         array (
           0 => 
           array (
@@ -98,7 +86,7 @@ array (
             'label' => 'LBL_PHONE',
           ),
         ),
-        5 => 
+        4 => 
         array (
           0 => 
           array (
@@ -111,7 +99,7 @@ array (
             'label' => 'LBL_TAX',
           ),
         ),
-        6 => 
+        5 => 
         array (
           0 => 
           array (
@@ -119,7 +107,7 @@ array (
             'label' => 'LBL_BEN_B',
           ),
         ),
-        7 => 
+        6 => 
         array (
           0 => 
           array (
@@ -132,7 +120,7 @@ array (
             'label' => 'LBL_POSITION',
           ),
         ),
-        8 => 
+        7 => 
         array (
           0 => 
           array (
@@ -145,7 +133,7 @@ array (
             'label' => 'LBL_PHONE',
           ),
         ),
-        9 => 
+        8 => 
         array (
           0 => 
           array (
@@ -158,7 +146,7 @@ array (
             'label' => 'LBL_TAX',
           ),
         ),
-        10 => 
+        9 => 
         array (
           0 => 
           array (
@@ -171,7 +159,7 @@ array (
             'label' => 'LBL_PASSPORT_NO',
           ),
         ),
-        11 => 
+        10 => 
         array (
           0 => 
           array (
@@ -184,14 +172,14 @@ array (
             'label' => 'LBL_PLACE_ISSUED_GUIDE',
           ),
         ),
-        12 => 
+        11 => 
         array (
           0 => 
           array (
             'name' => 'tours_contrappendixs_name',
           ),
         ),
-        13 => 
+        12 => 
         array (
           0 => 
           array (
@@ -200,15 +188,7 @@ array (
             'customLabel' => '{$MOD.LBL_CONTRACT_VALUE}:',
           ),
         ),
-        14 => 
-        array (
-          0 => 
-          array (
-            'name' => 'tongtien2',
-            'label' => 'LBL_TUONGDUONG',
-          ),
-        ),
-        15 => 
+        13 => 
         array (
           0 => 
           array (
@@ -221,7 +201,7 @@ array (
             'label' => 'LBL_BANGCHU',
           ),
         ),
-        16 => 
+        14 => 
         array (
           0 => 
           array (
@@ -234,7 +214,15 @@ array (
             'label' => 'LBL_TIENTE',
           ),
         ),
-        17 => 
+        15 => 
+        array (
+          0 => 
+          array (
+            'name' => 'tongtien2',
+            'label' => 'LBL_TUONGDUONG',
+          ),
+        ),
+        16 => 
         array (
           0 => 
           array (
@@ -244,6 +232,21 @@ array (
           ),
           1 => 'assigned_user_name',
         ),
+        17 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_entered',
+            'customCode' => '{$fields.date_entered.value} {$APP.LBL_BY} {$fields.created_by_name.value}',
+            'label' => 'LBL_DATE_ENTERED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_modified',
+            'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
+            'label' => 'LBL_DATE_MODIFIED',
+          ),
+        ), 
       ),
     ),
   ),

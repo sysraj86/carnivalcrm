@@ -146,5 +146,7 @@ $mod_strings = array (
     'LBL_SYNTHESIS_REPORT'    => 'INTEGRATED REPORT',
     'LBL_SALE_PERSON'         => 'By Sale man',
     'LBL_SALE_GROUP'          => 'By Deparment',
+    'LBL_REPORT_TIME_WARNING'          => 'Please Select Time !',
+    'LBL_REPORT_OPTION_WARNING'          => 'Please Select User !',
 );
 ?>

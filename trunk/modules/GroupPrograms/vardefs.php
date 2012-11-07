@@ -116,6 +116,12 @@
           'type'    => 'int',
           'len'     => 5,
         ),
+        'duration'  => array(
+          'name'    => 'duration',
+          'vname'   => 'LBL_DURATION',
+          'type'    => 'varchar',
+          'len'     => 100,
+        ),
         
         'adults' => array(
             'name'  => 'adults',

@@ -98,6 +98,7 @@
     $ss->assign('TOUR_ID', $focus->tour_id);
     $ss->assign('START_DATE_GROUP', $focus->start_date_group);
     $ss->assign('END_DATE_GROUP', $focus->end_date_group);
+    $ss->assign('DURATION', $focus->duration);
     $ss->assign('TEAM_LEADER', $focus->team_leader);
     $ss->assign('LEADER_PHONE', $focus->leader_phone);
     $ss->assign('LEADER_ID', $focus->leader_id);
@@ -250,6 +251,7 @@
                'tour_code'   => 'tour_code',
                'start_date' => 'start_date_group',
                'end_date'   => 'end_date_group',
+               'duration'   => 'duration',
            ),
        );
  $ss->assign('tour_popup_request_data',$json->encode($tour_popup_request_data));

@@ -273,8 +273,10 @@
             <td class="dataField">
                 <input type="text" name="parent_name" id="parent_name" readonly="readonly" size="40" value="{$PARENT_NAME}"/>
                 <input type="hidden" id="parent_id" name="parent_id" value="{$PARENT_ID}">
-                <input title="{$APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{$APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='2' class="button parent_name" value='{$APP.LBL_SELECT_BUTTON_LABEL}' name="bnt_parent_name" id="bnt_parent_name">  
-                <input title="{$APP.LBL_CLEAR_BUTTON_TITLE}" accessKey="{$APP.LBL_CLEAR_BUTTON_KEY}" type="button" tabindex='2' class="button" name="btn_parent_name_clear" id="btn_parent_name_clear" value="{$APP.LBL_CLEAR_BUTTON_LABEL}" onclick="this.form.parent_name.value='', this.form.parent_id.value='';"/>  
+<!--                <input title="{$APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{$APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='2' class="button parent_name" value='{$APP.LBL_SELECT_BUTTON_LABEL}' name="bnt_parent_name" id="bnt_parent_name">  -->
+                <button title="{$APP.LBL_SELECT_BUTTON_TITLE}" tabindex='2' class="button parent_name" name="bnt_parent_name" id="bnt_parent_name"><img src="themes/default/images/id-ff-select.png"></button>  
+<!--                <input title="{$APP.LBL_CLEAR_BUTTON_TITLE}" accessKey="{$APP.LBL_CLEAR_BUTTON_KEY}" type="button" tabindex='2' class="button" name="btn_parent_name_clear" id="btn_parent_name_clear" value="{$APP.LBL_CLEAR_BUTTON_LABEL}" onclick="this.form.parent_name.value='', this.form.parent_id.value='';"/>  -->
+                <button="{$APP.LBL_CLEAR_BUTTON_TITLE}" tabindex='2' class="button" name="btn_parent_name_clear" id="btn_parent_name_clear" onclick="this.form.parent_name.value='', this.form.parent_id.value='';"/><img src="themes/default/images/id-ff-clear.png"></button>    
             </td>
             <td class="dataLabel travelguide" {if !($PARENT eq 'TravleGuides')} style="display: none;" {/if}>Năm sinh</td>
             <td class="dataField travelguide" {if !($PARENT eq 'TravleGuides')} style="display: none;" {/if}><input type="text" name="birthday" id="birthday" value="{$BIRTHDAY}"/></td> 
@@ -288,8 +290,10 @@
         <tr class="chung" {if !($PARENT eq 'Accounts' or $PARENT eq 'FITs' or $PARENT eq 'Restaurants' or $PARENT eq 'Hotels')} style="display:none" {/if}>
         <td class="dataLabel" > Do  <span class="required">*</span>: </td>
         <td class="dataField"> <!--<select id="salutation_b" name="salutation_b" >{$SALUTATION_B}</select>--> <input name="daidienbenb_name" id="daidienbenb_name" type="text" readonly="readonly"  size="35" value="{$DAIDIENBENB_NAME}"/>
-            <input title="{$APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{$APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='2' class="button daidienbenbname" value='{$APP.LBL_SELECT_BUTTON_LABEL}' name="bnt_daidienbenb" id="bnt_daidienbenb">  
-            <input title="{$APP.LBL_CLEAR_BUTTON_TITLE}" accessKey="{$APP.LBL_CLEAR_BUTTON_KEY}" type="button" tabindex='2' class="button" name="btn_parent_name_clear" id="btn_parent_name_clear" value="{$APP.LBL_CLEAR_BUTTON_LABEL}" onclick="this.form.daidienbenb_name.value='';"/>
+    <!--            <input title="{$APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{$APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='2' class="button daidienbenbname" value='{$APP.LBL_SELECT_BUTTON_LABEL}' name="bnt_daidienbenb" id="bnt_daidienbenb">  -->
+                <button title="{$APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{$APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='2' class="button daidienbenbname" value='{$APP.LBL_SELECT_BUTTON_LABEL}' name="bnt_daidienbenb" id="bnt_daidienbenb"><img src="themes/default/images/id-ff-select.png"></button>
+    <!--            <input title="{$APP.LBL_CLEAR_BUTTON_TITLE}" accessKey="{$APP.LBL_CLEAR_BUTTON_KEY}" type="button" tabindex='2' class="button" name="btn_parent_name_clear" id="btn_parent_name_clear" value="{$APP.LBL_CLEAR_BUTTON_LABEL}" onclick="this.form.daidienbenb_name.value='';"/>-->
+                <button title="{$APP.LBL_CLEAR_BUTTON_TITLE}" accessKey="{$APP.LBL_CLEAR_BUTTON_KEY}" type="button" tabindex='2' class="button" name="btn_parent_name_clear" id="btn_parent_name_clear" value="{$APP.LBL_CLEAR_BUTTON_LABEL}" onclick="this.form.daidienbenb_name.value='';"><img src="themes/default/images/id-ff-clear.png"></button>
         </td>
         <td class="dataLabel">Chức vụ: </td>
         <td class="dataField"><select id="position_b" name="position_b" >{$POSITION_B}</select></td>
@@ -402,8 +406,10 @@
                 <td class="dataField khac">
                     <input type="text" name="groupprogracontracts_name" id="groupprogracontracts_name" size="80" value="{$TOUR_NAME}"/>
                     <input type="hidden" name="groupprogr4251rograms_ida" id="groupprogr4251rograms_ida" value="{$TOUR_ID}"/>
-                    <input title="{$APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{$APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='2' class="button tour_name" value='{$APP.LBL_SELECT_BUTTON_LABEL}' name="bnt_tour_name" id="bnt_tour_name">  
-                    <input title="{$APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{$APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='2' class="button" value="{$APP.LBL_CLEAR_BUTTON_LABEL}" onclick="this.form.groupprogracontracts_name.value=''; this.form.groupprogr4251rograms_ida.value='';";/> 
+<!--                <input title="{$APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{$APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='2' class="button tour_name" value='{$APP.LBL_SELECT_BUTTON_LABEL}' name="bnt_tour_name" id="bnt_tour_name">-->
+                <button title="{$APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{$APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='2' class="button tour_name" value='{$APP.LBL_SELECT_BUTTON_LABEL}' name="bnt_tour_name" id="bnt_tour_name"><img src="themes/default/images/id-ff-select.png"></button>
+<!--                <input title="{$APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{$APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='2' class="button" value="{$APP.LBL_CLEAR_BUTTON_LABEL}" onclick="this.form.groupprogracontracts_name.value=''; this.form.groupprogr4251rograms_ida.value='';";/> -->
+                <button title="{$APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{$APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='2' class="button" value="{$APP.LBL_CLEAR_BUTTON_LABEL}" onclick="this.form.groupprogracontracts_name.value=''; this.form.groupprogr4251rograms_ida.value='';"><img src="themes/default/images/id-ff-clear.png"></button>
                 </td>
                 <td class="dataLabel hopdongdichvu">Kết hợp:</td>
                 <td class="dataField hopdongdichvu"><input name="associate" id="associate" size="50" type="text" value="{$KETHOP}"/></td>

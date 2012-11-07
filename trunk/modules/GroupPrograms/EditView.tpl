@@ -189,12 +189,8 @@ function parent_namechangeQS(parent_name) {
             </td>
         </tr>
         <tr>
-            <td class="dataLabel">Num of date</td>
-            <td class="dataField"><input type="text" name="numofdate" id="numofdate" value="{$NUM_OF_DATE}"/></td>
-        </tr>
-        <tr>
-            <td class="dataLabel">Num of night</td>
-            <td class="dataField"><input type="text" name="numofnight" id="numofnight" value="{$NUM_OF_NIGHT}"/></td>
+            <td class="dataLabel">{$MOD.LBL_DURATION}</td>
+            <td class="dataField"><input type="text" name="duration" id="duration" value="{$DURATION}"/></td>
         </tr>
         <tr>
             <td class="dataLabel">{$MOD.LBL_WORKSHEET}</td>
@@ -387,7 +383,7 @@ function parent_namechangeQS(parent_name) {
         {if $ID eq '' or $PICK_UP_CAR_COUNT eq 0}
         <tr class="tabForm">
             <td>{$MOD.LBL_NUM_PLATE}:<input type="text" id="number_plates" name="number_plates[]" value=""/></td>
-            <td> {$MOD.LBL_DRIVER}: <input type="text" id="driver" name="driver[]" value=""/></td>
+            <td> {$MOD.LBL_DRIVER}:<input type="text" id="driver" name="driver[]" value=""/></td>
             <td>
                 {$MOD.LBL_DRIVER_PHONE}: 
                 <input type="text" id="driver_phone" name="driver_phone[]" value=""/>
@@ -449,7 +445,7 @@ function parent_namechangeQS(parent_name) {
         {if $ID eq '' or $GROUPPROGRAM_LINE_COUNT eq 0}
         <tr>
             <td>
-                <table class="table_clone" cellpadding="0" cellspacing="0" width="100%">
+                <table cellpadding="0" cellspacing="0" width="100%">
                     <tr>
                         <td class="dataLabel">Date</td>
                         <td class="dataField"><input id='date' class="datetime" name='date[]'

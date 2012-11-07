@@ -12,6 +12,6 @@ $layout_defs['Cases']['subpanel_setup']['securitygroups'] = array(
 	'add_subpanel_data' => 'securitygroup_id',
 	'title_key' => 'LBL_SECURITYGROUPS_SUBPANEL_TITLE',
 );
-
-
+unset($layout_defs['Cases']['subpanel_setup']['project']);
+unset($layout_defs['Cases']['subpanel_setup']['bugs']);
 ?>
