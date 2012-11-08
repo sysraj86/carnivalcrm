@@ -60,7 +60,7 @@ class ViewConvertLead extends SugarView
     public function preDisplay()
     {
         // Add by Thanh Le At 27/06/2012
-        ViewConvertLead::convertToCustomer();
+      //  ViewConvertLead::convertToCustomer();
         // End
         if (!$this->bean->ACLAccess('edit')) {
             ACLController::displayNoAccess();
@@ -749,6 +749,7 @@ class ViewConvertLead extends SugarView
     	return false;
     }
     
+    // Add By Thanh Le At 27/6/2012
     function convertToCustomer(){
         $lead = new Lead();
         $lead->retrieve($this->bean->id);
@@ -763,6 +764,13 @@ class ViewConvertLead extends SugarView
             return $customer->save();  
         }
     }
+    // End
+    // Add By Thanh Le At 27/6/2012
+    /**
+    * Kiem tra xem trong FIT(Customer) da co khach hang nay chua, neu chua thi tao moi
+    * 
+    * @param mixed $lead
+    */
     function kiemTraTrung($lead){
         global $db;
         $sql = '

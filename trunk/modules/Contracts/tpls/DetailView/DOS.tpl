@@ -85,7 +85,7 @@
     </tr>
     <tr>
         <td class="tabDetailViewDL"> Fax:</td> 
-        <td class="tabDetailViewDF"> {$FAX} </td>
+        <td class="tabDetailViewDF"> {$FAXA} </td>
         <td class="tabDetailViewDL"> MST:</td>
         <td class="tabDetailViewDF"> {$MST_BENA} </td> 
     </tr>
@@ -158,9 +158,9 @@
     </tr>
     <tr class="chung">
         <td class="tabDetailViewDL"> Tài khoản tại ngân hàng:</td> 
-        <td> {$BANK_NAME_B}</td> 
+        <td class="tabDetailViewDF"> {$BANK_NAME_B}</td> 
         <td class="tabDetailViewDL"> Tên chủ tài khoản:</td> 
-        <td>{$ACCOUNT_NAME_B} </td>
+        <td class="tabDetailViewDF">{$ACCOUNT_NAME_B} </td>
     </tr>
     {/if}
     {if $PARENT eq 'TravleGuides'} 
@@ -236,9 +236,9 @@
     </tr>
     <tr>
         <td class="tabDetailViewDL khac">Từ ngày:</td>
-        <td class="tabDetailViewDF khac">{$CONTRACT_START_DATE}</td>
+        <td class="tabDetailViewDF khac">{$START_DATE}</td>
         <td class="tabDetailViewDL khac">Đến ngày:</td>
-        <td class="tabDetailViewDF khac">{$CONTRACT_END_DATE}</td>
+        <td class="tabDetailViewDF khac">{$END_DATE}</td>
     </tr>
     <tr class="hopdongdichvu">
         <td class="tabDetailViewDL">Tổng số ngày:</td>

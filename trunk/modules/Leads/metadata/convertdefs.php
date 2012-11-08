@@ -34,20 +34,153 @@
  * "Powered by SugarCRM".
  ********************************************************************************/
 
-$viewdefs['Contacts']['ConvertLead'] = array(
+ $viewdefs['FITs']['ConvertLead'] = array(
     'copyData' => true,
     'required' => true,
     'templateMeta' => array(
         'form'=>array(
             'hidden'=>array(
                 '<input type="hidden" name="opportunity_id" value="{$smarty.request.opportunity_id}">',
-    			'<input type="hidden" name="case_id" value="{$smarty.request.case_id}">',
-    			'<input type="hidden" name="bug_id" value="{$smarty.request.bug_id}">',
-    			'<input type="hidden" name="email_id" value="{$smarty.request.email_id}">',
-    			'<input type="hidden" name="inbound_email_id" value="{$smarty.request.inbound_email_id}">'
+                '<input type="hidden" name="case_id" value="{$smarty.request.case_id}">',
+                '<input type="hidden" name="bug_id" value="{$smarty.request.bug_id}">',
+                '<input type="hidden" name="email_id" value="{$smarty.request.email_id}">',
+                '<input type="hidden" name="inbound_email_id" value="{$smarty.request.inbound_email_id}">'
             )
         ),
-		'maxColumns' => '2', 
+        'maxColumns' => '2', 
+        'widths' => array(
+            array('label' => '10', 'field' => '30'), 
+            array('label' => '10', 'field' => '30'),
+        ),
+        'includes' => 
+      array (
+        0 => 
+        array (
+          'file' => 'custom/include/js/jquery.js',
+        ),
+        1 => 
+        array (
+          'file' => 'custom/modules/FITs/js/duplicate.js',
+        ),
+      ),
+    ),
+    'panels' =>array (
+        'LBL_CREATE_CUSTOMER' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'first_name',
+            'customCode' => '{html_options name="salutation" id="salutation" options=$fields.salutation.options selected=$fields.salutation.value}&nbsp;<input name="first_name"  id="first_name" size="25" maxlength="25" type="text" value="{$fields.first_name.value}">',
+          ),
+          1 => 'last_name',
+        ),
+        1 => 
+        array (
+         // 0 => array('name' => 'gender'), 
+         0 => 
+          array (
+            'name' => 'identy_card',
+            'label' => 'LBL_IDENTY_CARD',
+          ),
+          1 => 
+          array (
+            'name' => 'birthday',
+            'label' => 'LBL_BIRTHDAY',
+            'displayParams' => 
+            array (
+              'showFormats' => true,
+            ),
+          ),
+        ),
+        3 => 
+        array (
+          0 => 'fit_type',
+          1 => 'religion',
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'phone_mobile',
+            'comment' => 'Mobile phone number of the contact',
+            'label' => 'LBL_MOBILE_PHONE',
+          ),
+          1 => 
+          array (
+            'name' => 'phone_home',
+            'comment' => 'Home phone number of the contact',
+            'label' => 'LBL_HOME_PHONE',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'email1',
+            'studio' => 'false',
+            'label' => 'LBL_EMAIL_ADDRESS',
+          ),
+          1 => 
+          array (
+            'name' => 'phone_fax',
+            'comment' => 'Contact fax number',
+            'label' => 'LBL_FAX_PHONE',
+          ),
+        ),
+        6 => 
+        array (
+          0 => 'nationality',
+          1 => 'provice_city',
+        ),
+        7 => 
+        array (
+          0 => 
+          array (
+            'name' => 'address',
+            'label' => 'LBL_ADDRESS',
+            'displayParams' => 
+            array (
+              'cols' => 60,
+              'rows' => 4,
+            ),
+          ),
+          1 => 'district',
+        ),
+        8 => 
+        array (
+          0 => 
+          array (
+            'name' => 'nick_skype',
+            'label' => 'LBL_NICK_SKYPE',
+          ),
+          1 => 'nick_chat',
+        ),
+        9 => 
+        array (
+          0 => 
+          array (
+            'name' => 'prospectlists_fits_name',
+          ),
+        ),
+      ),
+    ),
+);
+$viewdefs['Contacts']['ConvertLead'] = array(
+    'copyData' => true,
+    'required' => false,
+    'templateMeta' => array(
+        'form'=>array(
+            'hidden'=>array(
+                '<input type="hidden" name="opportunity_id" value="{$smarty.request.opportunity_id}">',
+                '<input type="hidden" name="case_id" value="{$smarty.request.case_id}">',
+                '<input type="hidden" name="bug_id" value="{$smarty.request.bug_id}">',
+                '<input type="hidden" name="email_id" value="{$smarty.request.email_id}">',
+                '<input type="hidden" name="inbound_email_id" value="{$smarty.request.inbound_email_id}">'
+            )
+        ),
+        'maxColumns' => '2', 
         'widths' => array(
             array('label' => '10', 'field' => '30'), 
             array('label' => '10', 'field' => '30'),
@@ -94,9 +227,10 @@ $viewdefs['Contacts']['ConvertLead'] = array(
         )
     ),
 );
+
 $viewdefs['Accounts']['ConvertLead'] = array(
     'copyData' => true,
-    'required' => true,
+    'required' => false,
     'select' => "account_name",
 	'default_action' => 'create',
     'relationship' => 'accounts_contacts',

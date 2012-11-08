@@ -2099,6 +2099,7 @@ $app_list_strings = array(
         'Restaurants' => 'Restaurants',
         'Transports' => 'Transports',
         'Services' => 'Services',
+        'LandFee' => 'LandFee',
     ),
 );
 /////////////////////////////////////////////////////////////////////////////////////////////////////////

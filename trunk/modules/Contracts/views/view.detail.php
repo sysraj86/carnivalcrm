@@ -96,6 +96,9 @@
             }
 
             $this->dv->ss->assign("ADDRESS_B",  $this->bean->address_b);   
+            $this->dv->ss->assign("BANK_NAME_B",  $this->bean->bank_name_b);   
+            $this->dv->ss->assign("ACCOUNT_NAME_B",  $this->bean->account_name_b);   
+            $this->dv->ss->assign("SOTAIKHOANBENB",  $this->bean->sotaikhoanbenb);   
             $this->dv->ss->assign("MST_BENB",  $this->bean->mst_benb);   
             $this->dv->ss->assign("PHONE_B",  $this->bean->phone_b);   
             $this->dv->ss->assign("TOUR_NAME",  $this->bean->groupprogracontracts_name);   
@@ -155,7 +158,12 @@
             
             $this->dv->ss->assign("TRANSPORTCONTRACT_LINE", $this->bean->get_transportcontract_detailview());
             $this->dv->ss->assign("template_ddown_c_id", $this->bean->template_ddown_c);
-            $this->dv->ss->assign("template_ddown_c_name", translate('template_ddown_c_list','',$this->bean->template_ddown_c));
+            if($this->bean->template_ddown_c != ''){
+              $this->dv->ss->assign("template_ddown_c_name", translate('template_ddown_c_list','',$this->bean->template_ddown_c));  
+            }else{
+              $this->dv->ss->assign("template_ddown_c_name", '');   
+            }
+            
 
             parent::display();
         }

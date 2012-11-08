@@ -180,7 +180,7 @@ $dictionary['FITs'] = array(
         
         // gender
         'gender' => array (
-            'required' => true,
+            'required' => false,
             'name' => 'gender',
             'vname' => 'LBL_GENDER',
             'type' => 'radioenum',

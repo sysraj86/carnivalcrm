@@ -86,9 +86,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'parent_name',
-            'studio' => 'visible',
-            'label' => 'LBL_COMPANY_NAME',
+            'name' => 'accounts_contacts_name',
+            'label' => 'LBL_ACCOUNT_CONTACT_NAME',
           ),
           1 => 
           array (
