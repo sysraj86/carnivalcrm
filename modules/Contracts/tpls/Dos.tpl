@@ -276,7 +276,7 @@
 <!--                <input title="{$APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{$APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='2' class="button parent_name" value='{$APP.LBL_SELECT_BUTTON_LABEL}' name="bnt_parent_name" id="bnt_parent_name">  -->
                 <button title="{$APP.LBL_SELECT_BUTTON_TITLE}" tabindex='2' class="button parent_name" name="bnt_parent_name" id="bnt_parent_name"><img src="themes/default/images/id-ff-select.png"></button>  
 <!--                <input title="{$APP.LBL_CLEAR_BUTTON_TITLE}" accessKey="{$APP.LBL_CLEAR_BUTTON_KEY}" type="button" tabindex='2' class="button" name="btn_parent_name_clear" id="btn_parent_name_clear" value="{$APP.LBL_CLEAR_BUTTON_LABEL}" onclick="this.form.parent_name.value='', this.form.parent_id.value='';"/>  -->
-                <button="{$APP.LBL_CLEAR_BUTTON_TITLE}" tabindex='2' class="button" name="btn_parent_name_clear" id="btn_parent_name_clear" onclick="this.form.parent_name.value='', this.form.parent_id.value='';"/><img src="themes/default/images/id-ff-clear.png"></button>    
+                <button title="{$APP.LBL_CLEAR_BUTTON_TITLE}" tabindex='2' class="button" name="btn_parent_name_clear" id="btn_parent_name_clear" onclick="this.form.parent_name.value='', this.form.parent_id.value='';"/><img src="themes/default/images/id-ff-clear.png"></button>    
             </td>
             <td class="dataLabel travelguide" {if !($PARENT eq 'TravleGuides')} style="display: none;" {/if}>Năm sinh</td>
             <td class="dataField travelguide" {if !($PARENT eq 'TravleGuides')} style="display: none;" {/if}><input type="text" name="birthday" id="birthday" value="{$BIRTHDAY}"/></td> 
@@ -322,7 +322,9 @@
         <td class="dataLabel"> Tài khoản tại ngân hàng:</td> 
         <td> <input name="bank_name_b" id="bank_name_b" type="text"  value="{$BANK_NAME_B}" size="35"/> - TP Hồ Chí Minh</td> 
         <td class="dataLabel"> Tên chủ tài khoản:</td> 
-        <td><textarea name="account_name_b" id="account_name_b" cols="45" rows="3"> {$ACCOUNT_NAME_B}  </textarea> </td>
+        <td>
+        <input name="account_name_b" id="account_name_b" type="text"  value="{$ACCOUNT_NAME_B}" size="35"/>
+        </td>
         </tr>
         <tr class="travelguide"  {if !($PARENT eq 'TravleGuides')}  style="display: none;" {/if}>
         <td class="dataLabel">Ngày sinh:</td>
