@@ -473,7 +473,7 @@ $dictionary["FITs"]["fields"]["company_phone"] = array (
   'vname' => 'LBL_COMPANY_PHONE',
 );
 
-$dictionary['FITs']['fields']['nationality']['massupdate'] = false;
+$dictionary['FITs']['fields']['quocgia']['massupdate'] = false;
 $dictionary['FITs']['fields']['fit_relationship_type']['massupdate'] = false;
 $dictionary['FITs']['fields']['account_name']['massupdate'] = false;
 ?>
