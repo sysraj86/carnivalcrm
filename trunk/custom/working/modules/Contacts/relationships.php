@@ -37,7 +37,7 @@
 $relationships = array (
   'campaign_contacts' => 
   array (
-    'id' => '35a4bb1a-0c21-6e9f-4198-509236bb7bff',
+    'id' => '87778b77-5f77-63d4-6dc2-50a06c606d09',
     'relationship_name' => 'campaign_contacts',
     'lhs_module' => 'Campaigns',
     'lhs_table' => 'campaigns',
@@ -63,7 +63,7 @@ $relationships = array (
   ),
   'contact_direct_reports' => 
   array (
-    'id' => 'a4e0b712-1cc3-5658-eb62-509236abfd47',
+    'id' => '63ebe6b7-8305-4793-156f-50a06cd163bc',
     'relationship_name' => 'contact_direct_reports',
     'lhs_module' => 'Contacts',
     'lhs_table' => 'contacts',
@@ -89,7 +89,7 @@ $relationships = array (
   ),
   'contact_leads' => 
   array (
-    'id' => 'ab31404e-6009-9e7c-7859-5092367e3784',
+    'id' => '6a57b31e-e9b2-bc95-db76-50a06cac7895',
     'relationship_name' => 'contact_leads',
     'lhs_module' => 'Contacts',
     'lhs_table' => 'contacts',
@@ -115,7 +115,7 @@ $relationships = array (
   ),
   'contact_notes' => 
   array (
-    'id' => 'b28ca261-36a9-257e-7321-50923614d59f',
+    'id' => '71c2442d-71e8-a24c-9a44-50a06c6eaeff',
     'relationship_name' => 'contact_notes',
     'lhs_module' => 'Contacts',
     'lhs_table' => 'contacts',
@@ -141,7 +141,7 @@ $relationships = array (
   ),
   'contact_tasks' => 
   array (
-    'id' => 'b9925ecd-7f9e-e4b4-b61b-509236d2ff1f',
+    'id' => '7bd69bd7-e7f1-0406-773e-50a06cb709d9',
     'relationship_name' => 'contact_tasks',
     'lhs_module' => 'Contacts',
     'lhs_table' => 'contacts',
@@ -167,7 +167,7 @@ $relationships = array (
   ),
   'contact_tasks_parent' => 
   array (
-    'id' => 'c01feb80-9e46-2cc9-87f0-509236883c4b',
+    'id' => '853ee9d3-2614-7380-2a77-50a06cda03dc',
     'relationship_name' => 'contact_tasks_parent',
     'lhs_module' => 'Contacts',
     'lhs_table' => 'contacts',
@@ -193,7 +193,7 @@ $relationships = array (
   ),
   'accounts_contacts' => 
   array (
-    'id' => 'e90050d8-66b2-1864-db1e-509236d8e6b4',
+    'id' => '4fb4c3ff-3abb-c5e3-cd25-50a06c92026a',
     'relationship_name' => 'accounts_contacts',
     'lhs_module' => 'Accounts',
     'lhs_table' => 'accounts',
@@ -219,7 +219,7 @@ $relationships = array (
   ),
   'calls_contacts' => 
   array (
-    'id' => '281008da-a0ec-799d-73e2-5092362ec577',
+    'id' => '66018fc5-4b29-60ae-c04b-50a06c35506b',
     'relationship_name' => 'calls_contacts',
     'lhs_module' => 'Calls',
     'lhs_table' => 'calls',
@@ -245,7 +245,7 @@ $relationships = array (
   ),
   'contacts_bugs' => 
   array (
-    'id' => '1db44ef6-1baf-3b86-b784-5092368c2a8b',
+    'id' => '95543be2-6b79-a50e-02db-50a06c3ed0f4',
     'relationship_name' => 'contacts_bugs',
     'lhs_module' => 'Contacts',
     'lhs_table' => 'contacts',
@@ -271,7 +271,7 @@ $relationships = array (
   ),
   'contacts_cases' => 
   array (
-    'id' => '2445a29d-a02d-02cf-7de5-509236c79afb',
+    'id' => '9bc12fe6-2230-8682-dcc5-50a06cd443f2',
     'relationship_name' => 'contacts_cases',
     'lhs_module' => 'Contacts',
     'lhs_table' => 'contacts',
@@ -297,7 +297,7 @@ $relationships = array (
   ),
   'meetings_contacts' => 
   array (
-    'id' => '8a986414-6b92-5f4f-4575-5092369ef2ed',
+    'id' => '3e197aae-ef36-9ee6-e6cb-50a06ca97b80',
     'relationship_name' => 'meetings_contacts',
     'lhs_module' => 'Meetings',
     'lhs_table' => 'meetings',
@@ -323,7 +323,7 @@ $relationships = array (
   ),
   'opportunities_contacts' => 
   array (
-    'id' => 'a877bcb6-42eb-7361-aab2-509236956ae9',
+    'id' => '5290511e-4c9d-3643-d024-50a06c1bec51',
     'relationship_name' => 'opportunities_contacts',
     'lhs_module' => 'Opportunities',
     'lhs_table' => 'opportunities',
@@ -349,7 +349,7 @@ $relationships = array (
   ),
   'prospect_list_contacts' => 
   array (
-    'id' => 'c3f18296-b27c-27b0-437f-50923657db4e',
+    'id' => '8e9e9b85-387d-c666-ed37-50a06c9ca0a7',
     'relationship_name' => 'prospect_list_contacts',
     'lhs_module' => 'ProspectLists',
     'lhs_table' => 'prospect_lists',
@@ -375,7 +375,7 @@ $relationships = array (
   ),
   'projects_contacts' => 
   array (
-    'id' => '2acbc4d5-9b02-ad8a-0b33-509236c92a58',
+    'id' => '633306a2-a03d-0cd1-0a5f-50a06c67c7d5',
     'relationship_name' => 'projects_contacts',
     'lhs_module' => 'Project',
     'lhs_table' => 'project',
@@ -401,7 +401,7 @@ $relationships = array (
   ),
   'documents_contacts' => 
   array (
-    'id' => '6bfa4935-8e87-468e-7128-509236ba898e',
+    'id' => '6e931f5f-0241-5f0a-af17-50a06c8366d0',
     'relationship_name' => 'documents_contacts',
     'lhs_module' => 'Documents',
     'lhs_table' => 'documents',
@@ -427,7 +427,7 @@ $relationships = array (
   ),
   'airlines_contacts' => 
   array (
-    'id' => '253adfaa-b200-5402-6c5e-50923621e525',
+    'id' => 'dc77ccea-98d4-9f46-7e2a-50a06c545e09',
     'relationship_name' => 'airlines_contacts',
     'lhs_module' => 'Airlines',
     'lhs_table' => 'airlines',
@@ -451,9 +451,35 @@ $relationships = array (
     'for_activities' => false,
     'from_studio' => true,
   ),
+  'contacts_opportunities' => 
+  array (
+    'id' => 'a26b0fdf-5dde-200f-7ebf-50a06cb21913',
+    'relationship_name' => 'contacts_opportunities',
+    'lhs_module' => 'Contacts',
+    'lhs_table' => 'contacts',
+    'lhs_key' => 'id',
+    'rhs_module' => 'Opportunities',
+    'rhs_table' => 'opportunities',
+    'rhs_key' => 'id',
+    'join_table' => 'contacts_opportunities_c',
+    'join_key_lhs' => 'contacts_ob501ontacts_ida',
+    'join_key_rhs' => 'contacts_o8d6cunities_idb',
+    'relationship_type' => 'one-to-many',
+    'relationship_role_column' => NULL,
+    'relationship_role_column_value' => NULL,
+    'reverse' => '0',
+    'deleted' => '0',
+    'readonly' => true,
+    'rhs_subpanel' => 'default',
+    'lhs_subpanel' => 'ForOpportunities',
+    'from_studio' => true,
+    'is_custom' => true,
+    'relationship_only' => false,
+    'for_activities' => false,
+  ),
   'contacts_quotes' => 
   array (
-    'id' => '2ddce14e-7947-750f-b107-509236163304',
+    'id' => '11f7e3fb-2d4f-dcff-45eb-50a06c1a6e6c',
     'relationship_name' => 'contacts_quotes',
     'lhs_module' => 'Contacts',
     'lhs_table' => 'contacts',
@@ -479,7 +505,7 @@ $relationships = array (
   ),
   'hotels_contacts' => 
   array (
-    'id' => '4cb1c111-2f76-d8e6-5bd9-509236007faa',
+    'id' => '7aff5089-659c-0d36-1b38-50a06c9cb301',
     'relationship_name' => 'hotels_contacts',
     'lhs_module' => 'Hotels',
     'lhs_table' => 'hotels',
@@ -505,7 +531,7 @@ $relationships = array (
   ),
   'restaurants_contacts' => 
   array (
-    'id' => '95aa566e-29ee-85ac-57ba-5092361b5ce9',
+    'id' => 'eccb327c-e73b-20f1-3bb3-50a06c1f9ca9',
     'relationship_name' => 'restaurants_contacts',
     'lhs_module' => 'Restaurants',
     'lhs_table' => 'restaurants',
@@ -531,7 +557,7 @@ $relationships = array (
   ),
   'securitygroups_contacts' => 
   array (
-    'id' => 'e69a67b5-3d8d-6089-7ba2-509236b1c2ce',
+    'id' => '50175b1f-5e11-748e-d523-50a06c47a901',
     'relationship_name' => 'securitygroups_contacts',
     'lhs_module' => 'SecurityGroups',
     'lhs_table' => 'securitygroups',
@@ -557,7 +583,7 @@ $relationships = array (
   ),
   'services_contacts' => 
   array (
-    'id' => '88efb903-7564-070d-7e61-5092362ca062',
+    'id' => '1e11175f-641b-0dab-0830-50a06c3b6819',
     'relationship_name' => 'services_contacts',
     'lhs_module' => 'Services',
     'lhs_table' => 'services',
@@ -583,7 +609,7 @@ $relationships = array (
   ),
   'transports_contacts' => 
   array (
-    'id' => '5341403e-49df-deb8-77b8-50923674e9a2',
+    'id' => '2467137a-61b2-a953-a1fe-50a06c05274c',
     'relationship_name' => 'transports_contacts',
     'lhs_module' => 'Transports',
     'lhs_table' => 'transports',
@@ -607,13 +633,13 @@ $relationships = array (
     'for_activities' => false,
     'from_studio' => true,
   ),
-  'contacts_opportunities' => 
+  'contacts_contracts' => 
   array (
-    'rhs_label' => 'Opportunities',
+    'rhs_label' => 'Contracts',
     'lhs_label' => 'Contacts',
     'rhs_subpanel' => 'default',
     'lhs_module' => 'Contacts',
-    'rhs_module' => 'Opportunities',
+    'rhs_module' => 'Contracts',
     'relationship_type' => 'one-to-many',
     'readonly' => true,
     'deleted' => false,
@@ -621,7 +647,7 @@ $relationships = array (
     'for_activities' => false,
     'is_custom' => false,
     'from_studio' => true,
-    'relationship_name' => 'contacts_opportunities',
+    'relationship_name' => 'contacts_contracts',
   ),
 );
 ?>

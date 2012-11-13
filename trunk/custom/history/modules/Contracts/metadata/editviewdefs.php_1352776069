@@ -44,17 +44,9 @@ array (
         0 => 
         array (
           0 => 'number',
+          1 => 'date_of_contracts',
         ),
         1 => 
-        array (
-          0 => 'date_of_contracts',
-          1 => 
-          array (
-            'name' => 'date_of_contracts_liquidate',
-            'label' => 'LBL_DATE_OF_CONTRACTS_LIQUIDATE',
-          ),
-        ),
-        2 => 
         array (
           0 => 'template_ddown_c',
           1 => 'assigned_user_name',
@@ -68,10 +60,6 @@ array (
           array (
             'name' => 'bena',
             'label' => 'LBL_BEN_A',
-            'displayParams' => 
-            array (
-              'size' => '60',
-            ),
           ),
         ),
         1 => 
@@ -182,13 +170,11 @@ array (
         1 => 
         array (
           0 => 'tongtien',
-          1 => 
-          array (
+          1 => array(
             'name' => 'bangchu',
-            'displayParams' => 
-            array (
-              'size' => '60',
-            ),
+            'displayParams' => array(
+                'size' => '60',
+            )
           ),
         ),
         2 => 

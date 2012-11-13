@@ -44,17 +44,9 @@ array (
         0 => 
         array (
           0 => 'number',
+          1 => 'date_of_contracts',
         ),
         1 => 
-        array (
-          0 => 'date_of_contracts',
-          1 => 
-          array (
-            'name' => 'date_of_contracts_liquidate',
-            'label' => 'LBL_DATE_OF_CONTRACTS_LIQUIDATE',
-          ),
-        ),
-        2 => 
         array (
           0 => 'template_ddown_c',
           1 => 'assigned_user_name',
@@ -68,15 +60,8 @@ array (
           array (
             'name' => 'bena',
             'label' => 'LBL_BEN_A',
-            'displayParams' => 
-            array (
-              'size' => '60',
-            ),
           ),
-        ),
-        1 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'daidienbena',
             'customCode' => '
@@ -84,66 +69,70 @@ array (
             <input id="daidienbena" name="daidienbena" value="{$fields.daidienbena.value}"/>
             ',
           ),
-          1 => 'position_a',
+        ),
+        1 => 
+        array (
+          0 => 'position_a',
+          1 => 'address_a',
         ),
         2 => 
         array (
-          0 => 'address_a',
-          1 => 'mst_bena',
+          0 => 'phone_a',
+          1 => 'fax_a',
         ),
         3 => 
         array (
-          0 => 'fax_a',
-          1 => 'phone_a',
+          0 => 'mst_bena',
+          1 => 'bank_name',
         ),
         4 => 
         array (
-          0 => 'bank_name',
-          1 => 'account_name',
+          0 => 'account_name',
+          1 => 'account_vnd',
         ),
         5 => 
         array (
-          0 => 'account_vnd',
-          1 => 'account_usd',
+          0 => 'account_usd',
+          1 => 'swift_code',
         ),
         6 => 
         array (
-          0 => 'swift_code',
-          1 => 'bank_address',
+          0 => 'bank_address',
+          1 => 'parent_name',
         ),
         7 => 
         array (
-          0 => 'parent_name',
+          0 => '',
+          1 => 'contacts_contracts_name',
         ),
         8 => 
         array (
-          0 => 'contacts_contracts_name',
-          1 => 'position_b',
+          0 => 'position_b',
+          1 => 'address_b',
         ),
         9 => 
-        array (
-          0 => 'address_b',
-          1 => 'mst_benb',
-        ),
-        10 => 
         array (
           0 => 'phone_b',
           1 => 'fax_b',
         ),
+        10 => 
+        array (
+          0 => 'mst_benb',
+          1 => 'bank_name_b',
+        ),
         11 => 
         array (
-          0 => 'bank_name_b',
-          1 => 'account_name_b',
+          0 => 'account_name_b',
+          1 => 'sotaikhoanbenb',
         ),
         12 => 
         array (
-          0 => 'sotaikhoanbenb',
-          1 => '',
+          0 => '',
+          1 => 'birthday',
         ),
         13 => 
         array (
-          0 => 'birthday',
-          1 => 'passport_no_guide',
+          0 => 'passport_no_guide',
         ),
       ),
       'LBL_TOUR_INFORMATION' => 
@@ -182,14 +171,7 @@ array (
         1 => 
         array (
           0 => 'tongtien',
-          1 => 
-          array (
-            'name' => 'bangchu',
-            'displayParams' => 
-            array (
-              'size' => '60',
-            ),
-          ),
+          1 => 'bangchu',
         ),
         2 => 
         array (

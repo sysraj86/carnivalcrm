@@ -1,0 +1,148 @@
+<?php
+$module_name = 'Contracts';
+$viewdefs [$module_name] = 
+array (
+  'EditView' => 
+  array (
+    'templateMeta' => 
+    array (
+      'maxColumns' => '2',
+      'widths' => 
+      array (
+        0 => 
+        array (
+          'label' => '10',
+          'field' => '30',
+        ),
+        1 => 
+        array (
+          'label' => '10',
+          'field' => '30',
+        ),
+      ),
+      'useTabs' => false,
+    ),
+    'panels' => 
+    array (
+      'default' => 
+      array (
+        array (
+          'number',
+          'date_of_contracts',
+        ),
+        array (
+          'template_ddown_c',
+          'assigned_user_name',
+        ),
+        array (
+          array(
+            'name' => 'daidienbena',
+            'customCode' => '
+            {html_options id=salutation_a name=salutation_a options=$fields.salutation_a.options selected=$fields.salutation_a.value}
+            <input id="daidienbena" name="daidienbena" value="{$fields.daidienbena.value}"/>
+            '
+          ),
+          'position_a',
+        ),
+        array(
+        'address_a',
+        'phone_a',
+        ),
+        array(
+        'fax_a',
+        'mst_bena',
+        ),
+        array(
+        'bank_name',
+        'account_name',
+        ),
+        array(
+        'account_vnd',
+        'account_usd',
+        ),
+        array(
+        'swift_code',
+        'bank_address',
+        ),
+        array(
+        'parent_name',
+        '',
+        ),
+        array(
+        'daidienbenb_name',
+        'position_b',
+        ),
+        array(
+        'address_b',
+        'phone_b',
+        ),
+        array(
+        'fax_b',
+        'mst_benb',
+        ),
+        array(
+        'bank_name_b',
+        'account_name_b',
+        ),
+        array(
+        'sotaikhoanbenb',
+        '',
+        ),
+        array(
+        'birthday',
+        'passport_no_guide',
+        ),
+      ),
+     'LBL_TOUR_INFORMATION' => array(
+        array(
+        'groupprogracontracts_name',
+        'tensanbay'
+        ),
+        array(
+        'start_date_contract',
+        'end_date_contract'
+        ),
+        array(
+        'num_of_date',
+        'num_of_night'
+        ),
+        array(
+        'associate',
+        'purpose'
+        ),
+     ),
+     'LBL_CONTRACT_VALUES' => array(
+        array(
+        'contract_value'
+        ),
+        array(
+        'tongtien',
+        'bangchu'
+        ),
+        array(
+        'contract_value_note',
+        ''
+        ),
+        array(
+        'baogom',
+        ''
+        ),
+        array(
+        'khongbaogom',
+        ''
+        ),
+     ), 
+     'LBL_CONTRACT_CONDITIONS' => array(
+        array(
+        'solanthanhtoan',
+        'tienhuyphat'
+        ),
+        array(
+        'contract_condition',
+        ''
+        ),
+     ), 
+    ),
+  ),
+);
+?>

@@ -96,7 +96,8 @@
         
         
         function Contract(){
-            global $sugar_config;
+            global $sugar_config,$db;
+            $this->bena = 'CÔNG TY TNHH MỘT THÀNH VIÊN DV DL LỄ HỘI (CARNIVAL)';
             $this->daidienbena = 'Đinh Kim Phượng';
             $this->salutation_a = 'ba';
             $this->position_a = 'giamdoc';
@@ -145,7 +146,6 @@
         function get_contract_values_editview_line(){
             $sql = "select * from contract_values where contract_value_id ='".$this->id."'and deleted = 0";
             $result = $this->db->query($sql);
-            // define html code
             $html = "";
             while($row = $this->db->fetchByAssoc($result)){
                 $html .= '<tr>';
@@ -220,29 +220,29 @@
         
         // get detailview
         
-        function get_contract_values_detailview($id){
-            $sql = "select * from contract_values where contract_value_id ='".$id."'and deleted = 0";
+        function get_contract_values_detailview(){
+            $sql = "select * from contract_values where contract_value_id ='".$this->id."'and deleted = 0";
             $result = $this->db->query($sql);
             // define html code
             $html = "";
             while($row = $this->db->fetchByAssoc($result)){
                 $html .= '<tr>';
-                     $html .= '<td  align="center" class="tabDetailViewDF"> ';
+                     $html .= '<td style="text-align:center" class="tabDetailViewDF">';
                         $html .= $row['age'];
                      $html .= '</td>';
-                     $html .= '<td align="center" class="tabDetailViewDF">';
+                     $html .= '<td style="text-align:center" class="tabDetailViewDF">';
                          $html .= $row['num_of_cus'];
                      $html .= '</td> ';
-                     $html .= '<td align="center" class="tabDetailViewDF">';
+                     $html .= '<td style="text-align:center" class="tabDetailViewDF">';
                         $html .= $row['tour_cost'] . ' ';
                      $html .= '</td>';
-                     $html .= '<td align="center" class="tabDetailViewDF">';
+                     $html .= '<td style="text-align:center" class="tabDetailViewDF">';
                         $html .= $row['tax']. ' ';
                      $html .= '</td>';
-                     $html .= '<td align="center" class="tabDetailViewDF">';
+                     $html .= '<td style="text-align:center" class="tabDetailViewDF">';
                         $html .= number_format($row['money'],'2','.',''). '';
                      $html .= '</td>';
-                     $html .= '<td align="center" class="tabDetailViewDF">';
+                     $html .= '<td style="text-align:center" class="tabDetailViewDF">';
                            $html .= '&nbsp;';
                      $html .= '</td>';
                  $html .= '</tr> ';
@@ -250,8 +250,8 @@
             return $html;
         }
         
-        function get_contract_condition_detailview($id){
-            $sql = "select * from contract_conditions where contract_condition_id ='".$id."' and deleted = 0";
+        function get_contract_condition_detailview(){
+            $sql = "select * from contract_conditions where contract_condition_id ='".$this->id."' and deleted = 0";
             $result = $this->db->query($sql);
             // define html code
             $html = "";

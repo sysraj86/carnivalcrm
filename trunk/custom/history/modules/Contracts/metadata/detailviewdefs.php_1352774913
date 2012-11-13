@@ -33,18 +33,11 @@ array (
           'field' => '30',
         ),
       ),
-      'includes' => 
-      array (
-        0 => 
-        array (
-          'file' => 'custom/include/js/jquery.table.clone.js',
-        ),
-      ),
       'useTabs' => false,
     ),
     'panels' => 
     array (
-      'lbl_editview_panel1' => 
+      'lbl_detailview_panel1' => 
       array (
         0 => 
         array (
@@ -53,22 +46,13 @@ array (
             'name' => 'number',
             'label' => 'LBL_NUMBER',
           ),
-          '',
-        ),
-        1 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'date_of_contracts',
             'label' => 'LBL_DATE_OF_CONTRACTS',
           ),
-          1 => 
-          array (
-            'name' => 'date_of_contracts_liquidate',
-            'label' => 'LBL_DATE_OF_CONTRACTS_LIQUIDATE',
-          ),
         ),
-        2 => 
+        1 => 
         array (
           0 => 
           array (
@@ -78,7 +62,7 @@ array (
           ),
           1 => 'assigned_user_name',
         ),
-        3 => 
+        2 => 
         array (
           0 => 
           array (
@@ -96,15 +80,10 @@ array (
       ),
       'default' => 
       array (
-        0 => 
-        array (
-          0 => 
-          array (
-            'name' => 'bena',
-            'label' => 'LBL_BEN_A',
-          ),
+        array(
+            'bena',
         ),
-        1 => 
+        0 => 
         array (
           0 => 
           array (
@@ -117,7 +96,7 @@ array (
             'label' => 'LBL_POSITON_A',
           ),
         ),
-        2 => 
+        1 => 
         array (
           0 => 
           array (
@@ -126,11 +105,11 @@ array (
           ),
           1 => 
           array (
-            'name' => 'mst_bena',
-            'label' => 'LBL_TAX',
+            'name' => 'phone_a',
+            'label' => 'LBL_PHONE',
           ),
         ),
-        3 => 
+        2 => 
         array (
           0 => 
           array (
@@ -139,11 +118,11 @@ array (
           ),
           1 => 
           array (
-            'name' => 'phone_a',
-            'label' => 'LBL_PHONE',
+            'name' => 'mst_bena',
+            'label' => 'LBL_TAX',
           ),
         ),
-        4 => 
+        3 => 
         array (
           0 => 
           array (
@@ -156,7 +135,7 @@ array (
             'label' => 'LBL_BANK_ACCOUNT_NAME',
           ),
         ),
-        5 => 
+        4 => 
         array (
           0 => 
           array (
@@ -169,7 +148,7 @@ array (
             'label' => 'LBL_ACCOUNT_USD',
           ),
         ),
-        6 => 
+        5 => 
         array (
           0 => 
           array (
@@ -182,15 +161,16 @@ array (
             'label' => 'LBL_BANK_ADDRESS',
           ),
         ),
-        7 => 
+        6 => 
         array (
           0 => 
           array (
             'name' => 'parent_name',
             'label' => 'LBL_BEN_B',
           ),
+          1 => '',
         ),
-        8 => 
+        7 => 
         array (
           0 => 
           array (
@@ -202,7 +182,7 @@ array (
             'label' => 'LBL_POSITION_B',
           ),
         ),
-        9 => 
+        8 => 
         array (
           0 => 
           array (
@@ -211,24 +191,24 @@ array (
           ),
           1 => 
           array (
+            'name' => 'phone_b',
+            'label' => 'LBL_PHONE',
+          ),
+        ),
+        9 => 
+        array (
+          0 => 
+          array (
+            'name' => 'fax_b',
+            'label' => 'LBL_FAXB',
+          ),
+          1 => 
+          array (
             'name' => 'mst_benb',
             'label' => 'LBL_TAX',
           ),
         ),
         10 => 
-        array (
-          0 => 
-          array (
-            'name' => 'phone_b',
-            'label' => 'LBL_PHONE',
-          ),
-          1 => 
-          array (
-            'name' => 'fax_b',
-            'label' => 'LBL_FAXB',
-          ),
-        ),
-        11 => 
         array (
           0 => 
           array (
@@ -241,7 +221,7 @@ array (
             'label' => 'LBL_ACCOUNT_NAME_B',
           ),
         ),
-        12 => 
+        11 => 
         array (
           0 => 
           array (
@@ -250,7 +230,7 @@ array (
           ),
           1 => '',
         ),
-        13 => 
+        12 => 
         array (
           0 => 
           array (
@@ -326,7 +306,6 @@ array (
           array (
             'name' => 'contract_value',
             'label' => 'LBL_CONTRACT_VALUE',
-            'customCode' => '{$contract_value}'
           ),
         ),
         1 => 
@@ -391,7 +370,6 @@ array (
           array (
             'name' => 'contract_condition',
             'label' => 'LBL_CONTRACT_CONDITION',
-            'customCode' => '{$contract_condition}'
           ),
         ),
       ),
