@@ -64,6 +64,17 @@ $dictionary["Contact"]["fields"]["airlines_c7d68irlines_ida"] = array (
 );
 
 
+// created: 2012-11-12 16:42:17
+$dictionary["Contact"]["fields"]["contacts_contracts"] = array (
+  'name' => 'contacts_contracts',
+  'type' => 'link',
+  'relationship' => 'contacts_contracts',
+  'source' => 'non-db',
+  'side' => 'right',
+  'vname' => 'LBL_CONTACTS_CONTRACTS_FROM_CONTRACTS_TITLE',
+);
+
+
 // created: 2012-11-01 15:54:49
 $dictionary["Contact"]["fields"]["contacts_opportunities"] = array (
   'name' => 'contacts_opportunities',

@@ -186,26 +186,3 @@ function parent_namechangeQS() {
     }
     enableQS(false);
 }
-Calendar.setup ({ 
-    inputField : "start_date_guide",daFormat : "%d/%m/%Y",button : "guide_date_start_trigger",singleClick : true,dateStr : "12/19/2009",step : 1
-});addToValidate('EditView', 'expiration', 'date', false,'expiration' ); 
-Calendar.setup ({ 
-    inputField : "end_date_guide",daFormat : "%d/%m/%Y",button : "guide_date_end_trigger",singleClick : true,dateStr : "12/19/2009",step : 1
-});addToValidate('EditView', 'expiration', 'date', false,'expiration' );
-Calendar.setup ({ 
-    inputField : "start_date_contract",daFormat : "%d/%m/%Y",button : "date_start_trigger",singleClick : true,dateStr : "12/19/2009",step : 1
-});addToValidate('EditView', 'expiration', 'date', false,'expiration' );
-Calendar.setup ({ 
-    inputField : "end_date_contract",daFormat : "%d/%m/%Y",button : "date_end_trigger",singleClick : true,dateStr : "12/19/2009",step : 1
-});addToValidate('EditView', 'expiration', 'date', false,'expiration' );
-Calendar.setup ({ 
-    inputField : "expiration_date",daFormat : "%d/%m/%Y",button : "expiration_date_trigger",singleClick : true,dateStr : "12/19/2009",step : 1
-});addToValidate('EditView', 'expiration', 'date', false,'expiration' );
-Calendar.setup ({ 
-    inputField : "date_of_contracts",daFormat : "%d/%m/%Y",button : "date_of_contract_trigger",singleClick : true,dateStr : "12/19/2009",step : 1
-});addToValidate('EditView', 'expiration', 'date', false,'expiration' );
-
-Calendar.setup ({ 
-    inputField : "ngaycaphochieu",daFormat : "%d/%m/%Y",button : "ngaycaphochieu_trigger",singleClick : true,dateStr : "12/19/2009",step : 1
-});addToValidate('EditView', 'expiration', 'date', false,'expiration' );
-

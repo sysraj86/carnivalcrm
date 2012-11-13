@@ -33,13 +33,6 @@ array (
           'field' => '30',
         ),
       ),
-      'includes' => 
-      array (
-        0 => 
-        array (
-          'file' => 'custom/include/js/jquery.table.clone.js',
-        ),
-      ),
       'useTabs' => false,
     ),
     'panels' => 
@@ -53,22 +46,13 @@ array (
             'name' => 'number',
             'label' => 'LBL_NUMBER',
           ),
-          '',
-        ),
-        1 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'date_of_contracts',
             'label' => 'LBL_DATE_OF_CONTRACTS',
           ),
-          1 => 
-          array (
-            'name' => 'date_of_contracts_liquidate',
-            'label' => 'LBL_DATE_OF_CONTRACTS_LIQUIDATE',
-          ),
         ),
-        2 => 
+        1 => 
         array (
           0 => 
           array (
@@ -78,7 +62,7 @@ array (
           ),
           1 => 'assigned_user_name',
         ),
-        3 => 
+        2 => 
         array (
           0 => 
           array (
@@ -326,7 +310,6 @@ array (
           array (
             'name' => 'contract_value',
             'label' => 'LBL_CONTRACT_VALUE',
-            'customCode' => '{$contract_value}'
           ),
         ),
         1 => 
@@ -391,7 +374,6 @@ array (
           array (
             'name' => 'contract_condition',
             'label' => 'LBL_CONTRACT_CONDITION',
-            'customCode' => '{$contract_condition}'
           ),
         ),
       ),

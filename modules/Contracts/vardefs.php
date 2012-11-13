@@ -42,28 +42,34 @@
             'len'       => 50,
         ),
         
-        'daidienbena' => array(
-            'name' => 'daidienbena',
+        'bena' => array(
+            'name' => 'bena',
             'vname' => 'LBL_BEN_A' ,
             'type'  => 'varchar',
-             'required' => true,
             'len'   => 255,
         ),
-        'daidienbenb'    => array(
-            'name'  => 'daidienbenb',
-            'vname' => 'LBL_BEN_B',
+        'daidienbena' => array(
+            'name' => 'daidienbena',
+            'vname' => 'LBL_BEN_A_NAME' ,
             'type'  => 'varchar',
              'required' => true,
             'len'   => 255,
         ),
-        
-        'daidienbenb_name' => array(
-          'name'    => 'daidienbenb_name',
-          'vname'   => 'LBL_BEN_B_NAME',
-          'type'    => 'varchar',
-           'required' => true,
-          'len'     => 255,
-        ),
+//        'daidienbenb'    => array(
+//            'name'  => 'daidienbenb',
+//            'vname' => 'LBL_BEN_B',
+//            'type'  => 'varchar',
+//             'required' => true,
+//            'len'   => 255,
+//        ),
+//        
+//        'daidienbenb_name' => array(
+//          'name'    => 'daidienbenb_name',
+//          'vname'   => 'LBL_BEN_B_NAME',
+//          'type'    => 'varchar',
+//           'required' => true,
+//          'len'     => 255,
+//        ),
         
         'mst_bena'  => array(
             'name'  => 'mst_bena',
@@ -98,14 +104,16 @@
         'address_a' => array(
           'name'     => 'address_a',
           'vname'    => 'LBL_ADDRESS',
-          'type'     => 'varchar',
-          'len'      => 255,
+          'type'     => 'text',
+          'cols'      => 60,
+          'rows'      => 4,
         ),
         'address_b' => array(
             'name'     => 'address_b',
             'vname'    => 'LBL_ADDRESS',
-            'type'     => 'varchar',
-            'len'      => 255,
+            'type'     => 'text',
+            'cols'      => 60,
+            'rows'      => 4,
         ),
         
         'phone_a'   => array(
@@ -181,15 +189,17 @@
         'associate' => array(
             'name'  => 'associate',
             'vname' => 'LBL_ASSOCIATE',
-            'type'  => 'varchar',
-            'len'   => 255,
+            'type'  => 'text',
+            'cols'   => 60,
+            'rows'   => 4,
         ),
         
         'purpose'   => array(
             'name'  => 'purpose',
             'vname' => 'LBL_PURPOSE',
-            'type'  => 'varchar',
-            'len'   => 255,        
+            'type'  => 'text',
+            'cols'   => 60,
+            'rows'   => 4,        
         ),
         
         'start_date_contract'    => array(
@@ -206,33 +216,33 @@
             'len'   => 50,
         ),
         
-        'date'  => array(
-            'name'      => 'date',
-            'vname'     => 'LBL_DATE',
-            'type'      => 'enum',
-            'dbType'    => 'int',
-            'required'  => true,
-            'options'   => 'date_options_dom',
-            'len'       => 2,
-        ),
-        
-        'month' => array(
-            'name'  => 'month',
-            'vname' => 'LBL_MONTH',
-            'type'  => 'enum',
-            'dbType' => 'int',
-            'required' => true,
-            'options' => 'month_options_dom',
-            'len'   => 2,
-        ),
-        
-        'year'  => array(
-          'name'    => 'year',
-          'vname'   => 'LBL_YEAR',
-          'type'    => 'varchar',
-          'required' => true,
-          'len'     => 5,
-        ),
+//        'date'  => array(
+//            'name'      => 'date',
+//            'vname'     => 'LBL_DATE',
+//            'type'      => 'enum',
+//            'dbType'    => 'int',
+//            'required'  => true,
+//            'options'   => 'date_options_dom',
+//            'len'       => 2,
+//        ),
+//        
+//        'month' => array(
+//            'name'  => 'month',
+//            'vname' => 'LBL_MONTH',
+//            'type'  => 'enum',
+//            'dbType' => 'int',
+//            'required' => true,
+//            'options' => 'month_options_dom',
+//            'len'   => 2,
+//        ),
+//        
+//        'year'  => array(
+//          'name'    => 'year',
+//          'vname'   => 'LBL_YEAR',
+//          'type'    => 'varchar',
+//          'required' => true,
+//          'len'     => 5,
+//        ),
         
         'sl_khach'  => array(
             'name'      => 'sl_khach',
@@ -251,13 +261,17 @@
         'baogom'    => array(
             'name'  => 'baogom',
             'vname' => 'LBL_BAOGOM',
-            'type'  => 'text',
+             'type'  => 'text',
+            'cols'   => 60,
+            'rows'   => 4,
         ) ,
         
         'khongbaogom'    => array(
             'name'  => 'khongbaogom',
             'vname' => 'LBL_KHONGBAOGOM',
             'type'  => 'text',
+            'cols'   => 60,
+            'rows'   => 4,
         ),
         
         'gia_tour_1' => array(
@@ -292,6 +306,7 @@
           'vname'   => 'LBL_BANGCHU',
           'type'    => 'varchar',
           'len'     => 255,
+          'size'    => 60,
         ),
         
         'nguoidaidienbenb' => array(
@@ -407,7 +422,7 @@
             'parent_type'=>'contract_record_type_display' ,
             'type_name'=>'parent_type',
             'id_name'=>'parent_id',
-            'vname'=>'LBL_LIST_RELATED_TO',
+            'vname'=>'LBL_BEN_B',
             'type'=>'parent',
             'group'=>'parent_name',
             'dbType'=>'varchar',
@@ -635,6 +650,15 @@
          'enable_range_search' => true,
          'options' => 'date_range_search_dom',
        ),
+       'date_of_contracts_liquidate'  => array(
+         'name'     => 'date_of_contracts_liquidate',
+         'vname'    => 'LBL_DATE_OF_CONTRACTS_LIQUIDATE',
+         'type'     => 'date',
+         'importable' => 'required',
+         'required' => false,
+         'enable_range_search' => true,
+         'options' => 'date_range_search_dom',
+       ),
        
        'tienhuyphat' => array(
             'name'  => 'tienhuyphat',
@@ -663,7 +687,28 @@
          'vname' => 'LBL_NGAYCAPHOCHIEU',
          'type'  =>  'date',
        ),
+       
+       'contract_value' => array(
+         'name' => 'contract_value',
+         'vname' => 'LBL_CONTRACT_VALUE',
+         'type'  =>  'varchar',
+         'db-type'  =>  'non-db',
+       ),
+       'contract_condition' => array(
+         'name' => 'contract_condition',
+         'vname' => 'LBL_CONTRACT_CONDITION',
+         'type'  =>  'varchar',
+         'db-type'  =>  'non-db',
+       ),
+       'contract_value_note' => array(
+         'name' => 'contract_value_note',
+         'vname' => 'LBL_CONTRACT_VALUE_NOTE',
+         'type'  =>  'text',
+         'cols'  =>  60,
+         'rows'  =>  4,
+       ),
  
+        
     ),
 
     'relationship' => array(

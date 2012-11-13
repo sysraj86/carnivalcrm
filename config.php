@@ -1,5 +1,5 @@
 <?php
-// created: 2012-09-26 09:51:35
+// created: 2012-11-06 15:15:28
 $sugar_config = array (
   'admin_access_control' => false,
   'admin_export_only' => false,
@@ -194,7 +194,7 @@ $sugar_config = array (
   'import_max_records_per_file' => 100,
   'installer_locked' => true,
   'js_custom_version' => 1,
-  'js_lang_version' => 1,
+  'js_lang_version' => 2,
   'languages' => 
   array (
     'en_us' => 'English (US)',
