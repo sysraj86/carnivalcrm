@@ -374,8 +374,7 @@
             return $html;
         }
         
-        function get_data_to_export2pdf($id = 0){
-            $id = ($id > 0) ? $id : $this->id;
+        function get_data_to_export2pdf($id){
             global $sugar_config;
             $result = $this->get_tour_program_lines($id);
             $html = '';
@@ -383,36 +382,39 @@
             $i = 1;
             while ($row = $this->db->fetchByAssoc($result)) {
                 if (!empty($row['picture'])) {
-                    $img = $sugar_config['site_url'] . "/modules/images/" . $row['picture'];
+                    $img = "modules/images/" . $row['picture'];
                 }
                 else {
                     $img = '';
                 }
                 
                 //title
-                $html .= '<p> Ngày '.$i.' '.$row['title'].'</p>';
+                $html .= '<p><font color="blue"><u>Ngày '.$i.' '.$row['title'].'</u></font></p>';
                 //note
-                $html .= '<p>'.$row['notes'].'</p>';
+                $html .= '<p><b><i>'.$row['notes'].'</i></b></p>';
                 //body
                 if(!empty($img) || strlen(trim($row['description'])) > 0){
                     $html .= '<p>';
                     //image
                     if (!empty($img)) {
-                        $html .= '<img width="204" height="149" src="'.$img.'" align="right" >';
+                        $html .= '<img width="204" height="149" src="'.$img.'" style="float:right" >';
                     }
                     if(strlen(trim($row['description'])) > 0 ){
-                        //$html .= $row['description'];        
+                        $desc = html_entity_decode_utf8($row['description']);
+                        $desc = $this->removeHtmlTags($desc);
+                        $html .= $desc;        
                     }
-                    
                     $html .= '</p>';    
                 }
-                
                 $i++;
-
             }
             return $html;
         }
 
+        function removeHtmlTags($string){
+            return strip_tags($string, "p,div");
+        }
+        
         function getDestinationToList()
         {
             global $db, $app_list_strings;
