@@ -42,10 +42,10 @@ $viewdefs[$module_name]['DetailView'] = array(
                                                           2 => 'DELETE',
                                                           3 => array ('customCode' =>'<input title="{$MOD.LBL_EXPORTTOWORD}" type="button" accessKey="{$MOD.LBL_EXPORTTOWORD}" class="button" onclick="window.location.href=\'index.php?module=Worksheets&action=export2excel&record={$fields.id.value}\'" name="button" value="Export advance"/>',),      
                                                          )),
-                        'maxColumns' => '1',
+                        'maxColumns' => '2',
                         'widths' => array(
-                                            array('label' => '5', 'field' => '95'),
-                                            //array('label' => '20', 'field' => '30'),
+                                            array('label' => '20', 'field' => '30'),
+                                            array('label' => '20', 'field' => '30'),
                                         ), 
                         'includes' =>  array(
                                 array('file' => "modules/Worksheets/js/stylecss.js"),

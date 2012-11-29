@@ -19,13 +19,18 @@ array (
           ),
         ),
       ),
-      'maxColumns' => '1',
+      'maxColumns' => '2',
       'widths' => 
       array (
         0 => 
         array (
-          'label' => '5',
-          'field' => '95',
+          'label' => '20',
+          'field' => '30',
+        ),
+        1 => 
+        array (
+          'label' => '20',
+          'field' => '30',
         ),
       ),
       'includes' => 
@@ -44,10 +49,12 @@ array (
         0 => 
         array (
           0 => 'name',
+          1 => '',
         ),
         1 => 
         array (
           0 => 'worksheet_code',
+          1 => '',
         ),
         2 => 
         array (
@@ -55,10 +62,12 @@ array (
           array (
             'name' => 'groupprograorksheets_name',
           ),
+          1 => '',
         ),
         3 => 
         array (
           0 => 'version',
+          1 => '',
         ),
         4 => 
         array (
@@ -67,6 +76,7 @@ array (
         5 => 
         array (
           0 => 'type',
+          1 => '',
         ),
         6 => 
         array (
@@ -74,7 +84,7 @@ array (
           array (
             'name' => 'overview',
             'customCode' => '{$HTML}',
-            'hidelabel' => true
+            'hidelabel' => true,
           ),
         ),
         7 => 
@@ -83,12 +93,13 @@ array (
           array (
             'name' => 'report',
             'customCode' => '{$REPORT}',
-            'hidelabel' => true
+            'hidelabel' => true,
           ),
         ),
         8 => 
         array (
           0 => 'assigned_user_name',
+          1 => '',
         ),
         9 => 
         array (
@@ -98,6 +109,7 @@ array (
             'customCode' => '{$fields.date_entered.value} {$APP.LBL_BY} {$fields.created_by_name.value}',
             'label' => 'LBL_DATE_ENTERED',
           ),
+          1 => '',
         ),
         10 => 
         array (
@@ -107,6 +119,7 @@ array (
             'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
             'label' => 'LBL_DATE_MODIFIED',
           ),
+          1 => '',
         ),
       ),
     ),

@@ -1,21 +1,21 @@
 <?php
-require_once("include/Sugar_Smarty.php");
-$ss = new Sugar_Smarty();
-echo "\n<p>\n";
-if (!empty($focus->type)) {
-    $worksheet_type = $focus->type;
-}
-else {
-    $worksheet_type = $_REQUEST['type'];
-}
-echo get_module_title($mod_strings['LBL_MODULE_ID'], $mod_strings['LBL_MODULE_NAME'] . ": " . $focus->name . " :" . $worksheet_type, true);
-echo "\n</p>\n";
-$ss->assign("MOD", $mod_strings);
-$ss->assign("APP", $app_strings);
-$ss->assign("ASSIGNED_USER_NAME", $focus->assigned_user_name);
-$ss->assign("ASSIGNED_USER_ID", $focus->assigned_user_id);
+    require_once("include/Sugar_Smarty.php");
+    $ss = new Sugar_Smarty();
+    echo "\n<p>\n";
+    if (!empty($focus->type)) {
+        $worksheet_type = $focus->type;
+    }
+    else {
+        $worksheet_type = $_REQUEST['type'];
+    }
+    echo get_module_title($mod_strings['LBL_MODULE_ID'], $mod_strings['LBL_MODULE_NAME'] . ": " . $focus->name . " :" . $worksheet_type, true);
+    echo "\n</p>\n";
+    $ss->assign("MOD", $mod_strings);
+    $ss->assign("APP", $app_strings);
+    $ss->assign("ASSIGNED_USER_NAME", $focus->assigned_user_name);
+    $ss->assign("ASSIGNED_USER_ID", $focus->assigned_user_id);
 
-if (isset($_REQUEST['return_module'])) $ss->assign("RETURN_MODULE", $_REQUEST['return_module']);
+    if (isset($_REQUEST['return_module'])) $ss->assign("RETURN_MODULE", $_REQUEST['return_module']);
     if (isset($_REQUEST['return_action'])) $ss->assign("RETURN_ACTION", $_REQUEST['return_action']);
     if (isset($_REQUEST['return_id'])) $ss->assign("RETURN_ID", $_REQUEST['return_id']);
 
@@ -23,2436 +23,2060 @@ if (isset($_REQUEST['return_module'])) $ss->assign("RETURN_MODULE", $_REQUEST['r
         $ss->assign("RETURN_ACTION", 'index');
     }
 
-$ss->assign("ID", $focus->id);
-if (!empty($focus->type)) {
-    $ss->assign("TYPE", $focus->type);
-}
-else {
-    $type = $_REQUEST['type'];
-    $ss->assign("TYPE", $type);
-}
-$temp = base64_decode($focus->content);
-$noidung = json_decode($temp);
-$ss->assign("name", $focus->name);
-$ss->assign("TOUR_NAME", $focus->worksheet_tour_name);
-$ss->assign("TOUR_ID", $focus->worksheet_tour_id);
-$ss->assign("TOURCODE", $focus->tourcode);
-$ss->assign("DURATION", $focus->duration);
-$ss->assign("MADETOUR_NAME", $focus->groupprograorksheets_name);
-$ss->assign("MADETOUR_ID", $focus->groupprogrd737rograms_ida);
-$ss->assign("THUESUATHOA", $focus->thuesuathoa);
-$ss->assign("SOKHACH", $focus->sokhach);
-$ss->assign("TYLE", $focus->tyle);
-$ss->assign("VERSION", $focus->version);
-$ss->assign("NOTE", $focus->note);
-$ss->assign("LOTRINH", $focus->lotrinh);
-$ss->assign('TRANSPORT', $focus->transport);
-$ss->assign('huongdanvien', $noidung->huongdanvien);
-$ss->assign('ngaybatdau', $noidung->ngaybatdau);
-$ss->assign('ngayketthuc', $noidung->ngayketthuc);
-$ss->assign('chiphikhac_tongcong', $noidung->chiphikhac_tongcong);
-$ss->assign('chiphikhac_tongthue', $noidung->chiphikhac_tongthue);
-
-
-$ss->assign('sl_khach_nl_1', $noidung->sl_khach_nl_1);
-$ss->assign('dg_khach_nl_1', $noidung->dg_khach_nl_1);
-$ss->assign('foc_khach_nl_1', $noidung->foc_khach_nl_1);
-$ss->assign('tt_khach_nl_1', $noidung->tt_khach_nl_1);
-$ss->assign('ts_khach_nl_1', $noidung->ts_khach_nl_1);
-$ss->assign('thue_khach_nl_1', $noidung->thue_khach_nl_1);
-
-// giá trẻ em
-$ss->assign('thue_khach_nl_1', $noidung->thue_khach_nl_1);
-$ss->assign('sl_treem_1', $noidung->sl_treem_1);
-$ss->assign('dg_treem_1', $noidung->dg_treem_1);
-$ss->assign('foc_treem_1', $noidung->foc_treem_1);
-$ss->assign('tt_treem_1', $noidung->tt_treem_1);
-$ss->assign('ts_treem_1', $noidung->ts_treem_1);
-$ss->assign('thue_treem_1', $noidung->thue_treem_1);
-
-// phụ phòng đơn
-
-$ss->assign('sl_phuthuphongdon_1', $noidung->sl_phuthuphongdon_1);
-$ss->assign('dg_phuthuphongdon_1', $noidung->dg_phuthuphongdon_1);
-$ss->assign('foc_phuthuphongdon_1', $noidung->foc_phuthuphongdon_1);
-$ss->assign('tt_phuthuphongdon_1', $noidung->tt_phuthuphongdon_1);
-$ss->assign('ts_phuthuphongdon_1', $noidung->ts_phuthuphongdon_1);
-$ss->assign('thue_phuthuphongdon_1', $noidung->thue_phuthuphongdon_1);
-
-// phụ thu khác
-$ss->assign('sl_phuthukhac_1', $noidung->sl_phuthukhac_1);
-$ss->assign('dg_phuthukhac_1', $noidung->dg_phuthukhac_1);
-$ss->assign('foc_phuthukhac_1', $noidung->foc_phuthukhac_1);
-$ss->assign('tt_phuthukhac_1', $noidung->tt_phuthukhac_1);
-$ss->assign('ts_phuthukhac_1', $noidung->ts_phuthukhac_1);
-$ss->assign('thue_phuthukhac_1', $noidung->thue_phuthukhac_1);
-
-// Giá bán không có VMB/Tàu hỏa
-// giá bán người lớn
-$ss->assign('sl_khach_nl_2', $noidung->sl_khach_nl_2);
-$ss->assign('dg_khach_nl_2', $noidung->dg_khach_nl_2);
-$ss->assign('foc_khach_nl_2', $noidung->foc_khach_nl_2);
-$ss->assign('tt_khach_nl_2', $noidung->tt_khach_nl_2);
-$ss->assign('ts_khach_nl_2', $noidung->ts_khach_nl_2);
-$ss->assign('thue_khach_nl_2', $noidung->thue_khach_nl_2);
-
-// giá bán trẻ em
-$ss->assign('sl_treem_2', $noidung->sl_treem_2);
-$ss->assign('dg_treem_2', $noidung->dg_treem_2);
-$ss->assign('foc_treem_2', $noidung->foc_treem_2);
-$ss->assign('tt_treem_2', $noidung->tt_treem_2);
-$ss->assign('ts_treem_2', $noidung->ts_treem_2);
-$ss->assign('thue_treem_2', $noidung->thue_treem_2);
-
-// phụ thu phòng đơn
-$ss->assign('sl_phuthuphongdon_2', $noidung->sl_phuthuphongdon_2);
-$ss->assign('dg_phuthuphongdon_2', $noidung->dg_phuthuphongdon_2);
-$ss->assign('foc_phuthuphongdon_2', $noidung->foc_phuthuphongdon_2);
-$ss->assign('tt_phuthuphongdon_2', $noidung->tt_phuthuphongdon_2);
-$ss->assign('ts_phuthuphongdon_2', $noidung->ts_phuthuphongdon_2);
-$ss->assign('thue_phuthuphongdon_2', $noidung->thue_phuthuphongdon_2);
-
-// phụ thu khác
-$ss->assign('sl_phuthukhac_2', $noidung->sl_phuthukhac_2);
-$ss->assign('dg_phuthukhac_2', $noidung->dg_phuthukhac_2);
-$ss->assign('foc_phuthukhac_2', $noidung->foc_phuthukhac_2);
-$ss->assign('tt_phuthukhac_2', $noidung->tt_phuthukhac_2);
-$ss->assign('ts_phuthukhac_2', $noidung->ts_phuthukhac_2);
-$ss->assign('thue_phuthukhac_2', $noidung->thue_phuthukhac_2);
-
-// chế độ miễn phí FOC
-$ss->assign('foc_option', $noidung->foc_option);
-$ss->assign('sl_foc_16', $noidung->sl_foc_16);
-$ss->assign('dg_foc_16', $noidung->dg_foc_16);
-$ss->assign('foc_foc_16', $noidung->foc_foc_16);
-$ss->assign('tt_foc_16', $noidung->tt_foc_16);
-$ss->assign('ts_foc_16', $noidung->ts_foc_16);
-$ss->assign('thue_foc_16', $noidung->thue_foc_16);
-
-
-$ss->assign('VATDAURA', $noidung->vatdaura);
-$ss->assign('VATDAUVAO', $noidung->vatdauvao);
-$ss->assign('VATPHAIDONG', $noidung->vatphaidong);
-$ss->assign('DOANHTHU', $noidung->doanhthu);
-$ss->assign('TONGCHIPHI', $noidung->tongchiphi);
-$ss->assign('tongthue', $noidung->tongthue);
-$ss->assign('TONGCHIPHI1', $noidung->tongchiphi1);
-$ss->assign('GIAVONTRENKHACH', $noidung->giavontrenkhach);
-$ss->assign('GIABANTRENKHACH', $noidung->giabantrenkhach);
-$ss->assign('LAIKHACH', $noidung->laikhach);
-$ss->assign('tylesauthuevat', $noidung->tylesauthuevat);
-$ss->assign('TONGLAI', $noidung->tonglai);
-$ss->assign('TONGLAI', $noidung->tonglai);
-$ss->assign('thuethunhapdn', $noidung->thuethunhapdn);
-$ss->assign('lairongnettprofit', $noidung->lairongnettprofit);
-$ss->assign('tylesauthuetndn', $noidung->tylesauthuetndn);
-
-
-$html = '';
-if (!empty($focus->id)) {
-    // loading vé máy bay
-    $airArrtk = array();
-    $airArrtk = $focus->getAirlineTicket($focus->worksheet_tour_id);
-    $airArrMB = array();
-    $airArrMT = array();
-    $airArrMN = array();
-    foreach ($airArrtk as $tk) {
-        if ($tk['area'] == "mienbac") {
-            $app_list_strings['list_airlinetiket_dom_north'][$tk['id']] = $tk['name'];
-            $airArrMB[] = array('id' => $tk['id'], 'name' => $tk['name'], 'area' => $tk['area']);
-        }
-        if ($tk['area'] == "mientrung") {
-            $app_list_strings['list_airlinetiket_dom_middle'][$tk['id']] = $tk['name'];
-            $airArrMT[] = array('id' => $tk['id'], 'name' => $tk['name'], 'area' => $tk['area']);
-        }
-        if ($tk['area'] == "miennam") {
-            $app_list_strings['list_airlinetiket_dom_south'][$tk['id']] = $tk['name'];
-            $airArrMN[] = array('id' => $tk['id'], 'name' => $tk['name'], 'area' => $tk['area']);
-        }
+    $ss->assign("ID", $focus->id);
+    if (!empty($focus->type)) {
+        $ss->assign("TYPE", $focus->type);
     }
-    
-    $html .= '<fieldset>';
-    $html .= '<legend><h3>VÉ MÁY BAY</h3></legend>';
-    $html .= '<div>';
-    $html .= '<p>&nbsp; </p>';
-    $html .= '<a class="showdiv"><img src="custom/themes/default/images/btndown.png" width="30" height="30" title="phóng to"/></a> &nbsp; <a class="hidediv"><img src="custom/themes/default/images/btnup.png" width="30" height="30" title="thu nhỏ"/></a>' ;
-    $html .= '<div class="displayandshow">';
-    $html .= '<table width="100%" class="tabForm" id="vemaybay" border="0" cellspacing="0" cellpadding="0">';
-    $html .= '<tfoot>';
-    $html .= '<tr>';
-    $html .= '<th>Tổng cộng</th>';
-    $html .= '<th>&nbsp;</th>';
-    $html .= '<th>&nbsp;</th>';
-    $html .= '<th>&nbsp;</th>';
-    $html .= '<th><input type="text" class="center" name="vemaybay_tongthanhtien" " id="vemaybay_tongthanhtien" value="' . $noidung->vemaybay_tongthanhtien . '"></th>';
-    $html .= '<th>&nbsp;</th>';
-    $html .= '<th><input type="text" class="center" name="vemaybay_tongthue"  id="vemaybay_tongthue" value="' . $noidung->vemaybay_tongthue . '"/></th>';
-    $html .= '<th>&nbsp;</th>';
-    $html .= '</tr>';
-    $html .= '</tfoot>';
-    $html .= '<tbody>';
-    // chuyến bay tại miền bắc
-    $vmb_mienbac = $noidung->vmb_mienbac;
-    if (count($vmb_mienbac) == 0) {
-        if (count($airArrMB) > 0) {
-            $html .= '<tr>';
-            $html .= '<td colspan="7">';
-            $html .= '<fieldset><legend><h3>MIỀN BẮC</h3></legend>';
-            $html .= '<table width="100%" class="table_clone" id="vemaybay_mb" border="0" cellspacing="0" cellpadding="0">';
-            $html .= '<thead>';
-            $html .= '<tr>';
-            $html .= '<th>Tên chuyến bay</th>';
-            $html .= '<th>Đơn giá</th>';
-            $html .= '<th>Số lượng</th>';
-            $html .= '<th>FOC</th>';
-            $html .= '<th>Thành tiền</th>';
-            $html .= '<th>Thuế suất</th>';
-            $html .= '<th>Thuế</th>';
-            $html .= '<th>&nbsp;</th>';
-            $html .= '</tr>';
-            $html .= '</thead>'; 
-            $html .= '<tfoot>'; 
-            $html .= '<tr>';
-            $html .= '<th>&nbsp;</th>';
-            $html .= '<th>&nbsp;</th>';
-            $html .= '<th>&nbsp;</th>';
-            $html .= '<th>&nbsp;</th>';
-            $html .= '<th><input type="text" class="center" name="vemaybay_mb_tongthanhtien" id="vemaybay_mb_tongthanhtien"></th>';
-            $html .= '<th>&nbsp;</th>';
-            $html .= '<th><input type="text" class="center" name="vemaybay_mb_tongthue"  id="vemaybay_mb_tongthue"/></th>';
-            $html .= '<th>&nbsp;</th>';
-            $html .= '</tr>';
-            $html .= '</tfoot>';
-            $focus->noidung->vemaybay_mb_tongthanhtien = 0;
-            $focus->noidung->vemaybay_mb_tongthue = 0;
-            
-            $html .= '<tbody>';
-            $vmb_mb = 1;
-            foreach ($airArrMB as $airtk) {
-                $html .= '<tr>';
-                $html .= '<td class="dataField"><select name="vemaybay_mb[]" id="vemaybay_mb' . $vmb_mb . '">' . get_select_options_with_id($app_list_strings['list_airlinetiket_dom_north'], $airtk['id']) . '</select> </td>';
-                $html .= '<td class="dataField"><input type="text" class="dongia center" name="vemaybay_mb_dongia[]" id="vemaybay_mb_dongia' . $vmb_mb . '" value="0" /></td>';
-                $html .= '<td class="dataField"><input type="text" class="soluong vemaybay_soluong center highlight" name="vemaybay_mb_soluong[]" id="vemaybay_mb_soluong' . $vmb_mb . '" value="'.$focus->sokhach+$focus->thuesuathoa.'" /></td>';
-                $html .= '<td class="dataField"><input type="text" class="foc center" name="vemaybay_mb_foc[]" id="vemaybay_mb_foc' . $vmb_mb . '" value="0" /></td>';
-                $html .= '<td class="dataField"><input type="text" class="thanhtien center" name="vemaybay_mb_thanhtien[]" id="vemaybay_mb_thanhtien' . $vmb_mb . '" value="0" /></td>';
-                $html .= '<td class="dataField"><input type="text" class="thuesuat center" name="vemaybay_mb_thuesuat[]" id="vemaybay_mb_thuesuat' . $vmb_mb . '" value="10" /></td>';
-                $html .= '<td class="dataField"><input type="text" class="vat center" name="vemaybay_mb_vat[]" id="vemaybay_mb_vat' . $vmb_mb . '" value="0" /></td>';
-                $html .= '<td class="dataField"><input type="button" class="btnAddRow" value="Add row"/> <input type="button" class="btnDelRow" value="Delete row"/></td>';
-                $html .= '</tr>';
-                $vmb_mb++;
-            }
-            $html .= '</tbody>';
-            $html .= '</table>';
-            $html .= '</fieldset>';
-            $html .= '</td>';
-            $html .= '</tr>';
-        }
-    }
-    if (count($vmb_mienbac) > 0) {
-        $html .= '<tr>';
-        $html .= '<td colspan="7">';
-        $html .= '<fieldset><legend><h3>MIỀN BẮC</h3></legend>';
-        $html .= '<table width="100%" class="table_clone" id="vemaybay_mb" border="0" cellspacing="0" cellpadding="0">';
-        $html .= '<thead>';
-        $html .= '<tr>';
-        $html .= '<th>Tên chuyến bay</th>';
-        $html .= '<th>Đơn giá</th>';
-        $html .= '<th>Số lượng</th>';
-        $html .= '<th>FOC</th>';
-        $html .= '<th>Thành tiền</th>';
-        $html .= '<th>Thuế suất</th>';
-        $html .= '<th>Thuế</th>';
-        $html .= '<th>&nbsp;</th>';
-        $html .= '</tr>';
-        $html .= '</thead>';
-        $html .= '<tfoot>';
-        $html .= '<tr>';
-        $html .= '<th>&nbsp;</th>';
-        $html .= '<th>&nbsp;</th>';
-        $html .= '<th>&nbsp;</th>';
-        $html .= '<th>&nbsp;</th>';
-        $html .= '<th><input type="text" class="center" name="vemaybay_mb_tongthanhtien" id="vemaybay_mb_tongthanhtien" value="' . $noidung->vemaybay_mb_tongthanhtien . '"/></th>';
-        $html .= '<th>&nbsp;</th>';
-        $html .= '<th><input type="text" class="center" name="vemaybay_mb_tongthue"  id="vemaybay_mb_tongthue" value="' . $noidung->vemaybay_mb_tongthue . '"/></th>';
-        $html .= '<th>&nbsp;</th>';
-        $html .= '</tr>';
-        $html .= '</tfoot>';
-        
-        
-        $html .= '<tbody>';
-        $vmb_mb = 1;
-        foreach ($vmb_mienbac as $airtkmb) {
-            $html .= '<tr>';
-            $html .= '<td class="dataField"><select name="vemaybay_mb[]" id="vemaybay_mb' . $vmb_mb . '">' . get_select_options_with_id($app_list_strings['list_airlinetiket_dom_north'], $airtkmb->vemaybay_mb) . '</select> </td>';
-            $html .= '<td class="dataField"><input type="text" class="center dongia" name="vemaybay_mb_dongia[]" id="vemaybay_mb_dongia' . $vmb_mb . '" value="' . $airtkmb->vemaybay_mb_dongia . '" /></td>';
-            $html .= '<td class="dataField"><input type="text" class="center vemaybay_soluong soluong highlight" name="vemaybay_mb_soluong[]" id="vemaybay_mb_soluong' . $vmb_mb . '" value="' . $airtkmb->vemaybay_mb_soluong . '" /></td>';
-            $html .= '<td class="dataField"><input type="text" class="center foc" name="vemaybay_mb_foc[]" id="vemaybay_mb_foc' . $vmb_mb . '" value="' . $airtkmb->vemaybay_mb_foc . '" /></td>';
-            $html .= '<td class="dataField"><input type="text" class="center thanhtien" name="vemaybay_mb_thanhtien[]" id="vemaybay_mb_thanhtien' . $vmb_mb . '" value="' . $airtkmb->vemaybay_mb_thanhtien . '" /></td>';
-            $html .= '<td class="dataField"><input type="text" class="center thuesuat" name="vemaybay_mb_thuesuat[]" id="vemaybay_mb_thuesuat' . $vmb_mb . '" value="' . $airtkmb->vemaybay_mb_thuesuat . '" /></td>';
-            $html .= '<td class="dataField"><input type="text" class="center vat" name="vemaybay_mb_vat[]" id="vemaybay_mb_vat' . $vmb_mb . '" value="' . $airtkmb->vemaybay_mb_vat . '" /></td>';
-            $html .= '<td class="dataField"><input type="button" class="btnAddRow" value="Add row"/> <input type="button" class="btnDelRow" value="Delete row"/></td>';
-            $html .= '</tr>';
-            $vmb_mb++;
-        }
-        $html .= '</tbody>';
-        $html .= '</table>';
-        $html .= '</fieldset>';
-        $html .= '</td>';
-        $html .= '</tr>';
+    else {
+        $type = $_REQUEST['type'];
+        $ss->assign("TYPE", $type);
     }
 
+    $width = '<script> window.screen.availWidth </script>';
+    $height = '<script> window.screen.height </script>';
 
-    // chuyến bay tại miền trung
-    $vmb_mientrung = $noidung->vmb_mientrung;
-    if (count($vmb_mientrung) == 0) {
-        if (count($airArrMT) > 0) {
-            $html .= '<tr>';
-            $html .= '<td colspan="7">';
-            $html .= '<fieldset><legend><h3>MIỀN TRUNG</h3></legend>';
-            $html .= '<table width="100%" class="table_clone" id="vemaybay_mt" border="0" cellspacing="0" cellpadding="0">';
-            $html .= '<thead>';
-            $html .= '<tr>';
-            $html .= '<th>Tên chuyến bay</th>';
-            $html .= '<th>Đơn giá</th>';
-            $html .= '<th>Số lượng</th>';
-            $html .= '<th>FOC</th>';
-            $html .= '<th>Thành tiền</th>';
-            $html .= '<th>Thuế suất</th>';
-            $html .= '<th>Thuế</th>';
-            $html .= '<th>&nbsp;</th>';
-            $html .= '</tr>';
-            $html .= '</thead>'; 
-            $html .= '<tfoot>'; 
-            $html .= '<tr>';
-            $html .= '<th>&nbsp;</th>';
-            $html .= '<th>&nbsp;</th>';
-            $html .= '<th>&nbsp;</th>';
-            $html .= '<th>&nbsp;</th>';
-            $html .= '<th><input type="text" class="center" name="vemaybay_mt_tongthanhtien" id="vemaybay_mt_tongthanhtien"/></th>';
-            $html .= '<th>&nbsp;</th>';
-            $html .= '<th><input type="text" class="center" name="vemaybay_mt_tongthue"  id="vemaybay_mt_tongthue"/></th>';
-            $html .= '<th>&nbsp;</th>';
-            $html .= '</tr>';
-            $html .= '</tfoot>';
-            $html .= '<tbody>';
-            $vmb_mt = 1;
-            foreach ($airArrtk as $airtk) {
-                $html .= '<tr>';
-                $html .= '<td class="dataField"><select name="vemaybay_mt[]" id="vemaybay_mt' . $vmb_mt . '">' . get_select_options_with_id($app_list_strings['list_airlinetiket_dom_middle'], $airtk['id']) . '</select> </td>';
-                $html .= '<td class="dataField"><input type="text" class="dongia center" name="vemaybay_mt_dongia[]" id="vemaybay_mt_dongia'.$vmb_mt.'" value="0" /></td>';
-                $html .= '<td class="dataField"><input type="text" class="soluong vemaybay_soluong center highlight" name="vemaybay_mt_soluong[]" id="vemaybay_mt_soluong'.$vmb_mt .'" value="'.$focus->sokhach+$focus->thuesuathoa.'" /></td>';
-                $html .= '<td class="dataField"><input type="text" class="foc center" name="vemaybay_mt_foc[]" id="vemaybay_mt_foc' . $vmb_mt . '" value="0" /></td>';
-                $html .= '<td class="dataField"><input type="text" class="thanhtien center" name="vemaybay_mt_thanhtien[]" id="vemaybay_mt_thanhtien' . $vmb_mt . '" value="0" /></td>';
-                $html .= '<td class="dataField"><input type="text" class="thuesuat center" name="vemaybay_mt_thuesuat[]" id="vemaybay_mt_thuesuat' . $vmb_mt . '" value="10" /></td>';
-                $html .= '<td class="dataField"><input type="text" class="vat center" name="vemaybay_mt_vat[]" id="vemaybay_mt_vat' . $vmb_mt . '" value="0" /></td>';
-                $html .= '<td class="dataField"><input type="button" class="btnAddRow" value="Add row"/> <input type="button" class="btnDelRow" value="Delete row"/></td>';
-                $html .= '</tr>';
-                $vmb_mt++;
-            }
-            $html .= '</tbody>';
-            $html .= '</table>';
-            $html .= '</fieldset>';
-            $html .= '</td>';
-            $html .= '</tr>';
-        }
-    }
-    if (count($vmb_mientrung) > 0) {
-        $html .= '<tr>';
-        $html .= '<td colspan="7">';
-        $html .= '<fieldset><legend><h3>MIỀN TRUNG</h3></legend>';
-        $html .= '<table width="100%" class="table_clone" id="vemaybay_mt" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-        $html .= '<thead>';
-        $html .= '<tr>';
-        $html .= '<th>Tên chuyến bay</th>';
-        $html .= '<th>Đơn giá</th>';
-        $html .= '<th>Số lượng</th>';
-        $html .= '<th>FOC</th>';
-        $html .= '<th>Thành tiền</th>';
-        $html .= '<th>Thuế suất</th>';
-        $html .= '<th>Thuế</th>';
-        $html .= '<th>&nbsp;</th>';
-        $html .= '</tr>';
-        $html .= '</thead>'; 
-        $html .= '<tfoot>'; 
-        $html .= '<tr>';
-        $html .= '<th>&nbsp;</th>';
-        $html .= '<th>&nbsp;</th>';
-        $html .= '<th>&nbsp;</th>';
-        $html .= '<th>&nbsp;</th>';
-        $html .= '<th><input type="text" class="center" name="vemaybay_mt_tongthanhtien" id="vemaybay_mt_tongthanhtien" value="' . $noidung->vemaybay_mt_tongthanhtien . '"/></th>';
-        $html .= '<th>&nbsp;</th>';
-        $html .= '<th><input type="text" class="center" name="vemaybay_mt_tongthue"  id="vemaybay_mt_tongthue" value="' . $noidung->vemaybay_mt_tongthue . '"/></th>';
-        $html .= '<th>&nbsp;</th>';
-        $html .= '</tr>';
-        $html .= '</tfoot>';
-        $html .= '<tbody>';
-        $vmb_mt = 1;
-        foreach ($vmb_mientrung as $airtkmt) {
-            $html .= '<tr>';
-            $html .= '<td class="dataField"><select name="vemaybay_mt[]" id="vemaybay_mt' . $vmb_mt . '">' . get_select_options_with_id($app_list_strings['list_airlinetiket_dom_middle'], $airtkmt->vemaybay_mt) . '</select> </td>';
-            $html .= '<td class="dataField"><input type="text" class="center dongia" name="vemaybay_mt_dongia[]" id="vemaybay_mt_dongia'.$vmb_mt .'" value="'.$airtkmt->vemaybay_mt_dongia.'" /></td>';
-            $html .= '<td class="dataField"><input type="text" class="center vemaybay_soluong soluong highlight" name="vemaybay_mt_soluong[]" id="vemaybay_mt_soluong' . $vmb_mt . '" value="' . $airtkmt->vemaybay_mt_soluong . '" /></td>';
-            $html .= '<td class="dataField"><input type="text" class="center foc" name="vemaybay_mt_foc[]" id="vemaybay_mt_foc' . $vmb_mt . '" value="' . $airtkmt->vemaybay_mt_foc . '" /></td>';
-            $html .= '<td class="dataField"><input type="text" class="center thanhtien" name="vemaybay_mt_thanhtien[]" id="vemaybay_mt_thanhtien' . $vmb_mt . '" value="' . $airtkmt->vemaybay_mt_thanhtien . '" /></td>';
-            $html .= '<td class="dataField"><input type="text" class="center thuesuat" name="vemaybay_mt_thuesuat[]" id="vemaybay_mt_thuesuat' . $vmb_mt . '" value="' . $airtkmt->vemaybay_mt_thuesuat . '" /></td>';
-            $html .= '<td class="dataField"><input type="text" class="center vat" name="vemaybay_mt_vat[]" id="vemaybay_mt_vat' . $vmb_mt . '" value="' . $airtkmt->vemaybay_mt_vat . '" /></td>';
-            $html .= '<td class="dataField"><input type="button" class="btnAddRow" value="Add row"/> <input type="button" class="btnDelRow" value="Delete row"/></td>';
-            $html .= '</tr>';
-            $vmb_mt++;
-        }
-        $html .= '</tbody>';
-        $html .= '</table>';
-        $html .= '</fieldset>';
-        $html .= '</td>';
-        $html .= '</tr>';
-    }
-    // chuyến bay tại miền nam
+    $temp = base64_decode($focus->content);
+    $noidung = json_decode($temp);
+    $ss->assign("name", $focus->name);
+    $ss->assign("TOUR_NAME", $focus->worksheet_tour_name);
+    $ss->assign("TOUR_ID", $focus->worksheet_tour_id);
+    $ss->assign("TOURCODE", $focus->tourcode);
+    $ss->assign("DURATION", $focus->duration);
+    $ss->assign("MADETOUR_NAME", $focus->groupprograorksheets_name);
+    $ss->assign("MADETOUR_ID", $focus->groupprogrd737rograms_ida);
+    $ss->assign("THUESUATHOA", $focus->thuesuathoa);
+    $ss->assign("SOKHACH", $focus->sokhach);
+    $ss->assign("TYLE", $focus->tyle);
+    $ss->assign("VERSION", $focus->version);
+    $ss->assign("NOTE", $focus->note);
+    $ss->assign("LOTRINH", $focus->lotrinh);
+    $ss->assign('TRANSPORT', $focus->transport);
+    $ss->assign('huongdanvien', $noidung->huongdanvien);
+    $ss->assign('ngaybatdau', $noidung->ngaybatdau);
+    $ss->assign('ngayketthuc', $noidung->ngayketthuc);
+    $ss->assign('chiphikhac_tongcong', $noidung->chiphikhac_tongcong);
+    $ss->assign('chiphikhac_tongthue', $noidung->chiphikhac_tongthue);
 
-    $vmb_miennam = $noidung->vmb_miennam;
-    if (count($vmb_miennam) == 0) {
-        if (count($airArrMN) > 0) {
-            $html .= '<tr>';
-            $html .= '<td colspan="7">';
-            $html .= '<fieldset><legend><h3>MIỀN NAM</h3></legend>';
-            $html .= '<table width="100%" class="table_clone" id="vemaybay_mn" border="0" cellspacing="0" cellpadding="0">';
-            $html .= '<thead>';
-            $html .= '<tr>';
-            $html .= '<th>Tên chuyến bay</th>';
-            $html .= '<th>Đơn giá</th>';
-            $html .= '<th>Số lượng</th>';
-            $html .= '<th>FOC</th>';
-            $html .= '<th>Thành tiền</th>';
-            $html .= '<th>Thuế suất</th>';
-            $html .= '<th>Thuế</th>';
-            $html .= '<th>&nbsp;</th>';
-            $html .= '</tr>';
-            $html .= '</thead>';
-            $html .= '<tfoot>';
-            $html .= '<tr>';
-            $html .= '<th>&nbsp;</th>';
-            $html .= '<th>&nbsp;</th>';
-            $html .= '<th>&nbsp;</th>';
-            $html .= '<th>&nbsp;</th>';
-            $html .= '<th><input type="text" class="center" name="vemaybay_mn_tongthanhtien" id="vemaybay_mn_tongthanhtien"></th>';
-            $html .= '<th>&nbsp;</th>';
-            $html .= '<th><input type="text" class="center" name="vemaybay_mn_tongthue"  id="vemaybay_mn_tongthue"</th>';
-            $html .= '<th>&nbsp;</th>';
-            $html .= '</tr>';
-            $html .= '</tfoot>';
-            $html .= '<tbody>';
-            $vmb_mn = 1;
-            foreach ($airArrMN as $airtk) {
-                $html .= '<tr>';
-                $html .= '<td class="dataField"><select name="vemaybay_mn[]" id="vemaybay_mn' . $vmb_mn . '">' . get_select_options_with_id($app_list_strings['list_airlinetiket_dom_south'], $airtk['id']) . '</select> </td>';
-                $html .= '<td class="dataField"><input type="text" class="dongia center" name="vemaybay_mn_dongia[]" id="vemaybay_mn_dongia' . $vmb_mn . '" value="0" /></td>';
-                $html .= '<td class="dataField"><input type="text" class="soluong vemaybay_soluong center highlight" name="vemaybay_mn_soluong[]" id="vemaybay_mn_soluong'.$vmb_mn .'" value="'.$focus->sokhach+$focus->thuesuathoa.'" /></td>';
-                $html .= '<td class="dataField"><input type="text" class="foc center" name="vemaybay_mn_foc[]" id="vemaybay_mn_foc' . $vmb_mn . '" value="0" /></td>';
-                $html .= '<td class="dataField"><input type="text" class="thanhtien center" name="vemaybay_mn_thanhtien[]" id="vemaybay_mn_thanhtien' . $vmb_mn . '" value="0" /></td>';
-                $html .= '<td class="dataField"><input type="text" class="thuesuat center" name="vemaybay_mn_thuesuat[]" id="vemaybay_mn_thuesuat' . $vmb_mn . '" value="10" /></td>';
-                $html .= '<td class="dataField"><input type="text" class="vat center" name="vemaybay_mn_vat[]" id="vemaybay_mn_vat' . $vmb_mn . '" value="0" /></td>';
-                $html .= '<td class="dataField"><input type="button" class="btnAddRow" value="Add row"/> <input type="button" class="btnDelRow" value="Delete row"/></td>';
-                $html .= '</tr>';
-                $vmb_mn++;
-            }
-            $focus->noidung->vmb_miennam = $VMB_MN;
-            $html .= '</tbody>';
-            $html .= '</table>';
-            $html .= '</fieldset>';
-            $html .= '</td>';
-            $html .= '</tr>';
-        }
-    }
-    if (count($vmb_miennam) > 0) {
-        $html .= '<tr>';
-        $html .= '<td colspan="7">';
-        $html .= '<fieldset><legend><h3>MIỀN NAM</h3></legend>';
-        $html .= '<table width="100%" class="table_clone" id="vemaybay_mn" border="0" cellspacing="0" cellpadding="0">';
-        $html .= '<thead>';
-        $html .= '<tr>';
-        $html .= '<th>Tên chuyến bay</th>';
-        $html .= '<th>Đơn giá</th>';
-        $html .= '<th>Số lượng</th>';
-        $html .= '<th>FOC</th>';
-        $html .= '<th>Thành tiền</th>';
-        $html .= '<th>Thuế suất</th>';
-        $html .= '<th>Thuế</th>';
-        $html .= '<th>&nbsp;</th>';
-        $html .= '</tr>';
-        $html .= '</thead>';
-        $html .= '<tfoot>';
-        $html .= '<tr>';
-        $html .= '<th>&nbsp;</th>';
-        $html .= '<th>&nbsp;</th>';
-        $html .= '<th>&nbsp;</th>';
-        $html .= '<th>&nbsp;</th>';
-        $html .= '<th><input type="text" class="center" name="vemaybay_mn_tongthanhtien" id="vemaybay_mn_tongthanhtien" value="' . $noidung->vemaybay_mn_tongthanhtien . '"></th>';
-        $html .= '<th>&nbsp;</th>';
-        $html .= '<th><input type="text" class="center" name="vemaybay_mn_tongthue"  id="vemaybay_mn_tongthue" value="' . $noidung->vemaybay_mn_tongthue . '"/></th>';
-        $html .= '<th>&nbsp;</th>';
-        $html .= '</tr>';
-        $html .= '</tfoot>';
-        $html .= '<tbody>';
-        $vmb_mn = 1;
-        foreach ($vmb_miennam as $airtkmn) {
-            $html .= '<tr>';
-            $html .= '<td class="dataField"><select name="vemaybay_mn[]" id="vemaybay_mn' . $vmb_mn . '">' . get_select_options_with_id($app_list_strings['list_airlinetiket_dom_south'], $airtkmn->vemaybay_mn) . '</select> </td>';
-            $html .= '<td class="dataField"><input type="text" class="center dongia" name="vemaybay_mn_dongia[]" id="vemaybay_mn_dongia' . $vmb_mn . '" value="' . $airtkmn->vemaybay_mn_dongia . '" /></td>';
-            $html .= '<td class="dataField"><input type="text" class="center vemaybay_soluong soluong highlight" name="vemaybay_mn_soluong[]" id="vemaybay_mn_soluong' . $vmb_mn . '" value="' . $airtkmn->vemaybay_mn_soluong . '" /></td>';
-            $html .= '<td class="dataField"><input type="text" class="center foc" name="vemaybay_mn_foc[]" id="vemaybay_mn_foc' . $vmb_mn . '" value="' . $airtkmn->vemaybay_mn_foc . '" /></td>';
-            $html .= '<td class="dataField"><input type="text" class="center thanhtien" name="vemaybay_mn_thanhtien[]" id="vemaybay_mn_thanhtien' . $vmb_mn . '" value="' . $airtkmn->vemaybay_mn_thanhtien . '" /></td>';
-            $html .= '<td class="dataField"><input type="text" class="center thuesuat" name="vemaybay_mn_thuesuat[]" id="vemaybay_mn_thuesuat' . $vmb_mn . '" value="' . $airtkmn->vemaybay_mn_thuesuat . '" /></td>';
-            $html .= '<td class="dataField"><input type="text" class="center vat" name="vemaybay_mn_vat[]" id="vemaybay_mn_vat' . $vmb_mn . '" value="' . $airtkmn->vemaybay_mn_vat . '" /></td>';
-            $html .= '<td class="dataField"><input type="button" class="btnAddRow" value="Add row"/> <input type="button" class="btnDelRow" value="Delete row"/></td>';
-            $html .= '</tr>';
-            $vmb_mn++;
-        }
-        $html .= '</tbody>';
-        $html .= '</table>';
-        $html .= '</fieldset>';
-        $html .= '</td>';
-        $html .= '</tr>';
-    } 
-    
-    $html .= '</tbody></table>';
-    $html .= '</div>';
-    $html .= '</div>';
-    $html .= '</fieldset>';
-    
-    // kết thúc phần vé máy bay
 
-    // loading phần nhà hàng
+    $ss->assign('soluongkh1', $noidung->soluongkh1);
+    $ss->assign('soluongkh2', $noidung->soluongkh2);
+    $ss->assign('soluongkh3', $noidung->soluongkh3);
+    $ss->assign('soluongkh4', $noidung->soluongkh4);
+    $ss->assign('soluongkh5', $noidung->soluongkh5);
+    $ss->assign('soluongkh6', $noidung->soluongkh6);
+    $ss->assign('soluongkh7', $noidung->soluongkh7);
+    $ss->assign('soluongkh8', $noidung->soluongkh8);
+    $ss->assign('soluongkh9', $noidung->soluongkh9);
+    $ss->assign('soluongkh10', $noidung->soluongkh10);
+    $ss->assign('soluongkh11', $noidung->soluongkh11);
+    $ss->assign('soluongkh12', $noidung->soluongkh12);
+    $ss->assign('soluongkh13', $noidung->soluongkh13);
+    $ss->assign('soluongkh14', $noidung->soluongkh14);
+    $ss->assign('soluongkh15', $noidung->soluongkh15);
 
-    $nhArr = array();
-    $nhArrMB = array();
-    $nhArrMT = array();
-    $nhArrMN = array();
+    $ss->assign('transfer1', $noidung->transfer1);
+    $ss->assign('transfer2', $noidung->transfer2);
+    $ss->assign('transfer3', $noidung->transfer3);
+    $ss->assign('transfer4', $noidung->transfer4);
+    $ss->assign('transfer5', $noidung->transfer5);
+    $ss->assign('transfer6', $noidung->transfer6);
+    $ss->assign('transfer7', $noidung->transfer7);
+    $ss->assign('transfer8', $noidung->transfer8);
+    $ss->assign('transfer9', $noidung->transfer9);
+    $ss->assign('transfer10', $noidung->transfer10);
+    $ss->assign('transfer11', $noidung->transfer11);
+    $ss->assign('transfer12', $noidung->transfer12);
+    $ss->assign('transfer13', $noidung->transfer13);
+    $ss->assign('transfer14', $noidung->transfer14);
+    $ss->assign('transfer15', $noidung->transfer15);
+    $ss->assign('transfer16', $noidung->transfer16);
+    $ss->assign('transfer17', $noidung->transfer17);
+    $ss->assign('transfer18', $noidung->transfer18);
+    $ss->assign('transfer19', $noidung->transfer19);
+    $ss->assign('transfer20', $noidung->transfer20);
+    $ss->assign('transfer21', $noidung->transfer21);
+    $ss->assign('transfer22', $noidung->transfer22);
+    $ss->assign('transfer23', $noidung->transfer23);
+    $ss->assign('transfer24', $noidung->transfer24);
+    $ss->assign('transfer25', $noidung->transfer25);
+    $ss->assign('transfer26', $noidung->transfer26);
+    $ss->assign('transfer27', $noidung->transfer27);
+    $ss->assign('transfer28', $noidung->transfer28);
+    $ss->assign('transfer29', $noidung->transfer29);
+    $ss->assign('transfer30', $noidung->transfer30);
 
-    $nhArr = $focus->getRestaurantData($focus->worksheet_tour_id);
-    foreach ($nhArr as $arr) {
-        if ($arr['area'] == 'mienbac') {
-            $app_list_strings['list_restaurant_dom_north'][$arr['id']] = $arr['name'];
-            $nhArrMB[] = array('id' => $arr['id'], 'name' => $arr['name'], 'area' => $arr['area']);
-        }
-        if ($arr['area'] == 'mientrung') {
-            $app_list_strings['list_restaurant_dom_middle'][$arr['id']] = $arr['name'];
-            $nhArrMT[] = array('id' => $arr['id'], 'name' => $arr['name'], 'area' => $arr['area']);
-        }
-        if ($arr['area'] == 'miennam') {
-            $app_list_strings['list_restaurant_dom_south'][$arr['id']] = $arr['name'];
-            $nhArrMN[] = array('id' => $arr['id'], 'name' => $arr['name'], 'area' => $arr['area']);
+
+    $ss->assign('transfer_south', $noidung->transfer_south);
+    $ss->assign('transfer_south_km1', $noidung->transfer_south_km1);
+    $ss->assign('transfer_south_km2', $noidung->transfer_south_km2);
+    $ss->assign('transfer_south_km3', $noidung->transfer_south_km3);
+    $ss->assign('transfer_south_km4', $noidung->transfer_south_km4);
+    $ss->assign('transfer_south_km5', $noidung->transfer_south_km5);
+    $ss->assign('transfer_south_km6', $noidung->transfer_south_km6);
+
+    $ss->assign('transfer_middle', $noidung->transfer_middle);
+    $ss->assign('transfer_middle_km1', $noidung->transfer_middle_km1);
+    $ss->assign('transfer_middle_km2', $noidung->transfer_middle_km2);
+    $ss->assign('transfer_middle_km3', $noidung->transfer_middle_km3);
+    $ss->assign('transfer_middle_km4', $noidung->transfer_middle_km4);
+    $ss->assign('transfer_middle_km5', $noidung->transfer_middle_km5);
+    $ss->assign('transfer_middle_km7', $noidung->transfer_middle_km6);
+
+    $ss->assign('transfer_north', $noidung->transfer_north);
+    $ss->assign('transfer_north_km1', $noidung->transfer_north_km1);
+    $ss->assign('transfer_north_km2', $noidung->transfer_north_km2);
+    $ss->assign('transfer_north_km3', $noidung->transfer_north_km3);
+    $ss->assign('transfer_north_km4', $noidung->transfer_north_km4);
+    $ss->assign('transfer_north_km5', $noidung->transfer_north_km5);
+    $ss->assign('transfer_north_km6', $noidung->transfer_north_km6);
+
+    $ss->assign('south_package1', $noidung->south_package1);
+    $ss->assign('south_package2', $noidung->south_package2);
+    $ss->assign('south_package3', $noidung->south_package3);
+    $ss->assign('south_package4', $noidung->south_package4);
+    $ss->assign('south_package5', $noidung->south_package5);
+    $ss->assign('south_package6', $noidung->south_package6);
+
+
+    $ss->assign('middle_package1', $noidung->middle_package1);
+    $ss->assign('middle_package2', $noidung->middle_package2);
+    $ss->assign('middle_package3', $noidung->middle_package3);
+    $ss->assign('middle_package4', $noidung->middle_package4);
+    $ss->assign('middle_package5', $noidung->middle_package5);
+    $ss->assign('middle_package6', $noidung->middle_package6);
+
+
+    $ss->assign('north_package1', $noidung->north_package1);
+    $ss->assign('north_package2', $noidung->north_package2);
+    $ss->assign('north_package3', $noidung->north_package3);
+    $ss->assign('north_package4', $noidung->north_package4);
+    $ss->assign('north_package5', $noidung->north_package5);
+    $ss->assign('north_package6', $noidung->north_package6);
+
+    $ss->assign('boat_sum', $noidung->boat_sum);
+    $ss->assign('boat1', $noidung->boat1);
+    $ss->assign('boat2', $noidung->boat2);
+    $ss->assign('boat3', $noidung->boat3);
+    $ss->assign('boat4', $noidung->boat4);
+    $ss->assign('boat5', $noidung->boat5);
+    $ss->assign('boat6', $noidung->boat6);
+    $ss->assign('boat7', $noidung->boat7);
+    $ss->assign('boat8', $noidung->boat8);
+    $ss->assign('boat9', $noidung->boat9);
+    $ss->assign('boat10', $noidung->boat10);
+    $ss->assign('boat11', $noidung->boat11);
+    $ss->assign('boat12', $noidung->boat12);
+    $ss->assign('boat13', $noidung->boat13);
+    $ss->assign('boat14', $noidung->boat14);
+    $ss->assign('boat15', $noidung->boat15);
+    $ss->assign('boat16', $noidung->boat16);
+    $ss->assign('boat17', $noidung->boat17);
+    $ss->assign('boat18', $noidung->boat18);
+    $ss->assign('boat19', $noidung->boat19);
+    $ss->assign('boat20', $noidung->boat20);
+    $ss->assign('boat21', $noidung->boat21);
+    $ss->assign('boat22', $noidung->boat22);
+    $ss->assign('boat23', $noidung->boat23);
+    $ss->assign('boat24', $noidung->boat24);
+    $ss->assign('boat25', $noidung->boat25);
+    $ss->assign('boat26', $noidung->boat26);
+    $ss->assign('boat27', $noidung->boat27);
+    $ss->assign('boat28', $noidung->boat28);
+    $ss->assign('boat29', $noidung->boat29);
+    $ss->assign('boat30', $noidung->boat30);
+
+    $boat = $noidung->boat;
+    if(count($boat)>0){
+        foreach($boat as $value){
+            $boat_html .='<tr>
+            <td class="dataLabel" style="border-left:1px solid #999"><input name="boat_service[]" type="text" id="boat_service" size="30" value="'.$value->boat_service.'" /></td>
+            <td><input class="calculate boat_price" name="boat_price[]" type="text" id="boat_price" size="10" value="'.$value->boat_price.'" /></td>
+            <td><input class="calculate boat_num" name="boat_num[]" type="text" id="boat_num[]" size="10" value="'.$value->boat_num.'" /></td>
+            <td><input class="calculate boat_money" readonly="true" name="boat_money[]" type="text" id="boat_money" size="10" value="'.$value->boat_money.'" /></td>
+            <td>&nbsp;</td>
+            <td align="center"><input type="button" class="btnAdd" value="Add"/></td>
+            <td align="center"><input type="button" class="btnDel" value="Delete"/></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            </tr>';
         }
     }
     
-    $html .= '<fieldset>';
-    $html .= '<legend><h3>NHÀ HÀNG</h3></legend>';
-    $html .= '<div>';
-    $html .= '<p>&nbsp;</p>'; 
-    $html .= '<a class="showdiv"><img src="custom/themes/default/images/btndown.png" width="30" height="30" title="phóng to"/></a> &nbsp; <a class="hidediv"><img src="custom/themes/default/images/btnup.png" width="30" height="30" title="thu nhỏ"/></a>' ; 
-    $html .= '<div class="displayandshow">';
-    $html .= '<table width="100%" class="tabForm" id="nhahang" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-    $html .= '<tfoot>';
-    $html .= '<tr>';
-    $html .= '<th width="20%">TỔNG CỘNG</th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%" align="center"><input type="text" class="center" name="nhahang_tongthanhtien" size="20"  id="nhahang_tongthanhtien" value="' . $noidung->nhahang_tongthanhtien . '"></th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%" align="center"><input type="text" class="center" name="nhahang_tongthue" size="20"  id="nhahang_tongthue" value="' . $noidung->nhahang_tongthue . '"/></th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '</tr>';
-    $html .= '</tfoot>';
-    $html .= '<tbody>';
-    // lấy danh sách nhà hàng ở miền bắc
+    $ss->assign('count_boat',count($boat));
+    $ss->assign('boat_html', $boat_html);
 
-    $nhahang_mienbac = $noidung->nhahang_mienbac;
-    $html .= '<tr> <td colspan="9">';
-    if (count($nhahang_mienbac) == 0) {
-        if (count($nhArrMB) > 0) {
-//            $html .= '<tr> <td colspan="9">';
-            $html .= '<fieldset >';
-            $html .= '<legend><h3>MIỀN BẮC</h3></legend>';
-            $html .= '<table width="100%" class="table_clone" id="nhahang_mienbac" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-            $html .= '<thead>';
-            $html .= '<tr>';
-            $html .= '<th width="20%">Tên nhà hàng</th>';
-            $html .= '<th width="10%">Ghi chú</th>';
-            $html .= '<th width="10%">Đơn giá</th>';
-            $html .= '<th width="10%">Số lượng</th>';
-            $html .= '<th width="10%">Số bữa ăn</th>';
-            $html .= '<th width="10%">FOC</th>';
-            $html .= '<th width="10%">Thành tiền</th>';
-            $html .= '<th width="10%">Thuế suất</th>';
-            $html .= '<th width="10%">Thuế</th>';
-            $html .= '<th width="10%">&nbsp;</th>';
-            $html .= '</tr>';
 
-            $html .= '</thead>';
-            $html .= '<tbody>';
-            $nh_mb = 1;
-            foreach ($nhArrMB as $val) {
-                $html .= '<tr>';
-                $html .= '<td width="20%"><select class="servicename" name="nh_id_mb[]" id="nh_id_mb'.$nh_mb.'">' . get_select_options_with_id($app_list_strings['list_restaurant_dom_north'], $val['id']) . ' </select> <input class="service_name" type="hidden" name="nh_name_mb[]" id="nh_name_mb' . $nh_mb . '" value="' . $val['name'] . '"/> </td>';
-                $html .= '<td width="10%" class="dataField"><select class="ghichu" name="nh_ghichu_mb[]" id="nh_ghichu_mb' . $nh_mb . '">'.get_select_options($app_list_strings['workshet_notes_type_dom'],"").'</td>';
-                $html .= '<td width="10%" class="dataField"><input size="10" class="dongia center" name="nh_dongia_mb[]" type="text" id="nh_dongia_mb' . $nh_mb . '" value="0" /></td>';
-                $html .= '<td width="10%" class="dataField"><input class="soluong nhahang_soluong center highlight" name="nh_soluong_mb[]" type="text" id="nh_soluong_mb' . $nh_mb . '" size="10" value="'.$focus->sokhach+$focus->thuesuathoa.'"/></td>';
-                $html .= '<td width="10%" class="dataField"><input class="songay center" name="nh_songay_mb[]" type="text" id="nh_songay_mb' . $nh_mb . '" size="10" value="0"/></td>';
-                $html .= '<td width="10%" class="dataField"><input class="foc center" name="nh_foc_mb[]" type="text" id="nh_foc_mb' . $nh_mb . '" size="10" value="0" /></td>';
-                $html .= '<td width="10%" class="dataField"><input class="thanhtien center" name="nh_thanhtien_mb[]" type="text" id="nh_thanhtien_mb' . $nh_mb . '" size="10" value="0" /></td>';
-                $html .= '<td width="10%" class="dataField"><input class="thuesuat center" name="nh_thuexuat_mb[]" type="text" id="nh_thuexuat_mb' . $nh_mb . '" size="10" value="10" /></td>';
-                $html .= '<td width="10%" class="dataField"><input class="vat center" name="nh_thue_mb[]" type="text" id="nh_thue_mb' . $nh_mb . '" size="10" value="0" /></td>';
-                $html .= '<td width="10%"><input type="button" class="btnAddRow" value="Add Row"/><input type="button" class="btnDelRow" value="Delete Row"/></td>';
-                $html .= '</tr> ';
-                $nh_mb++;
-            }
-            $html .= '</tbody>';
-            $html .= '<tfoot>';
-            $html .= '<tr>';
-            $html .= '<th width="20%">&nbsp;</th>';
-            $html .= '<th width="10%">&nbsp;</th>';
-            $html .= '<th width="10%">&nbsp;</th>';
-            $html .= '<th width="10%">&nbsp;</th>';
-            $html .= '<th width="10%">&nbsp;</th>';
-            $html .= '<th width="10%">&nbsp;</th>';
-            $html .= '<th width="10%" align="center"><input type="text" class="center" name="nhahang_tongthanhtien_mienbac" size="10" id="nhahang_tongthanhtien_mienbac"></th>';
-            $html .= '<th width="10%">&nbsp;</th>';
-            $html .= '<th width="10%" align="center"><input type="text" class="center"  name="nhahang_tongthue_mienbac" size="10" id="nhahang_tongthue_mienbac"/></th>';
-            $html .= '<th width="10%">&nbsp;</th>';
-            $html .= '</tr>';
-            $html .= '</tfoot>';
-            $html .= '</table>';
-            $html .= '</fieldset>';
-            $html .= '</td></tr>';
+
+
+    $ss->assign('guide_sum', $noidung->guide_sum);
+    $ss->assign('guide1', $noidung->guide1);
+    $ss->assign('guide2', $noidung->guide2);
+    $ss->assign('guide3', $noidung->guide3);
+    $ss->assign('guide4', $noidung->guide4);
+    $ss->assign('guide5', $noidung->guide5);
+    $ss->assign('guide6', $noidung->guide6);
+    $ss->assign('guide7', $noidung->guide7);
+    $ss->assign('guide8', $noidung->guide8);
+    $ss->assign('guide9', $noidung->guide9);
+    $ss->assign('guide10', $noidung->guide10);
+    $ss->assign('guide11', $noidung->guide11);
+    $ss->assign('guide12', $noidung->guide12);
+    $ss->assign('guide13', $noidung->guide13);
+    $ss->assign('guide14', $noidung->guide14);
+    $ss->assign('guide15', $noidung->guide15);
+    $ss->assign('guide16', $noidung->guide16);
+    $ss->assign('guide17', $noidung->guide17);
+    $ss->assign('guide18', $noidung->guide18);
+    $ss->assign('guide19', $noidung->guide19);
+    $ss->assign('guide20', $noidung->guide20);
+    $ss->assign('guide21', $noidung->guide21);
+    $ss->assign('guide22', $noidung->guide22);
+    $ss->assign('guide23', $noidung->guide23);
+    $ss->assign('guide24', $noidung->guide24);
+    $ss->assign('guide25', $noidung->guide25);
+    $ss->assign('guide26', $noidung->guide26);
+    $ss->assign('guide27', $noidung->guide27);
+    $ss->assign('guide28', $noidung->guide28);
+    $ss->assign('guide29', $noidung->guide29);
+    $ss->assign('guide30', $noidung->guide30);
+
+
+    $ss->assign('guide_south_price', $noidung->guide_south_price);
+    $ss->assign('guide_south_num', $noidung->guide_south_num);
+    $ss->assign('guide_south_money', $noidung->guide_south_money);
+    $ss->assign('guide_middle_price', $noidung->guide_middle_price);
+    $ss->assign('guide_middle_num', $noidung->guide_middle_num);
+    $ss->assign('guide_middle_money', $noidung->guide_middle_money);
+    $ss->assign('guide_north_price', $noidung->guide_north_price);
+    $ss->assign('guide_north_num', $noidung->guide_north_num);
+    $ss->assign('guide_north_money', $noidung->guide_north_money);
+
+
+    $ss->assign('group_sum', $noidung->group_sum);
+    $ss->assign('group1', $noidung->group1);
+    $ss->assign('group2', $noidung->group2);
+    $ss->assign('group3', $noidung->group3);
+    $ss->assign('group4', $noidung->group4);
+    $ss->assign('group5', $noidung->group5);
+    $ss->assign('group6', $noidung->group6);
+    $ss->assign('group7', $noidung->group7);
+    $ss->assign('group8', $noidung->group8);
+    $ss->assign('group9', $noidung->group9);
+    $ss->assign('group10', $noidung->group10);
+    $ss->assign('group11', $noidung->group11);
+    $ss->assign('group12', $noidung->group12);
+    $ss->assign('group13', $noidung->group13);
+    $ss->assign('group14', $noidung->group14);
+    $ss->assign('group15', $noidung->group15);
+    $ss->assign('group16', $noidung->group16);
+    $ss->assign('group17', $noidung->group17);
+    $ss->assign('group18', $noidung->group18);
+    $ss->assign('group19', $noidung->group19);
+    $ss->assign('group20', $noidung->group20);
+    $ss->assign('group21', $noidung->group21);
+    $ss->assign('group22', $noidung->group22);
+    $ss->assign('group23', $noidung->group23);
+    $ss->assign('group24', $noidung->group24);
+    $ss->assign('group25', $noidung->group25);
+    $ss->assign('group26', $noidung->group26);
+    $ss->assign('group27', $noidung->group27);
+    $ss->assign('group28', $noidung->group28);
+    $ss->assign('group29', $noidung->group29);
+    $ss->assign('group30', $noidung->group30);
+
+    $group1_fit = $noidung->group1_fit;
+    if(count($group1_fit) >0){
+        foreach($group1_fit as $value){
+            $group1_html .= '<tr>
+            <td style="border-left:1px solid #999"><input name="group1_service[]" type="text" id="group1_service[]" size="30" value="'.$value->group1_service.'" /></td>
+            <td><input class="calculate group_price"  name="group1_price[]" type="text" id="group1_price" size="10" value="'.$value->group1_price.'" /></td>
+            <td><input class="calculate group_num"  name="group1_num[]" type="text" id="group1_num" size="10" value="'.$value->group1_num.'" /></td>
+            <td><input class="calculate group_money" readonly="readonly" name="group1_money[]" type="text" id="group1_money" size="10" value="'.$value->group1_money.'" /></td>
+            <td>&nbsp;</td>
+            <td align="center" valign="middle"><input type="button" class="btnAdd" value="Add"/></td>
+            <td align="center" valign="middle"><input type="button" class="btnDel" value="Delete"/></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            </tr>';
         }
-
     }
-    if (count($nhahang_mienbac) > 0) {
-        $html .= '<fieldset>';
-        $html .= '<legend><h3>MIỀN BẮC</h3></legend>';
-        $html .= '<table width="100%" class="table_clone" id="nhahang_mienbac" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-        $html .= '<thead>';
-        $html .= '<tr>';
-        $html .= '<th width="20%">Tên nhà hàng</th>';
-        $html .= '<th width="10%">Ghi chú</th>';
-        $html .= '<th width="10%">Đơn giá</th>';
-        $html .= '<th width="10%">Số lượng</th>';
-        $html .= '<th width="10%">Số bữa ăn</th>';
-        $html .= '<th width="10%">FOC</th>';
-        $html .= '<th width="10%">Thành tiền</th>';
-        $html .= '<th width="10%">Thuế suất</th>';
-        $html .= '<th width="10%">Thuế</th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '</tr>';
-        $html .= '</thead>';
-        $html .= '<tfoot>';
-        $html .= '<tr>';
-        $html .= '<td>&nbsp;</td>';
-        $html .= '<td>&nbsp;</td>';
-        $html .= '<td>&nbsp;</td>';
-        $html .= '<td>&nbsp;</td>';
-        $html .= '<td>&nbsp;</td>';
-        $html .= '<td>&nbsp;</td>';
-        $html .= '<td width="10%" align="center"><input type="text" class="center" name="nhahang_tongthanhtien_mienbac" size="15" id="nhahang_tongthanhtien_mienbac" value="' . $noidung->nhahang_tongthanhtien_mienbac . '"/></td>';
-        $html .= '<td>&nbsp;</td>';
-        $html .= '<td width="10%" align="center"><input type="text" class="center" name="nhahang_tongthue_mienbac" size="15" id="nhahang_tongthue_mienbac" value="' . $noidung->nhahang_tongthue_mienbac . '"/></td>';
-        $html .= '<td>&nbsp;</td>';
-        $html .= '</tr>';
-        $html .= '</tfoot>';
-        $html .= '<tbody>';
-        $nh_mb = 1;
-        foreach ($nhahang_mienbac as $valmb) {
-            $html .= '<tr>';
-            $html .= '<td width="20%"><select class="servicename" name="nh_id_mb[]" id="nh_id_mb' . $nh_mb . '">' . get_select_options_with_id($app_list_strings['list_restaurant_dom_north'], $valmb->nh_id) . ' </select> <input class="service_name" type="hidden" name="nh_name_mb[]" id="nh_name_mb' . $nh_mb . '" value="' . $valmb->nh_name . '"/>  </td>';
-            $html .= '<td width="10%" class="dataField"><select class="ghichu" name="nh_ghichu_mb[]" id="nh_ghichu_mb' . $nh_mb . '">' .get_select_options($app_list_strings['workshet_notes_type_dom'], $valmb->nh_ghichu_mb).'</select></td>';
-            $html .= '<td width="10%" class="dataField"><input size="10" class="dongia center" name="nh_dongia_mb[]" type="text" id="nh_dongia_mb' . $nh_mb . '" value="' . $valmb->nh_dongia_mb . '" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="soluong nhahang_soluong center highlight" name="nh_soluong_mb[]" type="text" id="nh_soluong_mb' . $nh_mb . '" size="10" value="' . $valmb->nh_soluong_mb . '" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="songay center" name="nh_songay_mb[]" type="text" id="nh_songay_mb' . $nh_mb . '" size="10" value="' . $valmb->nh_songay_mb . '" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="foc center" name="nh_foc_mb[]" type="text" id="nh_foc_mb' . $nh_mb . '" size="10" value="' . $valmb->nh_foc_mb . '" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="thanhtien center" name="nh_thanhtien_mb[]" type="text" id="nh_thanhtien_mb' . $nh_mb . '" size="10" value="' . $valmb->nh_thanhtien_mb . '" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="thuesuat center" name="nh_thuexuat_mb[]" type="text" id="nh_thuexuat_mb' . $nh_mb . '" size="10" value="' . $valmb->nh_thuexuat_mb . '" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="vat center" name="nh_thue_mb[]" type="text" id="nh_thue_mb' . $nh_mb . '" size="10" value="' . $valmb->nh_thue_mb . '" /></td>';
-            $html .= '<td width="10%" class="dataField"><input type="button" class="btnAddRow" value="Add Row"/><input type="button" class="btnDelRow" value="Delete Row"/></td>';
-            $html .= '</tr> ';
-            $nh_mb++;
+    $ss->assign('count_group1_fit',count($group1_fit));
+    $ss->assign('group1_html',$group1_html);
+
+    $group2_fit = $noidung->group2_fit;
+    if(count($group2_fit) >0){
+        foreach($group2_fit as $value){
+            $group2_html .= '<tr>
+            <td style="border-left:1px solid #999"><input name="group2_service[]" type="text" id="group2_service[]" size="30" value="'.$value->group2_service.'" /></td>
+            <td><input class="calculate group_price" name="group2_price[]" type="text" id="group2_price" size="10" value="'.$value->group2_price.'" /></td>
+            <td><input class="calculate group_num" name="group2_num[]" type="text" id="group2_num[]" size="10" value="'.$value->group2_num.'" /></td>
+            <td><input class="calculate group_money" readonly="readonly" name="group2_money[]" type="text" id="group2_money[]" size="10" value="'.$value->group2_money.'" /></td>
+            <td>&nbsp;</td>
+            <td align="center" valign="middle"><input type="button" class="btnAdd" value="Add"/></td>
+            <td align="center" valign="middle"><input type="button" class="btnDel" value="Delete"/></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            </tr>' ;
         }
-        $html .= '</tbody>';
-        $html .= '</table>';
-        $html .= '</fieldset>';
-        $html .= '</td></tr>';
+    }
+
+    $ss->assign('count_group2',count($group2_fit));
+    $ss->assign('group2_html',$group2_html);
+
+
+
+    $ss->assign('entrance_sum', $noidung->entrance_sum);
+    $ss->assign('entrance1', $noidung->entrance1);
+    $ss->assign('entrance2', $noidung->entrance2);
+    $ss->assign('entrance3', $noidung->entrance3);
+    $ss->assign('entrance4', $noidung->entrance4);
+    $ss->assign('entrance5', $noidung->entrance5);
+    $ss->assign('entrance6', $noidung->entrance6);
+    $ss->assign('entrance7', $noidung->entrance7);
+    $ss->assign('entrance8', $noidung->entrance8);
+    $ss->assign('entrance9', $noidung->entrance9);
+    $ss->assign('entrance10', $noidung->entrance10);
+    $ss->assign('entrance11', $noidung->entrance11);
+    $ss->assign('entrance12', $noidung->entrance12);
+    $ss->assign('entrance13', $noidung->entrance13);
+    $ss->assign('entrance14', $noidung->entrance14);
+    $ss->assign('entrance15', $noidung->entrance15);
+    $ss->assign('entrance16', $noidung->entrance16);
+    $ss->assign('entrance17', $noidung->entrance17);
+    $ss->assign('entrance18', $noidung->entrance18);
+    $ss->assign('entrance19', $noidung->entrance19);
+    $ss->assign('entrance20', $noidung->entrance20);
+    $ss->assign('entrance21', $noidung->entrance21);
+    $ss->assign('entrance22', $noidung->entrance22);
+    $ss->assign('entrance23', $noidung->entrance23);
+    $ss->assign('entrance24', $noidung->entrance24);
+    $ss->assign('entrance25', $noidung->entrance25);
+    $ss->assign('entrance26', $noidung->entrance26);
+    $ss->assign('entrance27', $noidung->entrance27);
+    $ss->assign('entrance28', $noidung->entrance28);
+    $ss->assign('entrance29', $noidung->entrance29);
+    $ss->assign('entrance30', $noidung->entrance30);
+
+
+    $entrance = $noidung->entrance;
+    if(count($entrance)>0){
+        foreach($entrance as $value){
+            $html_entrance .= ' <tr>
+            <td style="border-left:1px solid #999"><input name="entrance_service[]" type="text" id="entrance_service[]" value="'.$value->entrance_service.'" size="30" /></td>
+            <td><input class="calculate entrance_price" name="entrance_price[]" type="text" id="entrance_price" size="10" value="'.$value->entrance_price.'" /></td>
+            <td><input class="calculate entrance_num" name="entrance_num[]" type="text" id="entrance_num" size="10" value="'.$value->entrance_num.'" /></td>
+            <td><input class="calculate entrance_money" readonly="readonly" name="entrance_money[]" type="text" id="entrance_money" size="10" value="'.$value->entrance_money.'" /></td>
+            <td>&nbsp;</td>
+            <td align="center" valign="middle"><input type="button" class="btnAdd" value="Add"/></td>
+            <td align="center" valign="middle"><input type="button" class="btnDel" value="Delete"/></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            </tr>';
+        }
+    }
+
+    $ss->assign('count_entrance',count($entrance));
+    $ss->assign('entrance_html', $html_entrance);
+
+    $ss->assign('ticket_sum', $noidung->ticket_sum);
+    $ss->assign('ticket1', $noidung->ticket1);
+    $ss->assign('ticket2', $noidung->ticket2);
+    $ss->assign('ticket3', $noidung->ticket3);
+    $ss->assign('ticket4', $noidung->ticket4);
+    $ss->assign('ticket5', $noidung->ticket5);
+    $ss->assign('ticket6', $noidung->ticket6);
+    $ss->assign('ticket7', $noidung->ticket7);
+    $ss->assign('ticket8', $noidung->ticket8);
+    $ss->assign('ticket9', $noidung->ticket9);
+    $ss->assign('ticket10', $noidung->ticket10);
+    $ss->assign('ticket11', $noidung->ticket11);
+    $ss->assign('ticket12', $noidung->ticket12);
+    $ss->assign('ticket13', $noidung->ticket13);
+    $ss->assign('ticket14', $noidung->ticket14);
+    $ss->assign('ticket15', $noidung->ticket15);
+    $ss->assign('ticket16', $noidung->ticket16);
+    $ss->assign('ticket17', $noidung->ticket17);
+    $ss->assign('ticket18', $noidung->ticket18);
+    $ss->assign('ticket19', $noidung->ticket19);
+    $ss->assign('ticket20', $noidung->ticket20);
+    $ss->assign('ticket21', $noidung->ticket21);
+    $ss->assign('ticket22', $noidung->ticket22);
+    $ss->assign('ticket23', $noidung->ticket23);
+    $ss->assign('ticket24', $noidung->ticket24);
+    $ss->assign('ticket25', $noidung->ticket25);
+    $ss->assign('ticket26', $noidung->ticket26);
+    $ss->assign('ticket27', $noidung->ticket27);
+    $ss->assign('ticket28', $noidung->ticket28);
+    $ss->assign('ticket29', $noidung->ticket29);
+    $ss->assign('ticket30', $noidung->ticket30);
+
+    $ticket = $noidung->ticket;
+    if(count($ticket)>0){
+        foreach($ticket as $value){
+            $html_ticket .= '<tr>
+            <td style="border-left:1px solid #999"><input name="tickets_service[]" type="text" id="tickets_service[]" size="30" value="'.$value->tickets_service.'" /></td>
+            <td><input class="calculate tickets_price" name="tickets_price[]" type="text" id="tickets_price" size="10" value="'.$value->tickets_price.'"/></td>
+            <td><input class="calculate tickets_num" name="tickets_num" type="text" id="tickets_num[]" size="10" value="'.$value->tickets_num.'" /></td>
+            <td><input class="calculate tickets_money" readonly="readonly" name="tickets_money[]" type="text" id="tickets_money" size="10" value="'.$value->tickets_money.'" /></td>
+            <td>&nbsp;</td>
+            <td align="center" valign="middle"><input type="button" class="btnAdd" value="Add"/></td>
+            <td align="center" valign="middle"><input type="button" class="btnDel" value="Delete"/></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            </tr>';
+        }
+    }
+
+    
+    $ss->assign('count_ticket',count($ticket));
+    $ss->assign('html_ticket',$html_ticket);
+
+
+
+    $ss->assign('fit_sum', $noidung->fit_sum);
+    $ss->assign('fit1', $noidung->fit1);
+    $ss->assign('fit2', $noidung->fit2);
+    $ss->assign('fit3', $noidung->fit3);
+    $ss->assign('fit4', $noidung->fit4);
+    $ss->assign('fit5', $noidung->fit5);
+    $ss->assign('fit6', $noidung->fit6);
+    $ss->assign('fit7', $noidung->fit7);
+    $ss->assign('fit8', $noidung->fit8);
+    $ss->assign('fit9', $noidung->fit9);
+    $ss->assign('fit10', $noidung->fit10);
+    $ss->assign('fit11', $noidung->fit11);
+    $ss->assign('fit12', $noidung->fit12);
+    $ss->assign('fit13', $noidung->fit13);
+    $ss->assign('fit14', $noidung->fit14);
+    $ss->assign('fit15', $noidung->fit15);
+    $ss->assign('fit16', $noidung->fit16);
+    $ss->assign('fit17', $noidung->fit17);
+    $ss->assign('fit18', $noidung->fit18);
+    $ss->assign('fit19', $noidung->fit19);
+    $ss->assign('fit20', $noidung->fit20);
+    $ss->assign('fit21', $noidung->fit21);
+    $ss->assign('fit22', $noidung->fit22);
+    $ss->assign('fit23', $noidung->fit23);
+    $ss->assign('fit24', $noidung->fit24);
+    $ss->assign('fit25', $noidung->fit25);
+    $ss->assign('fit26', $noidung->fit26);
+    $ss->assign('fit27', $noidung->fit27);
+    $ss->assign('fit28', $noidung->fit28);
+    $ss->assign('fit29', $noidung->fit29);
+    $ss->assign('fit30', $noidung->fit30);
+
+    $fit1_line = $noidung->fit1_line;
+
+    if(count($fit1_line)>0){
+        foreach($fit1_line as $value){
+            $html_fit1 .= '<tr>
+            <td style="border-left:1px solid #999"><input name="fit1_service[]" type="text" id="fit1_service[]" size="30" value="'.$value->fit1_service.'" /></td>
+            <td><input class="calculate fit_price" name="fit1_price[]" type="text" id="fit1_price" size="10" value="'.$value->fit1_price.'"/></td>
+            <td><input class="calculate fit_num" name="fit1_num[]" type="text" id="fit1_num[]" size="10" value="'.$value->fit1_num.'"/></td>
+            <td><input class="calculate fit_money" readonly="readonly" name="fit1_money[]" type="text" id="fit1_money" size="10" value="'.$value->fit1_money.'" /></td>
+            <td>&nbsp;</td>
+            <td align="center" valign="middle"><input type="button" class="btnAdd" value="Add"/></td>
+            <td align="center" valign="middle"><input type="button" class="btnDel" value="Delete"/></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            </tr>';
+        }
+    }
+
+    $ss->assign('count_fit1',count($fit1_line));
+    $ss->assign('html_fit1',$html_fit1);
+
+    $fit2_line = $noidung->fit2_line;
+    if(count($fit2_line) > 0){
+        foreach($fit2_line as $value){
+            $html_fit2 .= '<tr>
+            <td style="border-left:1px solid #999"><input name="fit2_service[]" type="text" id="fit2_service[]" size="30" value="'.$value->fit2_service.'" /></td>
+            <td><input class="calculate fit_price" name="fit2_price[]" type="text" id="fit2_price" size="10" value="'.$value->fit2_price.'" /></td>
+            <td><input class="calculate fit_num" name="fit2_num[]" type="text" id="fit2_num" size="10" value="'.$value->fit2_num.'" /></td>
+            <td><input class="calculate fit_money" readonly="readonly" name="fit2_money[]" type="text" id="fit2_money" size="10" value="'.$value->fit2_money.'" /></td>
+            <td>&nbsp;</td>
+            <td align="center" valign="middle"><input type="button" class="btnAdd" value="Add"/></td>
+            <td align="center" valign="middle"><input type="button" class="btnDel" value="Delete"/></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            </tr>';
+        }
     }
     
-    // lấy danh sách nhà hàng ở miền trung
-    $nhahang_mientrung = $noidung->nhahang_mientrung;
+    $ss->assign('count_fit2',count($fit2_line));
+    $ss->assign('html_fit2',$html_fit2);
+    $ss->assign('meal1_sum', $noidung->meal1_sum);
+    $ss->assign('meal1_1', $noidung->meal1_1);
+    $ss->assign('meal1_2', $noidung->meal1_2);
+    $ss->assign('meal1_3', $noidung->meal1_3);
+    $ss->assign('meal1_4', $noidung->meal1_4);
+    $ss->assign('meal1_5', $noidung->meal1_5);
+    $ss->assign('meal1_6', $noidung->meal1_6);
+    $ss->assign('meal1_7', $noidung->meal1_7);
+    $ss->assign('meal1_8', $noidung->meal1_8);
+    $ss->assign('meal1_9', $noidung->meal1_9);
+    $ss->assign('meal1_10', $noidung->meal1_10);
+    $ss->assign('meal1_11', $noidung->meal1_11);
+    $ss->assign('meal1_12', $noidung->meal1_12);
+    $ss->assign('meal1_13', $noidung->meal1_13);
+    $ss->assign('meal1_14', $noidung->meal1_14);
+    $ss->assign('meal1_15', $noidung->meal1_15);
+    $ss->assign('meal1_16', $noidung->meal1_16);
+    $ss->assign('meal1_17', $noidung->meal1_17);
+    $ss->assign('meal1_18', $noidung->meal1_18);
+    $ss->assign('meal1_19', $noidung->meal1_19);
+    $ss->assign('meal1_20', $noidung->meal1_20);
+    $ss->assign('meal1_21', $noidung->meal1_21);
+    $ss->assign('meal1_22', $noidung->meal1_22);
+    $ss->assign('meal1_23', $noidung->meal1_23);
+    $ss->assign('meal1_24', $noidung->meal1_24);
+    $ss->assign('meal1_25', $noidung->meal1_25);
+    $ss->assign('meal1_26', $noidung->meal1_26);
+    $ss->assign('meal1_27', $noidung->meal1_27);
+    $ss->assign('meal1_28', $noidung->meal1_28);
+    $ss->assign('meal1_29', $noidung->meal1_29);
+    $ss->assign('meal1_30', $noidung->meal1_30);
 
-    if (count($nhahang_mientrung) == 0) {
-        if (count($nhArrMT) > 0) {
-            $html .= '<tr> <td colspan="9">';
-            $html .= '<fieldset>';
-            $html .= '<legend><h3>MIỀN TRUNG</h3></legend>';
-            $html .= '<table width="100%" class="table_clone" id="nhahang_mientrung" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-            $html .= '<thead>';
-            $html .= '<tr>';
-            $html .= '<th width="20%">Tên nhà hàng</th>';
-            $html .= '<th width="10%">Ghi chú</th>';
-            $html .= '<th width="10%">Đơn giá</th>';
-            $html .= '<th width="10%">Số lượng</th>';
-            $html .= '<th width="10%">Số bữa ăn</th>';
-            $html .= '<th width="10%">FOC</th>';
-            $html .= '<th width="10%">Thành tiền</th>';
-            $html .= '<th width="10%">Thuế suất</th>';
-            $html .= '<th width="10%">Thuế</th>';
-            $html .= '<th width="10%">&nbsp;</th>';
-            $html .= '</tr>';
 
-            $html .= '</thead>';
-            $html .= '<tbody>';
-            $nh_mt = 1;
-            foreach ($nhArrMT as $val) {
-                $html .= '<tr>';
-                $html .= '<td width="20%"><select class="servicename" name="nh_id_mt[]" id="nh_id_mt' . $nh_mt . '">' . get_select_options_with_id($app_list_strings['list_restaurant_dom_middle'], $val['id']) . ' </select> <input class="service_name" type="hidden" name="nh_name_mt[]" id="nh_name_mt'.$nh_mt .'" value="' . $val['name'] . '"/>  </td>';
-                $html .= '<td width="10%" class="dataField" ><select class="ghichu" name="nh_ghichu_mt[]" id="nh_ghichu_mt' . $nh_mt . '">'.get_select_options($app_list_strings['workshet_notes_type_dom'], '').'</select></td>';
-                $html .= '<td width="10%" class="dataField"><input size="10" class="dongia center" name="nh_dongia_mt[]" type="text" id="nh_dongia_mt' . $nh_mt . '" value="0"/></td>';
-                $html .= '<td width="10%" class="dataField"><input class="soluong nhahang_soluong center highlight" name="nh_soluong_mt[]" type="text" id="nh_soluong_mt' . $nh_mt . '" size="10" value="'.$focus->sokhach+$focus->thuesuathoa.'"/></td>';
-                $html .= '<td width="10%" class="dataField"><input class="songay center" name="nh_songay_mt[]" type="text" id="nh_songay_mt' . $nh_mt . '" size="10" value="0"/></td>';
-                $html .= '<td width="10%" class="dataField"><input class="foc center" name="nh_foc_mt[]" type="text" id="nh_foc_mt' . $nh_mt . '" size="10" value="0"/></td>';
-                $html .= '<td width="10%" class="dataField"><input class="thanhtien center" name="nh_thanhtien_mt[]" type="text" id="nh_thanhtien_mt' . $nh_mt . '" size="10" value="0" /></td>';
-                $html .= '<td width="10%" class="dataField"><input class="thuesuat center" name="nh_thuexuat_mt[]" type="text" id="nh_thuexuat_mt' . $nh_mt . '" size="10" value="10" /></td>';
-                $html .= '<td width="10%" class="dataField"><input class="vat center" name="nh_thue_mt[]" type="text" id="nh_thue_mt' . $nh_mt . '" size="10"  value="0"/></td>';
-                $html .= '<td width="10%"><input type="button" class="btnAddRow" value="Add Row"/> <input type="button" class="btnDelRow" value="Delete Row"/></td>';
-                $html .= '</tr> ';
-                $nh_mt++;
-            }
-            $html .= '</tbody>';
-            $html .= '<tfoot>';
-            $html .= '<tr>';
-            $html .= '<th width="20%">&nbsp;</th>';
-            $html .= '<th width="10%">&nbsp;</th>';
-            $html .= '<th width="10%">&nbsp;</th>';
-            $html .= '<th width="10%">&nbsp;</th>';
-            $html .= '<th width="10%">&nbsp;</th>';
-            $html .= '<th width="10%">&nbsp;</th>';
-            $html .= '<th width="10%" align="center"><input type="text" class="center" name="nhahang_tongthanhtien_mientrung" size="10" id="nhahang_tongthanhtien_mientrung"></th>';
-            $html .= '<th width="10%">&nbsp;</th>';
-            $html .= '<th width="10%" align="center"><input type="text" class="center" name="nhahang_tongthue_mientrung" size="10" id="nhahang_tongthue_mientrung"/></th>';
-            $html .= '<th width="10%">&nbsp;</th>';
-            $html .= '</tr>';
-            $html .= '</tfoot>';
-            $html .= '</table> ';
-            $html .= '</fieldset>';
-            $html .= '</td></tr>';
+    $ss->assign('meal1_south_sum', $noidung->meal1_south_sum);
+    $ss->assign('meal1_south1', $noidung->meal1_south1);
+    $ss->assign('meal1_south2', $noidung->meal1_south2);
+    $ss->assign('meal1_south3', $noidung->meal1_south3);
+    $ss->assign('meal1_south4', $noidung->meal1_south4);
+    $ss->assign('meal1_south5', $noidung->meal1_south5);
+    $ss->assign('meal1_south6', $noidung->meal1_south6);
+    $ss->assign('meal1_south7', $noidung->meal1_south7);
+    $ss->assign('meal1_south8', $noidung->meal1_south8);
+    $ss->assign('meal1_south9', $noidung->meal1_south9);
+    $ss->assign('meal1_south10', $noidung->meal1_south10);
+    $ss->assign('meal1_south11', $noidung->meal1_south11);
+    $ss->assign('meal1_south12', $noidung->meal1_south12);
+    $ss->assign('meal1_south13', $noidung->meal1_south13);
+    $ss->assign('meal1_south14', $noidung->meal1_south14);
+    $ss->assign('meal1_south15', $noidung->meal1_south15);
+    $ss->assign('meal1_south16', $noidung->meal1_south16);
+    $ss->assign('meal1_south17', $noidung->meal1_south17);
+    $ss->assign('meal1_south18', $noidung->meal1_south18);
+    $ss->assign('meal1_south19', $noidung->meal1_south19);
+    $ss->assign('meal1_south20', $noidung->meal1_south20);
+    $ss->assign('meal1_south21', $noidung->meal1_south21);
+    $ss->assign('meal1_south22', $noidung->meal1_south22);
+    $ss->assign('meal1_south23', $noidung->meal1_south23);
+    $ss->assign('meal1_south24', $noidung->meal1_south24);
+    $ss->assign('meal1_south25', $noidung->meal1_south25);
+    $ss->assign('meal1_south26', $noidung->meal1_south26);
+    $ss->assign('meal1_south27', $noidung->meal1_south27);
+    $ss->assign('meal1_south28', $noidung->meal1_south28);
+    $ss->assign('meal1_south29', $noidung->meal1_south29);
+    $ss->assign('meal1_south30', $noidung->meal1_south30);
+
+    $ss->assign('meal1_south_breakfirst_price', $noidung->meal1_south_breakfirst_price);
+    $ss->assign('meal1_south_breakfirst_num', $noidung->meal1_south_breakfirst_num);
+    $ss->assign('meal1_south_breakfirst_money', $noidung->meal1_south_breakfirst_money);
+    $ss->assign('meal1_south_lunch_price', $noidung->meal1_south_lunch_price);
+    $ss->assign('meal1_south_lunch_num', $noidung->meal1_south_lunch_num);
+    $ss->assign('meal1_south_lunch_money', $noidung->meal1_south_lunch_money);
+    $ss->assign('meal1_south_dinner_price', $noidung->meal1_south_dinner_price);
+    $ss->assign('meal1_south_dinner_num', $noidung->meal1_south_dinner_num);
+    $ss->assign('meal1_south_dinner_money', $noidung->meal1_south_dinner_money);
+    $ss->assign('meal1_south_other_price', $noidung->meal1_south_other_price);
+    $ss->assign('meal1_south_other_num', $noidung->meal1_south_other_num);
+    $ss->assign('meal1_south_other_money', $noidung->meal1_south_other_money);
+
+
+    $ss->assign('meal1_miidle_sum', $noidung->meal1_miidle_sum);
+    $ss->assign('meal1_middle1', $noidung->meal1_middle1);
+    $ss->assign('meal1_middle2', $noidung->meal1_middle2);
+    $ss->assign('meal1_middle3', $noidung->meal1_middle3);
+    $ss->assign('meal1_middle4', $noidung->meal1_middle4);
+    $ss->assign('meal1_middle5', $noidung->meal1_middle5);
+    $ss->assign('meal1_middle6', $noidung->meal1_middle6);
+    $ss->assign('meal1_middle7', $noidung->meal1_middle7);
+    $ss->assign('meal1_middle8', $noidung->meal1_middle8);
+    $ss->assign('meal1_middle9', $noidung->meal1_middle9);
+    $ss->assign('meal1_middle10', $noidung->meal1_middle10);
+    $ss->assign('meal1_middle11', $noidung->meal1_middle11);
+    $ss->assign('meal1_middle12', $noidung->meal1_middle12);
+    $ss->assign('meal1_middle13', $noidung->meal1_middle13);
+    $ss->assign('meal1_middle14', $noidung->meal1_middle14);
+    $ss->assign('meal1_middle15', $noidung->meal1_middle15);
+    $ss->assign('meal1_middle16', $noidung->meal1_middle16);
+    $ss->assign('meal1_middle17', $noidung->meal1_middle17);
+    $ss->assign('meal1_middle18', $noidung->meal1_middle18);
+    $ss->assign('meal1_middle19', $noidung->meal1_middle19);
+    $ss->assign('meal1_middle20', $noidung->meal1_middle20);
+    $ss->assign('meal1_middle21', $noidung->meal1_middle21);
+    $ss->assign('meal1_middle22', $noidung->meal1_middle22);
+    $ss->assign('meal1_middle23', $noidung->meal1_middle23);
+    $ss->assign('meal1_middle24', $noidung->meal1_middle24);
+    $ss->assign('meal1_middle25', $noidung->meal1_middle25);
+    $ss->assign('meal1_middle26', $noidung->meal1_middle26);
+    $ss->assign('meal1_middle27', $noidung->meal1_middle27);
+    $ss->assign('meal1_middle28', $noidung->meal1_middle28);
+    $ss->assign('meal1_middle29', $noidung->meal1_middle29);
+
+
+    $ss->assign('meal1_middle_breakfirst_price', $noidung->meal1_middle_breakfirst_price);
+    $ss->assign('meal1_middle_breakfirst_num', $noidung->meal1_middle_breakfirst_num);
+    $ss->assign('meal1_middle_breakfirst_money', $noidung->meal1_middle_breakfirst_money);
+    $ss->assign('meal1_middle_lunch_price', $noidung->meal1_middle_lunch_price);
+    $ss->assign('meal1_middle_lunch_num', $noidung->meal1_middle_lunch_num);
+    $ss->assign('meal1_middle_lunch_money', $noidung->meal1_middle_lunch_money);
+    $ss->assign('meal1_middle_dinner_price', $noidung->meal1_middle_dinner_price);
+    $ss->assign('meal1_middle_dinner_num', $noidung->meal1_middle_dinner_num);
+    $ss->assign('meal1_middle_dinner_money', $noidung->meal1_middle_dinner_money);
+    $ss->assign('meal1_middle_other_price', $noidung->meal1_middle_other_price);
+    $ss->assign('meal1_middle_other_num', $noidung->meal1_middle_other_num);
+    $ss->assign('meal1_middle_other_money', $noidung->meal1_middle_other_money);
+
+
+    $ss->assign('meal1_north_sum', $noidung->meal1_north_sum);
+    $ss->assign('meal1_north1', $noidung->meal1_north1);
+    $ss->assign('meal1_north2', $noidung->meal1_north2);
+    $ss->assign('meal1_north3', $noidung->meal1_north3);
+    $ss->assign('meal1_north4', $noidung->meal1_north4);
+    $ss->assign('meal1_north5', $noidung->meal1_north5);
+    $ss->assign('meal1_north6', $noidung->meal1_north6);
+    $ss->assign('meal1_north7', $noidung->meal1_north7);
+    $ss->assign('meal1_north8', $noidung->meal1_north8);
+    $ss->assign('meal1_north9', $noidung->meal1_north9);
+    $ss->assign('meal1_north10', $noidung->meal1_north10);
+    $ss->assign('meal1_north11', $noidung->meal1_north11);
+    $ss->assign('meal1_north12', $noidung->meal1_north12);
+    $ss->assign('meal1_north13', $noidung->meal1_north13);
+    $ss->assign('meal1_north14', $noidung->meal1_north14);
+    $ss->assign('meal1_north15', $noidung->meal1_north15);
+    $ss->assign('meal1_north16', $noidung->meal1_north16);
+    $ss->assign('meal1_north17', $noidung->meal1_north17);
+    $ss->assign('meal1_north18', $noidung->meal1_north18);
+    $ss->assign('meal1_north19', $noidung->meal1_north19);
+    $ss->assign('meal1_north20', $noidung->meal1_north20);
+    $ss->assign('meal1_north21', $noidung->meal1_north21);
+    $ss->assign('meal1_north22', $noidung->meal1_north22);
+    $ss->assign('meal1_north23', $noidung->meal1_north23);
+    $ss->assign('meal1_north24', $noidung->meal1_north24);
+    $ss->assign('meal1_north25', $noidung->meal1_north25);
+    $ss->assign('meal1_north26', $noidung->meal1_north26);
+    $ss->assign('meal1_north27', $noidung->meal1_north27);
+    $ss->assign('meal1_north28', $noidung->meal1_north28);
+    $ss->assign('meal1_north29', $noidung->meal1_north29);
+    $ss->assign('meal1_north30', $noidung->meal1_north30);
+
+
+    $ss->assign('meal1_north_breakfirst_price', $noidung->meal1_north_breakfirst_price);
+    $ss->assign('meal1_north_breakfirst_num', $noidung->meal1_north_breakfirst_num);
+    $ss->assign('meal1_north_lunch_price', $noidung->meal1_north_lunch_price);
+    $ss->assign('meal1_north_lunch_num', $noidung->meal1_north_lunch_num);
+    $ss->assign('meal1_north_lunch_money', $noidung->meal1_north_lunch_money);
+    $ss->assign('meal1_north_dinner_price', $noidung->meal1_north_dinner_price);
+    $ss->assign('meal1_north_dinner_num', $noidung->meal1_north_dinner_num);
+    $ss->assign('meal1_north_dinner_money', $noidung->meal1_north_dinner_money);
+    $ss->assign('meal1_north_other_price', $noidung->meal1_north_other_price);
+    $ss->assign('meal1_north_other_num', $noidung->meal1_north_other_num);
+    $ss->assign('meal1_north_other_money', $noidung->meal1_north_other_money);
+
+
+
+    $ss->assign('hotel1_sum', $noidung->hotel1_sum);
+    $ss->assign('hotel1_1', $noidung->hotel1_1);
+    $ss->assign('hotel1_2', $noidung->hotel1_2);
+    $ss->assign('hotel1_3', $noidung->hotel1_3);
+    $ss->assign('hotel1_4', $noidung->hotel1_4);
+    $ss->assign('hotel1_5', $noidung->hotel1_5);
+    $ss->assign('hotel1_6', $noidung->hotel1_6);
+    $ss->assign('hotel1_7', $noidung->hotel1_7);
+    $ss->assign('hotel1_8', $noidung->hotel1_8);
+    $ss->assign('hotel1_9', $noidung->hotel1_9);
+    $ss->assign('hotel1_10', $noidung->hotel1_10);
+    $ss->assign('hotel1_11', $noidung->hotel1_11);
+    $ss->assign('hotel1_12', $noidung->hotel1_12);
+    $ss->assign('hotel1_13', $noidung->hotel1_13);
+    $ss->assign('hotel1_14', $noidung->hotel1_14);
+    $ss->assign('hotel1_15', $noidung->hotel1_15);
+    $ss->assign('hotel1_16', $noidung->hotel1_16);
+    $ss->assign('hotel1_17', $noidung->hotel1_17);
+    $ss->assign('hotel1_18', $noidung->hotel1_18);
+    $ss->assign('hotel1_19', $noidung->hotel1_19);
+    $ss->assign('hotel1_20', $noidung->hotel1_20);
+    $ss->assign('hotel1_21', $noidung->hotel1_21);
+    $ss->assign('hotel1_22', $noidung->hotel1_22);
+    $ss->assign('hotel1_23', $noidung->hotel1_23);
+    $ss->assign('hotel1_24', $noidung->hotel1_24);
+    $ss->assign('hotel1_25', $noidung->hotel1_25);
+    $ss->assign('hotel1_26', $noidung->hotel1_26);
+    $ss->assign('hotel1_27', $noidung->hotel1_27);
+    $ss->assign('hotel1_28', $noidung->hotel1_28);
+    $ss->assign('hotel1_29', $noidung->hotel1_29);
+    $ss->assign('hotel1_30', $noidung->hotel1_30);
+
+    $hotel1 = $noidung->hotel1;
+    if(count($hotel1)>0){
+        foreach($hotel1 as $value){
+            $hotel1_html .= '<tr>
+            <td style="border-left:1px solid #999"><input name="hotel1_service[]" type="text" id="hotel1_service[]" size="30" value="'.$value->hotel1_service.'" /></td>
+            <td><input class="calculate hotel1_price" name="hotel1_price[]" type="text" id="hotel1_price" size="10" value="'.$value->hotel1_price.'" /></td>
+            <td><input class="calculate hotel1_num" name="hotel1_num[]" type="text" id="hotel1_num" size="10" value="'.$value->hotel1_num.'" /></td>
+            <td><input class="calculate hotel1_money" readonly="readonly" name="hotel1_money[]" type="text" id="hotel1_money" size="10" value="'.$value->hotel1_money.'" /></td>
+            <td>&nbsp;</td>
+            <td align="center" valign="middle"><input type="button" class="btnAdd" value="Add"/></td>
+            <td align="center" valign="middle"><input type="button" class="btnDel" value="Delete"/></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            </tr>';
         }
     }
     
-    if (count($nhahang_mientrung) > 0) {
-        $html .= '<tr> <td colspan="9">';
-        $html .= '<fieldset>';
-        $html .= '<legend><h3>MIỀN TRUNG</h3></legend>';
-        $html .= '<table width="100%" class="table_clone" id="nhahang_mientrung" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-        $html .= '<thead>';
-        $html .= '<tr>';
-        $html .= '<th width="20%">Tên nhà hàng</th>';
-        $html .= '<th width="10%">Ghi chú</th>';
-        $html .= '<th width="10%">Đơn giá</th>';
-        $html .= '<th width="10%">Số lượng</th>';
-        $html .= '<th width="10%">Số bữa ăn</th>';
-        $html .= '<th width="10%">FOC</th>';
-        $html .= '<th width="10%">Thành tiền</th>';
-        $html .= '<th width="10%">Thuế suất</th>';
-        $html .= '<th width="10%">Thuế</th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '</tr>';
+    $ss->assign('count_hotel1',count($hotel1)) ;
+    $ss->assign('hotel1_html',$hotel1_html) ;
 
-        $html .= '</thead>';
-        $html .= '<tbody>';
-             $nh_mt = 1;
-            foreach ($nhahang_mientrung as $valmt) {
-                $html .= '<tr>';
-                $html .= '<td width="20%"><select class="servicename" name="nh_id_mt[]" id="nh_id_mt'.$nh_mt.'">' . get_select_options_with_id($app_list_strings['list_restaurant_dom_middle'], $valmt->nh_id) . ' </select> <input class="service_name" type="hidden" name="nh_name_mt[]" id="nh_name_mt'.$nh_mt .'" value="'.$valmt->nh_name.'"/>  </td>';
-                $html .= '<td width="10%" class="dataField"><select class="ghichu" name="nh_ghichu_mt[]" id="nh_ghichu_mt' . $nh_mt . '"/>'.get_select_options($app_list_strings['workshet_notes_type_dom'],$valmt->nh_ghichu_mt).'</select></td>';
-                $html .= '<td width="10%" class="dataField"><input size="10" class="dongia center" name="nh_dongia_mt[]" type="text" id="nh_dongia_mt'.$nh_mt.'" value="'.$valmt->nh_dongia_mt .'"/></td>';
-                $html .= '<td width="10%" class="dataField"><input class="soluong nhahang_soluong center highlight" name="nh_soluong_mt[]" type="text" id="nh_soluong_mt'.$nh_mt .'" size="10" value="'.$valmt->nh_soluong_mt.'"/></td>';
-                $html .= '<td width="10%" class="dataField"><input class="songay center" name="nh_songay_mt[]" type="text" id="nh_songay_mt' . $nh_mt . '" size="10" value="'.$valmt->nh_songay_mt.'"/></td>';
-                $html .= '<td width="10%" class="dataField"><input class="foc center" name="nh_foc_mt[]" type="text" id="nh_foc_mt' . $nh_mt . '" size="10" value="' . $valmt->nh_foc_mt . '"/></td>';
-                $html .= '<td width="10%" class="dataField"><input class="thanhtien center" name="nh_thanhtien_mt[]" type="text" id="nh_thanhtien_mt'.$nh_mt.'" size="10" value="'.$valmt->nh_thanhtien_mt.'"/></td>';
-                $html .= '<td width="10%" class="dataField"><input class="thuesuat center" name="nh_thuexuat_mt[]" type="text" id="nh_thuexuat_mt'.$nh_mt.'" size="10" value="'.$valmt->nh_thuexuat_mt.'"/></td>';
-                $html .= '<td width="10%" class="dataField"><input class="vat center" name="nh_thue_mt[]" type="text" id="nh_thue_mt'.$nh_mt .'" size="10" value="'.$valmt->nh_thue_mt.'"/></td>';
-                $html .= '<td width="10%" class="dataField"><input type="button" class="btnAddRow" value="Add Row"/> <input type="button" class="btnDelRow" value="Delete Row"/></td>';
-                $html .= '</tr> ';
-            }
-        $nh_mt++;
-        $html .= '</tbody>';
-        $html .= '<tfoot>';
-        $html .= '<tr>';
-        $html .= '<th width="20%">&nbsp;</th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%" align="center" ><input type="text" class="center" name="nhahang_tongthanhtien_mientrung" size="15" id="nhahang_tongthanhtien_mientrung" value="'.$noidung->nhahang_tongthanhtien_mientrung.'"></th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%" align="center" ><input type="text" class="center" name="nhahang_tongthue_mientrung" size="15" id="nhahang_tongthue_mientrung" value="'.$noidung->nhahang_tongthue_mientrung.'"/></th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '</tr>';
-        $hml .= '</tfoot>';
-        
-        $html .= '</table> ';
-        $html .= '</fieldset>';
-        $html .= '</td></tr>';
-    }
-
-    // lấy danh sách nhà hàng ở miền nam
-    $nhahang_miennam = $noidung->nhahang_miennam;
-    if (count($nhahang_miennam) == 0) {
-        if (count($nhArrMN) > 0) {
-            $html .= '<tr> <td colspan="9">';
-            $html .= '<fieldset class="tabForm">';
-            $html .= '<legend><h3>MIỀN NAM</h3></legend>';
-            $html .= '<table width="100%" class="table_clone" id="nhahang_miennam" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-            $html .= '<thead>';
-            $html .= '<tr>';
-            $html .= '<th width="20%">Tên nhà hàng</th>';
-            $html .= '<th width="10%">Ghi chú</th>';
-            $html .= '<th width="10%">Đơn giá</th>';
-            $html .= '<th width="10%">Số lượng</th>';
-            $html .= '<th width="10%">Số bữa ăn</th>';
-            $html .= '<th width="10%">FOC</th>';
-            $html .= '<th width="10%">Thành tiền</th>';
-            $html .= '<th width="10%">Thuế suất</th>';
-            $html .= '<th width="10%">Thuế</th>';
-            $html .= '<th width="10%">&nbsp;</th>';
-            $html .= '</tr>';
-
-            $html .= '</thead>';
-            $html .= '<tbody>';
-            $nh_mn = 1;
-            foreach ($nhArrMN as $val) {
-                $html .= '<tr>';
-                $html .= '<td width="10%"><select class="servicename" name="nh_id_mn[]" id="nh_id_mn' . $nh_mn . '">' . get_select_options_with_id($app_list_strings['list_restaurant_dom_south'], $val['id']) . ' </select> <input class="service_name" type="hidden" name="nh_name_mn[]" id="nh_name_mn' . $nh_mn . '" value="' . $val['name'] . '"/> </td>';
-                $html .= '<td width="10%" class="dataField"><select class="ghichu" name="nh_ghichu_mn[]" id="nh_ghichu_mn' . $nh_mn . '"/>'.get_select_options($app_list_strings['workshet_notes_type_dom'],"").'</select></td>';
-                $html .= '<td width="10%" class="dataField"><input size="10" class="dongia center" name="nh_dongia_mn[]" type="text" id="nh_dongia_mn' . $nh_mn . '" value="0" /></td>';
-                $html .= '<td width="10%" class="dataField"><input class="soluong nhahang_soluong center highlight" name="nh_soluong_mn[]" type="text" id="nh_soluong_mn' . $nh_mn . '" size="10" value="'.$focus->sokhach+$focus->thuesuathoa.'"/></td>';
-                $html .= '<td width="10%" class="dataField"><input class="songay center" name="nh_songay_mn[]" type="text" id="nh_songay_mn' . $nh_mn . '" size="10" value="0"/></td>';
-                $html .= '<td width="10%" class="dataField"><input class="foc center" name="nh_foc_mn[]" type="text" id="nh_foc_mt' . $nh_mn . '" size="10" value="0" /></td>';
-                $html .= '<td width="10%" class="dataField"><input class="thanhtien center" name="nh_thanhtien_mn[]" type="text" id="nh_thanhtien_mn' . $nh_mn . '" size="10" value="0" /></td>';
-                $html .= '<td width="10%" class="dataField"><input class="thuesuat center" name="nh_thuexuat_mn[]" type="text" id="nh_thuexuat_mn' . $nh_mn . '" size="10" value="10" /></td>';
-                $html .= '<td width="10%" class="dataField"><input class="vat center" name="nh_thue_mn[]" type="text" id="nh_thue_mn' . $nh_mn . '" size="10" value="0" /></td>';
-                $html .= '<td width="10%"><input type="button" class="btnAddRow" value="Add Row"/><input type="button" class="btnDelRow" value="Delete Row"/></td>';
-                $html .= '</tr> ';
-                $nh_mn++;
-            }
-            $html .= '</tbody>';
-            $html .= "<tfoot>";
-            $html .= '<tr>';
-            $html .= '<th width="20%">&nbsp;</th>';
-            $html .= '<th width="10%">&nbsp;</th>';
-            $html .= '<th width="10%">&nbsp;</th>';
-            $html .= '<th width="10%">&nbsp;</th>';
-            $html .= '<th width="10%">&nbsp;</th>';
-            $html .= '<th width="10%">&nbsp;</th>';
-            $html .= '<th width="10%" align="center"><input type="text" class="center" name="nhahang_tongthanhtien_miennam" size="15" id="nhahang_tongthanhtien_miennam"></th>';
-            $html .= '<th width="10%">&nbsp;</th>';
-            $html .= '<th width="10%" align="center"><input type="text" class="center" name="nhahang_tongthue_miennam" size="15" id="nhahang_tongthue_miennam"/></th>';
-            $html .= '<th width="10%">&nbsp;</th>';
-            $html .= '</tr>';
-            $html .= "</tfoot>";
-            $html .= '</table> ';
-            $html .= '</fieldset>';
-            $html .= '</td></tr>';
-        }
-    }
-    if (count($nhahang_miennam) > 0) {
-        $html .= '<tr> <td colspan="9">';
-        $html .= '<fieldset class="tabForm">';
-        $html .= '<legend><h3>MIỀN NAM</h3></legend>';
-        $html .= '<table width="100%" class="table_clone" id="nhahang_miennam" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-        $html .= '<thead>';
-        $html .= '<tr>';
-        $html .= '<th width="20%">Tên nhà hàng</th>';
-        $html .= '<th width="10%">Ghi chú</th>';
-        $html .= '<th width="10%">Đơn giá</th>';
-        $html .= '<th width="10%">Số lượng</th>';
-        $html .= '<th width="10%">Số bữa ăn</th>';
-        $html .= '<th width="10%">FOC</th>';
-        $html .= '<th width="10%">Thành tiền</th>';
-        $html .= '<th width="10%">Thuế suất</th>';
-        $html .= '<th width="10%">Thuế</th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '</tr>';
-
-        $html .= '</thead>';
-        $html .= '</tbody>';
-        $nh_mn = 1;
-        foreach ($nhahang_miennam as $valmn) {
-            $html .= '<tr>';
-            $html .= '<td width="10%"><select class="servicename" name="nh_id_mn[]" id="nh_id_mn' . $nh_mn . '">' . get_select_options_with_id($app_list_strings['list_restaurant_dom_south'], $valmn->nh_id) . ' </select> <input class="service_name" type="hidden" name="nh_name_mn[]" id="nh_name_mn' . $nh_mn . '" value="' . $valmn->nh_name . '"/></td>';
-            $html .= '<td width="10%" class="dataField"><select class="ghichu" name="nh_ghichu_mn[]" id="nh_ghichu_mn' . $nh_mn . '"/>'.get_select_options($app_list_strings['workshet_notes_type_dom'],$valmn->nh_ghichu_mn ).'</select></td>';
-            $html .= '<td width="10%" class="dataField"><input size="10" class="dongia center" name="nh_dongia_mn[]" type="text" id="nh_dongia_mn' . $nh_mn . '" value="' . $valmn->nh_dongia_mn . '" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="soluong nhahang_soluong center highlight" name="nh_soluong_mn[]" type="text" id="nh_soluong_mn' . $nh_mn . '" size="10" value="' . $valmn->nh_soluong_mn . '" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="songay center" name="nh_songay_mn[]" type="text" id="nh_songay_mn' . $nh_mn . '" size="10" value="' . $valmn->nh_songay_mn . '" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="foc center" name="nh_foc_mn[]" type="text" id="nh_foc_mn' . $nh_mn . '" size="10" value="' . $valmn->nh_foc_mn . '" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="thanhtien center" name="nh_thanhtien_mn[]" type="text" id="nh_thanhtien_mn' . $nh_mn . '" size="10" value="' . $valmn->nh_thanhtien_mn . '" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="thuesuat center" name="nh_thuexuat_mn[]" type="text" id="nh_thuexuat_mn' . $nh_mn . '" size="10" value="' . $valmn->nh_thuexuat_mn . '" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="vat center" name="nh_thue_mn[]" type="text" id="nh_thue_mn' . $nh_mn . '" size="10" value="' . $valmn->nh_thue_mn . '" /></td>';
-            $html .= '<td width="10%" class="dataField"><input type="button" class="btnAddRow" value="Add Row"/><input type="button" class="btnDelRow" value="Delete Row"/></td>';
-            $html .= '</tr> ';
-        }
-        $nh_mn++;
-        $html .= '</tbody>';
-        $html .= "<tfoot>";
-        $html .= '<tr>';
-        $html .= '<th width="20%">&nbsp;</th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%" align="center"><input type="text" class="center" name="nhahang_tongthanhtien_miennam" size="15" id="nhahang_tongthanhtien_miennam" value="' . $noidung->nhahang_tongthanhtien_miennam . '"/></th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%" align="center"><input type="text" class="center" name="nhahang_tongthue_miennam" size="15" id="nhahang_tongthue_miennam" value="' . $noidung->nhahang_tongthue_miennam . '"/></th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '</tr>';
-        $html .= "</tfoot>";
-        $html .= '</table> ';
-        $html .= '</fieldset>';
-    }
-    $html .= '</td></tr>';
-    $html .= '</tbody>';
-    $html .= '</table>'; 
-    $html .= '</div>';
-    $html .= '</div>';
-    $html .= '</fieldset>';
+    $ss->assign('foc1_21', $noidung->foc1_21);
+    $ss->assign('foc1_22', $noidung->foc1_22);
+    $ss->assign('foc1_23', $noidung->foc1_23);
+    $ss->assign('foc1_24', $noidung->foc1_24);
+    $ss->assign('foc1_25', $noidung->foc1_25);
+    $ss->assign('foc1_26', $noidung->foc1_26);
+    $ss->assign('foc1_27', $noidung->foc1_27);
+    $ss->assign('foc1_28', $noidung->foc1_28);
+    $ss->assign('foc1_29', $noidung->foc1_29);
     
-}
-// ket thuc phan load nha hang
-// loading hotel data 
-// lấy danh sách khách sạn
+    
+    $ss->assign('nett1_1', $noidung->nett1_1);
+    $ss->assign('nett1_2', $noidung->nett1_2);
+    $ss->assign('nett1_3', $noidung->nett1_3);
+    $ss->assign('nett1_4', $noidung->nett1_4);
+    $ss->assign('nett1_5', $noidung->nett1_5);
+    $ss->assign('nett1_6', $noidung->nett1_6);
+    $ss->assign('nett1_7', $noidung->nett1_7);
+    $ss->assign('nett1_8', $noidung->nett1_8);
+    $ss->assign('nett1_9', $noidung->nett1_9);
+    $ss->assign('nett1_10', $noidung->nett1_10);
+    $ss->assign('nett1_11', $noidung->nett1_11);
+    $ss->assign('nett1_12', $noidung->nett1_12);
+    $ss->assign('nett1_13', $noidung->nett1_13);
+    $ss->assign('nett1_14', $noidung->nett1_14);
+    $ss->assign('nett1_15', $noidung->nett1_15);
+    $ss->assign('nett1_16', $noidung->nett1_16);
+    $ss->assign('nett1_17', $noidung->nett1_17);
+    $ss->assign('nett1_18', $noidung->nett1_18);
+    $ss->assign('nett1_19', $noidung->nett1_19);
+    $ss->assign('nett1_20', $noidung->nett1_20);
+    $ss->assign('nett1_21', $noidung->nett1_21);
+    $ss->assign('nett1_22', $noidung->nett1_22);
+    $ss->assign('nett1_23', $noidung->nett1_23);
+    $ss->assign('nett1_24', $noidung->nett1_24);
+    $ss->assign('nett1_25', $noidung->nett1_25);
+    $ss->assign('nett1_26', $noidung->nett1_26);
+    $ss->assign('nett1_27', $noidung->nett1_27);
+    $ss->assign('nett1_28', $noidung->nett1_28);
+    $ss->assign('nett1_29', $noidung->nett1_29);
+    $ss->assign('nett1_30', $noidung->nett1_30);
+    $ss->assign('nett1_31', $noidung->nett1_31);
+    $ss->assign('nett1_32', $noidung->nett1_32);
+    
+    
 
-$listDestination = $focus->getListDestination($focus->worksheet_tour_id);
-foreach ($listDestination as $list) {
-    if ($list['area'] == 'mienbac') {
-        $app_list_strings['list_destination_north_dom'][$list['id']] = $list['name'];
-    }
-    else if ($list['area'] == 'mientrung') {
-        $app_list_strings['list_destination_middle_dom'][$list['id']] = $list['name'];
-    }
-    else if ($list['area'] == 'miennam') {
-        $app_list_strings['list_destination_south_dom'][$list['id']] = $list['name'];
-    }
-}
+    $ss->assign('service1_rate', $noidung->service1_rate);
+    $ss->assign('service1_1', $noidung->service1_1);
+    $ss->assign('service1_2', $noidung->service1_2);
+    $ss->assign('service1_5', $noidung->service1_5);
+    $ss->assign('service1_6', $noidung->service1_6);
+    $ss->assign('service1_9', $noidung->service1_9);
+    $ss->assign('service1_10', $noidung->service1_10);
+    $ss->assign('service1_13', $noidung->service1_13);
+    $ss->assign('service1_14', $noidung->service1_14);
+    $ss->assign('service1_17', $noidung->service1_17);
+    $ss->assign('service1_18', $noidung->service1_18);
+    $ss->assign('service1_21', $noidung->service1_21);
+    $ss->assign('service1_22', $noidung->service1_22);
+    $ss->assign('service1_25', $noidung->service1_25);
+    $ss->assign('service1_26', $noidung->service1_26);
+    $ss->assign('service1_27', $noidung->service1_27);
+    $ss->assign('service1_31', $noidung->service1_31);
 
-
-$html .= '<fieldset>';
-$html .= '<legend><h3>KHÁCH SẠN</h3></legend>';
-$html .= '<div>';
-$html .= '<p>&nbsp;</p>';
-$html .= '<a class="showdiv"><img src="custom/themes/default/images/btndown.png" width="30" height="30" title="phóng to"/></a> &nbsp; <a class="hidediv"><img src="custom/themes/default/images/btnup.png" width="30" height="30" title="thu nhỏ"/></a>' ; 
-$html .= '<div class="displayandshow">';
-$html .= '<table width="100%" class="tabForm" border="0" class="tabForm" id="khachsan" cellspacing="0" cellpadding="5" style="border-collapse:collapse">';
-$html .= '<tfoot>';
-$html .= '<tr>';
-$html .= '<th>TỔNG CỘNG</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th><input type="text" size="20" class="center" name="khachsan_tongthanhtien" id="khachsan_tongthanhtien" value="'.$noidung->khachsan_tongthanhtien.'"/></th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th><input type="text" size="20" class="center" name="khachsan_tongthue" id="khachsan_tongthue" value="'.$noidung->khachsan_tongthue.'"/></th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '</tr>';
-$html .= '</tfoot>';
-$html .= '<tbody>';
-
-
-// lấy danh sách khách sạn ở miền bắc
-$khachsan_mienbac = $noidung->khachsan_mienbac;
-$html .= '<tr><td colspan="13">';
-$html .= '<fieldset >';
-$html .= '<legend><h3>MIỀN BẮC</h3></legend>';
-$html .= '<table width="100%" border="0" class="table_clone" id="ks_mb" cellspacing="5" cellpadding="5" style="border-collapse:collapse">';
-$html .= '<thead>';
-$html .= '<tr>';
-$html .= '<th>Nơi đến</th>';
-$html .= '<th><select name ="destination_north" id="destination_north" class="destination" size="4">'.get_select_options_with_id($app_list_strings['list_destination_north_dom'], '') . ' </select></th>';
-$html .= '<th>Tiêu chuẩn</th>';
-$html .= '<th> <select name="standard_north" id="standard_north" class="standard" size="4">'.get_select_options_with_id($app_list_strings['hotel_standard_dom'], '') . ' </select> <div id="waitting"></div> </th>';
-$html .= '<th><input type="button" class="loadingdatahotel" value="Lấy dữ liệu"/></th>';
-$html .= '<th>Khách sạn</th>';
-$html .= '<th><select name="ks_mienbac" id="ks_mienbac" class="tenkhachsan" size="4"></select></th>';
-$html .= '<th>Hạng Phòng</th>';
-$html .= '<th><select name="hangphong_north" id="hangphong_north" class="hangphong" size="4">'.get_select_options_with_id($app_list_strings['roombooking_type_dom'], '') . '</select></th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th><input type="button" class="btnKSAddRow" value="Add row"/></th>';
-$html .= '</tr>';
-
-$html .= '<tr>';
-$html .= '<th>Tên khách sạn</th>';
-$html .= '<th>Single</th>';
-$html .= '<th>SL Single</th>';
-$html .= '<th>Double</th>';
-$html .= '<th>SL Double</th>';
-$html .= '<th>Triple</th>';
-$html .= '<th>SL Triple</th>';
-$html .= '<th>Foc</th>';
-$html .= '<th>Hạng phòng</th>';
-$html .= '<th>Số đêm</th>';
-$html .= '<th>thành tiền</th>';
-$html .= '<th>Thuế suất</th>';
-$html .= '<th>Thuế</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '</tr>';
-
-$html .= '</thead>';
-$html .= '<tfoot>';
-$html .= '<tr>';
-$html .= '<th>Tổng cộng</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th><input type="text" size="15" class="center" name="khachsan_tongthanhtien_mienbac" id="khachsan_tongthanhtien_mienbac" value="' . $noidung->khachsan_tongthanhtien_mienbac . '"/></th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th><input type="text" size="15" class="center" name="khachsan_tongthue_mienbac" id="khachsan_tongthue_mienbac" value="' . $noidung->khachsan_tongthue_mienbac . '"/></th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '</tr>';
-$html .= '</tfoot>';
+    $ss->assign('sell1_vnd1', $noidung->sell1_vnd1);
+    $ss->assign('sell1_vnd2', $noidung->sell1_vnd2);
+    $ss->assign('sell1_vnd3', $noidung->sell1_vnd3);
+    $ss->assign('sell1_vnd4', $noidung->sell1_vnd4);
+    $ss->assign('sell1_vnd5', $noidung->sell1_vnd5);
+    $ss->assign('sell1_vnd6', $noidung->sell1_vnd6);
+    $ss->assign('sell1_vnd7', $noidung->sell1_vnd7);
+    $ss->assign('sell1_vnd8', $noidung->sell1_vnd8);
+    $ss->assign('sell1_vnd9', $noidung->sell1_vnd9);
+    $ss->assign('sell1_vnd10', $noidung->sell1_vnd10);
+    $ss->assign('sell1_vnd11', $noidung->sell1_vnd11);
+    $ss->assign('sell1_vnd12', $noidung->sell1_vnd12);
+    $ss->assign('sell1_vnd13', $noidung->sell1_vnd13);
+    $ss->assign('sell1_vnd14', $noidung->sell1_vnd14);
+    $ss->assign('sell1_vnd15', $noidung->sell1_vnd15);
+    $ss->assign('sell1_vnd16', $noidung->sell1_vnd16);
+    $ss->assign('sell1_vnd17', $noidung->sell1_vnd17);
+    $ss->assign('sell1_vnd18', $noidung->sell1_vnd18);
+    $ss->assign('sell1_vnd19', $noidung->sell1_vnd19);
+    $ss->assign('sell1_vnd20', $noidung->sell1_vnd20);
+    $ss->assign('sell1_vnd21', $noidung->sell1_vnd21);
+    $ss->assign('sell1_vnd22', $noidung->sell1_vnd22);
+    $ss->assign('sell1_vnd23', $noidung->sell1_vnd23);
+    $ss->assign('sell1_vnd24', $noidung->sell1_vnd24);
+    $ss->assign('sell1_vnd25', $noidung->sell1_vnd25);
+    $ss->assign('sell1_vnd26', $noidung->sell1_vnd26);
+    $ss->assign('sell1_vnd27', $noidung->sell1_vnd27);
+    $ss->assign('sell1_vnd28', $noidung->sell1_vnd28);
+    $ss->assign('sell1_vnd29', $noidung->sell1_vnd29);
+    $ss->assign('sell1_vnd30', $noidung->sell1_vnd30);
+    $ss->assign('sell1_vnd31', $noidung->sell1_vnd31);
+    $ss->assign('sell1_vnd32', $noidung->sell1_vnd32);
 
 
-$html .= '<tbody>';
-if (count($khachsan_mienbac) > 0) {
-    $ks_mb = 1;
-    foreach ($khachsan_mienbac as $val_ksmb) {
-        $html .= '<tr>';
-        $html .= '<td><input type="text" class="tenkhachsan" name="tenkhachsan_ks_mb[]" id="tenkhachsan_ks_mb' . $ks_mb . '" size="35" value="' . $val_ksmb->ks_name . '" /><input type="hidden" name="ks_id_ks_mb[]" id="ks_id_ks_mb" value="' . $val_ksmb->ks_id . '" </td>';
-        $html .= '<td class="dataField"><input type="text" style="text-align: center;" class="phongdon center" name="SGL_ks_mb[]" id="SGL_ks_mb' . $ks_mb . '" value="' . $val_ksmb->SGL_ks_mb . '" size="10" /></td>';
-        $html .= '<td class="dataField"><input type="text" style="text-align: center;" class="soluongphongdon center" name="SGL_SL_ks_mb[]" id="SGL_SL_ks_mb' . $ks_mb . '" value="' . $val_ksmb->SGL_SL_ks_mb . '" size="10" /></td>';
-        $html .= '<td class="dataField"><input type="text" style="text-align: center;" class="phongdoi center" name="DBL_ks_mb[]" id="DBL_ks_mb' . $ks_mb . '" value="' . $val_ksmb->DBL_ks_mb . '" size="10" /></td>';
-        $html .= '<td class="dataField"><input type="text" style="text-align: center;" class="soluongphongdoi center" name="DBL_SL_ks_mb[]" id="DBL_SL_ks_mb' . $ks_mb . '" value="' . $val_ksmb->DBL_SL_ks_mb . '" size="10" /></td>';
-        $html .= '<td class="dataField"><input type="text" style="text-align: center;" class="phongba center" name="TPL_ks_mb[]" id="TPL_ks_mb' . $ks_mb . '" value="' . $val_ksmb->TPL_ks_mb . '" size="10" /></td>';
-        $html .= '<td class="dataField"><input type="text" style="text-align: center;" class="soluongphongba center" name="TPL_SL_ks_mb[]" id="TPL_SL_ks_mb' . $ks_mb . '" value="' . $val_ksmb->TPL_SL_ks_mb . '" size="10" /></td>';
-        $html .= '<td class="dataField"><input type="text" style="text-align: center;" class="foc center" name="foc_ks_mb[]" id="foc_ks_mb' . $ks_mb . '" value="' .$val_ksmb->foc . '" size="10" /></td>';
-        $html .= '<td class="dataField"><input type="text" style="text-align: center;" class="hangphong center" name="hangphong_ks_mb[]" id="hangphong_ks_mb' . $ks_mb . '" value="' . $val_ksmb->hangphong_ks_mb . '"  size="15" /></td>';
-        $html .= '<td class="dataField"><input type="text" style="text-align: center;" class="songaydem center" name="songaydem_ks_mb[]" id="songaydem_ks_mb' . $ks_mb . '" value="' . $val_ksmb->songaydem_ks_mb . '" size="10" /></td>';
-        $html .= '<td class="dataField"><input type="text" style="text-align: center;" class="thanhtien center" name="thanhtien_ks_mb[]" id="thanhtien_ks_mb' . $ks_mb . '" value="' . $val_ksmb->thanhtien_ks_mb . '" size="10" /></td>';
-        $html .= '<td class="dataField"><input type="text" style="text-align: center;" class="thuesuat center" name="thuesuat_ks_mb[]" id="thuesuat_ks_mb' . $ks_mb . '" value="' . $val_ksmb->thuesuat_ks_mb . '" size="10" /></td>';
-        $html .= '<td class="dataField"><input type="text" style="text-align: center;" class="vat center" name="vat_ks_mb[]" id="vat_ks_mb' . $ks_mb . '" value="' . $val_ksmb->vat_ks_mb . '" size="10" /></td>';
-        $html .= '<td class="dataField"><input type="button" class="btnDelRow" value="Delete Row" /></td>';
-        $html .= '</tr>';
-        $ks_mb++;
-    }
-}
-$html .= '</tbody>';
-$html .= '</table>';
-$html .= '</fieldset>';
-$html .= '</td></tr>';
+    $ss->assign('sell1_usd1', $noidung->sell1_usd1);
+    $ss->assign('sell1_usd2', $noidung->sell1_usd2);
+    $ss->assign('sell1_usd5', $noidung->sell1_usd5);
+    $ss->assign('sell1_usd6', $noidung->sell1_usd6);
+    $ss->assign('sell1_usd9', $noidung->sell1_usd9);
+    $ss->assign('sell1_usd10', $noidung->sell1_usd10);
+    $ss->assign('sell1_usd13', $noidung->sell1_usd13);
+    $ss->assign('sell1_usd17', $noidung->sell1_usd17);
+    $ss->assign('sell1_usd18', $noidung->sell1_usd18);
+    $ss->assign('sell1_usd21', $noidung->sell1_usd21);
+    $ss->assign('sell1_usd22', $noidung->sell1_usd22);
+    $ss->assign('sell1_usd25', $noidung->sell1_usd25);
+    $ss->assign('sell1_usd26', $noidung->sell1_usd26);
+    $ss->assign('sell1_usd27', $noidung->sell1_usd27);
+    $ss->assign('sell1_usd31', $noidung->sell1_usd31);
 
-// khách sạn tại miền trung
-$html .= '<tr><td colspan="13">';
-$khachsan_mientrung = $noidung->khachsan_mientrung;
-$html .= '<fieldset>';
-$html .= '<legend><h3>MIỀN TRUNG</h3></legend>';
-$html .= '<table width="100%" border="0" class="table_clone" id="ks_mt" cellspacing="5" cellpadding="5" style="border-collapse:collapse">';
-$html .= '<thead>';
-$html .= '<tr>';
-$html .= '<th>Nơi đến</th>';
-$html .= '<th><select name ="destination_middle" id="destination_middle" class="destination" size="4">' . get_select_options_with_id($app_list_strings['list_destination_middle_dom'], '') . ' </select></th>';
-$html .= '<th><select name="standard_middle" id="standard_middle" class="standard" size="4" >' . get_select_options_with_id($app_list_strings['hotel_standard_dom'], '') . ' </select> <div id="waitting"></div> </th>';
-$html .= '<th><input type="button" class="loadingdatahotel" value="Lấy dữ liệu"/></th>';
-$html .= '<th>Khách sạn</th>';
-$html .= '<th><select name="ks_mienbac" id="ks_mienbac" class="tenkhachsan" size="4"></select></th>';
-$html .= '<th>Hạng phòng</th>';
-$html .= '<th><select name="hangphong_middle" id="hangphong_middle" class="hangphong" size="4">' . get_select_options_with_id($app_list_strings['roombooking_type_dom'], '') . '</select></th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th><input type="button" class="btnKSAddRow" value="Add row"/></th>';
-$html .= '</tr>';
-$html .= '<tr>';
-$html .= '<th>Tên khách sạn</th>';
-$html .= '<th>Single</th>';
-$html .= '<th>SL Single</th>';
-$html .= '<th>Double</th>';
-$html .= '<th>SL Double</th>';
-$html .= '<th>Triple</th>';
-$html .= '<th>SL Triple</th>';
-$html .= '<th>Foc</th>';
-$html .= '<th>Hạng phòng</th>';
-$html .= '<th>Số đêm</th>';
-$html .= '<th>thành tiền</th>';
-$html .= '<th>Thuế suất</th>';
-$html .= '<th>Thuế</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '</tr>';
-$html .= '</thead>'; 
-$html .= '<tfoot>';
-$html .= '<tr>';
-$html .= '<th>Tổng cộng</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th><input type="text" size="15" class="center" name="khachsan_tongthanhtien_mientrung" id="khachsan_tongthanhtien_mientrung" value="' . $noidung->khachsan_tongthanhtien_mientrung . '"/></th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th><input type="text" size="15" class="center" name="khachsan_tongthue_mientrung" id="khachsan_tongthue_mientrung" value="' . $noidung->khachsan_tongthue_mientrung . '"/></th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '</tr>';
-$html .= '</tfoot>';
-$html .= '<tbody>';
-if (count($khachsan_mientrung) > 0) {
-    $ks_mt = 1;
-    foreach ($khachsan_mientrung as $val_ksmt) {
-        $html .= '<tr>';
-        $html .= '<td><input type="text" class="tenkhachsan" name="tenkhachsan_ks_mt[]" id="tenkhachsan_ks_mt' . $ks_mt . '" size="35" value="' . $val_ksmt->ks_name . '" /><input type="hidden" name="ks_id_ks_mt[]" id="ks_id_ks_mt" value="' . $val_ksmt->ks_id . '" </td>';
-        $html .= '<td class="dataField"><input type="text" style="text-align: center;" class="phongdon center" name="SGL_ks_mt[]" id="SGL_ks_mt' . $ks_mt . '" value="' . $val_ksmt->SGL_ks_mt . '" size="10" /></td>';
-        $html .= '<td class="dataField"><input type="text" style="text-align: center;" class="soluongphongdon center" name="SGL_SL_ks_mt[]" id="SGL_SL_ks_mt' . $ks_mt . '" value="' . $val_ksmt->SGL_SL_ks_mt . '" size="10" /></td>';
-        $html .= '<td class="dataField"><input type="text" style="text-align: center;" class="phongdoi center" name="DBL_ks_mt[]" id="DBL_ks_mt' . $ks_mt . '" value="' . $val_ksmt->DBL_ks_mt . '" size="10" /></td>';
-        $html .= '<td class="dataField"><input type="text" style="text-align: center;" class="soluongphongdoi center" name="DBL_SL_ks_mt[]" id="DBL_SL_ks_mt' . $ks_mt . '" value="' . $val_ksmt->DBL_SL_ks_mt . '" size="10" /></td>';
-        $html .= '<td class="dataField"><input type="text" style="text-align: center;" class="phongba center" name="TPL_ks_mt[]" id="TPL_ks_mt' . $ks_mt . '" value="' . $val_ksmt->TPL_ks_mt . '" size="10" /></td>';
-        $html .= '<td class="dataField"><input type="text" style="text-align: center;" class="soluongphongba center" name="TPL_SL_ks_mt[]" id="TPL_SL_ks_mt' . $ks_mt . '" value="' . $val_ksmt->TPL_SL_ks_mt . '" size="10" /></td>';
-        $html .= '<td class="dataField"><input type="text" style="text-align: center;" class="foc center" name="foc_ks_mt[]" id="foc_ks_mt' . $ks_mt . '" value="'.$val_ksmt->foc.'" size="10" /></td>';
-        $html .= '<td class="dataField"><input type="text" style="text-align: center;" class="hangphong" name="hangphong_ks_mt[]" id="hangphong_ks_mt' . $ks_mt . '" value="' . $val_ksmt->hangphong_ks_mt . '"  size="15" /></td>';
-        $html .= '<td class="dataField"><input type="text" style="text-align: center;" class="songaydem center" name="songaydem_ks_mt[]" id="songaydem_ks_mt' . $ks_mt . '" value="' . $val_ksmt->songaydem_ks_mt . '" size="10" /></td>';
-        $html .= '<td class="dataField"><input type="text" style="text-align: center;" class="thanhtien center" name="thanhtien_ks_mt[]" id="thanhtien_ks_mt' . $ks_mt . '" value="' . $val_ksmt->thanhtien_ks_mt . '" size="10" /></td>';
-        $html .= '<td class="dataField"><input type="text" style="text-align: center;" class="thuesuat center" name="thuesuat_ks_mt[]" id="thuesuat_ks_mt' . $ks_mt . '" value="' . $val_ksmt->thuesuat_ks_mt . '" size="10" /></td>';
-        $html .= '<td class="dataField"><input type="text" style="text-align: center;" class="vat center" name="vat_ks_mt[]" id="vat_ks_mt' . $ks_mt . '" value="' . $val_ksmt->vat_ks_mt . '" size="10" /></td>';
-        $html .= '<td class="dataField"><input type="button" class="btnDelRow" value="Delete Row" /></td>';
-        $html .= '</tr>';
-        $ks_mt++;
-    }
-}
-$html .= '</tbody>';
-$html .= '</table>';
-$html .= '</fieldset>';
-$html .= '</td></tr>';
 
-// khách sạn tại miền nam
-$html .= '<tr><td colspan="13">';
-$khachsan_miennam = $noidung->khachsan_miennam;
-$html .= '<fieldset>';
-$html .= '<legend><h3>MIỀN NAM</h3></legend>';
-$html .= '<table width="100%" border="0" class="table_clone" id="ks_mn" cellspacing="5" cellpadding="5" style="border-collapse:collapse">';
-$html .= '<thead>';
-$html .= '<tr>';
-$html .= '<th>Nơi đến</th>';
-$html .= '<th><select name ="destination_south" id="destination_south" class="destination" size="4">' . get_select_options_with_id($app_list_strings['list_destination_south_dom'], '') . ' </select></th>';
-$html .= '<th><select name="standard_south" id="standard_south" class="standard" size="4" >' . get_select_options_with_id($app_list_strings['hotel_standard_dom'], '') . ' </select> <div id="waitting"></div> </th>';
-$html .= '<th><input type="button" class="loadingdatahotel" value="Lấy dữ liệu"/></th>';
-$html .= '<th>Khách sạn</th>';
-$html .= '<th><select name="ks_mienbac" id="ks_mienbac" class="tenkhachsan" size="4"></select></th>';
-$html .= '<th>Hạng phòng</th>';
-$html .= '<th><select name="hangphong_south" id="hangphong_south" class="hangphong" size="4">' . get_select_options_with_id($app_list_strings['roombooking_type_dom'], '') . '</select></th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th><input type="button" class="btnKSAddRow" value="Add row"/></th>';
-$html .= '</tr>';
-$html .= '<tr>';
-$html .= '<th>Tên khách sạn</th>';
-$html .= '<th>Single</th>';
-$html .= '<th>SL Single</th>';
-$html .= '<th>Double</th>';
-$html .= '<th>SL Double</th>';
-$html .= '<th>Triple</th>';
-$html .= '<th>SL Triple</th>';
-$html .= '<th>Foc</th>';
-$html .= '<th>Hạng phòng</th>';
-$html .= '<th>Số đêm</th>';
-$html .= '<th>thành tiền</th>';
-$html .= '<th>Thuế suất</th>';
-$html .= '<th>Thuế</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<tr>';
-$html .= '</thead>';
-$html .= '<tfoot>';
-$html .= '<tr>';
-$html .= '<th>Tổng cộng</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th><input type="text" size="15" class="center" name="khachsan_tongthanhtien_miennam" id="khachsan_tongthanhtien_miennam" value="' . $noidung->khachsan_tongthanhtien_miennam . '"/></th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th><input type="text" size="15" class="center" name="khachsan_tongthue_miennam" id="khachsan_tongthue_miennam" value="' . $noidung->khachsan_tongthue_miennam . '"/></th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '</tr>';
-$html .= '</tfoot>';
-$html .= '<tbody>';
-if (count($khachsan_miennam) > 0) {
-    $ks_mn = 1;
-    foreach ($khachsan_miennam as $val_ksmn) {
-        $html .= '<tr>';
-        $html .= '<td><input type="text" class="tenkhachsan" name="tenkhachsan_ks_mn[]" id="tenkhachsan_ks_mn' . $ks_mn . '" size="35" value="' . $val_ksmn->ks_name . '" /><input type="hidden" name="ks_id_ks_mn[]" id="ks_id_ks_mn" value="' . $val_ksmn->ks_id . '" </td>';
-        $html .= '<td class="dataField"><input type="text" style="text-align: center;" class="phongdon center" name="SGL_ks_mn[]" id="SGL_ks_mn' . $ks_mn . '" value="' . $val_ksmn->SGL_ks_mn . '" size="10" /></td>';
-        $html .= '<td class="dataField"><input type="text" style="text-align: center;" class="soluongphongdon center" name="SGL_SL_ks_mn[]" id="SGL_SL_ks_mn' . $ks_mn . '" value="' . $val_ksmn->SGL_SL_ks_mn . '" size="10" /></td>';
-        $html .= '<td class="dataField"><input type="text" style="text-align: center;" class="phongdoi center" name="DBL_ks_mn[]" id="DBL_ks_mn' . $ks_mn . '" value="' . $val_ksmn->DBL_ks_mn . '" size="10" /></td>';
-        $html .= '<td class="dataField"><input type="text" style="text-align: center;" class="soluongphongdoi center" name="DBL_SL_ks_mn[]" id="DBL_SL_ks_mn' . $ks_mn . '" value="' . $val_ksmn->DBL_SL_ks_mn . '" size="10" /></td>';
-        $html .= '<td class="dataField"><input type="text" style="text-align: center;" class="phongba center" name="TPL_ks_mn[]" id="TPL_ks_mn' . $ks_mn . '" value="' . $val_ksmn->TPL_ks_mn . '" size="10" /></td>';
-        $html .= '<td class="dataField"><input type="text" style="text-align: center;" class="soluongphongba center" name="TPL_SL_ks_mn[]" id="TPL_SL_ks_mn' . $ks_mn . '" value="' . $val_ksmn->TPL_SL_ks_mn . '" size="10" /></td>';
-        $html .= '<td class="dataField"><input type="text" style="text-align: center;" class="foc center" name="foc_ks_mn[]" id="foc_ks_mn' . $ks_mn . '" value="' . $val_ksmn->foc . '" size="10" /></td>';
-        $html .= '<td class="dataField"><input type="text" style="text-align: center;" class="hangphong center" name="hangphong_ks_mn[]" id="hangphong_ks_mn' . $ks_mn . '" value="' . $val_ksmn->hangphong_ks_mn . '"  size="15" /></td>';
-        $html .= '<td class="dataField"><input type="text" style="text-align: center;" class="songaydem center" name="songaydem_ks_mn[]" id="songaydem_ks_mn' . $ks_mn . '" value="' . $val_ksmn->songaydem_ks_mn . '" size="10" /></td>';
-        $html .= '<td class="dataField"><input type="text" style="text-align: center;" class="thanhtien center" name="thanhtien_ks_mn[]" id="thanhtien_ks_mn' . $ks_mn . '" value="' . $val_ksmn->thanhtien_ks_mn . '" size="10" /></td>';
-        $html .= '<td class="dataField"><input type="text" style="text-align: center;" class="thuesuat center" name="thuesuat_ks_mn[]" id="thuesuat_ks_mn' . $ks_mn . '" value="' . $val_ksmn->thuesuat_ks_mn . '" size="10" /></td>';
-        $html .= '<td class="dataField"><input type="text" style="text-align: center;" class="vat center" name="vat_ks_mn[]" id="vat_ks_mn' . $ks_mn . '" value="' . $val_ksmn->vat_ks_mn . '" size="10" /></td>';
-        $html .= '<td class="dataField"><input type="button" class="btnDelRow" value="Delete Row" /></td>';
-        $html .= '</tr>';
-        $ks_mn++;
-    }
-}
-$html .= '</tbody>';
-$html .= '</table>';
-$html .= '</fieldset>';
-$html .= '</td></tr>';
-$html .= '</table></fieldset>';
-$html .= '</div>';
-$html .= '</div>';
-// ket thuc phan khach san
+    $ss->assign('tax1_1', $noidung->tax1_1);
+    $ss->assign('tax1_2', $noidung->tax1_2);
+    $ss->assign('tax1_5', $noidung->tax1_5);
+    $ss->assign('tax1_6', $noidung->tax1_6);
+    $ss->assign('tax1_9', $noidung->tax1_9);
+    $ss->assign('tax1_10', $noidung->tax1_10);
+    $ss->assign('tax1_13', $noidung->tax1_13);
+    $ss->assign('tax1_14', $noidung->tax1_14);
+    $ss->assign('tax1_17', $noidung->tax1_17);
+    $ss->assign('tax1_18', $noidung->tax1_18);
+    $ss->assign('tax1_21', $noidung->tax1_21);
+    $ss->assign('tax1_22', $noidung->tax1_22);
+    $ss->assign('tax1_25', $noidung->tax1_25);
+    $ss->assign('tax1_26', $noidung->tax1_26);
+    $ss->assign('tax1_27', $noidung->tax1_27);
+    $ss->assign('tax1_31', $noidung->tax1_31);
 
-// loading van chuyen 
 
-$vcArr = array();
-$vcArrMB = array();
-$vcArrMT = array();
-$vcArrMN = array();
-$vcArr = $focus->getTransportData($focus->worksheet_tour_id);
-foreach ($vcArr as $arrvc) {
-    if ($arrvc['area'] == 'mienbac') {
-        $app_list_strings['list_vanchuyen_dom_north'][$arrvc['id']] = $arrvc['number_plates'];
-        $vcArrMB[] = array('id' => $arrvc['id'], 'name' => $arrvc['name'], 'area' => $arrvc['area']);
-    }
-    if ($arrvc['area'] == 'mientrung') {
-        $app_list_strings['list_vanchuyen_dom_middle'][$arrvc['id']] =  $arrvc['number_plates'];
-        $vcArrMT[] = array('id' => $arrvc['id'], 'name' => $arrvc['name'], 'area' => $arrvc['area']);
-    }
-    if ($arrvc['area'] == 'miennam') {
-        $app_list_strings['list_vanchuyen_dom_south'][$arrvc['id']] = $arrvc['number_plates'];
-        $vcArrMN[] = array('id' => $arrvc['id'], 'name' => $arrvc['name'], 'area' => $arrvc['area']);
-    }
-}
-$html .= '<fieldset>';
-$html .= '<legend> <h3>VẬN CHUYỂN</h3></legend>';
-$html .= '<div>';
-$html .= '<p>&nbsp;</p>';
-$html .= '<a class="showdiv"><img src="custom/themes/default/images/btndown.png" width="30" height="30" title="phóng to"/></a> &nbsp; <a class="hidediv"><img src="custom/themes/default/images/btnup.png" width="30" height="30" title="thu nhỏ"/></a>' ; 
-$html .= '<div class="displayandshow">';
-$html .= '<table width="100%" class="tabForm" id="vanchuyen" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-$html .= '<tfoot>';
-$html .= '<tr>';
-$html .= '<th width="10%">TỔNG CỘNG</th>';
-$html .= '<th width="20%">&nbsp;</th>';
-$html .= '<th width="10%">&nbsp;</th>';
-$html .= '<th width="10%">&nbsp;</th>';
-$html .= '<th width="10%">&nbsp;</th>';
-$html .= '<th width="10%" class="dataField"><input type="text" size="20" class="center" name="vanchuyen_tongthanhtien" id="vanchuyen_tongthanhtien" value="' . $noidung->vanchuyen_tongthanhtien . '"/></th>';
-$html .= '<th width="10%">&nbsp;</th>';
-$html .= '<th width="10%" class="dataField"><input type="text" size="20" class="center" name="vanchuyen_tongthue" id="vanchuyen_tongthue" value="' . $noidung->vanchuyen_tongthue . '" /></th>';
-$html .= '<th width="20%">&nbsp;</th>';
-$html .= '</tr>';
-$html .= '</tfoot>';
-$html .= '<tbody>';
-// lấy danh sách vận chuyển ở miền bắc
+    $ss->assign('profit1_1', $noidung->profit1_1);
+    $ss->assign('profit1_2', $noidung->profit1_2);
+    $ss->assign('profit1_5', $noidung->profit1_5);
+    $ss->assign('profit1_6', $noidung->profit1_6);
+    $ss->assign('profit1_9', $noidung->profit1_9);
+    $ss->assign('profit1_10', $noidung->profit1_10);
+    $ss->assign('profit1_13', $noidung->profit1_13);
+    $ss->assign('profit1_14', $noidung->profit1_14);
+    $ss->assign('profit1_17', $noidung->profit1_17);
+    $ss->assign('profit1_18', $noidung->profit1_18);
+    $ss->assign('profit1_21', $noidung->profit1_21);
+    $ss->assign('profit1_22', $noidung->profit1_22);
+    $ss->assign('profit1_25', $noidung->profit1_25);
+    $ss->assign('profit1_26', $noidung->profit1_26);
+    $ss->assign('profit1_27', $noidung->profit1_27);
+    $ss->assign('profit1_31', $noidung->profit1_31);
 
-$vanchuyen_mienbac = $noidung->vanchuyen_mienbac;
-if (count($vanchuyen_mienbac) == 0) {
-    if (count($vcArrMB) > 0) {
-        $html .= '<tr><td colspan="8">';
-        $html .= '<fieldset >';
-        $html .= '<legend><h3>MIỀN BẮC</h3></legend>';
-        $html .= '<table width="100%" class="table_clone" id="vanchuyen_mienbac" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-        $html .= '<thead>';
-        $html .= '<tr>';
-        $html .= '<th width="10%">Lọai xe</th>';
-        $html .= '<th width="20%">Đơn giá</th>';
-        $html .= '<th width="10%">Số lượng</th>';
-        $html .= '<th width="10%">Số ngày</th>';
-//        $html .= '<th width="10%">FOC</th>';
-        $html .= '<th width="10%">Thành tiền</th>';
-        $html .= '<th width="10%">Thuế suất</th>';
-        $html .= '<th width="20%">Thuế</th>';
-        $html .= '<th width="20%">&nbsp;</th>';
-        $html .= '</tr>';
-        $html .= '</thead>';
-        $html .= '<tfoot>';
-        $html .= '<tr>';
-        $html .= '<th width="10%">&nbsp;</th>';
-//        $html .= '<th width="20%">&nbsp;</th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%"><input type="text" size="15" class="center" name="vanchuyen_tongthanhtien_mienbac" id="vanchuyen_tongthanhtien_mienbac"/></th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%"><input type="text" size="15" class="center" name="vanchuyen_tongthue_mienbac" id="vanchuyen_tongthue_mienbac" /></th>';
-        $html .= '<th width="20%">&nbsp;</th>';
-        $html .= '</tr>';
-        $html .= '</tfoot>';
-        $html .= '<tbody>';
-        $vc_mb = 1;
-        foreach ($vcArrMB as $vcVal) {
-            $html .= '<tr>';
-            $html .= '<td width="10%" class="dataField"><select class="servicename" name="vanchuyen_name_mb[]" id="vanchuyen_name_mb' . $vc_mb . '">' . get_select_options_with_id($app_list_strings['list_vanchuyen_dom_north'], $vcVal['id']) . '</select></td>';
-            $html .= '<td width="20%" class="dataField"><input size="10" class="dongia center" name="vanchuyen_dongia_mb[]" type="text" id="vanchuyen_dongia_mb' . $vc_mb . '" /> <select name="dongia_option_mb[]" class="dongia_option" id="dongia_option_mb' . $vc_mb . '">' . get_select_options_with_id($app_list_strings['vanchuyen_dongia_option'], '') . '</select></td>';
-            $html .= '<td width="10%" class="dataField"><input class="soluong center" name="vanchuyen_soluong_mb[]" type="text" id="vanchuyen_soluong_mb' . $vc_mb . '" size="10" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="songay center" name="vanchuyen_songay_mb[]" type="text" id="vanchuyen_songay_mb' . $vc_mb . '" size="10" /></td>';
-//            $html .= '<td width="10%" class="dataField"><input class="foc center" name="vanchuyen_foc_mb[]" type="text" id="vanchuyen_foc_mb' . $vc_mb . '" size="10" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="thanhtien center" name="vanchuyen_thanhtien_mb[]" type="text" id="vanchuyen_thanhtien_mb' . $vc_mb . '" size="10" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="thuesuat center" name="vanchuyen_thuesuat_mb[]" type="text" id="vanchuyen_thuesuat_mb' . $vc_mb . '" value="10"  size="10" /></td>';
-            $html .= '<td width="20%" class="dataField"><input class="vat center" name="vanchuyen_vat_mb[]" type="text" id="vanchuyen_vat_mb' . $vc_mb . '" size="10" /></td>';
-            $html .= '<td><input type="button" class="btnAddRow" value="Add Row"/><input type="button" class="btnDelRow" value="Delete Row"/></td>';
-            $html .= '</tr> ';
-            $vc_mb++;
+
+    $ss->assign('total1_1', $noidung->total1_1);
+    $ss->assign('total1_2', $noidung->total1_2);
+    $ss->assign('total1_5', $noidung->total1_5);
+    $ss->assign('total1_6', $noidung->total1_6);
+    $ss->assign('total1_9', $noidung->total1_9);
+    $ss->assign('total1_10', $noidung->total1_10);
+    $ss->assign('total1_13', $noidung->total1_13);
+    $ss->assign('total1_14', $noidung->total1_14);
+    $ss->assign('total1_17', $noidung->total1_17);
+    $ss->assign('total1_18', $noidung->total1_18);
+    $ss->assign('total1_21', $noidung->total1_21);
+    $ss->assign('total1_22', $noidung->total1_22);
+    $ss->assign('total1_25', $noidung->total1_25);
+    $ss->assign('total1_26', $noidung->total1_26);
+    $ss->assign('total1_27', $noidung->total1_27);
+    $ss->assign('total1_31', $noidung->total1_31);
+
+
+    $ss->assign('interest1_1', $noidung->interest1_1);
+    $ss->assign('interest1_2', $noidung->interest1_2);
+    $ss->assign('interest1_5', $noidung->interest1_5);
+    $ss->assign('interest1_6', $noidung->interest1_6);
+    $ss->assign('interest1_9', $noidung->interest1_9);
+    $ss->assign('interest1_10', $noidung->interest1_10);
+    $ss->assign('interest1_13', $noidung->interest1_13);
+    $ss->assign('interest1_14', $noidung->interest1_14);
+    $ss->assign('interest1_17', $noidung->interest1_17);
+    $ss->assign('interest1_18', $noidung->interest1_18);
+    $ss->assign('interest1_21', $noidung->interest1_21);
+    $ss->assign('interest1_22', $noidung->interest1_22);
+    $ss->assign('interest1_25', $noidung->interest1_25);
+    $ss->assign('interest1_26', $noidung->interest1_26);
+    $ss->assign('interest1_27', $noidung->interest1_27);
+    $ss->assign('interest1_31', $noidung->interest1_31);
+
+
+    $ss->assign('meal2_sum', $noidung->meal2_sum);
+    $ss->assign('meal2_1', $noidung->meal2_1);
+    $ss->assign('meal2_2', $noidung->meal2_2);
+    $ss->assign('meal2_3', $noidung->meal2_3);
+    $ss->assign('meal2_4', $noidung->meal2_4);
+    $ss->assign('meal2_5', $noidung->meal2_5);
+    $ss->assign('meal2_6', $noidung->meal2_6);
+    $ss->assign('meal2_7', $noidung->meal2_7);
+    $ss->assign('meal2_8', $noidung->meal2_8);
+    $ss->assign('meal2_9', $noidung->meal2_9);
+    $ss->assign('meal2_10', $noidung->meal2_10);
+    $ss->assign('meal2_11', $noidung->meal2_11);
+    $ss->assign('meal2_12', $noidung->meal2_12);
+    $ss->assign('meal2_13', $noidung->meal2_13);
+    $ss->assign('meal2_14', $noidung->meal2_14);
+    $ss->assign('meal2_15', $noidung->meal2_15);
+    $ss->assign('meal2_16', $noidung->meal2_16);
+    $ss->assign('meal2_17', $noidung->meal2_17);
+    $ss->assign('meal2_18', $noidung->meal2_18);
+    $ss->assign('meal2_19', $noidung->meal2_19);
+    $ss->assign('meal2_20', $noidung->meal2_20);
+    $ss->assign('meal2_21', $noidung->meal2_21);
+    $ss->assign('meal2_22', $noidung->meal2_22);
+    $ss->assign('meal2_23', $noidung->meal2_23);
+    $ss->assign('meal2_24', $noidung->meal2_24);
+    $ss->assign('meal2_25', $noidung->meal2_25);
+    $ss->assign('meal2_26', $noidung->meal2_26);
+    $ss->assign('meal2_27', $noidung->meal2_27);
+    $ss->assign('meal2_28', $noidung->meal2_28);
+    $ss->assign('meal2_29', $noidung->meal2_29);
+    $ss->assign('meal2_30', $noidung->meal2_30);
+
+
+    $ss->assign('meal2_south_sum', $noidung->meal2_south_sum);
+    $ss->assign('meal2_south1', $noidung->meal2_south1);
+    $ss->assign('meal2_south2', $noidung->meal2_south2);
+    $ss->assign('meal2_south3', $noidung->meal2_south3);
+    $ss->assign('meal2_south4', $noidung->meal2_south4);
+    $ss->assign('meal2_south5', $noidung->meal2_south5);
+    $ss->assign('meal2_south6', $noidung->meal2_south6);
+    $ss->assign('meal2_south7', $noidung->meal2_south7);
+    $ss->assign('meal2_south8', $noidung->meal2_south8);
+    $ss->assign('meal2_south9', $noidung->meal2_south9);
+    $ss->assign('meal2_south10', $noidung->meal2_south10);
+    $ss->assign('meal2_south11', $noidung->meal2_south11);
+    $ss->assign('meal2_south12', $noidung->meal2_south12);
+    $ss->assign('meal2_south13', $noidung->meal2_south13);
+    $ss->assign('meal2_south14', $noidung->meal2_south14);
+    $ss->assign('meal2_south15', $noidung->meal2_south15);
+    $ss->assign('meal2_south16', $noidung->meal2_south16);
+    $ss->assign('meal2_south17', $noidung->meal2_south17);
+    $ss->assign('meal2_south18', $noidung->meal2_south18);
+    $ss->assign('meal2_south19', $noidung->meal2_south19);
+    $ss->assign('meal2_south20', $noidung->meal2_south20);
+    $ss->assign('meal2_south21', $noidung->meal2_south21);
+    $ss->assign('meal2_south22', $noidung->meal2_south22);
+    $ss->assign('meal2_south23', $noidung->meal2_south23);
+    $ss->assign('meal2_south24', $noidung->meal2_south24);
+    $ss->assign('meal2_south25', $noidung->meal2_south25);
+    $ss->assign('meal2_south26', $noidung->meal2_south26);
+    $ss->assign('meal2_south27', $noidung->meal2_south27);
+    $ss->assign('meal2_south28', $noidung->meal2_south28);
+    $ss->assign('meal2_south29', $noidung->meal2_south29);
+    $ss->assign('meal2_south30', $noidung->meal2_south30);
+
+
+    $ss->assign('meal2_south_breakfirst_price', $noidung->meal2_south_breakfirst_price);
+    $ss->assign('meal2_south_breakfirst_num', $noidung->meal2_south_breakfirst_num);
+    $ss->assign('meal2_south_breakfirst_money', $noidung->meal2_south_breakfirst_money);
+    $ss->assign('meal2_south_lunch_price', $noidung->meal2_south_lunch_price);
+    $ss->assign('meal2_south_lunch_num', $noidung->meal2_south_lunch_num);
+    $ss->assign('meal2_south_lunch_money', $noidung->meal2_south_lunch_money);
+    $ss->assign('meal2_south_dinner_price', $noidung->meal2_south_dinner_price);
+    $ss->assign('meal2_south_dinner_num', $noidung->meal2_south_dinner_num);
+    $ss->assign('meal2_south_dinner_money', $noidung->meal2_south_dinner_money);
+    $ss->assign('meal2_south_other_price', $noidung->meal2_south_other_price);
+    $ss->assign('meal2_south_other_num', $noidung->meal2_south_other_num);
+    $ss->assign('meal2_south_other_money', $noidung->meal2_south_other_money);
+
+
+    $ss->assign('meal2_miidle_sum', $noidung->meal2_miidle_sum);
+    $ss->assign('meal2_middle1', $noidung->meal2_middle1);
+    $ss->assign('meal2_middle2', $noidung->meal2_middle2);
+    $ss->assign('meal2_middle3', $noidung->meal2_middle3);
+    $ss->assign('meal2_middle4', $noidung->meal2_middle4);
+    $ss->assign('meal2_middle5', $noidung->meal2_middle5);
+    $ss->assign('meal2_middle6', $noidung->meal2_middle6);
+    $ss->assign('meal2_middle7', $noidung->meal2_middle7);
+    $ss->assign('meal2_middle8', $noidung->meal2_middle8);
+    $ss->assign('meal2_middle9', $noidung->meal2_middle9);
+    $ss->assign('meal2_middle10', $noidung->meal2_middle10);
+    $ss->assign('meal2_middle11', $noidung->meal2_middle11);
+    $ss->assign('meal2_middle12', $noidung->meal2_middle12);
+    $ss->assign('meal2_middle13', $noidung->meal2_middle13);
+    $ss->assign('meal2_middle14', $noidung->meal2_middle14);
+    $ss->assign('meal2_middle15', $noidung->meal2_middle15);
+    $ss->assign('meal2_middle16', $noidung->meal2_middle16);
+    $ss->assign('meal2_middle17', $noidung->meal2_middle17);
+    $ss->assign('meal2_middle18', $noidung->meal2_middle18);
+    $ss->assign('meal2_middle19', $noidung->meal2_middle19);
+    $ss->assign('meal2_middle20', $noidung->meal2_middle20);
+    $ss->assign('meal2_middle21', $noidung->meal2_middle21);
+    $ss->assign('meal2_middle22', $noidung->meal2_middle22);
+    $ss->assign('meal2_middle23', $noidung->meal2_middle23);
+    $ss->assign('meal2_middle24', $noidung->meal2_middle24);
+    $ss->assign('meal2_middle25', $noidung->meal2_middle25);
+    $ss->assign('meal2_middle26', $noidung->meal2_middle26);
+    $ss->assign('meal2_middle27', $noidung->meal2_middle27);
+    $ss->assign('meal2_middle28', $noidung->meal2_middle28);
+    $ss->assign('meal2_middle29', $noidung->meal2_middle29);
+    $ss->assign('meal2_middle30', $noidung->meal2_middle30);
+
+
+    $ss->assign('meal2_middle_breakfirst_price', $noidung->meal2_middle_breakfirst_price);
+    $ss->assign('meal2_middle_breakfirst_num', $noidung->meal2_middle_breakfirst_num);
+    $ss->assign('meal2_middle_breakfirst_money', $noidung->meal2_middle_breakfirst_money);
+    $ss->assign('meal2_middle_lunch_price', $noidung->meal2_middle_lunch_price);
+    $ss->assign('meal2_middle_lunch_num', $noidung->meal2_middle_lunch_num);
+    $ss->assign('meal2_middle_lunch_money', $noidung->meal2_middle_lunch_money);
+    $ss->assign('meal2_middle_dinner_price', $noidung->meal2_middle_dinner_price);
+    $ss->assign('meal2_middle_dinner_num', $noidung->meal2_middle_dinner_num);
+    $ss->assign('meal2_middle_dinner_money', $noidung->meal2_middle_dinner_money);
+    $ss->assign('meal2_middle_other_price', $noidung->meal2_middle_other_price);
+    $ss->assign('meal2_middle_other_num', $noidung->meal2_middle_other_num);
+    $ss->assign('meal2_middle_other_money', $noidung->meal2_middle_other_money);
+
+
+    $ss->assign('meal2_north_sum', $noidung->meal2_north_sum);
+    $ss->assign('meal2_north1', $noidung->meal2_north1);
+    $ss->assign('meal2_north2', $noidung->meal2_north2);
+    $ss->assign('meal2_north3', $noidung->meal2_north3);
+    $ss->assign('meal2_north4', $noidung->meal2_north4);
+    $ss->assign('meal2_north5', $noidung->meal2_north5);
+    $ss->assign('meal2_north6', $noidung->meal2_north6);
+    $ss->assign('meal2_north7', $noidung->meal2_north7);
+    $ss->assign('meal2_north8', $noidung->meal2_north8);
+    $ss->assign('meal2_north9', $noidung->meal2_north9);
+    $ss->assign('meal2_north10', $noidung->meal2_north10);
+    $ss->assign('meal2_north11', $noidung->meal2_north11);
+    $ss->assign('meal2_north12', $noidung->meal2_north12);
+    $ss->assign('meal2_north13', $noidung->meal2_north13);
+    $ss->assign('meal2_north14', $noidung->meal2_north14);
+    $ss->assign('meal2_north15', $noidung->meal2_north15);
+    $ss->assign('meal2_north16', $noidung->meal2_north16);
+    $ss->assign('meal2_north17', $noidung->meal2_north17);
+    $ss->assign('meal2_north18', $noidung->meal2_north18);
+    $ss->assign('meal2_north19', $noidung->meal2_north19);
+    $ss->assign('meal2_north20', $noidung->meal2_north20);
+    $ss->assign('meal2_north21', $noidung->meal2_north21);
+    $ss->assign('meal2_north22', $noidung->meal2_north22);
+    $ss->assign('meal2_north23', $noidung->meal2_north23);
+    $ss->assign('meal2_north24', $noidung->meal2_north24);
+    $ss->assign('meal2_north25', $noidung->meal2_north25);
+    $ss->assign('meal2_north26', $noidung->meal2_north26);
+    $ss->assign('meal2_north27', $noidung->meal2_north27);
+    $ss->assign('meal2_north28', $noidung->meal2_north28);
+    $ss->assign('meal2_north29', $noidung->meal2_north29);
+    $ss->assign('meal2_north30', $noidung->meal2_north30);
+
+
+    $ss->assign('meal2_north_breakfirst_price', $noidung->meal2_north_breakfirst_price);
+    $ss->assign('meal2_north_breakfirst_num', $noidung->meal2_north_breakfirst_num);
+    $ss->assign('meal2_north_breakfirst_money', $noidung->meal2_north_breakfirst_money);
+    $ss->assign('meal2_north_lunch_price', $noidung->meal2_north_lunch_price);
+    $ss->assign('meal2_north_lunch_num', $noidung->meal2_north_lunch_num);
+    $ss->assign('meal2_north_lunch_money', $noidung->meal2_north_lunch_money);
+    $ss->assign('meal2_north_dinner_price', $noidung->meal2_north_dinner_price);
+    $ss->assign('meal2_north_dinner_num', $noidung->meal2_north_dinner_num);
+    $ss->assign('meal2_north_dinner_money', $noidung->meal2_north_dinner_money);
+    $ss->assign('meal2_north_other_price', $noidung->meal2_north_other_price);
+    $ss->assign('meal2_north_other_num', $noidung->meal2_north_other_num);
+    $ss->assign('meal2_north_other_money', $noidung->meal2_north_other_money);
+
+
+    $ss->assign('hotel2_sum', $noidung->hotel2_sum);
+    $ss->assign('hotel2_1', $noidung->hotel2_1);
+    $ss->assign('hotel2_2', $noidung->hotel2_2);
+    $ss->assign('hotel2_3', $noidung->hotel2_3);
+    $ss->assign('hotel2_4', $noidung->hotel2_4);
+    $ss->assign('hotel2_5', $noidung->hotel2_5);
+    $ss->assign('hotel2_6', $noidung->hotel2_6);
+    $ss->assign('hotel2_7', $noidung->hotel2_7);
+    $ss->assign('hotel2_8', $noidung->hotel2_8);
+    $ss->assign('hotel2_9', $noidung->hotel2_9);
+    $ss->assign('hotel2_10', $noidung->hotel2_10);
+    $ss->assign('hotel2_11', $noidung->hotel2_11);
+    $ss->assign('hotel2_12', $noidung->hotel2_12);
+    $ss->assign('hotel2_13', $noidung->hotel2_13);
+    $ss->assign('hotel2_14', $noidung->hotel2_14);
+    $ss->assign('hotel2_15', $noidung->hotel2_15);
+    $ss->assign('hotel2_16', $noidung->hotel2_16);
+    $ss->assign('hotel2_17', $noidung->hotel2_17);
+    $ss->assign('hotel2_18', $noidung->hotel2_18);
+    $ss->assign('hotel2_19', $noidung->hotel2_19);
+    $ss->assign('hotel2_20', $noidung->hotel2_20);
+    $ss->assign('hotel2_21', $noidung->hotel2_21);
+    $ss->assign('hotel2_22', $noidung->hotel2_22);
+    $ss->assign('hotel2_23', $noidung->hotel2_23);
+    $ss->assign('hotel2_24', $noidung->hotel2_24);
+    $ss->assign('hotel2_25', $noidung->hotel2_25);
+    $ss->assign('hotel2_26', $noidung->hotel2_26);
+    $ss->assign('hotel2_27', $noidung->hotel2_27);
+    $ss->assign('hotel2_28', $noidung->hotel2_28);
+    $ss->assign('hotel2_29', $noidung->hotel2_29);
+    $ss->assign('hotel2_30', $noidung->hotel2_30);
+
+    $hotel2 = $noidung->hotel2;
+    if(count($hotel2)>0){
+        foreach($hotel2 as $value){
+            $hotel2_html .= '<tr>
+            <td style="border-left:1px solid #999"><input name="hotel2_service[]" type="text" id="hotel2_service[]" size="30" value="'.$value->hotel2_service.'" /></td>
+            <td><input class="calculate hotel2_price" name="hotel2_price[]" type="text" id="hotel2_price" size="10" value="'.$value->hotel2_price.'" /></td>
+            <td><input class="calculate hotel2_num" name="hotel2_num[]" type="text" id="hotel2_num" size="10" value="'.$value->hotel2_num.'" /></td>
+            <td><input class="calculate hotel2_money" readonly="readonly" name="hotel2_money[]" type="text" id="hotel2_money" size="10" value="'.$value->hotel2_money.'" /></td>
+            <td>&nbsp;</td>
+            <td align="center" valign="middle"><input type="button" class="btnAdd" value="Add"/></td>
+            <td align="center" valign="middle"><input type="button" class="btnDel" value="Delete"/></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            </tr>';
         }
-        $html .= '</tbody></table></fieldset></td></tr>';
     }
-}
-if (count($vanchuyen_mienbac) > 0) {
-    $html .= '<tr><td colspan="9">';
-    $html .= '<fieldset >';
-    $html .= '<legend><h3>MIỀN BẮC</h3></legend>';
-    $html .= '<table width="100%" class="table_clone" id="vanchuyen_mienbac" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-    $html .= '<thead>';
-    $html .= '<tr>';
-    $html .= '<th width="10%">Lọai xe</th>';
-    $html .= '<th width="20%">Đơn giá</th>';
-    $html .= '<th width="10%">Số lượng</th>';
-    $html .= '<th width="10%">Ngày/Giờ/Km</th>';
-//    $html .= '<th width="10%">FOC</th>';
-    $html .= '<th width="10%">Thành tiền</th>';
-    $html .= '<th width="10%">Thuế suất</th>';
-    $html .= '<th width="20%">Thuế</th>';
-    $html .= '<th width="20%">&nbsp;</th>';
-    $html .= '</tr>';
-    $html .= '<tr>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="20%">&nbsp;</th>';
-//    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%" align="center"><input type="text" size="15" class="center" name="vanchuyen_tongthanhtien_mienbac" id="vanchuyen_tongthanhtien_mienbac" value="'.$noidung->vanchuyen_tongthanhtien_mienbac.'"/></th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%" align="center"><input type="text" size="15" class="center" name="vanchuyen_tongthue_mienbac" id="vanchuyen_tongthue_mienbac" value="'.$noidung->vanchuyen_tongthue_mienbac.'" /></th>';
-    $html .= '<th width="20%">&nbsp;</th>';
+    $ss->assign('count_hotel2',count($hotel2)) ;
+    $ss->assign('hotel2_html',$hotel2_html) ;
 
 
-    $html .= '</tr>';
-    $html .= '</thead>';
-    $html .= '<tbody>';
-    $vc_mb = 1;
-    foreach ($vanchuyen_mienbac as $vcValMB) {
-        $html .= '<tr>';
-        $html .= '<td width="10%" class="dataField"><select class="servicename" name="vanchuyen_name_mb[]" id="vanchuyen_name_mb' . $vc_mb . '">' . get_select_options_with_id($app_list_strings['list_vanchuyen_dom_north'], $vcValMB->vanchuyen_name_mb) . '</select></td>';
-        $html .= '<td width="20%" class="dataField"><input size="10" class="dongia center" name="vanchuyen_dongia_mb[]" type="text" id="vanchuyen_dongia_mb' . $vc_mb . '" value="' . $vcValMB->vanchuyen_dongia_mb . '" /> <select name="dongia_option_mb[]" class="dongia_option" id="dongia_option_mb' . $vc_mt . '">' . get_select_options_with_id($app_list_strings['vanchuyen_dongia_option'], $vcValMB->dongia_option_mb) . '</select></td>';
-        $html .= '<td width="10%" class="dataField"><input class="soluong center" name="vanchuyen_soluong_mb[]" type="text" id="vanchuyen_soluong_mb' . $vc_mb . '" size="10" value="' . $vcValMB->vanchuyen_soluong_mb . '" /></td>';
-        $html .= '<td width="10%" class="dataField"><input class="songay center" name="vanchuyen_songay_mb[]" type="text" id="vanchuyen_songay_mb' . $vc_mb . '" size="10" value="' . $vcValMB->vanchuyen_songay_mb . '" /></td>';
-//        $html .= '<td width="10%" class="dataField"><input class="foc center" name="vanchuyen_foc_mb[]" type="text" id="vanchuyen_foc_mb' . $vc_mb . '" size="10" value="' . $vcValMB->vanchuyen_foc_mb . '" /></td>';
-        $html .= '<td width="10%" class="dataField"><input class="thanhtien center" name="vanchuyen_thanhtien_mb[]" type="text" id="vanchuyen_thanhtien_mb' . $vc_mb . '" size="10" value="' . $vcValMB->vanchuyen_thanhtien_mb . '" /></td>';
-        $html .= '<td width="10%" class="dataField"><input class="thuesuat center" name="vanchuyen_thuesuat_mb[]" type="text" id="vanchuyen_thuesuat_mb' . $vc_mb . '" size="10" value="' . $vcValMB->vanchuyen_thanhtien_mb . '"/></td>';
-        $html .= '<td width="20%" class="dataField"><input class="vat center" name="vanchuyen_vat_mb[]" type="text" id="vanchuyen_vat_mb' . $vc_mb . '" size="10" value="' . $vcValMB->vanchuyen_vat_mb . '"/></td>';
-        $html .= '<td class="dataField"><input type="button" class="btnAddRow" value="Add Row"/><input type="button" class="btnDelRow" value="Delete Row"/></td>';
-        $html .= '</tr> ';
-        $vc_mb++;
-    }
-    $html .= '</tbody></table></fieldset>';
-    $html .= '</td></tr>';
-}
+    $ss->assign('foc2_21', $noidung->foc2_21);
+    $ss->assign('foc2_22', $noidung->foc2_21);
+    $ss->assign('foc2_23', $noidung->foc2_21);
+    $ss->assign('foc2_24', $noidung->foc2_21);
+    $ss->assign('foc2_25', $noidung->foc2_21);
+    $ss->assign('foc2_26', $noidung->foc2_21);
+    $ss->assign('foc2_27', $noidung->foc2_21);
+    $ss->assign('foc2_28', $noidung->foc2_21);
+    $ss->assign('foc2_29', $noidung->foc2_21);
+    $ss->assign('foc2_30', $noidung->foc2_21);
 
-// lấy danh sách vận chuyển ở miền trung
 
-$vanchuyen_mientrung = $noidung->vanchuyen_mientrung;
-if (count($vanchuyen_mientrung) == 0) {
-    if (count($vcArrMT) > 0) {
-        $html .= '<tr><td colspan="8">';
-        $html .= '<fieldset >';
-        $html .= '<legend><h3>MIỀN TRUNG</h3></legend>';
-        $html .= '<table width="100%" class="table_clone" id="vanchuyen_mientrung" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-        $html .= '<thead>';
-        $html .= '<tr>';
-        $html .= '<th width="10%">Lọai xe</th>';
-        $html .= '<th width="20%">Đơn giá</th>';
-        $html .= '<th width="10%">Số lượng</th>';
-        $html .= '<th width="10%">Số ngày</th>';
-//        $html .= '<th width="10%">FOC</th>';
-        $html .= '<th width="10%">Thành tiền</th>';
-        $html .= '<th width="10%">Thuế suất</th>';
-        $html .= '<th width="20%">Thuế</th>';
-        $html .= '<th width="20%">&nbsp;</th>';
-        $html .= '</tr>';
-        $html .= '</thead>';  
-        $html .= '<tfoot>';
-        $html .= '<tr>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="20%">&nbsp;</th>';
-//        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%" align="center"><input type="text" size="15" class="center" name="vanchuyen_tongthanhtien_mientrung" id="vanchuyen_tongthanhtien_mientrung"/></th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%" align="center"><input type="text" size="15" class="center" name="vanchuyen_tongthue_mientrung" id="vanchuyen_tongthue_mientrung" /></th>';
-        $html .= '<th width="20%">&nbsp;</th>';
-        $html .= '</tr>';
-        $html .= '</tfoot>';
-        $html .= '<tbody>';
-        $vc_mt = 1;
-        foreach ($vcArrMT as $vcVal) {
-            $html .= '<tr>';
-            $html .= '<td width="10%" class="dataField"><select class="servicename" name="vanchuyen_name_mt[]" id="vanchuyen_name_mt' . $vc_mt . '">' . get_select_options_with_id($app_list_strings['list_vanchuyen_dom_middle'], $vcVal['id']) . '</select> </td>';
-            $html .= '<td width="20%" class="dataField"><input size="10" class="dongia center" name="vanchuyen_dongia_mt[]" type="text" id="vanchuyen_dongia_mt' . $vc_mt . '" /> <select name="dongia_option_mt[]" class="dongia_option" id="dongia_option_mt' . $vc_mt . '">' . get_select_options_with_id($app_list_strings['vanchuyen_dongia_option'], '') . '</select></td>';
-            $html .= '<td width="10%" class="dataField"><input class="soluong center" name="vanchuyen_soluong_mt[]" type="text" id="vanchuyen_soluong_mt' . $vc_mt . '" size="10" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="songay center" name="vanchuyen_songay_mt[]" type="text" id="vanchuyen_songay_mt' . $vc_mt . '" size="10" /></td>';
-//            $html .= '<td width="10%" class="dataField"><input class="foc center" name="vanchuyen_foc_mt[]" type="text" id="vanchuyen_foc_mt' . $vc_mt . '" size="10" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="thanhtien center" name="vanchuyen_thanhtien_mt[]" type="text" id="vanchuyen_thanhtien_mt' . $vc_mt . '" size="10" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="thuesuat center" name="vanchuyen_thuexuat_mt[]" type="text" id="vanchuyen_thuexuat_mt' . $vc_mt . '" value="10"  size="10" /></td>';
-            $html .= '<td width="20%" class="dataField"><input class="vat center" name="vanchuyen_vat_mt[]" type="text" id="vanchuyen_vat_mt' . $vc_mt . '" size="10" /></td>';
-            $html .= '<td><input type="button" class="btnAddRow" value="Add Row"/><input type="button" class="btnDelRow" value="Delete Row"/></td>';
-            $html .= '</tr> ';
-            $vc_mt++;
+    $ss->assign('nett2_1', $noidung->nett2_1);
+    $ss->assign('nett2_2', $noidung->nett2_2);
+    $ss->assign('nett2_3', $noidung->nett2_3);
+    $ss->assign('nett2_4', $noidung->nett2_4);
+    $ss->assign('nett2_5', $noidung->nett2_5);
+    $ss->assign('nett2_6', $noidung->nett2_6);
+    $ss->assign('nett2_7', $noidung->nett2_7);
+    $ss->assign('nett2_8', $noidung->nett2_8);
+    $ss->assign('nett2_9', $noidung->nett2_9);
+    $ss->assign('nett2_10', $noidung->nett2_10);
+    $ss->assign('nett2_11', $noidung->nett2_11);
+    $ss->assign('nett2_12', $noidung->nett2_12);
+    $ss->assign('nett2_13', $noidung->nett2_13);
+    $ss->assign('nett2_14', $noidung->nett2_14);
+    $ss->assign('nett2_15', $noidung->nett2_15);
+    $ss->assign('nett2_16', $noidung->nett2_16);
+    $ss->assign('nett2_17', $noidung->nett2_17);
+    $ss->assign('nett2_18', $noidung->nett2_18);
+    $ss->assign('nett2_19', $noidung->nett2_19);
+    $ss->assign('nett2_20', $noidung->nett2_20);
+    $ss->assign('nett2_21', $noidung->nett2_21);
+    $ss->assign('nett2_22', $noidung->nett2_22);
+    $ss->assign('nett2_23', $noidung->nett2_23);
+    $ss->assign('nett2_24', $noidung->nett2_24);
+    $ss->assign('nett2_25', $noidung->nett2_25);
+    $ss->assign('nett2_26', $noidung->nett2_26);
+    $ss->assign('nett2_27', $noidung->nett2_27);
+    $ss->assign('nett2_28', $noidung->nett2_28);
+    $ss->assign('nett2_29', $noidung->nett2_29);
+    $ss->assign('nett2_30', $noidung->nett2_30);
+    $ss->assign('nett2_31', $noidung->nett2_31);
+    $ss->assign('nett2_32', $noidung->nett2_32);
+
+
+    $ss->assign('service2_rate', $noidung->service2_rate);
+    $ss->assign('service2_1', $noidung->service2_1);
+    $ss->assign('service2_2', $noidung->service2_2);
+    $ss->assign('service2_5', $noidung->service2_5);
+    $ss->assign('service2_6', $noidung->service2_6);
+    $ss->assign('service2_9', $noidung->service2_9);
+    $ss->assign('service2_10', $noidung->service2_10);
+    $ss->assign('service2_13', $noidung->service2_13);
+    $ss->assign('service2_14', $noidung->service2_14);
+    $ss->assign('service2_17', $noidung->service2_17);
+    $ss->assign('service2_18', $noidung->service2_18);
+    $ss->assign('service2_21', $noidung->service2_21);
+    $ss->assign('service2_22', $noidung->service2_22);
+    $ss->assign('service2_25', $noidung->service2_25);
+    $ss->assign('service2_26', $noidung->service2_26);
+    $ss->assign('service2_27', $noidung->service2_27);
+    $ss->assign('service2_31', $noidung->service2_31);
+
+
+    $ss->assign('sell2_vnd1', $noidung->sell2_vnd1);
+    $ss->assign('sell2_vnd2', $noidung->sell2_vnd2);
+    $ss->assign('sell2_vnd3', $noidung->sell2_vnd3);
+    $ss->assign('sell2_vnd4', $noidung->sell2_vnd4);
+    $ss->assign('sell2_vnd5', $noidung->sell2_vnd5);
+    $ss->assign('sell2_vnd6', $noidung->sell2_vnd6);
+    $ss->assign('sell2_vnd7', $noidung->sell2_vnd7);
+    $ss->assign('sell2_vnd8', $noidung->sell2_vnd8);
+    $ss->assign('sell2_vnd9', $noidung->sell2_vnd9);
+    $ss->assign('sell2_vnd10', $noidung->sell2_vnd10);
+    $ss->assign('sell2_vnd11', $noidung->sell2_vnd11);
+    $ss->assign('sell2_vnd12', $noidung->sell2_vnd12);
+    $ss->assign('sell2_vnd13', $noidung->sell2_vnd13);
+    $ss->assign('sell2_vnd14', $noidung->sell2_vnd14);
+    $ss->assign('sell2_vnd15', $noidung->sell2_vnd15);
+    $ss->assign('sell2_vnd16', $noidung->sell2_vnd16);
+    $ss->assign('sell2_vnd17', $noidung->sell2_vnd17);
+    $ss->assign('sell2_vnd18', $noidung->sell2_vnd18);
+    $ss->assign('sell2_vnd19', $noidung->sell2_vnd19);
+    $ss->assign('sell2_vnd20', $noidung->sell2_vnd20);
+    $ss->assign('sell2_vnd21', $noidung->sell2_vnd21);
+    $ss->assign('sell2_vnd22', $noidung->sell2_vnd22);
+    $ss->assign('sell2_vnd23', $noidung->sell2_vnd23);
+    $ss->assign('sell2_vnd24', $noidung->sell2_vnd24);
+    $ss->assign('sell2_vnd25', $noidung->sell2_vnd25);
+    $ss->assign('sell2_vnd26', $noidung->sell2_vnd26);
+    $ss->assign('sell2_vnd27', $noidung->sell2_vnd27);
+    $ss->assign('sell2_vnd28', $noidung->sell2_vnd28);
+    $ss->assign('sell2_vnd29', $noidung->sell2_vnd29);
+    $ss->assign('sell2_vnd30', $noidung->sell2_vnd30);
+    $ss->assign('sell2_vnd31', $noidung->sell2_vnd31);
+    $ss->assign('sell2_vnd32', $noidung->sell2_vnd32);
+
+
+    $ss->assign('sell2_usd1', $noidung->sell2_usd1);
+    $ss->assign('sell2_usd2', $noidung->sell2_usd2);
+    $ss->assign('sell2_usd5', $noidung->sell2_usd5);
+    $ss->assign('sell2_usd6', $noidung->sell2_usd6);
+    $ss->assign('sell2_usd9', $noidung->sell2_usd9);
+    $ss->assign('sell2_usd10', $noidung->sell2_usd10);
+    $ss->assign('sell2_usd13', $noidung->sell2_usd13);
+    $ss->assign('sell2_usd14', $noidung->sell2_usd14);
+    $ss->assign('sell2_usd17', $noidung->sell2_usd17);
+    $ss->assign('sell2_usd18', $noidung->sell2_usd18);
+    $ss->assign('sell2_usd21', $noidung->sell2_usd21);
+    $ss->assign('sell2_usd22', $noidung->sell2_usd22);
+    $ss->assign('sell2_usd25', $noidung->sell2_usd25);
+    $ss->assign('sell2_usd26', $noidung->sell2_usd26);
+    $ss->assign('sell2_usd27', $noidung->sell2_usd27);
+    $ss->assign('sell2_usd31', $noidung->sell2_usd31);
+
+
+    $ss->assign('tax2_1', $noidung->tax2_1);
+    $ss->assign('tax2_2', $noidung->tax2_2);
+    $ss->assign('tax2_5', $noidung->tax2_5);
+    $ss->assign('tax2_6', $noidung->tax2_6);
+    $ss->assign('tax2_9', $noidung->tax2_9);
+    $ss->assign('tax2_10', $noidung->tax2_10);
+    $ss->assign('tax2_13', $noidung->tax2_13);
+    $ss->assign('tax2_14', $noidung->tax2_14);
+    $ss->assign('tax2_17', $noidung->tax2_17);
+    $ss->assign('tax2_18', $noidung->tax2_18);
+    $ss->assign('tax2_21', $noidung->tax2_21);
+    $ss->assign('tax2_22', $noidung->tax2_22);
+    $ss->assign('tax2_25', $noidung->tax2_25);
+    $ss->assign('tax2_26', $noidung->tax2_26);
+    $ss->assign('tax2_27', $noidung->tax2_27);
+    $ss->assign('tax2_31', $noidung->tax2_31);
+
+
+    $ss->assign('profit2_1', $noidung->profit2_1);
+    $ss->assign('profit2_2', $noidung->profit2_2);
+    $ss->assign('profit2_5', $noidung->profit2_5);
+    $ss->assign('profit2_6', $noidung->profit2_6);
+    $ss->assign('profit2_9', $noidung->profit2_9);
+    $ss->assign('profit2_10', $noidung->profit2_10);
+    $ss->assign('profit2_13', $noidung->profit2_13);
+    $ss->assign('profit2_14', $noidung->profit2_14);
+    $ss->assign('profit2_17', $noidung->profit2_17);
+    $ss->assign('profit2_18', $noidung->profit2_18);
+    $ss->assign('profit2_21', $noidung->profit2_21);
+    $ss->assign('profit2_22', $noidung->profit2_22);
+    $ss->assign('profit2_25', $noidung->profit2_25);
+    $ss->assign('profit2_26', $noidung->profit2_26);
+    $ss->assign('profit2_27', $noidung->profit2_27);
+    $ss->assign('profit2_31', $noidung->profit2_31);
+
+
+    $ss->assign('total2_1', $noidung->total2_1);
+    $ss->assign('total2_2', $noidung->total2_2);
+    $ss->assign('total2_5', $noidung->total2_5);
+    $ss->assign('total2_6', $noidung->total2_6);
+    $ss->assign('total2_9', $noidung->total2_9);
+    $ss->assign('total2_10', $noidung->total2_10);
+    $ss->assign('total2_13', $noidung->total2_13);
+    $ss->assign('total2_14', $noidung->total2_14);
+    $ss->assign('total2_17', $noidung->total2_17);
+    $ss->assign('total2_18', $noidung->total2_18);
+    $ss->assign('total2_21', $noidung->total2_21);
+    $ss->assign('total2_22', $noidung->total2_22);
+    $ss->assign('total2_25', $noidung->total2_25);
+    $ss->assign('total2_26', $noidung->total2_26);
+    $ss->assign('total2_27', $noidung->total2_27);
+    $ss->assign('total2_31', $noidung->total2_31);
+
+
+    $ss->assign('interest2_1', $noidung->interest2_1);
+    $ss->assign('interest2_2', $noidung->interest2_2);
+    $ss->assign('interest2_5', $noidung->interest2_5);
+    $ss->assign('interest2_6', $noidung->interest2_6);
+    $ss->assign('interest2_9', $noidung->interest2_9);
+    $ss->assign('interest2_10', $noidung->interest2_10);
+    $ss->assign('interest2_13', $noidung->interest2_13);
+    $ss->assign('interest2_14', $noidung->interest2_14);
+    $ss->assign('interest2_17', $noidung->interest2_17);
+    $ss->assign('interest2_18', $noidung->interest2_18);
+    $ss->assign('interest2_21', $noidung->interest2_21);
+    $ss->assign('interest2_22', $noidung->interest2_22);
+    $ss->assign('interest2_25', $noidung->interest2_25);
+    $ss->assign('interest2_26', $noidung->interest2_26);
+    $ss->assign('interest2_27', $noidung->interest2_27);
+    $ss->assign('interest2_31', $noidung->interest2_31);
+
+
+    $ss->assign('meal3_sum', $noidung->meal3_sum);
+    $ss->assign('meal3_1', $noidung->meal3_1);
+    $ss->assign('meal3_2', $noidung->meal3_2);
+    $ss->assign('meal3_3', $noidung->meal3_3);
+    $ss->assign('meal3_4', $noidung->meal3_4);
+    $ss->assign('meal3_5', $noidung->meal3_5);
+    $ss->assign('meal3_6', $noidung->meal3_6);
+    $ss->assign('meal3_7', $noidung->meal3_7);
+    $ss->assign('meal3_8', $noidung->meal3_8);
+    $ss->assign('meal3_9', $noidung->meal3_9);
+    $ss->assign('meal3_10', $noidung->meal3_10);
+    $ss->assign('meal3_11', $noidung->meal3_11);
+    $ss->assign('meal3_12', $noidung->meal3_12);
+    $ss->assign('meal3_13', $noidung->meal3_13);
+    $ss->assign('meal3_14', $noidung->meal3_14);
+    $ss->assign('meal3_15', $noidung->meal3_15);
+    $ss->assign('meal3_16', $noidung->meal3_16);
+    $ss->assign('meal3_17', $noidung->meal3_17);
+    $ss->assign('meal3_18', $noidung->meal3_18);
+    $ss->assign('meal3_19', $noidung->meal3_19);
+    $ss->assign('meal3_20', $noidung->meal3_20);
+    $ss->assign('meal3_21', $noidung->meal3_21);
+    $ss->assign('meal3_22', $noidung->meal3_22);
+    $ss->assign('meal3_23', $noidung->meal3_23);
+    $ss->assign('meal3_24', $noidung->meal3_24);
+    $ss->assign('meal3_25', $noidung->meal3_25);
+    $ss->assign('meal3_26', $noidung->meal3_26);
+    $ss->assign('meal3_27', $noidung->meal3_27);
+    $ss->assign('meal3_28', $noidung->meal3_28);
+    $ss->assign('meal3_29', $noidung->meal3_29);
+    $ss->assign('meal3_30', $noidung->meal3_30);
+
+
+    $ss->assign('meal3_south_sum', $noidung->meal3_south_sum);
+    $ss->assign('meal3_south1', $noidung->meal3_south1);
+    $ss->assign('meal3_south2', $noidung->meal3_south2);
+    $ss->assign('meal3_south3', $noidung->meal3_south3);
+    $ss->assign('meal3_south4', $noidung->meal3_south4);
+    $ss->assign('meal3_south5', $noidung->meal3_south5);
+    $ss->assign('meal3_south6', $noidung->meal3_south6);
+    $ss->assign('meal3_south7', $noidung->meal3_south7);
+    $ss->assign('meal3_south8', $noidung->meal3_south8);
+    $ss->assign('meal3_south9', $noidung->meal3_south9);
+    $ss->assign('meal3_south10', $noidung->meal3_south10);
+    $ss->assign('meal3_south11', $noidung->meal3_south11);
+    $ss->assign('meal3_south12', $noidung->meal3_south12);
+    $ss->assign('meal3_south13', $noidung->meal3_south13);
+    $ss->assign('meal3_south14', $noidung->meal3_south14);
+    $ss->assign('meal3_south15', $noidung->meal3_south15);
+    $ss->assign('meal3_south16', $noidung->meal3_south16);
+    $ss->assign('meal3_south17', $noidung->meal3_south17);
+    $ss->assign('meal3_south18', $noidung->meal3_south18);
+    $ss->assign('meal3_south19', $noidung->meal3_south19);
+    $ss->assign('meal3_south20', $noidung->meal3_south20);
+    $ss->assign('meal3_south21', $noidung->meal3_south21);
+    $ss->assign('meal3_south22', $noidung->meal3_south22);
+    $ss->assign('meal3_south23', $noidung->meal3_south23);
+    $ss->assign('meal3_south24', $noidung->meal3_south24);
+    $ss->assign('meal3_south25', $noidung->meal3_south25);
+    $ss->assign('meal3_south26', $noidung->meal3_south26);
+    $ss->assign('meal3_south27', $noidung->meal3_south27);
+    $ss->assign('meal3_south28', $noidung->meal3_south28);
+    $ss->assign('meal3_south29', $noidung->meal3_south29);
+    $ss->assign('meal3_south30', $noidung->meal3_south30);
+
+
+    $ss->assign('meal3_south_breakfirst_price', $noidung->meal3_south_breakfirst_price);
+    $ss->assign('meal3_south_breakfirst_num', $noidung->meal3_south_breakfirst_num);
+    $ss->assign('meal3_south_breakfirst_money', $noidung->meal3_south_breakfirst_money);
+    $ss->assign('meal3_south_lunch_price', $noidung->meal3_south_lunch_price);
+    $ss->assign('meal3_south_lunch_num', $noidung->meal3_south_lunch_num);
+    $ss->assign('meal3_south_lunch_money', $noidung->meal3_south_lunch_money);
+    $ss->assign('meal3_south_dinner_price', $noidung->meal3_south_dinner_price);
+    $ss->assign('meal3_south_dinner_num', $noidung->meal3_south_dinner_num);
+    $ss->assign('meal3_south_dinner_money', $noidung->meal3_south_dinner_money);
+    $ss->assign('meal3_south_other_price', $noidung->meal3_south_other_price);
+    $ss->assign('meal3_south_other_num', $noidung->meal3_south_other_num);
+    $ss->assign('meal3_south_other_money', $noidung->meal3_south_other_money);
+
+
+    $ss->assign('meal3_miidle_sum', $noidung->meal3_miidle_sum);
+    $ss->assign('meal3_middle1', $noidung->meal3_middle1);
+    $ss->assign('meal3_middle2', $noidung->meal3_middle2);
+    $ss->assign('meal3_middle3', $noidung->meal3_middle3);
+    $ss->assign('meal3_middle4', $noidung->meal3_middle4);
+    $ss->assign('meal3_middle5', $noidung->meal3_middle5);
+    $ss->assign('meal3_middle6', $noidung->meal3_middle6);
+    $ss->assign('meal3_middle7', $noidung->meal3_middle7);
+    $ss->assign('meal3_middle8', $noidung->meal3_middle8);
+    $ss->assign('meal3_middle9', $noidung->meal3_middle9);
+    $ss->assign('meal3_middle10', $noidung->meal3_middle10);
+    $ss->assign('meal3_middle11', $noidung->meal3_middle11);
+    $ss->assign('meal3_middle12', $noidung->meal3_middle12);
+    $ss->assign('meal3_middle13', $noidung->meal3_middle13);
+    $ss->assign('meal3_middle15', $noidung->meal3_middle14);
+    $ss->assign('meal3_middle16', $noidung->meal3_middle15);
+    $ss->assign('meal3_middle17', $noidung->meal3_middle16);
+    $ss->assign('meal3_middle18', $noidung->meal3_middle17);
+    $ss->assign('meal3_middle19', $noidung->meal3_middle19);
+    $ss->assign('meal3_middle20', $noidung->meal3_middle20);
+    $ss->assign('meal3_middle21', $noidung->meal3_middle21);
+    $ss->assign('meal3_middle22', $noidung->meal3_middle22);
+    $ss->assign('meal3_middle23', $noidung->meal3_middle23);
+    $ss->assign('meal3_middle24', $noidung->meal3_middle24);
+    $ss->assign('meal3_middle25', $noidung->meal3_middle25);
+    $ss->assign('meal3_middle26', $noidung->meal3_middle26);
+    $ss->assign('meal3_middle27', $noidung->meal3_middle27);
+    $ss->assign('meal3_middle28', $noidung->meal3_middle28);
+    $ss->assign('meal3_middle29', $noidung->meal3_middle29);
+    $ss->assign('meal3_middle30', $noidung->meal3_middle30);
+
+
+    $ss->assign('meal3_middle_breakfirst_price', $noidung->meal3_middle_breakfirst_price);
+    $ss->assign('meal3_middle_breakfirst_num', $noidung->meal3_middle_breakfirst_num);
+    $ss->assign('meal3_middle_breakfirst_money', $noidung->meal3_middle_breakfirst_money);
+    $ss->assign('meal3_middle_lunch_price', $noidung->meal3_middle_lunch_price);
+    $ss->assign('meal3_middle_lunch_num', $noidung->meal3_middle_lunch_num);
+    $ss->assign('meal3_middle_lunch_money', $noidung->meal3_middle_lunch_money);
+    $ss->assign('meal3_middle_dinner_price', $noidung->meal3_middle_dinner_price);
+    $ss->assign('meal3_middle_dinner_num', $noidung->meal3_middle_dinner_num);
+    $ss->assign('meal3_middle_dinner_money', $noidung->meal3_middle_dinner_money);
+    $ss->assign('meal3_middle_other_price', $noidung->meal3_middle_other_price);
+    $ss->assign('meal3_middle_other_num', $noidung->meal3_middle_other_num);
+    $ss->assign('meal3_middle_other_money', $noidung->meal3_middle_other_money);
+
+
+    $ss->assign('meal3_north_sum', $noidung->meal3_north_sum);
+    $ss->assign('meal3_north1', $noidung->meal3_north1);
+    $ss->assign('meal3_north2', $noidung->meal3_north2);
+    $ss->assign('meal3_north3', $noidung->meal3_north3);
+    $ss->assign('meal3_north4', $noidung->meal3_north4);
+    $ss->assign('meal3_north5', $noidung->meal3_north5);
+    $ss->assign('meal3_north6', $noidung->meal3_north6);
+    $ss->assign('meal3_north7', $noidung->meal3_north7);
+    $ss->assign('meal3_north8', $noidung->meal3_north8);
+    $ss->assign('meal3_north9', $noidung->meal3_north9);
+    $ss->assign('meal3_north10', $noidung->meal3_north10);
+    $ss->assign('meal3_north11', $noidung->meal3_north11);
+    $ss->assign('meal3_north12', $noidung->meal3_north12);
+    $ss->assign('meal3_north13', $noidung->meal3_north13);
+    $ss->assign('meal3_north14', $noidung->meal3_north14);
+    $ss->assign('meal3_north15', $noidung->meal3_north15);
+    $ss->assign('meal3_north16', $noidung->meal3_north16);
+    $ss->assign('meal3_north17', $noidung->meal3_north17);
+    $ss->assign('meal3_north18', $noidung->meal3_north18);
+    $ss->assign('meal3_north19', $noidung->meal3_north19);
+    $ss->assign('meal3_north20', $noidung->meal3_north20);
+    $ss->assign('meal3_north21', $noidung->meal3_north21);
+    $ss->assign('meal3_north22', $noidung->meal3_north22);
+    $ss->assign('meal3_north23', $noidung->meal3_north23);
+    $ss->assign('meal3_north24', $noidung->meal3_north24);
+    $ss->assign('meal3_north25', $noidung->meal3_north25);
+    $ss->assign('meal3_north26', $noidung->meal3_north26);
+    $ss->assign('meal3_north27', $noidung->meal3_north27);
+    $ss->assign('meal3_north28', $noidung->meal3_north28);
+    $ss->assign('meal3_north29', $noidung->meal3_north29);
+    $ss->assign('meal3_north30', $noidung->meal3_north30);
+
+
+    $ss->assign('meal3_north_breakfirst_price', $noidung->meal3_north_breakfirst_price);
+    $ss->assign('meal3_north_breakfirst_num', $noidung->meal3_north_breakfirst_num);
+    $ss->assign('meal3_north_breakfirst_money', $noidung->meal3_north_breakfirst_money);
+    $ss->assign('meal3_north_lunch_price', $noidung->meal3_north_lunch_price);
+    $ss->assign('meal3_north_lunch_num', $noidung->meal3_north_lunch_num);
+    $ss->assign('meal3_north_lunch_money', $noidung->meal3_north_lunch_money);
+    $ss->assign('meal3_north_dinner_price', $noidung->meal3_north_dinner_price);
+    $ss->assign('meal3_north_dinner_num', $noidung->meal3_north_dinner_num);
+    $ss->assign('meal3_north_dinner_money', $noidung->meal3_north_dinner_money);
+    $ss->assign('meal3_north_other_price', $noidung->meal3_north_other_price);
+    $ss->assign('meal3_north_other_num', $noidung->meal3_north_other_num);
+    $ss->assign('meal3_north_other_money', $noidung->meal3_north_other_money);
+
+
+    $ss->assign('hotel3_sum', $noidung->hotel3_sum);
+    $ss->assign('hotel3_1', $noidung->hotel3_1);
+    $ss->assign('hotel3_2', $noidung->hotel3_2);
+    $ss->assign('hotel3_3', $noidung->hotel3_3);
+    $ss->assign('hotel3_4', $noidung->hotel3_4);
+    $ss->assign('hotel3_5', $noidung->hotel3_5);
+    $ss->assign('hotel3_6', $noidung->hotel3_6);
+    $ss->assign('hotel3_7', $noidung->hotel3_7);
+    $ss->assign('hotel3_8', $noidung->hotel3_8);
+    $ss->assign('hotel3_9', $noidung->hotel3_9);
+    $ss->assign('hotel3_10', $noidung->hotel3_10);
+    $ss->assign('hotel3_11', $noidung->hotel3_11);
+    $ss->assign('hotel3_12', $noidung->hotel3_11);
+    $ss->assign('hotel3_13', $noidung->hotel3_11);
+    $ss->assign('hotel3_14', $noidung->hotel3_11);
+    $ss->assign('hotel3_15', $noidung->hotel3_11);
+    $ss->assign('hotel3_16', $noidung->hotel3_11);
+    $ss->assign('hotel3_17', $noidung->hotel3_11);
+    $ss->assign('hotel3_18', $noidung->hotel3_11);
+    $ss->assign('hotel3_19', $noidung->hotel3_11);
+    $ss->assign('hotel3_20', $noidung->hotel3_20);
+    $ss->assign('hotel3_21', $noidung->hotel3_21);
+    $ss->assign('hotel3_22', $noidung->hotel3_22);
+    $ss->assign('hotel3_23', $noidung->hotel3_23);
+    $ss->assign('hotel3_24', $noidung->hotel3_24);
+    $ss->assign('hotel3_25', $noidung->hotel3_25);
+    $ss->assign('hotel3_26', $noidung->hotel3_26);
+    $ss->assign('hotel3_27', $noidung->hotel3_27);
+    $ss->assign('hotel3_28', $noidung->hotel3_28);
+    $ss->assign('hotel3_29', $noidung->hotel3_29);
+    $ss->assign('hotel3_30', $noidung->hotel3_30);
+
+    $hotel3 = $nodung->hotel3;
+    if(count($hotel3)>0){
+        foreach($hotel3 as $value){
+            $html_hotel3 .= ' <tr>
+            <td style="border-left:1px solid #999"><input name="hotel3_service[]" type="text" id="hotel3_service[]" size="30" value="'.$value->hotel3_service.'" /></td>
+            <td><input class="calculate hotel3_price" name="hotel3_price[]" type="text" id="hotel3_price" size="10" value="'.$value->hotel3_price.'" /></td>
+            <td><input class="calculate hotel3_num" name="hotel3_num[]" type="text" id="hotel3_num" size="10" value="'.$value->hotel3_num.'" /></td>
+            <td><input class="calculate hotel3_money" readonly="readonly" name="hotel3_money[]" type="text" id="hotel3_money" size="10" value="'.$value->hotel3_money.'" /></td>
+            <td>&nbsp;</td>
+            <td align="center" valign="middle"><input type="button" class="btnAdd" value="Add"/></td>
+            <td align="center" valign="middle"><input type="button" class="btnDel" value="Delete"/></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            </tr>';
         }
-        $html .= '</tbody></table></fieldset></td></tr>';
     }
-}
-if (count($vanchuyen_mientrung) > 0) {
-    $html .= '<tr><td colspan="9">';
-    $html .= '<fieldset >';
-    $html .= '<legend><h3>MIỀN TRUNG</h3></legend>';
-    $html .= '<table width="100%" class="table_clone" id="vanchuyen_mientrung" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-    $html .= '<thead>';
-    $html .= '<tr>';
-    $html .= '<th width="10%">Lọai xe</th>';
-    $html .= '<th width="20%">Đơn giá</th>';
-    $html .= '<th width="10%">Số lượng</th>';
-    $html .= '<th width="10%">Ngày/Giờ/Km</th>';
-//    $html .= '<th width="10%">FOC</th>';
-    $html .= '<th width="10%">Thành tiền</th>';
-    $html .= '<th width="10%">Thuế suất</th>';
-    $html .= '<th width="20%">Thuế</th>';
-    $html .= '<th width="20%">&nbsp;</th>';
-    $html .= '</tr>';
-    $html .= '</thead>';  
-    $html .= '<tfoot>';  
-    $html .= '<tr>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="20%">&nbsp;</th>';
-//    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%"><input type="text" size="15" class="center" name="vanchuyen_tongthanhtien_mientrung" id="vanchuyen_tongthanhtien_mientrung" value="'.$noidung->vanchuyen_tongthanhtien_mientrung.'"/></th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%"><input type="text" size="15" class="center" name="vanchuyen_tongthue_mientrung" id="vanchuyen_tongthue_mientrung" value="'.$noidung->vanchuyen_tongthue_mientrung.'" /></th>';
-    $html .= '<th width="20%">&nbsp;</th>';
-    $html .= '</tr>';
-    $html .= '</tfoot>';
-    $html .= '<tbody>';
-    $vc_mt = 1;
-    foreach ($vanchuyen_mientrung as $vcValMT) {
-        $html .= '<tr>';
-        $html .= '<td width="10%" class="dataField"><select class="servicename" name="vanchuyen_name_mt[]" id="vanchuyen_name_mt' . $vc_mt . '">' . get_select_options_with_id($app_list_strings['list_vanchuyen_dom_middle'], $vcValMT->vanchuyen_name_mt) . '</select> </td>';
-        $html .= '<td width="20%" class="dataField"><input size="10" class="dongia center" name="vanchuyen_dongia_mt[]" type="text" id="vanchuyen_dongia_mt' . $vc_mt . '" value="' . $vcValMT->vanchuyen_dongia_mt . '" /> <select name="dongia_option_mt[]" class="dongia_option" id="dongia_option_mt' . $vc_mt . '">' . get_select_options_with_id($app_list_strings['vanchuyen_dongia_option'], $vcValMT->dongia_option_mt) . '</select> </td>';
-        $html .= '<td width="10%" class="dataField"><input class="soluong center" name="vanchuyen_soluong_mt[]" type="text" id="vanchuyen_soluong_mt' . $vc_mt . '" size="10" value="' . $vcValMT->vanchuyen_soluong_mt . '" /></td>';
-        $html .= '<td width="10%" class="dataField"><input class="songay center" name="vanchuyen_songay_mt[]" type="text" id="vanchuyen_songay_mt' . $vc_mt . '" size="10" value="' . $vcValMT->vanchuyen_songay_mt . '" /></td>';
-//        $html .= '<td width="10%" class="dataField"><input class="foc center" name="vanchuyen_foc_mt[]" type="text" id="vanchuyen_foc_mt' . $vc_mt . '" size="10" value="' . $vcValMT->vanchuyen_foc_mt . '" /></td>';
-        $html .= '<td width="10%" class="dataField"><input class="thanhtien center" name="vanchuyen_thanhtien_mt[]" type="text" id="vanchuyen_thanhtien_mt' . $vc_mt . '" size="10" value="' . $vcValMT->vanchuyen_thanhtien_mt . '" /></td>';
-        $html .= '<td width="10%" class="dataField"><input class="thuesuat center" name="vanchuyen_thuexuat_mt[]" type="text" id="vanchuyen_thuexuat_mt' . $vc_mt . '" size="10" value="' . $vcValMT->vanchuyen_thuexuat_mt . '" /></td>';
-        $html .= '<td width="20%" class="dataField"><input class="vat center" name="vanchuyen_vat_mt[]" type="text" id="vanchuyen_vat_mt' . $vc_mt . '" size="10" value="' . $vcValMT->vanchuyen_vat_mt . '" /></td>';
-        $html .= '<td><input type="button" class="btnAddRow" value="Add Row"/><input type="button" class="btnDelRow" value="Delete Row"/></td>';
-        $html .= '</tr> ';
-        $vc_mt++;
-    }
-    $html .= '</tbody></table></fieldset>';
-    $htnl .= '</td></tr>';
-}
+    $ss->assign('count_hotel3',count($hotel3));
+    $ss->assign('hotel3_html',$html_hotel3);
 
-// lấy danh sách vận chuyển ở miền nam
-$vanchuyen_miennam = $noidung->vanchuyen_miennam;
-if (count($vanchuyen_miennam) == 0) {
-    if (count($vcArrMN) > 0) {
-        $html .= '<tr><td colspan="8">';
-        $html .= '<fieldset >';
-        $html .= '<legend><h3>MIỀN NAM</h3></legend>';
-        $html .= '<table width="100%" class="table_clone" id="vanchuyen_miennam" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-        $html .= '<thead>';
-        $html .= '<tr>';
-        $html .= '<th width="10%">Lọai xe</th>';
-        $html .= '<th width="20%">Đơn giá</th>';
-        $html .= '<th width="10%">Số lượng</th>';
-        $html .= '<th width="10%">Số ngày</th>';
-//        $html .= '<th width="10%">FOC</th>';
-        $html .= '<th width="10%">Thành tiền</th>';
-        $html .= '<th width="10%">Thuế suất</th>';
-        $html .= '<th width="20%">Thuế</th>';
-        $html .= '<th width="20%">&nbsp;</th>';
-        $html .= '</tr>';
-        $html .= '</thead>'; 
-        $html .= '<tfoot>';
-        $html .= '<tr>';
-        $html .= '<th width="10%">&nbsp;</th>';
-//        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%" align="center"><input type="text" size="15" class="center" name="vanchuyen_tongthanhtien_miennam" id="vanchuyen_tongthanhtien_miennam" value="' . $noidung->vanchuyen_tongthanhtien_miennam . '"/></th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%" align="center"><input type="text" size="15" class="center" name="vanchuyen_tongthue_miennam" id="vanchuyen_tongthue_miennam" value="' . $noidung->vanchuyen_tongthue_miennam . '" /></th>';
-        $html .= '<th width="20%">&nbsp;</th>';
-        $html .= '</tr>';
-        $html .= '</tfoot>';
-        $html .= '<tbody>';
-        $vc_mn = 1;
-        foreach ($vcArrMN as $vcVal) {
-            $html .= '<tr>';
-            $html .= '<td width="10%" class="dataField"><select class="servicename" name="vanchuyen_name_mn[]" id="vanchuyen_name_mn' . $vc_mn . '">' . get_select_options_with_id($app_list_strings['list_vanchuyen_dom_south'], $vcVal['id']) . '</select></td>';
-            $html .= '<td width="20%" class="dataField"><input size="10" class="dongia center" name="vanchuyen_dongia_mn[]" type="text" id="vanchuyen_dongia_mn' . $vc_mn . '" /> <select name="dongia_option_mn[]" class="dongia_option" id="dongia_option_mn' . $vc_mn . '">' . get_select_options_with_id($app_list_strings['vanchuyen_dongia_option'], '') . '</select> </td>';
-            $html .= '<td width="10%" class="dataField"><input class="soluong center" name="vanchuyen_soluong_mn[]" type="text" id="vanchuyen_soluong_mn' . $vc_mn . '" size="10" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="songay center" name="vanchuyen_songay_mn[]" type="text" id="vanchuyen_songay_mn' . $vc_mn . '" size="10" /></td>';
-//            $html .= '<td width="10%" class="dataField"><input class="foc center" name="vanchuyen_foc_mn[]" type="text" id="vanchuyen_foc_mn' . $vc_mn . '" size="10" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="thanhtien center" name="vanchuyen_thanhtien_mn[]" type="text" id="vanchuyen_thanhtien_mn' . $vc_mn . '" size="10" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="thuesuat center" name="vanchuyen_thuexuat_mn[]" type="text" id="vanchuyen_thuexuat_mn' . $vc_mn . '" value="10" size="10" /></td>';
-            $html .= '<td width="20%" class="dataField"><input class="vat center" name="vanchuyen_vat_mn[]" type="text" id="vanchuyen_vat_mn' . $vc_mn . '" size="10" /></td>';
-            $html .= '<td><input type="button" class="btnAddRow" value="Add Row"/><input type="button" class="btnDelRow" value="Delete Row"/></td>';
-            $html .= '</tr> ';
-            $vc_mn++;
-        }
-        $html .= '</tbody></table></fieldset></td></tr>';
-    }
-}
-if (count($vanchuyen_miennam) > 0) {
-    $html .= '<tr><td colspan="9">';
-    $html .= '<fieldset>';
-    $html .= '<legend><h3>MIỀN NAM</h3></legend>';
-    $html .= '<table width="100%" class="table_clone" id="vanchuyen_miennam" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-    $html .= '<thead>';
-    $html .= '<tr>';
-    $html .= '<th width="10%">Lọai xe</th>';
-    $html .= '<th width="20%">Đơn giá</th>';
-    $html .= '<th width="10%">Số lượng</th>';
-    $html .= '<th width="10%">Ngày/Giờ/Km</th>';
-//    $html .= '<th width="10%">FOC</th>';
-    $html .= '<th width="10%">Thành tiền</th>';
-    $html .= '<th width="10%">Thuế suất</th>';
-    $html .= '<th width="20%">Thuế</th>';
-    $html .= '<th width="20%">&nbsp;</th>';
-    $html .= '</tr>';
-    $html .= '</thead>';
-    $html .= '<tfoot>';
-    $html .= '<tr>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-//    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%" align="center"><input type="text" size="15" class="center" name="vanchuyen_tongthanhtien_miennam" id="vanchuyen_tongthanhtien_miennam" value="' . $noidung->vanchuyen_tongthanhtien_miennam . '"/></th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%" align="center"><input type="text" size="15" class="center" name="vanchuyen_tongthue_miennam" id="vanchuyen_tongthue_miennam" value="' . $noidung->vanchuyen_tongthue_miennam . '" /></th>';
-    $html .= '<th width="20%">&nbsp;</th>';
-    $html .= '</tr>';
-    $html .= '</tfoot>';
-    $html .= '<tbody>';
-    $vc_mn = 1;
-    foreach ($vanchuyen_miennam as $vcValMN) {
-        $html .= '<tr>';
-        $html .= '<td width="10%" class="dataField"><select class="servicename" name="vanchuyen_name_mn[]" id="vanchuyen_name_mn' . $vc_mn . '">' . get_select_options_with_id($app_list_strings['list_vanchuyen_dom_south'], $vcValMN->vanchuyen_name_mn) . '</select></td>';
-        $html .= '<td width="20%" class="dataField"><input size="10" class="dongia center" name="vanchuyen_dongia_mn[]" type="text" id="vanchuyen_dongia_mn' . $vc_mn . '" value="' . $vcValMN->vanchuyen_dongia_mn . '" /> <select name="dongia_option_mn[]" class="dongia_option" id="dongia_option_mn' . $vc_mt . '">' . get_select_options_with_id($app_list_strings['vanchuyen_dongia_option'], $vcValMN->dongia_option_mn) . '</select> </td>';
-        $html .= '<td width="10%" class="dataField"><input class="soluong center" name="vanchuyen_soluong_mn[]" type="text" id="vanchuyen_soluong_mn' . $vc_mn . '" size="10"  value="' . $vcValMN->vanchuyen_soluong_mn . '"  /></td>';
-        $html .= '<td width="10%" class="dataField"><input class="songay center" name="vanchuyen_songay_mn[]" type="text" id="vanchuyen_songay_mn' . $vc_mn . '" size="10"  value="' . $vcValMN->vanchuyen_songay_mn . '"  /></td>';
-//        $html .= '<td width="10%" class="dataField"><input class="foc center" name="vanchuyen_foc_mn[]" type="text" id="vanchuyen_foc_mn' . $vc_mn . '" size="10"  value="' . $vcValMN->vanchuyen_foc_mn . '"  /></td>';
-        $html .= '<td width="10%" class="dataField"><input class="thanhtien center" name="vanchuyen_thanhtien_mn[]" type="text" id="vanchuyen_thanhtien_mn' . $vc_mn . '" size="10"  value="' . $vcValMN->vanchuyen_thanhtien_mn . '"  /></td>';
-        $html .= '<td width="10%" class="dataField"><input class="thuesuat center" name="vanchuyen_thuexuat_mn[]" type="text" id="vanchuyen_thuexuat_mn' . $vc_mn . '" size="10"  value="' . $vcValMN->vanchuyen_thuexuat_mn . '"  /></td>';
-        $html .= '<td width="20%" class="dataField"><input class="vat center" name="vanchuyen_vat_mn[]" type="text" id="vanchuyen_vat_mn' . $vc_mn . '" size="10"  value="' . $vcValMN->vanchuyen_vat_mn . '"  /></td>';
-        $html .= '<td><input type="button" class="btnAddRow" value="Add Row"/><input type="button" class="btnDelRow" value="Delete Row"/></td>';
-        $html .= '</tr> ';
-        $vc_mn++;
-    }
-    $html .= '</tbody></table></fieldset>';
-    $html .= '</td></tr>';
-}
-$html .= '</tbody>';
-$html .= '</table>';
-$html .= '</div>';
-$html .= '</div>';
-$html .= '</fieldset>';
-
-// ket thuc load du lieu van chuyen
-
-// load data dich vu
-$svArr = array();
-$svArrMB = array();
-$svArrMT = array();
-$svArrMN = array();
-$svArr = $focus->getServiceData($focus->worksheet_tour_id);
-foreach ($svArr as $arrsv) {
-    if ($arrsv['area'] == "mienbac") {
-        $app_list_strings['list_dichvu_dom_north'][$arrsv['id']] = $arrsv['name'];
-        $svArrMB[] = array('id' => $arrsv['id'], 'name' => $arrsv['name'], 'area' => $arrsv['$arrsv']);
-    }
-    if ($arrsv['area'] == "mientrung") {
-        $app_list_strings['list_dichvu_dom_middle'][$arrsv['id']] = $arrsv['name'];
-        $svArrMT[] = array('id' => $arrsv['id'], 'name' => $arrsv['name'], 'area' => $arrsv['$arrsv']);
-    }
-    if ($arrsv['area'] == "miennam") {
-        $app_list_strings['list_dichvu_dom_south'][$arrsv['id']] = $arrsv['name'];
-        $svArrMN[] = array('id' => $arrsv['id'], 'name' => $arrsv['name'], 'area' => $arrsv['$arrsv']);
-    }
-}
-
-$html .= '<fieldset >';
-$html .= '<legend> <h3>DỊCH VỤ</h3></legend>';
-$html .= '<div>';
-$html .= '<p>&nbsp;</p>'; 
-$html .= '<a class="showdiv"><img src="custom/themes/default/images/btndown.png" width="30" height="30" title="phóng to"/></a> &nbsp; <a class="hidediv"><img src="custom/themes/default/images/btnup.png" width="30" height="30" title="thu nhỏ"/></a>' ; 
-$html .= '<div class="displayandshow">';
-$html .= '<table width="100%" class="tabForm" border="0" id="dichvu" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-$html .= '<tfoot>';
-$html .= '<tr>';
-$html .= '<th>TỔNG CỘNG</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th><input type="text" size="15" class="center" name="service_tongthanhtien" id="service_tongthanhtien" value="' . $noidung->service_tongthanhtien . '"/></th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th><input type="text" size="15" class="center" name="service_tongthue" id="service_tongthue" value="' . $noidung->service_tongthue . '"/></th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '</tr>';
-$html .= '</tfoot>';
-$html .= '<tbody>';
-// lấy danh sách dịch vụ miền bắc
-$html .= '<tr><td colspan="8">';
-$dichvu_mienbac = $noidung->dichvu_mienbac;
-if (count($dichvu_mienbac) == 0) {
-    if (count($svArrMB) > 0) {
-        $html .= '<tr><td colspan="8">';
-        $html .= '<fieldset >';
-        $html .= '<legend><h3>MIỀN BẮC</h3></legend>';
-        $html .= '<table width="100%" class="table_clone" id="dichvu_mienbac" border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-        $html .= '<thead>';
-        $html .= '<tr>';
-        $html .= '<th>Loại dịch vụ</th>';
-        $html .= '<th>Đơn giá</th>';
-        $html .= '<th>Số lượng</th>';
-        $html .= '<th>Số ngày</th>';
-        $html .= '<th>FOC</th>';
-        $html .= '<th>Thành tiền</th>';
-        $html .= '<th>Thuế suất</th>';
-        $html .= '<th>Thuế</th>';
-        $html .= '<th>&nbsp;</th>';
-        $html .= '</tr>';
-        $html .= '</thead>';  
-        $html .= '<tfoot>';
-        $html .= '<tr>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%"><input type="text" size="15" class="center" name="service_tongthanhtien_mienbac" id="service_tongthanhtien_mienbac"/></th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%"><input type="text" size="15" class="center" name="service_tongthue_mienbac" id="service_tongthue_mienbac"/></th>';
-        $html .= '<th width="20%">&nbsp;</th>';
-        $html .= '</tr>';
-        $html .= '</tfoot>';
-        $html .= '<tbody>';
-        $sv_mb = 1;
-        foreach ($svArrMB as $svVal) {
-            $html .= '<tr>';
-            $html .= '<td width="20%" class="dataField"><select class="servicename" name="services_name_mb[]" id="services_name_mb' . $sv_mb . '">' . get_select_options_with_id($app_list_strings['list_dichvu_dom_north'], $svVal['id']) . '</select> </td>';
-            $html .= '<td width="10%" class="dataField"><input size="10" class="dongia center" name="services_dongia_mb[]" type="text" id="services_dongia_mb' . $sv_mb . '" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="soluong center" name="services_soluong_mb[]" type="text" id="services_soluong_mb' . $sv_mb . '" size="10" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="songay center" name="services_songay_mb[]" type="text" id="services_songay_mb' . $sv_mb . '" size="10" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="foc center" name="services_foc_mb[]" type="text" id="services_foc_mb' . $sv_mb . '" size="10" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="thanhtien center" name="services_thanhtien_mb[]" type="text" id="services_thanhtien_mb' . $sv_mb . '" size="10" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="thuesuat center" name="services_thuexuat_mb[]" type="text" id="services_thuexuat_mb' . $sv_mb . '" value="10"  size="10" /></td>';
-            $html .= '<td width="20%" class="dataField"><input class="vat center" name="services_vat_mb[]" type="text" id="services_vat_mb' . $sv_mb . '" size="10" /></td>';
-            $html .= '<td><input type="button" class="btnAddRow" value="Add Row"/><input type="button" class="btnDelRow" value="Delete Row"/></td>';
-            $html .= '</tr> ';
-            $sv_mb++;
-        }
-        $html .= '</tbody></table></fieldset></td></tr>';
-    }
-}
-if (count($dichvu_mienbac) > 0) {
-    $html .= '<fieldset >';
-    $html .= '<legend><h3>MIỀN BẮC</h3></legend>';
-    $html .= '<table width="100%" class="table_clone" id="dichvu_mienbac" border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-    $html .= '<thead>';
-    $html .= '<tr>';
-    $html .= '<th>Loại dịch vụ</th>';
-    $html .= '<th>Đơn giá</th>';
-    $html .= '<th>Số lượng</th>';
-    $html .= '<th>Số ngày</th>';
-    $html .= '<th>FOC</th>';
-    $html .= '<th>Thành tiền</th>';
-    $html .= '<th>Thuế suất</th>';
-    $html .= '<th>Thuế</th>';
-    $html .= '<th>&nbsp;</th>';
-    $html .= '</tr>';
-    $html .= '</thead>';
-    $html .= '<tfoot>';
-    $html .= '<tr>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%"><input type="text" size="15" class="center" name="service_tongthanhtien_mienbac" id="service_tongthanhtien_mienbac" value="' . $noidung->service_tongthanhtien_mienbac . '"/></th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%"><input type="text" size="15" class="center" name="service_tongthue_mienbac" id="service_tongthue_mienbac" value="' . $noidung->service_tongthue_mienbac . '"/></th>';
-    $html .= '<th width="20%">&nbsp;</th>';
-    $html .= '</tr>';
-    $html .= '</tfoot>';
-    $html .= '<tbody>';
-    $sv_mb = 1;
-    foreach ($dichvu_mienbac as $svValMB) {
-        $html .= '<tr>';
-        $html .= '<td width="20%" class="dataField"><select class="servicename" name="services_name_mb[]" id="services_name_mb' . $sv_mb . '">' . get_select_options_with_id($app_list_strings['list_dichvu_dom_north'], $svValMB->services_name_mb) . '</select> </td>';
-        $html .= '<td width="10%" class="dataField"><input size="10" class="dongia center" name="services_dongia_mb[]" type="text" id="services_dongia_mb' . $sv_mb . '" value="' . $svValMB->services_dongia_mb . '" /></td>';
-        $html .= '<td width="10%" class="dataField"><input class="soluong center" name="services_soluong_mb[]" type="text" id="services_soluong_mb' . $sv_mb . '" size="10" value="' . $svValMB->services_soluong_mb . '" /></td>';
-        $html .= '<td width="10%" class="dataField"><input class="songay center" name="services_songay_mb[]" type="text" id="services_songay_mb' . $sv_mb . '" size="10" value="' . $svValMB->services_songay_mb . '" /></td>';
-        $html .= '<td width="10%" class="dataField"><input class="foc center" name="services_foc_mb[]" type="text" id="services_foc_mb' . $sv_mb . '" size="10" value="' . $svValMB->services_foc_mb . '" /></td>';
-        $html .= '<td width="10%" class="dataField"><input class="thanhtien center" name="services_thanhtien_mb[]" type="text" id="services_thanhtien_mb' . $sv_mb . '" size="10" value="' . $svValMB->services_thanhtien_mb . '" /></td>';
-        $html .= '<td width="10%" class="dataField"><input class="thuesuat center" name="services_thuexuat_mb[]" type="text" id="services_thuexuat_mb' . $sv_mb . '" size="10" value="' . $svValMB->services_thuexuat_mb . '" /></td>';
-        $html .= '<td width="20%" class="dataField"><input class="vat center" name="services_vat_mb[]" type="text" id="services_vat_mb' . $sv_mb . '" size="10" value="' . $svValMB->services_vat_mb . '" /></td>';
-        $html .= '<td><input type="button" class="btnAddRow" value="Add Row"/><input type="button" class="btnDelRow" value="Delete Row"/></td>';
-        $html .= '</tr> ';
-        $sv_mb++;
-    }
-    $html .= '</tbody></table></fieldset>';
-    $html .= '</td></tr>';
-}
-
-// lấy danh sách dịch vụ miền trung
-$dichvu_mientrung = $noidung->dichvu_mientrung;
-if (count($dichvu_mientrung) == 0) {
-    if (count($svArrMT) > 0) {
-        $html .= '<tr><td colspan="8">';
-        $html .= '<fieldset >';
-        $html .= '<legend><h3>MIỀN TRUNG</h3></legend>';
-        $html .= '<table width="100%" class="table_clone" id="dichvu_mientrung" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-        $html .= '<thead>';
-        $html .= '<tr>';
-        $html .= '<th>Loại dịch vụ</th>';
-        $html .= '<th>Đơn giá</th>';
-        $html .= '<th>Số lượng</th>';
-        $html .= '<th>Số ngày</th>';
-        $html .= '<th>FOC</th>';
-        $html .= '<th>Thành tiền</th>';
-        $html .= '<th>Thuế suất</th>';
-        $html .= '<th>Thuế</th>';
-        $html .= '<th>&nbsp;</th>';
-        $html .= '</tr>';
-        $html .= '</thead>';
-        $html .= '<tfoot>';
-        $html .= '<tr>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%"><input type="text" size="15" class="center" name="service_tongthanhtien_mientrung" id="service_tongthanhtien_mientrung"/></th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%"><input type="text" size="15" class="center" name="service_tongthue_mientrung" id="service_tongthue_mientrung"/></th>';
-        $html .= '<th width="20%">&nbsp;</th>';
-        $html .= '</tr>';
-        $html .= '</tfoot>';
-        $html .= '<tbody>';
-        $dv_mt = 1;
-        foreach ($svArrMT as $svVal) {
-            $html .= '<tr>';
-            $html .= '<td width="20%" class="dataField"><select class="servicename" name="services_name_mt[]" id="services_name_mt' . $dv_mt . '">' . get_select_options_with_id($app_list_strings['list_dichvu_dom_middle'], $svVal['id']) . '</select> </td>';
-            $html .= '<td width="10%" class="dataField"><input size="10" class="dongia center" name="services_dongia_mt[]" type="text" id="services_dongia_mt' . $dv_mt . '" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="soluong center" name="services_soluong_mt[]" type="text" id="services_soluong_mt' . $dv_mt . '" size="10" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="songay center" name="services_songay_mt[]" type="text" id="services_songay_mt' . $dv_mt . '" size="10" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="foc center" name="services_foc_mt[]" type="text" id="services_foc_mt' . $dv_mt . '" size="10" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="thanhtien center" name="services_thanhtien_mt[]" type="text" id="services_thanhtien_mt' . $dv_mt . '" size="10" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="thuesuat center" name="services_thuexuat_mt[]" type="text" id="services_thuexuat_mt' . $dv_mt . '" value="10"  size="10" /></td>';
-            $html .= '<td width="20%" class="dataField"><input class="vat center" name="services_vat_mt[]" type="text" id="services_vat_mt' . $dv_mt . '" size="10" /></td>';
-            $html .= '<td><input type="button" class="btnAddRow" value="Add Row"/><input type="button" class="btnDelRow" value="Delete Row"/></td>';
-            $html .= '</tr> ';
-            $dv_mt++;
-        }
-        $html .= '</tbody></table></fieldset></td></tr>';
-    }
-}
-if (count($dichvu_mientrung) > 0) {
-    $html .= '<tr><td colspan="8">';
-    $html .= '<fieldset>';
-    $html .= '<legend><h3>MIỀN TRUNG</h3></legend>';
-    $html .= '<table width="100%" class="table_clone" id="dichvu_mientrung" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-    $html .= '<thead>';
-    $html .= '<tr>';
-    $html .= '<th>Loại dịch vụ</th>';
-    $html .= '<th>Đơn giá</th>';
-    $html .= '<th>Số lượng</th>';
-    $html .= '<th>Số ngày</th>';
-    $html .= '<th>FOC</th>';
-    $html .= '<th>Thành tiền</th>';
-    $html .= '<th>Thuế suất</th>';
-    $html .= '<th>Thuế</th>';
-    $html .= '<th>&nbsp;</th>';
-    $html .= '</tr>';
-    $html .= '</thead>';
-    $html .= '<tfoot>';
-    $html .= '<tr>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%"><input type="text" size="15" class="center" name="service_tongthanhtien_mientrung" id="service_tongthanhtien_mientrung" value="' . $noidung->service_tongthanhtien_mientrung . '"/></th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%"><input type="text" size="15" class="center" name="service_tongthue_mientrung" id="service_tongthue_mientrung" value="' . $noidung->service_tongthue_mientrung . '"/></th>';
-    $html .= '<th width="20%">&nbsp;</th>';
-    $html .= '</tr>';
-    $html .= '</tfoot>';
-    $html .= '<tbody>';
-    $dv_mt = 1;
-    foreach ($dichvu_mientrung as $svValMT) {
-        $html .= '<tr>';
-        $html .= '<td width="20%" class="dataField"><select class="servicename" name="services_name_mt[]" id="services_name_mt' . $dv_mt . '">' . get_select_options_with_id($app_list_strings['list_dichvu_dom_middle'], $svValMT->services_name_mt) . '</select> </td>';
-        $html .= '<td width="10%" class="dataField"><input size="10" class="dongia center" name="services_dongia_mt[]" type="text" id="services_dongia_mt' . $dv_mt . '" value="' . $svValMT->services_dongia_mt . '" /></td>';
-        $html .= '<td width="10%" class="dataField"><input class="soluong center" name="services_soluong_mt[]" type="text" id="services_soluong_mt' . $dv_mt . '" size="10" value="' . $svValMT->services_soluong_mt . '" /></td>';
-        $html .= '<td width="10%" class="dataField"><input class="songay center" name="services_songay_mt[]" type="text" id="services_songay_mt' . $dv_mt . '" size="10" value="' . $svValMT->services_songay_mt . '" /></td>';
-        $html .= '<td width="10%" class="dataField"><input class="foc center" name="services_foc_mt[]" type="text" id="services_foc_mt' . $dv_mt . '" size="10" value="' . $svValMT->services_foc_mt . '" /></td>';
-        $html .= '<td width="10%" class="dataField"><input class="thanhtien center" name="services_thanhtien_mt[]" type="text" id="services_thanhtien_mt' . $dv_mt . '" size="10" value="' . $svValMT->services_thanhtien_mt . '" /></td>';
-        $html .= '<td width="10%" class="dataField"><input class="thuesuat center" name="services_thuexuat_mt[]" type="text" id="services_thuexuat_mt' . $dv_mt . '" size="10" value="' . $svValMT->services_thuexuat_mt . '" /></td>';
-        $html .= '<td width="20%" class="dataField"><input class="vat center" name="services_vat_mt[]" type="text" id="services_vat_mt' . $dv_mt . '" size="10" value="' . $svValMT->services_vat_mt . '" /></td>';
-        $html .= '<td><input type="button" class="btnAddRow" value="Add Row"/><input type="button" class="btnDelRow" value="Delete Row"/></td>';
-        $html .= '</tr> ';
-        $dv_mt++;
-    }
-    $html .= '</tbody></table></fieldset>';
-    $html .= '</td></tr>';
-}
-// lay danh sách dịch vụ ở miền nam
-$dichvu_miennam = $noidung->dichvu_miennam;
-if (count($dichvu_miennam) == 0) {
-    if (count($svArrMN) > 0) {
-        $html .= '<tr><td colspan="8">';
-        $html .= '<fieldset>';
-        $html .= '<legend><h3>MIỀN NAM</h3></legend>';
-        $html .= '<table width="100%" class="table_clone" id="dichvu_miennam" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-        $html .= '<thead>';
-        $html .= '<tr>';
-        $html .= '<th>Loại dịch vụ</th>';
-        $html .= '<th>Đơn giá</th>';
-        $html .= '<th>Số lượng</th>';
-        $html .= '<th>Số ngày</th>';
-        $html .= '<th>FOC</th>';
-        $html .= '<th>Thành tiền</th>';
-        $html .= '<th>Thuế suất</th>';
-        $html .= '<th>Thuế</th>';
-        $html .= '<th>&nbsp;</th>';
-        $html .= '</tr>';
-        $html .= '</head>';
-        $html .= '<tfoot>';
-        $html .= '<tr>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%"><input type="text" size="15" class="center" name="service_tongthanhtien_miennam" id="service_tongthanhtien_miennam"/></th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%"><input type="text" size="15" class="center" name="service_tongthue_miennam" id="service_tongthue_miennam"/></th>';
-        $html .= '<th width="20%">&nbsp;</th>';
-        $html .= '</tr>';
-        $html .= '</tfoot>';
-        $html .= '<tbody>';
-        $dv_mv = 1;
-        foreach ($svArrMN as $svVal) {
-            $html .= '<tr>';
-            $html .= '<td width="20%" class="dataField"><select class="servicename" name="services_name_mn[]" id="services_name_mn' . $dv_mv . '">' . get_select_options_with_id($app_list_strings['list_dichvu_dom_south'], $svVal['id']) . '</select></td>';
-            $html .= '<td width="10%" class="dataField"><input size="10" class="dongia center" name="services_dongia_mn[]" type="text" id="services_dongia_mn' . $dv_mv . '" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="soluong center" name="services_soluong_mn[]" type="text" id="services_soluong_mn' . $dv_mv . '" size="10" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="songay center" name="services_songay_mn[]" type="text" id="services_songay_mn' . $dv_mv . '" size="10" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="foc center" name="services_foc_mn[]" type="text" id="services_foc_mn' . $dv_mv . '" size="10" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="thanhtien center" name="services_thanhtien_mn[]" type="text" id="services_thanhtien_mn' . $dv_mv . '" size="10" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="thuesuat center" name="services_thuexuat_mn[]" type="text" id="services_thuexuat_mn' . $dv_mv . '" value="10"  size="10" /></td>';
-            $html .= '<td width="20%" class="dataField"><input class="vat center" name="services_vat_mn[]" type="text" id="services_vat_mn' . $dv_mv . '" size="10" /></td>';
-            $html .= '<td><input type="button" class="btnAddRow" value="Add Row"/><input type="button" class="btnDelRow" value="Delete Row"/></td>';
-            $html .= '</tr> ';
-            $dv_mv++;
-        }
-        $html .= '</tbody></table></fieldset></td></tr>';
-    }
-}
-if (count($dichvu_miennam) > 0) {
-    $html .= '<tr><td colspan="8">';
-    $html .= '<fieldset>';
-    $html .= '<legend><h3>MIỀN NAM</h3></legend>';
-    $html .= '<table width="100%" class="table_clone" id="dichvu_miennam" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-    $html .= '<thead>';
-    $html .= '<tr>';
-    $html .= '<th>Loại dịch vụ</th>';
-    $html .= '<th>Đơn giá</th>';
-    $html .= '<th>Số lượng</th>';
-    $html .= '<th>Số ngày</th>';
-    $html .= '<th>FOC</th>';
-    $html .= '<th>Thành tiền</th>';
-    $html .= '<th>Thuế suất</th>';
-    $html .= '<th>Thuế</th>';
-    $html .= '<th>&nbsp;</th>';
-    $html .= '</tr>';
-    $html .= '</thead>';
-    $html .= '<tfoot>';
-    $html .= '<tr>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%"><input type="text" size="15" class="center" name="service_tongthanhtien_miennam" id="service_tongthanhtien_miennam" value="' . $noidung->service_tongthanhtien_miennam . '"/></th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%"><input type="text" size="15" class="center" name="service_tongthue_miennam" id="service_tongthue_miennam" value="' . $noidung->service_tongthue_miennam . '"/></th>';
-    $html .= '<th width="20%">&nbsp;</th>';
-    $html .= '</tr>';
-    $html .= '</tfoot>';
-    $html .= '<tbody>';
-    $dv_mv = 1;
-    foreach ($dichvu_miennam as $svValMN) {
-        $html .= '<tr>';
-        $html .= '<td width="20%" class="dataField"><select class="servicename" name="services_name_mn[]" id="services_name_mn' . $dv_mv . '">' . get_select_options_with_id($app_list_strings['list_dichvu_dom_south'], $svValMN->services_name_mn) . '</select></td>';
-        $html .= '<td width="10%" class="dataField"><input size="10" class="dongia center" name="services_dongia_mn[]" type="text" id="services_dongia_mn' . $dv_mv . '" value="' . $svValMN->services_dongia_mn . '" /></td>';
-        $html .= '<td width="10%" class="dataField"><input class="soluong center" name="services_soluong_mn[]" type="text" id="services_soluong_mn' . $dv_mv . '" size="10" value="' . $svValMN->services_soluong_mn . '" /></td>';
-        $html .= '<td width="10%" class="dataField"><input class="songay center" name="services_songay_mn[]" type="text" id="services_songay_mn' . $dv_mv . '" size="10" value="' . $svValMN->services_songay_mn . '" /></td>';
-        $html .= '<td width="10%" class="dataField"><input class="foc center" name="services_foc_mn[]" type="text" id="services_foc_mn' . $dv_mv . '" size="10" value="' . $svValMN->services_foc_mn . '" /></td>';
-        $html .= '<td width="10%" class="dataField"><input class="thanhtien center" name="services_thanhtien_mn[]" type="text" id="services_thanhtien_mn' . $dv_mv . '" size="10" value="' . $svValMN->services_thanhtien_mn . '" /></td>';
-        $html .= '<td width="10%" class="dataField"><input class="thuesuat center" name="services_thuexuat_mn[]" type="text" id="services_thuexuat_mn' . $dv_mv . '" size="10" value="' . $svValMN->services_thuexuat_mn . '" /></td>';
-        $html .= '<td width="20%" class="dataField"><input class="vat center" name="services_vat_mn[]" type="text" id="services_vat_mn' . $dv_mv . '" size="10" value="' . $svValMN->services_vat_mn . '" /></td>';
-        $html .= '<td class="dataField"><input type="button" class="btnAddRow" value="Add Row"/><input type="button" class="btnDelRow" value="Delete Row"/></td>';
-        $html .= '</tr> ';
-        $dv_mv++;
-    }
-    $html .= '</tbody></table></fieldset>';
-    $html .= '</td></tr>';
-}
-$html .= '</tbody>';
-$html .= '</table>';
-$html .= '</div>';
-$html .= '</div>';
-$html .= '</fieldset>';
-
-// ket thuc phan dich vu
-
-// phan du lieu tham quan
-
-$tqArr = array();
-$tqArrMB = array();
-$tqArrMT = array();
-$tqArrMN = array();
-$tqArr = $focus->getSightseeingData($focus->worksheet_tour_id);
-foreach ($tqArr as $arrtq) {
-    if ($arrtq['area'] == "mienbac") {
-        $app_list_strings['list_thamquan_dom_north'][$arrtq['id']] = $arrtq['name'];
-        $tqArrMB[] = array('id' => $arrtq['id'], 'name' => $arrtq['name'], 'area' => $arrtq['area']);
-    }
-    if ($arrtq['area'] == "mientrung") {
-        $app_list_strings['list_thamquan_dom_middle'][$arrtq['id']] = $arrtq['name'];
-        $tqArrMT[] = array('id' => $arrtq['id'], 'name' => $arrtq['name'], 'area' => $arrtq['area']);
-    }
-    if ($arrtq['area'] == "miennam") {
-        $app_list_strings['list_thamquan_dom_south'][$arrtq['id']] = $arrtq['name'];
-        $tqArrMN[] = array('id' => $arrtq['id'], 'name' => $arrtq['name'], 'area' => $arrtq['area']);
-    }
-}
-
-$html .= '<fieldset>';
-$html .= '<legend> <h3>THAM QUAN</h3></legend>';
-$html .= '<div>';
-$html .= '<p>&nbsp;</p>'; 
-$html .= '<a class="showdiv"><img src="custom/themes/default/images/btndown.png" width="30" height="30" title="phóng to"/></a> &nbsp; <a class="hidediv"><img src="custom/themes/default/images/btnup.png" width="30" height="30" title="thu nhỏ"/></a>' ; 
-$html .= '<div class="displayandshow">';
-$html .= '<table width="100%" class="tabForm" border="0" id="thamquan" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-$html .= '<tfoot>';
-$html .= '<tr>';
-$html .= '<th>TỔNG CỘNG</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-//$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th><input type="text" size="15" class="center" name="thamquan_tongthanhtien" id="thamquan_tongthanhtien" size="15" value="' . $noidung->thamquan_tongthanhtien . '"/></th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '<th><input type="text" size="15" class="center" name="thamquan_tongthue" id="thamquan_tongthue" size="15" value="' . $noidung->thamquan_tongthue . '"/></th>';
-$html .= '<th>&nbsp;</th>';
-$html .= '</tr>';
-$html .= '</tfoot>';
-$html .= '<tbody>';
-
-// lấy danh sách tham quan tại miền bắc
-
-$thamquan_mienbac = $noidung->thamquan_mienbac;
-if (count($thamquan_mienbac) == 0) {
-    if (count($tqArrMB) > 0) {
-        $html .= '<tr><td colspan="10">';
-        $html .= '<fieldset >';
-        $html .= '<legend><h3>MIỀN BẮC</h3></legend>';
-        $html .= '<table width="100%" class="table_clone" id="thamquan_mienbac" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-        $html .= '<thead>';
-        $html .= '<tr>';
-        $html .= '<th>Địa điểm tham quan</th>';
-        $html .= '<th>Đơn giá NL</th>';
-        $html .= '<th>Số lượng NL</th>';
-        $html .= '<th>Đơn giá TE</th>';
-        $html .= '<th>Số lượng TE</th>';
-        $html .= '<th>Số Lần/Lượt </th>';
-//        $html .= '<th>FOC</th>';
-        $html .= '<th>Thành tiền</th>';
-        $html .= '<th>Thuế suất</th>';
-        $html .= '<th>Thuế</th>';
-        $html .= '<th>&nbsp;</th>';
-        $html .= '</tr>';
-
-        $html .= '<thead>';
-        $html .='<tfoot>';
-        $html .= '<tr>';
-                $html .= '<th width="10%">&nbsp;</th>';
-                $html .= '<th width="10%">&nbsp;</th>';
-                $html .= '<th width="10%">&nbsp;</th>';
-                $html .= '<th width="10%">&nbsp;</th>';
-                $html .= '<th width="10%">&nbsp;</th>';
-                $html .= '<th width="10%">&nbsp;</th>';
-                $html .= '<th width="10%">&nbsp;</th>';
-                $html .= '<th width="10%"><input type="text" size="15" class="center" name="thamquan_tongthanhtien_mienbac" id="thamquan_tongthanhtien_mienbac" size="15"/></th>';
-                $html .= '<th width="10%">&nbsp;</th>';
-                $html .= '<th width="10%"><input type="text" size="15" class="center" name="thamquan_tongthue_mienbac" id="thamquan_tongthue_mienbac" size="15"/></th>';
-                $html .= '<th width="10%">&nbsp;</th>';
-                $html .= '</tr>';
-        $html.='</tfoot>';
-        $html .= '<tbody>';
-        $tq_mb = 1;
-        foreach ($tqArrMB as $tqVal) {
-            $html .= '<tr>';
-            $html .= '<td width="10%" class="dataField"><select class="servicename" name="thamquan_name_mb[]" id="thamquan_name_mb' . $tq_mb . '">' . get_select_options_with_id($app_list_strings['list_thamquan_dom_north'], $tqVal['id']) . '</select> </td>';
-            $html .= '<td width="10%" class="dataField"><input type="text" size="10" class="thamquan_dongianl dongia center" name="thamquan_gianguoilon_mb[]" id="thamquan_gianguoilon_mb' . $tq_mb . '"/> </td>';
-            $html .= '<td width="10%" class="dataField"><input size="10" class="thamquan_soluongnl center" name="thamquan_soluongnguoilon_mb[]" type="text" id="thamquan_soluongnguoilon_mb' . $tq_mb . '" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="thamquan_dongiate dongia center" name="thamquan_dongiatreem_mb[]" type="text" id="thamquan_dongiatreem_mb' . $tq_mb . '" size="10" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="thamquan_soluongte center" name="thamquan_soluongtreem_mb[]" type="text" id="thamquan_soluongtreem_mb' . $tq_mb . '" size="10" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="songay center" name="thamquan_songay_mb[]" type="text" id="thamquan_songay_mb' . $tq_mb . '" size="10" /></td>';
-//            $html .= '<td width="10%" class="dataField"><input class="foc center" name="thamquan_foc_mb[]" type="text" id="thamquan_foc_mb' . $tq_mb . '" size="10" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="thanhtien center" name="thamquan_thanhtien_mb[]" type="text" id="thamquan_thanhtien_mb' . $tq_mb . '" size="10" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="thuesuat center" name="thamquan_thuesuat_mb[]" type="text" id="thamquan_thuesuat_mb' . $tq_mb . '" value="10" size="10" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="vat center" name="thamquan_vat_mb[]" type="text" id="thamquan_vat_mb' . $tq_mb . '" size="10" /></td>';
-            $html .= '<td width="10%" class="dataField"><input type="button" class="btnAddRow" value="Add Row"/><input type="button" class="btnDelRow" value="Delete Row"/></td>';
-            $html .= '</tr> ';
-            $tq_mb++;
-        }
-        $html .= '</tbody></table></fieldset></td></tr>';
-    }
-}
-if (count($thamquan_mienbac) > 0) {
-    $html .= '<tr><td colspan="10">';
-    $html .= '<fieldset >';
-    $html .= '<legend><h3>MIỀN BẮC</h3></legend>';
-    $html .= '<table width="100%" class="table_clone" id="thamquan_mienbac" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-    $html .= '<thead>';
-    $html .= '<tr>';
-    $html .= '<th>Địa điểm tham quan</th>';
-    $html .= '<th>Đơn giá NL</th>';
-    $html .= '<th>Số lượng NL</th>';
-    $html .= '<th>Đơn giá TE</th>';
-    $html .= '<th>Số lượng TE</th>';
-    $html .= '<th>Số Lần/Lượt</th>';
-//    $html .= '<th>FOC</th>';
-    $html .= '<th>Thành tiền</th>';
-    $html .= '<th>Thuế suất</th>';
-    $html .= '<th>Thuế</th>';
-    $html .= '<th>&nbsp;</th>';
-    $html .= '</tr>';
-    $html .= '</thead>'; 
-    $html .= '<tfoot>'; 
-    $html .= '<tr>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-//    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%"><input type="text" size="15" class="center" name="thamquan_tongthanhtien_mienbac" id="thamquan_tongthanhtien_mienbac" size="15" value="' . $noidung->thamquan_tongthanhtien_mienbac . '"/></th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%"><input type="text" size="15" class="center" name="thamquan_tongthue_mienbac" id="thamquan_tongthue_mienbac" size="15" value="' . $noidung->thamquan_tongthue_mienbac . '"/></th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '</tr>';
-    $html .= '</tfoot>';
-    $html .= '<tbody>';
-    $tq_mb = 1;
-    foreach ($thamquan_mienbac as $tqValMB) {
-        $html .= '<tr>';
-        $html .= '<td width="10%" class="dataField"><select class="servicename" name="thamquan_name_mb[]" id="thamquan_name_mb' . $tq_mb . '">' . get_select_options_with_id($app_list_strings['list_thamquan_dom_north'], $tqValMB->thamquan_name_mb) . '</select> </td>';
-        $html .= '<td width="10%" class="dataField"><input type="text" size="10" class="thamquan_dongianl dongia center" name="thamquan_gianguoilon_mb[]" id="thamquan_gianguoilon_mb' . $tq_mb . '" value="' . $tqValMB->thamquan_gianguoilon_mb . '"/> </td>';
-        $html .= '<td width="10%" class="dataField"><input size="10" class="thamquan_soluongnl center" name="thamquan_soluongnguoilon_mb[]" type="text" id="thamquan_soluongnguoilon_mb' . $tq_mb . '" value="' . $tqValMB->thamquan_soluongnguoilon_mb . '" /></td>';
-        $html .= '<td width="10%" class="dataField"><input class="thamquan_dongiate dongia center" name="thamquan_dongiatreem_mb[]" type="text" id="thamquan_dongiatreem_mb' . $tq_mb . '" size="10" value="' . $tqValMB->thamquan_dongiatreem_mb . '" /></td>';
-        $html .= '<td width="10%" class="dataField"><input class="thamquan_soluongte center" name="thamquan_soluongtreem_mb[]" type="text" id="thamquan_soluongtreem_mb' . $tq_mb . '" size="10" value="' . $tqValMB->thamquan_soluongtreem_mb . '" /></td>';
-        $html .= '<td width="10%" class="dataField"><input class="songay center" name="thamquan_songay_mb[]" type="text" id="thamquan_songay_mb' . $tq_mb . '" size="10" value="' . $tqValMB->thamquan_songay_mb . '" /></td>';
-//        $html .= '<td width="10%" class="dataField"><input class="foc center" name="thamquan_foc_mb[]" type="text" id="thamquan_foc_mb' . $tq_mb . '" size="10" value="' . $tqValMB->thamquan_foc_mb . '" /></td>';
-        $html .= '<td width="10%" class="dataField"><input class="thanhtien center" name="thamquan_thanhtien_mb[]" type="text" id="thamquan_thanhtien_mb' . $tq_mb . '" size="10" value="' . $tqValMB->thamquan_thanhtien_mb . '" /></td>';
-        $html .= '<td width="10%" class="dataField"><input class="thuesuat center" name="thamquan_thuesuat_mb[]" type="text" id="thamquan_thuesuat_mb' . $tq_mb . '" size="10"  value="' . $tqValMB->thamquan_thuesuat_mb . '" /></td>';
-        $html .= '<td width="10%" class="dataField"><input class="vat center" name="thamquan_vat_mb[]" type="text" id="thamquan_vat_mb' . $tq_mb . '" size="10" value="' . $tqValMB->thamquan_vat_mb . '" /></td>';
-        $html .= '<td width="10%" class="dataField"><input type="button" class="btnAddRow" value="Add Row"/><input type="button" class="btnDelRow" value="Delete Row"/></td>';
-        $html .= '</tr> ';
-        $tq_mb++;
-    }
-    $html .= '</tbody></table></fieldset>';
-    $html .= '</td></tr>';
-}
-
-//  lấy danh sách tham quan tại miền trung
-
-$thamquan_mientrung = $noidung->thamquan_mientrung;
-
-if (count($thamquan_mientrung) == 0) {
-    if (count($tqArrMT) > 0) {
-        $html .= '<tr><td colspan="10">';
-        $html .= '<fieldset >';
-        $html .= '<legend><h3>MIỀN TRUNG</h3></legend>';
-        $html .= '<table width="100%" class="table_clone" id="thamquan_mientrung" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-        $html .= '<thead>';
-        $html .= '<tr>';
-        $html .= '<th>Địa điểm tham quan</th>';
-        $html .= '<th>Đơn giá NL</th>';
-        $html .= '<th>Số lượng NL</th>';
-        $html .= '<th>Đơn giá TE</th>';
-        $html .= '<th>Số lượng TE</th>';
-        $html .= '<th>Số Lần/Lượt</th>';
-//        $html .= '<th>FOC</th>';
-        $html .= '<th>Thành tiền</th>';
-        $html .= '<th>Thuế suất</th>';
-        $html .= '<th>Thuế</th>';
-        $html .= '<th>&nbsp;</th>';
-        $html .= '</tr>';
-        $html .= '</thead>';
-        $html .= '<tfoot>';
-        $html .= '<tr>';
-        $html .= '<th width="10%">&nbsp;</th>';
-//        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%"><input type="text" size="15" class="center" name="thamquan_tongthanhtien_mientrung" id="thamquan_tongthanhtien_mientrung" size="15"/></th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%"><input type="text" size="15" class="center" name="thamquan_tongthue_mientrung" id="thamquan_tongthue_mientrung" size="15"/></th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '</tr>';
-        $html .= '</tfoot>';
-        $html .= '<tbody>';
-        $tq_mt = 1;
-        foreach ($tqArrMT as $tqVal) {
-            $html .= '<tr>';
-            $html .= '<td width="10%" class="dataField"><select class="servicename" name="thamquan_name_mt[]" id="thamquan_name_mt' . $tq_mt . '">' . get_select_options_with_id($app_list_strings['list_thamquan_dom_middle'], $tqVal['id']) . '</select> </td>';
-            $html .= '<td width="10%" class="dataField"><input type="text" size="10" class="thamquan_dongianl dongia center" name="thamquan_gianguoilon_mt[]" id="thamquan_gianguoilon_mt' . $tq_mt . '"/> </td>';
-            $html .= '<td width="10%" class="dataField"><input size="10" class="thamquan_soluongte center" name="thamquan_soluongnguoilon_mt[]" type="text" id="thamquan_soluongnguoilon_mt' . $tq_mt . '" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="thamquan_dongiate dongia center" name="thamquan_dongiatreem_mt[]" type="text" id="thamquan_dongiatreem_mt' . $tq_mt . '" size="10" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="thamquan_soluongte center" name="thamquan_soluongtreem_mt[]" type="text" id="thamquan_soluongtreem_mt' . $tq_mt . '" size="10" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="songay center" name="thamquan_songay_mt[]" type="text" id="thamquan_songay_mt' . $tq_mt . '" size="10" /></td>';
-//            $html .= '<td width="10%" class="dataField"><input class="foc center" name="thamquan_foc_mt[]" type="text" id="thamquan_foc_mt' . $tq_mt . '" size="10" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="thanhtien center" name="thamquan_thanhtien_mt[]" type="text" id="thamquan_thanhtien_mt' . $tq_mt . '" size="10" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="thuesuat center" name="thamquan_thuesuat_mt[]" type="text" id="thamquan_thuesuat_mt' . $tq_mt . '" value="10"  size="10" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="vat center" name="thamquan_vat_mt[]" type="text" id="thamquan_vat_mt' . $tq_mt . ' size="10" /></td>';
-            $html .= '<td width="10%" class="dataField"><input type="button" class="btnAddRow" value="Add Row"/><input type="button" class="btnDelRow" value="Delete Row"/></td>';
-            $html .= '</tr> ';
-            $tq_mt++;
-        }
-        $html .= '</tbody></table></fieldset></td></tr>';
-    }
-}
-if (count($thamquan_mientrung) > 0) {
-    $html .= '<tr><td colspan="10">';
-    $html .= '<fieldset >';
-    $html .= '<legend><h3>MIỀN TRUNG</h3></legend>';
-    $html .= '<table width="100%" class="table_clone" id="thamquan_mientrung" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-    $html .= '<thead>';
-    $html .= '<tr>';
-    $html .= '<th>Địa điểm tham quan</th>';
-    $html .= '<th>Đơn giá NL</th>';
-    $html .= '<th>Số lượng NL</th>';
-    $html .= '<th>Đơn giá TE</th>';
-    $html .= '<th>Số lượng TE</th>';
-    $html .= '<th>Số Lần/Lượt</th>';
-//    $html .= '<th>FOC</th>';
-    $html .= '<th>Thành tiền</th>';
-    $html .= '<th>Thuế suất</th>';
-    $html .= '<th>Thuế</th>';
-    $html .= '<th>&nbsp;</th>';
-    $html .= '</tr>';
-    $html .= '</thead>';
-    $html .= '<tfoot>';
-    $html .= '<tr>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-//    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%"><input type="text" size="15" class="center" name="thamquan_tongthanhtien_mientrung" id="thamquan_tongthanhtien_mientrung" size="15" value="' . $noidung->thamquan_tongthanhtien_mientrung . '"/></th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%"><input type="text" size="15" class="center" name="thamquan_tongthue_mientrung" id="thamquan_tongthue_mientrung" size="15" value="' . $noidung->thamquan_tongthue_mientrung . '"/></th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '</tr>';
-    $html .= '</tfoot>';
-    $html .= '<tbody>';
-    $tq_mt = 1;
-    foreach ($thamquan_mientrung as $tqValMT) {
-        $html .= '<tr>';
-        $html .= '<td width="10%" class="dataField"><select class="servicename" name="thamquan_name_mt[]" id="thamquan_name_mt' . $tq_mt . '">' . get_select_options_with_id($app_list_strings['list_thamquan_dom_middle'], $tqValMT->thamquan_name_mt) . '</select> </td>';
-        $html .= '<td width="10%" class="dataField"><input type="text" size="10" class="thamquan_dongianl dongia center" name="thamquan_gianguoilon_mt[]" id="thamquan_gianguoilon_mt' . $tq_mt . '" value="' . $tqValMT->thamquan_gianguoilon_mt . '"/> </td>';
-        $html .= '<td width="10%" class="dataField"><input size="10" class="thamquan_soluongnl center" name="thamquan_soluongnguoilon_mt[]" type="text" id="thamquan_soluongnguoilon_mt' . $tq_mt . '" value="' . $tqValMT->thamquan_soluongnguoilon_mt . '" /></td>';
-        $html .= '<td width="10%" class="dataField"><input class="thamquan_dongiate dongia center" name="thamquan_dongiatreem_mt[]" type="text" id="thamquan_dongiatreem_mt' . $tq_mt . '" size="10" value="' . $tqValMT->thamquan_dongiatreem_mt . '" /></td>';
-        $html .= '<td width="10%" class="dataField"><input class="thamquan_soluongte center" name="thamquan_soluongtreem_mt[]" type="text" id="thamquan_soluongtreem_mt' . $tq_mt . '" size="10" value="' . $tqValMT->thamquan_soluongtreem_mt . '" /></td>';
-        $html .= '<td width="10%" class="dataField"><input class="songay center" name="thamquan_songay_mt[]" type="text" id="thamquan_songay_mt' . $tq_mt . '" size="10" value="' . $tqValMT->thamquan_songay_mt . '" /></td>';
-//        $html .= '<td width="10%" class="dataField"><input class="foc center" name="thamquan_foc_mt[]" type="text" id="thamquan_foc_mt' . $tq_mt . '" size="10" value="' . $tqValMT->thamquan_foc_mt . '" /></td>';
-        $html .= '<td width="10%" class="dataField"><input class="thanhtien center" name="thamquan_thanhtien_mt[]" type="text" id="thamquan_thanhtien_mt' . $tq_mt . '" size="10" value="' . $tqValMT->thamquan_thanhtien_mt . '" /></td>';
-        $html .= '<td width="10%" class="dataField"><input class="thuesuat center" name="thamquan_thuesuat_mt[]" type="text" id="thamquan_thuesuat_mt' . $tq_mt . '" size="10" value="' . $tqValMT->thamquan_thuesuat_mt . '" /></td>';
-        $html .= '<td width="10%" class="dataField"><input class="vat center" name="thamquan_vat_mt[]" type="text" id="thamquan_vat_mt' . $tq_mt . '" size="10" value="' . $tqValMT->thamquan_vat_mt . '" /></td>';
-        $html .= '<td width="10%" class="dataField"><input type="button" class="btnAddRow" value="Add Row"/><input type="button" class="btnDelRow" value="Delete Row"/></td>';
-        $html .= '</tr> ';
-        $tq_mt++;
-    }
-    $html .= '</tbody></table></fieldset>';
-    $html .= '</td></tr>';
-}
-/// lấy danh sách tham quan tại miền nam
-$thamquan_miennam = $noidung->thamquan_miennam;
-if (count($thamquan_miennam) == 0) {
-    if (count($tqArrMN) > 0) {
-        $html .= '<tr><td colspan="10">';
-        $html .= '<fieldset >';
-        $html .= '<legend><h3>MIỀN NAM</h3></legend>';
-        $html .= '<table width="100%" class="table_clone" id="thamquan_miennam" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-        $html .= '<thead>';
-        $html .= '<tr>';
-        $html .= '<th>Địa điểm tham quan</th>';
-        $html .= '<th>Đơn giá NL</th>';
-        $html .= '<th>Số lượng NL</th>';
-        $html .= '<th>Đơn giá TE</th>';
-        $html .= '<th>Số lượng TE</th>';
-        $html .= '<th>Số Lần/Lượt</th>';
-//        $html .= '<th>FOC</th>';
-        $html .= '<th>Thành tiền</th>';
-        $html .= '<th>Thuế suất</th>';
-        $html .= '<th>Thuế</th>';
-        $html .= '<th>&nbsp;</th>';
-        $html .= '</tr>';
-        $html .= '<thead>';
-        $html .= '<tfoot>';
-        $html .= '<tr>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-//        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%"><input type="text" size="15" class="center" name="thamquan_tongthanhtien_miennam" id="thamquan_tongthanhtien_miennam" size="15"/></th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '<th width="10%"><input type="text" size="15" class="center" name="thamquan_tongthue_mienam" id="thamquan_tongthue_mienam" size="15"/></th>';
-        $html .= '<th width="10%">&nbsp;</th>';
-        $html .= '</tr>';
-        $html .= '</tfoot>';
-        $html .= '<tbody>';
-        $tq_mn = 1;
-        foreach ($tqArrMN as $tqVal) {
-            $html .= '<tr>';
-            $html .= '<td width="10%" class="dataField"><select class="servicename" name="thamquan_name_mn[]" id="thamquan_name_mn' . $tq_mn . '">' . get_select_options_with_id($app_list_strings['list_thamquan_dom_south'], $tqVal['id']) . '</select> </td>';
-            $html .= '<td width="10%" class="dataField"><input type="text" size="10" class="thamquan_dongianl dongia center" name="thamquan_gianguoilon_mn[]" id="thamquan_gianguoilon_mn' . $tq_mn . '"/> </td>';
-            $html .= '<td width="10%" class="dataField"><input size="10" class="thamquan_soluongte center" name="thamquan_soluongnguoilon_mn[]" type="text" id="thamquan_soluongnguoilon_mn' . $tq_mn . '" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="thamquan_dongiate dongia center" name="thamquan_dongiatreem_mn[]" type="text" id="thamquan_dongiatreem_mn' . $tq_mn . '" size="10" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="thamquan_soluongte center" name="thamquan_soluongtreem_mn[]" type="text" id="thamquan_soluongtreem_mn' . $tq_mn . '" size="10" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="songay center" name="thamquan_songay_mn[]" type="text" id="thamquan_songay_mn' . $tq_mn . '" size="10" /></td>';
-//            $html .= '<td width="10%" class="dataField"><input class="foc center" name="thamquan_foc_mn[]" type="text" id="thamquan_foc_mn' . $tq_mn . '" size="10" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="thanhtien center" name="thamquan_thanhtien_mn[]" type="text" id="thamquan_thanhtien_mn' . $tq_mn . '" size="10" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="thuesuat center" name="thamquan_thuesuat_mn[]" type="text" id="thamquan_thuesuat_mn' . $tq_mn . '" value="10"  size="10" /></td>';
-            $html .= '<td width="10%" class="dataField"><input class="vat center" name="thamquan_vat_mn[]" type="text" id="thamquan_vat_mn' . $tq_mn . ' size="10" /></td>';
-            $html .= '<td width="10%" class="dataField"><input type="button" class="btnAddRow" value="Add Row"/><input type="button" class="btnDelRow" value="Delete Row"/></td>';
-            $html .= '</tr> ';
-            $tq_mn++;
-        }
-        $html .= '</tbody></table></fieldset></td></tr>';
-    }
-}
-if (count($thamquan_miennam) > 0) {
-    $html .= '<tr><td colspan="10">';
-    $html .= '<fieldset >';
-    $html .= '<legend><h3>MIỀN NAM</h3></legend>';
-    $html .= '<table width="100%" class="table_clone" id="thamquan_miennam" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-    $html .= '<thead>';
-    $html .= '<tr>';
-    $html .= '<th>Địa điểm tham quan</th>';
-    $html .= '<th>Đơn giá NL</th>';
-    $html .= '<th>Số lượng NL</th>';
-    $html .= '<th>Đơn giá TE</th>';
-    $html .= '<th>Số lượng TE</th>';
-    $html .= '<th>Số Lần/Lượt</th>';
-//    $html .= '<th>FOC</th>';
-    $html .= '<th>Thành tiền</th>';
-    $html .= '<th>Thuế suất</th>';
-    $html .= '<th>Thuế</th>';
-    $html .= '<th>&nbsp;</th>';
-    $html .= '</tr>';
-    $html .= '</thead>';
-    $html .= '<tfoot>';
-    $html .= '<tr>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-//    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%"><input type="text" size="15" class="center" name="thamquan_tongthanhtien_miennam" id="thamquan_tongthanhtien_miennam" size="15" value="' . $noidung->thamquan_tongthanhtien_miennam . '"/></th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '<th width="10%"><input type="text" size="15" class="center" name="thamquan_tongthue_mienam" id="thamquan_tongthue_mienam" size="15" value="' . $noidung->thamquan_tongthue_mienam . '"/></th>';
-    $html .= '<th width="10%">&nbsp;</th>';
-    $html .= '</tr>';
-    $html .= '</tfoot>';
-    $html .= '<tbody>';
-    $tq_mn = 1;
-    foreach ($thamquan_miennam as $tqValMN) {
-        $html .= '<tr>';
-        $html .= '<td width="10%" class="dataField"><select class="servicename" name="thamquan_name_mn[]" id="thamquan_name_mn' . $tq_mn . '">' . get_select_options_with_id($app_list_strings['list_thamquan_dom_south'], $tqValMN->thamquan_name_mn) . '</select> </td>';
-        $html .= '<td width="10%" class="dataField"><input type="text" size="10" class="thamquan_dongianl dongia center" name="thamquan_gianguoilon_mn[]" id="thamquan_gianguoilon_mn' . $tq_mn . '" value="' . $tqValMN->thamquan_gianguoilon_mn . '"/> </td>';
-        $html .= '<td width="10%" class="dataField"><input size="10" class="thamquan_soluongnl center" name="thamquan_soluongnguoilon_mn[]" type="text" id="thamquan_soluongnguoilon_mn' . $tq_mn . '" value="' . $tqValMN->thamquan_soluongnguoilon_mn . '" /></td>';
-        $html .= '<td width="10%" class="dataField"><input class="thamquan_dongiate dongia center" name="thamquan_dongiatreem_mn[]" type="text" id="thamquan_dongiatreem_mn' . $tq_mn . '" size="10" value="' . $tqValMN->thamquan_dongiatreem_mn . '" /></td>';
-        $html .= '<td width="10%" class="dataField"><input class="thamquan_soluongte center" name="thamquan_soluongtreem_mn[]" type="text" id="thamquan_soluongtreem_mn' . $tq_mn . '" size="10" value="' . $tqValMN->thamquan_soluongtreem_mn . '" /></td>';
-        $html .= '<td width="10%" class="dataField"><input class="songay center" name="thamquan_songay_mn[]" type="text" id="thamquan_songay_mn' . $tq_mn . '" size="10" value="' . $tqValMN->thamquan_songay_mn . '" /></td>';
-//        $html .= '<td width="10%" class="dataField"><input class="foc center" name="thamquan_foc_mn[]" type="text" id="thamquan_foc_mn' . $tq_mn . '" size="10" value="' . $tqValMN->thamquan_foc_mn . '" /></td>';
-        $html .= '<td width="10%" class="dataField"><input class="thanhtien center" name="thamquan_thanhtien_mn[]" type="text" id="thamquan_thanhtien_mn' . $tq_mn . '" size="10" value="' . $tqValMN->thamquan_thanhtien_mn . '" /></td>';
-        $html .= '<td width="10%" class="dataField"><input class="thuesuat center" name="thamquan_thuesuat_mn[]" type="text" id="thamquan_thuesuat_mn' . $tq_mn . '" size="10" value="10"  value="' . $tqValMN->thamquan_thuesuat_mn . '" /></td>';
-        $html .= '<td width="10%" class="dataField"><input class="vat center" name="thamquan_vat_mn[]" type="text" id="thamquan_vat_mn' . $tq_mn . '" size="10" value="' . $tqValMN->thamquan_vat_mn . '" /></td>';
-        $html .= '<td width="10%" class="dataField"><input type="button" class="btnAddRow" value="Add Row"/><input type="button" class="btnDelRow" value="Delete Row"/></td>';
-        $html .= '</tr> ';
-        $tq_mn++;
-    }
-    $html .= '</tbody></table></fieldset>';
-    $html .= '</td></tr>';
-}
-$html .= '</body>';
-$html .= '</table>';
-$html .= '</div>';
-$html .= '</div>';
-$html .= '</fieldset>';
+    $ss->assign('foc3_21', $noidung->foc3_21);
+    $ss->assign('foc3_22', $noidung->foc3_22);
+    $ss->assign('foc3_23', $noidung->foc3_23);
+    $ss->assign('foc3_24', $noidung->foc3_24);
+    $ss->assign('foc3_25', $noidung->foc3_25);
+    $ss->assign('foc3_26', $noidung->foc3_26);
+    $ss->assign('foc3_27', $noidung->foc3_27);
+    $ss->assign('foc3_28', $noidung->foc3_28);
+    $ss->assign('foc3_29', $noidung->foc3_29);
+    $ss->assign('foc3_30', $noidung->foc3_30);
 
 
-// chi phi huong dan vien
-
-$htmlhdvmb = '';
-$huongdanvienmb = $noidung->huongdanvienmb;
-if (count($huongdanvienmb) > 0) {
-    foreach ($huongdanvienmb as $val) {
-        $htmlhdvmb .= '<tr>';
-        $htmlhdvmb .= '<td><input type="text" name="loaichiphi_cphdv_mb[]" id="loaichiphi_cphdv_mb" value="' . $val->loaichiphi . '"/></td>';
-        $htmlhdvmb .= '<td><input type="text" class="center soluong" name="soduong_cphdv_mb[]" id="soduong_cphdv_mb" value="' . $val->soluong . '"/></td>';
-        $htmlhdvmb .= '<td><input type="text" class="center dongia" name="dongia_cphdv_mb[]" id="dongia_cphdv_mb" value="' . $val->dongia . '"/></td>';
-        $htmlhdvmb .= '<td><input type="text" class="center songay" name="solan_cphdv_mb[]" id="solan_cphdv_mb" value="'.$val->solan.'"/></td>';
-        $htmlhdvmb .= '<td><input type="text" class="center thanhtien" name="thanhtien_cphdv_mb[]" id="thanhtien_cphdv_mb" value="' . $val->thanhtien . '"/></td>';
-        $htmlhdvmb .= '<td><input type="text" class="center thuesuat" name="thuesuat_cphdv_mb[]" id="thuesuat_cphdv_mb" value="' . $val->thuesuat . '"/></td>';
-        $htmlhdvmb .= '<td><input type="text" class="center vat" name="vat_cphdv_mb[]" id="vat_cphdv_mb" value="'.$val->vat.'"/></td>';
-        $htmlhdvmb .= '<td align="center"><input type="button" class="btnDelRow" value="Delete Row" /></td>';
-        $htmlhdvmb .= '</tr>';
-    }
-    $ss->assign('htmlhdvmb', $htmlhdvmb);
-}
-
-$htmlhdvmt = '';
-$huongdanvienmt = $noidung->huongdanvienmt;
-if (count($huongdanvienmt) > 0) {
-    foreach ($huongdanvienmt as $val) {
-        $htmlhdvmt .= '<tr>';
-        $htmlhdvmt .= '<td><input type="text" name="loaichiphi_cphdv_mt[]" id="loaichiphi_cphdv_mt" value="'.$val->loaichiphi.'"/></td>';
-        $htmlhdvmt .= '<td><input type="text" class="center soluong" name="soduong_cphdv_mt[]" id="soduong_cphdv_mt" value="'.$val->soluong .'"/></td>';
-        $htmlhdvmt .= '<td><input type="text" class="center dongia" name="dongia_cphdv_mt[]" id="dongia_cphdv_mt" value="'.$val->dongia.'"/></td>';
-        $htmlhdvmt .= '<td><input type="text" class="center songay" name="solan_cphdv_mt[]" id="solan_cphdv_mt" value="'.$val->solan.'"/></td>';
-        $htmlhdvmt .= '<td><input type="text" class="center thanhtien" name="thanhtien_cphdv_mt[]" id="thanhtien_cphdv_mt" value="' . $val->thanhtien . '"/></td>';
-        $htmlhdvmt .= '<td><input type="text" class="center thuesuat" name="thuesuat_cphdv_mt[]" id="thuesuat_cphdv_mt" value="' . $val->thuesuat . '"/></td>';
-        $htmlhdvmt .= '<td><input type="text" class="center vat" name="vat_cphdv_mt[]" id="vat_cphdv_mt" value="' . $val->vat . '"/></td>';
-        $htmlhdvmt .= '<td align="center"><input type="button" class="btnDelRow" value="Delete Row" /></td>';
-        $htmlhdvmt .= '</tr>';
-    }
-    $ss->assign('htmlhdvmt', $htmlhdvmt);
-}
-
-$htmlhdvmn = '';
-$huongdanvienmn = $noidung->huongdanvienmn;
-if (count($huongdanvienmn) > 0) {
-    foreach ($huongdanvienmn as $val) {
-        $htmlhdvmn .= '<tr>';
-        $htmlhdvmn .= '<td><input type="text" name="loaichiphi_cphdv_mn[]" id="loaichiphi_cphdv_mn" value="' . $val->loaichiphi . '"/></td>';
-        $htmlhdvmn .= '<td><input type="text" class="center soluong" name="soluong_cphdv_mn[]" id="soluong_cphdv_mn" value="' . $val->soluong . '"/></td>';
-        $htmlhdvmn .= '<td><input type="text" class="center dongia" name="dongia_cphdv_mn[]" id="dongia_cphdv_mn" value="' . $val->dongia . '"/></td>';
-        $htmlhdvmn .= '<td><input type="text" class="center songay" name="solan_cphdv_mn[]" id="solan_cphdv_mn" value="'.$val->solan.'"/></td>';
-        $htmlhdvmn .= '<td><input type="text" class="center thanhtien" name="thanhtien_cphdv_mn[]" id="thanhtien_cphdv_mn" value="' . $val->thanhtien . '"/></td>';
-        $htmlhdvmn .= '<td><input type="text" class="center thuesuat" name="thuesuat_cphdv_mn[]" id="thuesuat_cphdv_mn" value="' . $val->thuesuat . '"/></td>';
-        $htmlhdvmn .= '<td><input type="text" class="center vat" name="vat_cphdv_mn[]" id="vat_cphdv_mn" value="' . $val->vat . '"/></td>';
-        $htmlhdvmn .= '<td align="center"><input type="button" class="btnDelRow" value="Delete Row" /></td>';
-        $htmlhdvmn .= '</tr>';
-    }
-    $ss->assign('htmlhdvmn', $htmlhdvmn);
-}
-$ss->assign('tongchi_hvd', $noidung->tongchi_hvd);
-$ss->assign('tongthue_hvd', $noidung->tongthue_hvd);
-$ss->assign('tongchi_hvd_mb', $noidung->tongchi_hvd_mb);
-$ss->assign('tongthue_hvd_mb', $noidung->tongthue_hvd_mb);
-$ss->assign('tongchi_hvd_mt', $noidung->tongchi_hvd_mt);
-$ss->assign('tongthue_hvd_mt', $noidung->tongthue_hvd_mt);
-$ss->assign('tongchi_hvd_mn', $noidung->tongchi_hvd_mn);
-$ss->assign('tongthue_hvd_mn', $noidung->tongthue_hvd_mn);
-
-// ket thuc phan tham quan
-// phan chi phí khác
-$htmlchiphikhac = '';
-$chiphikhac = $noidung->chiphikhac;
-$countchiphikhac = count($chiphikhac);
-$ss->assign("COUNTCPK", $countchiphikhac);
-$cpk = 1;
-if ($countchiphikhac > 0) {
-    foreach ($chiphikhac as $chiphikhacval) {
-        $htmlchiphikhac .= '<tr>';
-        $htmlchiphikhac .= '<td class="dataField"><input type="text" class="loaidichvu" name="chiphikhac_loaidichvu[]" id="chiphikhac_loaidichvu' . $cpk . '" value="' . $chiphikhacval->chiphikhac_loaidichvu . '"></td>';
-        $htmlchiphikhac .= '<td class="dataField"><input type="text" class="soluong cpk_soluong highlight center" name="chiphikhac_soluong[]" id="chiphikhac_soluong' . $cpk . '" value="' . $chiphikhacval->chiphikhac_soluong . '"></td>';
-        $htmlchiphikhac .= '<td class="dataField"><input type="text" class="dongia center" name="chiphikhac_dongia[]" id="chiphikhac_dongia' . $cpk . '" value="' . $chiphikhacval->chiphikhac_dongia . '"></td>';
-//        $htmlchiphikhac .= '<td class="dataField"><input type="text" class="foc center" name="chiphikhac_foc[]" id="chiphikhac_foc' . $cpk . '" value="' . $chiphikhacval->chiphikhac_foc . '" ></td>';
-        $htmlchiphikhac .= '<td class="dataField"><input type="text" class="thanhtien center" name="chiphikhac_thanhtien[]" id="chiphikhac_thanhtien' . $cpk . '" value="' . $chiphikhacval->chiphikhac_thanhtien . '" ></td>';
-        $htmlchiphikhac .= '<td class="dataField"><input type="text" class="thuesuat center" name="chiphikhac_thuesuat[]" id="chiphikhac_thuesuat' . $cpk . '" value="' . $chiphikhacval->chiphikhac_thuesuat . '" ></td>';
-        $htmlchiphikhac .= '<td class="dataField"><input type="text" class="vat center" name="chiphikhac_vat[]" id="chiphikhac_vat' . $cpk . '" value="' . $chiphikhacval->chiphikhac_vat . '"></td>';
-        $htmlchiphikhac .= '<td class="dataField"><input type="button" class="btnAddRow" value="Add Row"> <input type="button" class="btnDelRow" value="Delete Row"></td>';
-        $htmlchiphikhac .= '</tr>';
-        $cpk++;
-    }
-}
-$ss->assign('CHIPHIKHACHTML', $htmlchiphikhac);
+    $ss->assign('nett3_1', $noidung->nett3_1);
+    $ss->assign('nett3_2', $noidung->nett3_2);
+    $ss->assign('nett3_3', $noidung->nett3_3);
+    $ss->assign('nett3_4', $noidung->nett3_4);
+    $ss->assign('nett3_5', $noidung->nett3_5);
+    $ss->assign('nett3_6', $noidung->nett3_6);
+    $ss->assign('nett3_7', $noidung->nett3_7);
+    $ss->assign('nett3_8', $noidung->nett3_8);
+    $ss->assign('nett3_9', $noidung->nett3_9);
+    $ss->assign('nett3_10', $noidung->nett3_10);
+    $ss->assign('nett3_11', $noidung->nett3_11);
+    $ss->assign('nett3_12', $noidung->nett3_12);
+    $ss->assign('nett3_13', $noidung->nett3_13);
+    $ss->assign('nett3_14', $noidung->nett3_14);
+    $ss->assign('nett3_15', $noidung->nett3_15);
+    $ss->assign('nett3_16', $noidung->nett3_16);
+    $ss->assign('nett3_17', $noidung->nett3_17);
+    $ss->assign('nett3_18', $noidung->nett3_18);
+    $ss->assign('nett3_19', $noidung->nett3_19);
+    $ss->assign('nett3_20', $noidung->nett3_20);
+    $ss->assign('nett3_21', $noidung->nett3_21);
+    $ss->assign('nett3_22', $noidung->nett3_22);
+    $ss->assign('nett3_23', $noidung->nett3_23);
+    $ss->assign('nett3_24', $noidung->nett3_24);
+    $ss->assign('nett3_25', $noidung->nett3_25);
+    $ss->assign('nett3_26', $noidung->nett3_26);
+    $ss->assign('nett3_27', $noidung->nett3_27);
+    $ss->assign('nett3_28', $noidung->nett3_28);
+    $ss->assign('nett3_29', $noidung->nett3_29);
+    $ss->assign('nett3_30', $noidung->nett3_30);
+    $ss->assign('nett3_31', $noidung->nett3_31);
+    $ss->assign('nett3_32', $noidung->nett3_32);
 
 
-$ss->assign('HTML', $html);
-$ss->display("modules/Worksheets/tpls/Inbound.tpl");
-unset($_SESSION['record']);
-unset($_SESSION['return_id']);
+    $ss->assign('service3_rate', $noidung->service3_rate);
+    $ss->assign('service3_1', $noidung->service3_1);
+    $ss->assign('service3_2', $noidung->service3_2);
+    $ss->assign('service3_5', $noidung->service3_5);
+    $ss->assign('service3_6', $noidung->service3_6);
+    $ss->assign('service3_9', $noidung->service3_9);
+    $ss->assign('service3_10', $noidung->service3_10);
+    $ss->assign('service3_13', $noidung->service3_13);
+    $ss->assign('service3_14', $noidung->service3_14);
+    $ss->assign('service3_17', $noidung->service3_17);
+    $ss->assign('service3_18', $noidung->service3_18);
+    $ss->assign('service3_21', $noidung->service3_21);
+    $ss->assign('service3_22', $noidung->service3_22);
+    $ss->assign('service3_25', $noidung->service3_25);
+    $ss->assign('service3_26', $noidung->service3_26);
+    $ss->assign('service3_27', $noidung->service3_27);
+    $ss->assign('service3_31', $noidung->service3_31);
+
+
+    $ss->assign('sell3_vnd1', $noidung->sell3_vnd1);
+    $ss->assign('sell3_vnd2', $noidung->sell3_vnd2);
+    $ss->assign('sell3_vnd3', $noidung->sell3_vnd3);
+    $ss->assign('sell3_vnd4', $noidung->sell3_vnd4);
+    $ss->assign('sell3_vnd5', $noidung->sell3_vnd5);
+    $ss->assign('sell3_vnd6', $noidung->sell3_vnd6);
+    $ss->assign('sell3_vnd7', $noidung->sell3_vnd7);
+    $ss->assign('sell3_vnd8', $noidung->sell3_vnd8);
+    $ss->assign('sell3_vnd9', $noidung->sell3_vnd9);
+    $ss->assign('sell3_vnd10', $noidung->sell3_vnd10);
+    $ss->assign('sell3_vnd11', $noidung->sell3_vnd11);
+    $ss->assign('sell3_vnd12', $noidung->sell3_vnd12);
+    $ss->assign('sell3_vnd13', $noidung->sell3_vnd13);
+    $ss->assign('sell3_vnd14', $noidung->sell3_vnd14);
+    $ss->assign('sell3_vnd15', $noidung->sell3_vnd15);
+    $ss->assign('sell3_vnd16', $noidung->sell3_vnd16);
+    $ss->assign('sell3_vnd17', $noidung->sell3_vnd17);
+    $ss->assign('sell3_vnd18', $noidung->sell3_vnd18);
+    $ss->assign('sell3_vnd19', $noidung->sell3_vnd19);
+    $ss->assign('sell3_vnd20', $noidung->sell3_vnd20);
+    $ss->assign('sell3_vnd21', $noidung->sell3_vnd21);
+    $ss->assign('sell3_vnd22', $noidung->sell3_vnd22);
+    $ss->assign('sell3_vnd23', $noidung->sell3_vnd23);
+    $ss->assign('sell3_vnd24', $noidung->sell3_vnd24);
+    $ss->assign('sell3_vnd25', $noidung->sell3_vnd25);
+    $ss->assign('sell3_vnd26', $noidung->sell3_vnd26);
+    $ss->assign('sell3_vnd27', $noidung->sell3_vnd27);
+    $ss->assign('sell3_vnd28', $noidung->sell3_vnd28);
+    $ss->assign('sell3_vnd29', $noidung->sell3_vnd29);
+    $ss->assign('sell3_vnd30', $noidung->sell3_vnd30);
+    $ss->assign('sell3_vnd31', $noidung->sell3_vnd31);
+    $ss->assign('sell3_vnd32', $noidung->sell3_vnd32);
+
+
+    $ss->assign('sell3_usd1', $noidung->sell3_usd1);
+    $ss->assign('sell3_usd2', $noidung->sell3_usd2);
+    $ss->assign('sell3_usd5', $noidung->sell3_usd5);
+    $ss->assign('sell3_usd6', $noidung->sell3_usd6);
+    $ss->assign('sell3_usd9', $noidung->sell3_usd9);
+    $ss->assign('sell3_usd10', $noidung->sell3_usd10);
+    $ss->assign('sell3_usd13', $noidung->sell3_usd13);
+    $ss->assign('sell3_usd14', $noidung->sell3_usd14);
+    $ss->assign('sell3_usd17', $noidung->sell3_usd17);
+    $ss->assign('sell3_usd18', $noidung->sell3_usd18);
+    $ss->assign('sell3_usd21', $noidung->sell3_usd21);
+    $ss->assign('sell3_usd22', $noidung->sell3_usd22);
+    $ss->assign('sell3_usd25', $noidung->sell3_usd25);
+    $ss->assign('sell3_usd26', $noidung->sell3_usd26);
+    $ss->assign('sell3_usd27', $noidung->sell3_usd27);
+    $ss->assign('sell3_usd31', $noidung->sell3_usd31);
+
+
+
+    $ss->assign('tax3_1', $noidung->tax3_1);
+    $ss->assign('tax3_2', $noidung->tax3_2);
+    $ss->assign('tax3_5', $noidung->tax3_5);
+    $ss->assign('tax3_6', $noidung->tax3_6);
+    $ss->assign('tax3_9', $noidung->tax3_9);
+    $ss->assign('tax3_10', $noidung->tax3_10);
+    $ss->assign('tax3_13', $noidung->tax3_13);
+    $ss->assign('tax3_14', $noidung->tax3_14);
+    $ss->assign('tax3_17', $noidung->tax3_17);
+    $ss->assign('tax3_18', $noidung->tax3_18);
+    $ss->assign('tax3_21', $noidung->tax3_21);
+    $ss->assign('tax3_22', $noidung->tax3_22);
+    $ss->assign('tax3_25', $noidung->tax3_25);
+    $ss->assign('tax3_26', $noidung->tax3_26);
+    $ss->assign('tax3_27', $noidung->tax3_27);
+    $ss->assign('tax3_31', $noidung->tax3_31);
+
+
+    $ss->assign('profit3_1', $noidung->profit3_1);
+    $ss->assign('profit3_2', $noidung->profit3_2);
+    $ss->assign('profit3_5', $noidung->profit3_5);
+    $ss->assign('profit3_6', $noidung->profit3_6);
+    $ss->assign('profit3_9', $noidung->profit3_9);
+    $ss->assign('profit3_10', $noidung->profit3_10);
+    $ss->assign('profit3_13', $noidung->profit3_13);
+    $ss->assign('profit3_14', $noidung->profit3_14);
+    $ss->assign('profit3_17', $noidung->profit3_17);
+    $ss->assign('profit3_18', $noidung->profit3_18);
+    $ss->assign('profit3_21', $noidung->profit3_21);
+    $ss->assign('profit3_22', $noidung->profit3_22);
+    $ss->assign('profit3_25', $noidung->profit3_25);
+    $ss->assign('profit3_26', $noidung->profit3_26);
+    $ss->assign('profit3_27', $noidung->profit3_27);
+    $ss->assign('profit3_31', $noidung->profit3_31);
+
+
+    $ss->assign('total3_1', $noidung->total3_1);
+    $ss->assign('total3_2', $noidung->total3_2);
+    $ss->assign('total3_5', $noidung->total3_5);
+    $ss->assign('total3_6', $noidung->total3_6);
+    $ss->assign('total3_9', $noidung->total3_9);
+    $ss->assign('total3_10', $noidung->total3_10);
+    $ss->assign('total3_13', $noidung->total3_13);
+    $ss->assign('total3_14', $noidung->total3_14);
+    $ss->assign('total3_17', $noidung->total3_17);
+    $ss->assign('total3_18', $noidung->total3_18);
+    $ss->assign('total3_21', $noidung->total3_21);
+    $ss->assign('total3_22', $noidung->total3_22);
+    $ss->assign('total3_25', $noidung->total3_25);
+    $ss->assign('total3_26', $noidung->total3_26);
+    $ss->assign('total3_27', $noidung->total3_27);
+    $ss->assign('total3_31', $noidung->total3_31);
+
+
+    $ss->assign('interest3_1', $noidung->interest3_1);
+    $ss->assign('interest3_2', $noidung->interest3_2);
+    $ss->assign('interest3_5', $noidung->interest3_5);
+    $ss->assign('interest3_6', $noidung->interest3_6);
+    $ss->assign('interest3_9', $noidung->interest3_9);
+    $ss->assign('interest3_10', $noidung->interest3_10);
+    $ss->assign('interest3_13', $noidung->interest3_13);
+    $ss->assign('interest3_14', $noidung->interest3_14);
+    $ss->assign('interest3_17', $noidung->interest3_17);
+    $ss->assign('interest3_18', $noidung->interest3_18);
+    $ss->assign('interest3_21', $noidung->interest3_21);
+    $ss->assign('interest3_22', $noidung->interest3_22);
+    $ss->assign('interest3_25', $noidung->interest3_25);
+    $ss->assign('interest3_26', $noidung->interest3_26);
+    $ss->assign('interest3_27', $noidung->interest3_27);
+    $ss->assign('interest3_31', $noidung->interest3_31);
+
+
+    $ss->assign('HTML', $html);
+    $ss->display("modules/Worksheets/tpls/Inbound.tpl");
+    unset($_SESSION['record']);
+    unset($_SESSION['return_id']);
 ?>
