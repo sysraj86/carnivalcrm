@@ -11,7 +11,7 @@
             parent::ViewDetail(); 
         }
         function display(){
-
+            
             $this->getAirlineTicket();
             $this->getListRestaurant();
             $this->getListHotelData();
@@ -24,6 +24,9 @@
                 unset($this->dv->defs['templateMeta']['form']['buttons'][3]);  
             }
             parent::display();
+            echo '<script type="text/javascript">jQuery(document).ready(function(){
+                jQuery("#overview").closest("td").prev("td").hide(); 
+            }) </script>';
         }
 
         function getAirlineTicket(){
@@ -1909,1678 +1912,5023 @@
             }  
             if($this->bean->type == 'Inbound') {
                 $html = '';
-                if(!empty($this->bean->id)){
-
-                    $html .= '<fieldset>';
-                    $html .= '<legend><h3>THÔNG TIN CHUNG</h3></legend>';
-                    $html .= '<table width="100%" class="tabDetailView" border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-                    $html .= '<tr>';
-                    $html .= '<td class="tabDetailViewDL border"><b>Tour name:</b></td>';
-                    $html .= '<td class="tabDetailViewDF border">';
-                    $html .= '<a href="index.php?module=Tours&action=DetailView&record='.$this->bean->worksheet_tour_id.'">'.$this->bean->worksheet_tour_name.' </a>';
-                    $html .= '</td>';
-                    $html .= '<td class="tabDetailViewDL border"><b>Tour Code:</b></td>';
-                    $html .= '<td class="tabDetailViewDF border">';
-                    $html .= $this->bean->tourcode;
-                    $html .='</td>';
-                    $html .= '<td class="tabDetailViewDL border"><b>Ngày bắt đầu</b></td>';
-
-                    $html .= '<td class="tabDetailViewDF border">';
-                    $html .= $noidung->ngaybatdau;
-                    $html .= '</td>';
-                    $html .= '<td class="tabDetailViewDL border"><b>Ngày kết thúc</b></td>';
-                    $html .= '<td class="tabDetailViewDF border">'.$noidung->ngayketthuc.'</td>';
-                    $html .= '</tr>';
-                    $html .= '<tr>';
-                    $html .= '<td class="tabDetailViewDL border"><b>Hướng dẫn viên</b></td>';
-                    $html .= '<td class="tabDetailViewDF border">';
-                    $html .= $noidung->huongdanvien;
-                    $html .= '</td>';
-                    $html .= '<td class="tabDetailViewDL border"><b>Duration:</b></td>';
-                    $html .= '<td class="tabDetailViewDF border">';
-                    $html .= $this->bean->duration;
-                    $html .= '</td>';
-                    $html .= '<td class="tabDetailViewDL border"><b>Phương tiện:</b></td>';
-
-                    $html .= '<td class="tabDetailViewDF border">';
-                    $html .= $this->bean->transport;
-                    $html .= '</td>';
-                    $html .= '<td class="tabDetailViewDL border">&nbsp;</td>';
-                    $html .= '<td class="tabDetailViewDF border">&nbsp;</td>';
-                    $html .= '</tr>';
-                    $html .= '<tr>';
-                    $html .= '<td class="tabDetailViewDL border"><b>Lộ trình:</b></td>';
-                    $html .= '<td class="tabDetailViewDF border">';
-                    $html .= $this->bean->lotrinh;
-                    $html .= '</td>';
-                    $html .= '<td class="tabDetailViewDL border"><b>Thuế Suất hóa:</b></td>';
-                    $html .= '<td class="tabDetailViewDF border">';
-                    $html .= $this->bean->thuesuathoa;
-                    $html .= '</td>';
-                    $html .= '<td class="tabDetailViewDL border"><b>Số khách: </b></td>';
-                    $html .= '<td class="tabDetailViewDF border">';
-                    $html .= $this->bean->sokhach;
-                    $html .= '</td>';                
-                    $html .= '<td class="tabDetailViewDL border"><b>Tỷ lệ :</b></td>';
-                    $html .= '<td class="tabDetailViewDF border">';
-                    $html .= $this->bean->tyle;
-                    $html .= '</td>';
-                    $html .= '</tr>'; 
-                    $html .= '</table>';
-                    $html .= '</fieldset>';                
-                    // loading vé máy bay
-                    $html .= '<fieldset>';
-                    $html .= '<legend><h3>VÉ MÁY BAY</h3></legend>';
-                    $html .= '<table width="100%" class="tabDetailView" id="vemaybay" border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-                    $html .= '<tbody>';  
-                    // chuyến bay tại miền bắc
-                    $html .= '<tr>';
-                    $html .= '<td colspan="7">';
-                    $vmb_mienbac = $noidung->vmb_mienbac;
-                    if(count($vmb_mienbac)>0){
-
-                        $html .= '<fieldset><legend><h3>MIỀN BẮC</h3></legend>';
-                        $html .= '<table width="100%" class="tabDetailView" id="vemaybay_mb" border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-                        $html .= '<thead>' ;
-                        $html .= '<tr>';
-                        $html .= '<td width="22%" class="border"><b>Tên chuyến bay</b></td>';
-                        $html .= '<th width="13%" class="border">Đơn giá</th>';
-                        $html .= '<th width="13%" class="border">Số lượng</th>';
-                        $html .= '<th width="13%" class="border">FOC</th>';
-                        $html .= '<th width="13%" class="border">Thành tiền</th>';
-                        $html .= '<th width="13%" class="border">Thuế suất</th>';
-                        $html .= '<th width="13%" class="border">Thuế</th>';
-                        $html .= '</tr>';
-                        $html .= '</thead>' ;
-                        $html .= '<tbody>';
-                        $vmb_mb = 1;
-                        foreach($vmb_mienbac as $airtkmb){
-                            $html .= '<tr>';
-                            $html .= '<td width="22%" class="border"> <a target="blank" href="index.php?module=AirlinesTickets&action=DetailView&record='.$airtkmb->vemaybay_mb.'">'.translate('list_airlinetiket_dom_north','',$airtkmb->vemaybay_mb).'</a></td>';
-                            $html .= '<td width="13%" class="tabDetailViewDF border">'.$airtkmb->vemaybay_mb_dongia.'</td>';
-                            $html .= '<td width="13%" class="tabDetaiViewDL border">'.$airtkmb->vemaybay_mb_soluong.'</td>';
-                            $html .= '<td width="13%" class="tabDetailViewDF border">'.$airtkmb->vemaybay_mb_foc.'</td>';
-                            $html .= '<td width="13%" class="tabDetaiViewDL border">'.$airtkmb->vemaybay_mb_thanhtien.'</td>';
-                            $html .= '<td width="13%" class="tabDetailViewDF border">'.$airtkmb->vemaybay_mb_thuesuat.'</td>';
-                            $html .= '<td width="13%" class="tabDetaiViewDL border">'.$airtkmb->vemaybay_mb_vat.'</td>';
-                            $html .= '</tr>';
-                            $vmb_mb ++;
-                        }
-                        $html .= '<tr>';  
-                        $html .= '<td width="61%" class="border" colspan="4"><b>Tổng cộng</b></td>';
-                        //                                $html .= '<th width="13%" class="border">&nbsp;</th>';
-                        //                                $html .= '<th width="13%" class="border">&nbsp;</th>';
-                        //                                $html .= '<th width="13%" class="border">&nbsp;</th>';
-                        $html .= '<th width="13%" class="border">'.$noidung->vemaybay_mb_tongthanhtien.'</th>';  
-                        $html .= '<th width="13%" class="border">&nbsp;</th>';
-                        $html .= '<th width="13%" class="border">'.$noidung->vemaybay_mb_tongthue.'</th>';
-                        $html .= '</tr>';
-                        $html .= '</tbody>';
-                        $html .= '</table>';
-                        $html .= '</fieldset>';
-                    }
-                    $html .= '</td>';
-                    $html .= '</tr>';
-
-                    // chuyến bay tại miền trung
-                    $vmb_mientrung = $noidung->vmb_mientrung;
-                    $html .= '<tr>';
-                    $html .= '<td colspan="7">';
-                    if(count($vmb_mientrung)>0){
-                        $html .= '<fieldset><legend><h3>MIỀN TRUNG</h3></legend>';
-                        $html .= '<table width="100%" class="tabDetailView" id="vemaybay_mt" border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-                        $html .= '<thead>' ;
-                        $html .= '<tr>';
-                        $html .= '<td width="22%" class="border"><b>Tên chuyến bay</b></td>';
-                        $html .= '<th width="13%" class="border">Đơn giá</th>';
-                        $html .= '<th width="13%" class="border">Số lượng</th>';
-                        $html .= '<th width="13%" class="border">FOC</th>';
-                        $html .= '<th width="13%" class="border">Thành tiền</th>';
-                        $html .= '<th width="13%" class="border">Thuế suất</th>';
-                        $html .= '<th width="13%" class="border">Thuế</th>';
-                        $html .= '</tr>';
-                        $html .= '</thead>' ;
-
-                        $html .= '<tbody>';
-                        foreach($vmb_mientrung as $airtkmt){
-                            $html .= '<tr>';
-                            $html .= '<td width="22%" class="border"> <a target="blank" href="index.php?module=AirlinesTickets&action=DetailView&record='.$airtkmt->vemaybay_mt.'">'.translate('list_airlinetiket_dom_middle','',$airtkmt->vemaybay_mt).'</td>';
-                            $html .= '<td width="13%" class="tabDetailViewDF border">'.$airtkmt->vemaybay_mt_dongia.'</td>';
-                            $html .= '<td width="13%" class="tabDetaiViewDL border">'.$airtkmt->vemaybay_mt_soluong.'</td>';
-                            $html .= '<td width="13%" class="tabDetailViewDF border">'.$airtkmt->vemaybay_mt_foc.'</td>';
-                            $html .= '<td width="13%" class="tabDetaiViewDL border">'.$airtkmt->vemaybay_mt_thanhtien.'</td>';
-                            $html .= '<td width="13%" class="tabDetailViewDF border">'.$airtkmt->vemaybay_mt_thuesuat.'</td>';
-                            $html .= '<td width="13%" class="tabDetaiViewDL border">'.$airtkmt->vemaybay_mt_vat.'</td>';
-                            $html .= '</tr>';
-                        }
-                        $html .= '<tr>'; 
-                        $html .= '<td width="61%" class="border" colspan="4"><b>Tổng cộng</b></td>';
-                        //                                        $html .= '<th width="13%">&nbsp;</th>';
-                        //                                        $html .= '<th width="13%">&nbsp;</th>';
-                        //                                        $html .= '<th width="13%">&nbsp;</th>';
-                        $html .= '<th width="13%" class="border">'.$noidung->vemaybay_mt_tongthanhtien.'</th>';
-                        $html .= '<th width="13%" class="border">&nbsp;</th>';  
-                        $html .= '<th width="13%" class="border">'.$noidung->vemaybay_mt_tongthue.'</th>';
-                        $html .= '</tr>';
-                        $html .= '</tbody>';   
-                        $html .= '</table>';
-                        $html .= '</fieldset>';
-                    }
-                    $html .= '</td>';
-                    $html .= '</tr>';
-
-                    // chuyến bay tại miền nam
-                    $html .= '<tr>';
-                    $html .= '<td colspan="7">';
-                    $vmb_miennam = $noidung->vmb_miennam;
-                    if(count($vmb_miennam)>0){
-                        $html .= '<fieldset><legend><h3>MIỀN NAM</h3></legend>';
-                        $html .= '<table width="100%" class="tabDetailView" id="vemaybay_mn" border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-                        $html .= '<thead>' ;
-                        $html .= '<tr>';
-                        $html .= '<td width="22%" class="border"><b>Tên chuyến bay</b></td>';
-                        $html .= '<th width="13%" class="border">Đơn giá</th>';
-                        $html .= '<th width="13%" class="border">Số lượng</th>';
-                        $html .= '<th width="13%" class="border">FOC</th>';
-                        $html .= '<th width="13%" class="border">Thành tiền</th>';
-                        $html .= '<th width="13%" class="border">Thuế suất</th>';
-                        $html .= '<th width="13%" class="border">Thuế</th>';
-                        $html .= '</tr>';
-                        $html .= '</thead>' ;
-
-                        $html .= '<tbody>';
-                        $vmb_mn = 1;
-                        foreach($vmb_miennam as $airtkmn){
-                            $html .= '<tr>';
-                            $html .= '<td width="22%" class="border"><a target="blank" href="index.php?module=AirlinesTickets&action=DetailView&record='.$airtkmn->vemaybay_mn.'">'.translate('list_airlinetiket_dom_south','',$airtkmn->vemaybay_mn).'</td>';
-                            $html .= '<td width="13%" class="tabDetailViewDF border">'.$airtkmn->vemaybay_mn_dongia.'</td>';
-                            $html .= '<td width="13%" class="tabDetaiViewDL border">'.$airtkmn->vemaybay_mn_soluong.'</td>';
-                            $html .= '<td width="13%" class="tabDetailViewDF border">'.$airtkmn->vemaybay_mn_foc.'</td>';
-                            $html .= '<td width="13%" class="tabDetaiViewDL border">'.$airtkmn->vemaybay_mn_thanhtien.'</td>';
-                            $html .= '<td width="13%" class="tabDetailViewDF border">'.$airtkmn->vemaybay_mn_thuesuat.'</td>';
-                            $html .= '<td width="13%" class="tabDetaiViewDL border">'.$airtkmn->vemaybay_mn_vat.'</td>';
-                            $html .= '</tr>';
-                            $vmb_mn ++;
-                        }
-                        $html .= '<tr>';
-                        $html .= '<td width="61%" class="border" colspan="4"><b>Tổng cộng</b></td>';
-                        //                                        $html .= '<th width="13%">&nbsp;</th>';
-                        //                                        $html .= '<th width="13%">&nbsp;</th>';
-                        //                                        $html .= '<th width="13%">&nbsp;</th>';
-                        $html .= '<th width="13%" class="border">'.$noidung->vemaybay_mn_tongthanhtien.'</th>';
-                        $html .= '<th width="13%" class="border">&nbsp;</th>';
-                        $html .= '<th width="13%" class="border">'.$noidung->vemaybay_mn_tongthue.'</th>';
-                        $html .= '</tr>';
-                        $html .= '</tbody>';   
-                        $html .= '</table>';
-                        $html .= '</fieldset>';
-                    }
-                    $html .= '</td>';
-                    $html .= '</tr>';
-                    $html .= '<tr>';
-                    $html .= '<th width="61%" clospan="4" class="tabDetailViewDF border">TỔNG CỘNG</th>';
-                    //                $html .= '<th width="13%" class="tabDetailViewDF">&nbsp;</th>';
-                    //                $html .= '<th width="13%" class="tabDetailViewDF">&nbsp;</th>';
-                    //                $html .= '<th width="13%" class="tabDetailViewDF">&nbsp;</th>';
-                    $html .= '<th width="13%" class="tabDetailViewDF border"><b>'.$noidung->vemaybay_tongthanhtien.'</b></th>';
-                    $html .= '<th width="13%" class="tabDetailViewDF border">&nbsp;</th>';
-                    $html .= '<th width="13%" class="tabDetailViewDF border"><b>'.$noidung->vemaybay_tongthue.'</b></th>';
-                    $html .= '</tr>';
-                    $html .='</tbody></table> </fieldset>';
-
-                    // kết thúc phần vé máy bay
-
-                    // loading phần nhà hàng            
-                    $html .= '<fieldset >';
-                    $html .= '<legend><h3>NHÀ HÀNG</h3></legend>';
-                    $html .= '<table width="100%" id="nhahang" class="tabDetailView" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-                    $html .= '<tbody>';
-
-                    // lấy danh sách nhà hàng ở miền bắc
-                    $html .= '<tr> <td colspan="9">';
-                    $html .= '<fieldset >';
-                    $nhahang_mienbac = $noidung->nhahang_mienbac;
-                    if(count($nhahang_mienbac)>0){
-                        $html .= '<legend><h3>MIỀN BẮC</h3></legend>';
-                        $html .= '<table width="100%" id="nhahang_mienbac" class="tabDetailView" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-                        $html .= '<thead>';
-                        $html .= '<tr>';
-                        $html .= '<th width="20%" class="border">Tên nhà hàng</th>';
-                        $html .= '<td width="10%" class="border"><b>Ghi chú</b></td>';
-                        $html .= '<th width="10%" class="border">Đơn giá</th>';
-                        $html .= '<th width="10%" class="border">Số lượng</th>';
-                        $html .= '<th width="10%" class="border">Số bữa ăn</th>';
-                        $html .= '<th width="10%" class="border">FOC</th>';
-                        $html .= '<th width="10%" class="border">Thành tiền</th>';
-                        $html .= '<th width="10%" class="border">Thuế suất</th>';
-                        $html .= '<th width="10%" class="border">Thuế</th>';
-                        $html .= '</tr>';
-                        $html .= '</thead>';
-                        $html .= '<tbody>';
-                        $nh_mb = 0;
-                        foreach($nhahang_mienbac as $valmb){
-                            $html .= '<tr>';
-                            $html .= '<td width="20%" class="center border"> <a target="blank" href="index.php?module=Restaurants&action=DetailView&record='.$valmb->nh_id.'">'.translate('list_restaurant_dom_north','',$valmb->nh_id).'</td>';
-                            $html .= '<td width="10%" class="border">'.translate('workshet_notes_type_dom','',$valmb->nh_ghichu_mb).'</td>';
-                            $html .= '<td width="10%" class="tabDetaiViewDL border">'.$valmb->nh_dongia_mb.'</td>';
-                            $html .= '<td width="10%" class="tabDetailViewDF border">'.$valmb->nh_soluong_mb.'</td>';
-                            $html .= '<td width="10%" class="tabDetaiViewDL border">'.$valmb->nh_songay_mb.'</td>';
-                            $html .= '<td width="10%" class="tabDetailViewDF border">'.$valmb->nh_foc_mb.'</td>';
-                            $html .= '<td width="10%" class="tabDetaiViewDL border">'.$valmb->nh_thanhtien_mb.'</td>';
-                            $html .= '<td width="10%" class="tabDetailViewDF border">'.$valmb->nh_thuexuat_mb.'</td>';
-                            $html .= '<td width="10%" class="tabDetaiViewDL border">'.$valmb->nh_thue_mb.'</td>';
-                            $html .= '</tr> ';
-                            $nh_mb ++;
-                        }
-                        $html .= '<tr>';
-                        $html .= '<th width="70%" class="border" colspan="6"><b>Tổng cộng</b></th>';
-                        //                    $html .= '<th width="10%">&nbsp;</th>';
-                        //                    $html .= '<th width="10%">&nbsp;</th>';
-                        //                    $html .= '<th width="10%">&nbsp;</th>';
-                        //                    $html .= '<th width="10%">&nbsp;</th>';
-                        //                    $html .= '<th width="10%">&nbsp;</th>';
-                        $html .= '<th width="10%" class="border tabDetailViewDF">'.$noidung->nhahang_tongthanhtien_mienbac.'</th>';
-                        $html .= '<th width="10%" class="border tabDetailViewDF">&nbsp;</th>';
-                        $html .= '<th width="10%" class="border tabDetailViewDF">'.$noidung->nhahang_tongthue_mienbac.'</th>';
-                        $html .= '</tr>';
-
-                        $html .= '</tbody>'; 
-                        $html .= '</table>';
-                        $html .= '</fieldset>';
-                    }
-                    $html .= '</td></tr>';
-                    // lấy danh sách nhà hàng ở miền trung
-                    $nhahang_mientrung = $noidung->nhahang_mientrung;
-                    $html .= '<tr> <td colspan="9">';
-                    if(count($nhahang_mientrung)>0){
-                        $html .= '<fieldset>';
-                        $html .= '<legend><h3>MIỀN TRUNG</h3></legend>';
-                        $html .= '<table width="100%" class="tabDetailView" id="nhahang_mientrung" border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-                        $html .= '<thead>';
-                        $html .= '<tr>';
-                        $html .= '<th width="20%" class="border">Tên nhà hàng</th>';
-                        $html .= '<td width="10%" class="border"><b>Ghi chú</b></td>';
-                        $html .= '<th width="10%" class="border">Đơn giá</th>';
-                        $html .= '<th width="10%" class="border">Số lượng</th>';
-                        $html .= '<th width="10%" class="border">Số bữa ăn</th>';
-                        $html .= '<th width="10%" class="border">FOC</th>';
-                        $html .= '<th width="10%" class="border">Thành tiền</th>';
-                        $html .= '<th width="10%" class="border">Thuế suất</th>';
-                        $html .= '<th width="10%" class="border">Thuế</th>';
-                        $html .= '</tr>';
-                        $html .= '</thead>';
-                        $html .= '</tbody>';
-                        foreach($nhahang_mientrung as $valmt){
-                            $html .= '<tr>';
-                            $html .= '<tr>';
-                            $html .= '<td width="20%" class="border"><a target="blank" href="index.php?module=Restaurants&action=DetailView&record='.$valmt->nh_id.'">'.translate('list_restaurant_dom_middle','',$valmt->nh_id).'</td>';
-                            $html .= '<td width="10%" class="border">'.translate('workshet_notes_type_dom','',$valmt->nh_ghichu_mt).'</td>';
-                            $html .= '<td width="10%" class="tabDetaiViewDL border">'.$valmt->nh_dongia_mt.'</td>';
-                            $html .= '<td width="10%" class="tabDetailViewDF border">'.$valmt->nh_soluong_mt.'</td>';
-                            $html .= '<td width="10%" class="tabDetaiViewDL border">'.$valmt->nh_songay_mt.'</td>';
-                            $html .= '<td width="10%" class="tabDetailViewDF border">'.$valmt->nh_foc_mt.'</td>';
-                            $html .= '<td width="10%" class="tabDetaiViewDL border">'.$valmt->nh_thanhtien_mt.'</td>';
-                            $html .= '<td width="10%" class="tabDetailViewDF border">'.$valmt->nh_thuexuat_mt.'</td>';
-                            $html .= '<td width="10%" class="tabDetaiViewDL border">'.$valmt->nh_thue_mt.'</td>';
-                            $html .= '</tr> ';
-                        }
-                        $html .= '<tr>';
-                        $html .= '<th width="70%" class="border" colspan="6"> <b>Tổng cộng</b> </th>';
-                        //                    $html .= '<th width="10%">&nbsp;</th>';
-                        //                    $html .= '<th width="10%">&nbsp;</th>';
-                        //                    $html .= '<th width="10%">&nbsp;</th>';
-                        //                    $html .= '<th width="10%">&nbsp;</th>';
-                        //                    $html .= '<th width="10%">&nbsp;</th>';
-                        $html .= '<th width="10%" class="border">'.$noidung->nhahang_tongthanhtien_mientrung.'</th>';
-                        $html .= '<th width="10%" class="border">&nbsp;</th>';
-                        $html .= '<th width="10%" class="border">'.$noidung->nhahang_tongthue_mientrung.'</th>';
-                        $html .= '</tr>';
-                        $html .= '</tbody>';
-                        $html .= '</table> ';
-                        $html .= '</fieldset>';
-                    }
-                    $html .= '</td></tr>';
-
-                    // lấy danh sách nhà hàng ở miền nam
-
-                    $html .= '<tr> <td colspan="9">';
-                    $nhahang_miennam = $noidung->nhahang_miennam;
-                    if(count($nhahang_miennam)>0){
-                        $html .= '<fieldset >';
-                        $html .= '<legend><h3>MIỀN NAM</h3></legend>';
-                        $html .= '<table width="100%" class="tabDetailView" id="nhahang_miennam" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-                        $html .= '<thead>';
-                        $html .= '<tr>';
-                        $html .= '<th width="20%" class="border">Tên nhà hàng</th>';
-                        $html .= '<td width="10%" class="border"><b>Ghi chú</b></td>';
-                        $html .= '<th width="10%" class="border">Đơn giá</th>';
-                        $html .= '<th width="10%" class="border">Số lượng</th>';
-                        $html .= '<th width="10%" class="border">Số bữa ăn</th>';
-                        $html .= '<th width="10%" class="border">FOC</th>';
-                        $html .= '<th width="10%" class="border">Thành tiền</th>';
-                        $html .= '<th width="10%" class="border">Thuế suất</th>';
-                        $html .= '<th width="10%" class="border">Thuế</th>';
-                        $html .= '</tr>';
-                        $html .= '</thead>';
-                        $html .= '</tbody>';
-                        foreach($nhahang_miennam as $valmn){
-                            $html .= '<tr>';
-                            $html .= '<tr>';
-                            $html .= '<td width="10%" class="border" ><a target="blank" href="index.php?module=Restaurants&action=DetailView&record='.$valmn->nh_id.'">'.translate('list_restaurant_dom_south','',$valmn->nh_id).'</td>';
-                            $html .= '<td width="10%" class="border">'.translate('workshet_notes_type_dom','',$valmn->nh_ghichu_mn).'</td>';
-                            $html .= '<td width="10%" class="tabDetailViewDF border">'.$valmn->nh_dongia_mn.'</td>';
-                            $html .= '<td width="10%" class="tabDetailViewDF border">'.$valmn->nh_soluong_mn.'</td>';
-                            $html .= '<td width="10%" class="tabDetailViewDF border">'.$valmn->nh_songay_mn.'</td>';
-                            $html .= '<td width="10%" class="tabDetailViewDF border">'.$valmn->nh_foc_mn.'</td>';
-                            $html .= '<td width="10%" class="tabDetailViewDF border">'.$valmn->nh_thanhtien_mn.'</td>';
-                            $html .= '<td width="10%" class="tabDetailViewDF border">'.$valmn->nh_thuexuat_mn.'</td>';
-                            $html .= '<td width="10%" class="tabDetailViewDF border">'.$valmn->nh_thue_mn.'</td>';
-                            $html .= '</tr> ';
-                        }
-                        $html .= '<tr>';
-                        $html .= '<th width="70%" class="border" colspan="6"><b>Tổng cộng</b></th>';
-                        //                            $html .= '<th width="10%">&nbsp;</th>';
-                        //                            $html .= '<th width="10%">&nbsp;</th>';
-                        //                            $html .= '<th width="10%">&nbsp;</th>';
-                        //                            $html .= '<th width="10%">&nbsp;</th>';
-                        //                            $html .= '<th width="10%">&nbsp;</th>';
-                        $html .= '<th width="10%" class="border">'.$noidung->nhahang_tongthanhtien_miennam.'</th>';
-                        $html .= '<th width="10%" class="border">&nbsp;</th>';
-                        $html .= '<th width="10%" class="border">'.$noidung->nhahang_tongthue_miennam.'</th>';
-                        $html .= '</tr>';
-                        $html .= '</tbody>';
-                        $html .= '</table> ';
-                        $html .= '</fieldset>';
-                    }
-                    $html .= '</td></tr>';
-                    $html .= '<tr>';
-                    $html .= '<th width="70%" colspan="6" class="border">TỔNG CỘNG</th>';
-                    //                    $html .= '<th width="10%">&nbsp;</th>';
-                    //                    $html .= '<th width="10%">&nbsp;</th>';
-                    //                    $html .= '<th width="10%">&nbsp;</th>';
-                    //                    $html .= '<th width="10%">&nbsp;</th>';
-                    //                    $html .= '<th width="10%">&nbsp;</th>';
-                    $html .= '<th width="10%" class="border">'.$noidung->nhahang_tongthanhtien.'</th>';
-                    $html .= '<th width="10%" class="border">&nbsp;</th>';
-                    $html .= '<th width="10%" class="border">'.$noidung->nhahang_tongthue.'</th>';
-                    $html .= '</tr>';
-                    $html .= '</tbody>';
-                    $html .= '</table> </fieldset>';
+                $html .= '<style>
+                div#ib_content{
+                    border-collapse: collapse;
+                    margin: 10px auto;
+                    border-radius: 5px;
+                    border: 1px solid #ccc;
+                    display: block;
+                    padding:5px;
+                    background:linear-gradient(center top , #FFFFFF 0px, #F2F2F2 100%) repeat scroll 0 0 transparent !important;
+                }
+                div#ib_content > fieldset{
+                 border:none;
                 } 
-                // ket thuc phan load nha hang
-
-                // loading hotel data 
-                // lấy danh sách khách sạn
-
-                $html .= '<fieldset>';
-                $html .= '<legend><h3>KHÁCH SẠN</h3></legend>';
-                $html .= '<table width="100%" class="tabDetailView" border="0" class="tabForm" id="khachsan" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-                $html .= '<thead>';
-                $html .= '</thead>';
-                $html .= '<tbody>';
-
-
-                // lấy danh sách khách sạn ở miền bắc
-                $khachsan_mienbac = $noidung->khachsan_mienbac;
-                $html .= '<tr><td colspan="12">';
-                if(count($khachsan_mienbac)>0){
-                    $html .= '<fieldset >';
-                    $html .= '<legend><h3>MIỀN BẮC</h3></legend>';
-                    $html .= '<table width="100%" border="0" class="tabDetailView" id="ks_mb" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-                    $html .= '<thead>';                                       
-                    $html .= '<tr>';
-                    $html .= '<th width="12%" class="border">Tên khách sạn</th>';
-                    $html .= '<th width="8%" class="border">Single</th>';
-                    $html .= '<th width="8%" class="border">SL Single</th>';
-                    $html .= '<th width="8%" class="border">Double</th>';
-                    $html .= '<th width="8%" class="border">SL Double</th>';
-                    $html .= '<th width="8%" class="border">Triple</th>';
-                    $html .= '<th width="8%" class="border">SL Triple</th>';
-                    $html .= '<th width="8%" class="border">Foc</th>';
-                    $html .= '<th width="8%" class="border">Hạng phòng</th>';
-                    $html .= '<th width="8%" class="border">Số đêm</th>';
-                    $html .= '<th width="8%" class="border">Thành tiền</th>';
-                    $html .= '<th width="8%" class="border">Thuế suất</th>';
-                    $html .= '<th width="8%" class="border">Thuế</th>';
-                    $html .= '</tr>';
-
-                    $html .= '</thead>';
-                    $html .= '<tbody>';
-                    foreach($khachsan_mienbac as $val_ksmb){
-                        $html .= '<tr>';
-                        $html .= '<td width="12%" class="border"><a target="blank" href="index.php?module=Hotels&action=DetailView&record='.$val_ksmb->ks_id.'">'.$val_ksmb->ks_name.'</a></td>';
-                        $html .= '<td width="8%" class="tabDetailViewDF border">'.$val_ksmb->SGL_ks_mb.'</td>';
-                        $html .= '<td width="8%" class="tabDetailViewDF border">'.$val_ksmb->SGL_SL_ks_mb.'</td>';
-                        $html .= '<td width="8%" class="tabDetailViewDF border">'.$val_ksmb->DBL_ks_mb.'</td>';
-                        $html .= '<td width="8%" class="tabDetailViewDF border">'.$val_ksmb->DBL_SL_ks_mb.'</td>';
-                        $html .= '<td width="8%" class="tabDetailViewDF border">'.$val_ksmb->TPL_ks_mb.'</td>';
-                        $html .= '<td width="8%" class="tabDetailViewDF border">'.$val_ksmb->TPL_SL_ks_mb.'</td>';
-                        $html .= '<td width="8%" class="tabDetailViewDF border">'.$val_ksmb->foc.'</td>';
-                        $html .= '<td width="8%" class="tabDetailViewDF border">'.$val_ksmb->hangphong_ks_mb.'</td>';
-                        $html .= '<td width="8%" class="tabDetailViewDF border">'.$val_ksmb->songaydem_ks_mb.'</td>';
-                        $html .= '<td width="8%" class="tabDetailViewDF border">'.$val_ksmb->thanhtien_ks_mb.'</td>';
-                        $html .= '<td width="8%" class="tabDetailViewDF border">'.$val_ksmb->thuesuat_ks_mb.'</td>';
-                        $html .= '<td width="8%" class="tabDetailViewDF border">'.$val_ksmb->vat_ks_mb.'</td>';
-                        $html .= '</tr>';
-                    }
-                    $html .= '<tr>';
-                    $html .= '<th width="76%" colspan="10" class="border">Tổng cộng</th>';
-                    //                        $html .= '<th width="8%">&nbsp;</th>';
-                    //                        $html .= '<th width="8%">&nbsp;</th>';
-                    //                        $html .= '<th width="8%">&nbsp;</th>';
-                    //                        $html .= '<th width="8%">&nbsp;</th>';
-                    //                        $html .= '<th width="8%">&nbsp;</th>';
-                    //                        $html .= '<th width="8%">&nbsp;</th>';
-                    //                        $html .= '<th width="8%">&nbsp;</th>';
-                    //                        $html .= '<th width="8%">&nbsp;</th>';
-                    $html .= '<th width="8%" class="border">'.$noidung->khachsan_tongthanhtien_mienbac .'</th>';
-                    $html .= '<th width="8%" class="border">&nbsp;</th>';
-                    $html .= '<th width="8%" class="border">'.$noidung->khachsan_tongthue_mienbac.'</th>';
-                    $html .= '</tr>';
-                    $html .= '</tbody>';
-                    $html .= '</table>';
-                    $html .= '</fieldset>';
+                table.table_content{
+                    border:1px solid;
+                    border-collapse:collapse;
+                    margin: 10px auto;
+                    display: block;
+                    padding:5px;
                 }
-                $html .= '</td></tr>';
-
-                // khách sạn tại miền trung
-                $html .= '<tr><td colspan="12">';
-                $khachsan_mientrung = $noidung->khachsan_mientrung;
-                if(count($khachsan_mientrung)>0){
-                    $html .= '<fieldset >';
-                    $html .= '<legend><h3>MIỀN TRUNG</h3></legend>';
-                    $html .= '<table width="100%" border="0" class="tabDetailView" id="ks_mt" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-                    $html .= '<thead>';
-                    $html .= '<tr>';
-                    $html .= '<th width="12%" class="border">Tên khách sạn</th>';
-                    $html .= '<th width="8%"  class="border">Single</th>';
-                    $html .= '<th width="8%" class="border">SL Single</th>';
-                    $html .= '<th width="8%" class="border">Double</th>';
-                    $html .= '<th width="8%" class="border">SL Double</th>';
-                    $html .= '<th width="8%" class="border">Triple</th>';
-                    $html .= '<th width="8%" class="border">SL Triple</th>';
-                    $html .= '<th width="8%" class="border">Foc</th>';
-                    $html .= '<th width="8%" class="border">Hạng phòng</th>';
-                    $html .= '<th width="8%" class="border">Số đêm</th>';
-                    $html .= '<th width="8%" class="border">thành tiền</th>';
-                    $html .= '<th width="8%" class="border">Thuế suất</th>';
-                    $html .= '<th width="8%" class="border">Thuế</th>';
-                    $html .= '</tr>';
-                    $html .= '</thead>';
-                    $html .= '<tbody>';
-                    foreach ($khachsan_mientrung as $val_ksmt){
-                        $html .= '<tr>';
-                        $html .= '<td width="12%" class="border"><a target="blank" href="index.php?module=Hotels&action=DetailView&record='.$val_ksmt->ks_id.'">'.$val_ksmt->ks_name.'</a> </td>';
-                        $html .= '<td width="8%" class="tabDetailViewDF border">'.$val_ksmt->SGL_ks_mt.'</td>';
-                        $html .= '<td width="8%" class="tabDetailViewDF border">'.$val_ksmt->SGL_SL_ks_mt.'</td>';
-                        $html .= '<td width="8%" class="tabDetailViewDF border">'.$val_ksmt->DBL_ks_mt.'</td>';
-                        $html .= '<td width="8%" class="tabDetailViewDF border">'.$val_ksmt->DBL_SL_ks_mt.'</td>';
-                        $html .= '<td width="8%" class="tabDetailViewDF border">'.$val_ksmt->TPL_ks_mt.'</td>';
-                        $html .= '<td width="8%" class="tabDetailViewDF border">'.$val_ksmt->TPL_SL_ks_mt.'</td>';
-                        $html .= '<td width="8%" class="tabDetailViewDF border">'.$val_ksmt->foc.'</td>';
-                        $html .= '<td width="8%" class="tabDetailViewDF border">'.$val_ksmt->hangphong_ks_mt.'</td>';
-                        $html .= '<td width="8%" class="tabDetailViewDF border">'.$val_ksmt->songaydem_ks_mt.'</td>';
-                        $html .= '<td width="8%" class="tabDetailViewDF border">'.$val_ksmt->thanhtien_ks_mt.'</td>';
-                        $html .= '<td width="8%" class="tabDetailViewDF border">'.$val_ksmt->thuesuat_ks_mt.'</td>';
-                        $html .= '<td width="8%" class="tabDetailViewDF border">'.$val_ksmt->vat_ks_mt.'</td>';
-                        $html .= '</tr>';
-                    }
-                    $html .= '<tr>';
-                    $html .= '<th width="76%" colspan="10" class="border">Tổng cộng</th>';
-                    //                            $html .= '<th width="8%" class="border">&nbsp;</th>';
-                    //                            $html .= '<th width="8%">&nbsp;</th>';
-                    //                            $html .= '<th width="8%">&nbsp;</th>';
-                    //                            $html .= '<th width="8%">&nbsp;</th>';
-                    //                            $html .= '<th width="8%">&nbsp;</th>';
-                    //                            $html .= '<th width="8%">&nbsp;</th>';
-                    //                            $html .= '<th width="8%">&nbsp;</th>';
-                    //                            $html .= '<th width="8%">&nbsp;</th>';
-                    $html .= '<th width="8%" class="border">'.$noidung->khachsan_tongthanhtien_mientrung.'</th>';
-                    $html .= '<th width="8%" class="border">&nbsp;</th>';
-                    $html .= '<th width="8%" class="border">'.$noidung->khachsan_tongthue_mientrung.'</th>';
-                    $html .= '</tr>';
-                    $html .= '</tbody>';
-                    $html .= '</table>';
-                    $html .= '</fieldset>';
-                }
-                $html .= '</td></tr>';
-
-                // khách sạn tại miền nam
-                $html .= '<tr><td colspan="12">';
-                $khachsan_miennam = $noidung->khachsan_miennam;
-                if(count($khachsan_miennam)>0){
-                    $html .= '<fieldset >';
-                    $html .= '<legend><h3>MIỀN NAM</h3></legend>';
-                    $html .= '<table width="100%" border="0" class="tabDetailView" id="ks_mn" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-                    $html .= '<thead>';
-                    $html .= '<th width="12%" class="border">Tên khách sạn</th>';
-                    $html .= '<th width="8%" class="border">Single</th>';
-                    $html .= '<th width="8%" class="border">SL Single</th>';
-                    $html .= '<th width="8%" class="border">Double</th>';
-                    $html .= '<th width="8%" class="border">SL Double</th>';
-                    $html .= '<th width="8%" class="border">Triple</th>';
-                    $html .= '<th width="8%" class="border">SL Triple</th>';
-                    $html .= '<th width="8%" class="border">Foc</th>';
-                    $html .= '<th width="8%" class="border">Hạng phòng</th>';
-                    $html .= '<th width="8%" class="border">Số đêm</th>';
-                    $html .= '<th width="8%" class="border">thành tiền</th>';
-                    $html .= '<th width="8%" class="border">Thuế suất</th>';
-                    $html .= '<th width="8%" class="border">Thuế</th>';
-
-                    $html .= '</thead>';
-                    $html .= '<tbody>';
-                    $ks_mn = 1;
-                    foreach($khachsan_miennam as $val_ksmn) {
-                        $html .= '<tr>';
-                        $html .= '<td width="12%" class="border"><a target="blank" href="index.php?module=Hotels&action=DetailView&record='.$val_ksmn->ks_id.'">'.$val_ksmn->ks_name.'</a> </td>';
-                        $html .= '<td width="8%" class="tabDetailViewDF border">'.$val_ksmn->SGL_ks_mn.'</td>';
-                        $html .= '<td width="8%" class="tabDetailViewDF border">'.$val_ksmn->SGL_SL_ks_mn.'</td>';
-                        $html .= '<td width="8%" class="tabDetailViewDF border">'.$val_ksmn->DBL_ks_mn.'</td>';
-                        $html .= '<td width="8%" class="tabDetailViewDF border">'.$val_ksmn->DBL_SL_ks_mn.'</td>';
-                        $html .= '<td width="8%" class="tabDetailViewDF border">'.$val_ksmn->TPL_ks_mn.'</td>';
-                        $html .= '<td width="8%" class="tabDetailViewDF border">'.$val_ksmn->TPL_SL_ks_mn.'</td>';
-                        $html .= '<td width="8%" class="tabDetailViewDF border">'.$val_ksmn->foc.'</td>';
-                        $html .= '<td width="8%" class="tabDetailViewDF border">'.$val_ksmn->hangphong_ks_mn.'</td>';
-                        $html .= '<td width="8%" class="tabDetailViewDF border">'.$val_ksmn->songaydem_ks_mn.'</td>';
-                        $html .= '<td width="8%" class="tabDetailViewDF border">'.$val_ksmn->thanhtien_ks_mn.'</td>';
-                        $html .= '<td width="8%" class="tabDetailViewDF border">'.$val_ksmn->thuesuat_ks_mn.'</td>';
-                        $html .= '<td width="8%" class="tabDetailViewDF border">'.$val_ksmn->vat_ks_mn.'</td>';
-                        $html .= '</tr>';
-                        $ks_mn++;
-                    }
-                    $html .= '<tr>';
-                    $html .= '<th width="76%" colspan="10" class="border">Tổng cộng</th>';
-                    //                        $html .= '<th width="8%">&nbsp;</th>';
-                    //                        $html .= '<th width="8%">&nbsp;</th>';
-                    //                        $html .= '<th width="8%">&nbsp;</th>';
-                    //                        $html .= '<th width="8%">&nbsp;</th>';
-                    //                        $html .= '<th width="8%">&nbsp;</th>';
-                    //                        $html .= '<th width="8%">&nbsp;</th>';
-                    //                        $html .= '<th width="8%">&nbsp;</th>';
-                    //                        $html .= '<th width="8%">&nbsp;</th>';
-                    $html .= '<th width="8%" class="border">'.$noidung->khachsan_tongthanhtien_miennam.'</th>';
-                    $html .= '<th width="8%" class="border">&nbsp;</th>'; 
-                    $html .= '<th width="8%" class="border">'.$noidung->khachsan_tongthue_miennam.'</th>';
-                    $html .= '</tr>';
-                    $html .= '</tbody>';
-                    $html .= '</table>';
-                    $html .= '</fieldset>';
+                table.table_content > tbody> tr >td{
+                    border-bottom:1px solid #999 !important;
+                    border-right:1px solid #999 !important;
+                    border-collapse:collapse !important;
+                    padding:2px;
                 }
 
-                $html .= '</td></tr>'; 
-                $html .= '<tr>';                    
-                $html .= '<th width="76%" colspan="9" class="border">TỔNG CỘNG</th>';
-                //                    $html .= '<th width="8%">&nbsp;</th>';
-                //                    $html .= '<th width="8%">&nbsp;</th>';
-                //                    $html .= '<th width="8%">&nbsp;</th>';
-                //                    $html .= '<th width="8%">&nbsp;</th>';
-                //                    $html .= '<th width="8%">&nbsp;</th>';
-                //                    $html .= '<th width="8%">&nbsp;</th>';
-                //                    $html .= '<th width="8%">&nbsp;</th>';
-                //                    $html .= '<th width="8%">&nbsp;</th>';
-                $html .= '<th width="8%" class="border">'.$noidung->khachsan_tongthanhtien.'</th>';
-                $html .= '<th width="8%" class="border">&nbsp;</th>'; 
-                $html .= '<th width="8%" class="border">'.$noidung->khachsan_tongthue.'</th>';
-                $html .= '</tr>';
-                $html .= '</tbody>';
-                $html .= '</table> </fieldset>';
-                // ket thuc phan khach san
+                </style>';
+                
+                $html .= '<script type="text/javascript">
+                       jQuery(document).ready(function(){
+                          jQuery(\'#content\').find(\'#ib_content\').css(\'width\',window.screen.availWidth-45);
+                          jQuery(\'#content\').find(\'#ib_content\').css(\'height\',window.screen.height-350);
+                          jQuery(\'#content\').find(\'#ib_content\').css(\'overflow\',\'scroll\');
+                       });
+                    </script>';
+                if(!empty($this->bean->id)){
+                    $html .= '<div id="ib_content">
+                    <fieldset> <legend> <h2>DETAIL INFORMATION </h2></legend>
+                    <table width="100%" border="1" style="border:1px; border-collapse:collapse" class="table_content" cellspacing="0">
+                    <tbody>
+                    <tr>
+                    <td colspan="4" style="text-align:center; border-top:1px solid #999 ; border-left:1px solid #999">&nbsp;</td>
+                    <td colspan="5" align="center" valign="middle" bgcolor="#FF33FF" class="dataLabel" style="text-align:center; border-top:1px solid #999 ; border-left:1px solid #999"><strong>1-2pax 4-seat</strong></td>
+                    <td colspan="5" align="center" valign="middle" bgcolor="#FFFF99" class="dataLabel" style="text-align:center; border-top:1px solid #999 ; border-left:1px solid #999"><strong>3-4pax 7-seat</strong></td>
+                    <td colspan="5" align="center" valign="middle" bgcolor="#99FFFF" class="dataLabel" style="text-align:center; border-top:1px solid #999 ; border-left:1px solid #999"><strong>5-7pax 16-seat</strong></td>
+                    <td colspan="5" align="center" valign="middle" bgcolor="#9966FF" class="dataLabel" style="text-align:center; border-top:1px solid #999 ; border-left:1px solid #999"><strong>8-12pax 29seat</strong></td>
+                    <td colspan="5" align="center" valign="middle" bgcolor="#999999" class="dataLabel" style="text-align:center; border-top:1px solid #999 ; border-left:1px solid #999"><strong>13-16pax 35seat</strong></td>
+                    <td colspan="4" align="center" valign="middle" bgcolor="#999999" class="dataLabel" style="text-align:center; border-top:1px solid #999 ; border-left:1px solid #999"><strong>13-16pax 35seat (15+1FOC)</strong></td>
+                    <td colspan="7" align="center" valign="middle" bgcolor="#33CCFF" class="dataLabel" style="text-align:center; border-top:1px solid #999 ; border-left:1px solid #999"><strong>17-30pax 45seat (30+2FOC)</strong></td>
+                    <td rowspan="2" align="center" valign="middle" bgcolor="#FF0000" class="dataLabel" style="text-align:center; border-top:1px solid #999 ; border-left:1px solid #999"><strong>SGL Supp</strong></td>
+                    <td rowspan="2" align="center" bgcolor="#FF0000" style="text-align:center; border-top:1px solid #999 ; border-left:1px solid #999"><strong>TAX Supp</strong></td>
+                    </tr>
 
-                // loading van chuyen 
-                $html .= '<fieldset>';
-                $html .= '<legend> <h3>VẬN CHUYỂN</h3></legend>';
-                $html .= '<table width="100%" class="tabDetailView" id="vanchuyen" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-                $html .= '<thead>';
-                $html .= '</thead>';
-                $html .= '<tbody>';
-                // lấy danh sách vận chuyển ở miền bắc
-                $html .= '<tr><td colspan="7">';
-                $vanchuyen_mienbac = $noidung->vanchuyen_mienbac;
-                if(count($vanchuyen_mienbac)>0){
-                    $html .= '<fieldset >';
-                    $html .= '<legend><h3>MIỀN BẮC</h3></legend>';
-                    $html .= '<table width="100%" class="tabDetailView" id="vanchuyen_mienbac" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-                    $html .= '<thead>';
-                    $html .= '<tr>';
-                    $html .= '<td width="20%" class="border"><b>Lọai xe</b></td>';
-                    $html .= '<th width="20%" class="border">Đơn giá</th>';
-                    $html .= '<th width="10%" class="border">Số lượng</th>';
-                    $html .= '<th width="10%" class="border">Ngày/Giờ/Km</th>';
-                    //                        $html .= '<th width="10%">FOC</th>';
-                    $html .= '<th width="10%" class="border">Thành tiền</th>';
-                    $html .= '<th width="10%" class="border">Thuế suất</th>';
-                    $html .= '<th width="20%" class="border">Thuế</th>';
-                    $html .= '</tr>';
-                    $html .= '</thead>';
-                    $html .= '<tbody>';
-                    foreach($vanchuyen_mienbac as $vcValMB){
-                        $html .= '<tr>';
-                        $html .= '<td width="20%" class="border"><a target="blank" href="index.php?module=Cars&action=DetailView&record='.$vcValMB->vanchuyen_name_mb.'"><b>'.translate( 'list_vanchuyen_dom_north','',$vcValMB->vanchuyen_name_mb).'</b></a></td>';
-                        if(!empty($vcValMB->dongia_option_mb)){
-                            $html .= '<td width="20%" class="tabDetailViewDF border">'.$vcValMB->vanchuyen_dongia_mb.' '.translate('vanchuyen_dongia_option','',$vcValMB->dongia_option_mb) .'</td>';
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999"><b>SERVICE</b></td>
+                    <td class="dataLabel"><b>Unite price</b></td>
+                    <td class="dataLabel"><b>Quantity</b></td>
+                    <td class="dataLabel"><b>Total Price</b></td>
+                    <td bgcolor="#FF33FF"></td>
+                    <td bgcolor="#FF33FF">'.$noidung->soluongkh1.'</td>
+                    <td bgcolor="#FF33FF">'.$noidung->soluongkh2.'</td>
+                    <td bgcolor="#FF33FF" class="dataLabel" style="text-align:center"><label id="tax1">Tax '.$noidung->soluongkh1.'</label></td>
+                    <td bgcolor="#FF33FF" class="dataLabel" style="text-align:center"><label id="tax2">Tax '.$noidung->soluongkh2.'</label></td>
+                    <td bgcolor="#FFFF99"></td>
+                    <td bgcolor="#FFFF99">'.$noidung->soluongkh3.'</td>
+                    <td bgcolor="#FFFF99">'.$noidung->soluongkh4.'</td>
+                    <td bgcolor="#FFFF99" class="dataLabel" style="text-align:center"><label id="tax3">Tax '.$noidung->soluongkh3.'</label></td>
+                    <td bgcolor="#FFFF99" class="dataLabel" style="text-align:center"><label id="tax4">Tax '.$noidung->soluongkh4.'</label></td>
+                    <td bgcolor="#99FFFF"></td>
+                    <td bgcolor="#99FFFF">'.$noidung->soluongkh5.'</td>
+                    <td bgcolor="#99FFFF">'.$noidung->soluongkh6.'</td>
+                    <td bgcolor="#99FFFF" class="dataLabel" style="text-align:center"><label id="tax5">Tax '.$noidung->soluongkh5.'</label></td>
+                    <td bgcolor="#99FFFF" class="dataLabel" style="text-align:center"><label id="tax6">Tax '.$noidung->soluongkh6.'</label></td>
+                    <td bgcolor="#9966FF"></td>
+                    <td bgcolor="#9966FF">'.$noidung->soluongkh7.'</td>
+                    <td bgcolor="#9966FF">'.$noidung->soluongkh8.'</td>
+                    <td bgcolor="#9966FF" class="dataLabel" style="text-align:center"><label id="tax7">Tax '.$noidung->soluongkh7.'</label></td>
+                    <td bgcolor="#9966FF" class="dataLabel" style="text-align:center"><label id="tax8">Tax '.$noidung->soluongkh8.'</label></td>
+                    <td bgcolor="#999999"></td>
+                    <td bgcolor="#999999">'.$noidung->soluongkh9.'</td>
+                    <td bgcolor="#999999">'.$noidung->soluongkh10.'</td>
+                    <td bgcolor="#999999" class="dataLabel" style="text-align:center"><label id="tax9">Tax '.$noidung->soluongkh9.'</label></td>
+                    <td bgcolor="#999999" class="dataLabel" style="text-align:center"><label id="tax10">Tax '.$noidung->soluongkh10.'</label></td>
+                    <td bgcolor="#999999">'.$noidung->soluongkh11.'</td>
+                    <td bgcolor="#999999">'.$noidung->soluongkh12.'</td>
+                    <td bgcolor="#999999" class="dataLabel" style="text-align:center"><label id="tax11">Tax '.$noidung->soluongkh11.'</label></td>
+                    <td bgcolor="#999999" class="dataLabel" style="text-align:center"><label id="tax12">Tax '.$noidung->soluongkh12.'</label></td>
+                    <td bgcolor="#33CCFF"></td>
+                    <td bgcolor="#33CCFF">'.$noidung->soluongkh13.'</td>
+                    <td bgcolor="#33CCFF">'.$noidung->soluongkh14.'</td>
+                    <td bgcolor="#33CCFF">'.$noidung->soluongkh15.'</td>
+                    <td bgcolor="#33CCFF" class="dataLabel" style="text-align:center"><label id="tax13">Tax '.$noidung->soluongkh13.'</label></td>
+                    <td bgcolor="#33CCFF" class="dataLabel" style="text-align:center"><label id="tax14">Tax '.$noidung->soluongkh14.'</label></td>
+                    <td bgcolor="#33CCFF" class="dataLabel" style="text-align:center"><label id="tax15">Tax '.$noidung->soluongkh15.'</label></td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999"><strong>TRANSFER</strong></td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td align="center" valign="middle" class="dataLabel"><strong>VND/km</strong></td>
+                    <td>'.$noidung->transfer1.'</td>
+                    <td>'.$noidung->transfer2.'</td>
+                    <td>'.$noidung->transfer3.'</td>
+                    <td>'.$noidung->transfer4.'</td>
+                    <td align="center" valign="middle" class="dataLabel"><strong>VND/km</strong></td>
+                    <td>'.$noidung->transfer5.'</td>
+                    <td>'.$noidung->transfer6.'</td>
+                    <td>'.$noidung->transfer7.'</td>
+                    <td>'.$noidung->transfer8.'</td>
+                    <td class="dataLabel"><strong>VND/km</strong></td>
+                    <td>'.$noidung->transfer9.'</td>
+                    <td>'.$noidung->transfer10.'</td>
+                    <td>'.$noidung->transfer11.'</td>
+                    <td>'.$noidung->transfer12.'</td>
+                    <td class="dataLabel"><strong>VND/km</strong></td>
+                    <td>'.$noidung->transfer13.'</td>
+                    <td>'.$noidung->transfer14.'</td>
+                    <td>'.$noidung->transfer15.'</td>
+                    <td>'.$noidung->transfer16.'</td>
+                    <td align="center" class="dataLabel"><strong>VND/km</strong></td>
+                    <td>'.$noidung->transfer17.'</td>
+                    <td>'.$noidung->transfer18.'</td>
+                    <td>'.$noidung->transfer19.'</td>
+                    <td>'.$noidung->transfer20.'</td>
+                    <td>'.$noidung->transfer21.'</td>
+                    <td>'.$noidung->transfer22.'</td>
+                    <td>'.$noidung->transfer23.'</td>
+                    <td>'.$noidung->transfer24.'</td>
+                    <td align="center" class="dataLabel"><strong>VND/km</strong></td>
+                    <td>'.$noidung->transfer25.'</td>
+                    <td>'.$noidung->transfer26.'</td>
+                    <td>'.$noidung->transfer27.'</td>
+                    <td>'.$noidung->transfer28.'</td>
+                    <td>'.$noidung->transfer29.'</td>
+                    <td>'.$noidung->transfer30.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">South (Km)</td>
+                    <td>'.$noidung->transfer_south.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->transfer_south_km1.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->transfer_south_km2.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->transfer_south_km3.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->transfer_south_km4.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->transfer_south_km5.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->transfer_south_km6.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">Middle (Km)</td>
+                    <td>'.$noidung->transfer_middle.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->transfer_middle_km1.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->transfer_middle_km2.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->transfer_middle_km3.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->transfer_middle_km4.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->transfer_middle_km5.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->transfer_middle_km6.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">North (Km)</td>
+                    <td>'.$noidung->transfer_north.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->transfer_north_km1.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->transfer_north_km2.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->transfer_north_km3.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->transfer_north_km4.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->transfer_north_km5.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->transfer_north_km6.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td colspan="4" style="border-left:1px solid #999">&nbsp;</td>
+                    <td class="dataLabel"><strong>Package</strong></td>
+                    <td colspan="4">&nbsp;</td>
+                    <td><strong>Package</strong></td>
+                    <td colspan="4">&nbsp;</td>
+                    <td align="center" class="dataLabel"><strong>Package</strong></td>
+                    <td colspan="4">&nbsp;</td>
+                    <td align="center"><strong>Package</strong></td>
+                    <td colspan="4">&nbsp;</td>
+                    <td class="dataLabel"><strong>Package</strong></td>
+                    <td colspan="4">&nbsp;</td>
+                    <td colspan="4">&nbsp;</td>
+                    <td align="center"><strong>Package</strong></td>
+                    <td colspan="8">&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">South (Package)</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->south_package1.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->south_package2.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->south_package3.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->south_package4.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->south_package5.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->south_package6.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">Middle (Package)</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->middle_package1.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->middle_package2.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->middle_package3.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->middle_package4.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->middle_package5.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->middle_package6.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">North (Package)</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->north_package1.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->north_package2.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->north_package3.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->north_package4.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->north_package5.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->north_package6.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td colspan="42" class="dataLabel" style="border-left:1px solid #999">&nbsp;</td>
+                    </tr>
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999"><strong>BOAT</strong></td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->boat_sum.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->boat1.'</td>
+                    <td>'.$noidung->boat2.'</td>
+                    <td>'.$noidung->boat3.'</td>
+                    <td>'.$noidung->boat4.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->boat5.'</td>
+                    <td>'.$noidung->boat6.'</td>
+                    <td>'.$noidung->boat7.'</td>
+                    <td>'.$noidung->boat8.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->boat9.'</td>
+                    <td>'.$noidung->boat10.'</td>
+                    <td>'.$noidung->boat11.'</td>
+                    <td>'.$noidung->boat12.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->boat13.'</td>
+                    <td>'.$noidung->boat14.'</td>
+                    <td>'.$noidung->boat15.'</td>
+                    <td>'.$noidung->boat16.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->boat17.'</td>
+                    <td>'.$noidung->boat18.'</td>
+                    <td>'.$noidung->boat19.'</td>
+                    <td>'.$noidung->boat20.'</td>
+                    <td>'.$noidung->boat21.'</td>
+                    <td>'.$noidung->boat22.'</td>
+                    <td>'.$noidung->boat23.'</td>
+                    <td>'.$noidung->boat24.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->boat25.'</td>
+                    <td>'.$noidung->boat26.'</td>
+                    <td>'.$noidung->boat27.'</td>
+                    <td>'.$noidung->boat28.'</td>
+                    <td>'.$noidung->boat29.'</td>
+                    <td>'.$noidung->boat30.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>';
+                    $boat = $noidung->boat;
+                    if(count($boat) >0){
+                        foreach($boat as $value){
+                            $html .= '<tr>
+                            <td class="dataLabel" style="border-left:1px solid #999">'.$value->boat_service.'</td>
+                            <td>'.$value->boat_price.'</td>
+                            <td>'.$value->boat_num.'</td>
+                            <td>'.$value->boat_money.'</td>
+                            <td>&nbsp;</td>
+                            <td align="center">&nbsp;</td>
+                            <td align="center">&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            </tr>';
                         }
-                        else{
-                            $html .= '<td width="20%" class="tabDetailViewDF border">'.$vcValMB->vanchuyen_dongia_mb.' '.translate('vanchuyen_dongia_option','','') .'</td>';                                    
+                    }
+                    
+                    $html .= '<tr>
+                    <td colspan="42" class="dataLabel" style="border-left:1px solid #999">&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999"><strong>GUIDE</strong></td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->guide_sum.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->guide1.'</td>
+                    <td>'.$noidung->guide2.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->guide3.'</td>
+                    <td>'.$noidung->guide4.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->guide5.'</td>
+                    <td>'.$noidung->guide6.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->guide7.'</td>
+                    <td>'.$noidung->guide8.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->guide9.'</td>
+                    <td>'.$noidung->guide10.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->guide11.'</td>
+                    <td>'.$noidung->guide12.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->guide13.'</td>
+                    <td>'.$noidung->guide14.'</td>
+                    <td>'.$noidung->guide15.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">South</td>
+                    <td>'.$noidung->guide_south_price.'</td>
+                    <td>'.$noidung->guide_south_num.'</td>
+                    <td>'.$noidung->guide_south_money.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">Middle</td>
+                    <td>'.$noidung->guide_middle_price.'</td>
+                    <td>'.$noidung->guide_middle_num.'</td>
+                    <td>'.$noidung->guide_middle_money.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">North</td>
+                    <td>'.$noidung->guide_north_price.'</td>
+                    <td>'.$noidung->guide_north_num.'</td>
+                    <td>'.$noidung->guide_north_money.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td colspan="42" class="dataLabel" style="border-left:1px solid #999">&nbsp;</td>
+                    </tr>
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999"><strong>GROUP MISCELLANEOUS (Include VAT)</strong></td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->group_sum.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->group1.'</td>
+                    <td>'.$noidung->group2.'</td>
+                    <td>'.$noidung->group3.'</td>
+                    <td>'.$noidung->group4.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->group5.'</td>
+                    <td>'.$noidung->group6.'</td>
+                    <td>'.$noidung->group7.'</td>
+                    <td>'.$noidung->group8.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->group9.'</td>
+                    <td>'.$noidung->group10.'</td>
+                    <td>'.$noidung->group11.'</td>
+                    <td>'.$noidung->group12.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->group13.'</td>
+                    <td>'.$noidung->group14.'</td>
+                    <td>'.$noidung->group15.'</td>
+                    <td>'.$noidung->group16.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->group17.'</td>
+                    <td>'.$noidung->group18.'</td>
+                    <td>'.$noidung->group19.'</td>
+                    <td>'.$noidung->group20.'</td>
+                    <td>'.$noidung->group21.'</td>
+                    <td>'.$noidung->group22.'</td>
+                    <td>'.$noidung->group23.'</td>
+                    <td>'.$noidung->group24.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->group25.'</td>
+                    <td>'.$noidung->group26.'</td>
+                    <td>'.$noidung->group27.'</td>
+                    <td>'.$noidung->group28.'</td>
+                    <td>'.$noidung->group29.'</td>
+                    <td>'.$noidung->group30.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>';
+                    $group1_fit = $noidung->group1_fit;
+                    if(count($group1_fit) >0){
+                        foreach($group1_fit as $value){
+                            $html .= '<tr>
+                            <td style="border-left:1px solid #999">'.$value->group1_service.'</td>
+                            <td>'.$value->group1_price.'</td>
+                            <td>'.$value->group1_num.'</td>
+                            <td>'.$value->group1_money.'</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            </tr>';
                         }
-                        $html .= '<td width="10%" class="tabDetailViewDF border">'.$vcValMB->vanchuyen_soluong_mb.'</td>';
-                        $html .= '<td width="10%" class="tabDetailViewDF border">'.$vcValMB->vanchuyen_songay_mb.'</td>';
-                        //                                $html .= '<td width="10%" class="tabDetailViewDF">'.$vcValMB->vanchuyen_foc_mb.'</td>';
-                        $html .= '<td width="10%" class="tabDetailViewDF border">'.$vcValMB->vanchuyen_thanhtien_mb.'</td>';
-                        $html .= '<td width="10%" class="tabDetailViewDF border">'.$vcValMB->vanchuyen_thuesuat_mb.'</td>';
-                        $html .= '<td width="20%" class="tabDetailViewDF border">'.$vcValMB->vanchuyen_vat_mb.'</td>';
-                        $html .= '</tr> ';
-                        $vc_mb++;             
                     }
-                    $html .= '<tr>';
-                    $html .= '<th width="60%" colspan="4" class="border"><b>Tổng cộng</b></th>';
-                    //                        $html .= '<th width="20%">&nbsp;</th>';
-                    //                        $html .= '<th width="10%">&nbsp;</th>';
-                    //                        $html .= '<th width="10%">&nbsp;</th>';
-                    //                        $html .= '<th width="10%">&nbsp;</th>';
-                    $html .= '<th width="10%" class="border">'.$noidung->vanchuyen_tongthanhtien_mienbac.'</th>';
-                    $html .= '<th width="10%" class="border">&nbsp;</th>';
-                    $html .= '<th width="20%" class="border">'.$noidung->vanchuyen_tongthue_mienbac.'</th>';
-                    $html .= '</tr>';
-                    $html .='</tbody></table></fieldset>';
-                }
-                $html .= '</td></tr>';
-                // lấy danh sách vận chuyển ở miền trung
-                $html .= '<tr><td colspan="7">';
-                $vanchuyen_mientrung = $noidung->vanchuyen_mientrung;
-                if(count($vanchuyen_mientrung)>0){
-                    $html .= '<fieldset >';
-                    $html .= '<legend><h3>MIỀN TRUNG</h3></legend>';
-                    $html .= '<table width="100%" class="tabDetailView" id="vanchuyen_mientrung" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-                    $html .= '<thead>';
-                    $html .= '<tr>';
-                    $html .= '<td width="20%" class="border"><b>Lọai xe</b></td>';
-                    $html .= '<th width="20%" class="border">Đơn giá</th>';
-                    $html .= '<th width="10%" class="border">Số lượng</th>';
-                    $html .= '<th width="10%" class="border">Ngày/Giờ/Km</th>';
-                    //                    $html .= '<th width="10%">FOC</th>';
-                    $html .= '<th width="10%" class="border">Thành tiền</th>';
-                    $html .= '<th width="10%" class="border">Thuế suất</th>';
-                    $html .= '<th width="20%" class="border">Thuế</th>';
-                    $html .= '</tr>';
-                    $html .= '</thead>';
-                    $html .= '<tbody>';
-                    $vc_mt = 0;
-                    foreach($vanchuyen_mientrung as $vcValMT){
-                        $html .= '<tr>';
-                        $html .= '<td width="20%" class="border"><a target="blank" href="index.php?module=Cars&action=DetailView&record='.$vcValMT->vanchuyen_name_mt.'"><b>'.translate( 'list_vanchuyen_dom_middle','',$vcValMT->vanchuyen_name_mt).'</b></a></td>';
-                        if(!empty($vcValMT->dongia_option_mt)){
-                            $html .= '<td width="20%" class="tabDetailViewDF border">'.$vcValMT->vanchuyen_dongia_mt.' '.translate('vanchuyen_dongia_option','',$vcValMT->dongia_option_mt) .'</td>';
+                    $html .= '<tr>
+                    <td colspan="42" style="border-left:1px solid #999">&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999"><strong>GROUP MISCELLANEOUS (Not VAT)</strong></td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>';
+                    $group2_fit = $noidung->group2_fit;
+                    if(count($group2_fit) >0){
+                        foreach($group2_fit as $value){
+                            $html .= '<tr>
+                            <td style="border-left:1px solid #999">'.$value->group2_service.'</td>
+                            <td>'.$value->group2_price.'</td>
+                            <td>'.$value->group2_num.'</td>
+                            <td>'.$value->group2_money.'</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            </tr>';
                         }
-                        else{
-                            $html .= '<td width="20%" class="tabDetailViewDF border">'.$vcValMT->vanchuyen_dongia_mt.' '.translate('vanchuyen_dongia_option','','') .'</td>';
+                    }
+                    $html .= '<tr>
+                    <td colspan="42" style="border-left:1px solid #999">&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999"><strong>ENTRANCE</strong></td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->entrance_sum.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->entrance1.'</td>
+                    <td>'.$noidung->entrance2.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->entrance3.'</td>
+                    <td>'.$noidung->entrance4.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->entrance5.'</td>
+                    <td>'.$noidung->entrance6.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->entrance7.'</td>
+                    <td>'.$noidung->entrance8.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->entrance9.'</td>
+                    <td>'.$noidung->entrance10.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->entrance11.'</td>
+                    <td>'.$noidung->entrance12.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->entrance13.'</td>
+                    <td>'.$noidung->entrance14.'</td>
+                    <td>'.$noidung->entrance15.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>';
+                    $entrance = $noidung->entrance;
+                    if(count($entrance)>0){
+                        foreach($entrance as $value){
+                            $html .= ' <tr>
+                            <td style="border-left:1px solid #999">'.$value->entrance_service.'</td>
+                            <td>'.$value->entrance_price.'</td>
+                            <td>'.$value->entrance_num.'</td>
+                            <td>'.$value->entrance_money.'</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            </tr>';
                         }
-                        $html .= '<td width="10%" class="tabDetailViewDF border">'.$vcValMT->vanchuyen_soluong_mt.'</td>';
-                        $html .= '<td width="10%" class="tabDetailViewDF border">'.$vcValMT->vanchuyen_songay_mt.'</td>';
-                        //                            $html .= '<td width="10%" class="tabDetailViewDF">'.$vcValMT->vanchuyen_foc_mt.'</td>';
-                        $html .= '<td width="10%" class="tabDetailViewDF border">'.$vcValMT->vanchuyen_thanhtien_mt.'</td>';
-                        $html .= '<td width="10%" class="tabDetailViewDF border">'.$vcValMT->vanchuyen_thuexuat_mt.'</td>';
-                        $html .= '<td width="20%" class="tabDetailViewDF border">'.$vcValMT->vanchuyen_vat_mt.'</td>';
-                        $html .= '</tr> ';
-                        $vc_mt++;             
                     }
-                    $html .= '<tr>';
-                    $html .= '<th width="60%" colspan="4" class="border"><b>Tổng cộng</b></th>';
-                    //                    $html .= '<th width="20%">&nbsp;</th>';
-                    //                    $html .= '<th width="10%">&nbsp;</th>';
-                    //                    $html .= '<th width="10%">&nbsp;</th>';
-                    //                    $html .= '<th width="10%">&nbsp;</th>';
-                    $html .= '<th width="10%" class="border">'.$noidung->vanchuyen_tongthanhtien_mientrung.'</th>';
-                    $html .= '<th width="10%" class="border">&nbsp;</th>';
-                    $html .= '<th width="20%" class="border">'.$noidung->vanchuyen_tongthue_mientrung.'</th>';
-                    $html .= '</tr>';
-                    $html .= '</tbody></table></fieldset>';
-                }
-                $htnl .= '</td></tr>';
-                // lấy danh sách vận chuyển ở miền nam
-                $vanchuyen_miennam = $noidung->vanchuyen_miennam;
-                if(count($vanchuyen_miennam)>0){
-                    $html .= '<tr><td colspan="7">';
-                    $html .= '<fieldset >';
-                    $html .= '<legend><h3>MIỀN NAM</h3></legend>';
-                    $html .= '<table width="100%" class="tabDetailView" id="vanchuyen_miennam" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-                    $html .= '<thead>';
-                    $html .= '<tr>';
-                    $html .= '<td width="20%" class="border"><b>Lọai xe</b></td>';
-                    $html .= '<th width="20%" class="border">Đơn giá</th>';
-                    $html .= '<th width="10%" class="border">Số lượng</th>';
-                    $html .= '<th width="10%" class="border">Ngày/Giờ/Km</th>';
-                    //                    $html .= '<th width="10%">FOC</th>';
-                    $html .= '<th width="10%" class="border">Thành tiền</th>';
-                    $html .= '<th width="10%" class="border">Thuế suất</th>';
-                    $html .= '<th width="20%" class="border">Thuế</th>';
-                    $html .= '</tr>';
-                    $html .= '</thead>';
-                    $html .= '<tbody>';
-                    foreach($vanchuyen_miennam as $vcValMN){
-                        $html .= '<tr>';
-                        $html .= '<td width="20%" class="border"><a target="blank" href="index.php?module=Cars&action=DetailView&record='.$vcValMN->vanchuyen_name_mn.'"><b>'.translate( 'list_vanchuyen_dom_south','',$vcValMN->vanchuyen_name_mn).'</b></a></td>';
-                        if(!empty($vcValMN->dongia_option_mn)){
-                            $html .= '<td width="20%" class="tabDetailViewDF border">'.$vcValMN->vanchuyen_dongia_mn.' '.translate('vanchuyen_dongia_option','',$vcValMN->dongia_option_mn) .'</td>';
+
+
+                    $html .= '<tr>
+                    <td colspan="42" style="border-left:1px solid #999">&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999"><strong>TICKETS</strong></td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->ticket_sum.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->ticket1.'</td>
+                    <td>'.$noidung->ticket2.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->ticket3.'</td>
+                    <td>'.$noidung->ticket4.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->ticket5.'</td>
+                    <td>'.$noidung->ticket6.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->ticket7.'</td>
+                    <td>'.$noidung->ticket8.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->ticket9.'</td>
+                    <td>'.$noidung->ticket10.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->ticket11.'</td>
+                    <td>'.$noidung->ticket12.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->ticket13.'</td>
+                    <td>'.$noidung->ticket14.'</td>
+                    <td>'.$noidung->ticket15.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>';
+
+                    $ticket = $noidung->ticket;
+                    if(count($ticket)>0){
+                        foreach($ticket as $value){
+                            $html_ticket .= '<tr>
+                            <td style="border-left:1px solid #999">'.$value->tickets_service.'</td>
+                            <td>'.$value->tickets_price.'</td>
+                            <td>'.$value->tickets_num.'</td>
+                            <td>'.$value->tickets_money.'</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            </tr>';
                         }
-                        else{
-                            $html .= '<td width="20%" class="tabDetailViewDF border">'.$vcValMN->vanchuyen_dongia_mn.' '.translate('vanchuyen_dongia_option','','') .'</td>'; 
+                    }
+
+                    $html .= '<tr>
+                    <td colspan="42" style="border-left:1px solid #999">&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999"><strong>FIT MISCELLANEOUS (Include VAT)</strong></td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->fit_sum.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->fit1.'</td>
+                    <td>'.$noidung->fit2.'</td>
+                    <td>'.$noidung->fit3.'</td>
+                    <td>'.$noidung->fit4.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->fit5.'</td>
+                    <td>'.$noidung->fit6.'</td>
+                    <td>'.$noidung->fit7.'</td>
+                    <td>'.$noidung->fit8.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->fit9.'</td>
+                    <td>'.$noidung->fit10.'</td>
+                    <td>'.$noidung->fit11.'</td>
+                    <td>'.$noidung->fit12.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->fit13.'</td>
+                    <td>'.$noidung->fit14.'</td>
+                    <td>'.$noidung->fit15.'</td>
+                    <td>'.$noidung->fit16.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->fit17.'</td>
+                    <td>'.$noidung->fit18.'</td>
+                    <td>'.$noidung->fit19.'</td>
+                    <td>'.$noidung->fit20.'</td>
+                    <td>'.$noidung->fit21.'</td>
+                    <td>'.$noidung->fit22.'</td>
+                    <td>'.$noidung->fit23.'</td>
+                    <td>'.$noidung->fit24.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->fit25.'</td>
+                    <td>'.$noidung->fit26.'</td>
+                    <td>'.$noidung->fit27.'</td>
+                    <td>'.$noidung->fit28.'</td>
+                    <td>'.$noidung->fit29.'</td>
+                    <td>'.$noidung->fit30.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr> ';
+
+                    $fit1_line = $noidung->fit1_line;
+
+                    if(count($fit1_line)>0){
+                        foreach($fit1_line as $value){
+                            $html .= '<tr>
+                            <td style="border-left:1px solid #999">'.$value->fit1_service.'</td>
+                            <td>'.$value->fit1_price.'</td>
+                            <td>'.$value->fit1_num.'</td>
+                            <td>'.$value->fit1_money.'</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            </tr>';
                         }
-                        $html .= '<td width="10%" class="tabDetailViewDF border">'.$vcValMN->vanchuyen_soluong_mn.'</td>';
-                        $html .= '<td width="10%" class="tabDetailViewDF border">'.$vcValMN->vanchuyen_songay_mn.'</td>';
-                        //                            $html .= '<td width="10%" class="tabDetailViewDF">'.$vcValMN->vanchuyen_foc_mn.'</td>';
-                        $html .= '<td width="10%" class="tabDetailViewDF border">'.$vcValMN->vanchuyen_thanhtien_mn.'</td>';
-                        $html .= '<td width="10%" class="tabDetailViewDF border">'.$vcValMN->vanchuyen_thuexuat_mn.'</td>';
-                        $html .= '<td width="20%" class="tabDetailViewDF border">'.$vcValMN->vanchuyen_vat_mn.'</td>';
-                        $html .= '</tr> ';
                     }
-                    $html .= '<tr>';
-                    $html .= '<th width="60%" colspan="4" class="border"><b>Tổng cộng</b></th>';
-                    //                    $html .= '<th width="20%">&nbsp;</th>';
-                    //                    $html .= '<th width="10%">&nbsp;</th>';
-                    //                    $html .= '<th width="10%">&nbsp;</th>';
-                    //                    $html .= '<th width="10%">&nbsp;</th>';
-                    $html .= '<th width="10%" class="border">'.$noidung->vanchuyen_tongthanhtien_miennam .'</th>';
-                    $html .= '<th width="10%" class="border">&nbsp;</th>';
-                    $html .= '<th width="20%" class="border">'.$noidung->vanchuyen_tongthue_miennam.'</th>';
-                    $html .= '</tr>';
-                    $html .= '</tbody></table></fieldset>';
-                }
-                $html .='</td></tr>';
-                $html .= '<tr>';
-                $html .= '<th width="60%" class="border" colspan="4">TỔNG CỘNG</th>';
-                //                    $html .= '<th width="20%">&nbsp;</th>';
-                //                    $html .= '<th width="10%" >&nbsp;</th>';
-                //                    $html .= '<th width="10%">&nbsp;</th>';
-                //                    $html .= '<th width="10%">&nbsp;</th>';
-                $html .= '<th width="10%" class="border">'.$noidung->vanchuyen_tongthanhtien.'</th>';
-                $html .= '<th width="10%" class="border">&nbsp;</th>';
-                $html .= '<th width="20%" class="border">'.$noidung->vanchuyen_tongthue.'</th>';
-                $html .= '</tr>';
-                $html .= '</tbody>';
-                $html .= '</table> </fieldset>';
+                    $html .= '<tr>
+                    <td colspan="42" style="border-left:1px solid #999">&nbsp;</td>
+                    </tr>
 
-                // ket thuc load du lieu van chuyen
-
-                // load data dich vu
-                $svArr = array();
-                $svArr = $this->bean->getServiceData($this->bean->worksheet_tour_id);
-                foreach($svArr as $arrsv){
-                    $app_list_strings['list_dichvu_dom'][$arrsv['id']] = $arrsv['name'];
-                    $app_list_strings['list_dichvu_giathamkhao_dom'][$arrsv['id']] = $arrsv['giathamkhao'];
-                }
-
-                if(count($svArr)>0){
-                    $html .= '<fieldset >';
-                    $html .= '<legend> <h3>DỊCH VỤ</h3></legend>';
-                    $html .= '<table width="100%" class="tabDetailView" border="0" id="dichvu" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-                    $html .= '<tbody>';
-                    // lấy danh sách dịch vụ miền bắc
-                    $html .= '<tr><td colspan="8">';
-                    $dichvu_mienbac = $noidung->dichvu_mienbac;
-                    if(count($dichvu_mienbac)>0){
-                        $html .= '<fieldset >';
-                        $html .= '<legend><h3>MIỀN BẮC</h3></legend>';
-                        $html .= '<table width="100%" class="tabDetailView" id="dichvu_mienbac" border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-                        $html .= '<thead>';
-                        $html .= '<tr>';
-                        $html .= '<td width="23%" class="border"><b>Loại dịch vụ</b></td>';
-                        $html .= '<th width="11%" class="border">Đơn giá</th>';
-                        $html .= '<th width="11%" class="border">Số lượng</th>';
-                        $html .= '<th width="11%" class="border">Số ngày</th>';
-                        $html .= '<th width="11%" class="border">FOC</th>';
-                        $html .= '<th width="11%" class="border">Thành tiền</th>';
-                        $html .= '<th width="11%" class="border">Thuế suất</th>';
-                        $html .= '<th width="11%" class="border">Thuế</th>';
-                        $html .= '</tr>';
-                        $html .= '</thead>';
-                        $html .= '<tbody>';
-                        foreach($dichvu_mienbac as $svValMB){
-                            $html .= '<tr>';
-                            $html .= '<td width="23%" class="border"><a target="blank" href="index.php?module=Services&action=DetailView&record='.$svValMB->services_name_mb.'">'.translate('list_dichvu_dom_north','',$svValMB->services_name_mb).'</a> </td>';
-                            $html .= '<td width="11%" class="tabDetailViewDF border">'.$svValMB->services_dongia_mb.'</td>';
-                            $html .= '<td width="11%" class="tabDetailViewDF border">'.$svValMB->services_soluong_mb.'</td>';
-                            $html .= '<td width="11%" class="tabDetailViewDF border">'.$svValMB->services_songay_mb.'</td>';
-                            $html .= '<td width="11%" class="tabDetailViewDF border">'.$svValMB->services_foc_mb.'</td>';
-                            $html .= '<td width="11%" class="tabDetailViewDF border">'.$svValMB->services_thanhtien_mb.'</td>';
-                            $html .= '<td width="11%" class="tabDetailViewDF border">'.$svValMB->services_thuexuat_mb.'</td>';
-                            $html .= '<td width="11%" class="tabDetailViewDF border">'.$svValMB->services_vat_mb.'</td>';
-                            $html .= '</tr> ';
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999"><strong>FIT MISCELLANEOUS (Not VAT)</strong></td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>';
+                    $fit2_line = $noidung->fit2_line;
+                    if(count($fit2_line) > 0){
+                        foreach($fit2_line as $value){
+                            $html .= '<tr>
+                            <td style="border-left:1px solid #999">'.$value->fit2_service.'</td>
+                            <td>'.$value->fit_price.'</td>
+                            <td>'.$value->fit_num.'</td>
+                            <td>'.$value->fit_money.'</td>
+                            <td>&nbsp;</td>
+                            <td align="center" valign="middle"><input type="button" class="btnAdd" value="Add"/></td>
+                            <td align="center" valign="middle"><input type="button" class="btnDel" value="Delete"/></td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            </tr>';
                         }
-                        $html .= '<tr>';
-                        $html .= '<th width="67%" class="border" colspan="5">Tổng cộng</th>';
-                        //                    $html .= '<th width="11%">&nbsp;</th>';
-                        //                    $html .= '<th width="11%">&nbsp;</th>';
-                        //                    $html .= '<th width="11%">&nbsp;</th>';
-                        //                    $html .= '<th width="11%">&nbsp;</th>';
-                        $html .= '<th width="11%" class="border">'.$noidung->service_tongthanhtien_mienbac.'</th>';
-                        $html .= '<th width="11%" class="border">&nbsp;</th>';
-                        $html .= '<th width="11%" class="border">'.$noidung->service_tongthue_mienbac.'</th>';
-                        $html .= '</tr>';
-                        $html .= '</tbody></table></fieldset>';
                     }
-                    $html .= '</td></tr>';  
-                    // lấy danh sách dịch vụ miền trung
-                    $html .= '<tr><td colspan="8">';
-                    $dichvu_mientrung = $noidung->dichvu_mientrung;
-                    if(count($dichvu_mientrung)>0){
-                        $html .= '<fieldset >';
-                        $html .= '<legend><h3>MIỀN TRUNG</h3></legend>';
-                        $html .= '<table width="100%" class="tabDetailView" id="dichvu_mientrung" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-                        $html .= '<thead>';
-                        $html .= '<tr>';
-                        $html .= '<td width="23%" class="border"><b>Loại dịch vụ</b></td>';
-                        $html .= '<th width="11%" class="border">Đơn giá</th>';
-                        $html .= '<th width="11%" class="border">Số lượng</th>';
-                        $html .= '<th width="11%" class="border">Số ngày</th>';
-                        $html .= '<th width="11%" class="border">FOC</th>';
-                        $html .= '<th width="11%" class="border">Thành tiền</th>';
-                        $html .= '<th width="11%" class="border">Thuế suất</th>';
-                        $html .= '<th width="11%" class="border">Thuế</th>';
-                        $html .= '</tr>';
-                        $html .= '</thead>';
-                        $dv_mt = 0;
-                        foreach($dichvu_mientrung as $svValMT){
-                            $html .= '<tr>';
-                            $html .= '<td width="23%" class="border"><a target="blank" href="index.php?module=Services&action=DetailView&record='.$svValMT->services_name_mt.'">'.translate('list_dichvu_dom_middle','',$svValMT->services_name_mt).' </a></td>';
-                            $html .= '<td width="11%" class="tabDetailViewDF border">'.$svValMT->services_dongia_mt.'</td>';
-                            $html .= '<td width="11%" class="tabDetailViewDF border">'.$svValMT->services_soluong_mt.'</td>';
-                            $html .= '<td width="11%" class="tabDetailViewDF border">'.$svValMT->services_songay_mt.'</td>';
-                            $html .= '<td width="11%" class="tabDetailViewDF border">'.$svValMT->services_foc_mt.'</td>';
-                            $html .= '<td width="11%" class="tabDetailViewDF border">'.$svValMT->services_thanhtien_mt.'</td>';
-                            $html .= '<td width="11%" class="tabDetailViewDF border">'.$svValMT->services_thuexuat_mt.'</td>';
-                            $html .= '<td width="11%" class="tabDetailViewDF border">'.$svValMT->services_vat_mt.'</td>';
-                            $html .= '</tr> ';
-                            $dv_mt ++;               
+                    $html .= '<tr>
+                    <td colspan="42" style="border-left:1px solid #999">&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999"><strong>MEALS 1</strong></td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal1_sum.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal1_1.'</td>
+                    <td>'.$noidung->meal1_2.'</td>
+                    <td>'.$noidung->meal1_3.'</td>
+                    <td>'.$noidung->meal1_4.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal1_5.'</td>
+                    <td>'.$noidung->meal1_6.'</td>
+                    <td>'.$noidung->meal1_7.'</td>
+                    <td>'.$noidung->meal1_8.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal1_9.'</td>
+                    <td>'.$noidung->meal1_10.'</td>
+                    <td>'.$noidung->meal1_11.'</td>
+                    <td>'.$noidung->meal1_12.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal1_13.'</td>
+                    <td>'.$noidung->meal1_14.'</td>
+                    <td>'.$noidung->meal1_15.'</td>
+                    <td>'.$noidung->meal1_16.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal1_17.'</td>
+                    <td>'.$noidung->meal1_18.'</td>
+                    <td>'.$noidung->meal1_19.'</td>
+                    <td>'.$noidung->meal1_20.'</td>
+                    <td>'.$noidung->meal1_21.'</td>
+                    <td>'.$noidung->meal1_22.'</td>
+                    <td>'.$noidung->meal1_23.'</td>
+                    <td>'.$noidung->meal1_24.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal1_25.'</td>
+                    <td>'.$noidung->meal1_26.'</td>
+                    <td>'.$noidung->meal1_27.'</td>
+                    <td>'.$noidung->meal1_28.'</td>
+                    <td>'.$noidung->meal1_28.'</td>
+                    <td>'.$noidung->meal1_30.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td colspan="42" style="border-left:1px solid #999">&nbsp;</td>
+                    </tr>
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999"><strong>South</strong></td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal1_south_sum.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal1_south1.'</td>
+                    <td>'.$noidung->meal1_south2.'</td>
+                    <td>'.$noidung->meal1_south3.'</td>
+                    <td>'.$noidung->meal1_south4.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal1_south5.'</td>
+                    <td>'.$noidung->meal1_south6.'</td>
+                    <td>'.$noidung->meal1_south7.'</td>
+                    <td>'.$noidung->meal1_south8.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal1_south9.'</td>
+                    <td>'.$noidung->meal1_south10.'</td>
+                    <td>'.$noidung->meal1_south11.'</td>
+                    <td>'.$noidung->meal1_south12.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal1_south13.'</td>
+                    <td>'.$noidung->meal1_south14.'</td>
+                    <td>'.$noidung->meal1_south15.'</td>
+                    <td>'.$noidung->meal1_south16.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal1_south17.'</td>
+                    <td>'.$noidung->meal1_south18.'</td>
+                    <td>'.$noidung->meal1_south19.'</td>
+                    <td>'.$noidung->meal1_south20.'</td>
+                    <td>'.$noidung->meal1_south21.'</td>
+                    <td>'.$noidung->meal1_south22.'</td>
+                    <td>'.$noidung->meal1_south23.'</td>
+                    <td>'.$noidung->meal1_south24.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal1_south25.'</td>
+                    <td>'.$noidung->meal1_south26.'</td>
+                    <td>'.$noidung->meal1_south27.'</td>
+                    <td>'.$noidung->meal1_south28.'</td>
+                    <td>'.$noidung->meal1_south29.'</td>
+                    <td>'.$noidung->meal1_south30.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">Breakfirst</td>
+                    <td>'.$noidung->meal1_south_breakfirst_price.'</td>
+                    <td>'.$noidung->meal1_south_breakfirst_num.'</td>
+                    <td>'.$noidung->meal1_south_breakfirst_money.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">Lunch</td>
+                    <td>'.$noidung->meal1_south_lunch_price.'</td>
+                    <td>'.$noidung->meal1_south_lunch_num.'</td>
+                    <td>'.$noidung->meal1_south_lunch_money.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">Dinner</td>
+                    <td>'.$noidung->meal1_south_dinner_price.'</td>
+                    <td>'.$noidung->meal1_south_dinner_num.'</td>
+                    <td>'.$noidung->meal1_south_dinner_money.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">Other</td>
+                    <td>'.$noidung->meal1_south_other_price.'</td>
+                    <td>'.$noidung->meal1_south_other_num.'</td>
+                    <td>'.$noidung->meal1_south_other_money.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td colspan="42" class="dataLabel" style="border-left:1px solid #999">&nbsp;</td>
+                    </tr>
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999"><strong>Middle</strong></td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal1_miidle_sum.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal1_middle1.'</td>
+                    <td>'.$noidung->meal1_middle2.'</td>
+                    <td>'.$noidung->meal1_middle3.'</td>
+                    <td>'.$noidung->meal1_middle4.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal1_middle5.'</td>
+                    <td>'.$noidung->meal1_middle6.'</td>
+                    <td>'.$noidung->meal1_middle7.'</td>
+                    <td>'.$noidung->meal1_middle8.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal1_middle9.'</td>
+                    <td>'.$noidung->meal1_middle10.'</td>
+                    <td>'.$noidung->meal1_middle11.'</td>
+                    <td>'.$noidung->meal1_middle12.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal1_middle13.'</td>
+                    <td>'.$noidung->meal1_middle14.'</td>
+                    <td>'.$noidung->meal1_middle15.'</td>
+                    <td>'.$noidung->meal1_middle16.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal1_middle17.'</td>
+                    <td>'.$noidung->meal1_middle18.'</td>
+                    <td>'.$noidung->meal1_middle19.'</td>
+                    <td>'.$noidung->meal1_middle20.'</td>
+                    <td>'.$noidung->meal1_middle21.'</td>
+                    <td>'.$noidung->meal1_middle22.'</td>
+                    <td>'.$noidung->meal1_middle23.'</td>
+                    <td>'.$noidung->meal1_middle24.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal1_middle25.'</td>
+                    <td>'.$noidung->meal1_middle26.'</td>
+                    <td>'.$noidung->meal1_middle27.'</td>
+                    <td>'.$noidung->meal1_middle28.'</td>
+                    <td>'.$noidung->meal1_middle29.'</td>
+                    <td>'.$noidung->meal1_middle30.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">Breakfirst</td>
+                    <td>'.$noidung->meal1_middle_breakfirst_price.'</td>
+                    <td>'.$noidung->meal1_middle_breakfirst_num.'</td>
+                    <td>'.$noidung->meal1_middle_breakfirst_money.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">Lunch</td>
+                    <td>'.$noidung->meal1_middle_lunch_price.'</td>
+                    <td>'.$noidung->meal1_middle_lunch_num.'</td>
+                    <td>'.$noidung->meal1_middle_lunch_money.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">Dinner</td>
+                    <td>'.$noidung->meal1_middle_dinner_price.'</td>
+                    <td>'.$noidung->meal1_middle_dinner_num.'</td>
+                    <td>'.$noidung->meal1_middle_dinner_money.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">Other</td>
+                    <td>'.$noidung->meal1_middle_other_price.'</td>
+                    <td>'.$noidung->meal1_middle_other_num.'</td>
+                    <td>'.$noidung->meal1_middle_other_money.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td colspan="42" class="dataLabel" style="border-left:1px solid #999">&nbsp;</td>
+                    </tr>
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999"><strong>North</strong></td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal1_north_sum.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal1_north1.'</td>
+                    <td>'.$noidung->meal1_north2.'</td>
+                    <td>'.$noidung->meal1_north3.'</td>
+                    <td>'.$noidung->meal1_north4.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal1_north5.'</td>
+                    <td>'.$noidung->meal1_north6.'</td>
+                    <td>'.$noidung->meal1_north7.'</td>
+                    <td>'.$noidung->meal1_north8.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal1_north9.'</td>
+                    <td>'.$noidung->meal1_north10.'</td>
+                    <td>'.$noidung->meal1_north11.'</td>
+                    <td>'.$noidung->meal1_north12.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal1_north13.'</td>
+                    <td>'.$noidung->meal1_north14.'</td>
+                    <td>'.$noidung->meal1_north15.'</td>
+                    <td>'.$noidung->meal1_north16.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal1_north17.'</td>
+                    <td>'.$noidung->meal1_north18.'</td>
+                    <td>'.$noidung->meal1_north19.'</td>
+                    <td>'.$noidung->meal1_north20.'</td>
+                    <td>'.$noidung->meal1_north21.'</td>
+                    <td>'.$noidung->meal1_north22.'</td>
+                    <td>'.$noidung->meal1_north23.'</td>
+                    <td>'.$noidung->meal1_north24.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal1_north25.'</td>
+                    <td>'.$noidung->meal1_north26.'</td>
+                    <td>'.$noidung->meal1_north27.'</td>
+                    <td>'.$noidung->meal1_north28.'</td>
+                    <td>'.$noidung->meal1_north29.'</td>
+                    <td>'.$noidung->meal1_north30.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">Breakfirst</td>
+                    <td>'.$noidung->meal1_north_breakfirst_price.'</td>
+                    <td>'.$noidung->meal1_north_breakfirst_num.'</td>
+                    <td>'.$noidung->meal1_north_breakfirst_money.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">Lunch</td>
+                    <td>'.$noidung->meal1_north_lunch_price.'</td>
+                    <td>'.$noidung->meal1_north_lunch_num.'</td>
+                    <td>'.$noidung->meal1_north_lunch_money.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">Dinner</td>
+                    <td>'.$noidung->meal1_north_dinner_price.'</td>
+                    <td>'.$noidung->meal1_north_dinner_num.'</td>
+                    <td>'.$noidung->meal1_north_dinner_money.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">Other</td>
+                    <td>'.$noidung->meal1_north_other_price.'</td>
+                    <td>'.$noidung->meal1_north_other_num.'</td>
+                    <td>'.$noidung->meal1_north_other_money.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td colspan="42" style="border-left:1px solid #999">&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999"><strong>HOTEL 1</strong></td>
+                    <td class="dataLabel">Room</td>
+                    <td class="dataLabel">Nite</td>
+                    <td>'.$noidung->hotel1_sum.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->hotel1_1.'</td>
+                    <td>'.$noidung->hotel1_2.'</td>
+                    <td>'.$noidung->hotel1_3.'</td>
+                    <td>'.$noidung->hotel1_4.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->hotel1_5.'</td>
+                    <td>'.$noidung->hotel1_6.'</td>
+                    <td>'.$noidung->hotel1_7.'</td>
+                    <td>'.$noidung->hotel1_8.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->hotel1_9.'</td>
+                    <td>'.$noidung->hotel1_10.'</td>
+                    <td>'.$noidung->hotel1_11.'</td>
+                    <td>'.$noidung->hotel1_12.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->hotel1_13.'</td>
+                    <td>'.$noidung->hotel1_14.'</td>
+                    <td>'.$noidung->hotel1_15.'</td>
+                    <td>'.$noidung->hotel1_16.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->hotel1_17.'</td>
+                    <td>'.$noidung->hotel1_18.'</td>
+                    <td>'.$noidung->hotel1_19.'</td>
+                    <td>'.$noidung->hotel1_20.'</td>
+                    <td>'.$noidung->hotel1_21.'</td>
+                    <td>'.$noidung->hotel1_22.'</td>
+                    <td>'.$noidung->hotel1_23.'</td>
+                    <td>'.$noidung->hotel1_24.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->hotel1_25.'</td>
+                    <td>'.$noidung->hotel1_26.'</td>
+                    <td>'.$noidung->hotel1_27.'</td>
+                    <td>'.$noidung->hotel1_28.'</td>
+                    <td>'.$noidung->hotel1_29.'</td>
+                    <td>'.$noidung->hotel1_30.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>';
+                    $hotel1 = $noidung->hotel1;
+                    if(count($hotel1)>0){
+                        foreach($hotel1 as $value){
+                            $html .= ' <tr>
+                            <td style="border-left:1px solid #999">'.$value->hotel1_service.'</td>
+                            <td>'.$value->hotel1_price.'</td>
+                            <td>'.$value->hotel1_num.'</td>
+                            <td>'.$value->hotel1_money.'</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            </tr>';
                         }
-                        $html .= '<tr>';
-                        $html .= '<th width="67%" class="border" colspan="5"><b>Tổng cộng</b></th>';
-                        //                    $html .= '<th width="11%">&nbsp;</th>';
-                        //                    $html .= '<th width="11%">&nbsp;</th>';
-                        //                    $html .= '<th width="11%">&nbsp;</th>';
-                        //                    $html .= '<th width="11%">&nbsp;</th>';
-                        $html .= '<th width="11%" class="border">'.$noidung->service_tongthanhtien_mientrung.'</th>';
-                        $html .= '<th width="11%" class="border">&nbsp;</th>';
-                        $html .= '<th width="11%" class="border">'.$noidung->service_tongthue_mientrung.'</th>';
-                        $html .= '</tr>';
-                        $html .= '</tbody></table></fieldset>';
                     }
-                    $html .= '</td></tr>';
-                    // lay danh sách dịch vụ ở miền nam
+                    $html .= '<tr>
+                    <td colspan="42" style="border-left:1px solid #999">&nbsp;</td>
+                    </tr>
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">FOC</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->foc1_21.'</td>
+                    <td>'.$noidung->foc1_22.'</td>
+                    <td>'.$noidung->foc1_23.'</td>
+                    <td>'.$noidung->foc1_24.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->foc1_25.'</td>
+                    <td>'.$noidung->foc1_26.'</td>
+                    <td>'.$noidung->foc1_27.'</td>
+                    <td>'.$noidung->foc1_28.'</td>
+                    <td>'.$noidung->foc1_29.'</td>
+                    <td>'.$noidung->foc1_30.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
 
-                    $html .= '<tr><td colspan="8">';
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">NETT</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->nett1_1.'</td>
+                    <td>'.$noidung->nett1_2.'</td>
+                    <td>'.$noidung->nett1_3.'</td>
+                    <td>'.$noidung->nett1_4.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->nett1_5.'</td>
+                    <td>'.$noidung->nett1_6.'</td>
+                    <td>'.$noidung->nett1_7.'</td>
+                    <td>'.$noidung->nett1_8.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->nett1_9.'</td>
+                    <td>'.$noidung->nett1_10.'</td>
+                    <td>'.$noidung->nett1_11.'</td>
+                    <td>'.$noidung->nett1_12.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->nett1_13.'</td>
+                    <td>'.$noidung->nett1_14.'</td>
+                    <td>'.$noidung->nett1_15.'</td>
+                    <td>'.$noidung->nett1_16.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->nett1_17.'</td>
+                    <td>'.$noidung->nett1_18.'</td>
+                    <td>'.$noidung->nett1_19.'</td>
+                    <td>'.$noidung->nett1_20.'</td>
+                    <td>'.$noidung->nett1_21.'</td>
+                    <td>'.$noidung->nett1_22.'</td>
+                    <td>'.$noidung->nett1_23.'</td>
+                    <td>'.$noidung->nett1_24.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->nett1_25.'</td>
+                    <td>'.$noidung->nett1_26.'</td>
+                    <td>'.$noidung->nett1_27.'</td>
+                    <td>'.$noidung->nett1_28.'</td>
+                    <td>'.$noidung->nett1_29.'</td>
+                    <td>'.$noidung->nett1_30.'</td>
+                    <td>'.$noidung->nett1_31.'</td>
+                    <td>'.$noidung->nett1_32.'</td>
+                    </tr>
 
-                    $dichvu_miennam = $noidung->dichvu_miennam;
-                    if(count($dichvu_miennam)>0){
-                        $html .= '<fieldset >';
-                        $html .= '<legend><h3>MIỀN NAM</h3></legend>';
-                        $html .= '<table width="100%" class="tabDetailView" id="dichvu_mienbac" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-                        $html .= '<thead>';
-                        $html .= '<tr>';
-                        $html .= '<td width="23%" class="border"><b>Loại dịch vụ</b></td>';
-                        $html .= '<th width="11%" class="border">Đơn giá</th>';
-                        $html .= '<th width="11%" class="border">Số lượng</th>';
-                        $html .= '<th width="11%" class="border">Số ngày</th>';
-                        $html .= '<th width="11%" class="border">FOC</th>';
-                        $html .= '<th width="11%" class="border">Thành tiền</th>';
-                        $html .= '<th width="11%" class="border">Thuế suất</th>';
-                        $html .= '<th width="11%">Thuế</th>';
-                        $html .= '</tr>';
-                        $html .= '</thead>';
-                        foreach($dichvu_miennam as $svValMN){
-                            $html .= '<tr>';
-                            $html .= '<td width="23%" class="border"><a target="blank" href="index.php?module=Services&action=DetailView&record='.$svValMN->services_name_mn.'">'.translate('list_dichvu_dom_south','',$svValMN->services_name_mn).'</a></td>';
-                            $html .= '<td width="11%" class="tabDetailViewDF border">'.$svValMN->services_dongia_mn.'</td>';
-                            $html .= '<td width="11%" class="tabDetailViewDF border">'.$svValMN->services_soluong_mn.'</td>';
-                            $html .= '<td width="11%" class="tabDetailViewDF border">'.$svValMN->services_songay_mn.'</td>';
-                            $html .= '<td width="11%" class="tabDetailViewDF border">'.$svValMN->services_foc_mn.'</td>';
-                            $html .= '<td width="11%" class="tabDetailViewDF border">'.$svValMN->services_thanhtien_mn.'</td>';
-                            $html .= '<td width="11%" class="tabDetailViewDF border">'.$svValMN->services_thuexuat_mn.'</td>';
-                            $html .= '<td width="11%" class="tabDetailViewDF border">'.$svValMN->services_vat_mn.'</td>';
-                            $html .= '</tr> ';
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">SERVICE CHARGE</td>
+                    <td>'.$noidung->service1_rate.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->service1_1.'</td>
+                    <td>'.$noidung->service1_2.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->service1_5.'</td>
+                    <td>'.$noidung->service1_6.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->service1_9.'</td>
+                    <td>'.$noidung->service1_10.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->service1_13.'</td>
+                    <td>'.$noidung->service1_14.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->service1_17.'</td>
+                    <td>'.$noidung->service1_18.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->service1_21.'</td>
+                    <td>'.$noidung->service1_22.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->service1_25.'</td>
+                    <td>'.$noidung->service1_26.'</td>
+                    <td>'.$noidung->service1_27.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->service1_31.'</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">SELL 1 - VND</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->sell1_vnd1.'</td>
+                    <td>'.$noidung->sell1_vnd2.'</td>
+                    <td>'.$noidung->sell1_vnd3.'</td>
+                    <td>'.$noidung->sell1_vnd4.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->sell1_vnd5.'</td>
+                    <td>'.$noidung->sell1_vnd6.'</td>
+                    <td>'.$noidung->sell1_vnd7.'</td>
+                    <td>'.$noidung->sell1_vnd8.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->sell1_vnd9.'</td>
+                    <td>'.$noidung->sell1_vnd10.'</td>
+                    <td>'.$noidung->sell1_vnd11.'</td>
+                    <td>'.$noidung->sell1_vnd12.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->sell1_vnd13.'</td>
+                    <td>'.$noidung->sell1_vnd14.'</td>
+                    <td>'.$noidung->sell1_vnd15.'</td>
+                    <td>'.$noidung->sell1_vnd16.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->sell1_vnd17.'</td>
+                    <td>'.$noidung->sell1_vnd18.'</td>
+                    <td>'.$noidung->sell1_vnd19.'</td>
+                    <td>'.$noidung->sell1_vnd20.'</td>
+                    <td>'.$noidung->sell1_vnd21.'</td>
+                    <td>'.$noidung->sell1_vnd22.'</td>
+                    <td>'.$noidung->sell1_vnd23.'</td>
+                    <td>'.$noidung->sell1_vnd24.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->sell1_vnd25.'</td>
+                    <td>'.$noidung->sell1_vnd26.'</td>
+                    <td>'.$noidung->sell1_vnd27.'</td>
+                    <td>'.$noidung->sell1_vnd28.'</td>
+                    <td>'.$noidung->sell1_vnd29.'</td>
+                    <td>'.$noidung->sell1_vnd30.'</td>
+                    <td>'.$noidung->sell1_vnd31.'</td>
+                    <td>'.$noidung->sell1_vnd32.'</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">SELL 1 - USD</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->sell1_usd1.'</td>
+                    <td>'.$noidung->sell1_usd2.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->sell1_usd5.'</td>
+                    <td>'.$noidung->sell1_usd6.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->sell1_usd9.'</td>
+                    <td>'.$noidung->sell1_usd10.'</td>
+                    <td>'.$noidung->sell1_usd11.'</td>
+                    <td>'.$noidung->sell1_usd12.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->sell1_usd13.'</td>
+                    <td>'.$noidung->sell1_usd14.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->sell1_usd17.'</td>
+                    <td>'.$noidung->sell1_usd18.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->sell1_usd21.'</td>
+                    <td>'.$noidung->sell1_usd22.'</td>
+                    <td>'.$noidung->sell1_usd23.'</td>
+                    <td>'.$noidung->sell1_usd24.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->sell1_usd25.'</td>
+                    <td>'.$noidung->sell1_usd26.'</td>
+                    <td>'.$noidung->sell1_usd27.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->sell1_usd31.'</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">TAX TO BE PAID</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->tax1_1.'</td>
+                    <td>'.$noidung->tax1_2.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->tax1_5.'</td>
+                    <td>'.$noidung->tax1_6.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->tax1_9.'</td>
+                    <td>'.$noidung->tax1_10.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->tax1_13.'</td>
+                    <td>'.$noidung->tax1_14.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->tax1_17.'</td>
+                    <td>'.$noidung->tax1_18.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->tax1_21.'</td>
+                    <td>'.$noidung->tax1_22.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->tax1_25.'</td>
+                    <td>'.$noidung->tax1_26.'</td>
+                    <td>'.$noidung->tax1_27.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->tax1_31.'</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">PROFIT/PAX</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->profit1_1.'</td>
+                    <td>'.$noidung->profit1_2.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->profit1_5.'</td>
+                    <td>'.$noidung->profit1_6.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->profit1_9.'</td>
+                    <td>'.$noidung->profit1_10.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->profit1_13.'</td>
+                    <td>'.$noidung->profit1_14.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->profit1_17.'</td>
+                    <td>'.$noidung->profit1_18.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->profit1_21.'</td>
+                    <td>'.$noidung->profit1_22.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->profit1_25.'</td>
+                    <td>'.$noidung->profit1_26.'</td>
+                    <td>'.$noidung->profit1_27.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->profit1_31.'</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">TOTAL PROFIT</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->total1_1.'</td>
+                    <td>'.$noidung->total1_2.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->total1_5.'</td>
+                    <td>'.$noidung->total1_6.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->total1_9.'</td>
+                    <td>'.$noidung->total1_10.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->total1_13.'</td>
+                    <td>'.$noidung->total1_14.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->total1_17.'</td>
+                    <td>'.$noidung->total1_18.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->total1_21.'</td>
+                    <td>'.$noidung->total1_22.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->total1_25.'</td>
+                    <td>'.$noidung->total1_26.'</td>
+                    <td>'.$noidung->total1_27.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->total1_31.'</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">% OF INTEREST</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->interest1_1.'</td>
+                    <td>'.$noidung->interest1_2.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->interest1_5.'</td>
+                    <td>'.$noidung->interest1_6.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->interest1_9.'</td>
+                    <td>'.$noidung->interest1_10.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->interest1_13.'</td>
+                    <td>'.$noidung->interest1_14.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->interest1_17.'</td>
+                    <td>'.$noidung->interest1_18.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->interest1_21.'</td>
+                    <td>'.$noidung->interest1_22.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->interest1_25.'</td>
+                    <td>'.$noidung->interest1_26.'</td>
+                    <td>'.$noidung->interest1_27.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->interest1_31.'</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td colspan="42" style="border-left:1px solid #999">&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999"><strong>MEALS 2</strong></td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal2_sum.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal2_1.'</td>
+                    <td>'.$noidung->meal2_2.'</td>
+                    <td>'.$noidung->meal2_3.'</td>
+                    <td>'.$noidung->meal2_4.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal2_5.'</td>
+                    <td>'.$noidung->meal2_6.'</td>
+                    <td>'.$noidung->meal2_7.'</td>
+                    <td>'.$noidung->meal2_8.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal2_9.'</td>
+                    <td>'.$noidung->meal2_10.'</td>
+                    <td>'.$noidung->meal2_11.'</td>
+                    <td>'.$noidung->meal2_12.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal2_13.'</td>
+                    <td>'.$noidung->meal2_14.'</td>
+                    <td>'.$noidung->meal2_15.'</td>
+                    <td>'.$noidung->meal2_16.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal2_17.'</td>
+                    <td>'.$noidung->meal2_18.'</td>
+                    <td>'.$noidung->meal2_19.'</td>
+                    <td>'.$noidung->meal2_20.'</td>
+                    <td>'.$noidung->meal2_21.'</td>
+                    <td>'.$noidung->meal2_22.'</td>
+                    <td>'.$noidung->meal2_23.'</td>
+                    <td>'.$noidung->meal2_24.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal2_25.'</td>
+                    <td>'.$noidung->meal2_26.'</td>
+                    <td>'.$noidung->meal2_27.'</td>
+                    <td>'.$noidung->meal2_28.'</td>
+                    <td>'.$noidung->meal2_28.'</td>
+                    <td>'.$noidung->meal2_30.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td colspan="42" style="border-left:1px solid #999">&nbsp;</td>
+                    </tr>
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999"><strong>South</strong></td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal2_south_sum.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal2_south1.'</td>
+                    <td>'.$noidung->meal2_south2.'</td>
+                    <td>'.$noidung->meal2_south3.'</td>
+                    <td>'.$noidung->meal2_south4.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal2_south5.'</td>
+                    <td>'.$noidung->meal2_south6.'</td>
+                    <td>'.$noidung->meal2_south7.'</td>
+                    <td>'.$noidung->meal2_south8.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal2_south9.'</td>
+                    <td>'.$noidung->meal2_south10.'</td>
+                    <td>'.$noidung->meal2_south11.'</td>
+                    <td>'.$noidung->meal2_south12.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal2_south13.'</td>
+                    <td>'.$noidung->meal2_south14.'</td>
+                    <td>'.$noidung->meal2_south15.'</td>
+                    <td>'.$noidung->meal2_south16.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal2_south17.'</td>
+                    <td>'.$noidung->meal2_south18.'</td>
+                    <td>'.$noidung->meal2_south19.'</td>
+                    <td>'.$noidung->meal2_south20.'</td>
+                    <td>'.$noidung->meal2_south21.'</td>
+                    <td>'.$noidung->meal2_south22.'</td>
+                    <td>'.$noidung->meal2_south23.'</td>
+                    <td>'.$noidung->meal2_south24.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal2_south25.'</td>
+                    <td>'.$noidung->meal2_south26.'</td>
+                    <td>'.$noidung->meal2_south27.'</td>
+                    <td>'.$noidung->meal2_south28.'</td>
+                    <td>'.$noidung->meal2_south29.'</td>
+                    <td>'.$noidung->meal2_south30.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">Breakfirst</td>
+                    <td>'.$noidung->meal2_south_breakfirst_price.'</td>
+                    <td>'.$noidung->meal2_south_breakfirst_num.'</td>
+                    <td>'.$noidung->meal2_south_breakfirst_money.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">Lunch</td>
+                    <td>'.$noidung->meal2_south_lunch_price.'</td>
+                    <td>'.$noidung->meal2_south_lunch_num.'</td>
+                    <td>'.$noidung->meal2_south_lunch_money.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">Dinner</td>
+                    <td>'.$noidung->meal2_south_dinner_price.'</td>
+                    <td>'.$noidung->meal2_south_dinner_num.'</td>
+                    <td>'.$noidung->meal2_south_dinner_money.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">Other</td>
+                    <td>'.$noidung->meal2_south_other_price.'</td>
+                    <td>'.$noidung->meal2_south_other_num.'</td>
+                    <td>'.$noidung->meal2_south_other_money.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td colspan="42" class="dataLabel" style="border-left:1px solid #999">&nbsp;</td>
+                    </tr>
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999"><strong>Middle</strong></td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal2_miidle_sum.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal2_middle1.'</td>
+                    <td>'.$noidung->meal2_middle2.'</td>
+                    <td>'.$noidung->meal2_middle3.'</td>
+                    <td>'.$noidung->meal2_middle4.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal2_middle5.'</td>
+                    <td>'.$noidung->meal2_middle6.'</td>
+                    <td>'.$noidung->meal2_middle7.'</td>
+                    <td>'.$noidung->meal2_middle8.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal2_middle9.'</td>
+                    <td>'.$noidung->meal2_middle10.'</td>
+                    <td>'.$noidung->meal2_middle11.'</td>
+                    <td>'.$noidung->meal2_middle12.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal2_middle13.'</td>
+                    <td>'.$noidung->meal2_middle14.'</td>
+                    <td>'.$noidung->meal2_middle15.'</td>
+                    <td>'.$noidung->meal2_middle16.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal2_middle17.'</td>
+                    <td>'.$noidung->meal2_middle18.'</td>
+                    <td>'.$noidung->meal2_middle19.'</td>
+                    <td>'.$noidung->meal2_middle20.'</td>
+                    <td>'.$noidung->meal2_middle21.'</td>
+                    <td>'.$noidung->meal2_middle22.'</td>
+                    <td>'.$noidung->meal2_middle23.'</td>
+                    <td>'.$noidung->meal2_middle24.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal2_middle25.'</td>
+                    <td>'.$noidung->meal2_middle26.'</td>
+                    <td>'.$noidung->meal2_middle27.'</td>
+                    <td>'.$noidung->meal2_middle28.'</td>
+                    <td>'.$noidung->meal2_middle29.'</td>
+                    <td>'.$noidung->meal2_middle30.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">Breakfirst</td>
+                    <td>'.$noidung->meal2_middle_breakfirst_price.'</td>
+                    <td>'.$noidung->meal2_middle_breakfirst_num.'</td>
+                    <td>'.$noidung->meal2_middle_breakfirst_money.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">Lunch</td>
+                    <td>'.$noidung->meal2_middle_lunch_price.'</td>
+                    <td>'.$noidung->meal2_middle_lunch_num.'</td>
+                    <td>'.$noidung->meal2_middle_lunch_money.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">Dinner</td>
+                    <td>'.$noidung->meal2_middle_dinner_price.'</td>
+                    <td>'.$noidung->meal2_middle_dinner_num.'</td>
+                    <td>'.$noidung->meal2_middle_dinner_money.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">Other</td>
+                    <td>'.$noidung->meal2_middle_other_price.'</td>
+                    <td>'.$noidung->meal2_middle_other_num.'</td>
+                    <td>'.$noidung->meal2_middle_other_money.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td colspan="42" class="dataLabel" style="border-left:1px solid #999">&nbsp;</td>
+                    </tr>
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999"><strong>North</strong></td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal2_north_sum.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal2_north1.'</td>
+                    <td>'.$noidung->meal2_north2.'</td>
+                    <td>'.$noidung->meal2_north3.'</td>
+                    <td>'.$noidung->meal2_north4.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal2_north5.'</td>
+                    <td>'.$noidung->meal2_north6.'</td>
+                    <td>'.$noidung->meal2_north7.'</td>
+                    <td>'.$noidung->meal2_north8.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal2_north9.'</td>
+                    <td>'.$noidung->meal2_north10.'</td>
+                    <td>'.$noidung->meal2_north11.'</td>
+                    <td>'.$noidung->meal2_north12.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal2_north13.'</td>
+                    <td>'.$noidung->meal2_north14.'</td>
+                    <td>'.$noidung->meal2_north15.'</td>
+                    <td>'.$noidung->meal2_north16.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal2_north17.'</td>
+                    <td>'.$noidung->meal2_north18.'</td>
+                    <td>'.$noidung->meal2_north19.'</td>
+                    <td>'.$noidung->meal2_north20.'</td>
+                    <td>'.$noidung->meal2_north21.'</td>
+                    <td>'.$noidung->meal2_north22.'</td>
+                    <td>'.$noidung->meal2_north23.'</td>
+                    <td>'.$noidung->meal2_north24.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal2_north25.'</td>
+                    <td>'.$noidung->meal2_north26.'</td>
+                    <td>'.$noidung->meal2_north27.'</td>
+                    <td>'.$noidung->meal2_north28.'</td>
+                    <td>'.$noidung->meal2_north29.'</td>
+                    <td>'.$noidung->meal2_north30.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">Breakfirst</td>
+                    <td>'.$noidung->meal2_north_breakfirst_price.'</t/d>
+                    <td>'.$noidung->meal2_north_breakfirst_num.'</td>
+                    <td>'.$noidung->meal2_north_breakfirst_money.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">Lunch</td>
+                    <td>'.$noidung->meal2_north_lunch_price.'</td>
+                    <td>'.$noidung->meal2_north_lunch_num.'</td>
+                    <td>'.$noidung->meal2_north_lunch_money.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">Dinner</td>
+                    <td>'.$noidung->meal2_north_dinner_price.'</td>
+                    <td>'.$noidung->meal2_north_dinner_num.'</td>
+                    <td>'.$noidung->meal2_north_dinner_money.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">Other</td>
+                    <td>'.$noidung->meal2_north_other_price.'</td>
+                    <td>'.$noidung->meal2_north_other_num.'</td>
+                    <td>'.$noidung->meal2_north_other_money.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td colspan="42" style="border-left:1px solid #999">&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999"><strong>HOTEL 2</strong></td>
+                    <td class="dataLabel">Room</td>
+                    <td class="dataLabel">Nite</td>
+                    <td>'.$noidung->hotel2_sum.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->hotel2_1.'</td>
+                    <td>'.$noidung->hotel2_2.'</td>
+                    <td>'.$noidung->hotel2_3.'</td>
+                    <td>'.$noidung->hotel2_4.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->hotel2_5.'</td>
+                    <td>'.$noidung->hotel2_6.'</td>
+                    <td>'.$noidung->hotel2_7.'</td>
+                    <td>'.$noidung->hotel2_8.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->hotel2_9.'</td>
+                    <td>'.$noidung->hotel2_10.'</td>
+                    <td>'.$noidung->hotel2_11.'</td>
+                    <td>'.$noidung->hotel2_12.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->hotel2_13.'</td>
+                    <td>'.$noidung->hotel2_14.'</td>
+                    <td>'.$noidung->hotel2_15.'</td>
+                    <td>'.$noidung->hotel2_16.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->hotel2_17.'</td>
+                    <td>'.$noidung->hotel2_18.'</td>
+                    <td>'.$noidung->hotel2_19.'</td>
+                    <td>'.$noidung->hotel2_20.'</td>
+                    <td>'.$noidung->hotel2_21.'</td>
+                    <td>'.$noidung->hotel2_22.'</td>
+                    <td>'.$noidung->hotel2_23.'</td>
+                    <td>'.$noidung->hotel2_24.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->hotel2_25.'</td>
+                    <td>'.$noidung->hotel2_26.'</td>
+                    <td>'.$noidung->hotel2_27.'</td>
+                    <td>'.$noidung->hotel2_28.'</td>
+                    <td>'.$noidung->hotel2_29.'</td>
+                    <td>'.$noidung->hotel2_30.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>';
+                    $hotel2 = $noidung->hotel2;
+                    if(count($hotel2)>0){
+                        foreach($hotel2 as $value){
+                            $html .= '<tr>
+                            <td style="border-left:1px solid #999">'.$value->hotel2_service.'</td>
+                            <td>'.$value->hotel2_price.'</td>
+                            <td>'.$value->hotel2_num.'</td>
+                            <td>'.$value->hotel2_money.'</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            </tr>';
                         }
-                        $html .= '<tr>';
-                        $html .= '<th width="67%" class="border" colspan="5"><b>Tổng cộng</b></th>';
-                        //                        $html .= '<th width="11%">&nbsp;</th>';
-                        //                        $html .= '<th width="11%">&nbsp;</th>';
-                        //                        $html .= '<th width="11%">&nbsp;</th>';
-                        //                        $html .= '<th width="11%">&nbsp;</th>';
-                        $html .= '<th width="11%" class="border">'.$noidung->service_tongthanhtien_miennam.'</th>';
-                        $html .= '<th width="11%" class="border">&nbsp;</th>';
-                        $html .= '<th width="11%" class="border">'.$noidung->service_tongthue_miennam.'</th>';
-                        $html .= '</tr>';
-                        $html .= '</tbody></table></fieldset>';
-                    }
-                    $html .= '</td></tr>';
-                    $html .= '<tr>';
-                    $html .= '<td width="67%" class="border" colspan="5"><b>TỔNG CỘNG<b></td>';
-                    //                    $html .= '<th width="11%">&nbsp;</th>';
-                    //                    $html .= '<th width="11%">&nbsp;</th>';
-                    //                    $html .= '<th width="11%">&nbsp;</th>';
-                    //                    $html .= '<th width="11%">&nbsp;</th>';
-                    $html .= '<th width="11%" class="border">'.$noidung->service_tongthanhtien.'</th>';
-                    $html .= '<th width="11%" class="border">&nbsp;</th>';
-                    $html .= '<th width="11%" class="border">'.$noidung->service_tongthue.'</th>';
-                    $html .= '</tr>';
-                    $html .= '</tbody>';
-                    $html .= '</table> </fieldset>';
-                }
-
-                // ket thuc phan dich vu
-
-                // phan du lieu tham quan
-                $html .= '<fieldset>';
-                $html .= '<legend> <h3>THAM QUAN</h3></legend>';
-                $html .= '<table width="100%" border="1" class="tabDetailView" id="thamquan" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-                $html .= '<tbody>';
-                // lấy danh sách tham quan tại miền bắc
-                $html .= '<tr><td colspan="9">';
-                $thamquan_mienbac = $noidung->thamquan_mienbac;
-                if(count($thamquan_mienbac)>0){
-                    $html .= '<fieldset >';
-                    $html .= '<legend><h3>MIỀN BẮC</h3></legend>';
-                    $html .= '<table width="100%" class="tabDetailView" border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-                    $html .= '<thead>';
-                    $html .= '<tr>';
-                    $html .= '<td width="20%" class="border"><b>Địa điểm tham quan</b></td>';
-                    $html .= '<th width="10%" class="border">Đơn giá NL</th>';
-                    $html .= '<th width="10%" class="border">Số lượng NL</th>';
-                    $html .= '<th width="10%" class="border">Đơn giá TE</th>';
-                    $html .= '<th width="10%" class="border">Số lượng TE</th>';
-                    $html .= '<th width="10%" class="border">Số Lần/Lượt</th>';
-                    //                    $html .= '<th>FOC</th>';
-                    $html .= '<th width="10%" class="border">Thành tiền</th>';
-                    $html .= '<th width="10%" class="border">Thuế suất</th>';
-                    $html .= '<th width="10%" class="border">Thuế</th>';
-                    $html .= '</tr>';
-                    $html .= '</thead>';
-                    $html .= '<tbody>';
-                    foreach($thamquan_mienbac as $tqValMB){
-                        $html .= '<tr>';
-                        $html .= '<td width="20%" class="border"><a target="blank" href="index.php?module=Locations&action=DetailView&record='.$tqValMB->thamquan_name_mb.'">'.translate('list_thamquan_dom_north','',$tqValMB->thamquan_name_mb).'</a> </td>';
-                        $html .= '<td width="10%" class="tabDetailViewDF border">'.$tqValMB->thamquan_gianguoilon_mb.' </td>';
-                        $html .= '<td width="10%" class="tabDetailViewDF border">'.$tqValMB->thamquan_soluongnguoilon_mb.'</td>';
-                        $html .= '<td width="10%" class="tabDetailViewDF border">'.$tqValMB->thamquan_dongiatreem_mb.'</td>';
-                        $html .= '<td width="10%" class="tabDetailViewDF border">'.$tqValMB->thamquan_soluongtreem_mb.'</td>';
-                        $html .= '<td width="10%" class="tabDetailViewDF border">'.$tqValMB->thamquan_songay_mb.'</td>';
-                        //                            $html .= '<td width="10%" class="tabDetailViewDF">'.$tqValMB->thamquan_foc_mb.'</td>';
-                        $html .= '<td width="10%" class="tabDetailViewDF border">'.$tqValMB->thamquan_thanhtien_mb.'</td>';
-                        $html .= '<td width="10%" class="tabDetailViewDF border">'.$tqValMB->thamquan_thuesuat_mb.'</td>';
-                        $html .= '<td width="10%" class="tabDetailViewDF border">'.$tqValMB->thamquan_vat_mb.'</td>';
-                        $html .= '</tr> '; 
-                    }
-                    $html .= '<tr>';
-                    $html .= '<th width="70%" colspan="6" class="border"><b>Tổng cộng</b></th>';
-                    //                    $html .= '<th width="10%">&nbsp;</th>';
-                    //                    $html .= '<th width="10%">&nbsp;</th>';
-                    //                    $html .= '<th width="10%">&nbsp;</th>';
-                    //                    $html .= '<th width="10%">&nbsp;</th>';
-                    //                    $html .= '<th width="10%">&nbsp;</th>';
-                    //                    $html .= '<th width="10%">&nbsp;</th>';
-                    $html .= '<th width="10%" class="border">'.$noidung->thamquan_tongthanhtien_mienbac.'</th>';
-                    $html .= '<th width="10%" class="border">&nbsp;</th>';
-                    $html .= '<th width="10%" class="border">'.$noidung->thamquan_tongthue_mienbac.'</th>';
-                    $html .= '</tr>';
-                    $html .= '</tbody></table></fieldset>';
-                }
-                $html .= '</td></tr>';
-                //  lấy danh sách tham quan tại miền trung
-
-                $html .= '<tr><td colspan="9">';
-                $thamquan_mientrung = $noidung->thamquan_mientrung;
-                if(count($thamquan_mientrung)>0){
-                    $html .= '<fieldset >';
-                    $html .= '<legend><h3>MIỀN TRUNG</h3></legend>';
-                    $html .= '<table width="100%" id="thamquan_mientrung" border="1" class="tabDetailView" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-                    $html .= '<thead>';
-                    $html .= '<tr>';
-                    $html .= '<td width="20%" class="border"><b>Địa điểm tham quan</b></td>';
-                    $html .= '<th width="10%" class="border">Đơn giá NL</th>';
-                    $html .= '<th width="10%" class="border">Số lượng NL</th>';
-                    $html .= '<th width="10%" class="border">Đơn giá TE</th>';
-                    $html .= '<th width="10%" class="border">Số lượng TE</th>';
-                    $html .= '<th width="10%" class="border">Số Lần/Lượt</th>';
-                    //                    $html .= '<th>FOC</th>';
-                    $html .= '<th width="10%" class="border">Thành tiền</th>';
-                    $html .= '<th width="10%" class="border">Thuế suất</th>';
-                    $html .= '<th width="10%" class="border">Thuế</th>';
-                    $html .= '</tr>';
-                    $html .= '</thead>';
-                    $html .= '<tbody>';
-                    $tq_mt = 0;
-                    foreach($thamquan_mientrung as $tqValMT){
-                        $html .= '<tr>';
-                        $html .= '<td width="20%" class="border"><a target="blank" href="index.php?module=Locations&action=DetailView&record='.$tqValMT->thamquan_name_mt.'">'.translate('list_thamquan_dom_middle','',$tqValMT->thamquan_name_mt).'</a></td>';
-                        $html .= '<td width="10%" class="tabDetailViewDF border">'.$tqValMT->thamquan_gianguoilon_mt.'</td>';
-                        $html .= '<td width="10%" class="tabDetailViewDF border">'.$tqValMT->thamquan_soluongnguoilon_mt.'</td>';
-                        $html .= '<td width="10%" class="tabDetailViewDF border">'.$tqValMT->thamquan_dongiatreem_mt.'</td>';
-                        $html .= '<td width="10%" class="tabDetailViewDF border">'.$tqValMT->thamquan_soluongtreem_mt.'</td>';
-                        $html .= '<td width="10%" class="tabDetailViewDF border">'.$tqValMT->thamquan_songay_mt.'</td>';
-                        //                            $html .= '<td width="10%" class="tabDetailViewDF">'.$tqValMT->thamquan_foc_mt.'</td>';
-                        $html .= '<td width="10%" class="tabDetailViewDF border">'.$tqValMT->thamquan_thanhtien_mt.'</td>';
-                        $html .= '<td width="10%" class="tabDetailViewDF border">'.$tqValMT->thamquan_thuesuat_mt.'</td>';
-                        $html .= '<td width="10%" class="tabDetailViewDF border">'.$tqValMT->thamquan_vat_mt.'</td>';
-                        $html .= '</tr> ';  
-                        $tq_mt++;              
-                    }
-                    $html .= '<tr>';
-                    $html .= '<th width="70%" class="border" colspan="6"><b>Tổng cộng</b></th>';
-                    //                    $html .= '<th width="10%">&nbsp;</th>';
-                    //                    $html .= '<th width="10%">&nbsp;</th>';
-                    //                    $html .= '<th width="10%">&nbsp;</th>';
-                    //                    $html .= '<th width="10%">&nbsp;</th>';
-                    //                    $html .= '<th width="10%">&nbsp;</th>';
-                    //                    $html .= '<th width="10%">&nbsp;</th>';
-                    $html .= '<th width="10%" class="border">'.$noidung->thamquan_tongthanhtien_mientrung.'</th>';
-                    $html .= '<th width="10%" class="border">&nbsp;</th>';
-                    $html .= '<th width="10%" class="border">'.$noidung->thamquan_tongthue_mientrung.'</th>';
-                    $html .= '</tr>';
-                    $html .= '</tbody></table></fieldset>';
-                }
-                $html .= '</td></tr>';
-                /// lấy danh sách tham quan tại miền nam
-
-                $html .= '<tr><td colspan="9">';
-                $thamquan_miennam = $noidung->thamquan_miennam;
-                if(count($thamquan_miennam)>0){
-                    $html .= '<fieldset >';
-                    $html .= '<legend><h3>MIỀN NAM</h3></legend>';
-                    $html .= '<table width="100%" class="tabDetailView" id="thamquan_miennam" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
-                    $html .= '<thead>';
-                    $html .= '<tr>';
-                    $html .= '<td width="20%" class="border"><b>Địa điểm tham quan</b></td>';
-                    $html .= '<th width="10%" class="border">Đơn giá NL</th>';
-                    $html .= '<th width="10%" class="border">Số lượng NL</th>';
-                    $html .= '<th width="10%" class="border">Đơn giá TE</th>';
-                    $html .= '<th width="10%" class="border">Số lượng TE</th>';
-                    $html .= '<th width="10%" class="border">Số Lần/Lượt</th>';
-                    //                    $html .= '<th>FOC</th>';
-                    $html .= '<th width="10%" class="border">Thành tiền</th>';
-                    $html .= '<th width="10%" class="border">Thuế suất</th>';
-                    $html .= '<th width="10%" class="border">Thuế</th>';
-                    $html .= '</tr>';
-                    $html .= '</thead>';
-                    $html .= '<tbody>';
-                    foreach($thamquan_miennam as $tqValMN){
-                        $html .= '<tr class="border">';
-                        $html .= '<td width="20%" class="border"><a target="blank" href="index.php?module=Locations&action=DetailView&record='.$tqValMN->thamquan_name_mn.'">'.translate('list_thamquan_dom_south','',$tqValMN->thamquan_name_mn).'</a></td>';
-                        $html .= '<td width="10%" class="tabDetailViewDF border">'.$tqValMN->thamquan_gianguoilon_mn.'</td>';
-                        $html .= '<td width="10%" class="tabDetailViewDF border">'.$tqValMN->thamquan_soluongnguoilon_mn.'</td>';
-                        $html .= '<td width="10%" class="tabDetailViewDF border">'.$tqValMN->thamquan_dongiatreem_mn.'</td>';
-                        $html .= '<td width="10%" class="tabDetailViewDF border">'.$tqValMN->thamquan_soluongtreem_mn.'</td>';
-                        $html .= '<td width="10%" class="tabDetailViewDF border">'.$tqValMN->thamquan_songay_mn.'</td>';
-                        //                            $html .= '<td width="10%" class="tabDetailViewDF">'.$tqValMN->thamquan_foc_mn.'</td>';
-                        $html .= '<td width="10%" class="tabDetailViewDF border">'.$tqValMN->thamquan_thanhtien_mn.'</td>';
-                        $html .= '<td width="10%" class="tabDetailViewDF border">'.$tqValMN->thamquan_thuesuat_mn.'</td>';
-                        $html .= '<td width="10%" class="tabDetailViewDF border">'.$tqValMN->thamquan_vat_mn.'</td>';
-                        $html .= '</tr> ';  
-                    }
-                    $html .= '<tr>';
-                    $html .= '<th width="70%" colspan="6" class="border"><b>Tổng cộng</b></th>';
-                    //                    $html .= '<th width="10%">&nbsp;</th>';
-                    //                    $html .= '<th width="10%">&nbsp;</th>';
-                    //                    $html .= '<th width="10%">&nbsp;</th>';
-                    //                    $html .= '<th width="10%">&nbsp;</th>';
-                    //                    $html .= '<th width="10%">&nbsp;</th>';
-                    //                    $html .= '<th width="10%">&nbsp;</th>';
-                    $html .= '<th width="10%" class="border">'.$noidung->thamquan_tongthanhtien_miennam.'</th>';
-                    $html .= '<th width="10%" class="border">&nbsp;</th>';
-                    $html .= '<th width="10%" class="border">'.$noidung->thamquan_tongthue_mienam.'</th>';
-                    $html .= '</tr>';
-                    $html .= '</tbody></table></fieldset>';
-                }
-                $html .= '</td></tr>';
-                $html .= '<tr>';
-                $html .= '<th width="70%" class="border" colspan="6"><b>TỔNG CỘNG</b></th>';
-                //                    $html .= '<th width="10%">&nbsp;</th>';
-                //                    $html .= '<th width="10%">&nbsp;</th>';
-                //                    $html .= '<th width="10%">&nbsp;</th>';
-                //                    $html .= '<th width="10%">&nbsp;</th>';
-                //                    $html .= '<th width="10%">&nbsp;</th>';
-                //                    $html .= '<th width="10%">&nbsp;</th>';
-                $html .= '<th width="10%" class="border">'.$noidung->thamquan_tongthanhtien.'</th>';
-                $html .= '<th width="10%" class="border">&nbsp;</th>';
-                $html .= '<th width="10%" class="border">'.$noidung->thamquan_tongthue.'</th>';
-                $html .= '</tr>';
-                $html .= '</body>';
-                $html .= '</table> </fieldset>';
-                // CHI PHI HUONG DAN VIEN
-
-
-                $html .= '<fieldset>';
-                $html .= '<legend><h3>CHI PHÍ HDV + LÁI XE</h3></legend> ';
-                $html .= '<table class="tabDetailView" width="100%" cellpadding="0" cellspacing="0" border="1" style="border-collapse:collapse">';
-                $html .= '<tr>';
-                $html .= '<td colspan="6"> ';
-                $huongdanvienmb = $noidung->huongdanvienmb;  
-                if(count($huongdanvienmb)>0){
-                    $html .= '<fieldset>';
-                    $html .= '<legend><h4>Miền bắc</h4></legend>';
-                    $html .= '<table class="tabDetaiView" id="cphdv_mb" cellpadding="0" cellspacing="0" width="100%" border="0" style="border-collapse:collapse">';
-                    $html .= '<thead>';
-                    $html .= '<tr>  ';
-                    $html .= '<td width="22%" class="border"><b>Loại chí phí</b></td>';
-                    $html .= '<td width="13%" class="tabDetailViewDF border"><b>Số lượng</b></td> ';
-                    $html .= '<td width="13%" class="tabDetailViewDF border"><b>Đơn giá</b></td> ';
-                    $html .= '<td width="13%" class="tabDetailViewDF border"><b>Số đêm/lần</b></td> ';
-                    $html .= '<td width="13%" class="tabDetailViewDF border"><b>Thành tiền</b></td> ';
-                    $html .= '<td width="13%" class="tabDetailViewDF border"><b>Thuế suất</b></td> ';
-                    $html .= '<td width="13%" class="tabDetailViewDF border"><b>Thuế</b></td>';
-                    $html .= '</tr> ';
-
-                    $html .= '</thead> ';
-                    $html .= '<tbody> ';
-                    foreach ($huongdanvienmb as $val){
-                        $html .= '<tr>';
-                        $html .= '<td width="22%" class="border">'.$val->loaichiphi.'</td>';
-                        $html .= '<td width="13%" class="tabDetailViewDF border">'.$val->soluong.'</td>';
-                        $html .= '<td width="13%" class="tabDetailViewDF border">'.$val->dongia.'</td>';
-                        $html .= '<td width="13%" class="tabDetailViewDF border">'.$val->solan.'</td>';
-                        $html .= '<td width="13%" class="tabDetailViewDF border">'.$val->thanhtien.'</td>';
-                        $html .= '<td width="13%" class="tabDetailViewDF border">'.$val->thuesuat.'</td>';
-                        $html .= '<td width="13%" class="tabDetailViewDF border">'.$val->vat.'</td>';
-                        $html .= '</tr>';
                     }
 
-                    $html .= '<tr> ';
-                    $html .= '<td width="64%" colspan="4" class="border"><b>Tổng cộng</b></td>';
-                    //                                        $html .= '<td width="16%">&nbsp;</td>';
-                    //                                        $html .= '<td width="16%">&nbsp;</td> ';
-                    $html .= '<td width="13%" class="tabDetailViewDF border"><b>'.$noidung->tongchi_hvd_mb.'</b></td> ';
-                    $html .= '<td width="13%" class="border">&nbsp;</td> ';
-                    $html .= '<td width="13%" class="tabDetailViewDF border"><b>'.$noidung->tongthue_hvd_mb.'</b></td>';
-                    $html .= '</tr>  ';
+                    $html .= '<tr>
+                    <td colspan="42" style="border-left:1px solid #999">&nbsp;</td>
+                    </tr>
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">FOC</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->foc2_21.'</td>
+                    <td>'.$noidung->foc2_22.'</td>
+                    <td>'.$noidung->foc2_23.'</td>
+                    <td>'.$noidung->foc2_24.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->foc2_25.'</td>
+                    <td>'.$noidung->foc2_26.'</td>
+                    <td>'.$noidung->foc2_27.'</td>
+                    <td>'.$noidung->foc2_28.'</td>
+                    <td>'.$noidung->foc2_29.'</td>
+                    <td>'.$noidung->foc2_30.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
 
-                    $html .= '</tbody> ';
-                    $html .= '</table>';
-                    $html .= '</fieldset>';
-                }
-                $html .= '</td> ';
-                $html .= '</tr> ';
-                $html .= '<tr> ';
-                $html .= '<td colspan="6"> ';
-                $huongdanvienmt = $noidung->huongdanvienmt;
-                if(count($huongdanvienmt)>0){
-                    $html .= '<fieldset> ';
-                    $html .= '<legend><h4>Miền trung</h4></legend> ';
-                    $html .= '<table class="tabDetaiView" id="cphdv_mb" cellpadding="0" cellspacing="0" width="100%" border="0" style="border-collapse:collapse">';
-                    $html .= '<thead> ';
-                    $html .= '<tr>';
-                    $html .= '<td width="22%" class="border"><b>Loại chí phí</b></td> ';
-                    $html .= '<th width="13%" class="tabDetailViewDF border">Số lượng</th> ';
-                    $html .= '<th width="13%" class="tabDetailViewDF border">Đơn giá</th> ';
-                    $html .= '<th width="13%" class="tabDetailViewDF border">Số đêm/lần</th> ';
-                    $html .= '<th width="13%" class="tabDetailViewDF border">Thành tiền</th> ';
-                    $html .= '<th width="13%" class="tabDetailViewDF border">Thuế suất</th>';
-                    $html .= '<th width="13%" class="tabDetailViewDF border">Thuế</th>';
-                    $html .= '</tr> ';
-                    $html .= '</thead>'; 
-                    $html .= '<tbody>';
-                    foreach ($huongdanvienmt as $val){
-                        $html .= '<tr>';
-                        $html .= '<td width="22%" class="border">'.$val->loaichiphi.'</td>';
-                        $html .= '<td width="13%" class="tabDetailViewDF border">'.$val->soluong.'</td>';
-                        $html .= '<td width="13%" class="tabDetailViewDF border">'.$val->dongia.'</td>';
-                        $html .= '<td width="13%" class="tabDetailViewDF border">'.$val->solan.'</td>';
-                        $html .= '<td width="13%" class="tabDetailViewDF border">'.$val->thanhtien.'</td>';
-                        $html .= '<td width="13%" class="tabDetailViewDF border">'.$val->thuesuat.'</td>';
-                        $html .= '<td width="13%" class="tabDetailViewDF border">'.$val->vat.'</td>';
-                        $html .= '</tr>';
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">NETT</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->nett2_1.'</td>
+                    <td>'.$noidung->nett2_2.'</td>
+                    <td>'.$noidung->nett2_3.'</td>
+                    <td>'.$noidung->nett2_4.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->nett2_5.'</td>
+                    <td>'.$noidung->nett2_6.'</td>
+                    <td>'.$noidung->nett2_7.'</td>
+                    <td>'.$noidung->nett2_8.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->nett2_9.'</td>
+                    <td>'.$noidung->nett2_10.'</td>
+                    <td>'.$noidung->nett2_11.'</td>
+                    <td>'.$noidung->nett2_12.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->nett2_13.'</td>
+                    <td>'.$noidung->nett2_14.'</td>
+                    <td>'.$noidung->nett2_15.'</td>
+                    <td>'.$noidung->nett2_16.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->nett2_17.'</td>
+                    <td>'.$noidung->nett2_18.'</td>
+                    <td>'.$noidung->nett2_19.'</td>
+                    <td>'.$noidung->nett2_20.'</td>
+                    <td>'.$noidung->nett2_21.'</td>
+                    <td>'.$noidung->nett2_22.'</td>
+                    <td>'.$noidung->nett2_23.'</td>
+                    <td>'.$noidung->nett2_24.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->nett2_25.'</td>
+                    <td>'.$noidung->nett2_26.'</td>
+                    <td>'.$noidung->nett2_27.'</td>
+                    <td>'.$noidung->nett2_28.'</td>
+                    <td>'.$noidung->nett2_29.'</td>
+                    <td>'.$noidung->nett2_30.'</td>
+                    <td>'.$noidung->nett2_31.'</td>
+                    <td>'.$noidung->nett2_32.'</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">SERVICE CHARGE</td>
+                    <td>'.$noidung->service2_rate.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->service2_1.'</td>
+                    <td>'.$noidung->service2_2.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->service2_5.'</td>
+                    <td>'.$noidung->service2_6.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->service2_9.'</td>
+                    <td>'.$noidung->service2_10.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->service2_13.'</td>
+                    <td>'.$noidung->service2_14.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->service2_17.'</td>
+                    <td>'.$noidung->service2_18.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>"'.$noidung->service2_21.'</td>
+                    <td>'.$noidung->service2_22.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->service2_25.'</td>
+                    <td>'.$noidung->service2_26.'</td>
+                    <td>'.$noidung->service2_27.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->service2_31.'</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">SELL 2 - VND</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->sell2_vnd1.'</td>
+                    <td>'.$noidung->sell2_vnd2.'</td>
+                    <td>'.$noidung->sell2_vnd3.'</td>
+                    <td>'.$noidung->sell2_vnd4.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->sell2_vnd5.'</td>
+                    <td>'.$noidung->sell2_vnd6.'</td>
+                    <td>'.$noidung->sell2_vnd7.'</td>
+                    <td>'.$noidung->sell2_vnd8.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->sell2_vnd9.'</td>
+                    <td>'.$noidung->sell2_vnd10.'</td>
+                    <td>'.$noidung->sell2_vnd11.'</td>
+                    <td>'.$noidung->sell2_vnd12.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->sell2_vnd13.'</td>
+                    <td>'.$noidung->sell2_vnd14.'</td>
+                    <td>'.$noidung->sell2_vnd15.'</td>
+                    <td>'.$noidung->sell2_vnd16.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->sell2_vnd17.'</td>
+                    <td>'.$noidung->sell2_vnd18.'</td>
+                    <td>'.$noidung->sell2_vnd19.'</td>
+                    <td>'.$noidung->sell2_vnd20.'</td>
+                    <td>'.$noidung->sell2_vnd21.'</td>
+                    <td>'.$noidung->sell2_vnd22.'</td>
+                    <td>'.$noidung->sell2_vnd23.'</td>
+                    <td>'.$noidung->sell2_vnd24.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->sell2_vnd25.'</td>
+                    <td>'.$noidung->sell2_vnd26.'</td>
+                    <td>'.$noidung->sell2_vnd27.'</td>
+                    <td>'.$noidung->sell2_vnd28.'</td>
+                    <td>'.$noidung->sell2_vnd29.'</td>
+                    <td>'.$noidung->sell2_vnd30.'</td>
+                    <td>'.$noidung->sell2_vnd31.'</td>
+                    <td>'.$noidung->sell2_vnd32.'</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">SELL 2 - USD</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->sell2_usd1.'</td>
+                    <td>'.$noidung->sell2_usd2.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->sell2_usd5.'</td>
+                    <td>'.$noidung->sell2_usd6.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->sell2_usd9.'</td>
+                    <td>'.$noidung->sell2_usd10.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->sell2_usd13.'</td>
+                    <td>'.$noidung->sell2_usd14.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->sell2_usd17.'</td>
+                    <td>'.$noidung->sell2_usd18.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->sell2_usd21.'</td>
+                    <td>'.$noidung->sell2_usd22.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->sell2_usd25.'</td>
+                    <td>'.$noidung->sell2_usd26.'</td>
+                    <td>'.$noidung->sell2_usd27.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->sell2_usd31.'</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">TAX TO BE PAID</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->tax2_1.'</td>
+                    <td>'.$noidung->tax2_2.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->tax2_5.'</td>
+                    <td>'.$noidung->tax2_6.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->tax2_9.'</td>
+                    <td>'.$noidung->tax2_10.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->tax2_13.'</td>
+                    <td>'.$noidung->tax2_14.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->tax2_17.'</td>
+                    <td>'.$noidung->tax2_18.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->tax2_21.'</td>
+                    <td>'.$noidung->tax2_22.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->tax2_25.'</td>
+                    <td>'.$noidung->tax2_26.'</td>
+                    <td>'.$noidung->tax2_27.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->tax2_31.'</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">PROFIT/PAX</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->profit2_1.'</td>
+                    <td>'.$noidung->profit2_2.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->profit2_5.'</td>
+                    <td>'.$noidung->profit2_6.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->profit2_9.'</td>
+                    <td>'.$noidung->profit2_10.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->profit2_13.'</td>
+                    <td>'.$noidung->profit2_14.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->profit2_17.'</td>
+                    <td>'.$noidung->profit2_18.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->profit2_21.'</td>
+                    <td>'.$noidung->profit2_22.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->profit2_25.'</td>
+                    <td>'.$noidung->profit2_26.'</td>
+                    <td>'.$noidung->profit2_27.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->profit2_31.'</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">TOTAL PROFIT</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->total2_1.'</td>
+                    <td>'.$noidung->total2_2.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->total2_5.'</td>
+                    <td>'.$noidung->total2_6.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->total2_9.'</td>
+                    <td>'.$noidung->total2_10.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->total2_13.'</td>
+                    <td>'.$noidung->total2_14.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->total2_17.'</td>
+                    <td>'.$noidung->total2_18.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->total2_21.'</td>
+                    <td>'.$noidung->total2_22.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->total2_25.'</td>
+                    <td>'.$noidung->total2_26.'</td>
+                    <td>'.$noidung->total2_27.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->total2_31.'</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">% OF INTEREST</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->interest2_1.'</td>
+                    <td>'.$noidung->interest2_2.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->interest2_5.'</td>
+                    <td>'.$noidung->interest2_6.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->interest2_9.'</td>
+                    <td>'.$noidung->interest2_10.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->interest2_13.'</td>
+                    <td>'.$noidung->interest2_14.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->interest2_17.'</td>
+                    <td>'.$noidung->interest2_18.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->interest2_21.'</td>
+                    <td>'.$noidung->interest2_22.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->interest2_25.'</td>
+                    <td>'.$noidung->interest2_26.'</td>
+                    <td>'.$noidung->interest2_27.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->interest2_31.'</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td colspan="42" style="border-left:1px solid #999">&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999"><strong>MEALS 3</strong></td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal3_sum.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal3_1.'</td>
+                    <td>'.$noidung->meal3_2.'</td>
+                    <td>'.$noidung->meal3_3.'</td>
+                    <td>'.$noidung->meal3_4.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal3_5.'</td>
+                    <td>'.$noidung->meal3_6.'</td>
+                    <td>'.$noidung->meal3_7.'</td>
+                    <td>'.$noidung->meal3_8.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal3_9.'</td>
+                    <td>'.$noidung->meal3_10.'</td>
+                    <td>'.$noidung->meal3_11.'</td>
+                    <td>'.$noidung->meal3_12.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal3_13.'</td>
+                    <td>'.$noidung->meal3_14.'</td>
+                    <td>'.$noidung->meal3_15.'</td>
+                    <td>'.$noidung->meal3_16.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal3_17.'</td>
+                    <td>'.$noidung->meal3_18.'</td>
+                    <td>'.$noidung->meal3_19.'</td>
+                    <td>'.$noidung->meal3_20.'</td>
+                    <td>'.$noidung->meal3_21.'</td>
+                    <td>'.$noidung->meal3_22.'</td>
+                    <td>'.$noidung->meal3_23.'</td>
+                    <td>'.$noidung->meal3_24.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal3_25.'</td>
+                    <td>'.$noidung->meal3_26.'</td>
+                    <td>'.$noidung->meal3_27.'</td>
+                    <td>'.$noidung->meal3_28.'</td>
+                    <td>'.$noidung->meal3_28.'</td>
+                    <td>'.$noidung->meal3_30.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td colspan="42" style="border-left:1px solid #999">&nbsp;</td>
+                    </tr>
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999"><strong>South</strong></td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal3_south_sum.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal3_south1.'</td>
+                    <td>'.$noidung->meal3_south2.'</td>
+                    <td>'.$noidung->meal3_south3.'</td>
+                    <td>'.$noidung->meal3_south4.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal3_south5.'</td>
+                    <td>'.$noidung->meal3_south6.'</td>
+                    <td>'.$noidung->meal3_south7.'</td>
+                    <td>'.$noidung->meal3_south8.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal3_south9.'</td>
+                    <td>'.$noidung->meal3_south10.'</td>
+                    <td>'.$noidung->meal3_south11.'</td>
+                    <td>'.$noidung->meal3_south12.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal3_south13.'</td>
+                    <td>'.$noidung->meal3_south14.'</td>
+                    <td>'.$noidung->meal3_south15.'</td>
+                    <td>'.$noidung->meal3_south16.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal3_south17.'</td>
+                    <td>'.$noidung->meal3_south18.'</td>
+                    <td>'.$noidung->meal3_south19.'</td>
+                    <td>'.$noidung->meal3_south20.'</td>
+                    <td>'.$noidung->meal3_south21.'</td>
+                    <td>'.$noidung->meal3_south22.'</td>
+                    <td>'.$noidung->meal3_south23.'</td>
+                    <td>'.$noidung->meal3_south24.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal3_south25.'</td>
+                    <td>'.$noidung->meal3_south26.'</td>
+                    <td>'.$noidung->meal3_south27.'</td>
+                    <td>'.$noidung->meal3_south28.'</td>
+                    <td>'.$noidung->meal3_south29.'</td>
+                    <td>'.$noidung->meal3_south30.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">Breakfirst</td>
+                    <td>'.$noidung->meal3_south_breakfirst_price.'</td>
+                    <td>'.$noidung->meal3_south_breakfirst_num.'</td>
+                    <td>'.$noidung->meal3_south_breakfirst_money.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">Lunch</td>
+                    <td>'.$noidung->meal3_south_lunch_price.'</td>
+                    <td>'.$noidung->meal3_south_lunch_num.'</td>
+                    <td>'.$noidung->meal3_south_lunch_money.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">Dinner</td>
+                    <td>'.$noidung->meal3_south_dinner_price.'</td>
+                    <td>'.$noidung->meal3_south_dinner_num.'</td>
+                    <td>'.$noidung->meal3_south_dinner_money.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">Other</td>
+                    <td>'.$noidung->meal3_south_other_price.'</td>
+                    <td>'.$noidung->meal3_south_other_num.'</td>
+                    <td>'.$noidung->meal3_south_other_money.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td colspan="42" class="dataLabel" style="border-left:1px solid #999">&nbsp;</td>
+                    </tr>
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999"><strong>Middle</strong></td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal3_miidle_sum.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal3_middle1.'</td>
+                    <td>'.$noidung->meal3_middle2.'</td>
+                    <td>'.$noidung->meal3_middle3.'</td>
+                    <td>'.$noidung->meal3_middle4.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal3_middle5.'</td>
+                    <td>'.$noidung->meal3_middle6.'</td>
+                    <td>'.$noidung->meal3_middle7.'</td>
+                    <td>'.$noidung->meal3_middle8.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal3_middle9.'</td>
+                    <td>'.$noidung->meal3_middle10.'</td>
+                    <td>'.$noidung->meal3_middle11.'</td>
+                    <td>'.$noidung->meal3_middle12.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal3_middle13.'</td>
+                    <td>'.$noidung->meal3_middle14.'</td>
+                    <td>'.$noidung->meal3_middle15.'</td>
+                    <td>'.$noidung->meal3_middle16.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal3_middle17.'</td>
+                    <td>'.$noidung->meal3_middle18.'</td>
+                    <td>'.$noidung->meal3_middle19.'</td>
+                    <td>'.$noidung->meal3_middle20.'</td>
+                    <td>'.$noidung->meal3_middle21.'</td>
+                    <td>'.$noidung->meal3_middle22.'</td>
+                    <td>'.$noidung->meal3_middle23.'</td>
+                    <td>'.$noidung->meal3_middle24.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal3_middle25.'</td>
+                    <td>'.$noidung->meal3_middle26.'</td>
+                    <td>'.$noidung->meal3_middle27.'</td>
+                    <td>'.$noidung->meal3_middle28.'</td>
+                    <td>'.$noidung->meal3_middle29.'</td>
+                    <td>'.$noidung->meal3_middle30.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">Breakfirst</td>
+                    <td>'.$noidung->meal3_middle_breakfirst_price.'</td>
+                    <td>'.$noidung->meal3_middle_breakfirst_num.'</td>
+                    <td>'.$noidung->meal3_middle_breakfirst_money.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">Lunch</td>
+                    <td>'.$noidung->meal3_middle_lunch_price.'</td>
+                    <td>'.$noidung->meal3_middle_lunch_num.'</td>
+                    <td>'.$noidung->meal3_middle_lunch_money.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">Dinner</td>
+                    <td>'.$noidung->meal3_middle_dinner_price.'</td>
+                    <td>'.$noidung->meal3_middle_dinner_num.'</td>
+                    <td>'.$noidung->meal3_middle_dinner_money.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">Other</td>
+                    <td>'.$noidung->meal3_middle_other_price.'</td>
+                    <td>'.$noidung->meal3_middle_other_num.'</td>
+                    <td>'.$noidung->meal3_middle_other_money.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td colspan="42" class="dataLabel" style="border-left:1px solid #999">&nbsp;</td>
+                    </tr>
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999"><strong>North</strong></td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal3_north_sum.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal3_north1.'</td>
+                    <td>'.$noidung->meal3_north2.'</td>
+                    <td>'.$noidung->meal3_north3.'</td>
+                    <td>'.$noidung->meal3_north4.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal3_north5.'</td>
+                    <td>'.$noidung->meal3_north6.'</td>
+                    <td>'.$noidung->meal3_north7.'</td>
+                    <td>'.$noidung->meal3_north8.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal3_north9.'</td>
+                    <td>'.$noidung->meal3_north10.'</td>
+                    <td>'.$noidung->meal3_north11.'</td>
+                    <td>'.$noidung->meal3_north12.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal3_north13.'</td>
+                    <td>'.$noidung->meal3_north14.'</td>
+                    <td>'.$noidung->meal3_north15.'</td>
+                    <td>'.$noidung->meal3_north16.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal3_north17.'</td>
+                    <td>'.$noidung->meal3_north18.'</td>
+                    <td>'.$noidung->meal3_north19.'</td>
+                    <td>'.$noidung->meal3_north20.'</td>
+                    <td>'.$noidung->meal3_north21.'</td>
+                    <td>'.$noidung->meal3_north22.'</td>
+                    <td>'.$noidung->meal3_north23.'</td>
+                    <td>'.$noidung->meal3_north24.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->meal3_north25.'</td>
+                    <td>'.$noidung->meal3_north26.'</td>
+                    <td>'.$noidung->meal3_north27.'</td>
+                    <td>'.$noidung->meal3_north28.'</td>
+                    <td>'.$noidung->meal3_north29.'</td>
+                    <td>'.$noidung->meal3_north30.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">Breakfirst</td>
+                    <td>'.$noidung->meal3_north_breakfirst_price.'</td>
+                    <td>'.$noidung->meal3_north_breakfirst_num.'</td>
+                    <td>'.$noidung->meal3_north_breakfirst_money.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">Lunch</td>
+                    <td>'.$noidung->meal3_north_lunch_price.'</td>
+                    <td>'.$noidung->meal3_north_lunch_num.'</td>
+                    <td>'.$noidung->meal3_north_lunch_money.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">Dinner</td>
+                    <td>'.$noidung->meal3_north_dinner_price.'</td>
+                    <td>'.$noidung->meal3_north_dinner_num.'</td>
+                    <td>'.$noidung->meal3_north_dinner_money.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">Other</td>
+                    <td>'.$noidung->meal3_north_other_price.'</td>
+                    <td>'.$noidung->meal3_north_other_num.'</td>
+                    <td>'.$noidung->meal3_north_other_money.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td colspan="42" style="border-left:1px solid #999">&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999"><strong>HOTEL 3</strong></td>
+                    <td class="dataLabel">Room</td>
+                    <td class="dataLabel">Nite</td>
+                    <td>'.$noidung->hotel3_sum.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->hotel3_1.'</td>
+                    <td>'.$noidung->hotel3_2.'</td>
+                    <td>'.$noidung->hotel3_3.'</td>
+                    <td>'.$noidung->hotel3_4.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->hotel3_5.'</td>
+                    <td>'.$noidung->hotel3_6.'</td>
+                    <td>'.$noidung->hotel3_7.'</td>
+                    <td>'.$noidung->hotel3_8.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->hotel3_9.'</td>
+                    <td>'.$noidung->hotel3_10.'</td>
+                    <td>'.$noidung->hotel3_11.'</td>
+                    <td>'.$noidung->hotel3_12.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->hotel3_13.'</td>
+                    <td>'.$noidung->hotel3_14.'</td>
+                    <td>'.$noidung->hotel3_15.'</td>
+                    <td>'.$noidung->hotel3_16.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->hotel3_17.'</td>
+                    <td>'.$noidung->hotel3_18.'</td>
+                    <td>'.$noidung->hotel3_19.'</td>
+                    <td>'.$noidung->hotel3_20.'</td>
+                    <td>'.$noidung->hotel3_21.'</td>
+                    <td>'.$noidung->hotel3_22.'</td>
+                    <td>'.$noidung->hotel3_23.'</td>
+                    <td>'.$noidung->hotel3_24.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->hotel3_25.'</td>
+                    <td>'.$noidung->hotel3_26.'</td>
+                    <td>'.$noidung->hotel3_27.'</td>
+                    <td>'.$noidung->hotel3_28.'</td>
+                    <td>'.$noidung->hotel3_29.'</td>
+                    <td>'.$noidung->hotel3_30.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>';
+
+                    $hotel3 = $nodung->hotel3;
+                    if(count($hotel3)>0){
+                        foreach($hotel3 as $value){
+                            $html_hotel3 .= ' <tr>
+                            <td style="border-left:1px solid #999">'.$value->hotel3_service.'</td>
+                            <td>'.$value->hotel3_price.'</td>
+                            <td>'.$value->hotel3_num.'</td>
+                            <td>'.$value->hotel3_money.'</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            </tr>';
+                        }
                     }
-                    $html .= '<tr>';
-                    $html .= '<td width="64%" colspan="4" class="border"><b>Tổng cộng</b></td>';
-                    //                                            $html .= '<td width="16%" >&nbsp;</td>';
-                    //                                            $html .= '<td width="16%">&nbsp;</td>';
-                    $html .= '<td width="13%" class="tabDetailViewDF border"><b>'.$noidung->tongchi_hvd_mt.'</b></td>';
-                    $html .= '<td width="13%" class="border">&nbsp;</td> ';
-                    $html .= '<td width="13%" class="tabDetailViewDF border"><b>'.$noidung->tongthue_hvd_mt.'</b></td>';
-                    $html .= '</tr>';
-                    $html .= '</tbody>';
-                    $html .= '</table>';
-                    $html .= '</fieldset>';
-                }
-                $html .= '</td>';
-                $html .= '</tr>';
-                $html .= '<tr>';
-                $html .= '<td colspan="6"> ';
-                $huongdanvienmn = $noidung->huongdanvienmn;
-                if(count($huongdanvienmn)>0){
-                    $html .= '<fieldset>';
-                    $html .= '<legend><h4>Miền nam</h4></legend> ';
-                    $html .= '<table class="tabDetailView" id="cphdv_mn" cellpadding="0" cellspacing="0" width="100%" border="0" style="border-collapse:collapse">';
-                    $html .= '<thead>';
-                    $html .= '<tr> ';
-                    $html .= '<td width="22%" class="border"><b>Loại chí phí</b></td>';
-                    $html .= '<th width="13%" class="tabDetailViewDF border">Số lượng</th> ';
-                    $html .= '<th width="13%" class="tabDetailViewDF border">Đơn giá</th>';
-                    $html .= '<th width="13%" class="tabDetailViewDF border">Số đêm/lần</th>';
-                    $html .= '<th width="13%" class="tabDetailViewDF border">Thành tiền</th>';
-                    $html .= '<th width="13%" class="tabDetailViewDF border">Thuế suất</th>';
-                    $html .= '<th width="13%" class="tabDetailViewDF border">Thuế</th> ';
-                    $html .= '</tr>';
-                    $html .= '</thead>';  
-                    $html .= '<tbody>';
-                    foreach ($huongdanvienmn as $val){
-                        $html .= '<tr>';
-                        $html .= '<td width="22%" class="border">'.$val->loaichiphi.'</td>';
-                        $html .= '<td width="13%" class="tabDetailViewDF border">'.$val->soluong.'</td>';
-                        $html .= '<td width="13%" class="tabDetailViewDF border">'.$val->dongia.'</td>';
-                        $html .= '<td width="13%" class="tabDetailViewDF border">'.$val->solan.'</td>';
-                        $html .= '<td width="13%" class="tabDetailViewDF border">'.$val->thanhtien.'</td>';
-                        $html .= '<td width="13%" class="tabDetailViewDF border">'.$val->thuesuat.'</td>';
-                        $html .= '<td width="13%" class="tabDetailViewDF border">'.$val->vat.'</td>';
-                        $html .= '</tr>';
-                    }
-                    $html .= '<tr> ';
-                    $html .= '<td width="64%" colspan="4" class="border"><b>Tổng cộng</b></td>';
-                    //                                        $html .= '<td width="16%">&nbsp;</td>';
-                    //                                        $html .= '<td width="16%">&nbsp;</td> ';
-                    $html .= '<td width="13%" class="tabDetailViewDF border"><b>'.$noidung->tongchi_hvd_mn.'</b></td> ';
-                    $html .= '<td width="13%" class="border">&nbsp;</td>';
-                    $html .= '<td width="13%" class="tabDetailViewDF border"><b>'.$noidung->tongthue_hvd_mn.'</b></td>';
-                    $html .= '</tr>';
-                    $html .= '</tbody>';
-                    $html .= '</table>';
-                    $html .= '</fieldset>';
-                }               
-                $html .= '</td>';
-                $html .= '</tr>';
-                $html .= '<tr> ';
-                $html .= '<td width="70%" class="border" colspan="3"><b>TỔNG CỘNG</b></td> ';  
-                //                        $html .= '<th width="16%">&nbsp;</th> ';  
-                //                        $html .= '<th width="16%">&nbsp;</th> ';  
-                $html .= '<th width="16%" class="border"><b>'.$noidung->tongchi_hvd.'</b></th> ';
-                $html .= '<th width="16%" class="border">&nbsp;</th> ';
-                $html .= '<th width="16%" class="border"><b>'.$noidung->tongthue_hvd.'</b></th>';
-                $html .= '</tr>'; 
-                $html .= '</table>';
-                $html .= '</fieldset>';
 
+                    $html .= '<tr>
+                    <td colspan="42" style="border-left:1px solid #999">&nbsp;</td>
+                    </tr>
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">FOC</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->foc3_21.'</td>
+                    <td>'.$noidung->foc3_22.'</td>
+                    <td>'.$noidung->foc3_23.'</td>
+                    <td>'.$noidung->foc3_24.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->foc3_25.'</td>
+                    <td>'.$noidung->foc3_26.'</td>
+                    <td>'.$noidung->foc3_27.'</td>
+                    <td>'.$noidung->foc3_28.'</td>
+                    <td>'.$noidung->foc3_29.'</td>
+                    <td>'.$noidung->foc3_30.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
 
-                // CHI PHI KHAC
-                $chiphikhac = $noidung->chiphikhac;
-                $countchiphikhac = count($chiphikhac);
-                if($countchiphikhac>0){ 
-                    $html .= '<fieldset>';
-                    $html .= '<legend><h3>CHI PHÍ KHÁC</h3></legend> ';
-                    $html .= '<table class="tabDetailView" cellpadding="0" id="chiphikhac" cellspacing="0" width="100%" style="border-collapse: collapse;">';
-                    $html .= '<thead> ';
-                    $html .= '<tr>';
-                    $html .= '<td class="border"><b>Loại dịch vụ</b></td>  ';
-                    $html .= '<th class="border">Số lượng</th> ';
-                    $html .= '<th class="border">Đơn giá</th> ';
-                    //                                    $html .= '<th>FOC</th> ';
-                    $html .= '<th class="border">Thành tiền</th>';
-                    $html .= '<th class="border">Thuế suất</th>';
-                    $html .= '<th class="border">Thuế</th>';
-                    $html .= '</tr>';
-                    $html .= '</thead>';
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">NETT</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->nett3_1.'</td>
+                    <td>'.$noidung->nett3_2.'</td>
+                    <td>'.$noidung->nett3_3.'</td>
+                    <td>'.$noidung->nett3_4.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->nett3_5.'</td>
+                    <td>'.$noidung->nett3_6.'</td>
+                    <td>'.$noidung->nett3_7.'</td>
+                    <td>'.$noidung->nett3_8.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->nett3_9.'</td>
+                    <td>'.$noidung->nett3_10.'</td>
+                    <td>'.$noidung->nett3_11.'</td>
+                    <td>'.$noidung->nett3_12.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->nett3_13.'</td>
+                    <td>'.$noidung->nett3_14.'</td>
+                    <td>'.$noidung->nett3_15.'</td>
+                    <td>'.$noidung->nett3_16.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->nett3_17.'</td>
+                    <td>'.$noidung->nett3_18.'</td>
+                    <td>'.$noidung->nett3_19.'</td>
+                    <td>'.$noidung->nett3_20.'</td>
+                    <td>'.$noidung->nett3_21.'</td>
+                    <td>'.$noidung->nett3_22.'</td>
+                    <td>'.$noidung->nett3_23.'</td>
+                    <td>'.$noidung->nett3_24.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->nett3_25.'</td>
+                    <td>'.$noidung->nett3_26.'</td>
+                    <td>'.$noidung->nett3_27.'</td>
+                    <td>'.$noidung->nett3_28.'</td>
+                    <td>'.$noidung->nett3_29.'</td>
+                    <td>'.$noidung->nett3_30.'</td>
+                    <td>'.$noidung->nett3_31.'</td>
+                    <td>'.$noidung->nett3_32.'</td>
+                    </tr>
 
-                    $html .= '<tbody> ';
-                    foreach($chiphikhac as $chiphikhacval){
-                        $html .= '<tr>';
-                        $html .= '<td class="border">'.$chiphikhacval->chiphikhac_loaidichvu.'</td>'; 
-                        $html .= '<td class="tabDetailViewDF border">'.$chiphikhacval->chiphikhac_soluong.'</td>'; 
-                        $html .= '<td class="tabDetailViewDF border">'.$chiphikhacval->chiphikhac_dongia.'</td>'; 
-                        //                                        $html .= '<td class="tabDetailViewDF">'.$chiphikhacval->chiphikhac_foc.'</td>'; 
-                        $html .= '<td class="tabDetailViewDF border">'.$chiphikhacval->chiphikhac_thanhtien.'</td>'; 
-                        $html .= '<td class="tabDetailViewDF border">'.$chiphikhacval->chiphikhac_thuesuat.'</td>'; 
-                        $html .= '<td class="tabDetailViewDF border">'.$chiphikhacval->chiphikhac_vat.'</td>'; 
-                        $html .= '</tr>'; 
-                    }
-                }
-                $html .= '<tr> ';
-                $html .= '<th colspan="3" class="border">Tổng cộng</th>';
-                //                                $html .= '<th class="tabDetailViewDF">&nbsp;</th>';
-                //                                $html .= '<th class="tabDetailViewDF border">&nbsp;</th>';
-                //                                $html .= '<th class="tabDetailViewDF">&nbsp;</th> ';
-                $html .= '<td class="tabDetailViewDF border"><b>'.$noidung->chiphikhac_tongcong.'</b></td>';
-                $html .= '<th class="tabDetailViewDF">&nbsp;</th>';
-                $html .= '<td class="tabDetailViewDF border"><b>'.$noidung->chiphikhac_tongthue.'</b></td>';
-                $html .= '</tr>';
-                $html .= '</tbody>';
-                $html .= '</table>';
-                $html .= '</fieldset>';
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">SERVICE CHARGE</td>
+                    <td>'.$noidung->service3_rate.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->service3_1.'</td>
+                    <td>'.$noidung->service3_2.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->service3_5.'</td>
+                    <td>'.$noidung->service3_6.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->service3_9.'</td>
+                    <td>'.$noidung->service3_10.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->service3_13.'</td>
+                    <td>'.$noidung->service3_14.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->service3_17.'</td>
+                    <td>'.$noidung->service3_18.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->service3_21.'</td>
+                    <td>'.$noidung->service3_22.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->service3_25.'</td>
+                    <td>'.$noidung->service3_26.'</td>
+                    <td>'.$noidung->service3_27.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->service3_31.'</td>
+                    <td>&nbsp;</td>
+                    </tr>
 
-                $html .= '<fieldset>';
-                $html .= '<legend><h3>TỔNG CHI PHÍ</h3></legend>';
-                $html .= '<table cellpadding="0" cellspacing="0" border="1" class="tabDetailView" style="border-collapse: collapse;" width="100%">';
-                $html .= '<tr>';
-                $html .= '<td class="notcenter border"><b>TỔNG CỘNG</b></td> ';
-                $html .= '<td class="center border">'.$noidung->tongchiphi.'</td>';
-                $html .= '<td class="center border">'.$noidung->tongthue.'</td>';
-                $html .= '</tr>';
-                $html .= '</table>';
-                $html .= '</fieldset>';
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">SELL 3 - VND</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->sell3_vnd1.'</td>
+                    <td>'.$noidung->sell3_vnd2.'</td>
+                    <td>'.$noidung->sell3_vnd3.'</td>
+                    <td>'.$noidung->sell3_vnd4.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->sell3_vnd5.'</td>
+                    <td>'.$noidung->sell3_vnd6.'</td>
+                    <td>'.$noidung->sell3_vnd7.'</td>
+                    <td>'.$noidung->sell3_vnd8.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->sell3_vnd9.'</td>
+                    <td>'.$noidung->sell3_vnd10.'</td>
+                    <td>'.$noidung->sell3_vnd11.'</td>
+                    <td>'.$noidung->sell3_vnd12.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->sell3_vnd13.'</td>
+                    <td>'.$noidung->sell3_vnd14.'</td>
+                    <td>'.$noidung->sell3_vnd15.'</td>
+                    <td>'.$noidung->sell3_vnd16.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->sell3_vnd17.'</td>
+                    <td>'.$noidung->sell3_vnd18.'</td>
+                    <td>'.$noidung->sell3_vnd19.'</td>
+                    <td>'.$noidung->sell3_vnd20.'</td>
+                    <td>'.$noidung->sell3_vnd21.'</td>
+                    <td>'.$noidung->sell3_vnd22.'</td>
+                    <td>'.$noidung->sell3_vnd23.'</td>
+                    <td>'.$noidung->sell3_vnd24.'</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->sell3_vnd25.'</td>
+                    <td>'.$noidung->sell3_vnd26.'</td>
+                    <td>'.$noidung->sell3_vnd27.'</td>
+                    <td>'.$noidung->sell3_vnd28.'</td>
+                    <td>'.$noidung->sell3_vnd29.'</td>
+                    <td>'.$noidung->sell3_vnd30.'</td>
+                    <td>'.$noidung->sell3_vnd31.'</td>
+                    <td>'.$noidung->sell3_vnd32.'</td>
+                    </tr>
 
-                // PHẦN CÁC KHOẢN GIÁ BÁN CỦA CHIẾT TÍNH
-                $html .= '<fieldset> ';
-                $html .= '<legend><h3>GIÁ BÁN</h3></legend>';
-                $html .= '<table cellpadding="0" class="tabDetailView" cellspacing="0" border="0" width="100%" style="border-collapse: collapse;">';
-                $html .= '<tr>';
-                $html .= '<th class="tabDetailViewDF border"><h4>GIÁ BÁN</h4></th>';
-                $html .= '<th class="tabDetailViewDF border"><h4>SỐ LƯỢNG</h4></th> ';
-                $html .= '<th class="tabDetailViewDF border"><h4>ĐƠN GIÁ</h4></th>';
-                $html .= '<th class="tabDetailViewDF border"><h4>FOC</h4></th>';
-                $html .= '<th class="tabDetailViewDF border"><h4>THÀNH TIỀN</h4></th>';
-                $html .= '<th class="tabDetailViewDF border"><h4>THUẾ SUẤT</h4></th> ';
-                $html .= '<th class="tabDetailViewDF border"><h4>THUẾ </h4></th>';
-                $html .= '</tr> ';
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">SELL 3 - USD</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->sell3_usd1.'</td>
+                    <td>'.$noidung->sell3_usd2.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->sell3_usd5.'</td>
+                    <td>'.$noidung->sell3_usd6.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->sell3_usd9.'</td>
+                    <td>'.$noidung->sell3_usd10.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->sell3_usd13.'</td>
+                    <td>'.$noidung->sell3_usd14.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->sell3_usd17.'</td>
+                    <td>'.$noidung->sell3_usd18.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->sell3_usd21.'</td>
+                    <td>"'.$noidung->sell3_usd22.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->sell3_usd25.'</td>
+                    <td>'.$noidung->sell3_usd26.'</td>
+                    <td>'.$noidung->sell3_usd27.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->sell3_usd31.'</td>
+                    <td>&nbsp;</td>
+                    </tr>
 
-                $html .= '<tr> ';
-                $html .= '<td colspan="7" class="border"><h3>1) GIÁ CÓ VMB/TÀU HỎA</h3></td>';
-                $html .= '</tr> ';
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">TAX TO BE PAID</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->tax3_1.'</td>
+                    <td>'.$noidung->tax3_2.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->tax3_5.'</td>
+                    <td>'.$noidung->tax3_6.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->tax3_9.'</td>
+                    <td>'.$noidung->tax3_10.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->tax3_13.'</td>
+                    <td>'.$noidung->tax3_14.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->tax3_17.'</td>
+                    <td>'.$noidung->tax3_18.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->tax3_21.'</td>
+                    <td>'.$noidung->tax3_22.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->tax3_25.'</td>
+                    <td>'.$noidung->tax3_26.'</td>
+                    <td>'.$noidung->tax3_27.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->tax3_31.'</td>
+                    <td>&nbsp;</td>
+                    </tr>
 
-                $html .= '<tr>';
-                $html .= '<td class="border">Khách người lớn</td>  ';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->sl_khach_nl_1.'</td> ';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->dg_khach_nl_1.'</td>';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->foc_khach_nl_1.'</td>';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->tt_khach_nl_1.'</td> ';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->ts_khach_nl_1.'</td> ';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->thue_khach_nl_1.'</td> ';
-                $html .= '</tr> ';
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">PROFIT/PAX</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->profit3_1.'</td>
+                    <td>'.$noidung->profit3_2.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->profit3_5.'</td>
+                    <td>'.$noidung->profit3_6.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->profit3_9.'</td>
+                    <td>'.$noidung->profit3_10.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->profit3_13.'</td>
+                    <td>'.$noidung->profit3_14.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->profit3_17.'</td>
+                    <td>'.$noidung->profit3_18.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->profit3_21.'</td>
+                    <td>'.$noidung->profit3_22.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->profit3_25.'</td>
+                    <td>'.$noidung->profit3_26.'</td>
+                    <td>'.$noidung->profit3_27.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->profit3_31.'</td>
+                    <td>&nbsp;</td>
+                    </tr>
 
-                $html .= '<tr>';
-                $html .= '<td class="border">Trẻ em từ 5-11 tuổi</td>';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->sl_treem_1.'</td> ';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->dg_treem_1.'</td>';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->foc_treem_1.'</td>';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->tt_treem_1.'</td> ';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->ts_treem_1.'</td> ';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->thue_treem_1.'</td> ';
-                $html .= '</tr> ';
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">TOTAL PROFIT</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->total3_1.'</td>
+                    <td>'.$noidung->total3_2.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->total3_5.'</td>
+                    <td>'.$noidung->total3_6.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->total3_9.'</td>
+                    <td>'.$noidung->total3_10.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->total3_13.'</td>
+                    <td>'.$noidung->total3_14.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->total3_17.'</td>
+                    <td>'.$noidung->total3_18.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->total3_21.'</td>
+                    <td>'.$noidung->total3_22.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->total3_25.'</td>
+                    <td>'.$noidung->total3_26.'</td>
+                    <td>'.$noidung->total3_27.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->total3_31.'</td>
+                    <td>&nbsp;</td>
+                    </tr>
 
-                $html .= '<tr> ';
-                $html .= '<td class="border">Phụ thu phòng đơn</td>';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->sl_phuthuphongdon_1.'</td>';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->dg_phuthuphongdon_1.'</td>';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->foc_phuthuphongdon_1.'</td>';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->tt_phuthuphongdon_1.'</td>';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->ts_phuthuphongdon_1.'</td> ';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->thue_phuthuphongdon_1.'</td>';
-                $html .= '</tr>  ';
-
-                $html .= '<tr>';
-                $html .= '<td class="border">Phụ thu khác</td> ';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->sl_phuthukhac_1.'</td>';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->dg_phuthukhac_1.'</td> ';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->foc_phuthukhac_1.'</td> ';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->tt_phuthukhac_1.'</td> ';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->ts_phuthukhac_1.'</td>';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->thue_phuthukhac_1.'<td> ';
-                $html .= '</tr>';
-
-                $html .= '<tr>';
-                $html .= '<td colspan="7" class="border"><h3> 2) GIÁ KHÔNG CÓ VMB/TÀU HỎA</h3></td> ';
-                $html .= '</tr>';
-
-                $html .= '<tr> ';
-                $html .= '<td class="border">Khách người lớn</td>';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->sl_khach_nl_2.'</td>';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->dg_khach_nl_2.'</td> ';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->foc_khach_nl_2.'</td> ';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->tt_khach_nl_2.'</td>';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->ts_khach_nl_2.'</td> ';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->thue_khach_nl_2.'</td>';
-                $html .= '</tr>';
-
-                $html .= '<tr>';
-                $html .= '<td class="border">Trẻ em từ 5-11 tuổi</td> ';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->sl_treem_2.'</td> ';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->dg_treem_2.'</td> ';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->foc_treem_2.'</td> ';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->tt_treem_2.'</td>';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->ts_treem_2.'</td> ';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->thue_treem_2.'</td> ';
-                $html .= '</tr> ';
-
-                $html .= '<tr> ';
-                $html .= '<td class="border">Phụ thu phòng đơn</td>';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->sl_phuthuphongdon_2.'</td>';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->dg_phuthuphongdon_2.'</td>';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->foc_phuthuphongdon_2.'</td>';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->tt_phuthuphongdon_2.'</td> ';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->ts_phuthuphongdon_2.'</td> ';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->thue_phuthuphongdon_2.'</td>';
-                $html .= '</tr>';
-
-                $html .= '<tr> ';
-                $html .= '<td class="border">Phụ thu khác</td>';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->sl_phuthukhac_2.'</td>';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->dg_phuthukhac_2.'</td>';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->foc_phuthukhac_2.'</td>';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->tt_phuthukhac_2.'</td>';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->ts_phuthukhac_2.'</td>';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->thue_phuthukhac_2.'<td>';
-                $html .= '</tr>';
-
-                $html .= '<tr>';
-                $html .= '<td colspan="7" class="border"><h3> 3) CHẾ ĐỘ MIỄN PHÍ F.O.C</h3></td>';
-                $html .= '</tr> ';
-
-                $html .= '<tr>';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->foc_option.'</td>';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->sl_foc_16.'</td>';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->dg_foc_16.'</td> ';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->foc_foc_16.'</td>';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->tt_foc_16.'</td>';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->ts_foc_16.'</td>';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->thue_foc_16.'</td>';
-                $html .= '</tr> ';
-
-                /*$html .= '<tr>';
-                $html .= '<td class="tabDetaiViewDL">FOC (với đoàn 10-15 người)</td> ';
-                $html .= '<td class="tabDetailViewDF"><input type="text" id="sl_treem_2" name="sl_foc_1015" value="{$sl_foc_1015}"></td>';
-                $html .= '<td class="tabDetailViewDF"><input class="center" type="text" id="dg_foc_1015" name="dg_foc_1015" value="{$dg_foc_1015}"></td> ';
-                $html .= '<td class="tabDetailViewDF"><input class="center" type="text" id="foc_foc_1015" name="foc_foc_1015" value="{$foc_foc_1015}"></td> ';
-                $html .= '<td class="tabDetailViewDF"><input class="center" type="text" id="tt_foc_1015" name="tt_foc_1015" value="{$tt_foc_1015}"></td>';
-                $html .= '<td class="tabDetailViewDF"><input class="center" type="text" id="ts_foc_1015" name="ts_foc_1015" value="{$ts_foc_1015}"></td> ';
-                $html .= '<td class="tabDetailViewDF"><input class="center" type="text" id="thue_foc_1015" name="thue_foc_1015" value="{$thue_foc_1015}"></td> ';
-                $html .= '</tr> ';
-
-                $html .= '<tr>';
-                $html .= '<td class="tabDetaiViewDL">FOC (với đoàn dưới 10 người)</td>';
-                $html .= '<td class="tabDetailViewDF"><input type="text" id="sl_foc_10" name="sl_foc_10" value="{$sl_foc_10}"></td>';
-                $html .= '<td class="tabDetailViewDF"><input class="center" type="text" id="dg_foc_10" name="dg_foc_10" value="{$dg_foc_10}"></td>';
-                $html .= '<td class="tabDetailViewDF"><input class="center" type="text" id="foc_foc_10" name="foc_foc_10" value="{$foc_foc_10}"></td> ';
-                $html .= '<td class="tabDetailViewDF"><input class="center" type="text" id="tt_foc_10" name="tt_foc_10" value="{$tt_foc_10}"></td>';
-                $html .= '<td class="tabDetailViewDF"><input class="center" type="text" id="ts_foc_10" name="ts_foc_10" value="{$ts_foc_10}"></td>';
-                $html .= '<td class="tabDetailViewDF"><input class="center" type="text" id="thue_foc_10" name="thue_foc_10" value="{$thue_foc_10}"></td>';
-                $html .= '</tr>'; */
-
-                $html .= '<tr>';
-                $html .= '<td class="border"><h3>TỔNG CỘNG</h3></td> ';
-                $html .= '<td class="tabDetailViewDF border">&nbsp;</td>';
-                $html .= '<td class="tabDetailViewDF border">&nbsp;</td>';
-                $html .= '<td class="tabDetailViewDF border">&nbsp;</td>';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->tongcong_giaban.'</td>';
-                $html .= '<td class="tabDetailViewDF border">&nbsp;</td> ';
-                $html .= '<td class="tabDetailViewDF border">'.$noidung->tongthue_giaban.'</td>';
-                $html .= '</tr>';
-
-                $html .= '</table>';
-                $html .= '</fieldset>';
-
-                // KẾT THÚC PHẦN CÁC KHOẢN GIÁ BÁN -->  
-
-
-                // <!-- BÁO CÁO CHI TIẾT-->
-                $htmlReport .= '<fieldset> ';
-                $htmlReport .= '<legend><h3>CHI TIẾT</h3></legend>  '; 
-                $htmlReport .= '<table width="100%" border="1" cellspacing="0" cellpadding="0" class="tabDetailView" style="border-collapse:collapse"> '; 
-                $htmlReport .= '<tr>  '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<th>DUYỆT</th>  '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td> '; 
-                $htmlReport .= '<td width="15%" class="dataLabel border">VAT ĐẦU RA</td> '; 
-                $htmlReport .= '<td width="25%" class="right border"><b>'.$noidung->vatdaura.'</b></td> '; 
-                $htmlReport .= '<td>&nbsp;</td> '; 
-                $htmlReport .= '<td>&nbsp;</td> '; 
-                $htmlReport .= '<td>&nbsp;</td> '; 
-                $htmlReport .= '<td>&nbsp;</td> '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '</tr> '; 
-                $htmlReport .= '<tr> '; 
-                $htmlReport .= '<td>&nbsp;</td> '; 
-                $htmlReport .= '<td>&nbsp;</td> '; 
-                $htmlReport .= '<td>&nbsp;</td> '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td width="15%" class="dataLabel border">VAT ĐẦU VÀO</td> '; 
-                $htmlReport .= '<td class="right border"><b>'.$noidung->vatdauvao.'</b></td> '; 
-                $htmlReport .= '<td>&nbsp;</td> '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td>   '; 
-                $htmlReport .= '<td>&nbsp;</td> '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '</tr> '; 
-                $htmlReport .= '<tr> '; 
-                $htmlReport .= '<td>&nbsp;</td> '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td width="15%" class="dataLabel border">VAT PHẢI ĐÓNG</td>  '; 
-                $htmlReport .= '<td width="25%" class="right border"><b>'.$noidung->vatphaidong.'</b></td> '; 
-                $htmlReport .= '<td>&nbsp;</td> '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td> '; 
-                $htmlReport .= '<td>&nbsp;</td> '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '</tr> '; 
-                $htmlReport .= '<tr>   '; 
-                $htmlReport .= '<td>&nbsp;</td> '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td> '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td width="15%" class="dataLabel border">DOANH THU</td>  '; 
-                $htmlReport .= '<td width="25%" class="right border"><b>'.$noidung->doanhthu.'</b></td> '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td> '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '</tr>  '; 
-                $htmlReport .= '<tr>   '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td width="15%" class="dataLabel border">TỔNG CHI PHÍ</td>  '; 
-                $htmlReport .= '<td width="25%" class="right border"><b>'.$noidung->tongchiphi1.'</b></td> '; 
-                $htmlReport .= '<td>&nbsp;</td> '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td> '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '</tr>  '; 
-                $htmlReport .= '<tr>  '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td> '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td width="15%" class="dataLabel border">GIÁ VỐN/ 1 KHÁCH</td> '; 
-                $htmlReport .= '<td width="25%" class="right border"><b>'.$noidung->giavontrenkhach.'</b></td> '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td> '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '</tr> '; 
-                $htmlReport .= '<tr>  '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td> '; 
-                $htmlReport .= '<td>&nbsp;</td> '; 
-                $htmlReport .= '<td width="15%" class="notcenter dataLabel border">GIÁ BÁN/ 1 KHÁCH</td>  '; 
-                $htmlReport .= '<td width="25%" class="right border"><b>'.$noidung->giabantrenkhach.'</b></td>  '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td>   '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '</tr> '; 
-                $htmlReport .= '<tr>  '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td>   '; 
-                $htmlReport .= '<td width="15%" class="dataLabel border">LÃI KHÁCH</td>  '; 
-                $htmlReport .= '<td width="25%" class="right border"><b>'.$noidung->laikhach.'</></td>   '; 
-                $htmlReport .= '<td>&nbsp;</td>    '; 
-                $htmlReport .= '<td>&nbsp;</td>   '; 
-                $htmlReport .= '<td>&nbsp;</td>   '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td>   '; 
-                $htmlReport .= '</tr>  '; 
-                $htmlReport .= '<tr>  '; 
-                $htmlReport .= '<td>&nbsp;</td>   '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td width="15%" class="dataLabel border">TỔNG LÃI</td>  '; 
-                $htmlReport .= '<td width="25%" class="right border"><b>'.$noidung->tonglai.'</b></td>   '; 
-                $htmlReport .= '<td>&nbsp;</td>   '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td>   '; 
-                $htmlReport .= '<td>&nbsp;</td>   '; 
-                $htmlReport .= '<td>&nbsp;</td>    '; 
-                $htmlReport .= '</tr>  '; 
-                $htmlReport .= '<tr>   '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td width="15%" class="dataLabel border">TỶ LỆ SAU THUẾ VAT</td>  '; 
-                $htmlReport .= '<td width="25%" class="right border"><b>'.$noidung->tylesauthuevat.'%</b></td>  '; 
-                $htmlReport .= '<td>&nbsp;</td>   '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td>   '; 
-                $htmlReport .= '<td>&nbsp;</td>    '; 
-                $htmlReport .= '</tr>     '; 
-
-                $htmlReport .= '<tr>   '; 
-                $htmlReport .= '<td>&nbsp;</td>   '; 
-                $htmlReport .= '<td>&nbsp;</td>    '; 
-                $htmlReport .= '<td>&nbsp;</td>   '; 
-                $htmlReport .= '<td>&nbsp;</td>   '; 
-                $htmlReport .= '<td width="15%" class="notcenter dataLabel border">THUẾ TNDN</td>  '; 
-                $htmlReport .= '<td width="25%" class="right border"><b>'.$noidung->thuethunhapdn.'</b></td>'; 
-                $htmlReport .= '<td>&nbsp;</td>   '; 
-                $htmlReport .= '<td>&nbsp;</td> '; 
-                $htmlReport .= '<td>&nbsp;</td>   '; 
-                $htmlReport .= '<td>&nbsp;</td>   '; 
-                $htmlReport .= '<td>&nbsp;</td> '; 
-                $htmlReport .= '</tr>  '; 
-                $htmlReport .= '<tr> '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td width="15%" class="notcenter dataLabel border">LÃI RÒNG (NETT PROFIT)</td>  '; 
-                $htmlReport .= '<td width="25%" class="right border"><b>'.$noidung->lairongnettprofit.'</b></td> '; 
-                $htmlReport .= '<td>&nbsp;</td>   '; 
-                $htmlReport .= '<td>&nbsp;</td>     '; 
-                $htmlReport .= '<td>&nbsp;</td>   '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '</tr>  '; 
-                $htmlReport .= '<tr>   '; 
-                $htmlReport .= '<td>&nbsp;</td>   '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td>    '; 
-                $htmlReport .= '<td width="15%" class="border">TỶ LỆ SAU THUẾ TNDN</td>  '; 
-                $htmlReport .= '<td width="25%" class="right border"><b>'.$noidung->tylesauthuetndn.'%</b></td>   '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '<td>&nbsp;</td>  '; 
-                $htmlReport .= '</tr>    '; 
-                $htmlReport .= '</table>  '; 
-
-                $htmlReport .= '</fieldset>';
+                    <tr>
+                    <td class="dataLabel" style="border-left:1px solid #999">% OF INTEREST</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->interest3_1.'</td>
+                    <td>'.$noidung->interest3_2.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->interest3_5.'</td>
+                    <td>'.$noidung->interest3_6.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->interest3_9.'</td>
+                    <td>'.$noidung->interest3_10.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->interest3_13.'</td>
+                    <td>'.$noidung->interest3_14.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->interest3_17.'</td>
+                    <td>'.$noidung->interest3_18.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->interest3_21.'</td>
+                    <td>'.$noidung->interest3_22.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->interest3_25.'</td>
+                    <td>'.$noidung->interest3_26.'</td>
+                    <td>'.$noidung->interest3_27.'</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>'.$noidung->interest3_31.'</td>
+                    <td>&nbsp;</td>
+                    </tr>
+                    </tbody>
+                    </table>
+                    </fieldset>
+                    </div>';
+                }   
                 //<!-- KẾT THÚC BÁO CÁO CHI TIẾT-->
             }
 

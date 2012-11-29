@@ -70,7 +70,7 @@ $(function(){
     });
     //unformatNumber(n, num_grp_sep, dec_sep)
     
-    $('.dongia, .thanhtien, .giachuthue, .tamung, giathamkhao').live('blur',function(){
+    $('.dongia, .thanhtien, .giachuthue, .tamung, giathamkhao, .center').live('blur',function(){
         if($(this).val()!='' && !isNaN($(this).val())){
             $(this).val(formatNumber($(this).val(), num_grp_sep, dec_sep, 0, 0));  
         }
@@ -468,7 +468,11 @@ function tinhtoantongchiphi(){
     // thue dau vao
     thuedauvao = parseFloat(unformat($("#tongthue").val()));
     // tinh tong chi
-    tongchiphi = Math.round(tongchi-thuedauvao).toFixed(0);
+    hoahong = parseFloat(unformat($("#hoahong").val()));
+    if(hoahong == ''){
+        hoahong = 0;
+    }
+    tongchiphi = Math.round(tongchi-thuedauvao+hoahong).toFixed(0);
 
     if(!isNaN(tongchiphi)){
         $("#tongchiphi1").val(tongchiphi);

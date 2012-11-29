@@ -729,535 +729,1571 @@
         $focus->noidung->huongdanvien = $_POST['huongdanvien'];
         $focus->noidung->ngaybatdau = $_POST['ngaybatdau'];
         $focus->noidung->ngayketthuc = $_POST['ngayketthuc'];
-        // dữ liệu phần vé máy bay
-         $focus->noidung->vemaybay_tongthanhtien = $_POST['vemaybay_tongthanhtien'];
-         $focus->noidung->vemaybay_tongthue = $_POST['vemaybay_tongthue'];
-        // vé máy bay ở miền bắc
-        $vmb_mienbac = count($_POST['vemaybay_mb']);
-        for($vmb_mb = 0; $vmb_mb<$vmb_mienbac; $vmb_mb++){
-            $VMB_MB[$vmb_mb]->vemaybay_mb = $_POST['vemaybay_mb'][$vmb_mb]  ;
-            $VMB_MB[$vmb_mb]->vemaybay_mb_dongia = $_POST['vemaybay_mb_dongia'][$vmb_mb]  ;
-            $VMB_MB[$vmb_mb]->vemaybay_mb_soluong = $_POST['vemaybay_mb_soluong'][$vmb_mb]  ;
-            $VMB_MB[$vmb_mb]->vemaybay_mb_foc = $_POST['vemaybay_mb_foc'][$vmb_mb]  ;
-            $VMB_MB[$vmb_mb]->vemaybay_mb_thanhtien = $_POST['vemaybay_mb_thanhtien'][$vmb_mb]  ;
-            $VMB_MB[$vmb_mb]->vemaybay_mb_thuesuat = $_POST['vemaybay_mb_thuesuat'][$vmb_mb]  ;
-            $VMB_MB[$vmb_mb]->vemaybay_mb_vat = $_POST['vemaybay_mb_vat'][$vmb_mb]  ;
-        }                            
-
-        $focus->noidung->vmb_mienbac = $VMB_MB;  
-        $focus->noidung->vemaybay_mb_tongthanhtien = $_POST['vemaybay_mb_tongthanhtien'];  
-        $focus->noidung->vemaybay_mb_tongthue = $_POST['vemaybay_mb_tongthue'];  
-
-        // vé máy bay ở miền trung
-
-        $vmb_mientrung = count($_POST['vemaybay_mt']);
-        for($vmb_mt = 0; $vmb_mt<$vmb_mientrung; $vmb_mt++){
-            $VMB_MT[$vmb_mt]->vemaybay_mt = $_POST['vemaybay_mt'][$vmb_mt]  ;
-            $VMB_MT[$vmb_mt]->vemaybay_mt_dongia = $_POST['vemaybay_mt_dongia'][$vmb_mt]  ;
-            $VMB_MT[$vmb_mt]->vemaybay_mt_soluong = $_POST['vemaybay_mt_soluong'][$vmb_mt]  ;
-            $VMB_MT[$vmb_mt]->vemaybay_mt_foc = $_POST['vemaybay_mt_foc'][$vmb_mt]  ;
-            $VMB_MT[$vmb_mt]->vemaybay_mt_thanhtien = $_POST['vemaybay_mt_thanhtien'][$vmb_mt]  ;
-            $VMB_MT[$vmb_mt]->vemaybay_mt_thuesuat = $_POST['vemaybay_mt_thuesuat'][$vmb_mt]  ;
-            $VMB_MT[$vmb_mt]->vemaybay_mt_vat = $_POST['vemaybay_mt_vat'][$vmb_mt]  ;
-        }
-        $focus->noidung->vmb_mientrung = $VMB_MT; 
-        $focus->noidung->vemaybay_mt_tongthanhtien = $_POST['vemaybay_mt_tongthanhtien'];  
-        $focus->noidung->vemaybay_mt_tongthue = $_POST['vemaybay_mt_tongthue'];  
-
-        // vé máy ở miền nam
-
-        $vmb_miennam = count($_POST['vemaybay_mn']);
-        for($vmb_mn = 0; $vmb_mn<$vmb_miennam; $vmb_mn++){
-            $VMB_MN[$vmb_mn]->vemaybay_mn = $_POST['vemaybay_mn'][$vmb_mn]  ;
-            $VMB_MN[$vmb_mn]->vemaybay_mn_dongia = $_POST['vemaybay_mn_dongia'][$vmb_mn]  ;
-            $VMB_MN[$vmb_mn]->vemaybay_mn_soluong = $_POST['vemaybay_mn_soluong'][$vmb_mn]  ;
-            $VMB_MN[$vmb_mn]->vemaybay_mn_foc = $_POST['vemaybay_mn_foc'][$vmb_mn]  ;
-            $VMB_MN[$vmb_mn]->vemaybay_mn_thanhtien = $_POST['vemaybay_mn_thanhtien'][$vmb_mn]  ;
-            $VMB_MN[$vmb_mn]->vemaybay_mn_thuesuat = $_POST['vemaybay_mn_thuesuat'][$vmb_mn]  ;
-            $VMB_MN[$vmb_mn]->vemaybay_mn_vat = $_POST['vemaybay_mn_vat'][$vmb_mn]  ;
-        }
-        $focus->noidung->vmb_miennam = $VMB_MN;
-        $focus->noidung->vemaybay_mn_tongthanhtien = $_POST['vemaybay_mn_tongthanhtien'];  
-        $focus->noidung->vemaybay_mn_tongthue = $_POST['vemaybay_mn_tongthue']; 
-
-        // data phần nhà hàng
-        $focus->noidung->nhahang_tongthanhtien = $_POST['nhahang_tongthanhtien'];
-        $focus->noidung->nhahang_tongthue = $_POST['nhahang_tongthue'];
-        //dữ liệu nhà hàng tại miền bắc
-        $nhahang_mienbac = count($_POST['nh_name_mb']);
-        for($nh_mb =0; $nh_mb<$nhahang_mienbac; $nh_mb++){
-            $NHAHANG_MIENBAC[$nh_mb]->nh_name = $_POST['nh_name_mb'][$nh_mb];
-            $NHAHANG_MIENBAC[$nh_mb]->nh_id = $_POST['nh_id_mb'][$nh_mb];
-            $NHAHANG_MIENBAC[$nh_mb]->nh_ghichu_mb = $_POST['nh_ghichu_mb'][$nh_mb];
-            $NHAHANG_MIENBAC[$nh_mb]->nh_dongia_mb = $_POST['nh_dongia_mb'][$nh_mb];
-            $NHAHANG_MIENBAC[$nh_mb]->nh_soluong_mb = $_POST['nh_soluong_mb'][$nh_mb];
-            $NHAHANG_MIENBAC[$nh_mb]->nh_songay_mb = $_POST['nh_songay_mb'][$nh_mb];
-            $NHAHANG_MIENBAC[$nh_mb]->nh_foc_mb = $_POST['nh_foc_mb'][$nh_mb];
-            $NHAHANG_MIENBAC[$nh_mb]->nh_thanhtien_mb = $_POST['nh_thanhtien_mb'][$nh_mb];
-            $NHAHANG_MIENBAC[$nh_mb]->nh_thuexuat_mb = $_POST['nh_thuexuat_mb'][$nh_mb];
-            $NHAHANG_MIENBAC[$nh_mb]->nh_thue_mb = $_POST['nh_thue_mb'][$nh_mb];
-        }
-        $focus->noidung->nhahang_mienbac = $NHAHANG_MIENBAC;
-        $focus->noidung->nhahang_tongthanhtien_mienbac = $_POST['nhahang_tongthanhtien_mienbac'];
-        $focus->noidung->nhahang_tongthue_mienbac = $_POST['nhahang_tongthue_mienbac'];
-        // dữ liệu nhà hàng tại miền trung
-
-        $nhahang_mientrung = count($_POST[nh_name_mt]);
-        for($nh_mt = 0; $nh_mt<$nhahang_mientrung; $nh_mt++){
-            $NHAHANG_MIENTRUNG[$nh_mt]->nh_name = $_POST['nh_name_mt'][$nh_mt];
-            $NHAHANG_MIENTRUNG[$nh_mt]->nh_id = $_POST['nh_id_mt'][$nh_mt];
-            $NHAHANG_MIENTRUNG[$nh_mt]->nh_ghichu_mt = $_POST['nh_ghichu_mt'][$nh_mt];
-            $NHAHANG_MIENTRUNG[$nh_mt]->nh_dongia_mt = $_POST['nh_dongia_mt'][$nh_mt];
-            $NHAHANG_MIENTRUNG[$nh_mt]->nh_soluong_mt = $_POST['nh_soluong_mt'][$nh_mt];
-            $NHAHANG_MIENTRUNG[$nh_mt]->nh_songay_mt = $_POST['nh_songay_mt'][$nh_mt];
-            $NHAHANG_MIENTRUNG[$nh_mt]->nh_foc_mt = $_POST['nh_foc_mt'][$nh_mt];
-            $NHAHANG_MIENTRUNG[$nh_mt]->nh_thanhtien_mt = $_POST['nh_thanhtien_mt'][$nh_mt];
-            $NHAHANG_MIENTRUNG[$nh_mt]->nh_thuexuat_mt = $_POST['nh_thuexuat_mt'][$nh_mt];
-            $NHAHANG_MIENTRUNG[$nh_mt]->nh_thue_mt = $_POST['nh_thue_mt'][$nh_mt];
-        }
-        $focus->noidung->nhahang_mientrung = $NHAHANG_MIENTRUNG;
-        $focus->noidung->nhahang_tongthanhtien_mientrung = $_POST['nhahang_tongthanhtien_mientrung'];
-        $focus->noidung->nhahang_tongthue_mientrung = $_POST['nhahang_tongthue_mientrung']; 
-
-        // dữ liệu nhà hàng tại miền nam 
-        $nhahang_miennam = count($_POST['nh_name_mn']);
-        for($nh_mn = 0; $nh_mn<$nhahang_miennam; $nh_mn++){
-
-            $NHAHANG_MIENNAM[$nh_mn]->nh_name = $_POST['nh_name_mn'][$nh_mn];
-            $NHAHANG_MIENNAM[$nh_mn]->nh_id = $_POST['nh_id_mn'][$nh_mn];
-            $NHAHANG_MIENNAM[$nh_mn]->nh_ghichu_mn = $_POST['nh_ghichu_mn'][$nh_mn];
-            $NHAHANG_MIENNAM[$nh_mn]->nh_dongia_mn = $_POST['nh_dongia_mn'][$nh_mn];
-            $NHAHANG_MIENNAM[$nh_mn]->nh_soluong_mn = $_POST['nh_soluong_mn'][$nh_mn];
-            $NHAHANG_MIENNAM[$nh_mn]->nh_songay_mn = $_POST['nh_songay_mn'][$nh_mn];
-            $NHAHANG_MIENNAM[$nh_mn]->nh_foc_mn = $_POST['nh_foc_mn'][$nh_mn];
-            $NHAHANG_MIENNAM[$nh_mn]->nh_thanhtien_mn = $_POST['nh_thanhtien_mn'][$nh_mn];
-            $NHAHANG_MIENNAM[$nh_mn]->nh_thuexuat_mn = $_POST['nh_thuexuat_mn'][$nh_mn];
-            $NHAHANG_MIENNAM[$nh_mn]->nh_thue_mn = $_POST['nh_thue_mn'][$nh_mn];
-        }
-        $focus->noidung->nhahang_miennam = $NHAHANG_MIENNAM;
-        $focus->noidung->nhahang_tongthanhtien_miennam = $_POST['nhahang_tongthanhtien_miennam'];
-        $focus->noidung->nhahang_tongthue_miennam = $_POST['nhahang_tongthue_miennam'];
-
-        // lưu dữ liệu phần khách sạn
-        $focus->noidung->khachsan_tongthanhtien = $_POST['khachsan_tongthanhtien'];
-        $focus->noidung->khachsan_tongthue = $_POST['khachsan_tongthue'];
-        // khách sạn tại miền bắc
-        $khachsan_mienbac = count($_POST['tenkhachsan_ks_mb']);
-        for($ks_mb = 0; $ks_mb<$khachsan_mienbac; $ks_mb++){
-            $KHACHSAN_MIENBAC[$ks_mb]->ks_name = $_POST['tenkhachsan_ks_mb'][$ks_mb] ;
-            $KHACHSAN_MIENBAC[$ks_mb]->ks_id = $_POST['ks_id_ks_mb'][$ks_mb] ;
-            $KHACHSAN_MIENBAC[$ks_mb]->SGL_ks_mb = $_POST['SGL_ks_mb'][$ks_mb] ;
-            $KHACHSAN_MIENBAC[$ks_mb]->SGL_SL_ks_mb = $_POST['SGL_SL_ks_mb'][$ks_mb] ;
-            $KHACHSAN_MIENBAC[$ks_mb]->DBL_ks_mb = $_POST['DBL_ks_mb'][$ks_mb] ;
-            $KHACHSAN_MIENBAC[$ks_mb]->DBL_SL_ks_mb = $_POST['DBL_SL_ks_mb'][$ks_mb] ;
-            $KHACHSAN_MIENBAC[$ks_mb]->TPL_ks_mb = $_POST['TPL_ks_mb'][$ks_mb] ;
-            $KHACHSAN_MIENBAC[$ks_mb]->TPL_SL_ks_mb = $_POST['TPL_SL_ks_mb'][$ks_mb] ;
-            $KHACHSAN_MIENBAC[$ks_mb]->foc = $_POST['foc_ks_mb'][$ks_mb] ;
-            $KHACHSAN_MIENBAC[$ks_mb]->hangphong_ks_mb = $_POST['hangphong_ks_mb'][$ks_mb] ;
-            $KHACHSAN_MIENBAC[$ks_mb]->songaydem_ks_mb = $_POST['songaydem_ks_mb'][$ks_mb] ;
-            $KHACHSAN_MIENBAC[$ks_mb]->thanhtien_ks_mb = $_POST['thanhtien_ks_mb'][$ks_mb] ;
-            $KHACHSAN_MIENBAC[$ks_mb]->thuesuat_ks_mb = $_POST['thuesuat_ks_mb'][$ks_mb] ;
-            $KHACHSAN_MIENBAC[$ks_mb]->vat_ks_mb = $_POST['vat_ks_mb'][$ks_mb] ;
-        }
-
-        $focus->noidung->khachsan_mienbac = $KHACHSAN_MIENBAC;
-        $focus->noidung->khachsan_tongthanhtien_mienbac = $_POST['khachsan_tongthanhtien_mienbac'];
-        $focus->noidung->khachsan_tongthue_mienbac = $_POST['khachsan_tongthue_mienbac'];
-
-        // khách sạn tại miền trung
-        $khachsan_mientrung = count($_POST['tenkhachsan_ks_mt']);
-        for($ks_mt = 0; $ks_mt<$khachsan_mientrung; $ks_mt++){
-            $KHACHSAN_MIENTRUNG[$ks_mt]->ks_name = $_POST['tenkhachsan_ks_mt'][$ks_mt] ;
-            $KHACHSAN_MIENTRUNG[$ks_mt]->ks_id = $_POST['ks_id_ks_mt'][$ks_mt] ;
-            $KHACHSAN_MIENTRUNG[$ks_mt]->SGL_ks_mt = $_POST['SGL_ks_mt'][$ks_mt] ;
-            $KHACHSAN_MIENTRUNG[$ks_mt]->SGL_SL_ks_mt = $_POST['SGL_SL_ks_mt'][$ks_mt] ;
-            $KHACHSAN_MIENTRUNG[$ks_mt]->DBL_ks_mt = $_POST['DBL_ks_mt'][$ks_mt] ;
-            $KHACHSAN_MIENTRUNG[$ks_mt]->DBL_SL_ks_mt = $_POST['DBL_SL_ks_mt'][$ks_mt] ;
-            $KHACHSAN_MIENTRUNG[$ks_mt]->TPL_ks_mt = $_POST['TPL_ks_mt'][$ks_mt] ;
-            $KHACHSAN_MIENTRUNG[$ks_mt]->TPL_SL_ks_mt = $_POST['TPL_SL_ks_mt'][$ks_mt] ;
-            $KHACHSAN_MIENTRUNG[$ks_mt]->foc = $_POST['foc_ks_mt'][$ks_mt] ;
-            $KHACHSAN_MIENTRUNG[$ks_mt]->hangphong_ks_mt = $_POST['hangphong_ks_mt'][$ks_mt] ;
-            $KHACHSAN_MIENTRUNG[$ks_mt]->songaydem_ks_mt = $_POST['songaydem_ks_mt'][$ks_mt] ;
-            $KHACHSAN_MIENTRUNG[$ks_mt]->thanhtien_ks_mt = $_POST['thanhtien_ks_mt'][$ks_mt] ;
-            $KHACHSAN_MIENTRUNG[$ks_mt]->thuesuat_ks_mt = $_POST['thuesuat_ks_mt'][$ks_mt] ;
-            $KHACHSAN_MIENTRUNG[$ks_mt]->vat_ks_mt = $_POST['vat_ks_mt'][$ks_mt] ;
-        }
-
-        $focus->noidung->khachsan_mientrung =  $KHACHSAN_MIENTRUNG; 
-        $focus->noidung->khachsan_tongthanhtien_mientrung = $_POST['khachsan_tongthanhtien_mientrung'];
-        $focus->noidung->khachsan_tongthue_mientrung = $_POST['khachsan_tongthue_mientrung'];   
-
-        // khách sạn tại miền nam
-        $khachsan_miennam = count($_POST['tenkhachsan_ks_mn']);
-        for($ks_mn = 0; $ks_mn<$khachsan_miennam; $ks_mn++){
-            $KHACHSAN_MIENNAM[$ks_mn]->ks_name = $_POST['tenkhachsan_ks_mn'][$ks_mn] ;
-            $KHACHSAN_MIENNAM[$ks_mn]->ks_id = $_POST['ks_id_ks_mn'][$ks_mn] ;
-            $KHACHSAN_MIENNAM[$ks_mn]->SGL_ks_mn = $_POST['SGL_ks_mn'][$ks_mn] ;
-            $KHACHSAN_MIENNAM[$ks_mn]->SGL_SL_ks_mn = $_POST['SGL_SL_ks_mn'][$ks_mn] ;
-            $KHACHSAN_MIENNAM[$ks_mn]->DBL_ks_mn = $_POST['DBL_ks_mn'][$ks_mn] ;
-            $KHACHSAN_MIENNAM[$ks_mn]->DBL_SL_ks_mn = $_POST['DBL_SL_ks_mn'][$ks_mn] ;
-            $KHACHSAN_MIENNAM[$ks_mn]->TPL_ks_mn = $_POST['TPL_ks_mn'][$ks_mn] ;
-            $KHACHSAN_MIENNAM[$ks_mn]->TPL_SL_ks_mn = $_POST['TPL_SL_ks_mn'][$ks_mn] ;
-            $KHACHSAN_MIENNAM[$ks_mn]->foc = $_POST['foc_ks_mn'][$ks_mn] ;
-            $KHACHSAN_MIENNAM[$ks_mn]->hangphong_ks_mn = $_POST['hangphong_ks_mn'][$ks_mn] ;
-            $KHACHSAN_MIENNAM[$ks_mn]->songaydem_ks_mn = $_POST['songaydem_ks_mn'][$ks_mn] ;
-            $KHACHSAN_MIENNAM[$ks_mn]->thanhtien_ks_mn = $_POST['thanhtien_ks_mn'][$ks_mn] ;
-            $KHACHSAN_MIENNAM[$ks_mn]->thuesuat_ks_mn = $_POST['thuesuat_ks_mn'][$ks_mn] ;
-            $KHACHSAN_MIENNAM[$ks_mn]->vat_ks_mn = $_POST['vat_ks_mn'][$ks_mn] ;
-        }
-
-        $focus->noidung->khachsan_miennam =  $KHACHSAN_MIENNAM;
-        $focus->noidung->khachsan_tongthanhtien_miennam = $_POST['khachsan_tongthanhtien_miennam'];
-        $focus->noidung->khachsan_tongthue_miennam = $_POST['khachsan_tongthue_miennam'];   
-
-
-        // lưu dữ liệu phần vận chuyển
-        $focus->noidung->vanchuyen_tongthanhtien = $_POST['vanchuyen_tongthanhtien'];
-        $focus->noidung->vanchuyen_tongthue = $_POST['vanchuyen_tongthue'];
-        // vận chuyển ở miền bắc
-        $vanchuyen_mienbac = count($_POST['vanchuyen_name_mb']);
-        for($vc_mb = 0 ; $vc_mb<$vanchuyen_mienbac; $vc_mb++){
-            $VANCHUYEN_MIENBAC[$vc_mb]->vanchuyen_name_mb = $_POST['vanchuyen_name_mb'][$vc_mb] ;
-            $VANCHUYEN_MIENBAC[$vc_mb]->vanchuyen_dongia_mb = $_POST['vanchuyen_dongia_mb'][$vc_mb] ;
-            $VANCHUYEN_MIENBAC[$vc_mb]->dongia_option_mb = $_POST['dongia_option_mb'][$vc_mb] ;
-            $VANCHUYEN_MIENBAC[$vc_mb]->vanchuyen_soluong_mb = $_POST['vanchuyen_soluong_mb'][$vc_mb] ;
-            $VANCHUYEN_MIENBAC[$vc_mb]->vanchuyen_songay_mb = $_POST['vanchuyen_songay_mb'][$vc_mb] ;
-            $VANCHUYEN_MIENBAC[$vc_mb]->vanchuyen_foc_mb = $_POST['vanchuyen_foc_mb'][$vc_mb] ;
-            $VANCHUYEN_MIENBAC[$vc_mb]->vanchuyen_thanhtien_mb = $_POST['vanchuyen_thanhtien_mb'][$vc_mb] ;
-            $VANCHUYEN_MIENBAC[$vc_mb]->vanchuyen_thuexuat_mb = $_POST['vanchuyen_thuexuat_mb'][$vc_mb] ;
-            $VANCHUYEN_MIENBAC[$vc_mb]->vanchuyen_vat_mb = $_POST['vanchuyen_vat_mb'][$vc_mb] ;
-        }
-        $focus->noidung->vanchuyen_mienbac = $VANCHUYEN_MIENBAC; 
-        $focus->noidung->vanchuyen_tongthanhtien_mienbac = $_POST['vanchuyen_tongthanhtien_mienbac'];
-        $focus->noidung->vanchuyen_tongthue_mienbac = $_POST['vanchuyen_tongthue_mienbac'];
-
-        // vận chuyển ở miền trung
-        $vanchuyen_mientrung = count($_POST['vanchuyen_name_mt']);
-        for($vc_mt = 0 ; $vc_mt<$vanchuyen_mientrung; $vc_mt++){ 
-            $VANCHUYEN_MIENTRUNG[$vc_mt]->vanchuyen_name_mt = $_POST['vanchuyen_name_mt'][$vc_mt] ;
-            $VANCHUYEN_MIENTRUNG[$vc_mt]->dongia_option_mt = $_POST['dongia_option_mt'][$vc_mt] ;
-            $VANCHUYEN_MIENTRUNG[$vc_mt]->vanchuyen_dongia_mt = $_POST['vanchuyen_dongia_mt'][$vc_mt] ;
-            $VANCHUYEN_MIENTRUNG[$vc_mt]->vanchuyen_soluong_mt = $_POST['vanchuyen_soluong_mt'][$vc_mt] ;
-            $VANCHUYEN_MIENTRUNG[$vc_mt]->vanchuyen_songay_mt = $_POST['vanchuyen_songay_mt'][$vc_mt] ;
-            $VANCHUYEN_MIENTRUNG[$vc_mt]->vanchuyen_foc_mt = $_POST['vanchuyen_foc_mt'][$vc_mt] ;
-            $VANCHUYEN_MIENTRUNG[$vc_mt]->vanchuyen_thanhtien_mt = $_POST['vanchuyen_thanhtien_mt'][$vc_mt] ;
-            $VANCHUYEN_MIENTRUNG[$vc_mt]->vanchuyen_thuexuat_mt = $_POST['vanchuyen_thuexuat_mt'][$vc_mt] ;
-            $VANCHUYEN_MIENTRUNG[$vc_mt]->vanchuyen_vat_mt = $_POST['vanchuyen_vat_mt'][$vc_mt] ;
-        }                
-
-        $focus->noidung->vanchuyen_mientrung = $VANCHUYEN_MIENTRUNG;   
-        $focus->noidung->vanchuyen_tongthanhtien_mientrung = $_POST['vanchuyen_tongthanhtien_mientrung'];
-        $focus->noidung->vanchuyen_tongthue_mientrung = $_POST['vanchuyen_tongthue_mientrung'];
-
-        // vận chuyển ở miền nam
-        $vanchuyen_miennam = count($_POST['vanchuyen_name_mn']);
-        for($vc_mn = 0 ; $vc_mn<$vanchuyen_miennam; $vc_mn++){
-            $VANCHUYEN_MIENNAM[$vc_mn]->vanchuyen_name_mn = $_POST['vanchuyen_name_mn'][$vc_mn] ;
-            $VANCHUYEN_MIENNAM[$vc_mn]->vanchuyen_dongia_mn = $_POST['vanchuyen_dongia_mn'][$vc_mn] ;
-            $VANCHUYEN_MIENNAM[$vc_mn]->dongia_option_mn = $_POST['dongia_option_mn'][$vc_mn] ;
-            $VANCHUYEN_MIENNAM[$vc_mn]->vanchuyen_soluong_mn = $_POST['vanchuyen_soluong_mn'][$vc_mn] ;
-            $VANCHUYEN_MIENNAM[$vc_mn]->vanchuyen_songay_mn = $_POST['vanchuyen_songay_mn'][$vc_mn] ;
-            $VANCHUYEN_MIENNAM[$vc_mn]->vanchuyen_foc_mn = $_POST['vanchuyen_foc_mn'][$vc_mn] ;
-            $VANCHUYEN_MIENNAM[$vc_mn]->vanchuyen_thanhtien_mn = $_POST['vanchuyen_thanhtien_mn'][$vc_mn] ;
-            $VANCHUYEN_MIENNAM[$vc_mn]->vanchuyen_thuexuat_mn = $_POST['vanchuyen_thuexuat_mn'][$vc_mn] ;
-            $VANCHUYEN_MIENNAM[$vc_mn]->vanchuyen_vat_mn = $_POST['vanchuyen_vat_mn'][$vc_mn] ;   
-        }
-        $focus->noidung->vanchuyen_miennam = $VANCHUYEN_MIENNAM;
-        $focus->noidung->vanchuyen_tongthanhtien_miennam = $_POST['vanchuyen_tongthanhtien_miennam'];
-        $focus->noidung->vanchuyen_tongthue_miennam = $_POST['vanchuyen_tongthue_miennam'];       
-
-        // lưu dữ liệu phần dịch vụ
-        $focus->noidung->service_tongthanhtien = $_POST['service_tongthanhtien'];
-        $focus->noidung->service_tongthue = $_POST['service_tongthue'];
-        // dich vu o mien bac
-        $dichvu_mienbac = count($_POST['services_name_mb']);
-        for($sv_mb = 0; $sv_mb <$dichvu_mienbac; $sv_mb++){
-            $DICHVU_MIENBAC[$sv_mb]->services_name_mb = $_POST['services_name_mb'][$sv_mb] ;
-            $DICHVU_MIENBAC[$sv_mb]->services_dongia_mb = $_POST['services_dongia_mb'][$sv_mb] ;
-            $DICHVU_MIENBAC[$sv_mb]->services_soluong_mb = $_POST['services_soluong_mb'][$sv_mb] ;
-            $DICHVU_MIENBAC[$sv_mb]->services_songay_mb = $_POST['services_songay_mb'][$sv_mb] ;
-            $DICHVU_MIENBAC[$sv_mb]->services_foc_mb = $_POST['services_foc_mb'][$sv_mb] ;
-            $DICHVU_MIENBAC[$sv_mb]->services_thanhtien_mb = $_POST['services_thanhtien_mb'][$sv_mb] ;
-            $DICHVU_MIENBAC[$sv_mb]->services_thuexuat_mb = $_POST['services_thuexuat_mb'][$sv_mb] ;
-            $DICHVU_MIENBAC[$sv_mb]->services_vat_mb = $_POST['services_vat_mb'][$sv_mb] ;
-        }
-        $focus->noidung->dichvu_mienbac = $DICHVU_MIENBAC; 
-        $focus->noidung->service_tongthanhtien_mienbac = $_POST['service_tongthanhtien_mienbac'];
-        $focus->noidung->service_tongthue_mienbac = $_POST['service_tongthue_mienbac'];
-
-        // dịch vụ ở miền trung
-
-        $dichvu_mientrung = count($_POST['services_name_mt']);
-        for($dv_mt = 0; $dv_mt <$dichvu_mientrung; $dv_mt++){
-            $DICHVU_MIENTRUNG[$dv_mt]->services_name_mt = $_POST['services_name_mt'][$dv_mt] ;
-            $DICHVU_MIENTRUNG[$dv_mt]->services_dongia_mt = $_POST['services_dongia_mt'][$dv_mt] ; 
-            $DICHVU_MIENTRUNG[$dv_mt]->services_soluong_mt = $_POST['services_soluong_mt'][$dv_mt] ; 
-            $DICHVU_MIENTRUNG[$dv_mt]->services_songay_mt = $_POST['services_songay_mt'][$dv_mt] ; 
-            $DICHVU_MIENTRUNG[$dv_mt]->services_foc_mt = $_POST['services_foc_mt'][$dv_mt] ; 
-            $DICHVU_MIENTRUNG[$dv_mt]->services_thanhtien_mt = $_POST['services_thanhtien_mt'][$dv_mt] ; 
-            $DICHVU_MIENTRUNG[$dv_mt]->services_thuexuat_mt = $_POST['services_thuexuat_mt'][$dv_mt] ; 
-            $DICHVU_MIENTRUNG[$dv_mt]->services_vat_mt = $_POST['services_vat_mt'][$dv_mt] ; 
-        }
-
-        $focus->noidung->dichvu_mientrung = $DICHVU_MIENTRUNG; 
-        $focus->noidung->service_tongthanhtien_mientrung = $_POST['service_tongthanhtien_mientrung'];
-        $focus->noidung->service_tongthue_mientrung = $_POST['service_tongthue_mientrung'];
-        // dịch vụ ở miền nam
-        $dichvu_miennam = count($_POST['services_name_mn']);  
-        for($dv_mv = 0; $dv_mv <$dichvu_miennam; $dv_mv++){
-            $DICHVU_MIENNAM[$dv_mv]->services_name_mn = $_POST['services_name_mn'][$dv_mv] ; 
-            $DICHVU_MIENNAM[$dv_mv]->services_dongia_mn = $_POST['services_dongia_mn'][$dv_mv] ; 
-            $DICHVU_MIENNAM[$dv_mv]->services_soluong_mn = $_POST['services_soluong_mn'][$dv_mv] ; 
-            $DICHVU_MIENNAM[$dv_mv]->services_songay_mn = $_POST['services_songay_mn'][$dv_mv] ; 
-            $DICHVU_MIENNAM[$dv_mv]->services_foc_mn = $_POST['services_foc_mn'][$dv_mv] ; 
-            $DICHVU_MIENNAM[$dv_mv]->services_thanhtien_mn = $_POST['services_thanhtien_mn'][$dv_mv] ; 
-            $DICHVU_MIENNAM[$dv_mv]->services_thuexuat_mn = $_POST['services_thuexuat_mn'][$dv_mv] ; 
-            $DICHVU_MIENNAM[$dv_mv]->services_vat_mn = $_POST['services_vat_mn'][$dv_mv] ;   
-        }
-
-        $focus->noidung->dichvu_miennam = $DICHVU_MIENNAM;  
-        $focus->noidung->service_tongthanhtien_miennam = $_POST['service_tongthanhtien_miennam'];
-        $focus->noidung->service_tongthue_miennam = $_POST['service_tongthue_miennam'];
-        // lưu dữ liệu phần tham quan
+        // save worksheet new by ms Anh Thu
+        $focus->noidung->soluongkh1 = $_POST['soluongkh1'];
+        $focus->noidung->soluongkh2 = $_POST['soluongkh2'];
+        $focus->noidung->soluongkh3 = $_POST['soluongkh3'];
+        $focus->noidung->soluongkh4 = $_POST['soluongkh4'];
+        $focus->noidung->soluongkh5 = $_POST['soluongkh5'];
+        $focus->noidung->soluongkh6 = $_POST['soluongkh6'];
+        $focus->noidung->soluongkh7 = $_POST['soluongkh7'];
+        $focus->noidung->soluongkh8 = $_POST['soluongkh8'];
+        $focus->noidung->soluongkh9 = $_POST['soluongkh9'];
+        $focus->noidung->soluongkh10 = $_POST['soluongkh10'];
+        $focus->noidung->soluongkh11 = $_POST['soluongkh11'];
+        $focus->noidung->soluongkh12 = $_POST['soluongkh12'];
+        $focus->noidung->soluongkh13 = $_POST['soluongkh13'];
+        $focus->noidung->soluongkh14 = $_POST['soluongkh14'];
+        $focus->noidung->soluongkh15 = $_POST['soluongkh15'];
         
-        $focus->noidung->thamquan_tongthanhtien = $_POST['thamquan_tongthanhtien'];
-        $focus->noidung->thamquan_tongthue = $_POST['thamquan_tongthue'];
-        // tham quan ở miền bắc
-
-        $thamquan_mienbac = count($_POST['thamquan_name_mb']);
-        for($tq_mb = 0; $tq_mb <$thamquan_mienbac; $tq_mb++){
-            $THAMQUAN_MIENBAC[$tq_mb]->thamquan_name_mb = $_POST['thamquan_name_mb'][$tq_mb] ;
-            $THAMQUAN_MIENBAC[$tq_mb]->thamquan_gianguoilon_mb = $_POST['thamquan_gianguoilon_mb'][$tq_mb] ;
-            $THAMQUAN_MIENBAC[$tq_mb]->thamquan_soluongnguoilon_mb = $_POST['thamquan_soluongnguoilon_mb'][$tq_mb] ;
-            $THAMQUAN_MIENBAC[$tq_mb]->thamquan_dongiatreem_mb = $_POST['thamquan_dongiatreem_mb'][$tq_mb] ;
-            $THAMQUAN_MIENBAC[$tq_mb]->thamquan_soluongtreem_mb = $_POST['thamquan_soluongtreem_mb'][$tq_mb] ;
-            $THAMQUAN_MIENBAC[$tq_mb]->thamquan_songay_mb = $_POST['thamquan_songay_mb'][$tq_mb] ;
-            $THAMQUAN_MIENBAC[$tq_mb]->thamquan_foc_mb = $_POST['thamquan_foc_mb'][$tq_mb] ;
-            $THAMQUAN_MIENBAC[$tq_mb]->thamquan_thanhtien_mb = $_POST['thamquan_thanhtien_mb'][$tq_mb] ;
-            $THAMQUAN_MIENBAC[$tq_mb]->thamquan_thuesuat_mb = $_POST['thamquan_thuesuat_mb'][$tq_mb] ;
-            $THAMQUAN_MIENBAC[$tq_mb]->thamquan_vat_mb = $_POST['thamquan_vat_mb'][$tq_mb] ;
-        }                 
-        $focus->noidung->thamquan_mienbac = $THAMQUAN_MIENBAC;
+        $focus->noidung->transfer1 = $_POST['transfer1'];
+        $focus->noidung->transfer2 = $_POST['transfer2'];
+        $focus->noidung->transfer3 = $_POST['transfer3'];
+        $focus->noidung->transfer4 = $_POST['transfer4'];
+        $focus->noidung->transfer5 = $_POST['transfer5'];
+        $focus->noidung->transfer6 = $_POST['transfer6'];
+        $focus->noidung->transfer7 = $_POST['transfer7'];
+        $focus->noidung->transfer8 = $_POST['transfer8'];
+        $focus->noidung->transfer9 = $_POST['transfer9'];
+        $focus->noidung->transfer10 = $_POST['transfer10'];
+        $focus->noidung->transfer11 = $_POST['transfer11'];
+        $focus->noidung->transfer12 = $_POST['transfer12'];
+        $focus->noidung->transfer13 = $_POST['transfer13'];
+        $focus->noidung->transfer14 = $_POST['transfer14'];
+        $focus->noidung->transfer15 = $_POST['transfer15'];
+        $focus->noidung->transfer16 = $_POST['transfer16'];
+        $focus->noidung->transfer17 = $_POST['transfer17'];
+        $focus->noidung->transfer18 = $_POST['transfer18'];
+        $focus->noidung->transfer19 = $_POST['transfer20'];
+        $focus->noidung->transfer20 = $_POST['transfer1'];
+        $focus->noidung->transfer21 = $_POST['transfer21'];
+        $focus->noidung->transfer22 = $_POST['transfer22'];
+        $focus->noidung->transfer23 = $_POST['transfer23'];
+        $focus->noidung->transfer24 = $_POST['transfer24'];
+        $focus->noidung->transfer25 = $_POST['transfer25'];
+        $focus->noidung->transfer26 = $_POST['transfer26'];
+        $focus->noidung->transfer27 = $_POST['transfer27'];
+        $focus->noidung->transfer28 = $_POST['transfer28'];
+        $focus->noidung->transfer29 = $_POST['transfer29'];
+        $focus->noidung->transfer30 = $_POST['transfer30'];
         
-        $focus->noidung->thamquan_tongthanhtien_mienbac = $_POST['thamquan_tongthanhtien_mienbac'];
-        $focus->noidung->thamquan_tongthue_mienbac = $_POST['thamquan_tongthue_mienbac'];  
-
-        // tham quan ở miền trung
-
-        $thamquan_mientrung = count($_POST['thamquan_name_mt']);
-        for($tq_mt = 0; $tq_mt <$thamquan_mientrung; $tq_mt++){
-            $THAMQUAN_MIENTRUNG[$tq_mt]->thamquan_name_mt = $_POST['thamquan_name_mt'][$tq_mt] ;
-            $THAMQUAN_MIENTRUNG[$tq_mt]->thamquan_gianguoilon_mt = $_POST['thamquan_gianguoilon_mt'][$tq_mt] ;
-            $THAMQUAN_MIENTRUNG[$tq_mt]->thamquan_soluongnguoilon_mt = $_POST['thamquan_soluongnguoilon_mt'][$tq_mt] ;
-            $THAMQUAN_MIENTRUNG[$tq_mt]->thamquan_dongiatreem_mt = $_POST['thamquan_dongiatreem_mt'][$tq_mt] ;
-            $THAMQUAN_MIENTRUNG[$tq_mt]->thamquan_soluongtreem_mt = $_POST['thamquan_soluongtreem_mt'][$tq_mt] ;
-            $THAMQUAN_MIENTRUNG[$tq_mt]->thamquan_songay_mt = $_POST['thamquan_songay_mt'][$tq_mt] ;
-            $THAMQUAN_MIENTRUNG[$tq_mt]->thamquan_foc_mt = $_POST['thamquan_foc_mt'][$tq_mt] ;
-            $THAMQUAN_MIENTRUNG[$tq_mt]->thamquan_thanhtien_mt = $_POST['thamquan_thanhtien_mt'][$tq_mt] ;
-            $THAMQUAN_MIENTRUNG[$tq_mt]->thamquan_thuesuat_mt = $_POST['thamquan_thuesuat_mt'][$tq_mt] ;
-            $THAMQUAN_MIENTRUNG[$tq_mt]->thamquan_vat_mt = $_POST['thamquan_vat_mt'][$tq_mt] ;
-        }                 
-        $focus->noidung->thamquan_mientrung = $THAMQUAN_MIENTRUNG; 
-
-        $focus->noidung->thamquan_tongthanhtien_mientrung = $_POST['thamquan_tongthanhtien_mientrung'];
-        $focus->noidung->thamquan_tongthue_mientrung = $_POST['thamquan_tongthue_mientrung'];
+        $focus->noidung->transfer_south = $_POST['transfer_south'];
+        $focus->noidung->transfer_middle = $_POST['transfer_middle'];
+        $focus->noidung->transfer_north = $_POST['transfer_north'];
         
-        // tham quan ở miền nam
-        $thamquan_miennam = count($_POST['thamquan_name_mn']);
-        for($tq_mn = 0; $tq_mn <$thamquan_miennam; $tq_mn++){
-            $THAMQUAN_MIENNAM[$tq_mn]->thamquan_name_mn = $_POST['thamquan_name_mn'][$tq_mn] ;
-            $THAMQUAN_MIENNAM[$tq_mn]->thamquan_gianguoilon_mn = $_POST['thamquan_gianguoilon_mn'][$tq_mn] ;
-            $THAMQUAN_MIENNAM[$tq_mn]->thamquan_soluongnguoilon_mn = $_POST['thamquan_soluongnguoilon_mn'][$tq_mn] ;
-            $THAMQUAN_MIENNAM[$tq_mn]->thamquan_dongiatreem_mn = $_POST['thamquan_dongiatreem_mn'][$tq_mn] ;
-            $THAMQUAN_MIENNAM[$tq_mn]->thamquan_soluongtreem_mn = $_POST['thamquan_soluongtreem_mn'][$tq_mn] ;
-            $THAMQUAN_MIENNAM[$tq_mn]->thamquan_songay_mn = $_POST['thamquan_songay_mn'][$tq_mn] ;
-            $THAMQUAN_MIENNAM[$tq_mn]->thamquan_foc_mn = $_POST['thamquan_foc_mn'][$tq_mn] ;
-            $THAMQUAN_MIENNAM[$tq_mn]->thamquan_thanhtien_mn = $_POST['thamquan_thanhtien_mn'][$tq_mn] ;
-            $THAMQUAN_MIENNAM[$tq_mn]->thamquan_thuesuat_mn = $_POST['thamquan_thuesuat_mn'][$tq_mn] ;
-            $THAMQUAN_MIENNAM[$tq_mn]->thamquan_vat_mn = $_POST['thamquan_vat_mn'][$tq_mn] ;
-        }                 
-
-        $focus->noidung->thamquan_miennam = $THAMQUAN_MIENNAM; 
+        $focus->noidung->transfer_south_km1 = $_POST['transfer_south_km1'];
+        $focus->noidung->transfer_south_km2 = $_POST['transfer_south_km2'];
+        $focus->noidung->transfer_south_km3 = $_POST['transfer_south_km3'];
+        $focus->noidung->transfer_south_km4 = $_POST['transfer_south_km4'];
+        $focus->noidung->transfer_south_km5 = $_POST['transfer_south_km5'];
+        $focus->noidung->transfer_south_km6 = $_POST['transfer_south_km6'];
         
-        $focus->noidung->thamquan_tongthanhtien_miennam = $_POST['thamquan_tongthanhtien_miennam'];
-        $focus->noidung->thamquan_tongthue_mienam = $_POST['thamquan_tongthue_mienam'];
+        $focus->noidung->transfer_middle_km1 = $_POST['transfer_middle_km1'];
+        $focus->noidung->transfer_middle_km2 = $_POST['transfer_middle_km2'];
+        $focus->noidung->transfer_middle_km3 = $_POST['transfer_middle_km3'];
+        $focus->noidung->transfer_middle_km4 = $_POST['transfer_middle_km4'];
+        $focus->noidung->transfer_middle_km5 = $_POST['transfer_middle_km5'];
+        $focus->noidung->transfer_middle_km6 = $_POST['transfer_middle_km6'];
         
-        // phan chi phi huong dan vien
-        $huongdanvienmb = count($_POST['loaichiphi_cphdv_mb']);
-        for($i=0;$i<$huongdanvienmb;$i++){
-            $HDVMB[$i]->loaichiphi = $_POST['loaichiphi_cphdv_mb'][$i];
-            $HDVMB[$i]->soluong = $_POST['soduong_cphdv_mb'][$i];
-            $HDVMB[$i]->dongia = $_POST['dongia_cphdv_mb'][$i];
-            $HDVMB[$i]->solan = $_POST['solan_cphdv_mb'][$i];
-            $HDVMB[$i]->thanhtien = $_POST['thanhtien_cphdv_mb'][$i];
-            $HDVMB[$i]->thuesuat = $_POST['thuesuat_cphdv_mb'][$i];
-            $HDVMB[$i]->vat = $_POST['vat_cphdv_mb'][$i];
+        $focus->noidung->transfer_north_km1 = $_POST['transfer_north_km1'];
+        $focus->noidung->transfer_north_km2 = $_POST['transfer_north_km2'];
+        $focus->noidung->transfer_north_km3 = $_POST['transfer_north_km3'];
+        $focus->noidung->transfer_north_km4 = $_POST['transfer_north_km4'];
+        $focus->noidung->transfer_north_km5 = $_POST['transfer_north_km5'];
+        $focus->noidung->transfer_north_km6 = $_POST['transfer_north_km6'];
+        
+        $focus->noidung->south_package1 = $_POST['south_package1'];
+        $focus->noidung->south_package2 = $_POST['south_package2'];
+        $focus->noidung->south_package3 = $_POST['south_package3'];
+        $focus->noidung->south_package4 = $_POST['south_package4'];
+        $focus->noidung->south_package5 = $_POST['south_package5'];
+        $focus->noidung->south_package6 = $_POST['south_package6'];
+        
+        $focus->noidung->middle_package1 = $_POST['middle_package1'];
+        $focus->noidung->middle_package2 = $_POST['middle_package2'];
+        $focus->noidung->middle_package3 = $_POST['middle_package3'];
+        $focus->noidung->middle_package4 = $_POST['middle_package4'];
+        $focus->noidung->middle_package5 = $_POST['middle_package5'];
+        $focus->noidung->middle_package6 = $_POST['middle_package6'];
+        
+        $focus->noidung->north_package1 = $_POST['north_package1'];
+        $focus->noidung->north_package2 = $_POST['north_package2'];
+        $focus->noidung->north_package3 = $_POST['north_package3'];
+        $focus->noidung->north_package4 = $_POST['north_package4'];
+        $focus->noidung->north_package5 = $_POST['north_package5'];
+        $focus->noidung->north_package6 = $_POST['north_package6'];
+        
+        $focus->noidung->boat_sum = $_POST['boat_sum'];
+        
+        $focus->noidung->boat1 = $_POST['boat1'];
+        $focus->noidung->boat2 = $_POST['boat2'];
+        $focus->noidung->boat3 = $_POST['boat3'];
+        $focus->noidung->boat4 = $_POST['boat4'];
+        $focus->noidung->boat5 = $_POST['boat5'];
+        $focus->noidung->boat6 = $_POST['boat6'];
+        $focus->noidung->boat7 = $_POST['boat7'];
+        $focus->noidung->boat8 = $_POST['boat8'];
+        $focus->noidung->boat9 = $_POST['boat9'];
+        $focus->noidung->boat10 = $_POST['boat10'];
+        $focus->noidung->boat11 = $_POST['boat11'];
+        $focus->noidung->boat12 = $_POST['boat12'];
+        $focus->noidung->boat13 = $_POST['boat13'];
+        $focus->noidung->boat14 = $_POST['boat14'];
+        $focus->noidung->boat15 = $_POST['boat15'];
+        $focus->noidung->boat16 = $_POST['boat16'];
+        $focus->noidung->boat17 = $_POST['boat17'];
+        $focus->noidung->boat18 = $_POST['boat18'];
+        $focus->noidung->boat19 = $_POST['boat19'];
+        $focus->noidung->boat20 = $_POST['boat20'];
+        $focus->noidung->boat21 = $_POST['boat21'];
+        $focus->noidung->boat22 = $_POST['boat22'];
+        $focus->noidung->boat23 = $_POST['boat23'];
+        $focus->noidung->boat24 = $_POST['boat24'];
+        $focus->noidung->boat25 = $_POST['boat25'];
+        $focus->noidung->boat26 = $_POST['boat26'];
+        $focus->noidung->boat27 = $_POST['boat27'];
+        $focus->noidung->boat28 = $_POST['boat28'];
+        $focus->noidung->boat29 = $_POST['boat29'];
+        $focus->noidung->boat30 = $_POST['boat30'];
+        
+        $boat_count = count($_REQUEST['boat_service']);
+        for($i=0; $i<$boat_count;$i++){
+            $boat[$i]->boat_service = $_REQUEST['boat_service'][$i];
+            $boat[$i]->boat_price = $_REQUEST['boat_price'][$i];
+            $boat[$i]->boat_num = $_REQUEST['boat_num'][$i];
+            $boat[$i]->boat_money = $_REQUEST['boat_money'][$i];
         }
-        $focus->noidung->huongdanvienmb = $HDVMB;
         
-        $huongdanvienmt = count($_POST['loaichiphi_cphdv_mt']);
-        for($i=0;$i<$huongdanvienmt;$i++){
-            $HDVMT[$i]->loaichiphi = $_POST['loaichiphi_cphdv_mt'][$i];
-            $HDVMT[$i]->soluong = $_POST['soduong_cphdv_mt'][$i];
-            $HDVMT[$i]->dongia = $_POST['dongia_cphdv_mt'][$i];
-            $HDVMT[$i]->solan = $_POST['solan_cphdv_mt'][$i];
-            $HDVMT[$i]->thanhtien = $_POST['thanhtien_cphdv_mt'][$i];
-            $HDVMT[$i]->thuesuat = $_POST['thuesuat_cphdv_mt'][$i];
-            $HDVMT[$i]->vat = $_POST['vat_cphdv_mt'][$i];
+        $focus->noidung->boat = $boat;
+        
+        $focus->noidung->guide_sum = $_POST['guide_sum'];
+        $focus->noidung->guide1 = $_POST['guide1'];
+        $focus->noidung->guide2 = $_POST['guide2'];
+        $focus->noidung->guide3 = $_POST['guide3'];
+        $focus->noidung->guide4 = $_POST['guide4'];
+        $focus->noidung->guide5 = $_POST['guide5'];
+        $focus->noidung->guide6 = $_POST['guide6'];
+        $focus->noidung->guide7 = $_POST['guide7'];
+        $focus->noidung->guide8 = $_POST['guide8'];
+        $focus->noidung->guide9 = $_POST['guide9'];
+        $focus->noidung->guide10 = $_POST['guide10'];
+        $focus->noidung->guide11 = $_POST['guide11'];
+        $focus->noidung->guide12 = $_POST['guide12'];
+        $focus->noidung->guide13 = $_POST['guide13'];
+        $focus->noidung->guide14 = $_POST['guide14'];
+        $focus->noidung->guide15 = $_POST['guide15'];
+       
+        $focus->noidung->guide_south_price = $_POST['guide_south_price'];
+        $focus->noidung->guide_south_num = $_POST['guide_south_num'];
+        $focus->noidung->guide_south_money = $_POST['guide_south_money'];
+        $focus->noidung->guide_middle_price = $_POST['guide_middle_price'];
+        $focus->noidung->guide_middle_num = $_POST['guide_middle_num'];
+        $focus->noidung->guide_middle_money = $_POST['guide_middle_money'];
+        $focus->noidung->guide_north_price = $_POST['guide_north_price'];
+        $focus->noidung->guide_north_num = $_POST['guide_north_num'];
+        $focus->noidung->guide_north_money = $_POST['guide_north_money'];
+        
+        $focus->noidung->group_sum = $_POST['group_sum'];
+        $focus->noidung->group1 = $_POST['group1'];
+        $focus->noidung->group2 = $_POST['group2'];
+        $focus->noidung->group3 = $_POST['group3'];
+        $focus->noidung->group4 = $_POST['group4'];
+        $focus->noidung->group5 = $_POST['group5'];
+        $focus->noidung->group6 = $_POST['group6'];
+        $focus->noidung->group7 = $_POST['group7'];
+        $focus->noidung->group8 = $_POST['group8'];
+        $focus->noidung->group9 = $_POST['group9'];
+        $focus->noidung->group10 = $_POST['group10'];
+        $focus->noidung->group11 = $_POST['group11'];
+        $focus->noidung->group12 = $_POST['group12'];
+        $focus->noidung->group13 = $_POST['group13'];
+        $focus->noidung->group14 = $_POST['group14'];
+        $focus->noidung->group15 = $_POST['group15'];
+        $focus->noidung->group16 = $_POST['group16'];
+        $focus->noidung->group17 = $_POST['group17'];
+        $focus->noidung->group18 = $_POST['group18'];
+        $focus->noidung->group19 = $_POST['group19'];
+        $focus->noidung->group20 = $_POST['group20'];
+        $focus->noidung->group21 = $_POST['group21'];
+        $focus->noidung->group22 = $_POST['group22'];
+        $focus->noidung->group23 = $_POST['group23'];
+        $focus->noidung->group24 = $_POST['group24'];
+        $focus->noidung->group25 = $_POST['group25'];
+        $focus->noidung->group26 = $_POST['group26'];
+        $focus->noidung->group27 = $_POST['group27'];
+        $focus->noidung->group28 = $_POST['group28'];
+        $focus->noidung->group29 = $_POST['group29'];
+        $focus->noidung->group30 = $_POST['group30'];
+        
+        $group1_count = count($_POST['group1_service']);
+        
+        for($i = 0; $i<$group1_count; $i++){
+            $group1_fit[$i]->group1_service = $_POST['group1_service'][$i];
+            $group1_fit[$i]->group1_price = $_POST['group1_price'][$i];
+            $group1_fit[$i]->group1_num = $_POST['group1_num'][$i];
+            $group1_fit[$i]->group1_money = $_POST['group1_money'][$i];
         }
-        $focus->noidung->huongdanvienmt = $HDVMT;
         
-        $huongdanvienmn = count($_POST['loaichiphi_cphdv_mn']);
-        for($i=0;$i<$huongdanvienmn;$i++){
-            $HDVMN[$i]->loaichiphi = $_POST['loaichiphi_cphdv_mn'][$i];
-            $HDVMN[$i]->soluong = $_POST['soluong_cphdv_mn'][$i];
-            $HDVMN[$i]->dongia = $_POST['dongia_cphdv_mn'][$i];
-            $HDVMN[$i]->solan = $_POST['solan_cphdv_mn'][$i];
-            $HDVMN[$i]->thanhtien = $_POST['thanhtien_cphdv_mn'][$i];
-            $HDVMN[$i]->thuesuat = $_POST['thuesuat_cphdv_mn'][$i];
-            $HDVMN[$i]->vat = $_POST['vat_cphdv_mn'][$i];
+        $focus->noidung->group1_fit = $group1_fit;
+        
+        $group2_count = count($_POST['group2_price']);
+        
+        for($i = 0; $i<$group2_count; $i++){
+            $group2_fit[$i]->group2_service = $_POST['group2_service'][$i];
+            $group2_fit[$i]->group2_price = $_POST['group2_price'][$i];
+            $group2_fit[$i]->group2_num = $_POST['group2_num'][$i];
+            $group2_fit[$i]->group2_money = $_POST['group2_money'][$i];
         }
-        $focus->noidung->huongdanvienmn = $HDVMN;
         
-        $focus->noidung->tongchi_hvd = $_POST['tongchi_hvd'];
-        $focus->noidung->tongthue_hvd = $_POST['tongthue_hvd'];
-        $focus->noidung->tongchi_hvd_mb = $_POST['tongchi_hvd_mb'];
-        $focus->noidung->tongthue_hvd_mb = $_POST['tongthue_hvd_mb'];
-        $focus->noidung->tongchi_hvd_mt = $_POST['tongchi_hvd_mt'];
-        $focus->noidung->tongthue_hvd_mt = $_POST['tongthue_hvd_mt'];
-        $focus->noidung->tongchi_hvd_mn = $_POST['tongchi_hvd_mn'];
-        $focus->noidung->tongthue_hvd_mn = $_POST['tongthue_hvd_mn'];
+        $focus->noidung->group2_fit = $group2_fit;
         
+        $focus->noidung->entrance_sum = $_POST['entrance_sum'];
+        $focus->noidung->entrance1 = $_POST['entrance1'];
+        $focus->noidung->entrance2 = $_POST['entrance2'];
+        $focus->noidung->entrance3 = $_POST['entrance3'];
+        $focus->noidung->entrance4 = $_POST['entrance4'];
+        $focus->noidung->entrance5 = $_POST['entrance5'];
+        $focus->noidung->entrance6 = $_POST['entrance6'];
+        $focus->noidung->entrance7 = $_POST['entrance7'];
+        $focus->noidung->entrance8 = $_POST['entrance8'];
+        $focus->noidung->entrance9 = $_POST['entrance9'];
+        $focus->noidung->entrance10 = $_POST['entrance10'];
+        $focus->noidung->entrance11 = $_POST['entrance11'];
+        $focus->noidung->entrance12 = $_POST['entrance12'];
+        $focus->noidung->entrance13 = $_POST['entrance13'];
+        $focus->noidung->entrance14 = $_POST['entrance14'];
+        $focus->noidung->entrance15 = $_POST['entrance15'];
+        $focus->noidung->entrance16 = $_POST['entrance16'];
+        $focus->noidung->entrance17 = $_POST['entrance17'];
+        $focus->noidung->entrance18 = $_POST['entrance18'];
+        $focus->noidung->entrance19 = $_POST['entrance19'];
+        $focus->noidung->entrance20 = $_POST['entrance20'];
+        $focus->noidung->entrance21 = $_POST['entrance21'];
+        $focus->noidung->entrance22 = $_POST['entrance22'];
+        $focus->noidung->entrance23 = $_POST['entrance23'];
+        $focus->noidung->entrance24 = $_POST['entrance24'];
+        $focus->noidung->entrance25 = $_POST['entrance25'];
+        $focus->noidung->entrance26 = $_POST['entrance26'];
+        $focus->noidung->entrance27 = $_POST['entrance27'];
+        $focus->noidung->entrance28 = $_POST['entrance28'];
+        $focus->noidung->entrance29 = $_POST['entrance29'];
+        $focus->noidung->entrance30 = $_POST['entrance30'];
         
-        // lưu trữ thông tin chi phí khác
+        $entrance_count = count($_POST['entrance_service']);
         
-        $chiphikhac = count($_POST['chiphikhac_loaidichvu']);
-        for($i=0;$i<$chiphikhac;$i++){
-            $CHIPHIKHAC[$i]->chiphikhac_loaidichvu = $_POST['chiphikhac_loaidichvu'][$i];
-            $CHIPHIKHAC[$i]->chiphikhac_soluong = $_POST['chiphikhac_soluong'][$i];
-            $CHIPHIKHAC[$i]->chiphikhac_dongia = $_POST['chiphikhac_dongia'][$i];
-            $CHIPHIKHAC[$i]->chiphikhac_foc = $_POST['chiphikhac_foc'][$i];
-            $CHIPHIKHAC[$i]->chiphikhac_thanhtien = $_POST['chiphikhac_thanhtien'][$i];
-            $CHIPHIKHAC[$i]->chiphikhac_thuesuat = $_POST['chiphikhac_thuesuat'][$i];
-            $CHIPHIKHAC[$i]->chiphikhac_vat = $_POST['chiphikhac_vat'][$i];
+        for($i=0; $i<$entrance_count; $i++){
+            $entrance[$i]->entrance_service = $_POST['entrance_service'][$i];
+            $entrance[$i]->entrance_price = $_POST['entrance_price'][$i];
+            $entrance[$i]->entrance_num = $_POST['entrance_num'][$i];
+            $entrance[$i]->entrance_money = $_POST['entrance_money'][$i];
         }
-        $focus->noidung->chiphikhac =  $CHIPHIKHAC;
-        $focus->noidung->chiphikhac_tongcong =  $_POST['chiphikhac_tongcong'];
-        $focus->noidung->chiphikhac_tongthue =  $_POST['chiphikhac_tongthue'];
         
-
-        // lưu trữ thông tin giá bán 
-        // Giá bán có VMB/Tàu Hỏa
-        // giá người lớn
-        $focus->noidung->sl_khach_nl_1 = $_POST['sl_khach_nl_1'];
-        $focus->noidung->dg_khach_nl_1 = $_POST['dg_khach_nl_1'];
-        $focus->noidung->foc_khach_nl_1 = $_POST['foc_khach_nl_1'];
-        $focus->noidung->tt_khach_nl_1 = $_POST['tt_khach_nl_1'];
-        $focus->noidung->ts_khach_nl_1 = $_POST['ts_khach_nl_1'];
-        $focus->noidung->thue_khach_nl_1 = $_POST['thue_khach_nl_1'];
-
-        // giá trẻ em
-        $focus->noidung->thue_khach_nl_1 = $_POST['thue_khach_nl_1'];
-        $focus->noidung->sl_treem_1 = $_POST['sl_treem_1'];
-        $focus->noidung->dg_treem_1 = $_POST['dg_treem_1'];
-        $focus->noidung->foc_treem_1 = $_POST['foc_treem_1'];
-        $focus->noidung->tt_treem_1 = $_POST['tt_treem_1'];
-        $focus->noidung->ts_treem_1 = $_POST['ts_treem_1'];
-        $focus->noidung->thue_treem_1 = $_POST['thue_treem_1'];
-
-        // phụ phòng đơn
-
-        $focus->noidung->sl_phuthuphongdon_1 = $_POST['sl_phuthuphongdon_1'];
-        $focus->noidung->dg_phuthuphongdon_1 = $_POST['dg_phuthuphongdon_1'];
-        $focus->noidung->foc_phuthuphongdon_1 = $_POST['foc_phuthuphongdon_1'];
-        $focus->noidung->tt_phuthuphongdon_1 = $_POST['tt_phuthuphongdon_1'];
-        $focus->noidung->ts_phuthuphongdon_1 = $_POST['ts_phuthuphongdon_1'];
-        $focus->noidung->thue_phuthuphongdon_1 = $_POST['thue_phuthuphongdon_1'];
-
-        // phụ thu khác
-        $focus->noidung->sl_phuthukhac_1 = $_POST['sl_phuthukhac_1']; 
-        $focus->noidung->dg_phuthukhac_1 = $_POST['dg_phuthukhac_1']; 
-        $focus->noidung->foc_phuthukhac_1 = $_POST['foc_phuthukhac_1']; 
-        $focus->noidung->tt_phuthukhac_1 = $_POST['tt_phuthukhac_1']; 
-        $focus->noidung->ts_phuthukhac_1 = $_POST['ts_phuthukhac_1']; 
-        $focus->noidung->thue_phuthukhac_1 = $_POST['thue_phuthukhac_1']; 
-
-        // Giá bán không có VMB/Tàu hỏa
-        // giá bán người lớn
-        $focus->noidung->sl_khach_nl_2 = $_POST['sl_khach_nl_2'];
-        $focus->noidung->dg_khach_nl_2 = $_POST['dg_khach_nl_2'];
-        $focus->noidung->foc_khach_nl_2 = $_POST['foc_khach_nl_2'];
-        $focus->noidung->tt_khach_nl_2 = $_POST['tt_khach_nl_2'];
-        $focus->noidung->ts_khach_nl_2 = $_POST['ts_khach_nl_2'];
-        $focus->noidung->thue_khach_nl_2 = $_POST['thue_khach_nl_2'];
-
-        // giá bán trẻ em
-        $focus->noidung->sl_treem_2 = $_POST['sl_treem_2'];  
-        $focus->noidung->dg_treem_2 = $_POST['dg_treem_2'];  
-        $focus->noidung->foc_treem_2 = $_POST['foc_treem_2'];  
-        $focus->noidung->tt_treem_2 = $_POST['tt_treem_2'];  
-        $focus->noidung->ts_treem_2 = $_POST['ts_treem_2'];  
-        $focus->noidung->thue_treem_2 = $_POST['thue_treem_2'];
-
-        // phụ thu phòng đơn
-        $focus->noidung->sl_phuthuphongdon_2 = $_POST['sl_phuthuphongdon_2'];
-        $focus->noidung->dg_phuthuphongdon_2 = $_POST['dg_phuthuphongdon_2'];
-        $focus->noidung->foc_phuthuphongdon_2 = $_POST['foc_phuthuphongdon_2'];
-        $focus->noidung->tt_phuthuphongdon_2 = $_POST['tt_phuthuphongdon_2'];
-        $focus->noidung->ts_phuthuphongdon_2 = $_POST['ts_phuthuphongdon_2'];
-        $focus->noidung->thue_phuthuphongdon_2 = $_POST['thue_phuthuphongdon_2'];
-
-        // phụ thu khác
-        $focus->noidung->sl_phuthukhac_2 = $_POST['sl_phuthukhac_2']; 
-        $focus->noidung->dg_phuthukhac_2 = $_POST['dg_phuthukhac_2']; 
-        $focus->noidung->foc_phuthukhac_2 = $_POST['foc_phuthukhac_2']; 
-        $focus->noidung->tt_phuthukhac_2 = $_POST['tt_phuthukhac_2']; 
-        $focus->noidung->ts_phuthukhac_2 = $_POST['ts_phuthukhac_2']; 
-        $focus->noidung->thue_phuthukhac_2 = $_POST['thue_phuthukhac_2'];  
+        $focus->noidung->entrance = $entrance;
         
-        // chế độ miễn phí FOC
-        $focus->noidung->foc_option = $_POST['foc_option'];
-        $focus->noidung->sl_foc_16 = $_POST['sl_foc_16'];
-        $focus->noidung->dg_foc_16 = $_POST['dg_foc_16'];
-        $focus->noidung->foc_foc_16 = $_POST['foc_foc_16'];
-        $focus->noidung->tt_foc_16 = $_POST['tt_foc_16'];
-        $focus->noidung->ts_foc_16 = $_POST['ts_foc_16'];
-        $focus->noidung->thue_foc_16 = $_POST['thue_foc_16'];
+        $focus->noidung->ticket_sum = $_POST['ticket_sum'];
+        $focus->noidung->ticket1 = $_POST['ticket1'];
+        $focus->noidung->ticket2 = $_POST['ticket2'];
+        $focus->noidung->ticket3 = $_POST['ticket3'];
+        $focus->noidung->ticket4 = $_POST['ticket4'];
+        $focus->noidung->ticket5 = $_POST['ticket5'];
+        $focus->noidung->ticket6 = $_POST['ticket6'];
+        $focus->noidung->ticket7 = $_POST['ticket7'];
+        $focus->noidung->ticket8 = $_POST['ticket8'];
+        $focus->noidung->ticket9 = $_POST['ticket9'];
+        $focus->noidung->ticket10 = $_POST['ticket10'];
+        $focus->noidung->ticket11 = $_POST['ticket11'];
+        $focus->noidung->ticket12 = $_POST['ticket12'];
+        $focus->noidung->ticket13 = $_POST['ticket13'];
+        $focus->noidung->ticket14 = $_POST['ticket14'];
+        $focus->noidung->ticket15 = $_POST['ticket15'];
         
+        $ticket_count = count($_POST['tickets_service']);
+        for($i = 0 ; $i<$ticket_count; $i++){
+            $ticket[$i]->tickets_service = $_POST['tickets_service'][$i];
+            $ticket[$i]->tickets_price = $_POST['tickets_price'][$i];
+            $ticket[$i]->tickets_num = $_POST['tickets_num'][$i];
+            $ticket[$i]->tickets_money = $_POST['tickets_money'][$i];
+        }
+        
+        $focus->noidung->ticket = $ticket;
          
+         $focus->noidung->fit_sum = $_POST['fit_sum'];
+         $focus->noidung->fit1 = $_POST['fit1'];
+         $focus->noidung->fit2 = $_POST['fit2'];
+         $focus->noidung->fit3 = $_POST['fit3'];
+         $focus->noidung->fit4 = $_POST['fit4'];
+         $focus->noidung->fit5 = $_POST['fit5'];
+         $focus->noidung->fit6 = $_POST['fit6'];
+         $focus->noidung->fit7 = $_POST['fit7'];
+         $focus->noidung->fit8 = $_POST['fit8'];
+         $focus->noidung->fit9 = $_POST['fit9'];
+         $focus->noidung->fit10 = $_POST['fit10'];
+         $focus->noidung->fit11 = $_POST['fit11'];
+         $focus->noidung->fit12 = $_POST['fit12'];
+         $focus->noidung->fit13 = $_POST['fit13'];
+         $focus->noidung->fit14 = $_POST['fit14'];
+         $focus->noidung->fit15 = $_POST['fit15'];
+         $focus->noidung->fit16 = $_POST['fit16'];
+         $focus->noidung->fit17 = $_POST['fit17'];
+         $focus->noidung->fit18 = $_POST['fit18'];
+         $focus->noidung->fit19 = $_POST['fit19'];
+         $focus->noidung->fit20 = $_POST['fit20'];
+         $focus->noidung->fit21 = $_POST['fit21'];
+         $focus->noidung->fit22 = $_POST['fit22'];
+         $focus->noidung->fit23 = $_POST['fit23'];
+         $focus->noidung->fit24 = $_POST['fit24'];
+         $focus->noidung->fit25 = $_POST['fit25'];
+         $focus->noidung->fit26 = $_POST['fit26'];
+         $focus->noidung->fit27 = $_POST['fit27'];
+         $focus->noidung->fit28 = $_POST['fit28'];
+         $focus->noidung->fit29 = $_POST['fit29'];
+         $focus->noidung->fit30 = $_POST['fit30'];
+         
+         $fit1_count = count($_POST['fit1_service']);
+         for($i = 0; $i<$fit1_count; $i++){
+            $fit1_line[$i]->fit1_service = $_POST['fit1_service'][$i];
+            $fit1_line[$i]->fit1_price = $_POST['fit1_price'][$i];
+            $fit1_line[$i]->fit1_num = $_POST['fit1_num'][$i];
+            $fit1_line[$i]->fit1_money = $_POST['fit1_money'][$i];
+         }
+         
+         $focus->noidung->fit1_line = $fit1_line;
+         
+         $fit2_count = count($_POST['fit2_service']);
+         for($i = 0; $i<$fit2_count; $i++){
+            $fit2_line[$i]->fit2_service = $_POST['fit2_service'][$i];
+            $fit2_line[$i]->fit2_price = $_POST['fit2_price'][$i];
+            $fit2_line[$i]->fit2_num = $_POST['fit2_num'][$i];
+            $fit2_line[$i]->fit2_money = $_POST['fit2_money'][$i];
+         }
+         
+         $focus->noidung->fit2_line = $fit2_line;
+        
+        $focus->noidung->meal1_sum = $_POST['meal1_sum'];
+        $focus->noidung->meal1_1 = $_POST['meal1_1'];
+        $focus->noidung->meal1_2 = $_POST['meal1_2'];
+        $focus->noidung->meal1_3 = $_POST['meal1_3'];
+        $focus->noidung->meal1_4 = $_POST['meal1_4'];
+        $focus->noidung->meal1_5 = $_POST['meal1_5'];
+        $focus->noidung->meal1_6 = $_POST['meal1_6'];
+        $focus->noidung->meal1_7 = $_POST['meal1_7'];
+        $focus->noidung->meal1_8 = $_POST['meal1_8'];
+        $focus->noidung->meal1_9 = $_POST['meal1_9'];
+        $focus->noidung->meal1_10 = $_POST['meal1_10'];
+        $focus->noidung->meal1_11 = $_POST['meal1_11'];
+        $focus->noidung->meal1_12 = $_POST['meal1_12'];
+        $focus->noidung->meal1_13 = $_POST['meal1_13'];
+        $focus->noidung->meal1_14 = $_POST['meal1_14'];
+        $focus->noidung->meal1_15 = $_POST['meal1_15'];
+        $focus->noidung->meal1_16 = $_POST['meal1_16'];
+        $focus->noidung->meal1_17 = $_POST['meal1_17'];
+        $focus->noidung->meal1_18 = $_POST['meal1_18'];
+        $focus->noidung->meal1_19 = $_POST['meal1_19'];
+        $focus->noidung->meal1_20 = $_POST['meal1_20'];
+        $focus->noidung->meal1_21 = $_POST['meal1_21'];
+        $focus->noidung->meal1_22 = $_POST['meal1_22'];
+        $focus->noidung->meal1_23 = $_POST['meal1_23'];
+        $focus->noidung->meal1_24 = $_POST['meal1_24'];
+        $focus->noidung->meal1_25 = $_POST['meal1_25'];
+        $focus->noidung->meal1_26 = $_POST['meal1_26'];
+        $focus->noidung->meal1_27 = $_POST['meal1_27'];
+        $focus->noidung->meal1_28 = $_POST['meal1_28'];
+        $focus->noidung->meal1_29 = $_POST['meal1_29'];
+        $focus->noidung->meal1_30 = $_POST['meal1_30'];
+        
+        $focus->noidung->meal1_south_sum = $_POST['meal1_south_sum'];
+        $focus->noidung->meal1_south1 = $_POST['meal1_south1'];
+        $focus->noidung->meal1_south2 = $_POST['meal1_south2'];
+        $focus->noidung->meal1_south3 = $_POST['meal1_south3'];
+        $focus->noidung->meal1_south4 = $_POST['meal1_south4'];
+        $focus->noidung->meal1_south5 = $_POST['meal1_south5'];
+        $focus->noidung->meal1_south6 = $_POST['meal1_south6'];
+        $focus->noidung->meal1_south7 = $_POST['meal1_south7'];
+        $focus->noidung->meal1_south8 = $_POST['meal1_south8'];
+        $focus->noidung->meal1_south9 = $_POST['meal1_south9'];
+        $focus->noidung->meal1_south10 = $_POST['meal1_south10'];
+        $focus->noidung->meal1_south11 = $_POST['meal1_south11'];
+        $focus->noidung->meal1_south12 = $_POST['meal1_south12'];
+        $focus->noidung->meal1_south13 = $_POST['meal1_south13'];
+        $focus->noidung->meal1_south14 = $_POST['meal1_south14'];
+        $focus->noidung->meal1_south15 = $_POST['meal1_south15'];
+        $focus->noidung->meal1_south16 = $_POST['meal1_south16'];
+        $focus->noidung->meal1_south17 = $_POST['meal1_south17'];
+        $focus->noidung->meal1_south18 = $_POST['meal1_south18'];
+        $focus->noidung->meal1_south19 = $_POST['meal1_south19'];
+        $focus->noidung->meal1_south20 = $_POST['meal1_south20'];
+        $focus->noidung->meal1_south21 = $_POST['meal1_south21'];
+        $focus->noidung->meal1_south22 = $_POST['meal1_south22'];
+        $focus->noidung->meal1_south23 = $_POST['meal1_south23'];
+        $focus->noidung->meal1_south24 = $_POST['meal1_south24'];
+        $focus->noidung->meal1_south25 = $_POST['meal1_south25'];
+        $focus->noidung->meal1_south26 = $_POST['meal1_south26'];
+        $focus->noidung->meal1_south27 = $_POST['meal1_south27'];
+        $focus->noidung->meal1_south28 = $_POST['meal1_south28'];
+        $focus->noidung->meal1_south29 = $_POST['meal1_south29'];
+        $focus->noidung->meal1_south30 = $_POST['meal1_south30'];
+        
+        $focus->noidung->meal1_south_breakfirst_price = $_POST['meal1_south_breakfirst_price'];
+        $focus->noidung->meal1_south_breakfirst_num = $_POST['meal1_south_breakfirst_num'];
+        $focus->noidung->meal1_south_breakfirst_money = $_POST['meal1_south_breakfirst_money'];
+        $focus->noidung->meal1_south_lunch_price = $_POST['meal1_south_lunch_price'];
+        $focus->noidung->meal1_south_lunch_num = $_POST['meal1_south_lunch_num'];
+        $focus->noidung->meal1_south_lunch_money = $_POST['meal1_south_lunch_money'];
+        $focus->noidung->meal1_south_dinner_price = $_POST['meal1_south_dinner_price'];
+        $focus->noidung->meal1_south_dinner_num = $_POST['meal1_south_dinner_num'];
+        $focus->noidung->meal1_south_dinner_money = $_POST['meal1_south_dinner_money'];
+        $focus->noidung->meal1_south_other_price = $_POST['meal1_south_other_price'];
+        $focus->noidung->meal1_south_other_num = $_POST['meal1_south_other_num'];
+        $focus->noidung->meal1_south_other_money = $_POST['meal1_south_other_money'];
+        
+        $focus->noidung->meal1_miidle_sum = $_POST['meal1_miidle_sum'];
+        $focus->noidung->meal1_middle1 = $_POST['meal1_middle1'];
+        $focus->noidung->meal1_middle2 = $_POST['meal1_middle1'];
+        $focus->noidung->meal1_middle3 = $_POST['meal1_middle1'];
+        $focus->noidung->meal1_middle4 = $_POST['meal1_middle1'];
+        $focus->noidung->meal1_middle5 = $_POST['meal1_middle1'];
+        $focus->noidung->meal1_middle6 = $_POST['meal1_middle1'];
+        $focus->noidung->meal1_middle7 = $_POST['meal1_middle1'];
+        $focus->noidung->meal1_middle8 = $_POST['meal1_middle1'];
+        $focus->noidung->meal1_middle9 = $_POST['meal1_middle1'];
+        $focus->noidung->meal1_middle10 = $_POST['meal1_middle10'];
+        $focus->noidung->meal1_middle11 = $_POST['meal1_middle11'];
+        $focus->noidung->meal1_middle12 = $_POST['meal1_middle12'];
+        $focus->noidung->meal1_middle13 = $_POST['meal1_middle13'];
+        $focus->noidung->meal1_middle14 = $_POST['meal1_middle14'];
+        $focus->noidung->meal1_middle15 = $_POST['meal1_middle15'];
+        $focus->noidung->meal1_middle16 = $_POST['meal1_middle16'];
+        $focus->noidung->meal1_middle17 = $_POST['meal1_middle17'];
+        $focus->noidung->meal1_middle18 = $_POST['meal1_middle18'];
+        $focus->noidung->meal1_middle19 = $_POST['meal1_middle19'];
+        $focus->noidung->meal1_middle20 = $_POST['meal1_middle20'];
+        $focus->noidung->meal1_middle21 = $_POST['meal1_middle21'];
+        $focus->noidung->meal1_middle22 = $_POST['meal1_middle22'];
+        $focus->noidung->meal1_middle23 = $_POST['meal1_middle23'];
+        $focus->noidung->meal1_middle24 = $_POST['meal1_middle24'];
+        $focus->noidung->meal1_middle25 = $_POST['meal1_middle25'];
+        $focus->noidung->meal1_middle26 = $_POST['meal1_middle26'];
+        $focus->noidung->meal1_middle27 = $_POST['meal1_middle27'];
+        $focus->noidung->meal1_middle28 = $_POST['meal1_middle28'];
+        $focus->noidung->meal1_middle29 = $_POST['meal1_middle29'];
+        $focus->noidung->meal1_middle30 = $_POST['meal1_middle30'];
+        
+        $focus->noidung->meal1_middle_breakfirst_price = $_POST['meal1_middle_breakfirst_price'];
+        $focus->noidung->meal1_middle_breakfirst_num = $_POST['meal1_middle_breakfirst_num'];
+        $focus->noidung->meal1_middle_breakfirst_money = $_POST['meal1_middle_breakfirst_money'];
+        $focus->noidung->meal1_middle_lunch_price = $_POST['meal1_middle_lunch_price'];
+        $focus->noidung->meal1_middle_lunch_num = $_POST['meal1_middle_lunch_num'];
+        $focus->noidung->meal1_middle_lunch_money = $_POST['meal1_middle_lunch_money'];
+        $focus->noidung->meal1_middle_dinner_price = $_POST['meal1_middle_dinner_price'];
+        $focus->noidung->meal1_middle_dinner_num = $_POST['meal1_middle_dinner_num'];
+        $focus->noidung->meal1_middle_dinner_money = $_POST['meal1_middle_dinner_money'];
+        $focus->noidung->meal1_middle_other_price = $_POST['meal1_middle_other_price'];
+        $focus->noidung->meal1_middle_other_num = $_POST['meal1_middle_other_num'];
+        $focus->noidung->meal1_middle_other_money = $_POST['meal1_middle_other_money'];
+        
+        $focus->noidung->meal1_north_sum = $_POST['meal1_north_sum'];
+        $focus->noidung->meal1_north1 = $_POST['meal1_north1'];
+        $focus->noidung->meal1_north2 = $_POST['meal1_north2'];
+        $focus->noidung->meal1_north3 = $_POST['meal1_north3'];
+        $focus->noidung->meal1_north4 = $_POST['meal1_north4'];
+        $focus->noidung->meal1_north5 = $_POST['meal1_north5'];
+        $focus->noidung->meal1_north6 = $_POST['meal1_north6'];
+        $focus->noidung->meal1_north7 = $_POST['meal1_north7'];
+        $focus->noidung->meal1_north8 = $_POST['meal1_north8'];
+        $focus->noidung->meal1_north9 = $_POST['meal1_north9'];
+        $focus->noidung->meal1_north10 = $_POST['meal1_north10'];
+        $focus->noidung->meal1_north11 = $_POST['meal1_north11'];
+        $focus->noidung->meal1_north12 = $_POST['meal1_north12'];
+        $focus->noidung->meal1_north13 = $_POST['meal1_north13'];
+        $focus->noidung->meal1_north14 = $_POST['meal1_north14'];
+        $focus->noidung->meal1_north15 = $_POST['meal1_north15'];
+        $focus->noidung->meal1_north16 = $_POST['meal1_north16'];
+        $focus->noidung->meal1_north17 = $_POST['meal1_north17'];
+        $focus->noidung->meal1_north18 = $_POST['meal1_north18'];
+        $focus->noidung->meal1_north19 = $_POST['meal1_north19'];
+        $focus->noidung->meal1_north20 = $_POST['meal1_north20'];
+        $focus->noidung->meal1_north21 = $_POST['meal1_north21'];
+        $focus->noidung->meal1_north22 = $_POST['meal1_north22'];
+        $focus->noidung->meal1_north23 = $_POST['meal1_north23'];
+        $focus->noidung->meal1_north24 = $_POST['meal1_north24'];
+        $focus->noidung->meal1_north25 = $_POST['meal1_north25'];
+        $focus->noidung->meal1_north26 = $_POST['meal1_north26'];
+        $focus->noidung->meal1_north27 = $_POST['meal1_north27'];
+        $focus->noidung->meal1_north28 = $_POST['meal1_north28'];
+        $focus->noidung->meal1_north29 = $_POST['meal1_north29'];
+        $focus->noidung->meal1_north30 = $_POST['meal1_north30'];
+        
+        $focus->noidung->meal1_north_breakfirst_price = $_POST['meal1_north_breakfirst_price'];
+        $focus->noidung->meal1_north_breakfirst_num = $_POST['meal1_north_breakfirst_num'];
+        $focus->noidung->meal1_north_breakfirst_money = $_POST['meal1_north_breakfirst_money'];
+        $focus->noidung->meal1_north_lunch_price = $_POST['meal1_north_lunch_price'];
+        $focus->noidung->meal1_north_lunch_num = $_POST['meal1_north_lunch_num'];
+        $focus->noidung->meal1_north_lunch_money = $_POST['meal1_north_lunch_money'];
+        $focus->noidung->meal1_north_dinner_price = $_POST['meal1_north_dinner_price'];
+        $focus->noidung->meal1_north_dinner_num = $_POST['meal1_north_dinner_num'];
+        $focus->noidung->meal1_north_dinner_money = $_POST['meal1_north_dinner_money'];
+        $focus->noidung->meal1_north_other_price = $_POST['meal1_north_other_price'];
+        $focus->noidung->meal1_north_other_num = $_POST['meal1_north_other_num'];
+        $focus->noidung->meal1_north_other_money = $_POST['meal1_north_other_money'];
+        
+        
+        $focus->noidung->hotel1_sum = $_POST['hotel1_sum'];
+        $focus->noidung->hotel1_1 = $_POST['hotel1_1'];
+        $focus->noidung->hotel1_2 = $_POST['hotel1_2'];
+        $focus->noidung->hotel1_3 = $_POST['hotel1_3'];
+        $focus->noidung->hotel1_4 = $_POST['hotel1_4'];
+        $focus->noidung->hotel1_5 = $_POST['hotel1_5'];
+        $focus->noidung->hotel1_6 = $_POST['hotel1_6'];
+        $focus->noidung->hotel1_7 = $_POST['hotel1_7'];
+        $focus->noidung->hotel1_8 = $_POST['hotel1_8'];
+        $focus->noidung->hotel1_9 = $_POST['hotel1_9'];
+        $focus->noidung->hotel1_10 = $_POST['hotel1_10'];
+        $focus->noidung->hotel1_11 = $_POST['hotel1_11'];
+        $focus->noidung->hotel1_12 = $_POST['hotel1_12'];
+        $focus->noidung->hotel1_13 = $_POST['hotel1_13'];
+        $focus->noidung->hotel1_14 = $_POST['hotel1_14'];
+        $focus->noidung->hotel1_15 = $_POST['hotel1_15'];
+        $focus->noidung->hotel1_16 = $_POST['hotel1_16'];
+        $focus->noidung->hotel1_17 = $_POST['hotel1_17'];
+        $focus->noidung->hotel1_18 = $_POST['hotel1_18'];
+        $focus->noidung->hotel1_19 = $_POST['hotel1_19'];
+        $focus->noidung->hotel1_20 = $_POST['hotel1_20'];
+        $focus->noidung->hotel1_21 = $_POST['hotel1_21'];
+        $focus->noidung->hotel1_22 = $_POST['hotel1_22'];
+        $focus->noidung->hotel1_23 = $_POST['hotel1_23'];
+        $focus->noidung->hotel1_24 = $_POST['hotel1_24'];
+        $focus->noidung->hotel1_25 = $_POST['hotel1_25'];
+        $focus->noidung->hotel1_26 = $_POST['hotel1_26'];
+        $focus->noidung->hotel1_27 = $_POST['hotel1_27'];
+        $focus->noidung->hotel1_28 = $_POST['hotel1_28'];
+        $focus->noidung->hotel1_29 = $_POST['hotel1_29'];
+        $focus->noidung->hotel1_30 = $_POST['hotel1_30'];
+        
+        $hotel1_count = count($_POST['hotel1_service']);
+        for($i = 0; $i<$hotel1_count; $i++){
+            $hotel1[$i]->hotel1_service = $_POST['hotel1_service'][$i];
+            $hotel1[$i]->hotel1_price = $_POST['hotel1_price'][$i];
+            $hotel1[$i]->hotel1_num = $_POST['hotel1_num'][$i];
+            $hotel1[$i]->hotel1_money = $_POST['hotel1_money'][$i];
+        }
+        
+        $focus->noidung->hotel1 = $hotel1;
+        
+        $focus->noidung->foc1_21 = $_POST['foc1_21'];
+        $focus->noidung->foc1_22 = $_POST['foc1_22'];
+        $focus->noidung->foc1_23 = $_POST['foc1_23'];
+        $focus->noidung->foc1_24 = $_POST['foc1_24'];
+        $focus->noidung->foc1_25 = $_POST['foc1_25'];
+        $focus->noidung->foc1_26 = $_POST['foc1_26'];
+        $focus->noidung->foc1_27 = $_POST['foc1_27'];
+        $focus->noidung->foc1_28 = $_POST['foc1_28'];
+        $focus->noidung->foc1_29 = $_POST['foc1_29'];
+        $focus->noidung->foc1_30 = $_POST['foc1_30'];
+        
+        $focus->noidung->nett1_1 = $_POST['nett1_1'];
+        $focus->noidung->nett1_2 = $_POST['nett1_2'];
+        $focus->noidung->nett1_3 = $_POST['nett1_3'];
+        $focus->noidung->nett1_4 = $_POST['nett1_4'];
+        $focus->noidung->nett1_5 = $_POST['nett1_5'];
+        $focus->noidung->nett1_6 = $_POST['nett1_6'];
+        $focus->noidung->nett1_7 = $_POST['nett1_7'];
+        $focus->noidung->nett1_8 = $_POST['nett1_8'];
+        $focus->noidung->nett1_9 = $_POST['nett1_9'];
+        $focus->noidung->nett1_10 = $_POST['nett1_10'];
+        $focus->noidung->nett1_11 = $_POST['nett1_11'];
+        $focus->noidung->nett1_12 = $_POST['nett1_12'];
+        $focus->noidung->nett1_13 = $_POST['nett1_13'];
+        $focus->noidung->nett1_14 = $_POST['nett1_14'];
+        $focus->noidung->nett1_15 = $_POST['nett1_15'];
+        $focus->noidung->nett1_16 = $_POST['nett1_16'];
+        $focus->noidung->nett1_17 = $_POST['nett1_17'];
+        $focus->noidung->nett1_18 = $_POST['nett1_18'];
+        $focus->noidung->nett1_19 = $_POST['nett1_19'];
+        $focus->noidung->nett1_20 = $_POST['nett1_20'];
+        $focus->noidung->nett1_21 = $_POST['nett1_21'];
+        $focus->noidung->nett1_22 = $_POST['nett1_22'];
+        $focus->noidung->nett1_23 = $_POST['nett1_23'];
+        $focus->noidung->nett1_24 = $_POST['nett1_24'];
+        $focus->noidung->nett1_25 = $_POST['nett1_25'];
+        $focus->noidung->nett1_26 = $_POST['nett1_26'];
+        $focus->noidung->nett1_27 = $_POST['nett1_27'];
+        $focus->noidung->nett1_28 = $_POST['nett1_28'];
+        $focus->noidung->nett1_29 = $_POST['nett1_29'];
+        $focus->noidung->nett1_30 = $_POST['nett1_30'];
+        $focus->noidung->nett1_31 = $_POST['nett1_31'];
+        $focus->noidung->nett1_32 = $_POST['nett1_32'];
+        
+        $focus->noidung->service1_rate = $_POST['service1_rate'];
+        $focus->noidung->service1_1 = $_POST['service1_1'];
+        $focus->noidung->service1_2 = $_POST['service1_2'];
+        $focus->noidung->service1_5 = $_POST['service1_5'];
+        $focus->noidung->service1_6 = $_POST['service1_6'];
+        $focus->noidung->service1_9 = $_POST['service1_9'];
+        $focus->noidung->service1_10 = $_POST['service1_10'];
+        $focus->noidung->service1_13 = $_POST['service1_13'];
+        $focus->noidung->service1_14 = $_POST['service1_14'];
+        $focus->noidung->service1_17 = $_POST['service1_17'];
+        $focus->noidung->service1_18 = $_POST['service1_18'];
+        $focus->noidung->service1_21 = $_POST['service1_21'];
+        $focus->noidung->service1_22 = $_POST['service1_22'];
+        $focus->noidung->service1_25 = $_POST['service1_25'];
+        $focus->noidung->service1_26 = $_POST['service1_26'];
+        $focus->noidung->service1_27 = $_POST['service1_27'];
+        $focus->noidung->service1_31 = $_POST['service1_31'];
 
-        // tổng cộng giá bán
-        $focus->noidung->tongcong_giaban = $_POST['tongcong_giaban'];   
-
-        // tổng thuế
-
-        $focus->noidung->tongthue_giaban = $_POST['tongthue_giaban']; 
-
-        // report chi tiết
-
-        $focus->noidung->tonglai = $_POST['tonglai'];
-        $focus->noidung->giaban = $_POST['giaban'];
-        $focus->noidung->giabantrenmotnguoi = $_POST['giabantrenmotnguoi'];
-        $focus->noidung->vatdaura = $_POST['vatdaura'];
-        $focus->noidung->vatdauvao = $_POST['vatdauvao'];
-        $focus->noidung->vatphaidong = $_POST['vatphaidong'];
-        $focus->noidung->doanhthu = $_POST['doanhthu'];
-        $focus->noidung->tongchiphi = $_POST['tongchiphi'];
-        $focus->noidung->tongthue = $_POST['tongthue'];
-        $focus->noidung->tongchiphi1 = $_POST['tongchiphi1'];
-        $focus->noidung->giavontrenkhach = $_POST['giavontrenkhach'];
-        $focus->noidung->giabantrenkhach = $_POST['giabantrenkhach'];
-        $focus->noidung->laikhach = $_POST['laikhach'];
-        $focus->noidung->tylesauthuevat = $_POST['tylesauthuevat'];
-        $focus->noidung->thuethunhapdn = $_POST['thuethunhapdn'];
-        $focus->noidung->lairongnettprofit = $_POST['lairongnettprofit'];
-        $focus->noidung->tylesauthuetndn = $_POST['tylesauthuetndn'];
-
-
+        $focus->noidung->sell1_vnd1 = $_POST['sell1_vnd1'];
+        $focus->noidung->sell1_vnd2 = $_POST['sell1_vnd2'];
+        $focus->noidung->sell1_vnd3 = $_POST['sell1_vnd3'];
+        $focus->noidung->sell1_vnd4 = $_POST['sell1_vnd4'];
+        $focus->noidung->sell1_vnd5 = $_POST['sell1_vnd5'];
+        $focus->noidung->sell1_vnd6 = $_POST['sell1_vnd6'];
+        $focus->noidung->sell1_vnd7 = $_POST['sell1_vnd7'];
+        $focus->noidung->sell1_vnd8 = $_POST['sell1_vnd8'];
+        $focus->noidung->sell1_vnd9 = $_POST['sell1_vnd9'];
+        $focus->noidung->sell1_vnd10 = $_POST['sell1_vnd10'];
+        $focus->noidung->sell1_vnd11 = $_POST['sell1_vnd11'];
+        $focus->noidung->sell1_vnd12 = $_POST['sell1_vnd12'];
+        $focus->noidung->sell1_vnd13 = $_POST['sell1_vnd13'];
+        $focus->noidung->sell1_vnd14 = $_POST['sell1_vnd14'];
+        $focus->noidung->sell1_vnd15 = $_POST['sell1_vnd15'];
+        $focus->noidung->sell1_vnd16 = $_POST['sell1_vnd16'];
+        $focus->noidung->sell1_vnd17 = $_POST['sell1_vnd17'];
+        $focus->noidung->sell1_vnd18 = $_POST['sell1_vnd18'];
+        $focus->noidung->sell1_vnd19 = $_POST['sell1_vnd19'];
+        $focus->noidung->sell1_vnd20 = $_POST['sell1_vnd20'];
+        $focus->noidung->sell1_vnd21 = $_POST['sell1_vnd21'];
+        $focus->noidung->sell1_vnd22 = $_POST['sell1_vnd22'];
+        $focus->noidung->sell1_vnd23 = $_POST['sell1_vnd23'];
+        $focus->noidung->sell1_vnd24 = $_POST['sell1_vnd24'];
+        $focus->noidung->sell1_vnd25 = $_POST['sell1_vnd25'];
+        $focus->noidung->sell1_vnd26 = $_POST['sell1_vnd26'];
+        $focus->noidung->sell1_vnd27 = $_POST['sell1_vnd27'];
+        $focus->noidung->sell1_vnd28 = $_POST['sell1_vnd28'];
+        $focus->noidung->sell1_vnd29 = $_POST['sell1_vnd29'];
+        $focus->noidung->sell1_vnd30 = $_POST['sell1_vnd30'];
+        
+        $focus->noidung->sell1_usd1 = $_POST['sell1_usd1'];
+        $focus->noidung->sell1_usd2 = $_POST['sell1_usd2'];
+        $focus->noidung->sell1_usd3 = $_POST['sell1_usd3'];
+        $focus->noidung->sell1_usd4 = $_POST['sell1_usd4'];
+        $focus->noidung->sell1_usd5 = $_POST['sell1_usd5'];
+        $focus->noidung->sell1_usd6 = $_POST['sell1_usd6'];
+        $focus->noidung->sell1_usd7 = $_POST['sell1_usd7'];
+        $focus->noidung->sell1_usd8 = $_POST['sell1_usd8'];
+        $focus->noidung->sell1_usd9 = $_POST['sell1_usd9'];
+        $focus->noidung->sell1_usd10 = $_POST['sell1_usd10'];
+        $focus->noidung->sell1_usd11 = $_POST['sell1_usd11'];
+        $focus->noidung->sell1_usd12 = $_POST['sell1_usd12'];
+        $focus->noidung->sell1_usd13 = $_POST['sell1_usd13'];
+        $focus->noidung->sell1_usd14 = $_POST['sell1_usd14'];
+        $focus->noidung->sell1_usd15 = $_POST['sell1_usd15'];
+        $focus->noidung->sell1_usd16 = $_POST['sell1_usd16'];
+        $focus->noidung->sell1_usd17 = $_POST['sell1_usd17'];
+        $focus->noidung->sell1_usd18 = $_POST['sell1_usd18'];
+        $focus->noidung->sell1_usd19 = $_POST['sell1_usd19'];
+        $focus->noidung->sell1_usd20 = $_POST['sell1_usd20'];
+        $focus->noidung->sell1_usd21 = $_POST['sell1_usd21'];
+        $focus->noidung->sell1_usd22 = $_POST['sell1_usd22'];
+        $focus->noidung->sell1_usd23 = $_POST['sell1_usd23'];
+        $focus->noidung->sell1_usd24 = $_POST['sell1_usd24'];
+        $focus->noidung->sell1_usd25 = $_POST['sell1_usd25'];
+        $focus->noidung->sell1_usd26 = $_POST['sell1_usd26'];
+        $focus->noidung->sell1_usd27 = $_POST['sell1_usd27'];
+        $focus->noidung->sell1_usd28 = $_POST['sell1_usd28'];
+        $focus->noidung->sell1_usd29 = $_POST['sell1_usd29'];
+        $focus->noidung->sell1_usd30 = $_POST['sell1_usd30'];
+        
+        $focus->noidung->tax1_1 = $_POST['tax1_1'];
+        $focus->noidung->tax1_2 = $_POST['tax1_2'];
+        $focus->noidung->tax1_5 = $_POST['tax1_5'];
+        $focus->noidung->tax1_6 = $_POST['tax1_6'];
+        $focus->noidung->tax1_9 = $_POST['tax1_9'];
+        $focus->noidung->tax1_10 = $_POST['tax1_10'];
+        $focus->noidung->tax1_13 = $_POST['tax1_13'];
+        $focus->noidung->tax1_14 = $_POST['tax1_14'];
+        $focus->noidung->tax1_17 = $_POST['tax1_17'];
+        $focus->noidung->tax1_18 = $_POST['tax1_18'];
+        $focus->noidung->tax1_21 = $_POST['tax1_21'];
+        $focus->noidung->tax1_22 = $_POST['tax1_22'];
+        $focus->noidung->tax1_25 = $_POST['tax1_25'];
+        $focus->noidung->tax1_26 = $_POST['tax1_26'];
+        $focus->noidung->tax1_27 = $_POST['tax1_27'];
+        $focus->noidung->tax1_31 = $_POST['tax1_31'];
+        
+        $focus->noidung->profit1_1 = $_POST['profit1_1'];
+        $focus->noidung->profit1_2 = $_POST['profit1_2'];
+        $focus->noidung->profit1_5 = $_POST['profit1_5'];
+        $focus->noidung->profit1_6 = $_POST['profit1_6'];
+        $focus->noidung->profit1_9 = $_POST['profit1_9'];
+        $focus->noidung->profit1_10 = $_POST['profit1_10'];
+        $focus->noidung->profit1_13 = $_POST['profit1_13'];
+        $focus->noidung->profit1_14 = $_POST['profit1_14'];
+        $focus->noidung->profit1_17 = $_POST['profit1_17'];
+        $focus->noidung->profit1_18 = $_POST['profit1_18'];
+        $focus->noidung->profit1_21 = $_POST['profit1_21'];
+        $focus->noidung->profit1_22 = $_POST['profit1_22'];
+        $focus->noidung->profit1_25 = $_POST['profit1_25'];
+        $focus->noidung->profit1_26 = $_POST['profit1_26'];
+        $focus->noidung->profit1_27 = $_POST['profit1_27'];
+        $focus->noidung->profit1_31 = $_POST['profit1_31'];
+        
+        $focus->noidung->total1_1 = $_POST['total1_1']; 
+        $focus->noidung->total1_2 = $_POST['total1_2'];
+        $focus->noidung->total1_5 = $_POST['total1_5'];
+        $focus->noidung->total1_6 = $_POST['total1_6'];
+        $focus->noidung->total1_9 = $_POST['total1_9'];
+        $focus->noidung->total1_10 = $_POST['total1_10'];
+        $focus->noidung->total1_13 = $_POST['total1_13'];
+        $focus->noidung->total1_14 = $_POST['total1_14'];
+        $focus->noidung->total1_17 = $_POST['total1_17'];
+        $focus->noidung->total1_18 = $_POST['total1_18'];
+        $focus->noidung->total1_21 = $_POST['total1_21'];
+        $focus->noidung->total1_22 = $_POST['total1_22'];
+        $focus->noidung->total1_25 = $_POST['total1_25'];
+        $focus->noidung->total1_26 = $_POST['total1_26'];
+        $focus->noidung->total1_27 = $_POST['total1_27'];
+        $focus->noidung->total1_31 = $_POST['total1_31'];
+        
+        $focus->noidung->interest1_1 = $_POST['interest1_1']; 
+        $focus->noidung->interest1_2 = $_POST['interest1_2'];
+        $focus->noidung->interest1_5 = $_POST['interest1_5'];
+        $focus->noidung->interest1_6 = $_POST['interest1_6'];
+        $focus->noidung->interest1_9 = $_POST['interest1_9'];
+        $focus->noidung->interest1_10 = $_POST['interest1_10'];
+        $focus->noidung->interest1_13 = $_POST['interest1_13'];
+        $focus->noidung->interest1_14 = $_POST['interest1_14'];
+        $focus->noidung->interest1_17 = $_POST['interest1_17'];
+        $focus->noidung->interest1_18 = $_POST['interest1_18'];
+        $focus->noidung->interest1_21 = $_POST['interest1_21'];
+        $focus->noidung->interest1_22 = $_POST['interest1_22'];
+        $focus->noidung->interest1_25 = $_POST['interest1_25'];
+        $focus->noidung->interest1_26 = $_POST['interest1_26'];
+        $focus->noidung->interest1_27 = $_POST['interest1_27'];
+        $focus->noidung->interest1_31 = $_POST['interest1_31'];
+        
+        
+        $focus->noidung->meal2_sum = $_POST['meal2_sum'];
+        $focus->noidung->meal2_1 = $_POST['meal2_1'];
+        $focus->noidung->meal2_2 = $_POST['meal2_2'];
+        $focus->noidung->meal2_3 = $_POST['meal2_3'];
+        $focus->noidung->meal2_4 = $_POST['meal2_4'];
+        $focus->noidung->meal2_5 = $_POST['meal2_5'];
+        $focus->noidung->meal2_6 = $_POST['meal2_6'];
+        $focus->noidung->meal2_7 = $_POST['meal2_7'];
+        $focus->noidung->meal2_8 = $_POST['meal2_8'];
+        $focus->noidung->meal2_9 = $_POST['meal2_9'];
+        $focus->noidung->meal2_10 = $_POST['meal2_10'];
+        $focus->noidung->meal2_11 = $_POST['meal2_11'];
+        $focus->noidung->meal2_12 = $_POST['meal2_12'];
+        $focus->noidung->meal2_13 = $_POST['meal2_13'];
+        $focus->noidung->meal2_14 = $_POST['meal2_14'];
+        $focus->noidung->meal2_15 = $_POST['meal2_15'];
+        $focus->noidung->meal2_16 = $_POST['meal2_16'];
+        $focus->noidung->meal2_17 = $_POST['meal2_17'];
+        $focus->noidung->meal2_18 = $_POST['meal2_18'];
+        $focus->noidung->meal2_19 = $_POST['meal2_19'];
+        $focus->noidung->meal2_20 = $_POST['meal2_20'];
+        $focus->noidung->meal2_21 = $_POST['meal2_21'];
+        $focus->noidung->meal2_22 = $_POST['meal2_22'];
+        $focus->noidung->meal2_23 = $_POST['meal2_23'];
+        $focus->noidung->meal2_24 = $_POST['meal2_24'];
+        $focus->noidung->meal2_25 = $_POST['meal2_25'];
+        $focus->noidung->meal2_26 = $_POST['meal2_26'];
+        $focus->noidung->meal2_27 = $_POST['meal2_27'];
+        $focus->noidung->meal2_28 = $_POST['meal2_28'];
+        $focus->noidung->meal2_29 = $_POST['meal2_29'];
+        $focus->noidung->meal2_30 = $_POST['meal2_30'];
+        
+        $focus->noidung->meal2_south_sum = $_POST['meal2_south_sum'];
+        $focus->noidung->meal2_south1 = $_POST['meal2_south1'];
+        $focus->noidung->meal2_south2 = $_POST['meal2_south2'];
+        $focus->noidung->meal2_south3 = $_POST['meal2_south3'];
+        $focus->noidung->meal2_south4 = $_POST['meal2_south4'];
+        $focus->noidung->meal2_south5 = $_POST['meal2_south5'];
+        $focus->noidung->meal2_south6 = $_POST['meal2_south6'];
+        $focus->noidung->meal2_south7 = $_POST['meal2_south7'];
+        $focus->noidung->meal2_south8 = $_POST['meal2_south8'];
+        $focus->noidung->meal2_south9 = $_POST['meal2_south9'];
+        $focus->noidung->meal2_south10 = $_POST['meal2_south10'];
+        $focus->noidung->meal2_south11 = $_POST['meal2_south11'];
+        $focus->noidung->meal2_south12 = $_POST['meal2_south12'];
+        $focus->noidung->meal2_south13 = $_POST['meal2_south13'];
+        $focus->noidung->meal2_south14 = $_POST['meal2_south14'];
+        $focus->noidung->meal2_south15 = $_POST['meal2_south15'];
+        $focus->noidung->meal2_south16 = $_POST['meal2_south16'];
+        $focus->noidung->meal2_south17 = $_POST['meal2_south17'];
+        $focus->noidung->meal2_south18 = $_POST['meal2_south18'];
+        $focus->noidung->meal2_south19 = $_POST['meal2_south19'];
+        $focus->noidung->meal2_south20 = $_POST['meal2_south20'];
+        $focus->noidung->meal2_south21 = $_POST['meal2_south21'];
+        $focus->noidung->meal2_south22 = $_POST['meal2_south22'];
+        $focus->noidung->meal2_south23 = $_POST['meal2_south23'];
+        $focus->noidung->meal2_south24 = $_POST['meal2_south24'];
+        $focus->noidung->meal2_south25 = $_POST['meal2_south25'];
+        $focus->noidung->meal2_south26 = $_POST['meal2_south26'];
+        $focus->noidung->meal2_south27 = $_POST['meal2_south27'];
+        $focus->noidung->meal2_south28 = $_POST['meal2_south28'];
+        $focus->noidung->meal2_south29 = $_POST['meal2_south29'];
+        $focus->noidung->meal2_south30 = $_POST['meal2_south30'];
+        
+        
+        $focus->noidung->meal2_south_breakfirst_price = $_POST['meal2_south_breakfirst_price'];
+        $focus->noidung->meal2_south_breakfirst_num = $_POST['meal2_south_breakfirst_num'];
+        $focus->noidung->meal2_south_breakfirst_money = $_POST['meal2_south_breakfirst_money'];
+        $focus->noidung->meal2_south_lunch_price = $_POST['meal2_south_lunch_price'];
+        $focus->noidung->meal2_south_lunch_num = $_POST['meal2_south_lunch_num'];
+        $focus->noidung->meal2_south_lunch_money = $_POST['meal2_south_lunch_money'];
+        $focus->noidung->meal2_middle_dinner_price = $_POST['meal2_middle_dinner_price'];
+        $focus->noidung->meal2_middle_dinner_num = $_POST['meal2_middle_dinner_num'];
+        $focus->noidung->meal2_middle_dinner_money = $_POST['meal2_middle_dinner_money'];
+        $focus->noidung->meal2_middle_other_price = $_POST['meal2_middle_other_price'];
+        $focus->noidung->meal2_middle_other_num = $_POST['meal2_middle_other_num'];
+        $focus->noidung->meal2_middle_other_money = $_POST['meal2_middle_other_money'];
+        
+        $focus->noidung->meal2_north_sum = $_POST['meal2_north_sum'];
+        $focus->noidung->meal2_north1 = $_POST['meal2_north1'];
+        $focus->noidung->meal2_north2 = $_POST['meal2_north2'];
+        $focus->noidung->meal2_north3 = $_POST['meal2_north3'];
+        $focus->noidung->meal2_north4 = $_POST['meal2_north4'];
+        $focus->noidung->meal2_north5 = $_POST['meal2_north5'];
+        $focus->noidung->meal2_north6 = $_POST['meal2_north6'];
+        $focus->noidung->meal2_north7 = $_POST['meal2_north7'];
+        $focus->noidung->meal2_north8 = $_POST['meal2_north8'];
+        $focus->noidung->meal2_north9 = $_POST['meal2_north9'];
+        $focus->noidung->meal2_north10 = $_POST['meal2_north10'];
+        $focus->noidung->meal2_north11 = $_POST['meal2_north11'];
+        $focus->noidung->meal2_north12 = $_POST['meal2_north12'];
+        $focus->noidung->meal2_north13 = $_POST['meal2_north13'];
+        $focus->noidung->meal2_north14 = $_POST['meal2_north14'];
+        $focus->noidung->meal2_north15 = $_POST['meal2_north15'];
+        $focus->noidung->meal2_north16 = $_POST['meal2_north16'];
+        $focus->noidung->meal2_north17 = $_POST['meal2_north17'];
+        $focus->noidung->meal2_north18 = $_POST['meal2_north18'];
+        $focus->noidung->meal2_north19 = $_POST['meal2_north19'];
+        $focus->noidung->meal2_north20 = $_POST['meal2_north20'];
+        $focus->noidung->meal2_north21 = $_POST['meal2_north21'];
+        $focus->noidung->meal2_north22 = $_POST['meal2_north22'];
+        $focus->noidung->meal2_north23 = $_POST['meal2_north23'];
+        $focus->noidung->meal2_north24 = $_POST['meal2_north24'];
+        $focus->noidung->meal2_north25 = $_POST['meal2_north25'];
+        $focus->noidung->meal2_north26 = $_POST['meal2_north26'];
+        $focus->noidung->meal2_north27 = $_POST['meal2_north27'];
+        $focus->noidung->meal2_north28 = $_POST['meal2_north28'];
+        $focus->noidung->meal2_north29 = $_POST['meal2_north29'];
+        $focus->noidung->meal2_north30 = $_POST['meal2_north30'];
+        
+        $focus->noidung->meal2_north_breakfirst_price = $_POST['meal2_north_breakfirst_price'];
+        $focus->noidung->meal2_north_breakfirst_num = $_POST['meal2_north_breakfirst_num'];
+        $focus->noidung->meal2_north_breakfirst_money = $_POST['meal2_north_breakfirst_money'];
+        $focus->noidung->meal2_north_lunch_price = $_POST['meal2_north_lunch_price'];
+        $focus->noidung->meal2_north_lunch_num = $_POST['meal2_north_lunch_num'];
+        $focus->noidung->meal2_north_lunch_money = $_POST['meal2_north_lunch_money'];
+        $focus->noidung->meal2_north_dinner_price = $_POST['meal2_north_dinner_price'];
+        $focus->noidung->meal2_north_dinner_num = $_POST['meal2_north_dinner_num'];
+        $focus->noidung->meal2_north_dinner_money = $_POST['meal2_north_dinner_money'];
+        $focus->noidung->meal2_north_other_price = $_POST['meal2_north_other_price'];
+        $focus->noidung->meal2_north_other_num = $_POST['meal2_north_other_num'];
+        $focus->noidung->meal2_north_other_money = $_POST['meal2_north_other_money'];
+        
+        $focus->noidung->hotel2_sum = $_POST['hotel2_sum'];
+        $focus->noidung->hotel2_1 = $_POST['hotel2_1'];
+        $focus->noidung->hotel2_2 = $_POST['hotel2_2'];
+        $focus->noidung->hotel2_3 = $_POST['hotel2_3'];
+        $focus->noidung->hotel2_4 = $_POST['hotel2_4'];
+        $focus->noidung->hotel2_5 = $_POST['hotel2_5'];
+        $focus->noidung->hotel2_6 = $_POST['hotel2_6'];
+        $focus->noidung->hotel2_7 = $_POST['hotel2_7'];
+        $focus->noidung->hotel2_8 = $_POST['hotel2_8'];
+        $focus->noidung->hotel2_9 = $_POST['hotel2_9'];
+        $focus->noidung->hotel2_10 = $_POST['hotel2_10'];
+        $focus->noidung->hotel2_11 = $_POST['hotel2_11'];
+        $focus->noidung->hotel2_12 = $_POST['hotel2_12'];
+        $focus->noidung->hotel2_13 = $_POST['hotel2_13'];
+        $focus->noidung->hotel2_14 = $_POST['hotel2_14'];
+        $focus->noidung->hotel2_15 = $_POST['hotel2_15'];
+        $focus->noidung->hotel2_16 = $_POST['hotel2_16'];
+        $focus->noidung->hotel2_17 = $_POST['hotel2_17'];
+        $focus->noidung->hotel2_18 = $_POST['hotel2_18'];
+        $focus->noidung->hotel2_19 = $_POST['hotel2_19'];
+        $focus->noidung->hotel2_20 = $_POST['hotel2_20'];
+        $focus->noidung->hotel2_21 = $_POST['hotel2_21'];
+        $focus->noidung->hotel2_22 = $_POST['hotel2_22'];
+        $focus->noidung->hotel2_23 = $_POST['hotel2_23'];
+        $focus->noidung->hotel2_24 = $_POST['hotel2_24'];
+        $focus->noidung->hotel2_25 = $_POST['hotel2_25'];
+        $focus->noidung->hotel2_26 = $_POST['hotel2_26'];
+        $focus->noidung->hotel2_27 = $_POST['hotel2_27'];
+        $focus->noidung->hotel2_28 = $_POST['hotel2_28'];
+        $focus->noidung->hotel2_29 = $_POST['hotel2_29'];
+        $focus->noidung->hotel2_30 = $_POST['hotel2_30'];
+        
+        $count_hotel2 = count($_POST['hotel2_service']);
+        for($i= 0; $i<$count_hotel2; $i++){
+            $hotel2[$i]->hotel2_service = $_POST['hotel2_service'][$i];
+            $hotel2[$i]->hotel2_price = $_POST['hotel2_price'][$i];
+            $hotel2[$i]->hotel2_num = $_POST['hotel2_num'][$i];
+            $hotel2[$i]->hotel2_money = $_POST['hotel2_money'][$i];
+        }
+        $focus->noidung->hotel2 = $hotel2;
+        
+        
+        $focus->noidung->foc2_21 = $_POST['foc2_21'];
+        $focus->noidung->foc2_22 = $_POST['foc2_22'];
+        $focus->noidung->foc2_23 = $_POST['foc2_23'];
+        $focus->noidung->foc2_24 = $_POST['foc2_24'];
+        $focus->noidung->foc2_25 = $_POST['foc2_25'];
+        $focus->noidung->foc2_26 = $_POST['foc2_26'];
+        $focus->noidung->foc2_27 = $_POST['foc2_27'];
+        $focus->noidung->foc2_28 = $_POST['foc2_28'];
+        $focus->noidung->foc2_29 = $_POST['foc2_29'];
+        $focus->noidung->foc2_30 = $_POST['foc2_30'];
+        
+        $focus->noidung->nett2_1 = $_POST['nett2_1'];
+        $focus->noidung->nett2_2 = $_POST['nett2_2'];
+        $focus->noidung->nett2_3 = $_POST['nett2_3'];
+        $focus->noidung->nett2_4 = $_POST['nett2_4'];
+        $focus->noidung->nett2_5 = $_POST['nett2_5'];
+        $focus->noidung->nett2_6 = $_POST['nett2_6'];
+        $focus->noidung->nett2_7 = $_POST['nett2_7'];
+        $focus->noidung->nett2_8 = $_POST['nett2_8'];
+        $focus->noidung->nett2_9 = $_POST['nett2_9'];
+        $focus->noidung->nett2_10 = $_POST['nett2_10'];
+        $focus->noidung->nett2_11 = $_POST['nett2_11'];
+        $focus->noidung->nett2_12 = $_POST['nett2_12'];
+        $focus->noidung->nett2_13 = $_POST['nett2_13'];
+        $focus->noidung->nett2_14 = $_POST['nett2_14'];
+        $focus->noidung->nett2_15 = $_POST['nett2_15'];
+        $focus->noidung->nett2_16 = $_POST['nett2_16'];
+        $focus->noidung->nett2_17 = $_POST['nett2_17'];
+        $focus->noidung->nett2_18 = $_POST['nett2_18'];
+        $focus->noidung->nett2_19 = $_POST['nett2_19'];
+        $focus->noidung->nett2_20 = $_POST['nett2_20'];
+        
+        $focus->noidung->service2_rate = $_POST['service2_rate'];
+        $focus->noidung->service2_1 = $_POST['service2_1'];
+        $focus->noidung->service2_2 = $_POST['service2_2'];
+        $focus->noidung->service2_5 = $_POST['service2_5'];
+        $focus->noidung->service2_6 = $_POST['service2_6'];
+        $focus->noidung->service2_9 = $_POST['service2_9'];
+        $focus->noidung->service2_10 = $_POST['service2_10'];
+        $focus->noidung->service2_13 = $_POST['service2_13'];
+        $focus->noidung->service2_14 = $_POST['service2_14'];
+        $focus->noidung->service2_17 = $_POST['service2_17'];
+        $focus->noidung->service2_18 = $_POST['service2_18'];
+        $focus->noidung->service2_21 = $_POST['service2_21'];
+        $focus->noidung->service2_22 = $_POST['service2_22'];
+        $focus->noidung->service2_25 = $_POST['service2_25'];
+        $focus->noidung->service2_26 = $_POST['service2_26'];
+        $focus->noidung->service2_27 = $_POST['service2_27'];
+        
+        $focus->noidung->sell2_vnd1 = $_POST['sell2_vnd1'];
+        $focus->noidung->sell2_vnd2 = $_POST['sell2_vnd2'];
+        $focus->noidung->sell2_vnd3 = $_POST['sell2_vnd3'];
+        $focus->noidung->sell2_vnd4 = $_POST['sell2_vnd4'];
+        $focus->noidung->sell2_vnd5 = $_POST['sell2_vnd5'];
+        $focus->noidung->sell2_vnd6 = $_POST['sell2_vnd6'];
+        $focus->noidung->sell2_vnd7 = $_POST['sell2_vnd7'];
+        $focus->noidung->sell2_vnd8 = $_POST['sell2_vnd8'];
+        $focus->noidung->sell2_vnd9 = $_POST['sell2_vnd9'];
+        $focus->noidung->sell2_vnd10 = $_POST['sell2_vnd10'];
+        $focus->noidung->sell2_vnd11 = $_POST['sell2_vnd11'];
+        $focus->noidung->sell2_vnd12 = $_POST['sell2_vnd12'];
+        $focus->noidung->sell2_vnd13 = $_POST['sell2_vnd13'];
+        $focus->noidung->sell2_vnd14 = $_POST['sell2_vnd14'];
+        $focus->noidung->sell2_vnd15 = $_POST['sell2_vnd15'];
+        $focus->noidung->sell2_vnd16 = $_POST['sell2_vnd16'];
+        $focus->noidung->sell2_vnd17 = $_POST['sell2_vnd17'];
+        $focus->noidung->sell2_vnd18 = $_POST['sell2_vnd18'];
+        $focus->noidung->sell2_vnd19 = $_POST['sell2_vnd19'];
+        $focus->noidung->sell2_vnd20 = $_POST['sell2_vnd20'];
+        $focus->noidung->sell2_vnd21 = $_POST['sell2_vnd21'];
+        $focus->noidung->sell2_vnd22 = $_POST['sell2_vnd22'];
+        $focus->noidung->sell2_vnd23 = $_POST['sell2_vnd23'];
+        $focus->noidung->sell2_vnd24 = $_POST['sell2_vnd24'];
+        $focus->noidung->sell2_vnd25 = $_POST['sell2_vnd25'];
+        $focus->noidung->sell2_vnd26 = $_POST['sell2_vnd26'];
+        $focus->noidung->sell2_vnd27 = $_POST['sell2_vnd27'];
+        $focus->noidung->sell2_vnd28 = $_POST['sell2_vnd28'];
+        $focus->noidung->sell2_vnd29 = $_POST['sell2_vnd29'];
+        $focus->noidung->sell2_vnd30 = $_POST['sell2_vnd30'];
+        
+        
+        $focus->noidung->sell2_usd1 = $_POST['sell2_usd1'];
+        $focus->noidung->sell2_usd2 = $_POST['sell2_usd2'];
+        $focus->noidung->sell2_usd5 = $_POST['sell2_usd5'];
+        $focus->noidung->sell2_usd6 = $_POST['sell2_usd6'];
+        $focus->noidung->sell2_usd9 = $_POST['sell2_usd9'];
+        $focus->noidung->sell2_usd10 = $_POST['sell2_usd10'];
+        $focus->noidung->sell2_usd13 = $_POST['sell2_usd13'];
+        $focus->noidung->sell2_usd14 = $_POST['sell2_usd14'];
+        $focus->noidung->sell2_usd17 = $_POST['sell2_usd17'];
+        $focus->noidung->sell2_usd18 = $_POST['sell2_usd18'];
+        $focus->noidung->sell2_usd21 = $_POST['sell2_usd21'];
+        $focus->noidung->sell2_usd22 = $_POST['sell2_usd22'];
+        $focus->noidung->sell2_usd25 = $_POST['sell2_usd25'];
+        $focus->noidung->sell2_usd26 = $_POST['sell2_usd26'];
+        $focus->noidung->sell2_usd27 = $_POST['sell2_usd27'];
+        $focus->noidung->sell2_usd31 = $_POST['sell2_usd31'];
+        
+        $focus->noidung->tax2_1 = $_POST['tax2_1'];
+        $focus->noidung->tax2_2 = $_POST['tax2_2'];
+        $focus->noidung->tax2_5 = $_POST['tax2_5'];
+        $focus->noidung->tax2_6 = $_POST['tax2_6'];
+        $focus->noidung->tax2_9 = $_POST['tax2_9'];
+        $focus->noidung->tax2_10 = $_POST['tax2_10'];
+        $focus->noidung->tax2_13 = $_POST['tax2_13'];
+        $focus->noidung->tax2_14 = $_POST['tax2_14'];
+        $focus->noidung->tax2_17 = $_POST['tax2_17'];
+        $focus->noidung->tax2_18 = $_POST['tax2_18'];
+        $focus->noidung->tax2_21 = $_POST['tax2_21'];
+        $focus->noidung->tax2_22 = $_POST['tax2_22'];
+        $focus->noidung->tax2_25 = $_POST['tax2_25'];
+        $focus->noidung->tax2_26 = $_POST['tax2_26'];
+        $focus->noidung->tax2_27 = $_POST['tax2_27'];
+        $focus->noidung->tax2_31 = $_POST['tax2_31'];
+        
+        
+        $focus->noidung->profit2_1 = $_POST['profit2_1'];
+        $focus->noidung->profit2_2 = $_POST['profit2_2'];
+        $focus->noidung->profit2_5 = $_POST['profit2_5'];
+        $focus->noidung->profit2_6 = $_POST['profit2_6'];
+        $focus->noidung->profit2_9 = $_POST['profit2_9'];
+        $focus->noidung->profit2_10 = $_POST['profit2_10'];
+        $focus->noidung->profit2_13 = $_POST['profit2_13'];
+        $focus->noidung->profit2_14 = $_POST['profit2_14'];
+        $focus->noidung->profit2_17 = $_POST['profit2_17'];
+        $focus->noidung->profit2_18 = $_POST['profit2_18'];
+        $focus->noidung->profit2_21 = $_POST['profit2_21'];
+        $focus->noidung->profit2_22 = $_POST['profit2_22'];
+        $focus->noidung->profit2_25 = $_POST['profit2_25'];
+        $focus->noidung->profit2_26 = $_POST['profit2_26'];
+        $focus->noidung->profit2_27 = $_POST['profit2_27'];
+        $focus->noidung->profit2_31 = $_POST['profit2_31'];
+        
+        $focus->noidung->total2_1 = $_POST['total2_1'];
+        $focus->noidung->total2_2 = $_POST['total2_2'];
+        $focus->noidung->total2_5 = $_POST['total2_5'];
+        $focus->noidung->total2_6 = $_POST['total2_6'];
+        $focus->noidung->total2_9 = $_POST['total2_9'];
+        $focus->noidung->total2_10 = $_POST['total2_10'];
+        $focus->noidung->total2_13 = $_POST['total2_13'];
+        $focus->noidung->total2_14 = $_POST['total2_14'];
+        $focus->noidung->total2_17 = $_POST['total2_17'];
+        $focus->noidung->total2_18 = $_POST['total2_18'];
+        $focus->noidung->total2_21 = $_POST['total2_21'];
+        $focus->noidung->total2_22 = $_POST['total2_22'];
+        $focus->noidung->total2_25 = $_POST['total2_25'];
+        $focus->noidung->total2_26 = $_POST['total2_26'];
+        $focus->noidung->total2_27 = $_POST['total2_27'];
+        $focus->noidung->total2_31 = $_POST['total2_31'];
+        
+        $focus->noidung->interest2_1 = $_POST['interest2_1'];
+        $focus->noidung->interest2_2 = $_POST['interest2_2'];
+        $focus->noidung->interest2_5 = $_POST['interest2_5'];
+        $focus->noidung->interest2_6 = $_POST['interest2_6'];
+        $focus->noidung->interest2_9 = $_POST['interest2_9'];
+        $focus->noidung->interest2_10 = $_POST['interest2_10'];
+        $focus->noidung->interest2_13 = $_POST['interest2_13'];
+        $focus->noidung->interest2_14 = $_POST['interest2_14'];
+        $focus->noidung->interest2_17 = $_POST['interest2_17'];
+        $focus->noidung->interest2_18 = $_POST['interest2_18'];
+        $focus->noidung->interest2_21 = $_POST['interest2_21'];
+        $focus->noidung->interest2_22 = $_POST['interest2_22'];
+        $focus->noidung->interest2_25 = $_POST['interest2_25'];
+        $focus->noidung->interest2_26 = $_POST['interest2_26'];
+        $focus->noidung->interest2_27 = $_POST['interest2_27'];
+        $focus->noidung->interest2_31 = $_POST['interest2_31'];
+        
+        
+        $focus->noidung->meal3_sum = $_POST['meal3_sum'];
+        $focus->noidung->meal3_1 = $_POST['meal3_1'];
+        $focus->noidung->meal3_2 = $_POST['meal3_2'];
+        $focus->noidung->meal3_3 = $_POST['meal3_3'];
+        $focus->noidung->meal3_4 = $_POST['meal3_4'];
+        $focus->noidung->meal3_5 = $_POST['meal3_5'];
+        $focus->noidung->meal3_6 = $_POST['meal3_6'];
+        $focus->noidung->meal3_7 = $_POST['meal3_7'];
+        $focus->noidung->meal3_8 = $_POST['meal3_8'];
+        $focus->noidung->meal3_9 = $_POST['meal3_9'];
+        $focus->noidung->meal3_10 = $_POST['meal3_10'];
+        $focus->noidung->meal3_11 = $_POST['meal3_11'];
+        $focus->noidung->meal3_12 = $_POST['meal3_12'];
+        $focus->noidung->meal3_13 = $_POST['meal3_13'];
+        $focus->noidung->meal3_14 = $_POST['meal3_14'];
+        $focus->noidung->meal3_15 = $_POST['meal3_15'];
+        $focus->noidung->meal3_16 = $_POST['meal3_16'];
+        $focus->noidung->meal3_17 = $_POST['meal3_17'];
+        $focus->noidung->meal3_18 = $_POST['meal3_18'];
+        $focus->noidung->meal3_19 = $_POST['meal3_19'];
+        $focus->noidung->meal3_20 = $_POST['meal3_20'];
+        $focus->noidung->meal3_21 = $_POST['meal3_21'];
+        $focus->noidung->meal3_22 = $_POST['meal3_22'];
+        $focus->noidung->meal3_23 = $_POST['meal3_23'];
+        $focus->noidung->meal3_24 = $_POST['meal3_24'];
+        $focus->noidung->meal3_25 = $_POST['meal3_25'];
+        $focus->noidung->meal3_26 = $_POST['meal3_26'];
+        $focus->noidung->meal3_27 = $_POST['meal3_27'];
+        $focus->noidung->meal3_28 = $_POST['meal3_28'];
+        $focus->noidung->meal3_29 = $_POST['meal3_29'];
+        $focus->noidung->meal3_30 = $_POST['meal3_30'];
+        
+        $focus->noidung->meal3_south_sum = $_POST['meal3_south_sum'];
+        $focus->noidung->meal3_south1 = $_POST['meal3_south1'];
+        $focus->noidung->meal3_south2 = $_POST['meal3_south2'];
+        $focus->noidung->meal3_south3 = $_POST['meal3_south3'];
+        $focus->noidung->meal3_south4 = $_POST['meal3_south4'];
+        $focus->noidung->meal3_south5 = $_POST['meal3_south5'];
+        $focus->noidung->meal3_south6 = $_POST['meal3_south6'];
+        $focus->noidung->meal3_south7 = $_POST['meal3_south7'];
+        $focus->noidung->meal3_south8 = $_POST['meal3_south8'];
+        $focus->noidung->meal3_south9 = $_POST['meal3_south9'];
+        $focus->noidung->meal3_south10 = $_POST['meal3_south10'];
+        $focus->noidung->meal3_south11 = $_POST['meal3_south11'];
+        $focus->noidung->meal3_south12 = $_POST['meal3_south12'];
+        $focus->noidung->meal3_south13 = $_POST['meal3_south13'];
+        $focus->noidung->meal3_south14 = $_POST['meal3_south14'];
+        $focus->noidung->meal3_south15 = $_POST['meal3_south15'];
+        $focus->noidung->meal3_south16 = $_POST['meal3_south16'];
+        $focus->noidung->meal3_south17 = $_POST['meal3_south17'];
+        $focus->noidung->meal3_south18 = $_POST['meal3_south18'];
+        $focus->noidung->meal3_south19 = $_POST['meal3_south19'];
+        $focus->noidung->meal3_south20 = $_POST['meal3_south20'];
+        $focus->noidung->meal3_south21 = $_POST['meal3_south21'];
+        $focus->noidung->meal3_south22 = $_POST['meal3_south22'];
+        $focus->noidung->meal3_south23 = $_POST['meal3_south23'];
+        $focus->noidung->meal3_south24 = $_POST['meal3_south24'];
+        $focus->noidung->meal3_south25 = $_POST['meal3_south25'];
+        $focus->noidung->meal3_south26 = $_POST['meal3_south26'];
+        $focus->noidung->meal3_south27 = $_POST['meal3_south27'];
+        $focus->noidung->meal3_south28 = $_POST['meal3_south28'];
+        $focus->noidung->meal3_south29 = $_POST['meal3_south29'];
+        $focus->noidung->meal3_south30 = $_POST['meal3_south30'];
+        
+        
+        $focus->noidung->meal3_south_breakfirst_price = $_POST['meal3_south_breakfirst_price'];
+        $focus->noidung->meal3_south_breakfirst_num = $_POST['meal3_south_breakfirst_num'];
+        $focus->noidung->meal3_south_breakfirst_money = $_POST['meal3_south_breakfirst_money'];
+        $focus->noidung->meal3_south_lunch_price = $_POST['meal3_south_lunch_price'];
+        $focus->noidung->meal3_south_lunch_num = $_POST['meal3_south_lunch_num'];
+        $focus->noidung->meal3_south_lunch_money = $_POST['meal3_south_lunch_money'];
+        $focus->noidung->meal3_south_dinner_price = $_POST['meal3_south_dinner_price'];
+        $focus->noidung->meal3_south_dinner_num = $_POST['meal3_south_dinner_num'];
+        $focus->noidung->meal3_south_dinner_money = $_POST['meal3_south_dinner_money'];
+        $focus->noidung->meal3_south_other_price = $_POST['meal3_south_other_price'];
+        $focus->noidung->meal3_south_other_num = $_POST['meal3_south_other_num'];
+        $focus->noidung->meal3_south_other_money = $_POST['meal3_south_other_money'];
+        
+        
+        $focus->noidung->meal3_miidle_sum = $_POST['meal3_miidle_sum'];
+        $focus->noidung->meal3_middle1 = $_POST['meal3_middle1'];
+        $focus->noidung->meal3_middle2 = $_POST['meal3_middle2'];
+        $focus->noidung->meal3_middle3 = $_POST['meal3_middle3'];
+        $focus->noidung->meal3_middle4 = $_POST['meal3_middle4'];
+        $focus->noidung->meal3_middle5 = $_POST['meal3_middle5'];
+        $focus->noidung->meal3_middle6 = $_POST['meal3_middle6'];
+        $focus->noidung->meal3_middle7 = $_POST['meal3_middle7'];
+        $focus->noidung->meal3_middle8 = $_POST['meal3_middle8'];
+        $focus->noidung->meal3_middle9 = $_POST['meal3_middle9'];
+        $focus->noidung->meal3_middle10 = $_POST['meal3_middle10'];
+        $focus->noidung->meal3_middle11 = $_POST['meal3_middle11'];
+        $focus->noidung->meal3_middle12 = $_POST['meal3_middle12'];
+        $focus->noidung->meal3_middle13 = $_POST['meal3_middle13'];
+        $focus->noidung->meal3_middle14 = $_POST['meal3_middle14'];
+        $focus->noidung->meal3_middle15 = $_POST['meal3_middle15'];
+        $focus->noidung->meal3_middle16 = $_POST['meal3_middle16'];
+        $focus->noidung->meal3_middle17 = $_POST['meal3_middle17'];
+        $focus->noidung->meal3_middle18 = $_POST['meal3_middle18'];
+        $focus->noidung->meal3_middle19 = $_POST['meal3_middle19'];
+        $focus->noidung->meal3_middle20 = $_POST['meal3_middle20'];
+        $focus->noidung->meal3_middle21 = $_POST['meal3_middle21'];
+        $focus->noidung->meal3_middle22 = $_POST['meal3_middle22'];
+        $focus->noidung->meal3_middle23 = $_POST['meal3_middle23'];
+        $focus->noidung->meal3_middle24 = $_POST['meal3_middle24'];
+        $focus->noidung->meal3_middle25 = $_POST['meal3_middle25'];
+        $focus->noidung->meal3_middle26 = $_POST['meal3_middle26'];
+        $focus->noidung->meal3_middle27 = $_POST['meal3_middle27'];
+        $focus->noidung->meal3_middle28 = $_POST['meal3_middle28'];
+        $focus->noidung->meal3_middle29 = $_POST['meal3_middle29'];
+        $focus->noidung->meal3_middle30 = $_POST['meal3_middle30'];
+        
+        
+        $focus->noidung->meal3_middle_breakfirst_price = $_POST['meal3_middle_breakfirst_price'];
+        $focus->noidung->meal3_middle_breakfirst_num = $_POST['meal3_middle_breakfirst_num'];
+        $focus->noidung->meal3_middle_breakfirst_money = $_POST['meal3_middle_breakfirst_money'];
+        $focus->noidung->meal3_middle_lunch_price = $_POST['meal3_middle_lunch_price'];
+        $focus->noidung->meal3_middle_lunch_num = $_POST['meal3_middle_lunch_num'];
+        $focus->noidung->meal3_middle_lunch_money = $_POST['meal3_middle_lunch_money'];
+        $focus->noidung->meal3_middle_dinner_price = $_POST['meal3_middle_dinner_price'];
+        $focus->noidung->meal3_middle_dinner_num = $_POST['meal3_middle_dinner_num'];
+        $focus->noidung->meal3_middle_dinner_money = $_POST['meal3_middle_dinner_money'];
+        $focus->noidung->meal3_middle_other_price = $_POST['meal3_middle_other_price'];
+        $focus->noidung->meal3_middle_other_num = $_POST['meal3_middle_other_num'];
+        $focus->noidung->meal3_middle_other_money = $_POST['meal3_middle_other_money'];
+        
+        
+        $focus->noidung->meal3_north_sum = $_POST['meal3_north_sum'];
+        $focus->noidung->meal3_north1 = $_POST['meal3_north1'];
+        $focus->noidung->meal3_north2 = $_POST['meal3_north2'];
+        $focus->noidung->meal3_north3 = $_POST['meal3_north3'];
+        $focus->noidung->meal3_north4 = $_POST['meal3_north4'];
+        $focus->noidung->meal3_north5 = $_POST['meal3_north5'];
+        $focus->noidung->meal3_north6 = $_POST['meal3_north6'];
+        $focus->noidung->meal3_north7 = $_POST['meal3_north7'];
+        $focus->noidung->meal3_north8 = $_POST['meal3_north8'];
+        $focus->noidung->meal3_north9 = $_POST['meal3_north9'];
+        $focus->noidung->meal3_north10 = $_POST['meal3_north10'];
+        $focus->noidung->meal3_north11 = $_POST['meal3_north11'];
+        $focus->noidung->meal3_north12 = $_POST['meal3_north12'];
+        $focus->noidung->meal3_north13 = $_POST['meal3_north13'];
+        $focus->noidung->meal3_north14 = $_POST['meal3_north14'];
+        $focus->noidung->meal3_north15 = $_POST['meal3_north15'];
+        $focus->noidung->meal3_north16 = $_POST['meal3_north16'];
+        $focus->noidung->meal3_north17 = $_POST['meal3_north17'];
+        $focus->noidung->meal3_north18 = $_POST['meal3_north18'];
+        $focus->noidung->meal3_north19 = $_POST['meal3_north19'];
+        $focus->noidung->meal3_north20 = $_POST['meal3_north20'];
+        $focus->noidung->meal3_north21 = $_POST['meal3_north21'];
+        $focus->noidung->meal3_north22 = $_POST['meal3_north22'];
+        $focus->noidung->meal3_north23 = $_POST['meal3_north23'];
+        $focus->noidung->meal3_north24 = $_POST['meal3_north24'];
+        $focus->noidung->meal3_north25 = $_POST['meal3_north25'];
+        $focus->noidung->meal3_north26 = $_POST['meal3_north26'];
+        $focus->noidung->meal3_north27 = $_POST['meal3_north27'];
+        $focus->noidung->meal3_north28 = $_POST['meal3_north28'];
+        $focus->noidung->meal3_north29 = $_POST['meal3_north29'];
+        $focus->noidung->meal3_north30 = $_POST['meal3_north30'];
+        
+        
+        
+        $focus->noidung->meal3_north_breakfirst_price = $_POST['meal3_north_breakfirst_price'];
+        $focus->noidung->meal3_south_breakfirst_num = $_POST['meal3_south_breakfirst_num'];
+        $focus->noidung->meal3_south_breakfirst_money = $_POST['meal3_south_breakfirst_money'];
+        $focus->noidung->meal3_south_lunch_price = $_POST['meal3_south_lunch_price'];
+        $focus->noidung->meal3_south_lunch_num = $_POST['meal3_south_lunch_num'];
+        $focus->noidung->meal3_south_lunch_money = $_POST['meal3_south_lunch_money'];
+        $focus->noidung->meal3_south_dinner_price = $_POST['meal3_south_dinner_price'];
+        $focus->noidung->meal3_south_dinner_num = $_POST['meal3_south_dinner_num'];
+        $focus->noidung->meal3_south_dinner_money = $_POST['meal3_south_dinner_money'];
+        $focus->noidung->meal3_south_other_price = $_POST['meal3_south_other_price'];
+        $focus->noidung->meal3_south_other_num = $_POST['meal3_south_other_num'];
+        $focus->noidung->meal3_south_other_money = $_POST['meal3_south_other_money'];
+        
+        
+        $focus->noidung->meal3_miidle_sum = $_POST['meal3_miidle_sum'];
+        $focus->noidung->meal3_middle1 = $_POST['meal3_middle1'];
+        $focus->noidung->meal3_middle2 = $_POST['meal3_middle2'];
+        $focus->noidung->meal3_middle3 = $_POST['meal3_middle3'];
+        $focus->noidung->meal3_middle4 = $_POST['meal3_middle4'];
+        $focus->noidung->meal3_middle5 = $_POST['meal3_middle5'];
+        $focus->noidung->meal3_middle6 = $_POST['meal3_middle6'];
+        $focus->noidung->meal3_middle7 = $_POST['meal3_middle7'];
+        $focus->noidung->meal3_middle8 = $_POST['meal3_middle8'];
+        $focus->noidung->meal3_middle9 = $_POST['meal3_middle9'];
+        $focus->noidung->meal3_middle10 = $_POST['meal3_middle10'];
+        $focus->noidung->meal3_middle11 = $_POST['meal3_middle11'];
+        $focus->noidung->meal3_middle12 = $_POST['meal3_middle12'];
+        $focus->noidung->meal3_middle13 = $_POST['meal3_middle13'];
+        $focus->noidung->meal3_middle14 = $_POST['meal3_middle14'];
+        $focus->noidung->meal3_middle15 = $_POST['meal3_middle15'];
+        $focus->noidung->meal3_middle16 = $_POST['meal3_middle16'];
+        $focus->noidung->meal3_middle17 = $_POST['meal3_middle17'];
+        $focus->noidung->meal3_middle18 = $_POST['meal3_middle18'];
+        $focus->noidung->meal3_middle19 = $_POST['meal3_middle19'];
+        $focus->noidung->meal3_middle20 = $_POST['meal3_middle20'];
+        $focus->noidung->meal3_middle21 = $_POST['meal3_middle21'];
+        $focus->noidung->meal3_middle22 = $_POST['meal3_middle22'];
+        $focus->noidung->meal3_middle23 = $_POST['meal3_middle23'];
+        $focus->noidung->meal3_middle24 = $_POST['meal3_middle24'];
+        $focus->noidung->meal3_middle25 = $_POST['meal3_middle25'];
+        $focus->noidung->meal3_middle26 = $_POST['meal3_middle26'];
+        $focus->noidung->meal3_middle27 = $_POST['meal3_middle27'];
+        $focus->noidung->meal3_middle28 = $_POST['meal3_middle28'];
+        $focus->noidung->meal3_middle29 = $_POST['meal3_middle29'];
+        $focus->noidung->meal3_middle30 = $_POST['meal3_middle30'];
+        
+        
+        $focus->noidung->meal3_middle_breakfirst_price = $_POST['meal3_middle_breakfirst_price'];
+        $focus->noidung->meal3_middle_breakfirst_num = $_POST['meal3_middle_breakfirst_num'];
+        $focus->noidung->meal3_middle_breakfirst_money = $_POST['meal3_middle_breakfirst_money'];
+        $focus->noidung->meal3_middle_lunch_price = $_POST['meal3_middle_lunch_price'];
+        $focus->noidung->meal3_middle_lunch_num = $_POST['meal3_middle_lunch_num'];
+        $focus->noidung->meal3_middle_lunch_money = $_POST['meal3_middle_lunch_money'];
+        $focus->noidung->meal3_middle_lunch_money = $_POST['meal3_middle_lunch_money'];
+        $focus->noidung->meal3_middle_dinner_num = $_POST['meal3_middle_dinner_num'];
+        $focus->noidung->meal3_middle_dinner_money = $_POST['meal3_middle_dinner_money'];
+        $focus->noidung->meal3_middle_other_price = $_POST['meal3_middle_other_price'];
+        $focus->noidung->meal3_middle_other_num = $_POST['meal3_middle_other_num'];
+        $focus->noidung->meal3_middle_other_money = $_POST['meal3_middle_other_money'];
+        
+        
+        
+        $focus->noidung->meal3_north_sum = $_POST['meal3_north_sum'];
+        $focus->noidung->meal3_north1 = $_POST['meal3_north1'];
+        $focus->noidung->meal3_north2 = $_POST['meal3_north2'];
+        $focus->noidung->meal3_north3 = $_POST['meal3_north3'];
+        $focus->noidung->meal3_north4 = $_POST['meal3_north4'];
+        $focus->noidung->meal3_north5 = $_POST['meal3_north5'];
+        $focus->noidung->meal3_north6 = $_POST['meal3_north6'];
+        $focus->noidung->meal3_north7 = $_POST['meal3_north7'];
+        $focus->noidung->meal3_north8 = $_POST['meal3_north8'];
+        $focus->noidung->meal3_north9 = $_POST['meal3_north9'];
+        $focus->noidung->meal3_north10 = $_POST['meal3_north10'];
+        $focus->noidung->meal3_north11 = $_POST['meal3_north11'];
+        $focus->noidung->meal3_north12 = $_POST['meal3_north12'];
+        $focus->noidung->meal3_north13 = $_POST['meal3_north13'];
+        $focus->noidung->meal3_north14 = $_POST['meal3_north14'];
+        $focus->noidung->meal3_north15 = $_POST['meal3_north15'];
+        $focus->noidung->meal3_north16 = $_POST['meal3_north16'];
+        $focus->noidung->meal3_north17 = $_POST['meal3_north17'];
+        $focus->noidung->meal3_north18 = $_POST['meal3_north18'];
+        $focus->noidung->meal3_north19 = $_POST['meal3_north19'];
+        $focus->noidung->meal3_north20 = $_POST['meal3_north20'];
+        $focus->noidung->meal3_north21 = $_POST['meal3_north21'];
+        $focus->noidung->meal3_north22 = $_POST['meal3_north22'];
+        $focus->noidung->meal3_north23 = $_POST['meal3_north23'];
+        $focus->noidung->meal3_north24 = $_POST['meal3_north24'];
+        $focus->noidung->meal3_north25 = $_POST['meal3_north25'];
+        $focus->noidung->meal3_north26 = $_POST['meal3_north26'];
+        $focus->noidung->meal3_north27 = $_POST['meal3_north27'];
+        $focus->noidung->meal3_north28 = $_POST['meal3_north28'];
+        $focus->noidung->meal3_north29 = $_POST['meal3_north29'];
+        $focus->noidung->meal3_north30 = $_POST['meal3_north30'];
+        
+        
+        $focus->noidung->meal3_north_breakfirst_price = $_POST['meal3_north_breakfirst_price'];
+        $focus->noidung->meal3_north_breakfirst_num = $_POST['meal3_north_breakfirst_num'];
+        $focus->noidung->meal3_north_breakfirst_money = $_POST['meal3_north_breakfirst_money'];
+        $focus->noidung->meal3_north_lunch_price = $_POST['meal3_north_lunch_price'];
+        $focus->noidung->meal3_north_lunch_num = $_POST['meal3_north_lunch_num'];
+        $focus->noidung->meal3_north_lunch_money = $_POST['meal3_north_lunch_money'];
+        $focus->noidung->meal3_north_dinner_price = $_POST['meal3_north_dinner_price'];
+        $focus->noidung->meal3_north_dinner_num = $_POST['meal3_north_dinner_num'];
+        $focus->noidung->meal3_north_dinner_money = $_POST['meal3_north_dinner_money'];
+        $focus->noidung->meal3_north_other_price = $_POST['meal3_north_other_price'];
+        $focus->noidung->meal3_north_other_num = $_POST['meal3_north_other_num'];
+        $focus->noidung->meal3_north_other_money = $_POST['meal3_north_other_money'];
+        
+        
+        $focus->noidung->hotel3_sum = $_POST['hotel3_sum'];
+        $focus->noidung->hotel3_1 = $_POST['hotel3_1'];
+        $focus->noidung->hotel3_2 = $_POST['hotel3_2'];
+        $focus->noidung->hotel3_3 = $_POST['hotel3_3'];
+        $focus->noidung->hotel3_4 = $_POST['hotel3_4'];
+        $focus->noidung->hotel3_5 = $_POST['hotel3_5'];
+        $focus->noidung->hotel3_6 = $_POST['hotel3_6'];
+        $focus->noidung->hotel3_7 = $_POST['hotel3_7'];
+        $focus->noidung->hotel3_8 = $_POST['hotel3_8'];
+        $focus->noidung->hotel3_9 = $_POST['hotel3_9'];
+        $focus->noidung->hotel3_10 = $_POST['hotel3_10'];
+        $focus->noidung->hotel3_11 = $_POST['hotel3_11'];
+        $focus->noidung->hotel3_12 = $_POST['hotel3_12'];
+        $focus->noidung->hotel3_13 = $_POST['hotel3_13'];
+        $focus->noidung->hotel3_14 = $_POST['hotel3_14'];
+        $focus->noidung->hotel3_15 = $_POST['hotel3_15'];
+        $focus->noidung->hotel3_16 = $_POST['hotel3_16'];
+        $focus->noidung->hotel3_17 = $_POST['hotel3_17'];
+        $focus->noidung->hotel3_18 = $_POST['hotel3_18'];
+        $focus->noidung->hotel3_19 = $_POST['hotel3_19'];
+        $focus->noidung->hotel3_20 = $_POST['hotel3_20'];
+        $focus->noidung->hotel3_21 = $_POST['hotel3_21'];
+        $focus->noidung->hotel3_22 = $_POST['hotel3_22'];
+        $focus->noidung->hotel3_23 = $_POST['hotel3_23'];
+        $focus->noidung->hotel3_24 = $_POST['hotel3_24'];
+        $focus->noidung->hotel3_25 = $_POST['hotel3_25'];
+        $focus->noidung->hotel3_26 = $_POST['hotel3_26'];
+        $focus->noidung->hotel3_27 = $_POST['hotel3_27'];
+        $focus->noidung->hotel3_28 = $_POST['hotel3_28'];
+        $focus->noidung->hotel3_29 = $_POST['hotel3_29'];
+        $focus->noidung->hotel3_30 = $_POST['hotel3_30'];
+        
+        
+        $focus->noidung->hotel3_30 = $_POST['hotel3_30'];
+        $hotel3_count  = count($_POST['hotel3_service']);
+        for($i = 0; $i<$hotel3_count; $i++){
+            $hotel3[$i]->hotel3_service = $_POST['hotel3_service'][$i];
+            $hotel3[$i]->hotel3_price = $_POST['hotel3_price'][$i];
+            $hotel3[$i]->hotel3_num = $_POST['hotel3_num'][$i];
+            $hotel3[$i]->hotel3_money = $_POST['hotel3_money'][$i];
+        }
+        
+        $focus->noidung->hotel3 = $hotel3;
+        
+        
+        $focus->noidung->foc3_21 = $_POST['foc3_21'];
+        $focus->noidung->foc3_22 = $_POST['foc3_22'];
+        $focus->noidung->foc3_23 = $_POST['foc3_23'];
+        $focus->noidung->foc3_24 = $_POST['foc3_24'];
+        $focus->noidung->foc3_25 = $_POST['foc3_25'];
+        $focus->noidung->foc3_26 = $_POST['foc3_26'];
+        $focus->noidung->foc3_27 = $_POST['foc3_27'];
+        $focus->noidung->foc3_28 = $_POST['foc3_28'];
+        $focus->noidung->foc3_29 = $_POST['foc3_29'];
+        $focus->noidung->foc3_30 = $_POST['foc3_30'];
+        
+        $focus->noidung->nett3_1 = $_POST['nett3_1'];
+        $focus->noidung->nett3_2 = $_POST['nett3_2'];
+        $focus->noidung->nett3_3 = $_POST['nett3_3'];
+        $focus->noidung->nett3_4 = $_POST['nett3_4'];
+        $focus->noidung->nett3_5 = $_POST['nett3_5'];
+        $focus->noidung->nett3_6 = $_POST['nett3_6'];
+        $focus->noidung->nett3_7 = $_POST['nett3_7'];
+        $focus->noidung->nett3_8 = $_POST['nett3_8'];
+        $focus->noidung->nett3_9 = $_POST['nett3_9'];
+        $focus->noidung->nett3_10 = $_POST['nett3_10'];
+        $focus->noidung->nett3_11 = $_POST['nett3_11'];
+        $focus->noidung->nett3_12 = $_POST['nett3_12'];
+        $focus->noidung->nett3_13 = $_POST['nett3_13'];
+        $focus->noidung->nett3_14 = $_POST['nett3_14'];
+        $focus->noidung->nett3_15 = $_POST['nett3_15'];
+        $focus->noidung->nett3_16 = $_POST['nett3_16'];
+        $focus->noidung->nett3_17 = $_POST['nett3_17'];
+        $focus->noidung->nett3_18 = $_POST['nett3_18'];
+        $focus->noidung->nett3_19 = $_POST['nett3_19'];
+        $focus->noidung->nett3_20 = $_POST['nett3_20'];
+        $focus->noidung->nett3_21 = $_POST['nett3_22'];
+        $focus->noidung->nett3_22 = $_POST['nett3_23'];
+        $focus->noidung->nett3_23 = $_POST['nett3_23'];
+        $focus->noidung->nett3_24 = $_POST['nett3_24'];
+        $focus->noidung->nett3_25 = $_POST['nett3_25'];
+        $focus->noidung->nett3_26 = $_POST['nett3_26'];
+        $focus->noidung->nett3_27 = $_POST['nett3_27'];
+        $focus->noidung->nett3_28 = $_POST['nett3_28'];
+        $focus->noidung->nett3_29 = $_POST['nett3_29'];
+        $focus->noidung->nett3_30 = $_POST['nett3_30'];
+        $focus->noidung->nett3_31 = $_POST['nett3_31'];
+        $focus->noidung->nett3_32 = $_POST['nett3_32'];
+        
+        
+        $focus->noidung->service3_rate = $_POST['service3_rate'];
+        $focus->noidung->service3_1 = $_POST['service3_1'];
+        $focus->noidung->service3_2 = $_POST['service3_2'];
+        $focus->noidung->service3_5 = $_POST['service3_5'];
+        $focus->noidung->service3_6 = $_POST['service3_6'];
+        $focus->noidung->service3_9 = $_POST['service3_9'];
+        $focus->noidung->service3_10 = $_POST['service3_10'];
+        $focus->noidung->service3_13 = $_POST['service3_23'];
+        $focus->noidung->service3_14 = $_POST['service3_14'];
+        $focus->noidung->service3_17 = $_POST['service3_17'];
+        $focus->noidung->service3_18 = $_POST['service3_18'];
+        $focus->noidung->service3_21 = $_POST['service3_21'];
+        $focus->noidung->service3_22 = $_POST['service3_22'];
+        $focus->noidung->service3_25 = $_POST['service3_25'];
+        $focus->noidung->service3_26 = $_POST['service3_26'];
+        $focus->noidung->service3_27 = $_POST['service3_27'];
+        $focus->noidung->service3_31 = $_POST['service3_31'];
+        
+        
+        $focus->noidung->sell3_vnd1 = $_POST['sell3_vnd1'];
+        $focus->noidung->sell3_vnd2 = $_POST['sell3_vnd2'];
+        $focus->noidung->sell3_vnd3 = $_POST['sell3_vnd3'];
+        $focus->noidung->sell3_vnd4 = $_POST['sell3_vnd4'];
+        $focus->noidung->sell3_vnd5 = $_POST['sell3_vnd5'];
+        $focus->noidung->sell3_vnd6 = $_POST['sell3_vnd6'];
+        $focus->noidung->sell3_vnd7 = $_POST['sell3_vnd7'];
+        $focus->noidung->sell3_vnd8 = $_POST['sell3_vnd8'];
+        $focus->noidung->sell3_vnd9 = $_POST['sell3_vnd9'];
+        $focus->noidung->sell3_vnd10 = $_POST['sell3_vnd10'];
+        $focus->noidung->sell3_vnd11 = $_POST['sell3_vnd11'];
+        $focus->noidung->sell3_vnd12 = $_POST['sell3_vnd12'];
+        $focus->noidung->sell3_vnd13 = $_POST['sell3_vnd13'];
+        $focus->noidung->sell3_vnd14 = $_POST['sell3_vnd14'];
+        $focus->noidung->sell3_vnd15 = $_POST['sell3_vnd15'];
+        $focus->noidung->sell3_vnd16 = $_POST['sell3_vnd16'];
+        $focus->noidung->sell3_vnd17 = $_POST['sell3_vnd17'];
+        $focus->noidung->sell3_vnd18 = $_POST['sell3_vnd18'];
+        $focus->noidung->sell3_vnd19 = $_POST['sell3_vnd19'];
+        $focus->noidung->sell3_vnd20 = $_POST['sell3_vnd20'];
+        
+        
+        $focus->noidung->sell3_usd1 = $_POST['sell3_usd1'];
+        $focus->noidung->sell3_usd2 = $_POST['sell3_usd2'];
+        $focus->noidung->sell3_usd5 = $_POST['sell3_usd5'];
+        $focus->noidung->sell3_usd6 = $_POST['sell3_usd6'];
+        $focus->noidung->sell3_usd9 = $_POST['sell3_usd9'];
+        $focus->noidung->sell3_usd10 = $_POST['sell3_usd10'];
+        $focus->noidung->sell3_usd13 = $_POST['sell3_usd13'];
+        $focus->noidung->sell3_usd14 = $_POST['sell3_usd14'];
+        $focus->noidung->sell3_usd17 = $_POST['sell3_usd17'];
+        $focus->noidung->sell3_usd18 = $_POST['sell3_usd18'];
+        $focus->noidung->sell3_usd21 = $_POST['sell3_usd21'];
+        $focus->noidung->sell3_usd22 = $_POST['sell3_usd22'];
+        $focus->noidung->sell3_usd25 = $_POST['sell3_usd25'];
+        $focus->noidung->sell3_usd26 = $_POST['sell3_usd26'];
+        $focus->noidung->sell3_usd27 = $_POST['sell3_usd27'];
+        $focus->noidung->sell3_usd31 = $_POST['sell3_usd31'];
+        
+        
+        $focus->noidung->tax3_1 = $_POST['tax3_1'];
+        $focus->noidung->tax3_2 = $_POST['tax3_2'];
+        $focus->noidung->tax3_5 = $_POST['tax3_5'];
+        $focus->noidung->tax3_6 = $_POST['tax3_6'];
+        $focus->noidung->tax3_9 = $_POST['tax3_9'];
+        $focus->noidung->tax3_10 = $_POST['tax3_10'];
+        $focus->noidung->tax3_13 = $_POST['tax3_13'];
+        $focus->noidung->tax3_14 = $_POST['tax3_14'];
+        $focus->noidung->tax3_17 = $_POST['tax3_17'];
+        $focus->noidung->tax3_18 = $_POST['tax3_18'];
+        $focus->noidung->tax3_21 = $_POST['tax3_21'];
+        $focus->noidung->tax3_22 = $_POST['tax3_22'];
+        $focus->noidung->tax3_25 = $_POST['tax3_25'];
+        $focus->noidung->tax3_26 = $_POST['tax3_26'];
+        $focus->noidung->tax3_27 = $_POST['tax3_27'];
+        $focus->noidung->tax3_31 = $_POST['tax3_31'];
+        
+        
+        $focus->noidung->profit3_1 = $_POST['profit3_1'];
+        $focus->noidung->profit3_2 = $_POST['profit3_2'];
+        $focus->noidung->profit3_5 = $_POST['profit3_5'];
+        $focus->noidung->profit3_6 = $_POST['profit3_6'];
+        $focus->noidung->profit3_9 = $_POST['profit3_9'];
+        $focus->noidung->profit3_10 = $_POST['profit3_10'];
+        $focus->noidung->profit3_13 = $_POST['profit3_13'];
+        $focus->noidung->profit3_14 = $_POST['profit3_14'];
+        $focus->noidung->profit3_17 = $_POST['profit3_17'];
+        $focus->noidung->profit3_18 = $_POST['profit3_18'];
+        $focus->noidung->profit3_21 = $_POST['profit3_21'];
+        $focus->noidung->profit3_22 = $_POST['profit3_22'];
+        $focus->noidung->profit3_25 = $_POST['profit3_25'];
+        $focus->noidung->profit3_26 = $_POST['profit3_26'];
+        $focus->noidung->profit3_27 = $_POST['profit3_27'];
+        $focus->noidung->profit3_31 = $_POST['profit3_31'];
+        
+        
+        $focus->noidung->total3_1 = $_POST['total3_1'];
+        $focus->noidung->total3_2 = $_POST['total3_2'];
+        $focus->noidung->total3_5 = $_POST['total3_5'];
+        $focus->noidung->total3_6 = $_POST['total3_6'];
+        $focus->noidung->total3_9 = $_POST['total3_9'];
+        $focus->noidung->total3_10 = $_POST['total3_10'];
+        $focus->noidung->total3_13 = $_POST['total3_13'];
+        $focus->noidung->total3_14 = $_POST['total3_14'];
+        $focus->noidung->total3_17 = $_POST['total3_17'];
+        $focus->noidung->total3_18 = $_POST['total3_18'];
+        $focus->noidung->total3_21 = $_POST['total3_21'];
+        $focus->noidung->total3_22 = $_POST['total3_22'];
+        $focus->noidung->total3_25 = $_POST['total3_25'];
+        $focus->noidung->total3_26 = $_POST['total3_26'];
+        $focus->noidung->total3_27 = $_POST['total3_27'];
+        $focus->noidung->total3_31 = $_POST['total3_31'];
+        
+        
+        $focus->noidung->interest3_1 = $_POST['interest3_1'];
+        $focus->noidung->interest3_2 = $_POST['interest3_2'];
+        $focus->noidung->interest3_5 = $_POST['interest3_5'];
+        $focus->noidung->interest3_6 = $_POST['interest3_6'];
+        $focus->noidung->interest3_9 = $_POST['interest3_9'];
+        $focus->noidung->interest3_10 = $_POST['interest3_10'];
+        $focus->noidung->interest3_13 = $_POST['interest3_13'];
+        $focus->noidung->interest3_14 = $_POST['interest3_14'];
+        $focus->noidung->interest3_17 = $_POST['interest3_17'];
+        $focus->noidung->interest3_18 = $_POST['interest3_18'];
+        $focus->noidung->interest3_21 = $_POST['interest3_21'];
+        $focus->noidung->interest3_22 = $_POST['interest3_22'];
+        $focus->noidung->interest3_25 = $_POST['interest3_25'];
+        $focus->noidung->interest3_26 = $_POST['interest3_26'];
+        $focus->noidung->interest3_27 = $_POST['interest3_27'];
+        $focus->noidung->interest3_31 = $_POST['interest3_31'];
     }
-    /*if($focus->worksheet_code !=''){
-        $focus->name = $focus->worksheet_code;
-    }*/
 
     $_SESSION['content']  = $focus->noidung;
     $content = json_encode($_SESSION['content'] );
