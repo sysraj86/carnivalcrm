@@ -1,5 +1,5 @@
 <?php
-// created: 2011-11-09 10:14:26
+// created: 2012-11-16 17:43:13
 $dictionary["transports_cars"] = array (
   'true_relationship_type' => 'one-to-many',
   'from_studio' => true,

@@ -40,6 +40,7 @@
                         </table>';
             
             $this->dv->ss->assign("contract_condition", $html);
+            $this->dv->ss->assign("tongtien", format_number($this->bean->tongtien));
             parent::display();
         }
 

@@ -43,7 +43,7 @@
     $template->retrieve($_REQUEST['templateID']);
 
     $contract = new Contract();
-    $contract->retrieve($module->contract);
+    $contract->retrieve($module->contracts_2225ntracts_ida);
     $object_arr = array();
     $object_arr[$module_type] = $module->id;
     $object_arr['Contracts'] = $contract->id;
@@ -96,7 +96,7 @@
             $curNum = strpos($text,'$contractappendixvalues_'.$name);
             if($curNum){
                 if($curNum < $firstNum || $firstNum == 0){
-                    $firstValue = '$contractappendixvalues_'.$name;
+                    $firstValue = '$contractappendixvalues_'.$name; 
                     $firstNum = $curNum;
                 }
                 else if($curNum > $lastNum){

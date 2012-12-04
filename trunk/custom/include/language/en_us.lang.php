@@ -904,3 +904,39 @@ $GLOBALS['app_list_strings']['type_air_train_dom']=array (
 
 $app_list_strings['moduleList']['AirlinesTickets']='Air/Train Booking';
 $app_list_strings['moduleList']['C_Reports']='Report/Rating';
+$GLOBALS['app_list_strings']['continent_dom']=array (
+  '' => '',
+  'europe' => 'Europe',
+  'asia' => 'Asia',
+  'africa' => 'Africa',
+  'south_america' => 'South America',
+  'north_america' => 'North America',
+  'Oceania' => 'Oceania',
+);
+
+$GLOBALS['app_list_strings']['contract_parent_type_display']=array ( 
+        'Accounts' => 'Công Ty',
+        'FITs' => 'Cá nhân',
+        'TravelGuides' => 'Hướng Dẫn viên',
+        'Hotels' => 'Khách Sạn',
+        'Restaurants' => 'Nhà Hàng',
+        'Transports' => 'Ô tô/ Tàu / Thuyền',
+    );
+$GLOBALS['app_list_strings']['contract_record_type_display']=array ( 
+        'Accounts' => 'Công ty',
+        'FITs' => 'Cá nhân',
+        'TravelGuides' => 'Hướng Dẫn viên',
+        'Hotels' => 'Khách Sạn',
+        'Restaurants' => 'Nhà Hàng',
+        'Transports' => 'Ô tô/ Tàu / Thuyền',
+    );
+$GLOBALS['app_list_strings']['contract_type_customer_dom']=array ( 
+        'khachdoan' => 'Khách Đoàn',
+        'khachle' => 'Khách Lẻ',
+    );
+$GLOBALS['app_list_strings']['contract_type_service_dom']=array ( 
+        '' => '',
+        'nguoilon' => 'Người Lớn',
+        'treem' => 'Trẻ Em',
+        'khac' => 'Khác',
+    );

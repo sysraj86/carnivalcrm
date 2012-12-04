@@ -815,8 +815,8 @@
 //                if($view == 90 || $view1 == 90){
                     $query = "SELECT id , user_name FROM users WHERE deleted =0 AND status ='Active' ";
                     $result = $db->query($query);
-                    $list_user[]= array('id' => '-1', 'user_name' => '---None---');
-                    $app_list_strings['report_user_dom'][$list_user[0]['id']] = $list_user[0]['user_name'];  
+                   // $list_user[]= array('id' => '-1', 'user_name' => '---None---');
+                   // $app_list_strings['report_user_dom'][$list_user[0]['id']] = $list_user[0]['user_name'];  
                     while($row = $db->fetchByAssoc($result)){
                         $list_user[]= array('id' => $row['id'], 'user_name' => $row['user_name']);
                         $app_list_strings['report_user_dom'][$row['id']] = $row['user_name'];     

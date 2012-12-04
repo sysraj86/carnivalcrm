@@ -1,6 +1,6 @@
 <?php
 $module_name = 'Contracts';
-$viewdefs [$module_name] = 
+$viewdefs[$module_name] = 
 array (
   'DetailView' => 
   array (
@@ -335,6 +335,7 @@ array (
           array (
             'name' => 'tongtien',
             'label' => 'LBL_TONGTIEN',
+            'customCode' => '<span>{$tongtien}</span>&nbsp;<span>{$fields.tiente.options[$fields.tiente.value]}</span>'
           ),
           1 => 
           array (

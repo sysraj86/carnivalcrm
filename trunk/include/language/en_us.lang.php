@@ -829,7 +829,7 @@ $app_list_strings = array(
 
     'position_dom' => array(
         '' => '',
-        'giamdoc' => 'Giám đốc',
+        'giamdoc' => 'Tổng Giám đốc',
         'phogiamdoc'    => 'Phó giám đốc',
         'truongphong' => 'Trưởng phòng',
         'phophong'     => 'Phó phòng',
@@ -3356,7 +3356,7 @@ $app_list_strings['kbdocument_date_filter_options'] =
 
 $app_list_strings['countries_dom'] = array(
     '' => '',
-     'VIETNAM' => 'VIỆT NAM',
+    'VIETNAM' => 'VIỆT NAM',
     'ABUDHABI' => 'ABU DHABI',
     'ADEN' => 'ADEN',
     'AFGHANISTAN' => 'AFGHANISTAN',

@@ -151,6 +151,19 @@ $(function(){
             $('#in_word'+id).val(str);
         }
     });
+    
+    /////////////////////
+    // Tu dong tinh gia tour khi load dich vu
+    
+    $('.type_service').change(function(){
+        type = $('.type_service').val();
+        if(type == 'khac'){
+            $(this).next().show();
+        }else{
+            $(this).next().val('');
+            $(this).next().hide();
+        }
+    });
 
 });
 

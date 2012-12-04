@@ -708,6 +708,24 @@
          'rows'  =>  4,
        ),
  
+        'customer_type' => array(
+            'name' => 'customer_type',
+            'vname' => 'LBL_CUSTOMER_TYPE',
+            'type' => 'enum',
+            'options' => 'contract_type_customer_dom',
+        ),
+        'customer_number' => array(
+            'name' => 'customer_number',
+            'vname' => 'LBL_CUSTOMER_NUMBER',
+            'type' => 'varchar',
+            'len' => '10',
+        ),
+        'service' => array(
+            'name' => 'service',
+            'vname' => 'LBL_SERVICE',
+            'type' => 'varchar',
+            'len' => '255',
+        ),
         
     ),
 
