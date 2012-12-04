@@ -97,7 +97,7 @@
             if(!empty($row['nationlity'])){
                 $template = str_replace("{NATIONLITY}", translate('countries_dom','',$row['nationlity']),$template);
             }
-            else{$template = str_replace("{NATIONLITY}", translate('countries_dom','',''),$template); } 
+            else{$template = str_replace("{NATIONLITY}", '',$template); } 
             $template = str_replace("{BOOKINGLINE}", $focus->get_bookingroom_detailview($record),$template);  
             $template = str_replace("{NOTES}", html_entity_decode(nl2br($row['notes'])),$template);  
             $template = str_replace("{CONVENTION}", html_entity_decode(nl2br($row['convention'])),$template);  

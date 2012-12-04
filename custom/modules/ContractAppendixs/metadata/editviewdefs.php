@@ -138,10 +138,6 @@ array (
         ),
         14 => 
         array (
-          0 => 'tongtien2',
-        ),
-        15 => 
-        array (
           0 => 'tongtien',
           1 => 
           array (
@@ -151,10 +147,14 @@ array (
             ',
           ),
         ),
-        16 => 
+        15 => 
         array (
           0 => 'tigia',
           1 => 'tiente',
+        ),
+        16 => 
+        array (
+          0 => 'tongtien2',
         ),
         17 => 
         array (

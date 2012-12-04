@@ -230,7 +230,7 @@ $viewdefs['Contacts']['ConvertLead'] = array(
 
 $viewdefs['Accounts']['ConvertLead'] = array(
     'copyData' => true,
-    'required' => false,
+    'required' => true,
     'select' => "account_name",
 	'default_action' => 'create',
     'relationship' => 'accounts_contacts',
@@ -250,13 +250,14 @@ $viewdefs['Accounts']['ConvertLead'] = array(
             array('label' => '10', 'field' => '30'),
         ),
     ),
-    'panels' =>array (
+    'panels' => array (
         'LNK_NEW_ACCOUNT' => array (
             array (
                 'name',
                 'phone_office',
             ),
             array (
+                'account_type',
                 'website',
             ),
             array(

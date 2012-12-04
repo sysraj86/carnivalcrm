@@ -9,46 +9,42 @@
         function display(){
             $ss = new Sugar_Smarty();
             $table = array(
-                'Contacts'      => 'Contacts',
-                'Accounts'      => 'Accounts',
+                'Leads'         => 'Leads',
                 'Opportunities' => 'Opportunities',
-                'Cases'     => 'Cases',
-                'Notes'     => 'Notes',
-                'Calls'     => 'Calls',
-                'Emails'    => 'Emails',
-                'Meetings'  => 'Meetings',
-                'Tasks'     => 'Tasks',
-                'Leads'     => 'Leads',
-                'Project'   =>'Projects',
+                'FITs'          => 'Customer',
+                'Contacts'      => 'Contacts',
+                'Accounts'      => 'Company',
+                'Cases'         => 'Cases',
+                'Notes'         => 'Notes',
+                'Calls'         => 'Calls',
+                'Emails'        => 'Emails',
+                'Meetings'      => 'Meetings',
+                'Tasks'         => 'Tasks',
+                'Project'       => 'Projects',
             );
             $timedate = new TimeDate();
             global $db, $mod_strings, $app_list_strings,$current_user;
             $ss = new Sugar_Smarty()   ;
             $ss->assign('MOD',$mod_strings);
             $focus = new C_Reports();
-            $role =  $focus->getUserRole('Reports',$current_user->id);//
-            $list_user = $focus->getUserForReportAsRole();//
-            $list_group = $focus->getAllSecuritySuite(); //
-//            if(($role['access1']) &&($role['access2'] == 90 || $role['access3'] == 90)){
-//                $ss->assign('ADMIN','90');
-//            }
+            $role =  $focus->getUserRole('Reports',$current_user->id);
+            $list_user = $focus->getUserForReportAsRole();
+            $list_group = $focus->getAllSecuritySuite();
             $ss->assign('lst_group',get_select_options_with_id($app_list_strings['report_securitysuite_dom'],''));
             $ss->assign('lst_user',get_select_options_with_id($app_list_strings['report_user_dom'],''));
 
             if(isset($_REQUEST['submit'])){
-                $start_date =  $_REQUEST['start_date'];
-                $end_date =  $_REQUEST['end_date'];
-               // $group = $_REQUEST['lst_group'];
-                $user_id = $_REQUEST['lst_user'];
-                $list_user = $_REQUEST['user_id'];
-                $time_range = $_REQUEST['time_range'];
-                $start_end_yes = $_REQUEST['start_end_yes'];
-                $report_option = $_REQUEST['report_option'];
+                $start_date     = $_REQUEST['start_date'];
+                $end_date       = $_REQUEST['end_date'];
+                $user_id        = $_REQUEST['lst_user'];
+                $list_user      = $_REQUEST['user_id'];
+                $time_range     = $_REQUEST['time_range'];
+                $start_end_yes  = $_REQUEST['start_end_yes'];
+                $report_option  = $_REQUEST['report_option'];
 
                 $type =  $time_range ?  $time_range: $start_end_yes;
                 $ss->assign('TYPE',$type);
                 $ss->assign('report_option',$report_option);
-            //    $ss->assign('lst_group',get_select_options_with_id($app_list_strings['report_securitysuite_dom'],$group));
                 $lst_user = get_select_options($app_list_strings['report_user_dom'],$user_id);
                 $ss->assign('lst_user',$lst_user);
 
@@ -64,7 +60,6 @@
                 else{
                     unset($app_list_strings['report_user_dom']['0']);  
                     $user_id = array_keys($app_list_strings['report_user_dom']);
-                    //$user_id = implode("','",$user_id); 
                 }
 
                 if($group){
@@ -97,19 +92,9 @@
                 $html = '<br /><div style="color:red"><b>Note : (Created/Assigned/Modified)</b></div>';
                 $html .= '<table class="h3Row" cellpadding="0" cellspacing="0" width="100%" border="1" style="border-collapse: collapse;"> ';
                 $html .= '<thead>';
-                //$html .= '<tr>';
-//                    $html .= '<td colspan="'.(count($table)+1).'" style="background:#EBEBED"> 1 </td>';
-//                $html .= '</tr>';
-//                $html .= '<tr>';
-//                $html .= '<td colspan="'.(count($table)+1).'" style="background:#EBEBED"><font color="red"><b> C : Created <br/> A: Assigned <br/> M: Modifired <br/> </b> </font></td>';
-//                $html .= '</tr>';
-//                $html .= '<tr>';
                     $html .= '<td class="tb_border" style="background:#EBEBED"><b>User</b></td>';   
-                foreach($table as $table_value){
-                    if($table_value == 'C_Contract'){
-                        $table_value = 'Contract';
-                    }
-                    $html .= '<td style="background:#EBEBED;text-align:center" class="tb_border" width="'.(100/count($table)).'%"><b>'.$table_value.'</b></td>' ;
+                foreach($table as $table_name){
+                    $html .= '<td style="background:#EBEBED;text-align:center" class="tb_border" width="'.(100/count($table)).'%"><b>'.$table_name.'</b></td>' ;
                 }
                 $html .= '</tr>';
                 $html .= '</thead>';
@@ -118,7 +103,7 @@
                     foreach($user_id as $value){
                        $html .= '<tr height="20">'; 
                         $html .= '<td class="tb_border"> '.translate('report_user_dom','',$value).' </td>';
-                        foreach($table as $table_value){
+                        foreach($table as $table_value => $table_name){
                             $recordCreate = $focus->countRecordCreate(strtolower($table_value),$value,$start_date,$end_date);
                             $recordModify = $focus->countRecordAsignedTo(strtolower($table_value),$value,$start_date,$end_date);
                             $recordModified = $focus->countRecordModify(strtolower($table_value),$value,$start_date,$end_date); 

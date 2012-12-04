@@ -16,6 +16,18 @@
      background-color: #9ACD32;
  }
  /********************************************************************/
+ /* Tạo màu cho các record của ListView cho module MadeTour       */
+
+ .xanh{
+     background-color: #FFFF00;
+ }
+ .vang{
+     background-color: #D3D3D3;
+ }
+ .do{
+     background-color: #FF0000;
+ } 
+ /********************************************************************/
  
  /* Chỉnh độ rộng của fields potential trong phần search module FITs */
 #Accountsbasic_searchSearchForm select[name^=potential_basic]{

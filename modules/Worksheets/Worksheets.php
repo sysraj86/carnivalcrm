@@ -115,16 +115,29 @@
         function getAirlineTicket ($id = ''){
             global $db;
             $airArrtk = array();
-            $sql = "SELECT 
-            airtk.name,
-            airtk.area,
-            airtk.id 
+            //$sql = "SELECT 
+//            airtk.name,
+//            airtk.area,
+//            airtk.id 
+//            FROM
+//            airlinestickets airtk 
+//            INNER JOIN tours_airlinestickets_c tairtk 
+//            ON airtk.id = tairtk.tours_airl00e8tickets_idb 
+//            WHERE airtk.deleted = 0 
+//            AND tairtk.deleted = 0 AND tairtk.tours_airl9600tstours_ida='".$id."'";
+            $sql = "
+            SELECT 
+              air.name,
+              air.area,
+              air.id 
             FROM
-            airlinestickets airtk 
-            INNER JOIN tours_airlinestickets_c tairtk 
-            ON airtk.id = tairtk.tours_airl00e8tickets_idb 
-            WHERE airtk.deleted = 0 
-            AND tairtk.deleted = 0 AND tairtk.tours_airl9600tstours_ida='".$id."'"; 
+              `airlines` air 
+              INNER JOIN `tours_airlines_c` tair 
+                ON air.id = tair.`tours_airl6d54irlines_idb` 
+                AND tair.`deleted` = 0 
+                AND tair.`tours_airl69b4estours_ida` = '".$id."' 
+            WHERE air.deleted = 0";
+             
             $result = $db->query($sql/*"CALL getAirlineTicket('".$id."')"*/);
             while($row = $db->fetchByAssoc($result)){
                 $airArrtk[] = array('id' => $row['id'], 'name'=> $row['name'], 'area'=>$row['area']);

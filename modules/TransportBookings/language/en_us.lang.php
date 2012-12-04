@@ -94,6 +94,7 @@
     'LBL_GIA'    => 'Giá',
     'LBL_VAT1'    => 'Giá trên đã bao gồm thuế', 
     'LBL_VAT2'    => 'VAT, phí cầu đường',
+    'LBL_SERVICE_CODE'    => 'Code',
 
     );
 ?>

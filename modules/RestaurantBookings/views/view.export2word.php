@@ -113,7 +113,7 @@
             if(!empty($this->bean->nationlity)){
                 $template = str_replace("{NATIONLITY}", translate('countries_dom','',$this->bean->nationlity),$template);
             }
-            else{$template = str_replace("{NATIONLITY}", translate('countries_dom','',''),$template); } 
+            else{$template = str_replace("{NATIONLITY}", '',$template); } 
             $template = str_replace("{BOOKINGLINE}", $focus->get_servicebooking_detailview($record),$template);  
             $template = str_replace("{NOTES}", html_entity_decode(nl2br($this->bean->notes)),$template);  
             if($this->bean->confirm == 0 ){

@@ -7,6 +7,7 @@ $subpanel_layout['list_fields'] = array (
     'vname' => 'LBL_NAME',
     'width' => '10%',
     'default' => true,
+    'link' => true,
   ),
   'number_plates' => 
   array (

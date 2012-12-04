@@ -6,9 +6,4 @@ $hook_array = Array();
 // position, file, function 
 $hook_array['before_save'] = Array(); 
 $hook_array['before_save'][] = Array(1, 'Leads push feed', 'modules/Leads/SugarFeeds/LeadFeed.php','LeadFeed', 'pushFeed'); 
-$hook_array['after_retrieve'] = Array(); 
-$hook_array['before_delete'] = Array(); 
-
-
-
 ?>

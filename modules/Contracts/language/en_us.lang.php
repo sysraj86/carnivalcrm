@@ -164,5 +164,8 @@ $mod_strings = array (
   'LBL_CONTRACT_THUE'           => 'Thuế',
   'LBL_CONTRACT_THANHTIEN'      => 'Thành Tiền',
   'LBL_DATE_OF_CONTRACTS_LIQUIDATE'      => 'Ngày Thanh Lý',
+  'LBL_CUSTOMER_TYPE'           => 'Loại Khách Hàng',
+  'LBL_CUSTOMER_NUMBER'         => 'Số Lượng Khách Hàng',
+  'LBL_SERVICE'                 => 'Dịch Vụ Khác',
 );
 ?>

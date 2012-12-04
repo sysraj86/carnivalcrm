@@ -595,6 +595,14 @@ $layout_defs["GroupPrograms"]["subpanel_setup"]["tours_groupprograms"] = array (
 
 
 //auto-generated file DO NOT EDIT
+$layout_defs['GroupPrograms']['subpanel_setup']['groupprograirlinestickets']['override_subpanel_name'] = 'GroupProgram_subpanel_groupprograirlinestickets';
+
+
+//auto-generated file DO NOT EDIT
 $layout_defs['GroupPrograms']['subpanel_setup']['groupprograms_fits']['override_subpanel_name'] = 'GroupProgram_subpanel_groupprograms_fits';
+
+
+//auto-generated file DO NOT EDIT
+$layout_defs['GroupPrograms']['subpanel_setup']['groupprogransportbookings']['override_subpanel_name'] = 'GroupProgram_subpanel_groupprogransportbookings';
 
 ?>

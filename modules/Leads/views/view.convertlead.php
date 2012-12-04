@@ -750,20 +750,20 @@ class ViewConvertLead extends SugarView
     }
     
     // Add By Thanh Le At 27/6/2012
-    function convertToCustomer(){
-        $lead = new Lead();
-        $lead->retrieve($this->bean->id);
-        if(!$this->kiemTraTrung($lead)){
-            $customer = new FITs() ;
-            $customer->salutation  =  $lead->salutation;
-            $customer->first_name  =  $lead->first_name;
-            $customer->last_name   =  $lead->last_name;
-            $customer->phone_mobile   =  $lead->phone_mobile;
-            $customer->email1   =  $lead->email1;
-            $customer->address   =  $lead->primary_address_street;
-            return $customer->save();  
-        }
-    }
+ //   function convertToCustomer(){
+//        $lead = new Lead();
+//        $lead->retrieve($this->bean->id);
+//        if(!$this->kiemTraTrung($lead)){
+//            $customer = new FITs() ;
+//            $customer->salutation  =  $lead->salutation;
+//            $customer->first_name  =  $lead->first_name;
+//            $customer->last_name   =  $lead->last_name;
+//            $customer->phone_mobile   =  $lead->phone_mobile;
+//            $customer->email1   =  $lead->email1;
+//            $customer->address   =  $lead->primary_address_street;
+//            return $customer->save();  
+//        }
+//    }
     // End
     // Add By Thanh Le At 27/6/2012
     /**
@@ -771,19 +771,19 @@ class ViewConvertLead extends SugarView
     * 
     * @param mixed $lead
     */
-    function kiemTraTrung($lead){
-        global $db;
-        $sql = '
-        SELECT *
-        FROM fits a
-        WHERE a.deleted = 0
-            AND a.last_name = "'.$lead->last_name.'"
-            AND a.first_name = "'.$lead->first_name.'"
-            AND a.salutation = "'.$lead->salutation.'"
-            AND a.phone_mobile = "'.$lead->phone_mobile.'"
-            AND a.address = "'.$lead->primary_address_street.'"';
-        $result = $db->query($sql);
-        $row = $db->getRowCount($result);
-        return $row;
-    }
+ //   function kiemTraTrung($lead){
+//        global $db;
+//        $sql = '
+//        SELECT *
+//        FROM fits a
+//        WHERE a.deleted = 0
+//            AND a.last_name = "'.$lead->last_name.'"
+//            AND a.first_name = "'.$lead->first_name.'"
+//            AND a.salutation = "'.$lead->salutation.'"
+//            AND a.phone_mobile = "'.$lead->phone_mobile.'"
+//            AND a.address = "'.$lead->primary_address_street.'"';
+//        $result = $db->query($sql);
+//        $row = $db->getRowCount($result);
+//        return $row;
+//    }
 }

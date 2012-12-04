@@ -30,7 +30,10 @@
             }else{
                 $html .= '<tr>';
                      $html .= '<td  align="center"> ';
-                        $html .= '<input name="age[]" type="text" id="age" value="" />';
+//                        $html .= '<input name="age[]" type="text" id="age" value="" />';
+                        $html .= '<select class="type_service" name="type_service[]" id="type_service">'.get_select_options($app_list_strings['contract_type_service_dom'],'').'</select>
+                                  <input name="age[]" type="text" style="display:none" id="age" value="" />
+                        ';
                      $html .= '</td>';
                      $html .= '<td align="center">';
                          $html .= '<input name="tong_sl_khach[]" type="text" id="tong_sl_khach" class="tinhtoan" value="" />';
@@ -89,6 +92,7 @@
                         </table>';
             
             $this->ev->ss->assign("contract_condition", $html);
+            $this->ev->ss->assign("tongtien", format_number($this->bean->tongtien)); 
             parent::display();
         }  
 

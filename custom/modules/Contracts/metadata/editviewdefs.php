@@ -113,7 +113,14 @@ array (
         ),
         7 => 
         array (
-          0 => 'parent_name',
+          0 => 
+          array (
+            'name' => 'parent_name',
+          ),
+          1 => 
+          array (
+            'name' => 'customer_type',
+          ),
         ),
         8 => 
         array (
@@ -151,21 +158,29 @@ array (
         0 => 
         array (
           0 => 'groupprogracontracts_name',
-          1 => 'tensanbay',
         ),
         1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'service',
+            'label' => 'LBL_SERVICE',
+          ),
+          1 => 'tensanbay',
+        ),
+        2 => 
         array (
           0 => 'start_date_contract',
           1 => 'end_date_contract',
         ),
-        2 => 
+        3 => 
         array (
           0 => 'num_of_date',
           1 => 'num_of_night',
         ),
-        3 => 
+        4 => 
         array (
-          0 => 'associate',
+          0 => 'customer_number',
           1 => 'purpose',
         ),
       ),
@@ -181,7 +196,13 @@ array (
         ),
         1 => 
         array (
-          0 => 'tongtien',
+          0 => 
+          array (
+            'name' => 'tongtien',
+            'customCode' => '<input name="tongtien" id="tongtien" value="{$tongtien}">
+            {html_options name=tiente id=tiente options=$fields.tiente.options selected=$fields.tiente.value}
+            ',
+          ),
           1 => 
           array (
             'name' => 'bangchu',

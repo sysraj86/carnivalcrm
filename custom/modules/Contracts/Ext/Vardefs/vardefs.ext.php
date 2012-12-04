@@ -136,7 +136,7 @@ $dictionary["Contract"]["fields"]["groupprogracontracts_name"] = array (
   'link' => 'groupprograms_contracts',
   'table' => 'groupprograms',
   'module' => 'GroupPrograms',
-  'required'=> true,
+  //'required'=> true,
   'rname' => 'name',
 );
 $dictionary["Contract"]["fields"]["groupprogr4251rograms_ida"] = array (
