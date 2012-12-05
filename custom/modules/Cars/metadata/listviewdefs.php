@@ -29,11 +29,11 @@ array (
     'width' => '5%',
     'default' => true,
   ),
-  'TRANSPORT_NAME' => 
+  'TRANSPORTS_CARS_NAME' => 
   array (
     'type' => 'relate',
-    'studio' => 'visible',
-    'label' => 'LBL_TRANSPORT_NAME',
+    'link' => 'transports_cars',
+    'label' => 'LBL_TRANSPORTS_CARS_FROM_TRANSPORTS_TITLE',
     'width' => '10%',
     'default' => true,
   ),
@@ -91,11 +91,11 @@ array (
     'width' => '10%',
     'default' => false,
   ),
-  'TRANSPORTS_CARS_NAME' => 
+  'TRANSPORT_NAME' => 
   array (
     'type' => 'relate',
-    'link' => 'transports_cars',
-    'label' => 'LBL_TRANSPORTS_CARS_FROM_TRANSPORTS_TITLE',
+    'studio' => 'visible',
+    'label' => 'LBL_TRANSPORT_NAME',
     'width' => '10%',
     'default' => false,
   ),
