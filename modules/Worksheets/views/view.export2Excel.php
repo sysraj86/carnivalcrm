@@ -129,12 +129,14 @@
                 if($vanchuyen){
                     foreach($vanchuyen as $vcval){
                         if($vcval->vanchuyen_tamung != 0){
+                            $option = $app_list_strings['vanchuyen_dongia_option'][$vcval->dongia_option];
+                            $option = str_replace('/','',$option);
                             $vchtml .= "<tr height=21 style='height:15.75pt'>";
                             $vchtml .= "<td height=21 class=xl84 style='height:15.75pt'>".translate('list_vanchuyen_dom','', $vcval->vanchuyen_name)."</td>";
                             $vchtml .= "<td class=xl100><span style='mso-spacerun:yes'>  </span>".$vcval->vanchuyen_giathamkhao."</td>";
                             $vchtml .= "<td class=xl100><span style='mso-spacerun:yes'>     </span>".$vcval->vanchuyen_dongia."</td>";
                             $vchtml .= "<td class=xl84><span style='mso-spacerun:yes'>    </span>".$vcval->vanchuyen_soluong."</td>";
-                            $vchtml .= "<td class=xl84><span style='mso-spacerun:yes'></span>".$vcval->vanchuyen_songay."&nbsp;&nbsp;".translate('vanchuyen_dongia_option','',$vcval->dongia_option)." </td>";
+                            $vchtml .= "<td class=xl84><span style='mso-spacerun:yes'></span>".$vcval->vanchuyen_songay."&nbsp;&nbsp;".$option." </td>";
                             $vchtml .= "<td class=xl100><span style='mso-spacerun:yes'></span>".$vcval->vanchuyen_thanhtien." </td>";
                             $vchtml .= "<td class=xl100><span style='mso-spacerun:yes'>  </span>".$vcval->vanchuyen_tamung."<span style='mso-spacerun:yes'>  </span></td>";
                             $vchtml .= "</tr> ";
