@@ -148,7 +148,7 @@ $(function(){
 
     $(".servicename").live('change',function(){
         var val = $(this).val();
-        $(this).closest("tr").find(".giathamkhao").val($(this).closest("tr").find(".giathamkhao_an option:[value="+val+"]").text());
+        $(this).closest("tr").find(".giathamkhao").val(formatNumber($(this).closest("tr").find(".giathamkhao_an option:[value="+val+"]").text(),num_grp_sep, dec_sep));
         $(this).closest("tr").find(".service_name").val($(this).closest("tr").find(".servicename option:[value="+val+"]").text());
         $(this).closest("tr").find(".center").val(0);
        // $(this).closest("tr").find(".check_tam_ung").attr("checked",false);
