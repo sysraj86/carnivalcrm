@@ -1668,6 +1668,18 @@
         $focus->noidung->nett2_18 = $_POST['nett2_18'];
         $focus->noidung->nett2_19 = $_POST['nett2_19'];
         $focus->noidung->nett2_20 = $_POST['nett2_20'];
+        $focus->noidung->nett2_21 = $_POST['nett2_21'];
+        $focus->noidung->nett2_22 = $_POST['nett2_22'];
+        $focus->noidung->nett2_23 = $_POST['nett2_23'];
+        $focus->noidung->nett2_24 = $_POST['nett2_24'];
+        $focus->noidung->nett2_25 = $_POST['nett2_25'];
+        $focus->noidung->nett2_26 = $_POST['nett2_26'];
+        $focus->noidung->nett2_27 = $_POST['nett2_27'];
+        $focus->noidung->nett2_28 = $_POST['nett2_28'];
+        $focus->noidung->nett2_29 = $_POST['nett2_29'];
+        $focus->noidung->nett2_30 = $_POST['nett2_30'];
+        $focus->noidung->nett2_31 = $_POST['nett2_31'];
+        $focus->noidung->nett2_32 = $_POST['nett2_32'];
         
         $focus->noidung->service2_rate = $_POST['service2_rate'];
         $focus->noidung->service2_1 = $_POST['service2_1'];

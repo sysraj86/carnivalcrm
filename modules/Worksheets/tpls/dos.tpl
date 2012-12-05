@@ -109,13 +109,13 @@
                     </tr>
                     </tr>
                     <tr>
-                        <td class="dataLabel">Made Tour</td>
+                        <!--<td class="dataLabel">Made Tour</td>
                         <td class="dataField">
                                 <input name="groupprograorksheets_name" type="text" id="groupprograorksheets_name" value="{$MADETOUR_NAME}" size="50" />
                                 <input name="groupprogrd737rograms_ida" type="hidden" id="groupprogrd737rograms_ida" value="{$MADETOUR_ID}">
                                 <button class="button" name="btnMadeTour" id="btnMadeTour" value="Select"> <img src="themes/default/images/id-ff-select.png?s=857f75e8c18ece3e471240849f103469&amp;c=1&amp;developerMode=2125008055" alt=""></button>
                                 <button title="Clear [Alt+C]" accesskey="C" type="button" tabindex="3" class="button" value="Clear" name="" id="" onclick="this.form.groupprograorksheets_name.value='';this.form.groupprogrd737rograms_ida.value='' ;"=""><img src="themes/default/images/id-ff-clear.png?s=857f75e8c18ece3e471240849f103469&amp;c=1&amp;developerMode=446605591" alt=""> </button>
-                        </td>
+                        </td>-->
                         <td class="dataLabel">Thuế Suất hóa <span class="required">*</span></td>
                         <td class="dataField"><input name="thuesuathoa" type="text" id="thuesuathoa" class="khoanmuc" size="15" value="{$THUESUATHOA}" /></td>
                         <td class="dataLabel">Số khách <span class="required">*</span></td>
@@ -123,6 +123,8 @@
                         <td class="dataLabel">Tỷ lệ <span class="required">*</span></td>
                         <td class="dataField"><input name="tyle" type="text" id="tyle" size="15" class="khoanmuc" value="{$TYLE}" /></td>
                         <td><input type="button" class="button" name="btnAction" id="btnAction" value="Thực hiện"  {if $ID neq ''} style="display: none;" {/if} /> </td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
                         <td>&nbsp;</td>
                     </tr>
                     <tr>

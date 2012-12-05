@@ -2434,11 +2434,11 @@ function sumMeal2(){
     tax = Math.round(meal2_sum/11,2);
     if(tax != Infinity){
         if(!isNaN(tax)){
-            jQuery('#meal2_3,#meal2_4,#meal2_7,#meal2_8,#meal2_9,#meal2_10,#meal2_11,#meal2_12,#meal2_15,#meal2_16,,#meal2_19,#meal2_20,#meal2_23,#meal2_24,#meal2_28,#meal2_29,#meal2_30').val(formatNumber(tax,num_grp_sep,dec_sep,2,0)); 
+            jQuery('#meal2_3,#meal2_4,#meal2_7,#meal2_8,#meal2_11,#meal2_12,#meal2_15,#meal2_16,,#meal2_19,#meal2_20,#meal2_23,#meal2_24,#meal2_28,#meal2_29,#meal2_30').val(formatNumber(tax,num_grp_sep,dec_sep,2,0)); 
         }
     }
     else{
-        jQuery('#meal2_3,#meal2_4,#meal2_7,#meal2_8,#meal2_9,#meal2_10,#meal2_11,#meal2_12,#meal2_15,#meal2_16,,#meal2_19,#meal2_20,#meal2_23,#meal2_24,#meal2_28,#meal2_29,#meal2_30').val('0'); 
+        jQuery('#meal2_3,#meal2_4,#meal2_7,#meal2_8,#meal2_11,#meal2_12,#meal2_15,#meal2_16,,#meal2_19,#meal2_20,#meal2_23,#meal2_24,#meal2_28,#meal2_29,#meal2_30').val('0'); 
     }
 }
 // end meal 2
@@ -3317,7 +3317,7 @@ function calculateSummary1(){
     guide13 = parseFloat(unformatNumber(jQuery('#guide13').val(),num_grp_sep,dec_sep));
     group25 = parseFloat(unformatNumber(jQuery('#group25').val(),num_grp_sep,dec_sep));
     entrance25 = parseFloat(unformatNumber(jQuery('#entrance13').val(),num_grp_sep,dec_sep));
-    ticket25 = parseFloat(unformatNumber(jQuery('#ticket14').val(),num_grp_sep,dec_sep));
+    ticket25 = parseFloat(unformatNumber(jQuery('#ticket13').val(),num_grp_sep,dec_sep));
     fit25 = parseFloat(unformatNumber(jQuery('#fit25').val(),num_grp_sep,dec_sep));
     meal1_25 = parseFloat(unformatNumber(jQuery('#meal1_25').val(),num_grp_sep,dec_sep));
     hotel1_25 = parseFloat(unformatNumber(jQuery('#hotel1_25').val(),num_grp_sep,dec_sep));
@@ -3740,7 +3740,7 @@ function calculateSummary1(){
     else{
         jQuery('#service1_27').val('0');
     }
-
+    nett1_31 = parseFloat(unformatNumber(jQuery('#hotel1_sum').val(),num_grp_sep,dec_sep));
     service1_31 = Math.round(nett1_31*(service1_rate/100),2);
     if(service1_31 != Infinity ){
         if(!isNaN(service1_31)){
@@ -4185,7 +4185,7 @@ function calculateSummary1(){
         jQuery('#tax1_18').val('0');
     }
 
-    tax1_21 = Math.round(sell1_vnd23-nett1_23,2);
+    tax1_21 = Math.round(sell1_vnd23-nett1_23-foc1_23,2);
     if(tax1_21 != Infinity){
         if(!isNaN(tax1_21)){
             jQuery('#tax1_21').val(formatNumber(tax1_21,num_grp_sep,dec_sep,2,0));
@@ -4196,7 +4196,7 @@ function calculateSummary1(){
     }
 
 
-    tax1_22 = Math.round(sell1_vnd24-nett1_24,2);
+    tax1_22 = Math.round(sell1_vnd24-nett1_24-foc1_24,2);
     if(tax1_22 != Infinity){
         if(!isNaN(tax1_22)){
             jQuery('#tax1_22').val(formatNumber(tax1_22,num_grp_sep,dec_sep,2,0));
@@ -4206,7 +4206,7 @@ function calculateSummary1(){
         jQuery('#tax1_22').val('0');
     }
 
-    tax1_25 = Math.round(sell1_vnd28-nett1_28,2);
+    tax1_25 = Math.round(sell1_vnd28-nett1_28-foc1_28,2);
     if(tax1_25 != Infinity){
         if(!isNaN(tax1_25)){
             jQuery('#tax1_25').val(formatNumber(tax1_25,num_grp_sep,dec_sep,2,0));
@@ -4216,7 +4216,7 @@ function calculateSummary1(){
         jQuery('#tax1_25').val('0');
     }
 
-    tax1_26 = Math.round(sell1_vnd29-nett1_29,2);
+    tax1_26 = Math.round(sell1_vnd29-nett1_29-foc1_29,2);
     if(tax1_26 != Infinity){
         if(!isNaN(tax1_26)){
             jQuery('#tax1_26').val(formatNumber(tax1_26,num_grp_sep,dec_sep,2,0));
@@ -4226,7 +4226,7 @@ function calculateSummary1(){
         jQuery('#tax1_26').val('0');
     }
 
-    tax1_27 = Math.round(sell1_vnd27-nett1_27,2);
+    tax1_27 = Math.round(sell1_vnd30-nett1_30-foc1_30,2);
     if(tax1_27 != Infinity){
         if(!isNaN(tax1_27)){
             jQuery('#tax1_27').val(formatNumber(tax1_27,num_grp_sep,dec_sep,2,0));
@@ -4234,6 +4234,16 @@ function calculateSummary1(){
     }
     else{
         jQuery('#tax1_27').val('0');
+    }
+    
+    tax1_31 = Math.round(sell1_vnd32-nett1_32,2);
+    if(tax1_31 != Infinity){
+        if(!isNaN(tax1_31)){                            
+            jQuery('#tax1_31').val(formatNumber(tax1_31,num_grp_sep,dec_sep,2,0));
+        }
+    }
+    else{
+        jQuery('#tax1_31').val('0');  
     }
 
     // end tax to be paid 1
@@ -4728,12 +4738,12 @@ function calculateSummary1(){
     // price 2
 
     // nett 1
-    meal1_2 = parseFloat(unformatNumber(jQuery('#meal1_2').val(),num_grp_sep,dec_sep));
-    meal1_2 = parseFloat(unformatNumber(jQuery('#meal1_2').val(),num_grp_sep,dec_sep));
+    meal2_1 = parseFloat(unformatNumber(jQuery('#meal2_1').val(),num_grp_sep,dec_sep));
+    hotel2_1 = parseFloat(unformatNumber(jQuery('#hotel2_1').val(),num_grp_sep,dec_sep));
 
-    if(isNaN(meal1_2) || meal1_1 == ''){meal1_2 = 0}
-    if(isNaN(hotel1_2) || hotel1_1 == ''){hotel1_2 = 0}
-    nett2_1 = Math.round(transfer1+boat1+guide1+group1+entrance1+ticket1+fit1+meal1_2+hotel1_2,2)
+    if(isNaN(meal2_1) || meal2_1 == ''){meal2_1 = 0}
+    if(isNaN(hotel2_1) || hotel2_1 == ''){hotel2_1 = 0}
+    nett2_1 = Math.round(transfer1+boat1+guide1+group1+entrance1+ticket1+fit1+meal2_1+hotel2_1,2)
     if(nett2_1 != Infinity){
         if(!isNaN(nett2_1)){
             jQuery('#nett2_1').val(formatNumber(nett2_1,num_grp_sep,dec_sep,2,0));
@@ -4750,7 +4760,7 @@ function calculateSummary1(){
 
     if(isNaN(meal2_2) || meal2_2 == ''){meal2_2 = 0}
     if(isNaN(hotel2_2) || hotel2_2 == ''){hotel2_2 = 0}
-    nett2_2 = Math.round(transfer2+boat2+guide2+group2+entrance2+ticket2+fit2+meal2_2+hotel1_2,2)
+    nett2_2 = Math.round(transfer2+boat2+guide2+group2+entrance2+ticket2+fit2+meal2_2+hotel2_2,2)
     if(nett2_2 != Infinity){
         if(!isNaN(nett2_2)){
             jQuery('#nett2_2').val(formatNumber(nett2_2,num_grp_sep,dec_sep,2,0));
@@ -4767,7 +4777,7 @@ function calculateSummary1(){
 
     if(isNaN(meal2_3) || meal2_3 == ''){meal2_3 = 0}
     if(isNaN(hotel2_3) || hotel2_3 == ''){hotel2_3 = 0}
-    nett2_3 = Math.round(transfer3+boat3+guide3+group3+entrance3+ticket3+fit3+meal2_3+hotel2_3,2)
+    nett2_3 = Math.round(transfer3+boat3+group3+fit3+meal2_3+hotel2_3,2)
     if(nett2_3 != Infinity){
         if(!isNaN(nett2_3)){
             jQuery('#nett2_3').val(formatNumber(nett2_3,num_grp_sep,dec_sep,2,0));
@@ -4780,11 +4790,11 @@ function calculateSummary1(){
 
     // nett 4
     meal2_4 = parseFloat(unformatNumber(jQuery('#meal2_4').val(),num_grp_sep,dec_sep));
-    hotel2_4 = parseFloat(unformatNumber(jQuery('#hotel1_4').val(),num_grp_sep,dec_sep));
+    hotel2_4 = parseFloat(unformatNumber(jQuery('#hotel2_4').val(),num_grp_sep,dec_sep));
 
     if(isNaN(meal2_4) || meal2_4 == ''){meal2_4 = 0}
     if(isNaN(hotel2_4) || hotel2_4 == ''){hotel2_4 = 0}
-    nett2_4 = Math.round(transfer4+boat4+guide4+group4+entrance4+ticket4+fit4+meal2_4+hotel2_4,2)
+    nett2_4 = Math.round(transfer4+boat4+group4+fit4+meal2_4+hotel2_4,2)
     if(nett2_4 != Infinity){
         if(!isNaN(nett2_4)){
             jQuery('#nett2_4').val(formatNumber(nett2_4,num_grp_sep,dec_sep,2,0));
@@ -4801,7 +4811,7 @@ function calculateSummary1(){
 
     if(isNaN(meal2_5) || meal2_5 == ''){meal2_5 = 0}
     if(isNaN(hotel2_5) || hotel2_5 == ''){hotel2_5 = 0}
-    nett2_5 = Math.round(transfer5+boat5+guide5+group5+entrance5+ticket5+fit5+meal2_5+hotel2_5,2)
+    nett2_5 = Math.round(transfer5+boat5+guide3+group5+entrance5+ticket5+fit5+meal2_5+hotel2_5,2)
     if(nett2_5 != Infinity){
         if(!isNaN(nett2_5)){
             jQuery('#nett2_5').val(formatNumber(nett2_5,num_grp_sep,dec_sep,2,0));
@@ -4818,7 +4828,7 @@ function calculateSummary1(){
 
     if(isNaN(meal2_6) || meal2_6 == ''){meal2_6 = 0}
     if(isNaN(hotel2_6) || hotel2_6 == ''){hotel2_6 = 0}
-    nett2_6 = Math.round(transfer6+boat6+guide6+group6+entrance6+ticket6+fit6+meal1_6+hotel2_6,2)
+    nett2_6 = Math.round(transfer6+boat6+guide4+group6+entrance6+ticket6+fit6+meal2_6+hotel2_6,2)
     if(nett2_6 != Infinity){
         if(!isNaN(nett2_6)){
             jQuery('#nett2_6').val(formatNumber(nett2_6,num_grp_sep,dec_sep,2,0));
@@ -4835,7 +4845,7 @@ function calculateSummary1(){
 
     if(isNaN(meal2_7) || meal2_7 == ''){meal2_7 = 0}
     if(isNaN(hotel2_7) || hotel2_7 == ''){hotel2_7 = 0}
-    nett2_7 = Math.round(transfer7+guide7+guide7+group7+entrance7+ticket7+fit7+meal2_7+hotel2_7,2)
+    nett2_7 = Math.round(transfer7+boat7+group7+fit7+meal2_7+hotel2_7,2)
     if(nett2_7 != Infinity){
         if(!isNaN(nett2_7)){
             jQuery('#nett2_7').val(formatNumber(nett2_7,num_grp_sep,dec_sep,2,0));
@@ -4848,11 +4858,11 @@ function calculateSummary1(){
 
     // nett 8
     meal2_8 = parseFloat(unformatNumber(jQuery('#meal2_8').val(),num_grp_sep,dec_sep));
-    hotel2_8 = parseFloat(unformatNumber(jQuery('#hotel1_8').val(),num_grp_sep,dec_sep));
+    hotel2_8 = parseFloat(unformatNumber(jQuery('#hotel2_8').val(),num_grp_sep,dec_sep));
 
     if(isNaN(meal2_8) || meal2_8 == ''){meal2_8 = 0}
     if(isNaN(hotel2_8) || hotel2_8 == ''){hotel2_8 = 0}
-    nett2_8 = Math.round(transfer8+boat8+guide8+group8+entrance8+ticket8+fit8+meal2_8+hotel2_8,2)
+    nett2_8 = Math.round(transfer8+boat8+group8+fit8+meal2_8+hotel2_8,2)
     if(nett2_8 != Infinity){
         if(!isNaN(nett2_8)){
             jQuery('#nett2_8').val(formatNumber(nett2_8,num_grp_sep,dec_sep,2,0));
@@ -4869,7 +4879,7 @@ function calculateSummary1(){
 
     if(isNaN(meal2_9) || meal2_9 == ''){meal2_9 = 0}
     if(isNaN(hotel2_9) || hotel2_9 == ''){hotel2_9 = 0}
-    nett2_9 = Math.round(transfer9+boat9+guide9+group9+entrance9+ticket9+fit9+meal2_9+hotel2_9,2)
+    nett2_9 = Math.round(transfer9+boat9+guide5+group9+entrance9+ticket9+fit9+meal2_9+hotel2_9,2)
     if(nett2_9 != Infinity){
         if(!isNaN(nett2_9)){
             jQuery('#nett2_9').val(formatNumber(nett2_9,num_grp_sep,dec_sep,2,0));
@@ -4886,7 +4896,7 @@ function calculateSummary1(){
 
     if(isNaN(meal2_10) || meal2_10 == ''){meal2_10 = 0}
     if(isNaN(hotel2_10) || hotel2_10 == ''){hotel2_10 = 0}
-    nett2_10 = Math.round(transfer10+boat10+guide10+group10+entrance10+ticket10+fit10+meal2_10+hotel2_10,2)
+    nett2_10 = Math.round(transfer10+boat10+guide6+group10+entrance10+ticket10+fit10+meal2_10+hotel2_10,2)
     if(nett2_10 != Infinity){
         if(!isNaN(nett2_10)){
             jQuery('#nett2_10').val(formatNumber(nett2_10,num_grp_sep,dec_sep,2,0));
@@ -4904,7 +4914,7 @@ function calculateSummary1(){
 
     if(isNaN(meal2_11) || meal2_11 == ''){meal2_11 = 0}
     if(isNaN(hotel2_11) || hotel2_11 == ''){hotel2_11 = 0}
-    nett2_11 = Math.round(transfer11+boat11+guide11+group11+entrance11+ticket11+fit11+meal2_11+hotel2_11,2)
+    nett2_11 = Math.round(transfer11+boat11+group11+fit11+meal2_11+hotel2_11,2)
     if(nett2_11 != Infinity){
         if(!isNaN(nett2_11)){
             jQuery('#nett2_11').val(formatNumber(nett2_11,num_grp_sep,dec_sep,2,0));
@@ -4922,7 +4932,7 @@ function calculateSummary1(){
 
     if(isNaN(meal2_12) || meal2_12 == ''){meal2_12 = 0}
     if(isNaN(hotel2_12) || hotel2_12 == ''){hotel2_12 = 0}
-    nett2_12 = Math.round(transfer12+boat12+guide12+group12+entrance12+ticket12+fit12+meal2_12+hotel2_12,2)
+    nett2_12 = Math.round(transfer12+boat12+group12+fit12+meal2_12+hotel2_12,2)
     if(nett2_12 != Infinity){
         if(!isNaN(nett2_12)){
             jQuery('#nett2_12').val(formatNumber(nett2_12,num_grp_sep,dec_sep,2,0));
@@ -4940,7 +4950,7 @@ function calculateSummary1(){
 
     if(isNaN(meal2_13) || meal2_13 == ''){meal2_13 = 0}
     if(isNaN(hotel2_13) || hotel2_13 == ''){hotel2_13 = 0}
-    nett2_13 = Math.round(transfer13+boat13+guide13+group13+entrance13+ticket13+fit13+meal2_13+hotel2_13,2)
+    nett2_13 = Math.round(transfer13+boat13+guide7+group13+entrance13+ticket13+fit13+meal2_13+hotel2_13,2)
     if(nett2_13 != Infinity){
         if(!isNaN(nett2_13)){
             jQuery('#nett2_13').val(formatNumber(nett2_13,num_grp_sep,dec_sep,2,0));
@@ -4958,7 +4968,7 @@ function calculateSummary1(){
 
     if(isNaN(meal2_14) || meal2_14 == ''){meal2_14 = 0}
     if(isNaN(hotel2_14) || hotel2_14 == ''){hotel2_14 = 0}
-    nett2_14 = Math.round(transfer14+boat14+guide14+group14+entrance14+ticket14+fit14+meal2_14+hotel2_14,2)
+    nett2_14 = Math.round(transfer14+boat14+guide8+group14+entrance14+ticket14+fit14+meal2_14+hotel2_14,2)
     if(nett2_14 != Infinity){
         if(!isNaN(nett2_14)){
             jQuery('#nett2_14').val(formatNumber(nett2_14,num_grp_sep,dec_sep,2,0));
@@ -4975,7 +4985,7 @@ function calculateSummary1(){
 
     if(isNaN(meal2_15) || meal2_15 == ''){meal2_15 = 0}
     if(isNaN(hotel2_15) || hotel2_15 == ''){hotel2_15 = 0}
-    nett2_15 = Math.round(transfer15+boat15+guide15+group15+entrance15+ticket15+fit15+meal2_15+hotel2_15,2)
+    nett2_15 = Math.round(transfer15+boat15+group15+fit15+meal2_15+hotel2_15,2)
     if(nett2_15 != Infinity){
         if(!isNaN(nett2_15)){
             jQuery('#nett2_15').val(formatNumber(nett2_15,num_grp_sep,dec_sep,2,0));
@@ -4993,7 +5003,7 @@ function calculateSummary1(){
 
     if(isNaN(meal2_16) || meal2_16 == ''){meal2_16 = 0}
     if(isNaN(hotel2_16) || hotel2_16 == ''){hotel2_16 = 0}
-    nett2_16 = Math.round(transfer16+boat16+guide16+group16+entrance16+ticket16+fit16+meal2_16+hotel2_16,2)
+    nett2_16 = Math.round(transfer16+boat16+group16+fit16+meal2_16+hotel2_16,2)
     if(nett2_16 != Infinity){
         if(!isNaN(nett2_16)){
             jQuery('#nett2_16').val(formatNumber(nett2_16,num_grp_sep,dec_sep,2,0));
@@ -5007,7 +5017,7 @@ function calculateSummary1(){
 
     // nett 17
     meal2_17 = parseFloat(unformatNumber(jQuery('#meal2_17').val(),num_grp_sep,dec_sep));
-    hotel2_17 = parseFloat(unformatNumber(jQuery('#hotel1_17').val(),num_grp_sep,dec_sep));
+    hotel2_17 = parseFloat(unformatNumber(jQuery('#hotel2_17').val(),num_grp_sep,dec_sep));
 
     if(isNaN(meal2_17) || meal2_17 == ''){meal2_17 = 0}
     if(isNaN(hotel2_17) || hotel2_17 == ''){hotel2_17 = 0}
@@ -5045,7 +5055,7 @@ function calculateSummary1(){
 
     if(isNaN(meal2_19) || meal2_19 == ''){meal2_19 = 0}
     if(isNaN(hotel2_19) || hotel2_19 == ''){hotel2_19 = 0}
-    nett2_19 = Math.round(transfer19+boat19+guide19+group19+entrance19+ticket19+fit19+meal2_19+hotel2_19,2)
+    nett2_19 = Math.round(transfer19+boat19+group19+fit19+meal2_19+hotel2_19,2)
     if(nett2_19 != Infinity){
         if(!isNaN(nett2_19)){
             jQuery('#nett2_19').val(formatNumber(nett2_19,num_grp_sep,dec_sep,2,0));
@@ -5063,7 +5073,7 @@ function calculateSummary1(){
 
     if(isNaN(meal2_20) || meal2_20 == ''){meal2_20 = 0}
     if(isNaN(hotel2_20) || hotel2_20 == ''){hotel2_20 = 0}
-    nett2_20 = Math.round(transfer20+boat20+guide20+group20+entrance20+ticket20+fit20+meal2_20+hotel2_20,2)
+    nett2_20 = Math.round(transfer20+boat20+group20+fit20+meal2_20+hotel2_20,2)
     if(nett2_20 != Infinity){
         if(!isNaN(nett2_20)){
             jQuery('#nett2_20').val(formatNumber(nett2_20,num_grp_sep,dec_sep,2,0));
@@ -5075,7 +5085,7 @@ function calculateSummary1(){
     // end nett 20
 
     // nett 21
-    meal2_21 = parseFloat(unformatNumber(jQuery('#meal1_21').val(),num_grp_sep,dec_sep));
+    meal2_21 = parseFloat(unformatNumber(jQuery('#meal2_21').val(),num_grp_sep,dec_sep));
     hotel2_21 = parseFloat(unformatNumber(jQuery('#hotel2_21').val(),num_grp_sep,dec_sep));
     hotel2_sum = parseFloat(unformatNumber(jQuery('#hotel2_sum').val(),num_grp_sep,dec_sep));
     meal2_sum = parseFloat(unformatNumber(jQuery('#meal2_sum').val(),num_grp_sep,dec_sep));
@@ -5140,7 +5150,7 @@ function calculateSummary1(){
     else{
         jQuery('#foc2_24').val('0');
     }
-    nett2_21 = Math.round(transfer21+boat21+guide12+group21+entrance21+ticket21+fit21+meal2_21+hotel2_21+foc2_21,2)
+    /*nett2_21 = Math.round(transfer21+boat21+guide12+group21+entrance21+ticket21+fit21+meal2_21+hotel2_21+foc2_21,2)
     if(nett2_21 != Infinity){
         if(!isNaN(nett2_21)){
             jQuery('#nett2_21').val(formatNumber(nett2_21,num_grp_sep,dec_sep,2,0));
@@ -5148,9 +5158,9 @@ function calculateSummary1(){
     }
     else{
         jQuery('#nett2_21').val('0');
-    }
+    }*/
 
-    nett2_22 = Math.round(transfer22+boat22+guide12+group22+entrance22+ticket22+fit22+meal2_22+hotel2_22,2)
+    nett2_22 = Math.round(transfer22+boat22+guide12+group22+entrance22+ticket22+fit22+meal2_22+hotel2_22+foc2_22,2)
     if(nett2_22 != Infinity){
         if(!isNaN(nett2_22)){
             jQuery('#nett2_22').val(formatNumber(nett2_22,num_grp_sep,dec_sep,2,0));
@@ -5167,7 +5177,7 @@ function calculateSummary1(){
 
     if(isNaN(meal2_23) || meal2_23 == ''){meal2_23 = 0}
     if(isNaN(hotel2_23) || hotel2_23 == ''){hotel2_23 = 0}
-    nett2_23 = Math.round(transfer23+boat23+guide23+group23+entrance23+ticket23+fit23+meal2_23+hotel2_23+foc2_23,2)
+    nett2_23 = Math.round(transfer23+boat23+group23+fit23+meal2_23+hotel2_23+foc2_23,2)
     if(nett2_23 != Infinity){
         if(!isNaN(nett2_23)){
             jQuery('#nett2_23').val(formatNumber(nett2_23,num_grp_sep,dec_sep,2,0));
@@ -5197,7 +5207,7 @@ function calculateSummary1(){
 
 
     // nett 25
-    meal2_25 = parseFloat(unformatNumber(jQuery('#meal1_25').val(),num_grp_sep,dec_sep));
+    meal2_25 = parseFloat(unformatNumber(jQuery('#meal2_25').val(),num_grp_sep,dec_sep));
     hotel2_25 = parseFloat(unformatNumber(jQuery('#hotel2_25').val(),num_grp_sep,dec_sep));
 
     if(isNaN(meal2_25) || meal2_25 == ''){meal2_25 = 0}
@@ -5336,7 +5346,7 @@ function calculateSummary1(){
 
     if(isNaN(meal2_28) || meal2_28 == ''){meal2_28 = 0}
     if(isNaN(hotel2_28) || hotel2_28 == ''){hotel2_28 = 0}
-    nett2_28 = Math.round(transfer28+boat28+guide28+group28+entrance28+ticket28+fit28+meal2_28+hotel2_28+foc2_28,2)
+    nett2_28 = Math.round(transfer28+boat28+group28+fit28+meal2_28+hotel2_28+foc2_28,2)
     if(nett2_28 != Infinity){
         if(!isNaN(nett2_28)){
             jQuery('#nett2_28').val(formatNumber(nett2_28,num_grp_sep,dec_sep,2,0));
@@ -5353,7 +5363,7 @@ function calculateSummary1(){
 
     if(isNaN(meal2_29) || meal2_29 == ''){meal2_29 = 0}
     if(isNaN(hotel2_29) || hotel2_29 == ''){hotel2_29 = 0}
-    nett2_29 = Math.round(transfer29+boat29+guide29+group29+entrance29+ticket29+fit29+meal2_29+hotel2_29+foc2_29,2)
+    nett2_29 = Math.round(transfer29+boat29+group29+fit29+meal2_29+hotel2_29+foc2_29,2)
     if(nett2_29 != Infinity){
         if(!isNaN(nett2_29)){
             jQuery('#nett2_29').val(formatNumber(nett2_29,num_grp_sep,dec_sep,2,0));
@@ -5371,7 +5381,7 @@ function calculateSummary1(){
 
     if(isNaN(meal2_30) || meal2_30 == ''){meal2_30 = 0}
     if(isNaN(hotel2_30) || hotel2_30 == ''){hotel2_30 = 0}
-    nett2_30 = Math.round(transfer30+boat30+guide30+group30+entrance30+ticket30+fit30+meal2_30+hotel2_30+foc2_30,2)
+    nett2_30 = Math.round(transfer30+boat30+group30+fit30+meal2_30+hotel2_30+foc2_30,2)
     if(nett2_30 != Infinity){
         if(!isNaN(nett2_30)){
             jQuery('#nett2_30').val(formatNumber(nett2_30,num_grp_sep,dec_sep,2,0));

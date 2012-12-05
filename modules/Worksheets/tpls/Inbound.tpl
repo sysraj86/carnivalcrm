@@ -2478,7 +2478,7 @@
                               <td><input class="calculate" readonly="readonly" name="sell1_vnd21" type="text" id="sell1_vnd21" value="{$sell1_vnd21}" size="10" /></td>
                               <td><input class="calculate" readonly="readonly" name="sell1_vnd22" type="text" id="sell1_vnd22" value="{$sell1_vnd22}" size="10" /></td>
                               <td><input class="calculate" readonly="readonly" name="sell1_vnd23" type="text" id="sell1_vnd23" value="{$sell1_vnd23}" size="10" /></td>
-                              <td><input name="sell1_vnd24" type="text" id="sell1_vnd24" value="{$sell1_vnd24}" size="10" /></td>
+                              <td><input class="calculate" readonly="readonly" name="sell1_vnd24" type="text" id="sell1_vnd24" value="{$sell1_vnd24}" size="10" /></td>
                               <td>&nbsp;</td>
                               <td><input class="calculate" readonly="readonly" name="sell1_vnd25" type="text" id="sell1_vnd25" value="{$sell1_vnd25}" size="10" /></td>
                               <td><input class="calculate" readonly="readonly" name="sell1_vnd26" type="text" id="sell1_vnd26" value="{$sell1_vnd26}" size="10" /></td>
@@ -3469,7 +3469,7 @@
                               <td><input class="calculate" readonly="readonly" name="hotel2_8" type="text" id="hotel2_8" value="{$hotel2_8}" size="10" /></td>
                               <td>&nbsp;</td>
                               <td><input class="calculate" readonly="readonly" name="hotel2_9" type="text" id="hotel2_9" value="{$hotel2_9}" size="10" /></td>
-                              <td><input class="calculate" readonly="readonly" name="hotel2_1" type="text" id="hotel2_1" value="{$hotel2_10}" size="10" /></td>
+                              <td><input class="calculate" readonly="readonly" name="hotel2_10" type="text" id="hotel2_10" value="{$hotel2_10}" size="10" /></td>
                               <td><input class="calculate" readonly="readonly" name="hotel2_11" type="text" id="hotel2_11" value="{$hotel2_11}" size="10" /></td>
                               <td><input class="calculate" readonly="readonly" name="hotel2_12" type="text" id="hotel2_12" value="{$hotel2_12}" size="10" /></td>
                               <td>&nbsp;</td>
