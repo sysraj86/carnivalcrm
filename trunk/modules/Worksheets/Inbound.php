@@ -120,7 +120,7 @@
     $ss->assign('transfer_middle_km3', $noidung->transfer_middle_km3);
     $ss->assign('transfer_middle_km4', $noidung->transfer_middle_km4);
     $ss->assign('transfer_middle_km5', $noidung->transfer_middle_km5);
-    $ss->assign('transfer_middle_km7', $noidung->transfer_middle_km6);
+    $ss->assign('transfer_middle_km6', $noidung->transfer_middle_km6);
 
     $ss->assign('transfer_north', $noidung->transfer_north);
     $ss->assign('transfer_north_km1', $noidung->transfer_north_km1);
@@ -1002,6 +1002,7 @@
     $ss->assign('foc1_27', $noidung->foc1_27);
     $ss->assign('foc1_28', $noidung->foc1_28);
     $ss->assign('foc1_29', $noidung->foc1_29);
+    $ss->assign('foc1_30', $noidung->foc1_30);
     
     
     $ss->assign('nett1_1', $noidung->nett1_1);
@@ -1440,15 +1441,15 @@
 
 
     $ss->assign('foc2_21', $noidung->foc2_21);
-    $ss->assign('foc2_22', $noidung->foc2_21);
-    $ss->assign('foc2_23', $noidung->foc2_21);
-    $ss->assign('foc2_24', $noidung->foc2_21);
-    $ss->assign('foc2_25', $noidung->foc2_21);
-    $ss->assign('foc2_26', $noidung->foc2_21);
-    $ss->assign('foc2_27', $noidung->foc2_21);
-    $ss->assign('foc2_28', $noidung->foc2_21);
-    $ss->assign('foc2_29', $noidung->foc2_21);
-    $ss->assign('foc2_30', $noidung->foc2_21);
+    $ss->assign('foc2_22', $noidung->foc2_22);
+    $ss->assign('foc2_23', $noidung->foc2_23);
+    $ss->assign('foc2_24', $noidung->foc2_24);
+    $ss->assign('foc2_25', $noidung->foc2_25);
+    $ss->assign('foc2_26', $noidung->foc2_26);
+    $ss->assign('foc2_27', $noidung->foc2_27);
+    $ss->assign('foc2_28', $noidung->foc2_28);
+    $ss->assign('foc2_29', $noidung->foc2_29);
+    $ss->assign('foc2_30', $noidung->foc2_30);
 
 
     $ss->assign('nett2_1', $noidung->nett2_1);
