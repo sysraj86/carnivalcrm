@@ -485,7 +485,7 @@
                 $vcArr = array();
                 $vcArr = $focus->getTransportData($focus->worksheet_tour_id);
                 foreach($vcArr as $arrvc){
-                    $app_list_strings['list_vanchuyen_dom'][$arrvc['id']] =$arrvc['number_plates'];
+                    $app_list_strings['list_vanchuyen_dom'][$arrvc['id']] = 'Xe '.$arrvc['number_plates'].' chỗ';
                     $app_list_strings['list_vanchuyengiathamkhao_dom'][$arrvc['id']] = $arrvc['giathamkhao'];
                 }
                 $VANCHUYEN = $noidung->vanchuyen;
