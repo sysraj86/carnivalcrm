@@ -58,27 +58,19 @@ array (
         ),
         2 => 
         array (
-          0 => 
-          array (
-            'name' => 'groupprograorksheets_name',
-          ),
+          0 => 'version',
           1 => '',
         ),
         3 => 
         array (
-          0 => 'version',
-          1 => '',
-        ),
-        4 => 
-        array (
           0 => 'note',
         ),
-        5 => 
+        4 => 
         array (
           0 => 'type',
           1 => '',
         ),
-        6 => 
+        5 => 
         array (
           0 => 
           array (
@@ -87,7 +79,7 @@ array (
             'hidelabel' => true,
           ),
         ),
-        7 => 
+        6 => 
         array (
           0 => 
           array (
@@ -96,12 +88,12 @@ array (
             'hidelabel' => true,
           ),
         ),
-        8 => 
+        7 => 
         array (
           0 => 'assigned_user_name',
           1 => '',
         ),
-        9 => 
+        8 => 
         array (
           0 => 
           array (
@@ -111,7 +103,7 @@ array (
           ),
           1 => '',
         ),
-        10 => 
+        9 => 
         array (
           0 => 
           array (
