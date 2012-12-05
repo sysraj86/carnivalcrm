@@ -77,7 +77,7 @@
             $resultvc = $db->query($sqlvc);
             $vcArr = array();
             while($rowvc = $db->fetchByAssoc($resultvc)){
-                $vcArr[] = array('id'=>$rowvc['id'],'area'=>$rowvc['area'], 'number_plates'=>$rowvc['number_plates'],'giathamkhao'=>$rowvc['giathamkhao']);
+                $vcArr[] = array('id'=>$rowvc['id'],'area'=>$rowvc['area'], 'number_plates'=>$rowvc['numofseat'],'giathamkhao'=>$rowvc['giathamkhao']);
             }
             return $vcArr;
         }

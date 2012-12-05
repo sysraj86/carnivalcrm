@@ -78,7 +78,7 @@
             $vcArr = array(); 
             $vcArr = $this->bean->getTransportData($this->bean->worksheet_tour_id);
             foreach($vcArr as $arrtrans){
-                $app_list_strings['list_vanchuyen_dom'][$arrtrans['id']] =$arrtrans['number_plates']; 
+                $app_list_strings['list_vanchuyen_dom'][$arrtrans['id']] = 'Xe '.$arrtrans['number_plates'].' chỗ'; 
                 if($arrtrans['area'] == 'mienbac'){
                     $app_list_strings['list_vanchuyen_dom_north'][$arrtrans['id']] ='Xe '.$arrtrans['name'].' chỗ'; 
                 }
