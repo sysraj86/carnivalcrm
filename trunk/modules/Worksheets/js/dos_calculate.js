@@ -34,6 +34,15 @@ $(function(){
         }
     });
     
+    jQuery('.dongia_option').each(function(){
+        val = jQuery(this).val();
+        if(val == 'trongoi'){
+            jQuery(this).closest('tr').find('.songay').hide();
+        }
+        else{
+            jQuery(this).closest('tr').find('.songay').show();
+        }
+    });
 
     // Xoa
     jQuery(this).find(".btnDelRow").click(function(i)
