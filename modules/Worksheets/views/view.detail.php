@@ -1280,6 +1280,11 @@
                 $htmlReport .= '</table>';
             }
             if($this->bean->type == 'DOS'){
+                $html .= '<script type="text/javascript">jQuery(document).ready(function(){
+                    jQuery("#overview").closest("td").attr("colspan",4); 
+                    jQuery("#report").closest("td").prev("td").remove();
+                    jQuery("#report").closest("td").attr("colspan",4); 
+                }) </script>';
                 $html .= '<fieldset>';
                 $html .= '<legend><h3>THÔNG TIN CHUNG</h3></legend>';
                 $html .= '<table width="100%" class="tabDetailView" border="1" style="border-collapse:collapse;" cellspacing="0" cellpadding="0">';

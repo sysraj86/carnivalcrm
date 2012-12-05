@@ -903,15 +903,15 @@
              if($countchiphikhac>0){
                  foreach($chiphikhac as $chiphikhacval){
                     $htmlchiphikhac .= '<tr>';
-                        $htmlchiphikhac .= '<td class="dataField center"><input type="text" class="loaidichvu" name="chiphikhac_loaidichvu[]" id="chiphikhac_loaidichvu'.$cpk.'" value="'.$chiphikhacval->chiphikhac_loaidichvu.'"></td>'; 
-                        $htmlchiphikhac .= '<td class="dataField center"><input size="10" type="text" class="giathamkhao center" name="chiphikhac_giathamkhao[]" id="chiphikhac_giathamkhao'.$cpk.'" value="'.$chiphikhacval->chiphikhac_giathamkhao.'"></td> ';
-                        $htmlchiphikhac .= '<td class="dataField center"><input size="10" type="text" class="soluong center" name="chiphikhac_soluong[]" id="chiphikhac_soluong'.$cpk.'" value="'.$chiphikhacval->chiphikhac_soluong.'"></td>'; 
-                        $htmlchiphikhac .= '<td class="dataField center"><input size="10" type="text" class="dongia center" name="chiphikhac_dongia[]" id="chiphikhac_dongia'.$cpk.'" value="'.$chiphikhacval->chiphikhac_dongia.'"></td>'; 
-                        $htmlchiphikhac .= '<td class="dataField center"><input size="10" type="text" class="foc center" name="chiphikhac_foc[]" id="chiphikhac_foc'.$cpk.'" value="'.$chiphikhacval->chiphikhac_foc.'" ></td>'; 
-                        $htmlchiphikhac .= '<td class="dataField center"><input size="10" type="text" class="thanhtien center" name="chiphikhac_thanhtien[]" id="chiphikhac_thanhtien'.$cpk.'" value="'.$chiphikhacval->chiphikhac_thanhtien.'" ></td>'; 
-                        $htmlchiphikhac .= '<td class="dataField center"><input size="10" type="text" class="thuesuat center" name="chiphikhac_thuesuat[]" id="chiphikhac_thuesuat'.$cpk.'" value="'.$chiphikhacval->chiphikhac_thuesuat.'" ></td>'; 
-                        $htmlchiphikhac .= '<td class="dataField center"><input size="10" type="text" class="giachuathue center" name="chiphikhac_giachuathue[]" id="chiphikhac_giachuathue" value="'.$chiphikhacval->chiphikhac_giachuathue.'"></td>';
-                        $htmlchiphikhac .= '<td class="dataField center"><input size="10" type="text" class="vat center" name="chiphikhac_vat[]" id="chiphikhac_vat'.$cpk.'" value="'.$chiphikhacval->chiphikhac_vat.'"></td>'; 
+                        $htmlchiphikhac .= '<td class="dataField"><input type="text" class="loaidichvu" name="chiphikhac_loaidichvu[]" id="chiphikhac_loaidichvu'.$cpk.'" value="'.$chiphikhacval->chiphikhac_loaidichvu.'"></td>'; 
+                        $htmlchiphikhac .= '<td class="dataField"><input size="10" type="text" class="giathamkhao center" name="chiphikhac_giathamkhao[]" id="chiphikhac_giathamkhao'.$cpk.'" value="'.$chiphikhacval->chiphikhac_giathamkhao.'"></td> ';
+                        $htmlchiphikhac .= '<td class="dataField"><input size="10" type="text" class="soluong center" name="chiphikhac_soluong[]" id="chiphikhac_soluong'.$cpk.'" value="'.$chiphikhacval->chiphikhac_soluong.'"></td>'; 
+                        $htmlchiphikhac .= '<td class="dataField"><input size="10" type="text" class="dongia center" name="chiphikhac_dongia[]" id="chiphikhac_dongia'.$cpk.'" value="'.$chiphikhacval->chiphikhac_dongia.'"></td>'; 
+                        $htmlchiphikhac .= '<td class="dataField"><input size="10" type="text" class="foc center" name="chiphikhac_foc[]" id="chiphikhac_foc'.$cpk.'" value="'.$chiphikhacval->chiphikhac_foc.'" ></td>'; 
+                        $htmlchiphikhac .= '<td class="dataField"><input size="10" type="text" class="thanhtien center" name="chiphikhac_thanhtien[]" id="chiphikhac_thanhtien'.$cpk.'" value="'.$chiphikhacval->chiphikhac_thanhtien.'" ></td>'; 
+                        $htmlchiphikhac .= '<td class="dataField"><input size="10" type="text" class="thuesuat center" name="chiphikhac_thuesuat[]" id="chiphikhac_thuesuat'.$cpk.'" value="'.$chiphikhacval->chiphikhac_thuesuat.'" ></td>'; 
+                        $htmlchiphikhac .= '<td class="dataField"><input size="10" type="text" class="giachuathue center" name="chiphikhac_giachuathue[]" id="chiphikhac_giachuathue" value="'.$chiphikhacval->chiphikhac_giachuathue.'"></td>';
+                        $htmlchiphikhac .= '<td class="dataField"><input size="10" type="text" class="vat center" name="chiphikhac_vat[]" id="chiphikhac_vat'.$cpk.'" value="'.$chiphikhacval->chiphikhac_vat.'"></td>'; 
                         $htmlchiphikhac .= '<td class="center"><select name="chiphikhac_hinhthucthanhtoan[]" id="chiphikhac_hinhthucthanhtoan'.$cpk.'">'.get_select_options_with_id($app_list_strings['hinh_thuc_thanh_toan_dom'],$chiphikhacval->chiphikhac_hinhthucthanhtoan).'</select> </td>';
                          if($tqval->cpk_check_tam_ung == "on"){
                              $checked = 'checked';
