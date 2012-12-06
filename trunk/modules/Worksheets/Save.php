@@ -593,7 +593,7 @@
             $VMB[$vmb_mb]->vemaybay_vat = $_POST['vemaybay_vat'][$vmb_mb]  ;   
             $VMB[$vmb_mb]->vemaybay_giachuathue = $_POST['vemaybay_giachuathue'][$vmb_mb]  ;   
             $VMB[$vmb_mb]->vemaybay_hinhthucthanhtoan = $_POST['vemaybay_hinhthucthanhtoan'][$vmb_mb]  ;   
-            $VMB[$vmb_mb]->vemaybay_check_tam_ung = $_POST['vemaybay_check_tam_ung'][$vmb_mb]  ;   
+            $VMB[$vmb_mb]->vemaybay_check_tam_ung = $_POST['vemaybay_check_tam_ung'.($vmb_mb)];   
             $VMB[$vmb_mb]->vemaybay_tamung = $_POST['vemaybay_tamung'][$vmb_mb]  ;   
             $vmb_mb ++;
         }
@@ -614,7 +614,7 @@
             $NHAHANG[$a]->nh_giachuathue = $_POST['nh_giachuathue'][$a];
             $NHAHANG[$a]->nh_vat = $_POST['nh_vat'][$a];
             $NHAHANG[$a]->nh_hinhthucthanhtoan = $_POST['nh_hinhthucthanhtoan'][$a];
-            $NHAHANG[$a]->nh_check_tam_ung = $_POST['nh_check_tam_ung'][$a];
+            $NHAHANG[$a]->nh_check_tam_ung = $_POST['nh_check_tam_ung'.($a)];
             $NHAHANG[$a]->nh_tamung = $_POST['nh_tamung'][$a];
 
         }
@@ -635,7 +635,7 @@
             $KHACHSAN[$b]->ks_giachuathue = $_POST['ks_giachuathue'][$b];
             $KHACHSAN[$b]->ks_vat = $_POST['ks_vat'][$b];
             $KHACHSAN[$b]->ks_hinhthucthanhtoan = $_POST['ks_hinhthucthanhtoan'][$b];
-            $KHACHSAN[$b]->ks_check_tam_ung = $_POST['ks_check_tam_ung'][$b];
+            $KHACHSAN[$b]->ks_check_tam_ung = $_POST['ks_check_tam_ung'.($b)];
             $KHACHSAN[$b]->ks_tamung = $_POST['ks_tamung'][$b];
 
         }
@@ -654,7 +654,7 @@
             $VANCHUYEN[$c]->vanchuyen_giachuathue = $_POST['vanchuyen_giachuathue'][$c];
             $VANCHUYEN[$c]->vanchuyen_vat = $_POST['vanchuyen_vat'][$c];
             $VANCHUYEN[$c]->vanchuyen_hinhthucthanhtoan = $_POST['vanchuyen_hinhthucthanhtoan'][$c];
-            $VANCHUYEN[$c]->vc_check_tam_ung = $_POST['vc_check_tam_ung'][$c];
+            $VANCHUYEN[$c]->vc_check_tam_ung = $_POST['vc_check_tam_ung'.($c)];
             $VANCHUYEN[$c]->vanchuyen_tamung = $_POST['vanchuyen_tamung'][$c];
             $VANCHUYEN[$c]->dongia_option = $_POST['dongia_option'][$c];
 
@@ -674,7 +674,7 @@
             $DICHVU[$d]->services_giachuathue = $_POST['services_giachuathue'][$d];
             $DICHVU[$d]->services_vat = $_POST['services_vat'][$d];
             $DICHVU[$d]->services_hinhthucthanhtoan = $_POST['services_hinhthucthanhtoan'][$d];
-            $DICHVU[$d]->sv_check_tam_ung = $_POST['sv_check_tam_ung'][$d];
+            $DICHVU[$d]->sv_check_tam_ung = $_POST['sv_check_tam_ung'.($d)];
             $DICHVU[$d]->services_tamung = $_POST['services_tamung'][$d];
 
         }
@@ -693,7 +693,7 @@
             $THAMQUAN[$e]->thamquan_giachuathue = $_POST['thamquan_giachuathue'][$e];
             $THAMQUAN[$e]->thamquan_vat = $_POST['thamquan_vat'][$e];
             $THAMQUAN[$e]->thamquan_hinhthucthanhtoan = $_POST['thamquan_hinhthucthanhtoan'][$e];
-            $THAMQUAN[$e]->tq_check_tam_ung = $_POST['tq_check_tam_ung'][$e];
+            $THAMQUAN[$e]->tq_check_tam_ung = $_POST['tq_check_tam_ung'.($e)];
             $THAMQUAN[$e]->thamquan_tamung = $_POST['thamquan_tamung'][$e];
 
         }
@@ -711,7 +711,7 @@
             $CHIPHIKHAC[$i]->chiphikhac_thuesuat = $_POST['chiphikhac_thuesuat'][$i];
             $CHIPHIKHAC[$i]->chiphikhac_giachuathue = $_POST['chiphikhac_giachuathue'][$i];
             $CHIPHIKHAC[$i]->chiphikhac_hinhthucthanhtoan = $_POST['chiphikhac_hinhthucthanhtoan'][$i];
-            $CHIPHIKHAC[$i]->cpk_check_tam_ung = $_POST['cpk_check_tam_ung'][$i];
+            $CHIPHIKHAC[$i]->cpk_check_tam_ung = $_POST['cpk_check_tam_ung'.($i)];
             $CHIPHIKHAC[$i]->chiphikhac_vat = $_POST['chiphikhac_vat'][$i];
             $CHIPHIKHAC[$i]->chiphikhac_tamung = $_POST['chiphikhac_tamung'][$i];
         }
