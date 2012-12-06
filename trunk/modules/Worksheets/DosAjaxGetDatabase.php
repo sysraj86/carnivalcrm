@@ -537,7 +537,7 @@
                 $html .= '</tfoot>';
                 $html .= '</table> </fieldset>';
             }
-            $_SESSION['content']  = $focus->noidung;
+            /*$_SESSION['content']  = $focus->noidung;
             $content = json_encode($_SESSION['content'] );
             $content = base64_encode($content);
             $focus->content = $content;
@@ -553,7 +553,7 @@
             $focus->sokhach  = $sokhach;
             $focus->tyle  = $tyle;
             $focus->version  = $version;
-            $focus->lotrinh  = $lotrinh;
+            $focus->lotrinh  = $lotrinh;*/
             
             //$focus->save($check_notify) ;
             //$id = $focus->id;
