@@ -1461,7 +1461,7 @@
                     foreach ($KHACHSAN as $ksval){
                         if($ksval->ks_deleted == 0){
                             $html .= '<tr>';
-                            $html .= '<td  class="nottabDetailViewDF border"><a href="index.php?module=Restaurants&action=DetailView&record='.$ksval->ks_id.'">'.translate('list_khach_san_dom','', $ksval->ks_id).'</a></td>';
+                            $html .= '<td  class="nottabDetailViewDF border"><a href="index.php?module=Hotels&action=DetailView&record='.$ksval->ks_id.'">'.translate('list_khach_san_dom','', $ksval->ks_id).'</a></td>';
                             $html .= '<td align="center" class="tabDetailViewDF border">'.$ksval->ks_ghichu.'</td>';
                             $html .= '<td align="center" class="tabDetailViewDF border">'.$ksval->ks_giathamkhao.'</td>';
                             $html .= '<td align="center" class="tabDetailViewDF border">'.$ksval->ks_dongia.'</td>';
