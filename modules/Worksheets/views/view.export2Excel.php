@@ -229,7 +229,7 @@
                 header("Pragma: cache");
                 $template = chr(255).chr(254).mb_convert_encoding($template, "UTF-16LE", "UTF-8");
                 header("Content-type: application/x-msdownload");
-                header("Content-disposition: xls; filename=Tam_Ung_Cho_Tour.xls; size=".strlen($template));
+                header("Content-disposition: xls; filename=Tam_Ung_Cho_Tour_".$focus->tourcode.".xls; size=".strlen($template));
                 echo $template;
                 exit(); 
             }

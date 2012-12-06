@@ -77,7 +77,7 @@
                     $html .= '<tbody>';
                     $focus->noidung->vemaybay_tongthanhtien = 0;
                     $focus->noidung->vemaybay_tongthue = 0;
-                    $vmb_mb = 1;
+                    $vmb_mb = 0;
                         foreach($airArrtk as $airtk){
                             $html .= '<tr>';
                                 $html .= '<td class="dataField"><select name="vemaybay[]" id="vemaybay'.$vmb_mb.'">'.get_select_options_with_id($app_list_strings['list_airlinetiket_dom'],$airtk['id']).'</select> </td>';
@@ -89,7 +89,7 @@
                                 $html .= '<td class="dataField"><input class="giachuathue center" name="vemaybay_giachuathue[]" type="text" id="vemaybay_giachuathue'.$vmb_mb.'" size="10" /></td>';
                                 $html .= '<td class="dataField"><input type="text" class="vat center" name="vemaybay_vat[]" id="vemaybay_vat'.$vmb_mb.'" value="0" /></td>';
                                 $html .= '<td class="dataField"><select name="vemaybay_hinhthucthanhtoan[]" id="vemaybay_hinhthucthanhtoan'.$vmb_mb.'">'.get_select_options_with_id($app_list_strings['hinh_thuc_thanh_toan_dom'],'').' </select> </td>';
-                                $html .= '<td class="center" width="10%"><input type = "checkbox" name="vemaybay_check_tam_ung[]" class ="check_tam_ung" id="vemaybay_check_tam_ung'.$vmb_mb.'"><input class="vemaybay_tinhtoan center tamung" name="vemaybay_tamung[]" type="text" id="vemaybay_tamung'.$vmb_mb.'" size="10" /></td>';
+                                $html .= '<td class="center" width="10%"><input type = "checkbox" name="vemaybay_check_tam_ung'.$vmb_mb.'" class ="check_tam_ung" id="vemaybay_check_tam_ung'.$vmb_mb.'"><input class="vemaybay_tinhtoan center tamung" name="vemaybay_tamung[]" type="text" id="vemaybay_tamung'.$vmb_mb.'" size="10" /></td>';
                                 $html .= '<td class="dataField"><input type="button" class="btnAddRow" value="Add row"/> <input type="button" class="btnDelRow" value="Delete row"/></td>';
                               $html .= '</tr>';
                                 $VMB[$vmb_mb]->vemaybay = $airtk['id']  ;
@@ -154,7 +154,7 @@
                 $html .= '<tbody>';
                 $focus-> noidung->nhahang_tongthanhtien = 0;
                 $focus-> noidung->nhahang_tongthue = 0;
-                
+                $i = 0;
                 foreach($nhArr as $val){
                     $html .= '<tr>';
                         $html .= '<td class="notcenter"><select class="servicename" name="nh_id[]" id="nh_id'.$i.'">'.get_select_options_with_id($app_list_strings['list_restaurant_dom'],$val['id']).' </select><input class="service_name" type="hidden" name="nh_name[]" id="nh_name'.$i.'" value="'.$val['name'].'"/></td>';
@@ -167,7 +167,7 @@
                         $html .= '<td class="center"><input class="giachuathue center" name="nh_giachuathue[]" type="text" id="nh_giachuathue'.$i.'" size="10" /></td>';
                         $html .= '<td class="center"><input class="vat center" name="nh_vat[]" type="text" id="nh_vat'.$i.'" size="10" /></td>';
                         $html .= '<td class="center"><select class="nh_tinhtoan center" name="nh_hinhthucthanhtoan[]" id="nh_hinhthucthanhtoan'.$i.'">'.get_select_options_with_id($app_list_strings['hinh_thuc_thanh_toan_dom'],'').' </select> </td>';
-                        $html .= '<td class="center" width="10%"><input type = "checkbox" name="nh_check_tam_ung[]" class ="check_tam_ung" id="nh_check_tam_ung'.$i.'" ><input class="nh_tinhtoan center tamung" name="nh_tamung[]" type="text" id="nh_tamung'.$i.'" size="10" /></td>';
+                        $html .= '<td class="center" width="10%"><input type = "checkbox" name="nh_check_tam_ung'.$i.'" class ="check_tam_ung" id="nh_check_tam_ung'.$i.'" ><input class="nh_tinhtoan center tamung" name="nh_tamung[]" type="text" id="nh_tamung'.$i.'" size="10" /></td>';
                         $html .= '<td><input type="button" class="btnAddRow" value="Add Row"/><input type="button" class="btnDelRow" value="Delete Row"/></td>';
                     $html .= '</tr> ';
                     $NHAHANG[$i]->nh_name = $val['name'];
@@ -237,7 +237,7 @@
 
                 $focus->noidung->khachsan_tongthanhtien = 0;
                 $focus->noidung->khachsan_tongthue = 0;
-
+                 $j = 0;
                 foreach($ksArr as $ksval){
                     $html .= '<tr>';
                         $html .= '<td class="notcenter"><select class="servicename" name="ks_id[]" id="ks_id'.$j.'">'.get_select_options_with_id($app_list_strings['list_khach_san_dom'], $ksval['id']).'</select> <input class="service_name" type="hidden" name="ks_name[]" id="ks_name'.$j.'" value="'.$ksval['name'].'"/> </td>';
@@ -251,7 +251,7 @@
                         $html .= '<td class="center"><input class="giachuathue center" name="ks_giachuathue[]" type="text" id="ks_giachuathue'.$j.'" size="10" /></td>';
                         $html .= '<td class="center"><input class="vat center" name="ks_vat[]" type="text" id="ks_vat'.$j.'" size="10" /></td>';
                         $html .= '<td class="center"><select class="ks_tinhtoan center" name="ks_hinhthucthanhtoan[]" id="ks_hinhthucthanhtoan'.$j.'">'.get_select_options_with_id($app_list_strings['hinh_thuc_thanh_toan_dom'],'').' </select></td>';
-                        $html .= '<td class="center" width="10%"><input type = "checkbox" name="ks_check_tam_ung[]" class ="check_tam_ung" id="ks_check_tam_ung'.$j.'" > <input class="ks_tinhtoan center tamung" name="ks_tamung[]" type="text" id="ks_tamung'.$j.'" size="10" /></td>';
+                        $html .= '<td class="center" width="10%"><input type = "checkbox" name="ks_check_tam_ung'.$j.'" class ="check_tam_ung" id="ks_check_tam_ung'.$j.'" > <input class="ks_tinhtoan center tamung" name="ks_tamung[]" type="text" id="ks_tamung'.$j.'" size="10" /></td>';
                         $html .= '<td><input type="button" class="btnAddRow" value="Add Row"/><input type="button" class="btnDelRow" value="Delete Row"/></td>';
                     $html .= '</tr> ';
                     $KHACHSAN[$j]->ks_name = $ksval['name'];
@@ -322,6 +322,7 @@
                 $html .= '<tbody>';
                 $focus->noidung->vanchuyen_tongthanhtien = 0;
                 $focus->noidung->vanchuyen_tongthue = 0;
+                $k = 0;
                 foreach($vcArr as $vcVal){
                     $html .= '<tr>';
                         $html .= '<td class="notcenter"><select class="servicename" name="vanchuyen_name[]" id="vanchuyen_name'.$k.'">'.get_select_options_with_id( $app_list_strings['list_vanchuyen_dom'],$vcVal['id']).'</select> <input type="hidden" name="vanchuyen_id[]" id="vanchuyen_id" value="'.$rowvc['id'].'"/> </td>';
@@ -334,7 +335,7 @@
                         $html .= '<td class="center"><input class="giachuathue center" name="vanchuyen_giachuathue[]" type="text" id="vanchuyen_giachuathue'.$k.'" size="10" /></td>';
                         $html .= '<td class="center"><input class="vat center" name="vanchuyen_vat[]" type="text" id="vanchuyen_vat'.$k.'" size="10" /></td>';
                         $html .= '<td class="center"><select name="vanchuyen_hinhthucthanhtoan[]" id="vanchuyen_hinhthucthanhtoan'.$k.'">'.get_select_options_with_id($app_list_strings['hinh_thuc_thanh_toan_dom'],'').' </select></td>';
-                        $html .= '<td class="center"><input type = "checkbox" name="vc_check_tam_ung[]" class ="check_tam_ung" id="vc_check_tam_ung'.$k.'" > <input class="vc_tinhtoan center tamung" name="vanchuyen_tamung[]" type="text" id="vanchuyen_tamung'.$k.'" size="10" /></td>';
+                        $html .= '<td class="center"><input type = "checkbox" name="vc_check_tam_ung'.$k.'" class ="check_tam_ung" id="vc_check_tam_ung'.$k.'" > <input class="vc_tinhtoan center tamung" name="vanchuyen_tamung[]" type="text" id="vanchuyen_tamung'.$k.'" size="10" /></td>';
                         $html .= '<td><input type="button" class="btnAddRow" value="Add Row"/><input type="button" class="btnDelRow" value="Delete Row"/></td>';
                     $html .= '</tr> ';
                     $VANCHUYEN[$k]->vanchuyen_name = $vcVal['id'];
@@ -403,6 +404,7 @@
                 $html .= '<tbody>';
                 $focus->noidung->service_tongthanhtien = 0;
                 $focus->noidung->service_tongthue = 0;
+                $l = 0;
                 foreach($svArr as $svVal){
                     $html .= '<tr>';
                         $html .= '<td class="notcenter"><select class="servicename" name="services_name[]" id="services_name'.$l.'">'.get_select_options_with_id($app_list_strings['list_dichvu_dom'],$svVal['id']).'</select> <input type="hidden" name="services_id[]" id="services_id" value="'.$svVal['id'].'"/>  </td>';
@@ -415,7 +417,7 @@
                         $html .= '<td class="center"><input class="giachuathue center" name="services_giachuathue[]" type="text" id="services_giachuathue'.$l.'" size="10" /></td>';
                         $html .= '<td class="center"><input class="vat center" name="services_vat[]" type="text" id="services_vat'.$l.'" size="10" /></td>';
                         $html .= '<td class="center"><select  name="services_hinhthucthanhtoan[]" id="services_hinhthucthanhtoan'.$l.'">'.get_select_options_with_id($app_list_strings['hinh_thuc_thanh_toan_dom'],'').' </select> </td>';
-                        $html .= '<td class="center" width="10%"><input type = "checkbox" name="sv_check_tam_ung[]" class ="check_tam_ung" id="sv_check_tam_ung'.$l.'" > <input class="sv_tinhtoan center tamung" name="services_tamung[]" type="text" id="services_tamung'.$l.'" size="10" /></td>';
+                        $html .= '<td class="center" width="10%"><input type = "checkbox" name="sv_check_tam_ung'.$l.'" class ="check_tam_ung" id="sv_check_tam_ung'.$l.'" > <input class="sv_tinhtoan center tamung" name="services_tamung[]" type="text" id="services_tamung'.$l.'" size="10" /></td>';
                         $html .= '<td><input type="button" class="btnAddRow" value="Add Row"/><input type="button" class="btnDelRow" value="Delete Row"/></td>';
                     $html .= '</tr> ';
                     $DICHVU[$l]->services_name = $svVal['id'];
@@ -484,7 +486,7 @@
                 $html .= '<tbody>';
                 $focus->noidung->thamquan_tongthanhtien = 0;
                 $focus->noidung->thamquan_tongthue = 0;
-
+                $m =0;
                 foreach($tqArr as $tqVal){
                     $html .= '<tr>';
                         $html .= '<td class="notcenter"><select class="servicename" name="thamquan_name[]" id="thamquan_name'.$m.'">'.get_select_options_with_id($app_list_strings['list_thamquan_dom'],$tqVal['id']).'</select> <input type="hidden" name="thamquan_id[]" id="thamquan_id" value="'.$rowtq['id'].'"/> </td>';
@@ -497,7 +499,7 @@
                         $html .= '<td class="center"><input class="giachuathue center" name="thamquan_giachuathue[]" type="text" id="thamquan_giachuathue'.$m.'" size="10" /></td>';
                         $html .= '<td class="center"><input class="vat center" name="thamquan_vat[]" type="text" id="thamquan_vat'.$m.'" size="10" /></td>';
                         $html .= '<td class="center"><select name="thamquan_hinhthucthanhtoan[]" id="thamquan_hinhthucthanhtoan'.$m.'">'.get_select_options_with_id($app_list_strings['hinh_thuc_thanh_toan_dom'],'').' </select> </td>';
-                        $html .= '<td class="center" width="10%"><input type = "checkbox" name="tq_check_tam_ung[]" class ="check_tam_ung" id="tq_check_tam_ung'.$m.'" > <input class="tq_tinhtoan center tamung" name="thamquan_tamung[]" type="text" id="thamquan_tamung'.$m.'" size="10" /></td>';
+                        $html .= '<td class="center" width="10%"><input type = "checkbox" name="tq_check_tam_ung'.$m.'" class ="check_tam_ung" id="tq_check_tam_ung'.$m.'" > <input class="tq_tinhtoan center tamung" name="thamquan_tamung[]" type="text" id="thamquan_tamung'.$m.'" size="10" /></td>';
                         $html .= '<td><input type="button" class="btnAddRow" value="Add Row"/><input type="button" class="btnDelRow" value="Delete Row"/></td>';
                     $html .= '</tr> '; 
                     $THAMQUAN[$m]->thamquan_name = $tqVal['id'];
@@ -553,13 +555,13 @@
             $focus->version  = $version;
             $focus->lotrinh  = $lotrinh;
             
-            $focus->save($check_notify) ;
-            $id = $focus->id;
+            //$focus->save($check_notify) ;
+            //$id = $focus->id;
             //$arr = array($id,$html);
             $html .= '<table><tr><td>';
             $html .="<input type='hidden' name='worksheet_id' id='worksheet_id' value='".$id."'";
             $html .= '</td></tr></table>';
-            $_SESSION['record'] = $_SESSION['return_id'] = $id;
+            //$_SESSION['record'] = $_SESSION['return_id'] = $id;
             $html .= '<script type="text/javascript">';
                 $html .= '$(".servicename").change(function(){
                         var val = $(this).val();

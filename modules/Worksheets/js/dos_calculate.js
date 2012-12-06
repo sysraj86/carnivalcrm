@@ -1,9 +1,9 @@
 $(function(){
     CheckTableClone();
     if($('.thuesuat').val() == ''){
-       $('.thuesuat').val('10');
+        $('.thuesuat').val('10');
     }
-    
+
     if($(".center").val()==""){
         $(this).val('0');
     }
@@ -18,22 +18,21 @@ $(function(){
             $(this).val("0");
         }
     });
-    
-        $(".btnAddRow").live('click',function(){
+
+    $(".btnAddRow").live('click',function(){
         if($(this).closest('table').attr('class')=='table_clone') {
             var lastRow = $(this).closest('table').find('tbody > tr:last');
             var ttt = $(this).closest('table').find('tbody > tr:last').clone(true);
             ttt.insertAfter(lastRow);
             CheckTableClone(); 
-            $(this).closest("table").find(" tbody tr:last").find("input:text,textarea").each(function()
-            {
+            $(this).closest("table").find(" tbody tr:last").find("input:text,textarea").each(function(){
                 $(this).val("0");
 
             });
-            //jQuery(this).closest("table").find(" tbody tr:last").find(".check_tam_ung").attr("checked",false);
+            jQuery(this).closest("table").find(" tbody tr:last").find(".check_tam_ung").attr("checked",false);
         }
     });
-    
+
     jQuery('.dongia_option').each(function(){
         val = jQuery(this).val();
         if(val == 'trongoi'){
@@ -78,7 +77,7 @@ $(function(){
         }
     });
     //unformatNumber(n, num_grp_sep, dec_sep)
-    
+
     $('.dongia, .thanhtien, .giachuthue, .tamung, giathamkhao, .center').live('blur',function(){
         if($(this).val()!='' && !isNaN($(this).val())){
             $(this).val(formatNumber($(this).val(), num_grp_sep, dec_sep, 0, 0));  
@@ -89,9 +88,9 @@ $(function(){
         $this=$(this);
         //fmCurrency($this,0);
         tinhtoan($this);  
-        
+
     });
-    
+
     $('.dongia_option').live('change',function(){
         $this=$(this);
         tinhtoan($this);
@@ -143,7 +142,7 @@ $(function(){
         tinhtoantongchiphi(); 
         tinhtoantongthue(); 
     }
-     
+
     // thay doi gia tham khao khi chon khoan muc khac
 
     $(".servicename").live('change',function(){
@@ -151,7 +150,7 @@ $(function(){
         $(this).closest("tr").find(".giathamkhao").val(formatNumber($(this).closest("tr").find(".giathamkhao_an option:[value="+val+"]").text(),num_grp_sep, dec_sep));
         $(this).closest("tr").find(".service_name").val($(this).closest("tr").find(".servicename option:[value="+val+"]").text());
         $(this).closest("tr").find(".center").val(0);
-       // $(this).closest("tr").find(".check_tam_ung").attr("checked",false);
+        // $(this).closest("tr").find(".check_tam_ung").attr("checked",false);
     }); 
 
 
@@ -159,7 +158,7 @@ $(function(){
         if($(this).is(':checked')){
             thanhtien = $(this).closest('tr').find('.thanhtien').val();
             $(this).closest('tr').find('.tamung').val(thanhtien);
-        
+
         }
         else{
             $(this).closest('tr').find('.tamung').val('0');
@@ -342,14 +341,10 @@ function CheckTableClone(){
             }
         });
         var count = 0;
-        jQuery(this).find(" tbody tr").each(function(i)
-        {
-            count++;
-            if(jQuery(this).closest("table").attr("class")=="table_clone")
-                {
+        jQuery(this).find(" tbody tr").each(function(i){
+            if(jQuery(this).closest("table").attr("class")=="table_clone"){
                 var chiso=count;
-                jQuery(this).find("select,input,span,textarea,button").each(function()
-                {
+                jQuery(this).find("select,input,span,textarea,button").each(function(){
                     var eID = $(this).attr('id');
                     digit = eID.match(/\d+$/);
                     if(digit !=null && !isNaN(digit)){
@@ -360,13 +355,26 @@ function CheckTableClone(){
                     } 
                     jQuery(this).attr('id',eID_After);  
                 });
+                
+                jQuery(this).find('input[type="checkbox"]').each(function(){
+                    var name = jQuery(this).attr('name');
+                    digit = name.match(/\d+$/);
+                    if(digit !=null && !isNaN(digit)){
+                        name_After = name.replace(digit,chiso);
+                    }
+                    else{
+                         name_After = name+chiso;
+                    }
+                    jQuery(this).attr('name',name_After);
+                })
             }
+            count++;
         });
     });
 } 
- /***
- * tinh tong chi phi cho ve may bay 
- */
+/***
+* tinh tong chi phi cho ve may bay 
+*/
 
 function tinhtongchiphivemaybay(){
     tongtien = 0;
