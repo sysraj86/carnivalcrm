@@ -167,5 +167,13 @@ $mod_strings = array (
   'LBL_CUSTOMER_TYPE'           => 'Loại Khách Hàng',
   'LBL_CUSTOMER_NUMBER'         => 'Số Lượng Khách Hàng',
   'LBL_SERVICE'                 => 'Dịch Vụ Khác',
+  'LBL_PHANTRAMMUC1'                 => 'Ngay sau khi ký hợp đồng',
+  'LBL_PHANTRAMMUC2'                 => 'Trước ngày khởi hành',
+  'LBL_PHANTRAMMUC3'                 => 'Trước ngày khởi hành',
+  'LBL_PHANTRAMMUC4'                 => 'Trong vòng',
+  'LBL_BIPHAT'                       => 'bị phạt',
+  'LBL_TONGGIATRIHOPDONG'            => '% tổng giá trị hợp đồng',
+  'LBL_NGAY'            => 'ngày',
+  'LBL_TIENG'            => 'tiếng',
 );
 ?>

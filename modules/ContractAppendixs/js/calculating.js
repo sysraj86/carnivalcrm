@@ -118,9 +118,9 @@
                                 
         $('.tinhtoan').blur(function(){
             var id = this.id.substring(this.id.length-1,this.id.length); 
-            var sl =  parseFloat($('#num_of_service'+id).val());
-            var giatour = parseFloat($('#unit'+id).val());  
-            var thue = parseFloat($('#thue'+id).val()); 
+            var sl =  parseFloat(unformatNumber($('#num_of_service'+id).val(),num_grp_sep, dec_sep));
+            var giatour = parseFloat(unformatNumber($('#unit'+id).val(),num_grp_sep, dec_sep));  
+            var thue = parseFloat(unformatNumber($('#thue'+id).val(),num_grp_sep, dec_sep)); 
             if(isNaN(sl)){
                sl = 0; 
             }  
@@ -130,8 +130,8 @@
             if(isNaN(thue)){
                thue = 0; 
             } 
-            var thanhtien  = (sl*giatour)+thue;
-            $('#thanhtien'+id).val(thanhtien.toString()); 
+            var thanhtien  = sl*(giatour+thue);
+            $('#thanhtien'+id).val(formatNumber(thanhtien,num_grp_sep, dec_sep)); 
 
             calculateSum(this);
             $('#bangchu').val(DocTienBangChu($('#tongtien').val()));
@@ -145,6 +145,7 @@
             var tongtien = unformatNumber($('#tongtien').val(),num_grp_sep, dec_sep);
             var tiGia = unformatNumber($('#tigia').val(),num_grp_sep, dec_sep);
             $('#tongtien2').val(formatNumber(tongtien*tiGia,num_grp_sep, dec_sep));
+            $('#tigia').val(formatNumber(tiGia,num_grp_sep, dec_sep));
         }
 
         $('.percent').blur(function(){
@@ -195,16 +196,16 @@
         var sum = 0;
         for (i = 1 ; i <= count ; i++ ){
             if($('#deleted'+i).val()!= 1){
-                var tt = parseFloat($('#thanhtien'+i).val());
+                var tt = parseFloat(unformatNumber($('#thanhtien'+i).val(),num_grp_sep, dec_sep));
                 if(!isNaN(tt)){
                     sum += tt;
                 }
             }     
         } 
-        $('#tongtien').val(sum.toString());
+        $('#tongtien').val(formatNumber(sum,num_grp_sep, dec_sep));
         //$('#tongtien_').val(sum.toString());
-        var tiGia = $('#tigia').val();
-        $('#tongtien2').val((sum*tiGia).toString());
+        var tiGia = unformatNumber($('#tigia').val(),num_grp_sep, dec_sep);
+        $('#tongtien2').val(formatNumber(sum*tiGia,num_grp_sep, dec_sep));
     }
     
     function calculatePersent(id){

@@ -21,6 +21,7 @@ $dictionary["ContractAppendixs"]["fields"]["contracts_cappendixs_name"] = array 
   'table' => 'contracts',
   'module' => 'Contracts',
   'rname' => 'name',
+  'required' => true,
 );
 $dictionary["ContractAppendixs"]["fields"]["contracts_2225ntracts_ida"] = array (
   'name' => 'contracts_2225ntracts_ida',

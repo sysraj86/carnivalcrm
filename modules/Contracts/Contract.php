@@ -144,13 +144,15 @@
         }
         // get value of contracts values edit
         function get_contract_values_editview_line(){
+            global $app_list_strings;
             $sql = "select * from contract_values where contract_value_id ='".$this->id."'and deleted = 0";
             $result = $this->db->query($sql);
             $html = "";
             while($row = $this->db->fetchByAssoc($result)){
                 $html .= '<tr>';
                      $html .= '<td  align="center"> ';
-                        $html .= '<input name="age[]" type="text" id="age" value="'.$row['age'].'" />';
+                        $html .= '<select class="type_service" name="type_service[]" id="type_service">'.get_select_options($app_list_strings['contract_type_service_dom'],$row['type_service']).'</select>
+                                  <input name="age[]" type="text" style="display:none" id="age" value="'.$row['age'].'" />';
                      $html .= '</td>';
                      $html .= '<td align="center">';
                          $html .= '<input name="tong_sl_khach[]" type="text" id="tong_sl_khach" class="tinhtoan" value="'.$row['num_of_cus'].'" />';
@@ -228,7 +230,16 @@
             while($row = $this->db->fetchByAssoc($result)){
                 $html .= '<tr>';
                      $html .= '<td style="text-align:center" class="tabDetailViewDF">';
-                        $html .= $row['age'];
+                        $service_type = translate('contract_type_service_dom','',$row['type_service']);
+                        if(is_array($service_type)){
+                            $service_type = '';
+                        }
+                        if($row['type_service'] == 'khac'){
+                            $html .= $row['age'];
+                        }else{
+                            $html .= $service_type;
+                        }
+                        
                      $html .= '</td>';
                      $html .= '<td style="text-align:center" class="tabDetailViewDF">';
                          $html .= $row['num_of_cus'];
@@ -240,7 +251,7 @@
                         $html .= $row['tax']. ' ';
                      $html .= '</td>';
                      $html .= '<td style="text-align:center" class="tabDetailViewDF">';
-                        $html .= number_format($row['money'],'2','.',''). '';
+                        $html .= format_number($row['money']). '';
                      $html .= '</td>';
                      $html .= '<td style="text-align:center" class="tabDetailViewDF">';
                            $html .= '&nbsp;';

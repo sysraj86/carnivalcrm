@@ -24,4 +24,5 @@ $entry_point_registry['generateDoc3'] = array('file' => 'modules/AOS_PDF_Templat
  $entry_point_registry['ordergetlistcus']    =  array('file'=>'modules/Orders/AjaxGetListCus.php','auth'=>true);
  
  $entry_point_registry['GetInfoOfService']    =  array('file'=>'modules/GroupPrograms/LoadAjaxInfoServices.php','auth'=>true);
+ $entry_point_registry['LayGiaTourNguoiLon']    =  array('file'=>'modules/Contracts/LayGiaTourNguoiLon.php','auth'=>true);
 ?>

@@ -20,7 +20,6 @@
                 'Emails'        => 'Emails',
                 'Meetings'      => 'Meetings',
                 'Tasks'         => 'Tasks',
-                'Project'       => 'Projects',
             );
             $timedate = new TimeDate();
             global $db, $mod_strings, $app_list_strings,$current_user;
