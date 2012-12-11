@@ -66,6 +66,7 @@ $return_id = $focus->id;
 $contracts_values = array(
   'id'          => $_POST['contract_value_id'], 
   'num_of_cus'  => $_POST['tong_sl_khach'],
+  'type_service' => $_POST['type_service'],
   'age'         => $_POST['age'],
   'tour_cost'   => $_POST['gia_tour'],
   'tax'         => $_POST['thue'],
@@ -82,6 +83,7 @@ for($i = 0; $i<$contracts_values_line_count; $i++){
     if(($contracts_values['money'][$i] != '' || $contracts_values['money'][$i] != 0) && $contracts_values['deleted'][$i] != 1){
         $contracts_value ->id = $contracts_values['id'][$i]; 
         $contracts_value ->contract_value_id = $return_id;  
+        $contracts_value ->type_service = $contracts_values['type_service'][$i];
         $contracts_value ->age = $contracts_values['age'][$i];
         $contracts_value ->num_of_cus = $contracts_values['num_of_cus'][$i];
         $contracts_value ->tour_cost = $contracts_values['tour_cost'][$i];

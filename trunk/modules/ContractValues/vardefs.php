@@ -70,6 +70,12 @@ $dictionary['ContractValue'] = array(
     'required' => true,
   ),
   
+   'type_service' => array(
+        'name'      => 'type_service',
+        'vname'     => '',
+        'type'      => 'enum',
+        'len'       => 150
+   ),
    'age'      => array(
         'name'      => 'age',
         'vname'     => '',

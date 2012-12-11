@@ -41,11 +41,10 @@
 <link rel="SHORTCUT ICON" href="{$FAVICON_URL}">
 <meta http-equiv="Content-Type" content="text/html; charset={$APP.LBL_CHARSET}">
 <title>{$APP.LBL_BROWSER_TITLE}</title>
-{$SUGAR_CSS}                      
- <link rel="stylesheet" type="text/css" href="custom/themes/Sugar5/css/customStyle.css" />
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-<script type="text/javascript" src="custom/include/js/jquery.js"> </script> 
-
+{$SUGAR_CSS}
+<link rel="stylesheet" type="text/css" href="custom/themes/Sugar5/css/customStyle.css" />
+<script type="text/javascript" src="custom/include/javascripts/jquery.js"></script>
+<script type="text/javascript" src="custom/include/javascripts/formatCurrency.js"></script>
 {$SUGAR_JS}
 {literal}
 <script type="text/javascript">

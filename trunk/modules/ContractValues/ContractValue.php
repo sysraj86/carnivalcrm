@@ -52,6 +52,7 @@ class ContractValue extends SugarBean {
 	var $date_modified;
     var $deleted;
 	var $contract_value_id;
+    var $type_service;
     var $age;
 	var $num_of_cus;
     var $tour_cost; 

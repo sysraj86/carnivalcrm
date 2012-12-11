@@ -727,6 +727,49 @@
             'len' => '255',
         ),
         
+        'phantram_muc1' => array(
+            'name' => 'phantram_muc1',
+            'vname' => 'LBL_PHANTRAMMUC1',
+            'type'  => 'varchar',
+            'len' => 8,
+        ),
+        'phantram_muc2' => array(
+            'name' => 'phantram_muc2',
+            'vname' => 'LBL_PHANTRAMMUC2',
+            'type'  => 'varchar',
+            'len' => 8,
+        ),
+        'phantram_muc3' => array(
+            'name' => 'phantram_muc3',
+            'vname' => 'LBL_PHANTRAMMUC3',
+            'type'  => 'varchar',
+            'len' => 8,
+        ),
+        'phantram_muc4' => array(
+            'name' => 'phantram_muc4',
+            'vname' => 'LBL_PHANTRAMMUC4',
+            'type'  => 'varchar',
+            'len' => 8,
+        ),
+        'thoigian_muc2' => array(
+            'name' => 'thoigian_muc2',
+            'vname' => 'LBL_THOIGIANMUC2',
+            'type'  => 'varchar',
+            'len' => 8,
+        ),
+        'thoigian_muc3' => array(
+            'name' => 'thoigian_muc3',
+            'vname' => 'LBL_THOIGIANMUC3',
+            'type'  => 'varchar',
+            'len' => 8,
+        ),
+        'thoigian_muc4' => array(
+            'name' => 'thoigian_muc4',
+            'vname' => 'LBL_THOIGIANMUC4',
+            'type'  => 'varchar',
+            'len' => 8,
+        ),
+        
     ),
 
     'relationship' => array(

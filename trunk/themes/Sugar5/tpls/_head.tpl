@@ -40,14 +40,12 @@
 <head>
 <link rel="SHORTCUT ICON" href="{$FAVICON_URL}">
 <meta http-equiv="Content-Type" content="text/html; charset={$APP.LBL_CHARSET}">
-
 <title>{$APP.LBL_BROWSER_TITLE}</title>
 {$SUGAR_CSS}
-    <!-- CUSTOM CSS-->
-{*    {$CUSTOMIZE_CSS}*}
-    <link rel="stylesheet" href="themes/Sugar5/css/customize.css">
+<link rel="stylesheet" type="text/css" href="custom/themes/Sugar5/css/customStyle.css" />
+<script type="text/javascript" src="custom/include/javascripts/jquery.js"></script>
+<script type="text/javascript" src="custom/include/javascripts/formatCurrency.js"></script>
 {$SUGAR_JS}
-
 {literal}
 <script type="text/javascript">
 <!--
@@ -55,6 +53,7 @@ SUGAR.themes.theme_name      = '{/literal}{$THEME}{literal}';
 SUGAR.themes.theme_ie6compat = {/literal}{$THEME_IE6COMPAT}{literal};
 SUGAR.themes.hide_image      = '{/literal}{sugar_getimagepath file="hide.gif"}{literal}';
 SUGAR.themes.show_image      = '{/literal}{sugar_getimagepath file="show.gif"}{literal}';
+SUGAR.themes.loading_image      = '{/literal}{sugar_getimagepath file="img_loading.gif"}{literal}';
 SUGAR.themes.allThemes       = eval({/literal}{$allThemes}{literal});
 if ( YAHOO.env.ua )
     UA = YAHOO.env.ua;

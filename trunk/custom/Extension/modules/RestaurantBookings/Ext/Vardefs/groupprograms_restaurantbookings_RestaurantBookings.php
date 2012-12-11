@@ -18,6 +18,7 @@ $dictionary["RestaurantBookings"]["fields"]["groupprogratbookings_name"] = array
   'table' => 'groupprograms',
   'module' => 'GroupPrograms',
   'rname' => 'name',
+  'required' => true,
 );
 $dictionary["RestaurantBookings"]["fields"]["groupprogr880erograms_ida"] = array (
   'name' => 'groupprogr880erograms_ida',

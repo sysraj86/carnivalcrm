@@ -117,6 +117,7 @@ $dictionary['Destination'] = array('audited' => true,
           'vname'   => 'LBL_DESTINATION_REGION',
           'type'    => 'enum',
           'options' => 'destination_region_dom',
+          'massupdate' => 0,
         ),
 
     ),

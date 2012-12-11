@@ -34,6 +34,10 @@ array (
         array (
           'file' => 'modules/Contracts/js/calculating.js',
         ),
+        3 => 
+        array (
+          'file' => 'custom/include/js/CustomSelectField.js',
+        ),
       ),
       'useTabs' => false,
     ),
@@ -157,7 +161,17 @@ array (
       array (
         0 => 
         array (
-          0 => 'groupprogracontracts_name',
+          0 => 
+          array (
+            'name' => 'groupprogracontracts_name',
+            'customCode' => '
+            <input data="Button=cleardata,selectdata|Module=GroupPrograms|Fields=id,name,start_date_group,end_date_group,countofcus,numofdate,numofnight|Inputs=groupprogr4251rograms_ida,groupprogracontracts_name,start_date_contract,end_date_contract,customer_number,num_of_date,num_of_night" class="select" type="text" id="groupprogracontracts_name" name="groupprogracontracts_name" value="{$fields.groupprogracontracts_name.value}">
+            <input type="hidden" id="groupprogr4251rograms_ida" name="groupprogr4251rograms_ida" value="{$fields.groupprogr4251rograms_ida.value}">
+            <input type="hidden" id="gia_nguoi_lon" name="gia_nguoi_lon" value="{$fields.gia_nguoi_lon.value}">
+            <input type="hidden" id="gia_tre_em" name="gia_tre_em" value="{$fields.gia_tre_em.value}">
+            <input type="hidden" id="gia_tre_em2" name="gia_tre_em2" value="{$fields.gia_tre_em2.value}">
+            ',
+          ),
         ),
         1 => 
         array (
@@ -232,10 +246,45 @@ array (
       array (
         0 => 
         array (
+          0 => 
+          array (
+            'name' => 'phantram_muc1',
+            'label' => 'LBL_PHANTRAMMUC1',
+            'customCode' => '
+            {$MOD.LBL_BIPHAT} <input type="text" size="3" id="phantram_muc1" name="phantram_muc1" value="{$fields.phantram_muc1.value}"> {$MOD.LBL_TONGGIATRIHOPDONG}
+            ',
+          ),
+          1 => 
+          array (
+            'name' => 'phantram_muc2',
+            'customCode' => ' <input type="text" size="8" id="thoigian_muc2" name="thoigian_muc2" value="{$fields.thoigian_muc2.value}"> {$MOD.LBL_NGAY}
+            {$MOD.LBL_BIPHAT} <input type="text" size="3" id="phantram_muc2" name="phantram_muc2" value="{$fields.phantram_muc2.value}"> {$MOD.LBL_TONGGIATRIHOPDONG}
+            ',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'phantram_muc3',
+            'customCode' => ' <input type="text" size="8" id="thoigian_muc3" name="thoigian_muc3" value="{$fields.thoigian_muc3.value}"> {$MOD.LBL_NGAY}
+            {$MOD.LBL_BIPHAT} <input type="text" size="3" id="phantram_muc3" name="phantram_muc3" value="{$fields.phantram_muc3.value}"> {$MOD.LBL_TONGGIATRIHOPDONG}
+            ',
+          ),
+          1 => 
+          array (
+            'name' => 'phantram_muc4',
+            'customCode' => ' <input type="text" size="8" id="thoigian_muc4" name="thoigian_muc4" value="{$fields.thoigian_muc4.value}"> {$MOD.LBL_TIENG}
+            {$MOD.LBL_BIPHAT} <input type="text" size="3" id="phantram_muc4" name="phantram_muc4" value="{$fields.phantram_muc4.value}"> {$MOD.LBL_TONGGIATRIHOPDONG}
+            ',
+          ),
+        ),
+        2 => 
+        array (
           0 => 'solanthanhtoan',
           1 => 'tienhuyphat',
         ),
-        1 => 
+        3 => 
         array (
           0 => 
           array (

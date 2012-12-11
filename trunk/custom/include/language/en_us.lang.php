@@ -937,6 +937,7 @@ $GLOBALS['app_list_strings']['contract_type_customer_dom']=array (
 $GLOBALS['app_list_strings']['contract_type_service_dom']=array ( 
         '' => '',
         'nguoilon' => 'Người Lớn',
-        'treem' => 'Trẻ Em',
+        'treem1' => 'Trẻ Em Dưới 2 Tuổi',
+        'treem2' => 'Trẻ Em Từ 2 Đến 12 Tuổi',
         'khac' => 'Khác',
     );
