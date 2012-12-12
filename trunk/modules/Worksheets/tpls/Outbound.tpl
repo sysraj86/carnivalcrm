@@ -680,13 +680,13 @@
                         </td>
                         <td class="dataField"><input name="chichuvmbte2tuoi" type="text" id="chichuvmbte2tuoi"
                                 value="{$GHICHUVMBTE2TUOI}"></td>
-                        <td class="dataField"><input class="calculate giaban" name="focvmbteduoi2tuoi" type="text" size="10"
+                        <td class="dataField"><input class="calculate giaban" name="focvmbteduoi2tuoi" title="nhập tỷ lệ % so với giá VMB người lớn để tính giá VMB cho trẻ em dưới 2 tuổi ví tỷ lệ 10% thì nhập là 10" type="text" size="10"
                                 id="focvmbteduoi2tuoi" value="{$FOCVMBTEDUOI2TUOI}"></td>
                         <td><input type="text" value="{$VMBTREEM2TUOI1}" name="vmbtreem2tuoi1" class="treem2 calculate"
                                 id="vmbtreem2tuoi1" size="10"/></td>
                         <td><input name="vmbtreem2tuoi2" type="text" id="vmbtreem2tuoi2" value="x" size="10"/></td>
                         <td><input type="text" value="{$VMBTREEM2TUOI3}" class="calculate dongia convertcurrency" name="vmbtreem2tuoi3" id="vmbtreem2tuoi3"
-                                size="10"/></td>
+                                size="10" /></td>
                         <td>$</td>
                         <td>=</td>
                         <td><input type="text" value="{$VMBTREEM2TUOI4}" class="calculate formatnumber convertcurrency" name="vmbtreem2tuoi4" id="vmbtreem2tuoi4"
@@ -705,9 +705,9 @@
                     <tr>
                         <td class="dataLabel">VMB Nội địa trẻ em dưới 2 tuổi</td>
                         <td class="dataField"><input name="ghichuvmbndte2tuoi" type="text" id="ghichuvmbndte2tuoi"
-                                value="{$GHICHUVMBNDTE2TUOI}"></td>
+                                value="{$GHICHUVMBNDTE2TUOI}" ></td>
                         <td class="dataField"><input class="calculate giaban" name="focvmbndteduoi2tuoi" type="text" size="10"
-                                id="focvmbndteduoi2tuoi" value="{$FOCVMBNDTEDUOI2TUOI}"></td>
+                                id="focvmbndteduoi2tuoi" value="{$FOCVMBNDTEDUOI2TUOI}" title="nhập tỷ lệ % so với giá người lớn để tính giá VMB nội địa cho trẻ em dưới 2 tuổi ví tỷ lệ 10% thì nhập là 10"></td>
                         <td><input type="text" value="{$VMBTREEM2TUOIND1}" name="vmbtreem2tuoind1" class="treem2 calculate"
                                 id="vmbtreem2tuoind1" size="10"/></td>
                         <td><input name="vmbtreem2tuoind2" type="text" id="vmbtreem2tuoind2" value="x" size="10"/></td>
@@ -733,7 +733,7 @@
                         <td class="dataField"><input name="ghichuvmbte12tuoi" type="text" id="ghichuvmbte12tuoi"
                                 value="{$GHICHUVMBTE12TUOI}"></td>
                         <td class="dataField"><input class="calculate giaban" name="focvmbte12tuoi" type="text" size="10"
-                                id="focvmbte12tuoi" value="{$FOCVMBTE12TUOI}"></td>
+                                id="focvmbte12tuoi" value="{$FOCVMBTE12TUOI}" title="nhập tỷ lệ % so với giá người lớn để tính giá VMB cho trẻ em từ 2-12 tuổi ví tỷ lệ 75% thì nhập là 75" ></td>
                         <td><input type="text" name="vmbtreem12tuoi1" value="{$VMBTREEM12TUOI1}" class="treem12 calculate"
                                 id="vmbtreem12tuoi1" size="10"/></td>
                         <td><input name="vmbtreem12tuoi2" type="text" id="vmbtreem12tuoi2" value="x" size="10"/></td>
@@ -759,7 +759,7 @@
                         <td class="dataField"><input name="ghichuvmbndte12tuoi" type="text" id="ghichuvmbndte12tuoi"
                                 value="{$GHICHUVMBNDTE12TUOI}"></td>
                         <td class="dataField"><input class="calculate giaban" name="focvmbndte12tuoi" type="text" size="10"
-                                id="focvmbndte12tuoi" value="{$FOCVMBNDTE12TUOI}"></td>
+                                id="focvmbndte12tuoi" value="{$FOCVMBNDTE12TUOI}" title="nhập tỷ lệ % so với giá người lớn để tính giá VMB nội địa cho trẻ em từ 2-12 tuổi ví tỷ lệ 75% thì nhập là 75"></td>
                         <td><input type="text" value="{$VMBTREEM12TUOIND1}" name="vmbtreem12tuoind1" class="treem12 calculate"
                                 id="vmbtreem12tuoind1" size="10"/></td>
                         <td><input name="vmbtreem12tuoind2" type="text" id="vmbtreem12tuoind2" value="x" size="10"/></td>
