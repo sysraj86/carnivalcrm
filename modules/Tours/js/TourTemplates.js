@@ -21,7 +21,7 @@
             //console.log(success);
             if (department && department != "") {
                 $.ajax({
-                    url:t._url,
+                    url:t.url,
                     async:false,
                     type:"POST",
                     data:{department:department,frame_type:frame},

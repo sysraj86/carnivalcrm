@@ -229,7 +229,10 @@
             $tourProgram->countries = implode(',',$tourProgram->countries); 
         }
         $tourProgram->destination = $_POST['destinations'.($i+1)];
-        $tourProgram->destination = implode(',',$tourProgram->destination);
+        if(!empty($tourProgram->destination)){
+            $tourProgram->destination = implode(',',$tourProgram->destination);
+        }
+
         if(!empty($tourProgram->destination)){
             $tourProgram->location = $_POST['tour_program_locations'.($i+1)]; 
         }
@@ -267,7 +270,7 @@
             }
         }
         // end upload image
-        $tourProgram->deleted = $program['deleted'][$i];
+        $tourProgram->deleted = $_POST['deleted'][$i];
         if ($tourProgram->deleted == 1) {
             $tourProgram->mark_deleted($tourProgram->id);
         }

@@ -237,37 +237,12 @@
 
             $i = 1;
             while ($row = $this->db->fetchByAssoc($result)) {
-                /* $tp_destination = json_decode(base64_decode($row['destination']));
-                $tp_locations = json_decode(base64_decode($row['location']));
-                $ds = $app_list_strings['destination_dom_list'];
-                $destination_html = "";
-                $location_html = "";*/
-                /* if (count($tp_destination) > 0) {
-                $destination_html = "<ul>";
-                foreach ($tp_destination as $id) {
-                $destination_html .= "<li>" . $ds[$id] . "</li>";
-                }
-                $destination_html .= "</ul>";
-
-                $location_html = '<ul>';
-
-                $lcs = $this->getLocationsByDes($tp_destination);
-                foreach ($lcs as $lc) {
-                if (in_array($lc['id'], $tp_locations)) {
-                $location_html .= '<li>' . $lc['name'] . '</li>';
-                }
-                }
-                $location_html .= '</ul>';
-
-                }*/
-
                 $html .= '<tr>';
                 $html .= '<td>';
-                $html .= '<fieldset>';
                 $html .= '<table cellpadding="0" cellspacing="0" border="0" width="100%" style="border: 1px solid;">';
                 $html .= '<tr>' .
                 '<td colspan="4">' .
-                '<h2 class="font_6">NGÀY: ' . $i . '</h2>' .
+                '<h2 class="font_6">Date: ' . $i . '</h2>' .
                 '</td>' .
                 '</tr>';
                 $html .= '<tr>';
@@ -296,7 +271,6 @@
                 }
                 $html .= '</tr>';
                 $html .= '</table>';
-                $html .= '</fieldset>';
                 $html .= '</td>';
                 $html .= '</tr>';
                 $i++;

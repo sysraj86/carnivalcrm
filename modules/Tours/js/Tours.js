@@ -1,14 +1,14 @@
 /**
- * Created by JetBrains PhpStorm.
- * User: JK
- * Date: 12/23/11
- * Time: 3:48 PM
- */
+* Created by JetBrains PhpStorm.
+* User: JK
+* Date: 12/23/11
+* Time: 3:48 PM
+*/
 (function (win) {
     win.CurrentTourProgramLine = 0;
     var Tours = function () {
         var _url = "index.php?module=Tours&entryPoint=TourAjax",
-            tour = this;
+        tour = this;
 
         tour.id = "";
         tour.name = "";
@@ -55,7 +55,7 @@
                             data = $.parseJSON(data);
                             $.each(data, function (key, val) {
                                 var line = new TourPrograms(),
-                                    program = val.program;
+                                program = val.program;
                                 line.id = program.id;
                                 line.title = program.title;
                                 line.destinations = program.destinations;
@@ -106,20 +106,20 @@
 
             jk_cloned = $('tr#TR_table_clone_1').clone();
             /**
-             * tim dong co id lon nhat
-             * de biet so dong chinh xac hien dang co
-             */
+            * tim dong co id lon nhat
+            * de biet so dong chinh xac hien dang co
+            */
             $('tr[id^="TR_table_clone_"]').each(function () {
                 var $this = $(this),
-                    idNum = /\d+$/.exec($this.attr('id'));
+                idNum = /\d+$/.exec($this.attr('id'));
                 if (idNum > CurrentTourProgramLine) {
                     CurrentTourProgramLine = idNum;
                 }
             });
             /**
-             * khoi tao init
-             * editor_selector la class cua text areas
-             */
+            * khoi tao init
+            * editor_selector la class cua text areas
+            */
             tinymce.init({
                 mode:"textareas",
                 theme:"advanced",
@@ -144,20 +144,20 @@
                 }
             });
             /***
-             *
-             */
+            *
+            */
             var destinations = $('.jk_list_destinations'),
-                locations = $('.jk_list_locations'),
-                location_options = $('.jk_list_locations option'),
-                loader = $('<img src="modules/images/ajax-loader.gif" alt="loading..."/>');
+            locations = $('.jk_list_locations'),
+            location_options = $('.jk_list_locations option'),
+            loader = $('<img src="modules/images/ajax-loader.gif" alt="loading..."/>');
 
             /***
-             *xu li khi nguoi dung click chon destination (HCM, dat lat, ...)
-             */
+            *xu li khi nguoi dung click chon destination (HCM, dat lat, ...)
+            */
 
             destinations.live("change", function () {
                 var $this = $(this),
-                    location = $this.parents('[id^="TR_table_clone_"]').find('.jk_list_locations');
+                location = $this.parents('[id^="TR_table_clone_"]').find('.jk_list_locations');
                 $options = $this.find("option:selected"); //lay the <option>
                 $('[name="destination_selected_count[]"]', $this.parent()).val($options.length);
                 var items = []; //khoi tao bien items
@@ -200,20 +200,20 @@
 
             });
             /**
-             * xu li su kien khi nguoi dung chon destination
-             * lay gia tri cua location dang chon
-             * get editor
-             * neu editor ko rong thi set description
-             */
+            * xu li su kien khi nguoi dung chon destination
+            * lay gia tri cua location dang chon
+            * get editor
+            * neu editor ko rong thi set description
+            */
             locations.live('change', function () {
                 var $this = $(this),
-                    options = $("option:selected", $this);
+                options = $("option:selected", $this);
                 $this.parent().find("[name='location_selected_count[]']").val(options.length);
             });
             location_options.live('click', function () {
                 var $this = $(this),
-                    description = $this.attr('data-description'),
-                    editorId = $this.parent().attr('data-editorId');
+                description = $this.attr('data-description'),
+                editorId = $this.parent().attr('data-editorId');
                 console.log($this);
                 if (confirm("Would you want to fill description?")) {
                     if (description) {
@@ -231,18 +231,18 @@
             });
 
             /***
-             * xu li khi nut btn bi click
-             *
-             */
+            * xu li khi nut btn bi click
+            *
+            */
             $('.btnAddRow').live("click", function () {
                 CurrentTourProgramLine++;//tang editor id
                 var $this = $(this),
-                    trCloned = jk_cloned.clone(),
-                    trId = trCloned.attr('id'), //get id
-                    editorId = trCloned.find('textarea').attr('id'),
-                    location = trCloned.find('.jk_list_locations'),
-                    day = 0,
-                    program = new TourPrograms();
+                trCloned = jk_cloned.clone(),
+                trId = trCloned.attr('id'), //get id
+                editorId = trCloned.find('textarea').attr('id'),
+                location = trCloned.find('.jk_list_locations'),
+                day = 0,
+                program = new TourPrograms();
 
                 //cap nhat id cho tr
                 trCloned.attr('id', trId.replace(/_\d+$/, "_" + CurrentTourProgramLine));
@@ -255,7 +255,7 @@
                 //cap nhat ID
                 trCloned.find("[id]").each(function (index) {
                     var $this = $(this),
-                        id = $this.attr('id');
+                    id = $this.attr('id');
                     $this.attr('id', id.replace(/_\d+$/, "_" + CurrentTourProgramLine));
                 });
                 //destination
@@ -273,30 +273,30 @@
 
             });
             /**
-             * xu li su kien khi nguoi dung click delete row
-             * get tour problem hien tai: tr
-             * get table: parentTr
-             * xet xem con bao nhieu tour program
-             * neu lon hon 1 thi hide dong hien
-             * neu == 1 thi reset field cho dong hien tai.
-             *
-             */
+            * xu li su kien khi nguoi dung click delete row
+            * get tour problem hien tai: tr
+            * get table: parentTr
+            * xet xem con bao nhieu tour program
+            * neu lon hon 1 thi hide dong hien
+            * neu == 1 thi reset field cho dong hien tai.
+            *
+            */
             $('.btnDelRow').live("click", function () {
                 var $this = $(this),
-                    tr = $this.parent().parent(),
-                    parentTr = tr.parent(),
-                    day = 0;
+                tr = $this.parent().parent(),
+                parentTr = tr.parent(),
+                day = 0;
                 /**
-                 * xet xem dong do' co phai la dong cuoi hay khong?
-                 * neu don cuoi thi chi del noi dung no' thoi
-                 */
+                * xet xem dong do' co phai la dong cuoi hay khong?
+                * neu don cuoi thi chi del noi dung no' thoi
+                */
                 if (parentTr.children(":visible").length > 1) {
                     tr.find('input[name="deleted[]"]').val(1);
                     tr.hide();
                 } else {
                     var description = tr.find('.jk_editor'),
-                        description_id = description.attr('id'),
-                        editor = tinymce.getInstanceById(description_id);
+                    description_id = description.attr('id'),
+                    editor = tinymce.getInstanceById(description_id);
                     editor.setContent("");
                     tr.find('input[type="text"]').val("");
                 }
@@ -315,7 +315,7 @@
         tour.fill = function () {
 
             var code = tour.tour_code,
-                $tour_areas = $("#area");
+            $tour_areas = $("#area");
             //tour name:
             $("[name='name']").val(tour.name);
             //tour description
@@ -333,7 +333,7 @@
             var areas_pattern = "";
             $tour_areas.find("option").each(function () {
                 var $this = $(this),
-                    code = $this.attr("data-code");
+                code = $this.attr("data-code");
                 if (code && code != "") {
                     areas_pattern += (areas_pattern != "") ? "|" : "";
                     areas_pattern += code;
@@ -345,9 +345,9 @@
             // $("[name='area']").find("option[value='" + tour.area + "']").attr("selected", "selected");
             if (code.length == 6) {
                 var frame_type = code[1],
-                    area = code[2],
-                    num = code[3],
-                    department = code[5];
+                area = code[2],
+                num = code[3],
+                department = code[5];
                 $("#tour_code_department").val(department);
                 $("#tour_code_num").val(num).attr("readonly", "readonly");
                 $tour_areas.find("[data-code='" + area + "']").attr("selected", "selected");

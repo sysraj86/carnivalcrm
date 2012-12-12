@@ -7,7 +7,7 @@
                 text-align:center;
             }
             .khoanmuc{
-                 text-align:center; 
+                text-align:center; 
             }
             td .notcenter{
                 text-align:left;
@@ -24,8 +24,12 @@
         <script type="text/javascript" src="modules/js/popupRequest.js"></script>
         <script type="text/javascript">
             $(function(){
+                $(window).beforeunload(function() {
+                    confirm('new message: ' + this.href + ' !', this.href);
+                    return false;
+                });
                 $('#btntourname').click(function(){
-                filterPopup("deparment_advanced", "type", "Tours",  {"call_back_function":"set_return", "form_name": "dos", "field_to_name_array":{"id": "worksheet_tour_id", "name":"worksheet_tour_name","duration":"duration","tour_code":"tourcode","transport2":"transport","tour_destination":"lotrinh"}});
+                    filterPopup("deparment_advanced", "type", "Tours",  {"call_back_function":"set_return", "form_name": "dos", "field_to_name_array":{"id": "worksheet_tour_id", "name":"worksheet_tour_name","duration":"duration","tour_code":"tourcode","transport2":"transport","tour_destination":"lotrinh"}});
                     /*open_popup("Tours", 600, 400, "", true, false, {"call_back_function":"set_return", "form_name": "dos", "field_to_name_array":{"id": "worksheet_tour_id", "name":"worksheet_tour_name","duration":"duration","tour_code":"tourcode","transport2":"transport","tour_destination":"lotrinh"}}, "single", true);*/
                     return false;
                 });
@@ -37,6 +41,18 @@
                     open_popup('Users',600,400,'',true,false, {"call_back_function":"set_return","form_name":"dos","field_to_name_array":{"id":"assigned_user_id","user_name":"assigned_user_name"}}) ;
                 });
             });
+
+            function fConfirm(){    
+                //do something with p1, p2, p3, p4....
+                //this shows the default dialog box  
+                //event.returnValue = 'Any changes will be lost if you proceed.';
+                //this shows the custom confirm box, but it doesn't stop the page from 
+                //refreshing even the user click the "Cancel" button
+                if(!confirm("Bạn có muốn thoát không? nếu thoát thì sẽ mất dữ liệu không được lưu!.")){
+                    return false;
+                }
+                return true;
+            }
         </script>
         {/literal}
 
@@ -94,7 +110,7 @@
                         <td class="dataField"> <input name="lotrinh" type="text" id="lotrinh" value="{$LOTRINH}" size="50" /></td>
                         <td class="dataLabel">&nbsp;</td>
                         <td><span class="center">
-                               &nbsp;
+                                &nbsp;
                             </span></td>
                         <td class="dataLabel">&nbsp;</td>
                         <td><span class="center">
@@ -111,10 +127,10 @@
                     <tr>
                         <!--<td class="dataLabel">Made Tour</td>
                         <td class="dataField">
-                                <input name="groupprograorksheets_name" type="text" id="groupprograorksheets_name" value="{$MADETOUR_NAME}" size="50" />
-                                <input name="groupprogrd737rograms_ida" type="hidden" id="groupprogrd737rograms_ida" value="{$MADETOUR_ID}">
-                                <button class="button" name="btnMadeTour" id="btnMadeTour" value="Select"> <img src="themes/default/images/id-ff-select.png?s=857f75e8c18ece3e471240849f103469&amp;c=1&amp;developerMode=2125008055" alt=""></button>
-                                <button title="Clear [Alt+C]" accesskey="C" type="button" tabindex="3" class="button" value="Clear" name="" id="" onclick="this.form.groupprograorksheets_name.value='';this.form.groupprogrd737rograms_ida.value='' ;"=""><img src="themes/default/images/id-ff-clear.png?s=857f75e8c18ece3e471240849f103469&amp;c=1&amp;developerMode=446605591" alt=""> </button>
+                        <input name="groupprograorksheets_name" type="text" id="groupprograorksheets_name" value="{$MADETOUR_NAME}" size="50" />
+                        <input name="groupprogrd737rograms_ida" type="hidden" id="groupprogrd737rograms_ida" value="{$MADETOUR_ID}">
+                        <button class="button" name="btnMadeTour" id="btnMadeTour" value="Select"> <img src="themes/default/images/id-ff-select.png?s=857f75e8c18ece3e471240849f103469&amp;c=1&amp;developerMode=2125008055" alt=""></button>
+                        <button title="Clear [Alt+C]" accesskey="C" type="button" tabindex="3" class="button" value="Clear" name="" id="" onclick="this.form.groupprograorksheets_name.value='';this.form.groupprogrd737rograms_ida.value='' ;"=""><img src="themes/default/images/id-ff-clear.png?s=857f75e8c18ece3e471240849f103469&amp;c=1&amp;developerMode=446605591" alt=""> </button>
                         </td>-->
                         <td class="dataLabel">Thuế Suất hóa <span class="required">*</span></td>
                         <td class="dataField"><input name="thuesuathoa" type="text" id="thuesuathoa" class="khoanmuc" size="15" value="{$THUESUATHOA}" /></td>
@@ -152,132 +168,132 @@
                         <td class="dataLabel">&nbsp;</td> 
                     </tr>
                 </table>
-                </fieldset>
-                <div id="getdata">
+            </fieldset>
+            <div id="getdata">
                 {if $ID neq ''}<script type="text/javascript" src="modules/Worksheets/js/dos_calculate.js"></script>{/if}
-                </div>
-                {if $ID neq ''}{$HTML}{/if}
-                
-                 <!-- KẾT THÚC PHẦN CHI PHÍ -->
+            </div>
+            {if $ID neq ''}{$HTML}{/if}
+
+            <!-- KẾT THÚC PHẦN CHI PHÍ -->
             <fieldset class="tabForm" >
-                    <legend><h3>CHI PHÍ KHÁC</h3></legend>
-                    <table class="table_clone" cellpadding="0" id="chiphikhac" cellspacing="0" width="100%" style="border-collapse: collapse;">
-                        <thead>
-                            <tr>
-                                <th>Loại dịch vụ</th>
-                                <th>Giá tham khảo</th>
-                                <th>Số lượng</th>
-                                <th>Đơn giá</th>
-                                <th>FOC</th>
-                                <th>Thành tiền</th>
-                                <th>Thuế suất</th>
-                                <th>Giá chưa thuế</th>
-                                <th>VAT</th>
-                                <th>Hình thức thanh toán</th>
-                                <th>Tạm ứng</th>
-                                <th>&nbsp;</th>
-                            </tr>
-                        </thead>
+                <legend><h3>CHI PHÍ KHÁC</h3></legend>
+                <table class="table_clone" cellpadding="0" id="chiphikhac" cellspacing="0" width="100%" style="border-collapse: collapse;">
+                    <thead>
+                        <tr>
+                            <th>Loại dịch vụ</th>
+                            <th>Giá tham khảo</th>
+                            <th>Số lượng</th>
+                            <th>Đơn giá</th>
+                            <th>FOC</th>
+                            <th>Thành tiền</th>
+                            <th>Thuế suất</th>
+                            <th>Giá chưa thuế</th>
+                            <th>VAT</th>
+                            <th>Hình thức thanh toán</th>
+                            <th>Tạm ứng</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                    </thead>
 
-                        <tbody>
-                            {if $ID eq '' or $COUNTCPK eq 0}
-                            <tr>
-                                <td class="dataField"><input type="text" class="loaidichvu" name="chiphikhac_loaidichvu[]" id="chiphikhac_loaidichvu"></td>
-                                <td class="dataField"><input size="10" type="text" class="giathamkhao center" name="chiphikhac_giathamkhao[]" id="chiphikhac_giathamkhao"></td>
-                                <td class="dataField"><input size="10" type="text" class="soluong center" name="chiphikhac_soluong[]" id="chiphikhac_soluong"></td>
-                                <td class="dataField"><input size="10" type="text" class="dongia center" name="chiphikhac_dongia[]" id="chiphikhac_dongia"></td>
-                                <td class="dataField"><input size="10" type="text" class="foc center" name="chiphikhac_foc[]" id="chiphikhac_foc"></td>
-                                <td class="dataField"><input size="10" type="text" class="thanhtien center" name="chiphikhac_thanhtien[]" id="chiphikhac_thanhtien"></td>
-                                <td class="dataField"><input size="10" type="text" class="thuesuat center" name="chiphikhac_thuesuat[]" id="chiphikhac_thuesuat"></td>
-                                <td class="dataField"><input size="10" type="text" class="giachuathue center" name="chiphikhac_giachuathue[]" id="chiphikhac_giachuathue"></td>
-                                <td class="dataField"><input size="10" type="text" class="vat center" name="chiphikhac_vat[]" id="chiphikhac_vat"></td>
-                                <td class="center"><select name="chiphikhac_hinhthucthanhtoan[]" id="chiphikhac_hinhthucthanhtoan">{$CHIPHIKHACHHINHTHUCTHANHTOAN}</select> </td>
-                                <td class="center"><input type = "checkbox" name="cpk_check_tam_ung" class ="check_tam_ung" id="cpk_check_tam_ung" > <input class="tq_tinhtoan center tamung" name="chiphikhac_tamung[]" type="text" id="chiphikhac_tamung" size="10" /></td>
-                                <td class="dataField"><input type="button" class="btnAddRow" value="Add Row"> <input type="button" class="btnDelRow" value="Delete Row"></td>
-                            </tr>
-                            {/if}
-                            {$CHIPHIKHACHTML}
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>TỔNG CỘNG</th>
-                                <th class="dataField">&nbsp;</th>
-                                <th class="dataField">&nbsp;</th>
-                                <th class="dataField">&nbsp;</th>
-                                <th class="dataField">&nbsp;</th>
-                                <td class="dataField"><input size="15" type="text" class="thanhtien center" id="chiphikhac_tongcong" name="chiphikhac_tongcong" value="{$chiphikhac_tongcong}"></td>
-                                <th class="dataField">&nbsp;</th>
-                                <th class="dataField">&nbsp;</th>
-                                <td class="dataField"><input size="15" type="text" class="vat center" id="chiphikhac_tongthue" name="chiphikhac_tongthue" value="{$chiphikhac_tongthue}"></td>
-                                <th class="dataField">&nbsp;</th>  
-                                <th class="dataField">&nbsp;</th>  
-                            </tr>
-                        </tfoot>
-                    </table>
+                    <tbody>
+                        {if $ID eq '' or $COUNTCPK eq 0}
+                        <tr>
+                            <td class="dataField"><input type="text" class="loaidichvu" name="chiphikhac_loaidichvu[]" id="chiphikhac_loaidichvu"></td>
+                            <td class="dataField"><input size="10" type="text" class="giathamkhao center" name="chiphikhac_giathamkhao[]" id="chiphikhac_giathamkhao"></td>
+                            <td class="dataField"><input size="10" type="text" class="soluong center" name="chiphikhac_soluong[]" id="chiphikhac_soluong"></td>
+                            <td class="dataField"><input size="10" type="text" class="dongia center" name="chiphikhac_dongia[]" id="chiphikhac_dongia"></td>
+                            <td class="dataField"><input size="10" type="text" class="foc center" name="chiphikhac_foc[]" id="chiphikhac_foc"></td>
+                            <td class="dataField"><input size="10" type="text" class="thanhtien center" name="chiphikhac_thanhtien[]" id="chiphikhac_thanhtien"></td>
+                            <td class="dataField"><input size="10" type="text" class="thuesuat center" name="chiphikhac_thuesuat[]" id="chiphikhac_thuesuat"></td>
+                            <td class="dataField"><input size="10" type="text" class="giachuathue center" name="chiphikhac_giachuathue[]" id="chiphikhac_giachuathue"></td>
+                            <td class="dataField"><input size="10" type="text" class="vat center" name="chiphikhac_vat[]" id="chiphikhac_vat"></td>
+                            <td class="center"><select name="chiphikhac_hinhthucthanhtoan[]" id="chiphikhac_hinhthucthanhtoan">{$CHIPHIKHACHHINHTHUCTHANHTOAN}</select> </td>
+                            <td class="center"><input type = "checkbox" name="cpk_check_tam_ung" class ="check_tam_ung" id="cpk_check_tam_ung" > <input class="tq_tinhtoan center tamung" name="chiphikhac_tamung[]" type="text" id="chiphikhac_tamung" size="10" /></td>
+                            <td class="dataField"><input type="button" class="btnAddRow" value="Add Row"> <input type="button" class="btnDelRow" value="Delete Row"></td>
+                        </tr>
+                        {/if}
+                        {$CHIPHIKHACHTML}
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>TỔNG CỘNG</th>
+                            <th class="dataField">&nbsp;</th>
+                            <th class="dataField">&nbsp;</th>
+                            <th class="dataField">&nbsp;</th>
+                            <th class="dataField">&nbsp;</th>
+                            <td class="dataField"><input size="15" type="text" class="thanhtien center" id="chiphikhac_tongcong" name="chiphikhac_tongcong" value="{$chiphikhac_tongcong}"></td>
+                            <th class="dataField">&nbsp;</th>
+                            <th class="dataField">&nbsp;</th>
+                            <td class="dataField"><input size="15" type="text" class="vat center" id="chiphikhac_tongthue" name="chiphikhac_tongthue" value="{$chiphikhac_tongthue}"></td>
+                            <th class="dataField">&nbsp;</th>  
+                            <th class="dataField">&nbsp;</th>  
+                        </tr>
+                    </tfoot>
+                </table>
 
             </fieldset>
-                <!-- kET THUC PHAN CHI PHI KHAC -->
-                
-                 <!-- TINH TONG CHI PHI-->
-                <fieldset>
-                    <legend><h3>TỔNG CHI PHÍ</h3></legend>
-                    <table cellpadding="0" cellspacing="0" border="1" class="tabForm" style="border-collapse: collapse;" width="100%">
-                        <tr>
-                            <td class="notcenter"><b>TỔNG CHI PHÍ</b></td>
-                            <td>&nbsp;</td>
-                            <td class="center">&nbsp;</td>
-                            <td class="center">&nbsp;</td>
-                            <td class="center">&nbsp;</td>
-                            <td class="center">&nbsp;</td>
-                            <td class="center"><input name="tongchiphi" class="center" type="text" id="tongchiphi" size="15" value="{$TONGCHIPHI}"/></td>
-                            <td class="center"><input name="tongthue" class="center" type="text" id="tongthue" value="{$TONGTHUE}" size="15" /></td>
-                            <td class="center">&nbsp;</td>
-                            <td class="center">&nbsp;</td>
-                            <td class="center">&nbsp;</td>
-                        </tr> 
-                        <tr>
-                            <td class="notcenter"><b>Tỷ lệ</b></td>
-                            <td>&nbsp;</td>
-                            <td class="center">&nbsp;</td>
-                            <td class="center">&nbsp;</td>
-                            <td class="center">&nbsp;</td>
-                            <td class="center">&nbsp;</td>
-                            <td class="center"><input name="tientheotyle" type="text" id="tientheotyle" class="center" size="15" value="{$TIENTHEOTYLE}" /></td>
-                            <td class="center">&nbsp;</td>
-                            <td class="center">&nbsp;</td>
-                            <td class="center">&nbsp;</td>
-                            <td class="center">&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td class="notcenter"><b>HOA HỒNG</b></td>
-                            <td>&nbsp;</td>
-                            <td class="center">&nbsp;</td>
-                            <td class="center">&nbsp;</td>
-                            <td class="center">&nbsp;</td>
-                            <td class="center">&nbsp;</td>
-                            <td class="center"><input name="hoahong" class="center" type="text" id="hoahong" size="15" value="{$HOAHONG}" /></td>
-                            <td class="center">&nbsp;</td>
-                            <td class="center">&nbsp;</td>
-                            <td class="center">&nbsp;</td>
-                            <td class="center">&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td class="notcenter"><b>GIÁ BÁN</b></td>
-                            <td>&nbsp;</td>
-                            <td class="center">&nbsp;</td> 
-                            <td class="center"><input name="giabantrenmotnguoi" class="center" type="text" id="giabantrenmotnguoi" size="15" value="{$GIABANTRENMOTNGUOI}" /></td>
-                            <td class="center">&nbsp;</td>
-                            <td class="center">&nbsp;</td>
-                            <td class="center"><input name="giaban" class="center" type="text" id="giaban" size="15" value="{$GIABAN}" /></td>
-                            <td class="center">&nbsp;</td>
-                            <td class="center">&nbsp;</td>
-                            <td class="center">&nbsp;</td>
-                            <td class="center">&nbsp;</td>
-                        </tr>
-                    </table>
-                </fieldset>
+            <!-- kET THUC PHAN CHI PHI KHAC -->
+
+            <!-- TINH TONG CHI PHI-->
+            <fieldset>
+                <legend><h3>TỔNG CHI PHÍ</h3></legend>
+                <table cellpadding="0" cellspacing="0" border="1" class="tabForm" style="border-collapse: collapse;" width="100%">
+                    <tr>
+                        <td class="notcenter"><b>TỔNG CHI PHÍ</b></td>
+                        <td>&nbsp;</td>
+                        <td class="center">&nbsp;</td>
+                        <td class="center">&nbsp;</td>
+                        <td class="center">&nbsp;</td>
+                        <td class="center">&nbsp;</td>
+                        <td class="center"><input name="tongchiphi" class="center" type="text" id="tongchiphi" size="15" value="{$TONGCHIPHI}"/></td>
+                        <td class="center"><input name="tongthue" class="center" type="text" id="tongthue" value="{$TONGTHUE}" size="15" /></td>
+                        <td class="center">&nbsp;</td>
+                        <td class="center">&nbsp;</td>
+                        <td class="center">&nbsp;</td>
+                    </tr> 
+                    <tr>
+                        <td class="notcenter"><b>Tỷ lệ</b></td>
+                        <td>&nbsp;</td>
+                        <td class="center">&nbsp;</td>
+                        <td class="center">&nbsp;</td>
+                        <td class="center">&nbsp;</td>
+                        <td class="center">&nbsp;</td>
+                        <td class="center"><input name="tientheotyle" type="text" id="tientheotyle" class="center" size="15" value="{$TIENTHEOTYLE}" /></td>
+                        <td class="center">&nbsp;</td>
+                        <td class="center">&nbsp;</td>
+                        <td class="center">&nbsp;</td>
+                        <td class="center">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="notcenter"><b>HOA HỒNG</b></td>
+                        <td>&nbsp;</td>
+                        <td class="center">&nbsp;</td>
+                        <td class="center">&nbsp;</td>
+                        <td class="center">&nbsp;</td>
+                        <td class="center">&nbsp;</td>
+                        <td class="center"><input name="hoahong" class="center" type="text" id="hoahong" size="15" value="{$HOAHONG}" /></td>
+                        <td class="center">&nbsp;</td>
+                        <td class="center">&nbsp;</td>
+                        <td class="center">&nbsp;</td>
+                        <td class="center">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="notcenter"><b>GIÁ BÁN</b></td>
+                        <td>&nbsp;</td>
+                        <td class="center">&nbsp;</td> 
+                        <td class="center"><input name="giabantrenmotnguoi" class="center" type="text" id="giabantrenmotnguoi" size="15" value="{$GIABANTRENMOTNGUOI}" /></td>
+                        <td class="center">&nbsp;</td>
+                        <td class="center">&nbsp;</td>
+                        <td class="center"><input name="giaban" class="center" type="text" id="giaban" size="15" value="{$GIABAN}" /></td>
+                        <td class="center">&nbsp;</td>
+                        <td class="center">&nbsp;</td>
+                        <td class="center">&nbsp;</td>
+                        <td class="center">&nbsp;</td>
+                    </tr>
+                </table>
             </fieldset>
-              <!-- KET THUC TINH TONG CHI PHI -->
+            </fieldset>
+            <!-- KET THUC TINH TONG CHI PHI -->
             <fieldset>
                 <legend><h3>CHI TIẾT</h3></legend>
                 <table width="100%" border="1" cellspacing="0" cellpadding="0" class="tabForm" style="border-collapse:collapse">
@@ -428,7 +444,7 @@
 
                 </tr>                                                                    
             </table>
-            
+
             <div class="cacbutton">
                 <input title="{$APP.LBL_SAVE_BUTTON_TITLE}"  accessKey="{$APP.LBL_SAVE_BUTTON_KEY}"   class="button" 
                     onclick="this.form.action.value='Save';return check_form('ob_package');" 

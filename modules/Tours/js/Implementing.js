@@ -6,6 +6,7 @@
 */
 
 $(document).ready(function () {
+    displayHideAdDelRow();
     updateID('TR_table_clone'); 
     var tour_id = $('[name="record"]').val(),
     tour = new Tours(),
@@ -93,9 +94,12 @@ $(document).ready(function () {
         tpls = tpls.html("<option value=''>None</option>");
         if (department) {
             $("#tour_code_area").val('');
-            $("#tour_code_area").val(frameType + $("#area option:selected").attr("data-code"));
+            code = $("#area option:selected").attr("data-code");
+            if(code == undefined){
+                code = '';
+            }
+            $("#tour_code_area").val(frameType + code);
             if (frameType != "" && frameType != "O") {
-
                 ///parrent load
                 tpls.parent().append(loader);
 
@@ -197,6 +201,7 @@ $(document).ready(function () {
     * Add event handler
     */
     $frameType.live('change', function (e) {
+        displayHideAdDelRow();
         department_change(e);
         if ($(this).val() == "") {
             tplTour.restore("default");
@@ -561,4 +566,14 @@ function updateID(trClass){
         });
     })
 
+}
+
+function displayHideAdDelRow(){
+    value = jQuery('#frame_type').val();
+    if(value == 'F' || value == 'H'){
+        jQuery('.btnAddRow, .btnDelRow').hide();
+    }
+    else{
+        jQuery('.btnAddRow, .btnDelRow').show();
+    }
 }
