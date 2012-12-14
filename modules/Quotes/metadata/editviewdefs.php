@@ -38,8 +38,8 @@ $module_name = 'Quotes';
 $viewdefs[$module_name]['EditView'] = array(
     'templateMeta' => array('maxColumns' => '2', 
                             'widths' => array(
-                                            array('label' => '10', 'field' => '30'), 
-                                            array('label' => '10', 'field' => '30')
+                                            array('label' => '20', 'field' => '30'), 
+                                            array('label' => '20', 'field' => '30')
                                             ),                                                                                                                                    
                              'includes'=> array(
                                             array('file'=>'modules/Tours/jquery.js'),
@@ -52,10 +52,14 @@ $viewdefs[$module_name]['EditView'] = array(
   'lbl_overview' => 
   array (
        array (
-          'name',
+            array(
+               'name' => 'name',
+               'customCode' => '<input type="text" name="name" size="30" id="name" value="{$fields.name.value}"/> <input type="hidden" id="tour_name" value="{$tour_name}"/> <input type="hidden" name="tour_id" value="{$tour_id}"/> <input type="hidden" name="is_tour" value="{$is_tour}"/>'
+            ),
+          
           array(
-          'name'=>'accounts_quotes_name',
-          'required' => true),
+              'name'=>'accounts_quotes_name',
+              'required' => true),
         ),
         
         array(

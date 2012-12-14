@@ -11,12 +11,12 @@ array (
       array (
         0 => 
         array (
-          'label' => '10',
+          'label' => '20',
           'field' => '30',
         ),
         1 => 
         array (
-          'label' => '10',
+          'label' => '20',
           'field' => '30',
         ),
       ),
@@ -57,7 +57,10 @@ array (
         ),
         1 => 
         array (
-          0 => 'name',
+          0 => array(
+               'name' => 'name',
+               'customCode' => '<input type="text" name="name" size="30" id="name" value="{$fields.name.value}"/> <input type="hidden" id="tour_name" value="{$tour_name}"/> <input type="hidden" id="tour_id" value="{$tour_id}"/> <input type="hidden" id="is_tour" value="{$is_tour}"/>'
+            ),
           1 => 
           array (
             'name' => 'parent_name',

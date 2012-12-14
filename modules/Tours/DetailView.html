@@ -24,8 +24,10 @@
                 type="submit" 
                 name="Delete" 
                 value=" {APP.LBL_DELETE_BUTTON_LABEL} ">
+            <input type="button" class="button" name="create_quote" value="{MOD.LBL_CREATE_QUOTES}" onclick="window.open('index.php?module=Quotes&action=EditView&return_module=Quotes&return_action=DetailView&tour_name={NAME}&tour_id={ID}&is_tour=true')">
+                {EXPORT_BUTTON}
             <input title="View Change Log" class="button" onclick='open_popup("Audit", "600", "400", "&record={ID}&module_name=Tours", true, false,  { "call_back_function":"set_return","form_name":"EditView","field_to_name_array":[] } ); return false;' type="submit" value="View Change Log">
-            {EXPORT_BUTTON}
+            
         </td>
         <td align='right'>{ADMIN_EDIT}</td> 
     </tr>

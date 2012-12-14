@@ -27,6 +27,9 @@
             $content = $this->bean->cost_detail;
             $content = base64_decode($content);
             $content = json_decode($content);
+            $this->ev->ss->assign('tour_name',$_REQUEST['tour_name']) ;
+            $this->ev->ss->assign('tour_id',$_REQUEST['tour_id']) ;
+            $this->ev->ss->assign('is_tour',$_REQUEST['is_tour']) ;
             $html = '';
             if($this->bean->department == 'dos'){
                 $cost_detail =  $content->dos_cost_detail;

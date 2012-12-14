@@ -6,6 +6,12 @@
 */
 
 $(document).ready(function () {
+    if(jQuery('[name="record"]').val()== '' ||){
+        jQuery('#addDays').show();
+    }
+    else{
+        jQuery('#addDays').hide();
+    }
     displayHideAdDelRow();
     updateID('TR_table_clone'); 
     var tour_id = $('[name="record"]').val(),
@@ -250,10 +256,7 @@ $(document).ready(function () {
             //confirm lai nguoi dung xem ho co chac la muon thay doi template khong?
             if (window.confirm("Bạn có chắc chắn muốn dùng template này?\n dữ liệu của bạn sẻ bị mất khi thay đổi template!")) {
                 try {
-
-
                     //get tour
-
                     tour = tplTour.tours[tour_id];
                     /**
                     * fill vao cac truong duoc dinh san

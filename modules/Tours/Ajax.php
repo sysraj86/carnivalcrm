@@ -27,7 +27,10 @@
             $transport = explode('^,^', $row['transport']);
             $transport_dom = get_select_options($app_list_strings['transport_dom'], $transport);
             $destination = explode('^,^', $row['noiden']);
-            $destiantion_dom = get_select_options_with_id($app_list_strings['destination_dom_list'], $destination);
+            $allCountries = Country::get_list_countries($row['deparment']);
+            $destiantion_dom = get_select_options_with_id($allCountries, $row['deparment']);
+            $currency = get_select_options($app_list_strings['currency_dom'],$row['currency']);
+            $status = get_select_options_with_id($app_list_strings['tour_status_dom'], $row['status']);
             /*$tour = array(
             "id" => $row['id'],
             "name" => $row['name'],
@@ -49,11 +52,13 @@
             $tour['transport'] = $transport;
             $tour['transport_dom'] = $transport_dom;
             $tour['destination_dom'] = $destiantion_dom;
+            $tour['currency'] = $currency;
+            $tour['status'] = $status;
             $tours[$row['id']] = $tour;
         }
         $response = json_encode($tours);
     }
-    else if (isset($_POST['tour_id'])) {
+    else if (isset($_POST['tour_id']) && isset($_POST['department'])) {
             //tour id
             $tour_id = $_POST['tour_id'];
             //tour
@@ -63,36 +68,40 @@
             ///get program line
             $result = $tour->get_tour_program_lines($tour_id);
             $lines = array();
-            $allCountries = Country::get_list_countries();
+            $allCountries = Country::get_list_countries($tour->deparment);
             while ($row = $db->fetchByAssoc($result)) {
                 $line = array();
                 $programs = array();
                 $selectedKey = array();
                 //countries
-                $countries = json_decode(base64_decode($row['countries']));
+                $countries = explode(',',$row['countries']);;
                 //countries -> html select
                 $list_countries = get_select_options_with_id($allCountries, $countries);
                 //areas
                 $allAreas = Tour::get_list_areas_by_countries($countries, 1);
                 //paser base64 string -> json string -> array
-                $areas = json_decode(base64_decode($row['areas']));
+                $areas = explode(',',$row['areas']);
                 $list_areas = "<option value=''>--None--</option>";
                 if ($areas && count($areas) > 0) {
                     $list_areas = get_select_options_with_id($allAreas, $areas);
                 }
                 //cities
                 $allCities = Tour::get_list_cities_by_areas($areas);
-            $cities = json_decode(base64_decode($row['destination']));
+            $cities = explode(',',$row['destination']);
             $list_cities = "<option value=''>--None--</option>";
             if (count($cities) > 0) {
                 $list_cities = get_select_options_with_id($allCities, $cities);
             }
             //location
             $allLocation = Tour::get_list_location_by_cities($cities);
-            $location = json_decode(base64_decode($row['location']));
+            $location = explode(',',$row['location']);
             $list_locations = "<option value=''>--None--</option>";
             if (count($location) > 0) {
-                $list_locations = get_select_options_with_id($allLocation, $location);
+                foreach($allLocation as $value){
+                    $selected = in_array($value['id'], $location) ? 'selected=""':'';
+                    $list_locations .= '<option value="'.$value['id'].'" '.$selected.' data-description="'.$value['description'].'">'.$value['name'].'</option>';//     get_select_options_with_id($allLocation, $location); 
+                }
+//                $list_locations = get_select_options_with_id($allLocation, $location);
             }
             /* $location_list = get_select_options_with_id($app_list_strings['location_dom_list'], "");*/
             $programs['id'] = $row['id'];
@@ -193,32 +202,32 @@
                         $where = " AND c.id IN('".$countries."' )";
                     }
                     $query .= $where;
-                    $result = $db->query($query);
+                $result = $db->query($query);
 
-                    while ($row = $db->fetchByAssoc($result)) {
-                        $cities[$row['id']] = $row['name'];
-                    }
-                    $response = json_encode($cities);
+                while ($row = $db->fetchByAssoc($result)) {
+                    $cities[$row['id']] = $row['name'];
                 }
-        }
-        else if ($action == "get_area_by_countries") {
-                if (isset($_POST['countries'])) {
-                    $countries = $_POST['countries'];
-                    $countries = explode("|", $countries);
-                    $areas = array();
-                    $query = "SELECT a.id,a.name,c.name as countries FROM  c_areas a JOIN countries_c_areas_c ca
-                    ON a.id = ca.countries_92a9c_areas_idb JOIN countries c
-                    ON c.id = ca.countries_f060untries_ida WHERE (1 != 1";
-                    foreach ($countries as $id) {
-                        $query .= " or c.id = '$id'";
-                    }
-                    $query .= ') and a.deleted = 0 and ca.deleted = 0 and c.deleted = 0';
-                    $result = $db->query($query);
-                    while ($row = $db->fetchByAssoc($result)) {
-                        $areas[$row['id']] = $row['name'].'-'.$row['countries'];
-                    }
-                    $response = json_encode($areas);
+                $response = json_encode($cities);
+            }
+    }
+    else if ($action == "get_area_by_countries") {
+            if (isset($_POST['countries'])) {
+                $countries = $_POST['countries'];
+                $countries = explode("|", $countries);
+                $areas = array();
+                $query = "SELECT a.id,a.name,c.name as countries FROM  c_areas a JOIN countries_c_areas_c ca
+                ON a.id = ca.countries_92a9c_areas_idb JOIN countries c
+                ON c.id = ca.countries_f060untries_ida WHERE (1 != 1";
+                foreach ($countries as $id) {
+                    $query .= " or c.id = '$id'";
                 }
-        }
-        echo $response;
+                $query .= ') and a.deleted = 0 and ca.deleted = 0 and c.deleted = 0';
+                $result = $db->query($query);
+                while ($row = $db->fetchByAssoc($result)) {
+                    $areas[$row['id']] = $row['name'].'-'.$row['countries'];
+                }
+                $response = json_encode($areas);
+            }
+    }
+    echo $response;
 ?>

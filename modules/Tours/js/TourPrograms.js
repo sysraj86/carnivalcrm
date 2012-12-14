@@ -70,7 +70,7 @@
             tpl = tpl.replace(/\{\{note\}\}/g, (program.note) ? program.note : "");
             //picture
             if (program.picture && program.picture != "") {
-                picture_html = "<img src='modules/images/" + program.picture + "' alt='" + program.title + "' width='200' height='200'/>";
+                picture_html = "<img src='modules/images/" + program.picture + "' alt='" + program.title + "' width='300' height='300'/>";
 
             } else {
                 picture_html = "&nbsp;"

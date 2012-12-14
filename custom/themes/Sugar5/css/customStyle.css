@@ -25,9 +25,9 @@ input:focus {
     border-color: #F7850F;
 }
 
-button {
+button,input[type="button"] {
 	padding: 3px 4px 3px 4px;
-	border-radius: 4px;
+	border-radius: 2px;
 }
 
 textarea {
@@ -50,19 +50,19 @@ textarea:focus {
     font-size: 12px;
 }
 
-.headerList  a:hover
+/*.headerList  a:hover
 {
   text-transform: uppercase;
   text-shadow: transparent;  
   font-weight: bold;
     
-}
+}*/
 
-.moduleList a:hover{
+/*.moduleList a:hover{
     text-transform: uppercase;
     text-shadow: transparent;  
     font-weight: bold; 
-}
+}*/
 
 div.moduleTitle h2 {
     color :orange !important;
@@ -78,9 +78,9 @@ div.moduleTitle h2 a {
     text-transform: uppercase;
 }
 
-div.moduleTitle h2 a:hover{
+/*div.moduleTitle h2 a:hover{
     color :#08FCEC !important;
-}
+}*/
 
 .subpanelTabForm h3{
     font-size: 14px;

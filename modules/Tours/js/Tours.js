@@ -7,10 +7,11 @@
 (function (win) {
     win.CurrentTourProgramLine = 0;
     var Tours = function () {
-        var _url = "index.php?module=Tours&entryPoint=TourAjax",
+        //var _url = "index.php?module=Tours&entryPoint=TourAjax",
         tour = this;
-
+        tour._url="index.php?module=Tours&entryPoint=TourAjax"
         tour.id = "";
+        tour.department = "";
         tour.name = "";
         tour.description = "";
         tour.tour_code = "";
@@ -46,10 +47,10 @@
         tour.loadTourProgramLines = function (callback) {
             if (tour.id != "") {
                 $.ajax({
-                    url:_url,
+                    url:tour._url,
                     type:"POST",
                     async:false,
-                    data:{tour_id:tour.id},
+                    data:{tour_id:tour.id, department:tour.department},
                     success:function (data) {
                         if (data) {
                             data = $.parseJSON(data);
@@ -74,6 +75,7 @@
                                 line.locations_count = val.locations_count;
                                 //  console.log(line);
                                 tour.tourProgramLines.push(line);
+                                displayHideAdDelRow();
                                 // console.log(t)
                             });
                         }
@@ -92,7 +94,7 @@
             // console.log(tour.tourProgramLines);
         }
         tour.init = function () {
-            /** xac dinh xem dang o mang hinh nao**/
+            /** xac dinh xem dang o man hinh nao**/
             //tour.id = $('[name="record"]').val();
             //neu dang o mang hinh edit
             //  console.log(tour.id);
@@ -318,6 +320,10 @@
             $tour_areas = $("#area");
             //tour name:
             $("[name='name']").val(tour.name);
+            // modify by hai duc fill more infomation 
+            jQuery('[name="num_of_day"]').val(tour.num_of_day);
+            jQuery('[name="currency"]').html(tour.currency);
+            jQuery('[name="status"]').html(tour.status);
             //tour description
             tinymce.getInstanceById("description").setContent(tour.description);
             //Duration:
