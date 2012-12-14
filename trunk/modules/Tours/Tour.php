@@ -133,7 +133,7 @@
                 $html .= '<table  cellpadding="0" cellspacing="0" width="100%" class="tabForm">';
                 $html .= '<tr>' .
                 '<td colspan="8">' .
-                '<h2 class="font_6 in_line">NGÀY <span class="day_num">' . $count . '</span>:</h2>' .
+                '<h2 class="font_6 in_line">Date <span class="day_num">' . $count . '</span>:</h2>' .
                 '</td>' .
                 '</tr>';
                 $html .= '<tr>';

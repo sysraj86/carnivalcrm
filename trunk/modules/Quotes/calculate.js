@@ -8,6 +8,10 @@ $('head').append(linkCss);
 
 
 $(document).ready(function(){
+    if(jQuery('#is_tour').val() == "true" && jQuery('#is_tour').val() !=""){
+        jQuery('#quotes_tours_name').val(jQuery('#tour_name').val());
+        jQuery('#quotes_toufa8brstours_idb').val(jQuery('#tour_id').val());
+    }
     display_hide();
     displayContact();
     displayCurrency($('.ob_currency')); 
