@@ -372,6 +372,11 @@ if($focus->type_sale != null){
 $sugar_smarty->assign('BIRTHDAY', $focus->birthday);
 // End custom code
 
+// Add By Thanh Le At 18/12/2012
+$location = translate('user_location_dom','',$focus->location);
+if(is_array($location)) $location = '';
+$sugar_smarty->assign('LOCATION', $location);
+// End
 
 $sugar_smarty->assign("REPORTS_TO_ID", $focus->reports_to_id);
 $sugar_smarty->assign("REPORTS_TO_NAME", $focus->reports_to_name);

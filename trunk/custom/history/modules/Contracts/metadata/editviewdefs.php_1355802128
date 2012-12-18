@@ -48,7 +48,6 @@ array (
         0 => 
         array (
           0 => 'number',
-          1 => '',
         ),
         1 => 
         array (
@@ -125,10 +124,6 @@ array (
           array (
             'name' => 'vpdd',
             'label' => 'LBL_VPDD',
-            'displayParams' => 
-            array (
-              'size' => '60',
-            ),
           ),
           1 => '',
         ),
@@ -191,7 +186,6 @@ array (
         5 => 
         array (
           0 => 'sotaikhoanbenb',
-          1 => '',
         ),
         6 => 
         array (

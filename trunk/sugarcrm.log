@@ -2015,3 +2015,147 @@
 12/07/12 10:07:08 [1892][1][FATAL] Error fetching relationship from cache fits_groupprograms
 12/07/12 10:07:08 [1892][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
 12/07/12 10:07:09 [1892][1][FATAL] Error fetching relationship from cache tours_groupprograms
+12/17/12 08:55:49 [1844][-none-][FATAL] Could not connect to DB server 180.148.1.166 as sugarcrm_cnv. port : Can't connect to MySQL server on '180.148.1.166' (10060)
+12/17/12 08:55:51 [1844][-none-][FATAL] Could not connect to DB server 180.148.1.166 as sugarcrm_cnv. port : Can't connect to MySQL server on '180.148.1.166' (10060)
+12/17/12 08:56:11 [1844][-none-][FATAL] Could not connect to DB server 180.148.1.166 as sugarcrm_cnv. port : Can't connect to MySQL server on '180.148.1.166' (10060)
+12/17/12 08:59:11 [1844][-none-][FATAL] Could not connect to DB server 180.148.1.166 as sugarcrm_cnv. port : Can't connect to MySQL server on '180.148.1.166' (10060)
+12/17/12 08:59:55 [1844][-none-][FATAL] Could not connect to DB server 180.148.1.166 as sugarcrm_cnv. port : Can't connect to MySQL server on '180.148.1.166' (10060)
+12/17/12 08:59:55 [1844][-none-][FATAL] Could not connect to DB server 180.148.1.166 as sugarcrm_cnv. port : Can't connect to MySQL server on '180.148.1.166' (10060)
+12/17/12 08:59:55 [1844][-none-][FATAL] Could not connect to DB server 180.148.1.166 as sugarcrm_cnv. port : Can't connect to MySQL server on '180.148.1.166' (10060)
+12/17/12 09:00:05 [1844][-none-][FATAL] Could not connect to DB server 180.148.1.166 as sugarcrm_cnv. port : Can't connect to MySQL server on '180.148.1.166' (10060)
+12/17/12 09:00:10 [1844][-none-][FATAL] Could not connect to DB server 180.148.1.166 as sugarcrm_cnv. port : Can't connect to MySQL server on '180.148.1.166' (10060)
+12/17/12 09:00:16 [1844][-none-][FATAL] Could not connect to DB server 180.148.1.166 as sugarcrm_cnv. port : Can't connect to MySQL server on '180.148.1.166' (10060)
+12/17/12 09:00:16 [1844][-none-][FATAL] Could not connect to DB server 180.148.1.166 as sugarcrm_cnv. port : Can't connect to MySQL server on '180.148.1.166' (10060)
+12/17/12 09:00:37 [1844][-none-][FATAL] Could not connect to DB server 180.148.1.166 as sugarcrm_cnv. port : Can't connect to MySQL server on '180.148.1.166' (10060)
+12/17/12 09:00:38 [1844][-none-][FATAL] Could not connect to DB server 180.148.1.166 as sugarcrm_cnv. port : Can't connect to MySQL server on '180.148.1.166' (10060)
+12/17/12 17:18:57 [2596][-none-][FATAL] Could not connect to DB server 180.148.1.166 as sugarcrm_cnv. port : Can't connect to MySQL server on '180.148.1.166' (10060)
+12/17/12 18:01:31 [2596][1][FATAL] Error fetching relationship from cache fits_tours
+12/17/12 18:02:10 [2596][1][FATAL] Error fetching relationship from cache fits_tours
+12/17/12 18:02:13 [2596][1][FATAL] Error fetching relationship from cache fits_groupprograms
+12/17/12 18:02:13 [2596][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
+12/17/12 18:02:15 [2596][1][FATAL] Error fetching relationship from cache tours_groupprograms
+12/17/12 18:02:16 [2596][1][FATAL] Error fetching relationship from cache fits_tours
+12/17/12 18:02:18 [2596][1][FATAL] Error fetching relationship from cache fits_tours
+12/17/12 18:02:20 [2596][1][FATAL] Error fetching relationship from cache fits_tours
+12/17/12 18:02:22 [2596][1][FATAL] Error fetching relationship from cache fits_groupprograms
+12/17/12 18:02:22 [2596][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
+12/17/12 18:02:23 [2596][1][FATAL] Error fetching relationship from cache tours_groupprograms
+12/17/12 18:02:24 [2596][1][FATAL] Error fetching relationship from cache fits_tours
+12/17/12 18:02:26 [2596][1][FATAL] Error fetching relationship from cache fits_groupprograms
+12/17/12 18:02:26 [2596][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
+12/17/12 18:02:26 [2596][1][FATAL] Error fetching relationship from cache tours_groupprograms
+12/17/12 18:02:28 [2596][1][FATAL] Error fetching relationship from cache fits_tours
+12/17/12 18:02:29 [2596][1][FATAL] Error fetching relationship from cache fits_groupprograms
+12/17/12 18:02:29 [2596][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
+12/17/12 18:02:30 [2596][1][FATAL] Error fetching relationship from cache tours_groupprograms
+12/17/12 18:05:57 [2596][1][FATAL] Error fetching relationship from cache fits_groupprograms
+12/17/12 18:05:58 [2596][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
+12/17/12 18:05:58 [2596][1][FATAL] Error fetching relationship from cache tours_groupprograms
+12/18/12 08:45:25 [1832][-none-][FATAL] Could not connect to DB server 180.148.1.166 as sugarcrm_cnv. port : Can't connect to MySQL server on '180.148.1.166' (10053)
+12/18/12 09:06:10 [1832][-none-][FATAL] Could not connect to DB server 180.148.1.166 as sugarcrm_cnv. port : Can't connect to MySQL server on '180.148.1.166' (10060)
+12/18/12 11:19:04 [1880][-none-][FATAL] Could not connect to DB server 180.148.1.166 as sugarcrm_cnv. port : Can't connect to MySQL server on '180.148.1.166' (10060)
+12/18/12 11:19:04 [1880][-none-][FATAL] Could not connect to DB server 180.148.1.166 as sugarcrm_cnv. port : Can't connect to MySQL server on '180.148.1.166' (10060)
+12/18/12 11:47:42 [1880][1][FATAL] Error fetching relationship from cache fits_groupprograms
+12/18/12 11:47:43 [1880][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
+12/18/12 11:47:46 [1880][1][FATAL] Error fetching relationship from cache tours_groupprograms
+12/18/12 11:48:59 [1880][-none-][FATAL] Could not connect to DB server 180.148.1.166 as sugarcrm_cnv. port : Can't connect to MySQL server on '180.148.1.166' (10060)
+12/18/12 11:54:16 [1880][1][FATAL] Error fetching relationship from cache fits_groupprograms
+12/18/12 11:54:17 [1880][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
+12/18/12 11:54:17 [1880][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
+12/18/12 11:54:18 [1880][1][FATAL] Error fetching relationship from cache tours_groupprograms
+12/18/12 11:54:18 [1880][1][FATAL] Error fetching relationship from cache fits_groupprograms
+12/18/12 11:54:18 [1880][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
+12/18/12 11:54:19 [1880][1][FATAL] Error fetching relationship from cache tours_groupprograms
+12/18/12 11:54:19 [1880][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
+12/18/12 11:54:19 [1880][1][FATAL] Error fetching relationship from cache fits_groupprograms
+12/18/12 11:54:19 [1880][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
+12/18/12 11:54:19 [1880][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
+12/18/12 11:54:20 [1880][1][FATAL] Error fetching relationship from cache tours_groupprograms
+12/18/12 11:54:20 [1880][1][FATAL] Error fetching relationship from cache fits_groupprograms
+12/18/12 11:54:20 [1880][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
+12/18/12 11:54:21 [1880][1][FATAL] Error fetching relationship from cache tours_groupprograms
+12/18/12 11:54:21 [1880][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
+12/18/12 11:54:21 [1880][1][FATAL] Error fetching relationship from cache fits_groupprograms
+12/18/12 11:54:21 [1880][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
+12/18/12 11:54:21 [1880][1][FATAL] Error fetching relationship from cache tours_groupprograms
+12/18/12 11:54:22 [1880][1][FATAL] Error fetching relationship from cache fits_groupprograms
+12/18/12 11:54:22 [1880][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
+12/18/12 11:54:22 [1880][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
+12/18/12 11:54:22 [1880][1][FATAL] Error fetching relationship from cache tours_groupprograms
+12/18/12 11:54:23 [1880][1][FATAL] Error fetching relationship from cache fits_groupprograms
+12/18/12 11:54:23 [1880][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
+12/18/12 11:54:23 [1880][1][FATAL] Error fetching relationship from cache tours_groupprograms
+12/18/12 11:54:23 [1880][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
+12/18/12 11:54:23 [1880][1][FATAL] Error fetching relationship from cache fits_groupprograms
+12/18/12 11:54:24 [1880][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
+12/18/12 11:54:24 [1880][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
+12/18/12 11:54:24 [1880][1][FATAL] Error fetching relationship from cache tours_groupprograms
+12/18/12 11:54:24 [1880][1][FATAL] Error fetching relationship from cache fits_groupprograms
+12/18/12 11:54:25 [1880][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
+12/18/12 11:54:25 [1880][1][FATAL] Error fetching relationship from cache tours_groupprograms
+12/18/12 11:54:25 [1880][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
+12/18/12 11:54:25 [1880][1][FATAL] Error fetching relationship from cache fits_groupprograms
+12/18/12 11:54:25 [1880][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
+12/18/12 11:54:25 [1880][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
+12/18/12 11:54:26 [1880][1][FATAL] Error fetching relationship from cache tours_groupprograms
+12/18/12 11:54:26 [1880][1][FATAL] Error fetching relationship from cache fits_groupprograms
+12/18/12 11:54:26 [1880][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
+12/18/12 11:54:26 [1880][1][FATAL] Error fetching relationship from cache tours_groupprograms
+12/18/12 11:54:26 [1880][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
+12/18/12 11:54:27 [1880][1][FATAL] Error fetching relationship from cache fits_groupprograms
+12/18/12 11:54:27 [1880][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
+12/18/12 11:54:27 [1880][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
+12/18/12 11:54:27 [1880][1][FATAL] Error fetching relationship from cache tours_groupprograms
+12/18/12 11:54:28 [1880][1][FATAL] Error fetching relationship from cache fits_groupprograms
+12/18/12 11:54:28 [1880][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
+12/18/12 11:54:28 [1880][1][FATAL] Error fetching relationship from cache tours_groupprograms
+12/18/12 11:54:28 [1880][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
+12/18/12 12:02:08 [1880][1][FATAL] Error fetching relationship from cache fits_groupprograms
+12/18/12 12:02:09 [1880][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
+12/18/12 12:02:10 [1880][1][FATAL] Error fetching relationship from cache tours_groupprograms
+12/18/12 14:31:25 [1880][-none-][FATAL] Could not connect to DB server 180.148.1.166 as sugarcrm_cnv. port : Can't connect to MySQL server on '180.148.1.166' (10060)
+12/18/12 14:47:37 [2028][1][FATAL] Error fetching relationship from cache fits_groupprograms
+12/18/12 14:47:38 [2028][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
+12/18/12 14:47:43 [2028][1][FATAL] Error fetching relationship from cache tours_groupprograms
+12/18/12 15:33:32 [2028][1][FATAL] Error fetching relationship from cache fits_groupprograms
+12/18/12 15:33:33 [2028][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
+12/18/12 15:33:33 [2028][1][FATAL] Error fetching relationship from cache tours_groupprograms
+12/18/12 15:46:16 [2028][1][FATAL] Error fetching relationship from cache fits_groupprograms
+12/18/12 15:46:16 [2028][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
+12/18/12 15:46:16 [2028][1][FATAL] Error fetching relationship from cache tours_groupprograms
+12/18/12 15:46:17 [2028][1][FATAL] Error fetching relationship from cache fits_groupprograms
+12/18/12 15:46:18 [2028][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
+12/18/12 15:46:18 [2028][1][FATAL] Error fetching relationship from cache tours_groupprograms
+12/18/12 15:46:20 [2028][1][FATAL] Error fetching relationship from cache fits_airlinestickets
+12/18/12 15:46:20 [2028][1][FATAL] Error fetching relationship from cache tours_airlinestickets
+12/18/12 15:46:21 [2028][1][FATAL] Error fetching relationship from cache fits_groupprograms
+12/18/12 15:46:21 [2028][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
+12/18/12 15:46:21 [2028][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
+12/18/12 15:46:22 [2028][1][FATAL] Error fetching relationship from cache tours_groupprograms
+12/18/12 15:46:22 [2028][1][FATAL] Error fetching relationship from cache fits_airlinestickets
+12/18/12 15:46:23 [2028][1][FATAL] Error fetching relationship from cache tours_airlinestickets
+12/18/12 15:46:42 [2028][1][FATAL] Error fetching relationship from cache fits_groupprograms
+12/18/12 15:46:42 [2028][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
+12/18/12 15:46:43 [2028][1][FATAL] Error fetching relationship from cache tours_groupprograms
+12/18/12 15:46:49 [2028][1][FATAL] Missing relationship definition contracts_appendixcontract_1. skipping contracts_andixcontract_1 subpanel
+12/18/12 15:46:49 [2028][1][FATAL] Missing relationship definition contracts_appendixcontract. skipping contracts_apendixcontract subpanel
+12/18/12 15:46:49 [2028][1][FATAL] Bad subpanel definition, it has incorrect value for get_subpanel_data property tours_contracts
+12/18/12 15:48:23 [2028][1][FATAL] Error fetching relationship from cache fits_groupprograms
+12/18/12 15:48:23 [2028][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
+12/18/12 15:48:24 [2028][1][FATAL] Error fetching relationship from cache tours_groupprograms
+12/18/12 15:52:57 [2028][1][FATAL] Error fetching relationship from cache fits_groupprograms
+12/18/12 15:52:57 [2028][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
+12/18/12 15:52:58 [2028][1][FATAL] Error fetching relationship from cache tours_groupprograms
+12/18/12 15:57:04 [2028][1][FATAL] Error fetching relationship from cache fits_groupprograms
+12/18/12 15:57:04 [2028][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
+12/18/12 15:57:05 [2028][1][FATAL] Error fetching relationship from cache tours_groupprograms
+12/18/12 15:57:51 [2028][-none-][FATAL] Could not connect to DB server 180.148.1.166 as sugarcrm_cnv. port : Can't connect to MySQL server on '180.148.1.166' (10060)
+12/18/12 16:00:45 [2028][1][FATAL] Error fetching relationship from cache fits_groupprograms
+12/18/12 16:00:45 [2028][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
+12/18/12 16:00:46 [2028][1][FATAL] Error fetching relationship from cache tours_groupprograms
+12/18/12 16:16:25 [3004][1][FATAL] Error fetching relationship from cache fits_groupprograms
+12/18/12 16:16:25 [3004][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
+12/18/12 16:16:26 [3004][1][FATAL] Error fetching relationship from cache tours_groupprograms
+12/18/12 16:40:28 [3004][1][FATAL] Error fetching relationship from cache fits_groupprograms
+12/18/12 16:40:29 [3004][1][FATAL] Error fetching relationship from cache groupprograms_grouplists
+12/18/12 16:40:29 [3004][1][FATAL] Error fetching relationship from cache tours_groupprograms

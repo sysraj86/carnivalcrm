@@ -9,7 +9,7 @@
           parent::ViewEdit();
       }
       function display(){
-            global $mod_strings,$app_list_strings;
+            global $mod_strings,$app_list_strings,$current_user;
             // Contract Value:
             $html = '
                 <table cellpadding="0" cellspacing="0" border="1" width="100%" style="border-collapse:collapse" class="table_clone" id="contract_value">
@@ -92,7 +92,22 @@
                         </table>';
             
             $this->ev->ss->assign("contract_condition", $html);
-            $this->ev->ss->assign("tongtien", format_number($this->bean->tongtien)); 
+            $this->ev->ss->assign("tongtien", format_number($this->bean->tongtien));
+            
+            /*** Bo sung VPDD cho nhung chi nhanh khac 
+             *** By Thanh Le At 18/12/2012 ***********/
+            if($current_user->department == 'han'){
+                $this->bean->vpdd = 'CÔNG TY TNHH MỘT THÀNH VIÊN DV DL LỄ HỘI (TẠI HÀ NỘI)';
+                $this->bean->vpdd_diachi = 'Phòng 306, Tòa nhà DMC, 535 Kim Mã, Ba Đình, Hà Nội';
+                $this->bean->vpdd_dienthoai = '(04) 37246881';
+                $this->bean->vpdd_fax = '(04) 37246882';
+            }elseif($current_user->department == 'han'){
+                $this->bean->vpdd = 'CÔNG TY TNHH MỘT THÀNH VIÊN DV DL LỄ HỘI (TẠI HUẾ)';
+                $this->bean->vpdd_diachi = '23 Chu Văn An, Thành Phố Huế, Việt Nam';
+                $this->bean->vpdd_dienthoai = '(054) 3819855';
+                $this->bean->vpdd_fax = '(054) 3819857';
+            }
+            /* End */
             parent::display();
         }  
 
