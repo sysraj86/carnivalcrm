@@ -130,8 +130,9 @@ user_detailview_tabs.on('contentReady', function(e){
                 </tr><tr>
                 <td valign="top" scope="row"><slot>{$MOD.LBL_DEPARTMENT}:</slot></td>
                 <td valign="top"><slot>{$DEPARTMENT}&nbsp;</slot></td>
-                <td valign="top" scope="row"><slot>{$MOD.LBL_MOBILE_PHONE}:</slot></td>
-                <td valign="top"><slot>{$PHONE_MOBILE}&nbsp;</slot></td>
+                <td valign="top" scope="row"><slot>{$MOD.LBL_LOCATION}:</slot></td>
+                <td valign="top"><slot>{$LOCATION}</slot></td>
+                
                 </tr><tr>
                 <td valign="top" scope="row"><slot>{$MOD.LBL_REPORTS_TO}:</slot></td>
                 <td valign="top"><slot><a href="index.php?module=Users&action=DetailView&record={$REPORTS_TO_ID}">{$REPORTS_TO_NAME}</a>&nbsp;</slot></td>
@@ -143,11 +144,11 @@ user_detailview_tabs.on('contentReady', function(e){
                 <td valign="top" scope="row"><slot>{$MOD.LBL_FAX}:</slot></td>
                 <td valign="top"><slot>{$PHONE_FAX}&nbsp;</slot></td>
                 </tr><tr>
-            
+                <td valign="top" scope="row"><slot>{$MOD.LBL_MOBILE_PHONE}:</slot></td>
+                <td valign="top"><slot>{$PHONE_MOBILE}&nbsp;</slot></td>
                 <td valign="top" scope="row"><slot>{$MOD.LBL_HOME_PHONE}:</slot></td>
                 <td valign="top"><slot>{$PHONE_HOME}&nbsp;</slot></td>
-                <td valign="top" scope="row"><slot>&nbsp;</slot></td>
-                <td valign="top"><slot>&nbsp;</slot></td>
+                
                 </tr><tr>
                 <td valign="top" scope="row"><slot>{$MOD.LBL_MESSENGER_TYPE}:</slot></td>
                 <td valign="top"><slot>{$MESSENGER_TYPE}&nbsp;</slot></td>

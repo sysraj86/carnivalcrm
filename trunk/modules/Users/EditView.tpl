@@ -215,8 +215,9 @@ EditView_tabs.on('contentReady', function(e){
                                 <select name="department" id="department" tabindex='5' {$IS_ADMIN_DISABLED} >{$DEPARTMENT}</select>
                           <!--      <input name='department' type="text"  size='25' maxlength='100' value='{$DEPARTMENT}' > -->
                                 </slot></td>
-                                <td scope="row"><slot>{$MOD.LBL_MOBILE_PHONE}:</slot></td>
-                                <td  ><slot><input name='phone_mobile' type="text" tabindex='6' size='20' maxlength='25' value='{$PHONE_MOBILE}'></slot></td>
+                                <td scope="row"><slot>{$MOD.LBL_LOCATION}:</slot></td>
+                                <td  ><slot><select name="location" id="location" tabindex='5'>{$LOCATION}</select></slot></td>
+                                
                             </tr>
                             <tr>
                                 <td scope="row"><slot>{$MOD.LBL_REPORTS_TO}:</slot></td>
@@ -236,8 +237,8 @@ EditView_tabs.on('contentReady', function(e){
                                 <td  ><slot><input name='phone_fax' type="text" tabindex='6' size='20' maxlength='25' value='{$PHONE_FAX}'></slot></td>
                             </tr>
                             <tr>
-                                <td scope="row"><slot>&nbsp;</slot></td>
-                                <td  ><slot>&nbsp;</slot></td>
+                                <td scope="row"><slot>{$MOD.LBL_MOBILE_PHONE}:</slot></td>
+                                <td  ><slot><input name='phone_mobile' type="text" tabindex='6' size='20' maxlength='25' value='{$PHONE_MOBILE}'></slot></td>
                                 <td scope="row"><slot>{$MOD.LBL_HOME_PHONE}:</slot></td>
                                 <td  ><slot><input name='phone_home' type="text" tabindex='6' size='20' maxlength='25' value='{$PHONE_HOME}'></slot></td>
                             </tr>

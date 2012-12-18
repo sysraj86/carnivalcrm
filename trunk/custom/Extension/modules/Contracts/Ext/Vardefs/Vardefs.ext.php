@@ -39,4 +39,9 @@ $dictionary["Contract"]["fields"]["vpdd_fax"] = array (
   'type' => 'varchar',
   'len' => '255',
 );
+$dictionary["Contract"]["fields"]["autonumber"] = array (
+  'name' => 'autonumber',
+  'vname' => 'LBL_AUTO_NUMBER',
+  'type' => 'int',
+);
 ?>

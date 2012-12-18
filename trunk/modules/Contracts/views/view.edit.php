@@ -9,7 +9,7 @@
           parent::ViewEdit();
       }
       function display(){
-            global $mod_strings,$app_list_strings,$current_user;
+            global $mod_strings,$app_list_strings,$current_user,$db;
             // Contract Value:
             $html = '
                 <table cellpadding="0" cellspacing="0" border="1" width="100%" style="border-collapse:collapse" class="table_clone" id="contract_value">
@@ -107,6 +107,34 @@
                 $this->bean->vpdd_dienthoai = '(054) 3819855';
                 $this->bean->vpdd_fax = '(054) 3819857';
             }
+            /* End */
+            
+            /** Tu dong general SO HĐ *******
+            *** By Thanh Le At 18/12/2012 **/
+            if($this->bean->number == ''){
+               $user = $current_user;
+               if($this->bean->assigned_user_id != ''){
+                  $user = new User();
+                  $user->retrieve($this->bean->assigned_user_id); 
+               }
+               // get Location :
+               $location = strtoupper($user->location);
+               // Get Derparment :
+               $derparment = strtoupper($user->department);
+               // Get Year :
+               $now = getdate();
+               $year = $now['year'];
+               // Get Autonumber :
+               $sql = 'SELECT Max(autonumber) as auto FROM contracts';
+               $result = $db->query($sql);
+               $row = $db->fetchByAssoc($result);
+               $autonumber =  $row1['auto'] + 1 ;
+
+               // Number of contract
+               $this->bean->number = $location.$derparment.$year.$autonumber;
+            }
+            
+            
             /* End */
             parent::display();
         }  
