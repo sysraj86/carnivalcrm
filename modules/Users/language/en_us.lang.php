@@ -519,6 +519,7 @@ $mod_strings = array (
     // Le Gia Thanh Them loai Sale cho nhan vien
     'LBL_TYPE_SALE' => 'Sale Type',
     'LBL_BIRTHDAY' => 'Birthday',
+    'LBL_LOCATION' => 'Location',
 ); // END STRINGS DEFS
 
 ?>
