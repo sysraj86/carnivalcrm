@@ -212,7 +212,6 @@ $dictionary['Account']['fields']['phone_office']['required']=true;
  // created: 2012-07-30 07:42:53
 $dictionary['Account']['fields']['province_city']['default']='';
 $dictionary['Account']['fields']['province_city']['options']='city_province_dom';
-
  
 
 // created: 2011-09-09 10:33:00

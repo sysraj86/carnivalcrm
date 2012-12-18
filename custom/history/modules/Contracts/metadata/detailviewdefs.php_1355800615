@@ -1,6 +1,6 @@
 <?php
 $module_name = 'Contracts';
-$viewdefs [$module_name] = 
+$viewdefs[$module_name] = 
 array (
   'DetailView' => 
   array (
@@ -53,7 +53,7 @@ array (
             'name' => 'number',
             'label' => 'LBL_NUMBER',
           ),
-          1 => '',
+          '',
         ),
         1 => 
         array (
@@ -186,40 +186,11 @@ array (
         array (
           0 => 
           array (
-            'name' => 'vpdd',
-            'label' => 'LBL_VPDD',
-          ),
-        ),
-        8 => 
-        array (
-          0 => 
-          array (
-            'name' => 'vpdd_diachi',
-            'label' => 'LBL_ADDRESS',
-          ),
-        ),
-        9 => 
-        array (
-          0 => 
-          array (
-            'name' => 'vpdd_dienthoai',
-            'label' => 'LBL_PHONE',
-          ),
-          1 => 
-          array (
-            'name' => 'vpdd_fax',
-            'label' => 'LBL_FAX',
-          ),
-        ),
-        10 => 
-        array (
-          0 => 
-          array (
             'name' => 'parent_name',
             'label' => 'LBL_BEN_B',
           ),
         ),
-        11 => 
+        8 => 
         array (
           0 => 
           array (
@@ -231,7 +202,7 @@ array (
             'label' => 'LBL_POSITION_B',
           ),
         ),
-        12 => 
+        9 => 
         array (
           0 => 
           array (
@@ -244,7 +215,7 @@ array (
             'label' => 'LBL_TAX',
           ),
         ),
-        13 => 
+        10 => 
         array (
           0 => 
           array (
@@ -257,7 +228,7 @@ array (
             'label' => 'LBL_FAXB',
           ),
         ),
-        14 => 
+        11 => 
         array (
           0 => 
           array (
@@ -270,7 +241,7 @@ array (
             'label' => 'LBL_ACCOUNT_NAME_B',
           ),
         ),
-        15 => 
+        12 => 
         array (
           0 => 
           array (
@@ -279,7 +250,7 @@ array (
           ),
           1 => '',
         ),
-        16 => 
+        13 => 
         array (
           0 => 
           array (
@@ -355,7 +326,7 @@ array (
           array (
             'name' => 'contract_value',
             'label' => 'LBL_CONTRACT_VALUE',
-            'customCode' => '{$contract_value}',
+            'customCode' => '{$contract_value}'
           ),
         ),
         1 => 
@@ -364,7 +335,7 @@ array (
           array (
             'name' => 'tongtien',
             'label' => 'LBL_TONGTIEN',
-            'customCode' => '<span>{$tongtien}</span>&nbsp;<span>{$fields.tiente.options[$fields.tiente.value]}</span>',
+            'customCode' => '<span>{$tongtien}</span>&nbsp;<span>{$fields.tiente.options[$fields.tiente.value]}</span>'
           ),
           1 => 
           array (
@@ -421,7 +392,7 @@ array (
           array (
             'name' => 'contract_condition',
             'label' => 'LBL_CONTRACT_CONDITION',
-            'customCode' => '{$contract_condition}',
+            'customCode' => '{$contract_condition}'
           ),
         ),
       ),

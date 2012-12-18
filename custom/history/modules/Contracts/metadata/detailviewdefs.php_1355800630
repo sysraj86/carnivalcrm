@@ -189,6 +189,7 @@ array (
             'name' => 'vpdd',
             'label' => 'LBL_VPDD',
           ),
+          1 => '',
         ),
         8 => 
         array (
@@ -197,6 +198,7 @@ array (
             'name' => 'vpdd_diachi',
             'label' => 'LBL_ADDRESS',
           ),
+          1 => '',
         ),
         9 => 
         array (

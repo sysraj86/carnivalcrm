@@ -1,7 +1,7 @@
 $(function(){
     $this = $('#parent_type');
     changlayout($this);
-
+    /*
     //$('.parent_name').click(function(){
 //        if($('.parent_type').val()=='TravelGuides'){
 //            open_popup('TravelGuides', 600, 400, "", true, false, {"call_back_function":"set_return","form_name": "EditView","field_to_name_array":{"id":"parent_id", "name": "parent_name","address":"address_b","phone":"phone_b","date_issued":"date_issued_guide","birthday":"birthday","passport_no":"passport_no_guide"}}, "single", true);   
@@ -9,7 +9,7 @@ $(function(){
 //        else{
 //            open_popup($('#parent_type').val(), 600, 400, "", true, false, {"call_back_function":"set_return","form_name": "EditView","field_to_name_array":{"id":"parent_id", "name": "parent_name"}}, "single", true);   
 //        }
-//    });
+//    });    */
 
     // tinh toan gia tri hop dong huong dan vien
     $('.giatrihopdonghdv').blur(function(){
@@ -45,7 +45,7 @@ $(function(){
             $('#guide_inword').val(str);
         }
     });
-
+  /*
     //$('.tour_name').click(function(){
 //        if($('.parent_type').val()=='TravelGuides'){
             //open_popup('GroupPrograms', 600, 400, "", true, false, {"call_back_function":"set_return","form_name": "EditView","field_to_name_array":{"id":"groupprogr4251rograms_ida", "name": "groupprogracontracts_name","start_date_group":"start_date_guide",}}, "single", true);   
@@ -63,7 +63,7 @@ $(function(){
 //            filterPopup('parent_type','parent_id','Contacts',{"call_back_function":"set_return","form_name":"EditView","field_to_name_array":{"name":"daidienbenb_name"}});
             //open_popup('Contacts',600,400,'',true,false, {"call_back_function":"set_return","form_name":"EditView","field_to_name_array":{"id":"parent_id","name":"daidienbenb_name"}});
 //        }
-//    });
+//    });      */
 
     $('#parent_type').change(function(){ 
         $this = $(this);
@@ -131,21 +131,28 @@ $(function(){
         if(!isNaN(thanhtien)){
             $('#thanhtien'+id).val(formatNumber(thanhtien,num_grp_sep, dec_sep)); 
         }
-        calculateSum(this);
-        $('#bangchu').val(DocTienBangChu($('#tongtien').val())); 
+        calculateSum(name);
+        $('#contract_condition').find('tr').each(function(){
+           TinhThanhToan(this); 
+        });
+        
+        $('#bangchu').val(DocTienBangChu(unformatNumber($('#tongtien').val(),num_grp_sep, dec_sep))); 
     }
 
     $('.percent').blur(function(){
-        var tt = parseFloat($('#tongtien').val());
-        var id = this.id.substring(this.id.length-1,this.id.length);
+        TinhThanhToan(this);
+    });
+
+    function TinhThanhToan(name){
+        var tt = parseFloat(unformatNumber($('#tongtien').val(),num_grp_sep, dec_sep));
+        var id = name.id.substring(name.id.length-1,name.id.length);
         var percent = parseFloat($('#phantram'+id).val());
         if(!isNaN(tt) && !isNaN(percent)){
             var thanhtien = (tt * percent)/100;
-            $('#tienthanhtoan'+id).val(thanhtien.toString());
+            $('#tienthanhtoan'+id).val(formatNumber(thanhtien,num_grp_sep, dec_sep));
         }
-        $('#in_word'+id).val(DocTienBangChu($('#tienthanhtoan'+id).val()));
-    });
-
+        $('#in_word'+id).val(DocTienBangChu($('#tienthanhtoan'+id).val())); 
+    }
     $('.tientethanhtoan').change(function(){            
         var id = this.id.substring(this.id.length-1,this.id.length);
         var str = '' ;
@@ -201,13 +208,13 @@ function calculateSum(name){
     var sum = 0;
     for (i = 1 ; i <= count ; i++ ){
         if($('#deleted'+i).val()!= 1){
-            var tt = parseFloat($('#thanhtien'+i).val());
+            var tt = parseFloat(unformatNumber($('#thanhtien'+i).val(),num_grp_sep, dec_sep));
             if(!isNaN(tt)){
                 sum += tt;
             }
         }     
     } 
-    $('#tongtien').val(sum.toString());
+    $('#tongtien').val(formatNumber(sum,num_grp_sep, dec_sep));
 }
 
 //function parent_namechangeQS() {
@@ -256,3 +263,9 @@ function calculateSum(name){
            }
        });
  }
+
+ $(document).ready(function(){
+     if($('#vpdd').val() == ''){
+         $('#LBL_EDITVIEW_PANEL3').hide();
+     }
+ });

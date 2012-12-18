@@ -158,13 +158,13 @@
                          $html .= '<input name="tong_sl_khach[]" type="text" id="tong_sl_khach" class="tinhtoan" value="'.$row['num_of_cus'].'" />';
                      $html .= '</td> ';
                      $html .= '<td align="center">';
-                        $html .= '<input name="gia_tour[]" type="text" id="gia_tour" class="tinhtoan " value="'.$row['tour_cost'].'" /> ';
+                        $html .= '<input name="gia_tour[]" type="text" id="gia_tour" class="tinhtoan " value="'.format_number($row['tour_cost']).'" /> ';
                      $html .= '</td>';
                      $html .= '<td align="center">';
-                        $html .= '<input name="thue[]" type="text" id="thue" class="tinhtoan" value="'.$row['tax'].'" /> ';
+                        $html .= '<input name="thue[]" type="text" id="thue" class="tinhtoan" value="'.format_number($row['tax']).'" /> ';
                      $html .= '</td>';
                      $html .= '<td align="center">';
-                        $html .= '<input readonly="readonly" name="thanhtien[]" type="text" id="thanhtien" class="tinhtoan thanhtien" value="'.number_format($row['money'],'2','.','').'"  />';
+                        $html .= '<input readonly="readonly" name="thanhtien[]" type="text" id="thanhtien" class="tinhtoan thanhtien" value="'.format_number($row['money']).'"  />';
                         $html .= '<input type="hidden" name="contract_value_id[]" id="contract_value_id" value="'.$row['id'].'"/> <input type="hidden" name="deleted[]" id="deleted" value="0"/>';
                      $html .= '</td>';
                      $html .= '<td align="center">';
@@ -201,7 +201,7 @@
                             $html .= '<table cellpadding="0" cellspacing="0" border="0" width="100%"> ';
                                 $html .= '<tr>';
                                     $html .= '<td>';
-                                        $html .= '<input name="dotthanhtoan[]" id="dotthanhtoan" type="text" value="'.$row['contract_phase'].'"/><input name="event[]" type="text" id="event" value="'.$row['event'].'"/> Bên B thanh toán cho bên A <input name="phantram[]" id="phantram" class="percent" type="text" value="'.$row['percent'].'"/> % số tiền là  <input name="tienthanhtoan[]" type="text"  id="tienthanhtoan" value="'.number_format($row['money'],'2','.','').'"/> <select name="tiente_thanhtoan[]" class="tientethanhtoan" id="tiente_thanhtoan">'.$curency.'</select> <br />';
+                                        $html .= '<input name="dotthanhtoan[]" id="dotthanhtoan" type="text" value="'.$row['contract_phase'].'"/><input name="event[]" type="text" id="event" value="'.$row['event'].'"/> Bên B thanh toán cho bên A <input name="phantram[]" id="phantram" class="percent" type="text" value="'.$row['percent'].'"/> % số tiền là  <input name="tienthanhtoan[]" type="text"  id="tienthanhtoan" value="'.format_number($row['money']).'"/> <select name="tiente_thanhtoan[]" class="tientethanhtoan" id="tiente_thanhtoan">'.$curency.'</select> <br />';
                                         $html .= '<input type="hidden" name="contract_condition_id[]" id="contract_condition_id" value="'.$row['id'].'"/>  <input type="hidden" name="deleted[]" id="deleted" value="0"/>';
                                         $html .= 'Bằng chữ: <input name="in_word[]" type="text" id="in_word" value="'.$row['in_word'].'"  size="90"/>';
                                     $html .= '</td>';
@@ -245,10 +245,10 @@
                          $html .= $row['num_of_cus'];
                      $html .= '</td> ';
                      $html .= '<td style="text-align:center" class="tabDetailViewDF">';
-                        $html .= $row['tour_cost'] . ' ';
+                        $html .= format_number($row['tour_cost']) . ' ';
                      $html .= '</td>';
                      $html .= '<td style="text-align:center" class="tabDetailViewDF">';
-                        $html .= $row['tax']. ' ';
+                        $html .= format_number($row['tax']). ' ';
                      $html .= '</td>';
                      $html .= '<td style="text-align:center" class="tabDetailViewDF">';
                         $html .= format_number($row['money']). '';
@@ -278,7 +278,7 @@
                             $html .= '<table cellpadding="0" cellspacing="0" border="1" width="100%" style="border-collapse: collapse;"> ';
                                 $html .= '<tr>';
                                     $html .= '<td>';
-                                        $html .= $row['contract_phase'].' - '.$row['event'].' Bên B thanh toán cho bên A '.$row['percent'].'% số tiền là '.number_format($row['money'],'2','.','').' '.$curency.'<br/>';
+                                        $html .= $row['contract_phase'].' - '.$row['event'].' Bên B thanh toán cho bên A '.$row['percent'].'% số tiền là '.format_number($row['money']).' '.$curency.'<br/>';
                                         $html .= 'Bằng chữ: <b> '.$row['in_word'].'</b>';
                                     $html .= '</td>';
                                 $html .= '</tr>';

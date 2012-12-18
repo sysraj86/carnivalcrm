@@ -48,7 +48,6 @@ array (
         0 => 
         array (
           0 => 'number',
-          1 => '',
         ),
         1 => 
         array (
@@ -116,48 +115,7 @@ array (
           0 => 'swift_code',
           1 => 'bank_address',
         ),
-      ),
-      'lbl_editview_panel3' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            'name' => 'vpdd',
-            'label' => 'LBL_VPDD',
-            'displayParams' => 
-            array (
-              'size' => '60',
-            ),
-          ),
-          1 => '',
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'vpdd_diachi',
-            'label' => 'LBL_ADDRESS',
-          ),
-          1 => '',
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'vpdd_dienthoai',
-            'label' => 'LBL_PHONE',
-          ),
-          1 => 
-          array (
-            'name' => 'vpdd_fax',
-            'label' => 'LBL_FAX',
-          ),
-        ),
-      ),
-      'lbl_editview_panel2' => 
-      array (
-        0 => 
+        7 => 
         array (
           0 => 
           array (
@@ -168,32 +126,32 @@ array (
             'name' => 'customer_type',
           ),
         ),
-        1 => 
+        8 => 
         array (
           0 => 'contacts_contracts_name',
           1 => 'position_b',
         ),
-        2 => 
+        9 => 
         array (
           0 => 'address_b',
           1 => 'mst_benb',
         ),
-        3 => 
+        10 => 
         array (
           0 => 'phone_b',
           1 => 'fax_b',
         ),
-        4 => 
+        11 => 
         array (
           0 => 'bank_name_b',
           1 => 'account_name_b',
         ),
-        5 => 
+        12 => 
         array (
           0 => 'sotaikhoanbenb',
           1 => '',
         ),
-        6 => 
+        13 => 
         array (
           0 => 'birthday',
           1 => 'passport_no_guide',

@@ -941,3 +941,9 @@ $GLOBALS['app_list_strings']['contract_type_service_dom']=array (
         'treem2' => 'Trẻ Em Từ 2 Đến 12 Tuổi',
         'khac' => 'Khác',
     );
+$GLOBALS['app_list_strings']['user_location_dom']=array ( 
+        'SGN' => 'SGN',
+        'HAN' => 'HAN',
+        'HUI' => 'HUI',
+        'KHAC' => 'Khác',
+    );
