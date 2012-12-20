@@ -165,9 +165,7 @@
                 <td class="dataLabel">{$MOD.LBL_NUMOF_DAY}</td>
                 <td class="dataField">
                     <input type="text" name="num_of_day" id="num_of_day" value="{$num_of_day}"/>
-                    {if $ID eq ''}
                     <input type="button" id="addDays" value="Add days"/>
-                    {/if}
                 </td>
                 <td class="dataLabel">&nbsp;</td>
                 <td class="dataLabel">&nbsp;</td>

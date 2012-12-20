@@ -6,12 +6,7 @@
 */
 
 $(document).ready(function () {
-    if(jQuery('[name="record"]').val()== '' ||){
-        jQuery('#addDays').show();
-    }
-    else{
-        jQuery('#addDays').hide();
-    }
+    
     displayHideAdDelRow();
     updateID('TR_table_clone'); 
     var tour_id = $('[name="record"]').val(),
@@ -579,4 +574,12 @@ function displayHideAdDelRow(){
     else{
         jQuery('.btnAddRow, .btnDelRow').show();
     }
+    
+    if(jQuery('[name="record"]').val()== '' || jQuery('#frame_type').val() =='' || jQuery('#frame_type').val() =='O'){
+        jQuery('#addDays').show();
+    }
+    else{
+        jQuery('#addDays').hide();
+    }
 }
+
