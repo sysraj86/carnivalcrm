@@ -45,15 +45,6 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 require_once('include/SugarObjects/templates/person/Person.php');
 
-
-
-
-
-
-
-
-require_once('include/SugarObjects/templates/person/Person.php');
-
 // Lead is used to store profile information for people who may become customers.
 class Lead extends Person {
 	var $field_name_map;

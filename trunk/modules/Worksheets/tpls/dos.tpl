@@ -22,17 +22,19 @@
         <script type="text/javascript" src="modules/Worksheets/js/FomatCurrency.js"></script> 
         <script type="text/javascript" src="custom/include/js/jquery.formatCurrency-1.3.0.js"></script>  
         <script type="text/javascript" src="modules/js/popupRequest.js"></script>
+        <script type="text/javascript" src="custom/include/js/CustomSelectField.js"></script>
         <script type="text/javascript">
             $(function(){
                 $(window).beforeunload(function() {
                     confirm('new message: ' + this.href + ' !', this.href);
                     return false;
                 });
-                $('#btntourname').click(function(){
-                    filterPopup("deparment_advanced", "type", "Tours",  {"call_back_function":"set_return", "form_name": "dos", "field_to_name_array":{"id": "worksheet_tour_id", "name":"worksheet_tour_name","duration":"duration","tour_code":"tourcode","transport2":"transport","tour_destination":"lotrinh"}});
-                    /*open_popup("Tours", 600, 400, "", true, false, {"call_back_function":"set_return", "form_name": "dos", "field_to_name_array":{"id": "worksheet_tour_id", "name":"worksheet_tour_name","duration":"duration","tour_code":"tourcode","transport2":"transport","tour_destination":"lotrinh"}}, "single", true);*/
-                    return false;
-                });
+              //  $('#btntourname').click(function(){
+               //     filterPopup("deparment_advanced", "type", "Tours",  {"call_back_function":"set_return", "form_name": "dos", "field_to_name_array":{"id": "worksheet_tour_id", "name":"worksheet_tour_name","duration":"duration","tour_code":"tourcode","transport2":"transport","tour_destination":"lotrinh"}});
+               //     /*open_popup("Tours", 600, 400, "", true, false, {"call_back_function":"set_return", "form_name": "dos", "field_to_name_array":{"id": "worksheet_tour_id", "name":"worksheet_tour_name","duration":"duration","tour_code":"tourcode","transport2":"transport","tour_destination":"lotrinh"}}, "single", true);*/
+               //     return false;
+              //  });
+                
                 $('#btnMadeTour').click(function(){
                     open_popup("GroupPrograms", 600, 400, "", true, false, {"call_back_function":"set_return", "form_name": "dos", "field_to_name_array":{"id": "groupprogrd737rograms_ida", "groupprogram_code":"groupprograorksheets_name","countofcus":"sokhach",}}, "single", true);
                     return false;
@@ -87,12 +89,12 @@
                     <tr>
                         <td class="dataLabel">Tên tour <span class="required">*</span></td>
                         <td><span class="center">
-                                <input name="worksheet_tour_name" type="text" id="worksheet_tour_name" value="{$TOUR_NAME}" size="50" />
+                                <input name="worksheet_tour_name" type="text" id="worksheet_tour_name" value="{$TOUR_NAME}" size="50"/>
                                 <input name="worksheet_tour_id" type="hidden" id="worksheet_tour_id" value="{$TOUR_ID}">
-                                <input type="hidden" name="type" id="type" value="{$TYPE}">
+                                <input data="Button=cleardata,selectdata|Module=Tours|Fields=id,name,duration,tour_code,transport2,tour_destination|Inputs=worksheet_tour_id,worksheet_tour_name,duration,tourcode,transport,lotrinh" class="select" type="hidden" name="type" id="type" value="{$TYPE}">
                                 {if $ID eq ''}
-                                <button name="btntourname" id="btntourname" value="Select" class="button"> <img src="themes/default/images/id-ff-select.png?s=857f75e8c18ece3e471240849f103469&amp;c=1&amp;developerMode=2125008055" alt=""></button>
-                                <button title="Clear [Alt+C]" accesskey="C" type="button" tabindex="3" class="button" value="Clear" name="" id="" onclick="this.form.worksheet_tour_name.value='';this.form.worksheet_tour_id.value='' ;"=""><img src="themes/default/images/id-ff-clear.png?s=857f75e8c18ece3e471240849f103469&amp;c=1&amp;developerMode=446605591" alt=""> </button>
+<!--                                <button name="btntourname" id="btntourname" value="Select" class="button"> <img src="themes/default/images/id-ff-select.png" alt=""></button>-->
+<!--                                <button title="Clear [Alt+C]" accesskey="C" type="button" tabindex="3" class="button" value="Clear" name="" id="" onclick="this.form.worksheet_tour_name.value='';this.form.worksheet_tour_id.value='' ;"=""><img src="themes/default/images/id-ff-clear.png?s=857f75e8c18ece3e471240849f103469&amp;c=1&amp;developerMode=446605591" alt=""> </button>-->
                                 {/if}
                             </span></td>
                         <td class="dataLabel">Tour Code</td>

@@ -37,10 +37,10 @@
                     foreach($cost_detail as $val){
                         $html .= '<tr height="15">';
                             $html .= '<td class="tdborder"><select name="dos_hotel_standard[]" id="dos_hotel_standard">'.get_select_options($app_list_strings['quotes_dos_hotel_standard'],$val->dos_hotel_standard).'</select></td>';
-                            $html .= '<td class="tdborder"><input type="text" class="ticket_cost" name="ticket_cost[]" id="tickect_cost" value="'.$val->ticket_cost.'" /></td>';
-                            $html .= '<td class="tdborder"><input type="text" class="facility_cost" name="facility_cost[]" id="facility_cost" value="'.$val->facility_cost.'"  /></td>';
-                            $html .= '<td class="tdborder"><input type="text" class="single_room" name="single_room[]" id="single_room"  value="'.$val->single_room.'" /></td>';
-                            $html .= '<td class="tdborder"><input type="text" class="foreign" name="foreign[]" id="foreign" value="'.$val->foreign.'"  /></td>';
+                            $html .= '<td class="tdborder"><input type="text" class="ticket_cost" name="ticket_cost[]" id="tickect_cost" value="'.format_number($val->ticket_cost).'" /></td>';
+                            $html .= '<td class="tdborder"><input type="text" class="facility_cost" name="facility_cost[]" id="facility_cost" value="'.format_number($val->facility_cost).'"  /></td>';
+                            $html .= '<td class="tdborder"><input type="text" class="single_room" name="single_room[]" id="single_room"  value="'.format_number($val->single_room).'" /></td>';
+                            $html .= '<td class="tdborder"><input type="text" class="foreign" name="foreign[]" id="foreign" value="'.format_number($val->foreign).'"  /></td>';
                             $html .= '<td class="tdborder"><input type="button" class="btnAddRow" value="Add Row" /> &nbsp; <input type="button" class="btnDeleteRow" value="Delete Row"/></td>';
                       $html .= '</tr>';
                     }
@@ -62,12 +62,12 @@
                     foreach($ib_cose_detai as $val){
                         $html .= '<tr height="15">';
                             $html .= '<td class="tdborder"><select name="ib_hotel_standard[]" id="ib_hotel_standard">'.get_select_options_with_id($app_list_strings['quotes_ib_hotel_standard'],$val->ib_hotel_standard).'</select></td>';
-                            $html .= '<td class="tdborder"><input type="text" name="group_site1_cost[]" id="group_site1_cost" value="'.$val->group_site1_cost.'"/></td>';
-                            $html .= '<td class="tdborder"><input type="text" name="group_site2_cost[]" id="group_site2_cost" value="'.$val->group_site2_cost.'"/></td>';
-                            $html .= '<td class="tdborder"><input type="text" name="group_site3_cost[]" id="group_site3_cost" value="'.$val->group_site3_cost.'"/></td>';
-                            $html .= '<td class="tdborder"><input type="text" name="group_site4_cost[]" id="group_site4_cost" value="'.$val->group_site4_cost.'"/></td>';
-                            $html .= '<td class="tdborder"><input type="text" name="group_site5_cost[]" id="group_site5_cost" value="'.$val->group_site5_cost.'"/></td>';
-                            $html .= '<td class="tdborder"><input type="text" name="group_site6_cost[]" id="group_site6_cost" value="'.$val->group_site6_cost.'"/></td>';
+                            $html .= '<td class="tdborder"><input type="text" name="group_site1_cost[]" id="group_site1_cost" value="'.format_number($val->group_site1_cost).'"/></td>';
+                            $html .= '<td class="tdborder"><input type="text" name="group_site2_cost[]" id="group_site2_cost" value="'.format_number($val->group_site2_cost).'"/></td>';
+                            $html .= '<td class="tdborder"><input type="text" name="group_site3_cost[]" id="group_site3_cost" value="'.format_number($val->group_site3_cost).'"/></td>';
+                            $html .= '<td class="tdborder"><input type="text" name="group_site4_cost[]" id="group_site4_cost" value="'.format_number($val->group_site4_cost).'"/></td>';
+                            $html .= '<td class="tdborder"><input type="text" name="group_site5_cost[]" id="group_site5_cost" value="'.format_number($val->group_site5_cost).'"/></td>';
+                            $html .= '<td class="tdborder"><input type="text" name="group_site6_cost[]" id="group_site6_cost" value="'.format_number($val->group_site6_cost).'"/></td>';
                             $html .= '<td class="tdborder"><input type="button" class="btnAddRow" value="Add Row" /> &nbsp; <input type="button" class="btnDeleteRow" value="Delete Row"/></td>';
                         $html .= '</tr>';
                     }

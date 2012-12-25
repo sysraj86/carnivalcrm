@@ -1,3 +1,4 @@
+<script type="text/javascript" src="modules/GroupPrograms/js/chuyengiao.js"></script>
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
 <form action="index.php"  name="DetailView" id="DetailView" method="post">
 <input type="hidden"   name="module"         value="GroupPrograms">
@@ -31,7 +32,10 @@
             value=" {$APP.LBL_DELETE_BUTTON_LABEL} ">
             
      <input title="View Change Log" class="button" onclick='open_popup("Audit", "600", "400", "&record={$ID}&module_name=GroupPrograms", true, false,  {$view_change_log} ); return false;' type="submit" value="View Change Log">
-     <input title="export to wword" class="button" type="button" onclick="window.location.href='index.php?module=GroupPrograms&action=export2word&record={$ID}'" value=" Export to Word" />
+     <input title="Export to Word" class="button" type="button" onclick="window.location.href='index.php?module=GroupPrograms&action=export2word&record={$ID}'" value="Export to Word" />
+     <input title="{$CHUYENGIAO_TITLE}" type="button" id="chuyengiao" class="button" value="{$CHUYENGIAO}" />
+     <input type="hidden" id="dachuyengiao" name="dachuyengiao" value="{$DACHUYENGIAO}" />
+     <input type="hidden" id="dachuyengiao_task" name="dachuyengiao_task" value="{$DACHUYENGIAO_TASK}" />
     </td>
 </tr>
 </table>

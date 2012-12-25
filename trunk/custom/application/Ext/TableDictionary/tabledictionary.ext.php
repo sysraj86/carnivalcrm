@@ -508,6 +508,11 @@ include('custom/metadata/oders_activities_tasksMetaData.php');
 
  
  //WARNING: The contents of this file are auto-generated
+include('custom/metadata/opportunities_quotesMetaData.php');
+
+
+ 
+ //WARNING: The contents of this file are auto-generated
 include('custom/metadata/orders_activities_callsMetaData.php');
 
 

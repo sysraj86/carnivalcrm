@@ -28,13 +28,9 @@ array (
         ),
         1 => 
         array (
-          'file' => 'custom/include/js/CustomSelectField.js',
-        ),
-        2 => 
-        array (
           'file' => 'modules/Quotes/calculate.js',
         ),
-        3 => 
+        2 => 
         array (
           'file' => 'modules/Quotes/js/table.addrow.plugin.js',
         ),
@@ -61,11 +57,10 @@ array (
         ),
         1 => 
         array (
-          0 => 
-          array (
-            'name' => 'name',
-            'customCode' => '<input type="text" name="name" size="30" id="name" value="{$fields.name.value}"/> <input type="hidden" id="tour_name" value="{$tour_name}"/> <input type="hidden" id="tour_id" value="{$tour_id}"/> <input type="hidden" id="is_tour" value="{$is_tour}"/>',
-          ),
+          0 => array(
+               'name' => 'name',
+               'customCode' => '<input type="text" name="name" size="30" id="name" value="{$fields.name.value}"/> <input type="hidden" id="tour_name" value="{$tour_name}"/> <input type="hidden" id="tour_id" value="{$tour_id}"/> <input type="hidden" id="is_tour" value="{$is_tour}"/>'
+            ),
           1 => 
           array (
             'name' => 'parent_name',
@@ -75,23 +70,13 @@ array (
         2 => 
         array (
           0 => 'quotes_tours_name',
-          1 => array(
-            'name' => 'contacts_quotes_name',
-            'customCode' => '
-            <input type="text" name="contacts_quotes_name" id="contacts_quotes_name" value="{$fields.contacts_quotes_name.value}" data="Button=cleardata,selectdata|Module=Contacts|Fields=id,name|Inputs=contacts_q33a7ontacts_ida,contacts_quotes_name" filter="Fields=account_id_advanced,accounts_contacts_name_advanced|Inputs=parent_id,parent_name" class="select">
-            <input type="hidden" name="contacts_q33a7ontacts_ida" id="contacts_q33a7ontacts_ida" value="{$fields.contacts_q33a7ontacts_ida.value}">
-            ',
-          ),
+          1 => 'contacts_quotes_name',
         ),
         3 => 
         array (
           0 => 
           array (
             'name' => 'orders_quotes_name',
-          ),
-          1 => 
-          array (
-            'name' => 'opportunities_quotes_name',
           ),
         ),
         4 => 
