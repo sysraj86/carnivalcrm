@@ -308,7 +308,7 @@
                     $img = '';
                 }
                 //title
-                $html .= "<p class=MsoNormal style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;
+                $html .= "<br /><p class=MsoNormal style='margin-top:3.0pt;margin-right:0in;margin-bottom:3.0pt;
                 margin-left:0in;text-align:justify;line-height:115%'><b style='mso-bidi-font-weight:
                 normal'><u><span style='color:blue'> Ngày $i " . $row['title'] . "<o:p></o:p></span></u></b></p>";
                 //note

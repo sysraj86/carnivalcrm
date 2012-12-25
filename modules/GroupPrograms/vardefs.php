@@ -95,6 +95,11 @@
           'vname'       => 'LBL_OPERATOR',
           'type'        => 'varchar',
           'len'         => 250,
+        ),
+        'operator_id' => array(
+          'name'        => 'operator_id',
+          'vname'       => 'LBL_OPERATOR_ID',
+          'type'        => 'id',
         ), 
         
         'operator_phone'   => array(

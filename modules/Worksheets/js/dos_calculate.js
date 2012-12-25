@@ -18,6 +18,24 @@ $(function(){
             $(this).val("0");
         }
     });
+    
+    // Add By Thanh Le At 25/12/2012
+    if($(".ghichu").val()==""){
+        $(this).val('Ghi chú');
+    }
+    $(".ghichu").focus(function(){
+        if($(this).val()== 'Ghi chú'){
+            $(this).val("");   
+        }
+    });
+    //$(".center").numeric();
+    $(".ghichu").blur(function(){
+        if($(this).val()==""){
+            $(this).val("Ghi chú");
+        }
+    });
+    
+    // End By Thanh Le At 25/12/2012
 
     $(".btnAddRow").live('click',function(){
         if($(this).closest('table').attr('class')=='table_clone') {
@@ -226,7 +244,7 @@ function tongchinhahang(){
     var sum = 0; 
     var tongthue = 0;
     var count = $("#nhahang").find("tbody > tr").length;
-    for(i = 1; i<=count; i++ ){
+    for(i = 0; i<count; i++ ){
         tongtien = parseFloat(unformat($("#nh_thanhtien"+i).val()));          
         thue = parseFloat(unformat($("#nh_vat"+i).val()));
         sum += tongtien;
@@ -247,7 +265,7 @@ function tinhtongchikhachsan(){
     var sum = 0;
     var tongthue = 0;
     var count = $("#khachsan").find("tbody > tr").length;
-    for(i = 1; i<=count; i++ ){
+    for(i = 0; i<count; i++ ){
         tongtien = parseFloat(unformat($("#ks_thanhtien"+i).val()));
         thue = parseFloat(unformat($("#ks_vat"+i).val()));
         sum += tongtien;
@@ -268,7 +286,7 @@ function tinhtongchivanchuyen(){
     var sum = 0;
     var tongthue = 0;
     var count = $("#vanchuyen").find("tbody > tr").length;
-    for(i = 1; i<=count; i++ ){
+    for(i = 0; i<count; i++ ){
         tongtien = parseFloat(unformat($("#vanchuyen_thanhtien"+i).val()));
         thue =  parseFloat(unformat($("#vanchuyen_vat"+i).val()));
         sum += tongtien;
@@ -289,7 +307,7 @@ function tinhtongchichodichvu(){
     var sum = 0;
     var tongthue = 0;
     var count = $("#dichvu").find("tbody > tr").length;
-    for(i = 1; i<=count; i++ ){
+    for(i = 0; i<count; i++ ){
         tongtien = parseFloat(unformat($("#services_thanhtien"+i).val()));
         thue = parseFloat(unformat($("#services_vat"+i).val()));
         sum += tongtien;
@@ -311,7 +329,7 @@ function tinhtongchichothamquan(){
     var sum = 0;
     var tongthue = 0;
     var count = $("#thamquan").find("tbody > tr").length;
-    for(i = 1; i<=count; i++ ){
+    for(i = 0; i<count; i++ ){
         tongtien = parseFloat(unformat($("#thamquan_thanhtien"+i).val()));
         thue = parseFloat(unformat($("#thamquan_vat"+i).val()));
         sum += tongtien;
@@ -380,7 +398,7 @@ function tinhtongchiphivemaybay(){
     tongtien = 0;
     tongthue = 0;
     count = $('#vemaybay').find('tbody > tr').length; 
-    for(i=1;i<=count;i++){
+    for(i=0;i<count;i++){
         tongtien += parseFloat(unformat($('#vemaybay_thanhtien'+i).val()));
         tongthue += parseFloat(unformat($('#vemaybay_vat'+i).val()));
     }
@@ -399,7 +417,7 @@ function tinhtoanchiphikhac(){
     tongtienchiphikhac = 0;
     tongthuechiphikhac = 0;            
     count = $('#chiphikhac').find('tbody > tr').length;
-    for(i=1;i<=count;i++){
+    for(i=0;i<count;i++){
         tongtienchiphikhac += parseFloat(unformat($('#chiphikhac_thanhtien'+i).val()));
         tongthuechiphikhac += parseFloat(unformat($('#chiphikhac_vat'+i).val()));
     }

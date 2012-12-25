@@ -585,6 +585,7 @@
         $vemaybay = count($_POST['vemaybay']);
         for($vmb_mb=0;$vmb_mb<$vemaybay;$vmb_mb++){
             $VMB[$vmb_mb]->vemaybay = $_POST['vemaybay'][$vmb_mb]  ;
+            $VMB[$vmb_mb]->vemaybay_ghichu = $_POST['vemaybay_ghichu'][$vmb_mb]  ;   
             $VMB[$vmb_mb]->vemaybay_dongia = $_POST['vemaybay_dongia'][$vmb_mb]  ;   
             $VMB[$vmb_mb]->vemaybay_soluong = $_POST['vemaybay_soluong'][$vmb_mb]  ;   
             $VMB[$vmb_mb]->vemaybay_foc = $_POST['vemaybay_foc'][$vmb_mb]  ;   
@@ -605,6 +606,7 @@
         for($a=0; $a<$nhahang; $a++){
             $NHAHANG[$a]->nh_id = $_POST['nh_id'][$a];
             $NHAHANG[$a]->nh_name = $_POST['nh_name'][$a];
+            $NHAHANG[$a]->nh_ghichu = $_POST['nh_ghichu'][$a];
             $NHAHANG[$a]->nh_giathamkhao = $_POST['nh_giathamkhao'][$a];
             $NHAHANG[$a]->nh_dongia = $_POST['nh_dongia'][$a];
             $NHAHANG[$a]->nh_soluong = $_POST['nh_soluong'][$a];
@@ -645,6 +647,7 @@
         $vanchuyen = count($_POST['vanchuyen_name']); 
         for($c=0; $c<$vanchuyen; $c++){
             $VANCHUYEN[$c]->vanchuyen_name = $_POST['vanchuyen_name'][$c];
+            $VANCHUYEN[$c]->vanchuyen_ghichu = $_POST['vanchuyen_ghichu'][$c];
             $VANCHUYEN[$c]->vanchuyen_giathamkhao = $_POST['vanchuyen_giathamkhao'][$c];
             $VANCHUYEN[$c]->vanchuyen_dongia = $_POST['vanchuyen_dongia'][$c];
             $VANCHUYEN[$c]->vanchuyen_soluong = $_POST['vanchuyen_soluong'][$c];
@@ -665,6 +668,7 @@
         $dichvu = count($_POST['services_name']); 
         for($d=0; $d<$dichvu; $d++){
             $DICHVU[$d]->services_name = $_POST['services_name'][$d];
+            $DICHVU[$d]->services_ghichu = $_POST['services_ghichu'][$d];
             $DICHVU[$d]->services_giathamkhao = $_POST['services_giathamkhao'][$d];
             $DICHVU[$d]->services_dongia = $_POST['services_dongia'][$d];
             $DICHVU[$d]->services_soluong = $_POST['services_soluong'][$d];
@@ -684,6 +688,7 @@
         $thamquan = count($_POST['thamquan_name']); 
         for($e=0; $e<$thamquan; $e++){
             $THAMQUAN[$e]->thamquan_name = $_POST['thamquan_name'][$e];
+            $THAMQUAN[$e]->thamquan_ghichu = $_POST['thamquan_ghichu'][$e];
             $THAMQUAN[$e]->thamquan_giathamkhao = $_POST['thamquan_giathamkhao'][$e];
             $THAMQUAN[$e]->thamquan_dongia = $_POST['thamquan_dongia'][$e];
             $THAMQUAN[$e]->thamquan_soluong = $_POST['thamquan_soluong'][$e];

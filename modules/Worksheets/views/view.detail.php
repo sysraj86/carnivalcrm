@@ -1337,6 +1337,7 @@
                     $html .= '<thead>'; 
                     $html .= '<tr>';
                     $html .= '<td class="border"><b>Vé chuyến bay<b></td>';
+                    $html .= '<th class="border">Ghi chú</th>';
                     $html .= '<th class="border">Giá tham khảo</th>';
                     $html .= '<th class="border">Đơn giá</th>';
                     $html .= '<th class="border">Số lượng</th>';
@@ -1352,6 +1353,7 @@
                     foreach($vemaybay as $airtk){
                         $html .= '<tr>';
                         $html .= '<td class="border"><a href="index.php?module=AirlinesTickets&action=DetailView&record='.$airtk->vemaybay.'">'.translate('list_airlinetiket_dom','',$airtk->vemaybay).'</a></td>';
+                        $html .= '<td align="center" class="tabDetailViewDF border">'.$airtk->vemaybay_ghichu.'</td>';
                         $html .= '<td align="center" class="tabDetailViewDF border">'.$airtk->vemaybay_giathamkhao.'</td>';
                         $html .= '<td align="center" class="tabDetailViewDF border">'.$airtk->vemaybay_dongia.'</td>';
                         $html .= '<td align="center" class="tabDetailViewDF border">'.$airtk->vemaybay_soluong.'</td>';
@@ -1366,7 +1368,7 @@
                     $html .= '</tbody>';
                     $html .= '<tfoot>';
                     $html .= '<tr>';
-                    $html .= '<th class="border" colspan="4">TỔNG CỘNG</th>';
+                    $html .= '<th class="border" colspan="5">TỔNG CỘNG</th>';
                     //                        $html .= '<th class="border">&nbsp;</th>';
                     //                        $html .= '<th class="border">&nbsp;</th>';
                     //                        $html .= '<th class="border">&nbsp;</th>';
@@ -1391,6 +1393,7 @@
                     $html .= '<thead>'; 
                     $html .= '<tr>';
                     $html .= '<td class="border"><b>Tên nhà hàng</b></td>';
+                    $html .= '<th class="border">Ghi Chú</th>';
                     $html .= '<th class="border">Giá tham khảo</th>';
                     $html .= '<th class="border">Đơn giá</th>';
                     $html .= '<th class="border">Số lượng</th>';
@@ -1408,6 +1411,7 @@
                     foreach($NHAHANG as $val){
                         $html .= '<tr>';
                         $html .= '<td class="border"><a href="index.php?module=Restaurants&action=DetailView&record='.$val->nh_id.'">'.translate('list_restaurant_dom','',$val->nh_id).'</a></td>';
+                        $html .= '<td align="center" class="tabDetailViewDF border">'.$val->nh_ghichu.'</td>';
                         $html .= '<td align="center" class="tabDetailViewDF border">'.$val->nh_giathamkhao.'</td>';
                         $html .= '<td align="center" class="tabDetailViewDF border">'.$val->nh_dongia.'</td>';
                         $html .= '<td align="center" class="tabDetailViewDF border">'.$val->nh_soluong.'</td>';
@@ -1420,7 +1424,7 @@
                     $html .= '</tbody>';
                     $html .= '</tfoot>';
                     $html .= '<tr>';
-                    $html .= '<th class="border" colspan="5">TỔNG CỘNG</th>';
+                    $html .= '<th class="border" colspan="6">TỔNG CỘNG</th>';
                     //                        $html .= '<th>&nbsp;</th>';
                     //                        $html .= '<th>&nbsp;</th>';
                     //                        $html .= '<th>&nbsp;</th>';
@@ -1507,6 +1511,7 @@
                     $html .= '<thead>';
                     $html .= '<tr>';
                     $html .= '<td class="border"><b>Loại xe</b></td>';
+                    $html .= '<th class="border">Ghi chú</th>';
                     $html .= '<th class="border">Giá tham khảo</th>';
                     $html .= '<th class="border">Đơn giá</th>';
                     $html .= '<th class="border">Số lượng</th>';
@@ -1524,6 +1529,7 @@
                     foreach ($VANCHUYEN as $vcval){
                         $html .= '<tr>';
                         $html .= '<td class="nottabDetailViewDF border"><a href="index.php?module=Cars&action=DetailView&record='.$vcval->vanchuyen_name.'">'.translate('list_vanchuyen_dom','',$vcval->vanchuyen_name).'</a> </td>';
+                        $html .= '<td class="tabDetailViewDF border">'.$vcval->vanchuyen_ghichu.'</td>';
                         $html .= '<td class="tabDetailViewDF border">'.$vcval->vanchuyen_giathamkhao.'</td>';
                         $html .= '<td class="tabDetailViewDF border">'.$vcval->vanchuyen_dongia.' '.translate('vanchuyen_dongia_option','',$vcval->dongia_option) .' </td>';
                         $html .= '<td class="tabDetailViewDF border">'.$vcval->vanchuyen_soluong.'</td>';
@@ -1540,7 +1546,7 @@
                     $html .= '</tbody>';
                     $html .='<tfoot>';
                     $html .= '<tr>';
-                    $html .= '<th class="border" colspan="5">TỔNG CỘNG</th>';
+                    $html .= '<th class="border" colspan="6">TỔNG CỘNG</th>';
                     //                    $html .= '<th class="border">&nbsp;</th>';
                     //                    $html .= '<th class="border">&nbsp;</th>';
                     //                    $html .= '<th class="border">&nbsp;</th>';
@@ -1567,6 +1573,7 @@
                     $html .= '<thead>';
                     $html .= '<tr>';
                     $html .= '<td class="border"><b>Loại dịch vụ</b></td>';
+                    $html .= '<th class="border">Ghi chú</th>';
                     $html .= '<th class="border">Giá tham khảo</th>';
                     $html .= '<th class="border">Đơn giá</th>';
                     $html .= '<th class="border">Số lượng</th>';
@@ -1585,6 +1592,7 @@
                         if($dvval->services_deleted == 0){
                             $html .= '<tr>';
                             $html .= '<td class="nottabDetailViewDF border">  <a href="index.php?module=Services&action=DetailView&record='.$dvval->services_name.'">'.translate('list_dichvu_dom','',$dvval->services_name).'</a> </td>';
+                            $html .= '<td class="tabDetailViewDF border">'.$dvval->services_ghichu.'</td>';
                             $html .= '<td class="tabDetailViewDF border">'.$dvval->services_giathamkhao.'</td>';
                             $html .= '<td class="tabDetailViewDF border">'.$dvval->services_dongia.'</td>';
                             $html .= '<td class="tabDetailViewDF border">'.$dvval->services_soluong.'</td>';
@@ -1603,7 +1611,7 @@
                     $html .= '</tbody>';
                     $html .= '<tfoot>';
                     $html .= '<tr>';
-                    $html .= '<th class="border" colspan="5">TỔNG CỘNG</th>';
+                    $html .= '<th class="border" colspan="6">TỔNG CỘNG</th>';
                     //                    $html .= '<th>&nbsp;</th>';
                     //                    $html .= '<th>&nbsp;</th>';
                     //                    $html .= '<th>&nbsp;</th>';
@@ -1629,6 +1637,7 @@
                     $html .= '<thead>';
                     $html .= '<tr>';
                     $html .= '<td class="border"><b>Địa điểm tham quan</b></td>';
+                    $html .= '<th class="border">Ghi chú</th>';
                     $html .= '<th class="border">Giá tham khảo</th>';
                     $html .= '<th class="border">Đơn giá</th>';
                     $html .= '<th class="border">Số lượng</th>';
@@ -1644,6 +1653,7 @@
                     foreach($THAMQUAN as $tqval){
                         $html .= '<tr>';
                         $html .= '<td class="nottabDetailViewDF border"> <a href="index.php?module=Services&action=DetailView&record='.$tqval->thamquan_name.'">'.translate('list_thamquan_dom','',$tqval->thamquan_name).'</a></td>';
+                        $html .= '<td align="center" class="center border">'.$tqval->thamquan_ghichu.'</td>';
                         $html .= '<td align="center" class="center border">'.$tqval->thamquan_giathamkhao.'</td>';
                         $html .= '<td align="center" class="center border">'.$tqval->thamquan_dongia.'</td>';
                         $html .= '<td align="center" class="center border">'.$tqval->thamquan_soluong.'</td>';
@@ -1661,7 +1671,7 @@
                     $html .= '</body>';
                     $html .= '<tfoot>';
                     $html .= '<tr>';
-                    $html .= '<th class="border" colspan="5">TỔNG CỘNG</th>';
+                    $html .= '<th class="border" colspan="6">TỔNG CỘNG</th>';
                     //                $html .= '<th>&nbsp;</th>';
                     //                $html .= '<th>&nbsp;</th>';
                     //                $html .= '<th>&nbsp;</th>';

@@ -81,6 +81,10 @@ array (
         3 => 
         array (
           0 => 'orders_quotes_name',
+          1 => 
+          array (
+            'name' => 'opportunities_quotes_name',
+          ),
         ),
         4 => 
         array (
@@ -118,6 +122,7 @@ array (
                      </table>
                 </div>',
           ),
+          
         ),
       ),
       'lbl_gia_bao_gom' => 

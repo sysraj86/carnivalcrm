@@ -10,6 +10,7 @@
     global $app_strings;
     global $app_list_strings;
     global $gridline;
+    global $db;
     
     
     $focus =new GroupProgram();
@@ -101,7 +102,34 @@
     $ss->assign('CREATED_BY', $focus->created_by_name);
     $ss->assign('DATE_MODIFIED', $focus->date_modified);
     $ss->assign('MODIFIED_BY', $focus->modified_by_name);
+    $ss->assign('CHUYENGIAO', $mod_strings['LBL_CHUYENGIAOKEHOACHDOAN']);
+    $ss->assign('CHUYENGIAO_TITLE', $mod_strings['LBL_CHUYENGIAOKEHOACHDOAN_TITLE']);
+    // Xac cap nhat tinh trang da chuyen giao ; By Thanh Le At 22/12/2012
+    $sql = "SELECT 
+              a.`status`,a.id 
+            FROM
+              tasks a 
+            WHERE a.`deleted` = 0 
+              AND a.`name` = 'Xác nhận Thực Hiện Tour' 
+              AND a.`parent_type` = 'GroupPrograms' 
+              AND a.`parent_id` = '{$focus->id}'";
+    $result = $db->query($sql);
+    $row = $db->fetchByAssoc($result);
+    if($row){
+       $ss->assign('CHUYENGIAO', $mod_strings['LBL_XACNHANCHUYENGIAO']);
+       $ss->assign('CHUYENGIAO_TITLE', $mod_strings['LBL_XACNHANCHUYENGIAO_TITLE']);
+       $ss->assign('DACHUYENGIAO', 1);
+       $ss->assign('DACHUYENGIAO_TASK', $row['id']);
+       if($row['status'] == 'Completed'){
+           $ss->assign('DACHUYENGIAO', 2); 
+           $ss->assign('CHUYENGIAO', $mod_strings['LBL_DAXACNHANCHUYENGIAO']);
+           $ss->assign('CHUYENGIAO_TITLE', $mod_strings['LBL_DAXACNHANCHUYENGIAO']);
+       }
+    }else{
+       $ss->assign('DACHUYENGIAO', 0); 
+    }
     
+    // End
     // view change log
     
      $view_chang_log_data = array(

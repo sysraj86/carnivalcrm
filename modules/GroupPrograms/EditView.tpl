@@ -360,15 +360,15 @@ function parent_namechangeQS(parent_name) {
             <td class="dataLabel">{$MOD.LBL_OPERATOR}</td>
             <td class="dataField">
                 <input class="sqsEnabled" name="operator" id="operator" size="25" type="text" value="{$OPERATOR}"/>
-                <input type="hidden" id="assigned_user_id" name="assigned_user_id" value="{$ASSIGNED_USER_ID}"/>
-                <input type="text" name="operator_phone" id="operator_phone" data="Button=cleardata,selectdata|Module=Users|Fields=id,name,phone|Inputs=assigned_user_id,operator,operator_phone" class="select" value="{$OPERATOR_PHONE}"/>
-<!--                <input title="{$APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{$APP.LBL_SELECT_BUTTON_KEY}" type="button"
-                       class="button" value='{$APP.LBL_SELECT_BUTTON_LABEL}' name="bnt_operator_name"
-                       id="bnt_operator_name"
-                       onclick='open_popup("Users", 600, 400, "", true, false, {$operator_users}, "single", true);'>
-                <input title="{$APP.LBL_CLEAR_BUTTON_TITLE}" accessKey="{$APP.LBL_CLEAR_BUTTON_KEY}" type="button"
-                       class="button" value='{$APP.LBL_CLEAR_BUTTON_LABEL}' name="" id=""
-                       onclick='this.form.operator.value="";this.form.operator_phone.value="";this.form.assigned_user_id.value="";'> -->
+                <input type="hidden" id="operator_id" name="operator_id" value="{$OPERATOR_ID}"/>
+                <input type="text" name="operator_phone" id="operator_phone" data="Button=cleardata,selectdata|Module=Users|Fields=id,name,phone|Inputs=operator_id,operator,operator_phone" class="select" value="{$OPERATOR_PHONE}"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="dataLabel">{$MOD.LBL_ASSIGNED_TO_NAME}</td>
+            <td class="dataField">
+                <input class="sqsEnabled" name="assigned_user_name" id="assigned_user_name" size="25" type="text" value="{$ASSIGNED_USER_NAME}"/>
+                <input type="hidden" id="assigned_user_id" name="assigned_user_id" data="Button=cleardata,selectdata|Module=Users|Fields=id,name|Inputs=assigned_user_id,assigned_user_name" class="select" value="{$ASSIGNED_USER_ID}"/>
             </td>
         </tr>
     </table>

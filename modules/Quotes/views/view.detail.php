@@ -42,10 +42,10 @@
                     foreach($cost_detail as $val){
                         $html .= '<tr height="15">';
                             $html .= '<td class="tdborder">'.translate('quotes_dos_hotel_standard','',$val->dos_hotel_standard).'</td>';
-                            $html .= '<td class="tdborder">'.$val->ticket_cost.'</td>';
-                            $html .= '<td class="tdborder">'.$val->facility_cost.'</td>';
-                            $html .= '<td class="tdborder">'.$val->single_room.'</td>';
-                            $html .= '<td class="tdborder">'.$val->foreign.'</td>';
+                            $html .= '<td class="tdborder">'.format_number($val->ticket_cost).'</td>';
+                            $html .= '<td class="tdborder">'.format_number($val->facility_cost).'</td>';
+                            $html .= '<td class="tdborder">'.format_number($val->single_room).'</td>';
+                            $html .= '<td class="tdborder">'.format_number($val->foreign).'</td>';
                       $html .= '</tr>';
                     }
                 }
@@ -79,12 +79,12 @@
                     foreach($ib_cose_detai as $val){
                         $html .= '<tr height="15">';
                             $html .= '<td class="tdborder">'.translate('quotes_ib_hotel_standard','',$val->ib_hotel_standard).'</td>';
-                            $html .= '<td class="tdborder">'.$val->group_site1_cost.'</td>';
-                            $html .= '<td class="tdborder">'.$val->group_site2_cost.'</td>';
-                            $html .= '<td class="tdborder">'.$val->group_site3_cost.'</td>';
-                            $html .= '<td class="tdborder">'.$val->group_site4_cost.'</td>';
-                            $html .= '<td class="tdborder">'.$val->group_site5_cost.'</td>';
-                            $html .= '<td class="tdborder">'.$val->group_site6_cost.'</td>';
+                            $html .= '<td class="tdborder">'.format_number($val->group_site1_cost).'</td>';
+                            $html .= '<td class="tdborder">'.format_number($val->group_site2_cost).'</td>';
+                            $html .= '<td class="tdborder">'.format_number($val->group_site3_cost).'</td>';
+                            $html .= '<td class="tdborder">'.format_number($val->group_site4_cost).'</td>';
+                            $html .= '<td class="tdborder">'.format_number($val->group_site5_cost).'</td>';
+                            $html .= '<td class="tdborder">'.format_number($val->group_site6_cost).'</td>';
                         $html .= '</tr>';
                     }
                 }

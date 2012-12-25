@@ -299,10 +299,10 @@
                 $ob_cost_detail = $content->ob_cost_detail; 
                 $html .= '<table width="100%" border="0" class="table_clone" cellspacing="0" cellpadding="2" style="border-collapse:collapse">';
                 $html .= '<tr>';
-                $html .= '<td align="center">Giá: '.$ob_cost_detail->price.' '.translate('currency_dom','',$ob_cost_detail->currency).' + '.$ob_cost_detail->tax.' '.translate('currency_dom','',$ob_cost_detail->currency).'(Thuế) '.$ob_cost_detail->total_price.' '.translate('currency_dom','',$ob_cost_detail->currency).' </td>';
+                $html .= '<td align="center"><b>Giá: '.$ob_cost_detail->price.' '.translate('currency_dom','',$ob_cost_detail->currency).' + '.$ob_cost_detail->tax.' '.translate('currency_dom','',$ob_cost_detail->currency).'(Thuế) = '.$ob_cost_detail->total_price.' '.translate('currency_dom','',$ob_cost_detail->currency).' </b></td>';
                 $html .= '</tr>';
                 $html .= '<tr>';
-                $html .= '<td align="center">'.html_entity_decode_utf8(nl2br($ob_cost_detail->price_note)).'</td>';
+                $html .= '<td align="center"><b>'.html_entity_decode_utf8(nl2br($ob_cost_detail->price_note)).'</b></td>';
                 $html .= '</tr>';
                 $html .= '</table>';
                 $template = str_replace('{COST_DETAIL}',$html,$template);

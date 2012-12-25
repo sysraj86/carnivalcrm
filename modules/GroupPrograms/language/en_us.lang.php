@@ -106,6 +106,10 @@ $mod_strings = array (
   'LBL_NUM_PLATE' => 'Number plate',
   'LBL_DRIVER_PHONE' => 'Contact phone',
   'LBL_DURATION' => 'Duration',
-
+  'LBL_CHUYENGIAOKEHOACHDOAN' => 'Chuyển Giao',
+  'LBL_XACNHANCHUYENGIAO' => 'Xác Nhận',
+  'LBL_DAXACNHANCHUYENGIAO' => 'Đã Xác Nhận',
+  'LBL_CHUYENGIAOKEHOACHDOAN_TITLE' => 'Chuyển Giao Kế Hoạch Đoàn Cho Điều Hành',
+  'LBL_XACNHANCHUYENGIAO_TITLE' => 'Điều Hành Xác Nhận Được Chuyển Giao',
 );
 ?>

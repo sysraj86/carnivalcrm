@@ -35,16 +35,17 @@
         $html .=  '$("#return_id").val($("#worksheet_id").val()); ';
         $html .= '
             $(".center").val("0");
+            $(".ghichu").val("Ghi chú");
             $(".center").focus(function(){
                     if($(this).val()== 0){
                         $(this).val("");   
                     }
                 });
-                $(".center").blur(function(){
-                    if($(this).val()==""){
-                        $(this).val("0");
-                    }
-                });';
+            $(".center").blur(function(){
+                if($(this).val()==""){
+                    $(this).val("0");
+                }
+            });';
         $html .= '</script>';
         if($id){
             
@@ -57,7 +58,7 @@
                  if(count($airArrtk)>0){
                     $html .= '<fieldset>';
                     $html .= '<legend><h3>VÉ MÁY BAY</h3></legend>';
-                    $html .= '<table width="100%" class="tabForm" id="vemaybay" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
+                    $html .= '<table width="100%" class="table_clone" id="vemaybay" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">';
                     $html .= '<thead>'; 
                     $html .= '<tr>';
                     $html .= '<th>Vé chuyến bay</th>';
@@ -80,7 +81,9 @@
                     $vmb_mb = 0;
                         foreach($airArrtk as $airtk){
                             $html .= '<tr>';
-                                $html .= '<td class="dataField"><select name="vemaybay[]" id="vemaybay'.$vmb_mb.'">'.get_select_options_with_id($app_list_strings['list_airlinetiket_dom'],$airtk['id']).'</select> </td>';
+                                $html .= '<td class="dataField"><select name="vemaybay[]" id="vemaybay'.$vmb_mb.'">'.get_select_options_with_id($app_list_strings['list_airlinetiket_dom'],$airtk['id']).'</select>
+                                <br /><input type="text" class="ghichu" size="15" name="vemaybay_ghichu[]" id="vemaybay_ghichu'.$vmb_mb.'" value="" />
+                                </td>';
                                 $html .= '<td class="dataField"><input type="text" class="dongia center" name="vemaybay_dongia[]" id="vemaybay_dongia'.$vmb_mb.'" value="0" /> <select style="display:none;" class="giathamkhao_an" id="vemabay_giathamkhao_an" name="vemabay_giathamkhao_an[]">'.get_select_options_with_id($app_list_strings['list_airlinetiket_giathamkhao_dom'],$airtk['id']).'</select></td>';
                                 $html .= '<td class="dataField"><input type="text" class="soluong center" name="vemaybay_soluong[]" id="vemaybay_soluong'.$vmb_mb.'" value="0" /></td>';
                                 $html .= '<td class="dataField"><input type="text" class="foc center" name="vemaybay_foc[]" id="vemaybay_foc'.$vmb_mb.'" value="0" /></td>';
@@ -93,6 +96,7 @@
                                 $html .= '<td class="dataField"><input type="button" class="btnAddRow" value="Add row"/> <input type="button" class="btnDelRow" value="Delete row"/></td>';
                               $html .= '</tr>';
                                 $VMB[$vmb_mb]->vemaybay = $airtk['id']  ;
+                                $VMB[$vmb_mb]->vemaybay_ghichu = ''  ;
                                 $VMB[$vmb_mb]->vemaybay_dongia = 0  ;
                                 $VMB[$vmb_mb]->vemaybay_soluong = 0  ;
                                 $VMB[$vmb_mb]->vemaybay_foc = 0  ;
@@ -157,7 +161,9 @@
                 $i = 0;
                 foreach($nhArr as $val){
                     $html .= '<tr>';
-                        $html .= '<td class="notcenter"><select class="servicename" name="nh_id[]" id="nh_id'.$i.'">'.get_select_options_with_id($app_list_strings['list_restaurant_dom'],$val['id']).' </select><input class="service_name" type="hidden" name="nh_name[]" id="nh_name'.$i.'" value="'.$val['name'].'"/></td>';
+                        $html .= '<td class="notcenter"><select class="servicename" name="nh_id[]" id="nh_id'.$i.'">'.get_select_options_with_id($app_list_strings['list_restaurant_dom'],$val['id']).' </select><input class="service_name" type="hidden" name="nh_name[]" id="nh_name'.$i.'" value="'.$val['name'].'"/>
+                        <br /><input type="text" class="ghichu" size="15" name="nh_ghichu[]" id="nh_ghichu'.$i.'" value="" />
+                        </td>';
                         $html .= '<td><input type="text" size="10" class="giathamkhao" name="nh_giathamkhao[]" id="nh_giathamkhao'.$i.'" value="'.format_number($val['giathamkhao']).'"/><select style="display:none;" class="giathamkhao_an" id="nh_giathamkhao_an" name="nh_giathamkhao_an[]">'.get_select_options_with_id($app_list_strings['list_restaurant_giathamkhao_dom'],$val['id']).'</select> </td>';
                         $html .= '<td class="center"><input size="10" class="dongia center" name="nh_dongia[]" type="text" id="nh_dongia'.$i.'" /></td>';
                         $html .= '<td class="center"><input class="soluong center" name="nh_soluong[]" type="text" id="nh_soluong'.$i.'" size="10" /></td>';
@@ -173,6 +179,7 @@
                     $NHAHANG[$i]->nh_name = $val['name'];
                     $NHAHANG[$i]->nh_id = $val['id'];
                     $NHAHANG[$i]->nh_giathamkhao = $val['giathamkhao'];
+                    $NHAHANG[$i]->nh_ghichu = '';
                     $NHAHANG[$i]->nh_dongia = 0;
                     $NHAHANG[$i]->nh_soluong = 0;
                     $NHAHANG[$i]->nh_songay = 0;
@@ -219,7 +226,6 @@
                 $html .= '<thead>';
                 $html .= '<tr>';
                 $html .= '<th>Tên khách sạn</th>';
-                $html .= '<th>Ghi chú</th>';
                 $html .= '<th>Giá tham khảo</th>';
                 $html .= '<th>Đơn giá</th>';
                 $html .= '<th>Số lượng</th>';
@@ -240,8 +246,9 @@
                  $j = 0;
                 foreach($ksArr as $ksval){
                     $html .= '<tr>';
-                        $html .= '<td class="notcenter"><select class="servicename" name="ks_id[]" id="ks_id'.$j.'">'.get_select_options_with_id($app_list_strings['list_khach_san_dom'], $ksval['id']).'</select> <input class="service_name" type="hidden" name="ks_name[]" id="ks_name'.$j.'" value="'.$ksval['name'].'"/> </td>';
-                        $html .= '<td><input name="ks_ghichu[]" type="text" id="ks_ghichu'.$j.'" /></td>';
+                        $html .= '<td class="notcenter"><select class="servicename" name="ks_id[]" id="ks_id'.$j.'">'.get_select_options_with_id($app_list_strings['list_khach_san_dom'], $ksval['id']).'</select> <input class="service_name" type="hidden" name="ks_name[]" id="ks_name'.$j.'" value="'.$ksval['name'].'"/>
+                        <br /><input type="text" class="ghichu" size="15" name="ks_ghichu[]" id="ks_ghichu'.$i.'" value="" />
+                        </td>';
                         $html .= '<td><input type="text" size="10" class="giathamkhao" name="ks_giathamkhao[]" id="ks_giathamkhao'.$j.'" value="'.format_number($ksval['giathamkhao']).'"/><select style="display:none" class="giathamkhao_an" id="ks_giathamkhao_an" name="kh_giathamkhao_an[]">'.get_select_options_with_id($app_list_strings['list_khach_san_giathamkhao_dom'],$ksval['giathamkhao']).'</select></td>';
                         $html .= '<td class="center"><input size="10" class="dongia center" name="ks_dongia[]" type="text" id="ks_dongia'.$j.'" /></td>';
                         $html .= '<td class="center"><input class="soluong center" name="ks_soluong[]" type="text" id="ks_soluong'.$j.'" size="10" /></td>';
@@ -325,7 +332,9 @@
                 $k = 0;
                 foreach($vcArr as $vcVal){
                     $html .= '<tr>';
-                        $html .= '<td class="notcenter"><select class="servicename" name="vanchuyen_name[]" id="vanchuyen_name'.$k.'">'.get_select_options_with_id( $app_list_strings['list_vanchuyen_dom'],$vcVal['id']).'</select> <input type="hidden" name="vanchuyen_id[]" id="vanchuyen_id" value="'.$rowvc['id'].'"/> </td>';
+                        $html .= '<td class="notcenter"><select class="servicename" name="vanchuyen_name[]" id="vanchuyen_name'.$k.'">'.get_select_options_with_id( $app_list_strings['list_vanchuyen_dom'],$vcVal['id']).'</select> <input type="hidden" name="vanchuyen_id[]" id="vanchuyen_id" value="'.$rowvc['id'].'"/>
+                        <br /><input type="text" class="ghichu" size="15" name="vanchuyen_ghichu[]" id="vanchuyen_ghichu'.$k.'" value="" /> 
+                        </td>';
                         $html .= '<td><input type="text" size="10" class="giathamkhao" name="vanchuyen_giathamkhao[]" id="vanchuyen_giathamkhao'.$k.'" value="'.format_number($vcVal['giathamkhao']).'"/><select class="giathamkhao_an" id="vanchuyen_giathamkhao_an" name="vanchuyen_giathamkhao_an" style="display:none">'.get_select_options_with_id($app_list_strings['list_vanchuyengiathamkhao_dom'],$vcVal['giathamkhao']).'</select></td>';
                         $html .= '<td class="center"><input size="10" class="dongia center" name="vanchuyen_dongia[]" type="text" id="vanchuyen_dongia'.$k.'" /> <select name="dongia_option[]" class="dongia_option" id="dongia_option'.$k.'">'.get_select_options_with_id($app_list_strings['vanchuyen_dongia_option'],'').'</select></td>';
                         $html .= '<td class="center"><input class="soluong center" name="vanchuyen_soluong[]" type="text" id="vanchuyen_soluong'.$k.'" size="10" /></td>';
@@ -340,6 +349,7 @@
                     $html .= '</tr> ';
                     $VANCHUYEN[$k]->vanchuyen_name = $vcVal['id'];
                     $VANCHUYEN[$k]->vanchuyen_giathamkhao = $vcVal['giathamkhao'];
+                    $VANCHUYEN[$k]->vanchuyen_ghichu = '';
                     $VANCHUYEN[$k]->vanchuyen_dongia = 0;
                     $VANCHUYEN[$k]->vanchuyen_soluong = 0;
                     $VANCHUYEN[$k]->vanchuyen_songay = 0;
@@ -407,7 +417,9 @@
                 $l = 0;
                 foreach($svArr as $svVal){
                     $html .= '<tr>';
-                        $html .= '<td class="notcenter"><select class="servicename" name="services_name[]" id="services_name'.$l.'">'.get_select_options_with_id($app_list_strings['list_dichvu_dom'],$svVal['id']).'</select> <input type="hidden" name="services_id[]" id="services_id" value="'.$svVal['id'].'"/>  </td>';
+                        $html .= '<td class="notcenter"><select class="servicename" name="services_name[]" id="services_name'.$l.'">'.get_select_options_with_id($app_list_strings['list_dichvu_dom'],$svVal['id']).'</select> <input type="hidden" name="services_id[]" id="services_id" value="'.$svVal['id'].'"/>
+                        <br /><input type="text" class="ghichu" size="15" name="services_ghichu[]" id="services_ghichu'.$l.'" value="" />
+                        </td>';
                         $html .= '<td><input type="text" size="10" class="giathamkhao" name="services_giathamkhao[]" id="services_giathamkhao'.$l.'" value="'.format_number($svVal['giathamkhao']).'"/><select class="giathamkhao_an" name="service_giathamkhao_an[]" id="service_giathamkhao_an" style="display:none">'.get_select_options_with_id($app_list_strings['list_dichvu_giathamkhao_dom'],$svVal['giathamkhao']).'</select> </td>';
                         $html .= '<td class="center"><input size="10" class="dongia center" name="services_dongia[]" type="text" id="services_dongia'.$l.'" /></td>';
                         $html .= '<td class="center"><input class="soluong center" name="services_soluong[]" type="text" id="services_soluong'.$l.'" size="10" /></td>';
@@ -423,6 +435,7 @@
                     $DICHVU[$l]->services_name = $svVal['id'];
                     $DICHVU[$l]->services_id = $svVal['id'];
                     $DICHVU[$l]->service_giathamkhao = $svVal['giathamkhao'];
+                    $DICHVU[$l]->services_ghichu = '';
                     $DICHVU[$l]->services_dongia = 0;
                     $DICHVU[$l]->services_soluong = 0;
                     $DICHVU[$l]->services_songay = 0;
@@ -489,7 +502,9 @@
                 $m =0;
                 foreach($tqArr as $tqVal){
                     $html .= '<tr>';
-                        $html .= '<td class="notcenter"><select class="servicename" name="thamquan_name[]" id="thamquan_name'.$m.'">'.get_select_options_with_id($app_list_strings['list_thamquan_dom'],$tqVal['id']).'</select> <input type="hidden" name="thamquan_id[]" id="thamquan_id" value="'.$rowtq['id'].'"/> </td>';
+                        $html .= '<td class="notcenter"><select class="servicename" name="thamquan_name[]" id="thamquan_name'.$m.'">'.get_select_options_with_id($app_list_strings['list_thamquan_dom'],$tqVal['id']).'</select> <input type="hidden" name="thamquan_id[]" id="thamquan_id" value="'.$rowtq['id'].'"/>
+                        <br /><input type="text" class="ghichu" size="15" name="thamquan_ghichu[]" id="thamquan_ghichu'.$m.'" value="" />
+                        </td>';
                         $html .= '<td><input type="text" size="10" class="giathamkhao" name="thamquan_giathamkhao[]" id="thamquan_giathamkhao'.$m.'" value="'.format_number($tqVal['giathamkhao']).'"/> <select class="giathamkhao_an" id="thamquan_giathamkhao_an'.$m.'" name="thamquan_giathamkhao_an[]" style="display:none">'.get_select_options_with_id($app_list_strings['list_thamquan_giathamkhao_dom'],$tqVal['giathamkhao']).'</select> </td>';
                         $html .= '<td class="center"><input size="10" class="dongia center" name="thamquan_dongia[]" type="text" id="thamquan_dongia'.$m.'" /></td>';
                         $html .= '<td class="center"><input class="soluong center" name="thamquan_soluong[]" type="text" id="thamquan_soluong'.$m.'" size="10" /></td>';
@@ -505,6 +520,7 @@
                     $THAMQUAN[$m]->thamquan_name = $tqVal['id'];
                     $THAMQUAN[$m]->thamquan_id = $tqVal['id'];
                     $THAMQUAN[$m]->thamquan_giathamkhao = $tqVal['giathamkhao'];
+                    $THAMQUAN[$m]->thamquan_ghichu = '';
                     $THAMQUAN[$m]->thamquan_dongia = 0;
                     $THAMQUAN[$m]->thamquan_soluong = 0;
                     $THAMQUAN[$m]->thamquan_songay = 0;

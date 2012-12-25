@@ -122,10 +122,9 @@ function displayContact(){
         $('#contacts_quotes_name').closest('td').prev('td').show();
     }
     else{
-         $('#contacts_quotes_name').closest('td').hide();
+        $('#contacts_quotes_name').closest('td').hide();
         $('#contacts_quotes_name').closest('td').prev('td').hide();
         $('#contacts_quotes_name').val('');
         $('#contacts_q33a7ontacts_ida').val('');
     }
 }
-

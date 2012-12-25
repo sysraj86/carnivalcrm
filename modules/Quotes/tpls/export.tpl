@@ -597,6 +597,8 @@ table.MsoTableGrid
                 {TOUR_PROGRAM_LINE_DETAIL}
             <!--</table> -->
              <br />
+             <br />
+             <br />
                 {COST_DETAIL}
             <p>&nbsp;</p>
               

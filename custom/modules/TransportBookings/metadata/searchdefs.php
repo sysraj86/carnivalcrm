@@ -21,7 +21,7 @@ array (
       ),
       'confirm' => 
       array (
-        'type' => 'radioenum',
+        'type' => 'enum',
         'default' => true,
         'label' => 'LBL_CONFIRM',
         'width' => '10%',
@@ -118,7 +118,7 @@ array (
       ),
       'confirm' => 
       array (
-        'type' => 'radioenum',
+        'type' => 'enum',
         'default' => true,
         'label' => 'LBL_CONFIRM',
         'width' => '10%',
